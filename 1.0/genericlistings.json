@@ -1,0 +1,1183 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "genericlistings",
+        "title": "Generic Listings API"
+    },
+    "host": "eu-ext.linnworks.net",
+    "schemes": [
+        "https"
+    ],
+    "paths": {
+        "/api/GenericListings/SaveTemplateFields": {
+            "post": {
+                "tags": [
+                    "GenericListings"
+                ],
+                "summary": "SaveTemplateFields",
+                "description": "Use this call to manipulate the fields on a template. This can be used to modify a generic template created using the CreateTemplate endpoint.\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+                "operationId": "SaveTemplateFields",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "GenericListings_SaveTemplateFieldsRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GenericListings_SaveTemplateFieldsRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SaveTemplateFieldsResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": [
+                            "token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/api/GenericListings/ProcessTemplates": {
+            "post": {
+                "tags": [
+                    "GenericListings"
+                ],
+                "summary": "ProcessTemplates",
+                "description": "Use this call to push a template that you have created to a channel. This endpoint can also be used to update, relist, delete a template from a channel.\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+                "operationId": "ProcessTemplates",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "GenericListings_ProcessTemplatesRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GenericListings_ProcessTemplatesRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ProcessTemplatesResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": [
+                            "token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/api/GenericListings/CreateTemplates": {
+            "post": {
+                "tags": [
+                    "GenericListings"
+                ],
+                "summary": "CreateTemplates",
+                "description": "Use this call to create a generic template based on the inventory item details and the configurator details. This template will contain the full details of the item that will be listed on the channel.\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+                "operationId": "CreateTemplates",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "GenericListings_CreateTemplatesRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GenericListings_CreateTemplatesRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/CreateTemplatesResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": [
+                            "token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/api/GenericListings/OpenTemplatesByInventory": {
+            "post": {
+                "tags": [
+                    "GenericListings"
+                ],
+                "summary": "OpenTemplatesByInventory",
+                "description": "Use this call to get template details for Generic Listings using Stock Item IDs.\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+                "operationId": "OpenTemplatesByInventory",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "GenericListings_OpenTemplatesByInventoryRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GenericListings_OpenTemplatesByInventoryRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/OpenTemplatesByInventoryResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": [
+                            "token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/api/GenericListings/GetConfiguratorsInfoPaged": {
+            "post": {
+                "tags": [
+                    "GenericListings"
+                ],
+                "summary": "GetConfiguratorsInfoPaged",
+                "description": "Use this call to get the existing Generic Listing Tool configurators.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+                "operationId": "GetConfiguratorsInfoPaged",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "GenericListings_GetConfiguratorsInfoPagedRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GenericListings_GetConfiguratorsInfoPagedRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/GetConfiguratorsInfoResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": [
+                            "token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/api/GenericListings/SaveConfiguratorFields": {
+            "post": {
+                "tags": [
+                    "GenericListings"
+                ],
+                "summary": "SaveConfiguratorFields",
+                "description": "Use this call to update a configurators fields.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+                "operationId": "SaveConfiguratorFields",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "GenericListings_SaveConfiguratorFieldsRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GenericListings_SaveConfiguratorFieldsRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SaveConfiguratorFieldsResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": [
+                            "token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/api/GenericListings/GetConfiguratorDescription": {
+            "post": {
+                "tags": [
+                    "GenericListings"
+                ],
+                "summary": "GetConfiguratorDescription",
+                "description": "Use this call to get the existing Generic Listing Tool configurators description.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+                "operationId": "GetConfiguratorDescription",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "GenericListings_GetConfiguratorDescriptionRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GenericListings_GetConfiguratorDescriptionRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/GetConfiguratorDescriptionResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": [
+                            "token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/api/GenericListings/SaveConfiguratorDescription": {
+            "post": {
+                "tags": [
+                    "GenericListings"
+                ],
+                "summary": "SaveConfiguratorDescription",
+                "description": "Use this call to update a configurators description.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+                "operationId": "SaveConfiguratorDescription",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "GenericListings_SaveConfiguratorDescriptionRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GenericListings_SaveConfiguratorDescriptionRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SaveConfiguratorDescriptionResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": [
+                            "token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/api/GenericListings/GetConfiguratorData": {
+            "post": {
+                "tags": [
+                    "GenericListings"
+                ],
+                "summary": "GetConfiguratorData",
+                "description": "Use this call to get the existing Generic Listing Tool configurators data.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+                "operationId": "GetConfiguratorData",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "GenericListings_GetConfiguratorDataRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GenericListings_GetConfiguratorDataRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/GetConfiguratorDataResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": [
+                            "token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/api/GenericListings/SaveConfiguratorData": {
+            "post": {
+                "tags": [
+                    "GenericListings"
+                ],
+                "summary": "SaveConfiguratorData",
+                "description": "Use this call to update a configurators data (attributes of the configurator).\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+                "operationId": "SaveConfiguratorData",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "GenericListings_SaveConfiguratorDataRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GenericListings_SaveConfiguratorDataRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SaveConfiguratorDataResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": [
+                            "token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/api/GenericListings/CreateConfigurator": {
+            "post": {
+                "tags": [
+                    "GenericListings"
+                ],
+                "summary": "CreateConfigurator",
+                "description": "Use this call to create a configurator. The configurator setup will be dependant on the channel that you want to create it for.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+                "operationId": "CreateConfigurator",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "GenericListings_CreateConfiguratorRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GenericListings_CreateConfiguratorRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/CreateConfiguratorResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": [
+                            "token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/api/GenericListings/DeleteConfigurators": {
+            "post": {
+                "tags": [
+                    "GenericListings"
+                ],
+                "summary": "DeleteConfigurators",
+                "description": "Use this call to delete a configurator.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+                "operationId": "DeleteConfigurators",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "text/json",
+                    "application/xml",
+                    "text/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "GenericListings_DeleteConfiguratorsRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GenericListings_DeleteConfiguratorsRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DeleteConfiguratorsResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": [
+                            "token"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "GenericListings_SaveTemplateFieldsRequest": {
+            "type": "object",
+            "properties": {
+                "request": {
+                    "$ref": "#/definitions/SaveTemplateFieldsRequest",
+                    "description": ""
+                }
+            }
+        },
+        "SaveTemplateFieldsRequest": {
+            "type": "object",
+            "properties": {
+                "ChannelType": {
+                    "enum": [
+                        "CDiscount",
+                        "Shopify",
+                        "Magento",
+                        "External",
+                        "Walmart"
+                    ],
+                    "type": "string"
+                },
+                "ChannelName": {
+                    "type": "string"
+                },
+                "TemplateId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "FieldsToSave": {
+                    "description": "info key : value",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "SaveTemplateFieldsResponse": {
+            "type": "object",
+            "properties": {}
+        },
+        "GenericListings_ProcessTemplatesRequest": {
+            "type": "object",
+            "properties": {
+                "request": {
+                    "$ref": "#/definitions/ProcessTemplatesRequest",
+                    "description": ""
+                }
+            }
+        },
+        "ProcessTemplatesRequest": {
+            "type": "object",
+            "properties": {
+                "ChannelType": {
+                    "enum": [
+                        "CDiscount",
+                        "Shopify",
+                        "Magento",
+                        "External",
+                        "Walmart"
+                    ],
+                    "type": "string"
+                },
+                "ChannelName": {
+                    "type": "string"
+                },
+                "TemplateRequests": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TemplateToProcess"
+                    }
+                }
+            }
+        },
+        "TemplateToProcess": {
+            "type": "object",
+            "properties": {
+                "TemplateId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Action": {
+                    "enum": [
+                        "NotAllowed",
+                        "ChannelSpecific",
+                        "Create",
+                        "Update",
+                        "Relist",
+                        "Delete",
+                        "Revise"
+                    ],
+                    "type": "string"
+                }
+            }
+        },
+        "ProcessTemplatesResponse": {
+            "type": "object",
+            "properties": {}
+        },
+        "GenericListings_CreateTemplatesRequest": {
+            "type": "object",
+            "properties": {
+                "request": {
+                    "$ref": "#/definitions/CreateTemplatesRequest",
+                    "description": ""
+                }
+            }
+        },
+        "CreateTemplatesRequest": {
+            "type": "object",
+            "properties": {
+                "ChannelType": {
+                    "enum": [
+                        "CDiscount",
+                        "Shopify",
+                        "Magento",
+                        "External",
+                        "Walmart"
+                    ],
+                    "type": "string"
+                },
+                "ChannelName": {
+                    "type": "string"
+                },
+                "Parameters": {
+                    "$ref": "#/definitions/InventorySearchParameters"
+                },
+                "PaginationParameters": {
+                    "$ref": "#/definitions/PaginationParameters"
+                },
+                "ConfiguratorId": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            }
+        },
+        "InventorySearchParameters": {
+            "type": "object",
+            "properties": {
+                "SelectedRegions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Tuple_Int32_Int32"
+                    }
+                },
+                "Token": {
+                    "format": "uuid",
+                    "type": "string",
+                    "example": "00000000-0000-0000-0000-000000000000"
+                },
+                "InventoryItemIds": {
+                    "type": "array",
+                    "items": {
+                        "format": "uuid",
+                        "type": "string",
+                        "example": "00000000-0000-0000-0000-000000000000"
+                    }
+                },
+                "ChannelId": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            }
+        },
+        "PaginationParameters": {
+            "type": "object",
+            "properties": {
+                "PageNumber": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "EntriesPerPage": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            }
+        },
+        "Tuple_Int32_Int32": {
+            "type": "object",
+            "properties": {
+                "Item1": {
+                    "format": "int32",
+                    "type": "integer",
+                    "readOnly": true
+                },
+                "Item2": {
+                    "format": "int32",
+                    "type": "integer",
+                    "readOnly": true
+                }
+            }
+        },
+        "CreateTemplatesResponse": {
+            "type": "object",
+            "properties": {
+                "TemplatesInfo": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                },
+                "AllCreatedIds": {
+                    "type": "array",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "GenericListings_OpenTemplatesByInventoryRequest": {
+            "type": "object",
+            "properties": {
+                "request": {
+                    "$ref": "#/definitions/OpenTemplatesByInventoryRequest",
+                    "description": ""
+                }
+            }
+        },
+        "OpenTemplatesByInventoryRequest": {
+            "type": "object",
+            "properties": {
+                "ChannelType": {
+                    "enum": [
+                        "CDiscount",
+                        "Shopify",
+                        "Magento",
+                        "External",
+                        "Walmart"
+                    ],
+                    "type": "string"
+                },
+                "ChannelName": {
+                    "type": "string"
+                },
+                "Parameters": {
+                    "$ref": "#/definitions/InventorySearchParameters"
+                },
+                "PaginationParameters": {
+                    "$ref": "#/definitions/PaginationParameters"
+                },
+                "SelectOnlyWithErrors": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "OpenTemplatesByInventoryResponse": {
+            "type": "object",
+            "properties": {
+                "TotalEntries": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "TemplatesInfo": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "GenericListings_GetConfiguratorsInfoPagedRequest": {
+            "type": "object",
+            "properties": {
+                "request": {
+                    "$ref": "#/definitions/GetConfiguratorsInfoPagedRequest",
+                    "description": ""
+                }
+            }
+        },
+        "GetConfiguratorsInfoPagedRequest": {
+            "type": "object",
+            "properties": {
+                "ChannelType": {
+                    "enum": [
+                        "CDiscount",
+                        "Shopify",
+                        "Magento",
+                        "External",
+                        "Walmart"
+                    ],
+                    "type": "string"
+                },
+                "ChannelName": {
+                    "type": "string"
+                },
+                "PaginationParameters": {
+                    "$ref": "#/definitions/PaginationParameters"
+                },
+                "IsByConfiguratorIds": {
+                    "type": "boolean"
+                },
+                "ConfiguratorIds": {
+                    "type": "array",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    }
+                },
+                "SelectedRegions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Tuple_Int32_Int32"
+                    }
+                },
+                "Token": {
+                    "format": "uuid",
+                    "type": "string",
+                    "example": "00000000-0000-0000-0000-000000000000"
+                }
+            }
+        },
+        "GetConfiguratorsInfoResponse": {
+            "type": "object",
+            "properties": {
+                "ConfiguratorsInfo": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "GenericListings_SaveConfiguratorFieldsRequest": {
+            "type": "object",
+            "properties": {
+                "request": {
+                    "$ref": "#/definitions/SaveConfiguratorFieldsRequest",
+                    "description": ""
+                }
+            }
+        },
+        "SaveConfiguratorFieldsRequest": {
+            "type": "object",
+            "properties": {
+                "ChannelType": {
+                    "enum": [
+                        "CDiscount",
+                        "Shopify",
+                        "Magento",
+                        "External",
+                        "Walmart"
+                    ],
+                    "type": "string"
+                },
+                "ChannelName": {
+                    "type": "string"
+                },
+                "ConfiguratorId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "FieldsToSave": {
+                    "description": "info key : value",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "SaveConfiguratorFieldsResponse": {
+            "type": "object",
+            "properties": {}
+        },
+        "GenericListings_GetConfiguratorDescriptionRequest": {
+            "type": "object",
+            "properties": {
+                "request": {
+                    "$ref": "#/definitions/GetConfiguratorDataRequest",
+                    "description": ""
+                }
+            }
+        },
+        "GetConfiguratorDataRequest": {
+            "type": "object",
+            "properties": {
+                "ChannelType": {
+                    "enum": [
+                        "CDiscount",
+                        "Shopify",
+                        "Magento",
+                        "External",
+                        "Walmart"
+                    ],
+                    "type": "string"
+                },
+                "ChannelName": {
+                    "type": "string"
+                },
+                "DataKey": {
+                    "type": "string"
+                },
+                "ConfiguratorId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "IgnoreCache": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "GetConfiguratorDescriptionResponse": {
+            "type": "object",
+            "properties": {
+                "Data": {
+                    "type": "string"
+                }
+            }
+        },
+        "GenericListings_SaveConfiguratorDescriptionRequest": {
+            "type": "object",
+            "properties": {
+                "request": {
+                    "$ref": "#/definitions/SaveConfiguratorDescriptionRequest",
+                    "description": ""
+                }
+            }
+        },
+        "SaveConfiguratorDescriptionRequest": {
+            "type": "object",
+            "properties": {
+                "ChannelType": {
+                    "enum": [
+                        "CDiscount",
+                        "Shopify",
+                        "Magento",
+                        "External",
+                        "Walmart"
+                    ],
+                    "type": "string"
+                },
+                "ChannelName": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "ConfiguratorIds": {
+                    "type": "array",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "SaveConfiguratorDescriptionResponse": {
+            "type": "object",
+            "properties": {
+                "IsSaved": {
+                    "type": "boolean"
+                },
+                "ErrorMessage": {
+                    "type": "string"
+                }
+            }
+        },
+        "GenericListings_GetConfiguratorDataRequest": {
+            "type": "object",
+            "properties": {
+                "request": {
+                    "$ref": "#/definitions/GetConfiguratorDataRequest",
+                    "description": ""
+                }
+            }
+        },
+        "GetConfiguratorDataResponse": {
+            "type": "object",
+            "properties": {
+                "Data": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "GenericListings_SaveConfiguratorDataRequest": {
+            "type": "object",
+            "properties": {
+                "request": {
+                    "$ref": "#/definitions/SaveConfiguratorDataRequest",
+                    "description": ""
+                }
+            }
+        },
+        "SaveConfiguratorDataRequest": {
+            "type": "object",
+            "properties": {
+                "ChannelType": {
+                    "enum": [
+                        "CDiscount",
+                        "Shopify",
+                        "Magento",
+                        "External",
+                        "Walmart"
+                    ],
+                    "type": "string"
+                },
+                "ChannelName": {
+                    "type": "string"
+                },
+                "DataKey": {
+                    "type": "string"
+                },
+                "Ids": {
+                    "type": "array",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    }
+                },
+                "Data": {
+                    "description": "Here should come the same data, that was returned from GetConfiguratorData request, with only modifications, allowed by appropriate layout.",
+                    "type": "object"
+                },
+                "ForceSave": {
+                    "description": "Not valid to use",
+                    "type": "boolean"
+                }
+            }
+        },
+        "SaveConfiguratorDataResponse": {
+            "type": "object",
+            "properties": {
+                "IsSaved": {
+                    "type": "boolean"
+                },
+                "ValidationResults": {
+                    "$ref": "#/definitions/IValidationResults",
+                    "description": "Whether this particular configurator data is valid to send to channel."
+                }
+            }
+        },
+        "IValidationResults": {
+            "type": "object",
+            "properties": {}
+        },
+        "GenericListings_CreateConfiguratorRequest": {
+            "type": "object",
+            "properties": {
+                "request": {
+                    "$ref": "#/definitions/CreateConfiguratorRequest",
+                    "description": ""
+                }
+            }
+        },
+        "CreateConfiguratorRequest": {
+            "type": "object",
+            "properties": {
+                "ChannelType": {
+                    "enum": [
+                        "CDiscount",
+                        "Shopify",
+                        "Magento",
+                        "External",
+                        "Walmart"
+                    ],
+                    "type": "string"
+                },
+                "ConfiguratorName": {
+                    "type": "string"
+                },
+                "ChannelId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "ChannelName": {
+                    "type": "string"
+                }
+            }
+        },
+        "CreateConfiguratorResponse": {
+            "type": "object",
+            "properties": {
+                "CreatedConfiguratorInfo": {
+                    "type": "object"
+                },
+                "CreatedConfiguratorId": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            }
+        },
+        "GenericListings_DeleteConfiguratorsRequest": {
+            "type": "object",
+            "properties": {
+                "request": {
+                    "$ref": "#/definitions/DeleteConfiguratorsRequest",
+                    "description": ""
+                }
+            }
+        },
+        "DeleteConfiguratorsRequest": {
+            "type": "object",
+            "properties": {
+                "ChannelType": {
+                    "enum": [
+                        "CDiscount",
+                        "Shopify",
+                        "Magento",
+                        "External",
+                        "Walmart"
+                    ],
+                    "type": "string"
+                },
+                "ChannelName": {
+                    "type": "string"
+                },
+                "ConfiguratorIds": {
+                    "type": "array",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "DeleteConfiguratorsResponse": {
+            "type": "object",
+            "properties": {
+                "DeletedIds": {
+                    "type": "array",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "token": {
+            "type": "apiKey",
+            "description": "Authorization Header",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

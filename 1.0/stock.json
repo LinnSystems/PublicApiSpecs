@@ -1,0 +1,4886 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "stock",
+    "title": "Stock API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/Stock/CheckVariationParentSKUExists": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "CheckVariationParentSKUExists",
+        "description": "Use this call to check if a potential parent SKU exist and its current status.",
+        "operationId": "CheckVariationParentSKUExists",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "parentSKU",
+            "in": "query",
+            "description": "The SKU",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "enum": [
+                "Exists",
+                "NotExists",
+                "AlreadyVariation"
+              ],
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetVariationGroupSearchTypes": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetVariationGroupSearchTypes",
+        "description": "Use this call to retrieve a list of the search types for searching for variation groups",
+        "operationId": "GetVariationGroupSearchTypes",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GenericEnumDescriptor"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/SearchVariationGroups": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "SearchVariationGroups",
+        "description": "Use this call to search for a variation group",
+        "operationId": "SearchVariationGroups",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "searchType",
+            "in": "query",
+            "description": "The search method to use",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "VariationName",
+              "ParentSKU",
+              "ItemSKU"
+            ]
+          },
+          {
+            "name": "searchText",
+            "in": "query",
+            "description": "The search term (either in part of full)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "The page number (e.g. 1).",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "entriesPerPage",
+            "in": "query",
+            "description": "The number of entries to return per page.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GenericPagedResult_VariationGroup"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/DeleteVariationGroup": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "DeleteVariationGroup",
+        "description": "Use this call to delete variation group by id\n<b>Permissions Required: </b> GlobalPermissions.Inventory.DeleteMyInventoryItems.DeleteItemsNode",
+        "operationId": "DeleteVariationGroup",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "pkVariationGroupId",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/DeleteVariationGroups": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "DeleteVariationGroups",
+        "description": "Use this call to delete variation groups by ids\n<b>Permissions Required: </b> GlobalPermissions.Inventory.DeleteMyInventoryItems.DeleteItemsNode",
+        "operationId": "DeleteVariationGroups",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Stock_DeleteVariationGroupsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_DeleteVariationGroupsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetVariationGroupByParentId": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetVariationGroupByParentId",
+        "description": "Use this call to search for a variation group by the parent SKU's stock item id",
+        "operationId": "GetVariationGroupByParentId",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkStockItemId",
+            "in": "query",
+            "description": "The stock item id to search by",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VariationGroup"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetVariationGroupByName": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetVariationGroupByName",
+        "description": "Use this call to search for a variation group by the group name",
+        "operationId": "GetVariationGroupByName",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "variationName",
+            "in": "query",
+            "description": "The group name to search by",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VariationGroup"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/RenameVariationGroup": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "RenameVariationGroup",
+        "description": "Use this call to rename a variation group",
+        "operationId": "RenameVariationGroup",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Stock_RenameVariationGroupRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_RenameVariationGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetVariationItems": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetVariationItems",
+        "description": "Use this call to retrieve the items in this variation",
+        "operationId": "GetVariationItems",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkVariationItemId",
+            "in": "query",
+            "description": "The variation item id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VariationItem"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/AddVariationItems": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "AddVariationItems",
+        "description": "Use this call to add a new item to a variation group",
+        "operationId": "AddVariationItems",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Stock_AddVariationItemsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_AddVariationItemsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VariationItem"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/DeleteVariationItem": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "DeleteVariationItem",
+        "description": "Use this call to add a new item to a variation group\n<b>Permissions Required: </b> GlobalPermissions.Inventory.DeleteMyInventoryItems.DeleteItemsNode",
+        "operationId": "DeleteVariationItem",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Stock_DeleteVariationItemRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_DeleteVariationItemRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/DeleteVariationItems": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "DeleteVariationItems",
+        "description": "Use this call to delete variation items in bulk\n<b>Permissions Required: </b> GlobalPermissions.Inventory.DeleteMyInventoryItems.DeleteItemsNode",
+        "operationId": "DeleteVariationItems",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Stock_DeleteVariationItemsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_DeleteVariationItemsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/CreateVariationGroup": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "CreateVariationGroup",
+        "description": "Use this call to create a variation group",
+        "operationId": "CreateVariationGroup",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Stock_CreateVariationGroupRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_CreateVariationGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VariationGroup"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/SKUExists": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "SKUExists",
+        "description": "Use this call to check if a SKU exists within Linnworks.",
+        "operationId": "SKUExists",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "SKU",
+            "in": "query",
+            "description": "The SKU you want to check exists.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetStockConsumption": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetStockConsumption",
+        "description": "Use this call to retrieve report about \"stock consumption between two dates\"",
+        "operationId": "GetStockConsumption",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "stockItemId",
+            "in": "query",
+            "description": "Used to specify report stock id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "description": "Used to specify location id. If null, then will return combined result of every location",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Used to specify report start date",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Used to specify report end date",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StockConsumption"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetItemChangesHistory": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetItemChangesHistory",
+        "description": "Use this call to retrieve report about \"stock changes of an item\"",
+        "operationId": "GetItemChangesHistory",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "stockItemId",
+            "in": "query",
+            "description": "Used to specify report stock item id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "description": "Used to specify report location id. If null then combined",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "entriesPerPage",
+            "in": "query",
+            "description": "Used to specify number of entries per page in report",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Used to specify report page number. If -1 then will return all pages",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GenericPagedResult_StockItemChangeHistory"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetItemChangesHistoryCSV": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetItemChangesHistoryCSV",
+        "description": "Use this call to retrieve link to csv file report about \"Stock changes of an item\"",
+        "operationId": "GetItemChangesHistoryCSV",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "stockItemId",
+            "in": "query",
+            "description": "Used to specify stock item id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "description": "Used to specify location id. If null then combined",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TempFile"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetStockItems": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetStockItems",
+        "description": "Use this call to retrieve report about \"Found stock items\"",
+        "operationId": "GetStockItems",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "keyWord",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "entriesPerPage",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "excludeComposites",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "excludeVariations",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "excludeBatches",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GenericPagedResult_StockItem"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetStockItemsByKey": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetStockItemsByKey",
+        "description": "Returns a list of Stock Items for the provided key and location\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockReadNode",
+        "operationId": "GetStockItemsByKey",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Stock_GetStockItemsByKeyRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_GetStockItemsByKeyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StockItem"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetStockItemsFull": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetStockItemsFull",
+        "description": "Used to get inventory information at a basic level",
+        "operationId": "GetStockItemsFull",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Stock_GetStockItemsFullRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_GetStockItemsFullRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StockItemFull"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetStockItemsFullByIds": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetStockItemsFullByIds",
+        "description": "Used to get inventory item information at a basic level from ids.",
+        "operationId": "GetStockItemsFullByIds",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Stock_GetStockItemsFullByIdsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_GetStockItemsFullByIdsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetStockItemsFullByIdsResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetStockLevel": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetStockLevel",
+        "description": "Use this call to retrieve report about \"item stock level\"",
+        "operationId": "GetStockLevel",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "stockItemId",
+            "in": "query",
+            "description": "Used to specify stock item id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StockItemLevel"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetStockLevelByLocation": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetStockLevelByLocation",
+        "description": "Use this call to retrieve report about \"item stock level\"",
+        "operationId": "GetStockLevelByLocation",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Stock_GetStockLevelByLocationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_GetStockLevelByLocationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetStockLevelByLocationResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetStockLevel_Batch": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetStockLevel_Batch",
+        "description": "Use this call to retrieve report about \"item stock level\"",
+        "operationId": "GetStockLevel_Batch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Stock_GetStockLevel_BatchRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_GetStockLevel_BatchRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GetStockLevel_BatchResponse"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/UpdateStockMinimumLevel": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "UpdateStockMinimumLevel",
+        "description": "Use this call to update stock minimum level",
+        "operationId": "UpdateStockMinimumLevel",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Stock_UpdateStockMinimumLevelRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_UpdateStockMinimumLevelRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetStockSold": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetStockSold",
+        "description": "Use this call to retrieve report about \"item stock sold\"",
+        "operationId": "GetStockSold",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "stockItemId",
+            "in": "query",
+            "description": "Used to specify report stock item id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StockItemSold"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetStockDuePO": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetStockDuePO",
+        "description": "Use this call to retrieve report about \"item stock due po\"",
+        "operationId": "GetStockDuePO",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "stockItemId",
+            "in": "query",
+            "description": "Used to specify report stock item id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StockItemDuePO"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetStockItemReturnStat": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetStockItemReturnStat",
+        "description": "Use this call to retrieve report about \"item return stat\"",
+        "operationId": "GetStockItemReturnStat",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "stockItemId",
+            "in": "query",
+            "description": "Used to specify report stock item id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StockItemReturn"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetStockItemScrapStat": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetStockItemScrapStat",
+        "description": "Use this call to retrieve report about \"item stock scrap stat\"",
+        "operationId": "GetStockItemScrapStat",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "stockItemId",
+            "in": "query",
+            "description": "Used to specify report stock item id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StockItemScrap"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetSoldStat": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetSoldStat",
+        "description": "Use this call to retrieve report about \"item sold stat\"",
+        "operationId": "GetSoldStat",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "stockItemId",
+            "in": "query",
+            "description": "Used to specify report stock item id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StockItemSoldStat"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/SetStockLevel": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "SetStockLevel",
+        "description": "Set the stock level of a list of stock items identified by its SKU to the value provided\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockLevelsNode",
+        "operationId": "SetStockLevel",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Stock_SetStockLevelRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_SetStockLevelRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StockItemLevel"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/UpdateStockLevelsBySKU": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "UpdateStockLevelsBySKU",
+        "description": "Change the stock level of a list of stock items by the provided value\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockLevelsNode",
+        "operationId": "UpdateStockLevelsBySKU",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Stock_UpdateStockLevelsBySKURequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_UpdateStockLevelsBySKURequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StockItemLevel"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/BookInStockItem": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "BookInStockItem",
+        "description": "Increases the stock level and current stock value of a stock item by the specified quantity.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockLevelsNode",
+        "operationId": "BookInStockItem",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Stock_BookInStockItemRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_BookInStockItemRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/CreateStockBatches": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "CreateStockBatches",
+        "description": "Creates stock item batches\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockLevelsNode",
+        "operationId": "CreateStockBatches",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Stock_CreateStockBatchesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_CreateStockBatchesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StockItemBatch"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/BookInStockBatch": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "BookInStockBatch",
+        "description": "Increases the stock level and current stock value of a batched stock item by the specified quantity",
+        "operationId": "BookInStockBatch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Stock_BookInStockBatchRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_BookInStockBatchRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/StockItemBatch"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetBinRacksById": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetBinRacksById",
+        "description": "Returns the list of BinRacks by BinRack Ids for WMS locations.",
+        "operationId": "GetBinRacksById",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetBinrackByIdRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BinracksResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/CreateWarehouseMove": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "CreateWarehouseMove",
+        "description": "Create a new warehouse move in state of In Transit or Open. \r\nTo create a new move you need the exact batch inventory id and bin rack id of the destination. However it is possible to create a move without knowing where it is going specifically, \r\nin which case don't supply BinrackIdDestination (or send null)\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.StockMoveNode",
+        "operationId": "CreateWarehouseMove",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateWarehouseMoveRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetWarehouseMoveResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/BatchStockLevelDelta": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "BatchStockLevelDelta",
+        "operationId": "BatchStockLevelDelta",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Stock_BatchStockLevelDeltaRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_BatchStockLevelDeltaRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BatchStockLevelDeltaResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/AddRollingStockTake": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "AddRollingStockTake",
+        "description": "Add rolling stock take/count. Rolling stock count will create a stock count header for every day (UTC based). Every request will create a session, adds all entries into the stock count\r\nrecounts all totals and discrepancies. WMS location or batched items requires BatchInventoryId to be specified. If you are submitting stock level for item that doesn't have batch inventory you must create it first, get its id and submit in the count\r\nThe method validates all entries, if any errors encountered the whole request will be rejected.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.StockTake.RollingStockCountNode",
+        "operationId": "AddRollingStockTake",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddRollingStockTakeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AddRollingStockTakeResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/UpdateStockLevelsBulk": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "UpdateStockLevelsBulk",
+        "description": "Allows the change of non batched / composite stock levels in build. Accepts either StockItemId or SKU and Stock location name or id\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockLevelsNode",
+        "operationId": "UpdateStockLevelsBulk",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateStockLevelsBulkRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UpdateStockLevelsBulkResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetStockItemsByIds": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetStockItemsByIds",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockReadNode",
+        "operationId": "GetStockItemsByIds",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetStockItemsByIdsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetStockItemsByIdsResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetStockItemTypeInfo": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetStockItemTypeInfo",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockReadNode",
+        "operationId": "GetStockItemTypeInfo",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetStockItemTypeInfoRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetStockItemTypeInfoResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/UpdateSkuGroupIdentifier": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "UpdateSkuGroupIdentifier",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWriteNode",
+        "operationId": "UpdateSkuGroupIdentifier",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateSkuGroupIdentifierRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UpdateSkuGroupIdentifierResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetStockItemsLocation": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetStockItemsLocation",
+        "description": "Get the location (including binrack) of a given list of stockItemIds and stockLocationIds\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode",
+        "operationId": "GetStockItemsLocation",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Stock_GetStockItemsLocationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_GetStockItemsLocationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetStockItemsLocationResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GenericEnumDescriptor": {
+      "type": "object",
+      "properties": {
+        "Description": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        },
+        "IsDefault": {
+          "type": "boolean"
+        }
+      }
+    },
+    "GenericPagedResult_VariationGroup": {
+      "type": "object",
+      "properties": {
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EntriesPerPage": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalEntries": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "TotalPages": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "Data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VariationGroup"
+          }
+        }
+      }
+    },
+    "VariationGroup": {
+      "type": "object",
+      "properties": {
+        "VariationSKU": {
+          "type": "string"
+        },
+        "pkVariationItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "VariationGroupName": {
+          "type": "string"
+        }
+      }
+    },
+    "Stock_DeleteVariationGroupsRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/DeleteVariationGroupsRequest"
+        }
+      }
+    },
+    "DeleteVariationGroupsRequest": {
+      "type": "object",
+      "properties": {
+        "VariationGroupsIdList": {
+          "description": "A list of VariationsGroups Guids",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "Stock_RenameVariationGroupRequest": {
+      "type": "object",
+      "properties": {
+        "pkVariationItemId": {
+          "format": "uuid",
+          "description": "The id of the group to rename",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "variationName": {
+          "description": "The name of the variation",
+          "type": "string"
+        }
+      }
+    },
+    "VariationItem": {
+      "type": "object",
+      "properties": {
+        "pkRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkStockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ItemNumber": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        }
+      }
+    },
+    "Stock_AddVariationItemsRequest": {
+      "type": "object",
+      "properties": {
+        "pkVariationItemId": {
+          "format": "uuid",
+          "description": "The variation group id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkStockItemIds": {
+          "description": "The list of item ids to add",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "Stock_DeleteVariationItemRequest": {
+      "type": "object",
+      "properties": {
+        "pkVariationItemId": {
+          "format": "uuid",
+          "description": "The variation group id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkStockItemId": {
+          "format": "uuid",
+          "description": "The stock item id to add",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "Stock_DeleteVariationItemsRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/DeleteVariationItemsRequest",
+          "description": "Contains variation group id 'VariationItemId' and id list of child items 'StockItemIds'"
+        }
+      }
+    },
+    "DeleteVariationItemsRequest": {
+      "type": "object",
+      "properties": {
+        "VariationItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIds": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "Stock_CreateVariationGroupRequest": {
+      "type": "object",
+      "properties": {
+        "template": {
+          "$ref": "#/definitions/VariationGroupTemplate",
+          "description": "Variation parent inforamtion"
+        }
+      }
+    },
+    "VariationGroupTemplate": {
+      "type": "object",
+      "properties": {
+        "VariationGroupName": {
+          "type": "string"
+        },
+        "ParentSKU": {
+          "type": "string"
+        },
+        "ParentStockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "VariationItemIds": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "StockConsumption": {
+      "type": "object",
+      "properties": {
+        "Date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "StockQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "Shipped": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "GenericPagedResult_StockItemChangeHistory": {
+      "type": "object",
+      "properties": {
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EntriesPerPage": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalEntries": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "TotalPages": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "Data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemChangeHistory"
+          }
+        }
+      }
+    },
+    "StockItemChangeHistory": {
+      "type": "object",
+      "properties": {
+        "Date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Level": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "Note": {
+          "type": "string"
+        },
+        "ChangeQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ChangeValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "TempFile": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Path": {
+          "type": "string"
+        },
+        "Url": {
+          "type": "string"
+        }
+      }
+    },
+    "GenericPagedResult_StockItem": {
+      "type": "object",
+      "properties": {
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EntriesPerPage": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalEntries": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "TotalPages": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "Data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItem"
+          }
+        }
+      }
+    },
+    "StockItem": {
+      "type": "object",
+      "properties": {
+        "ItemDescription": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "InOrder": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Due": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "MinimumLevel": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Available": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "IsCompositeParent": {
+          "type": "boolean"
+        },
+        "ShippedSeparately": {
+          "type": "boolean"
+        },
+        "ItemNumber": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "BarcodeNumber": {
+          "type": "string"
+        },
+        "MetaData": {
+          "type": "string"
+        },
+        "IsVariationParent": {
+          "type": "boolean"
+        },
+        "isBatchedStockType": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "PurchasePrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "RetailPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "PostalServiceId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PostalServiceName": {
+          "type": "string"
+        },
+        "CategoryId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "CategoryName": {
+          "type": "string"
+        },
+        "PackageGroupId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PackageGroupName": {
+          "type": "string"
+        },
+        "Height": {
+          "format": "double",
+          "type": "number"
+        },
+        "Width": {
+          "format": "double",
+          "type": "number"
+        },
+        "Depth": {
+          "format": "double",
+          "type": "number"
+        },
+        "Weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "CreationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchNumberScanRequired": {
+          "type": "boolean"
+        },
+        "SerialNumberScanRequired": {
+          "type": "boolean"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "Stock_GetStockItemsByKeyRequest": {
+      "type": "object",
+      "properties": {
+        "stockIdentifier": {
+          "$ref": "#/definitions/Search_Stock_ByKey",
+          "description": "Made up of a string key, used to search Item Number, Barcode Number, Supplier Code and Supplier Basrcode Fields as well as Stock Location."
+        }
+      }
+    },
+    "Search_Stock_ByKey": {
+      "type": "object",
+      "properties": {
+        "Key": {
+          "description": "Item ID",
+          "type": "string"
+        },
+        "LocationId": {
+          "format": "uuid",
+          "description": "Location ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "Stock_GetStockItemsFullRequest": {
+      "type": "object",
+      "properties": {
+        "keyword": {
+          "description": "Your seearch term",
+          "type": "string"
+        },
+        "loadCompositeParents": {
+          "description": "Whether you want to load composite parents or ignore them",
+          "type": "boolean"
+        },
+        "loadVariationParents": {
+          "description": "Whether you want to load variation parents",
+          "type": "boolean"
+        },
+        "entriesPerPage": {
+          "format": "int32",
+          "description": "The amount of entries you require. Maximum 200.",
+          "type": "integer"
+        },
+        "pageNumber": {
+          "format": "int32",
+          "description": "The current page number you are requesting",
+          "type": "integer"
+        },
+        "dataRequirements": {
+          "description": "The data you require. eg. StockLevels will load the stock levels for each location",
+          "type": "array",
+          "items": {
+            "enum": [
+              "StockLevels",
+              "Pricing",
+              "Supplier",
+              "ShippingInformation",
+              "ChannelTitle",
+              "ChannelDescription",
+              "ChannelPrice",
+              "ExtendedProperties",
+              "Images"
+            ],
+            "type": "string"
+          }
+        },
+        "searchTypes": {
+          "description": "The parameters that you would like to search by",
+          "type": "array",
+          "items": {
+            "enum": [
+              "SKU",
+              "Title",
+              "Barcode"
+            ],
+            "type": "string"
+          }
+        }
+      }
+    },
+    "StockItemFull": {
+      "type": "object",
+      "properties": {
+        "Suppliers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemSupplierStat"
+          }
+        },
+        "StockLevels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemLevel"
+          }
+        },
+        "ItemChannelDescriptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemDescription"
+          },
+          "readOnly": true
+        },
+        "ItemExtendedProperties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemExtendedProperty"
+          },
+          "readOnly": true
+        },
+        "ItemChannelTitles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemTitle"
+          },
+          "readOnly": true
+        },
+        "ItemChannelPrices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemPrice"
+          },
+          "readOnly": true
+        },
+        "Images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemImage"
+          }
+        },
+        "ItemNumber": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "BarcodeNumber": {
+          "type": "string"
+        },
+        "MetaData": {
+          "type": "string"
+        },
+        "IsVariationParent": {
+          "type": "boolean"
+        },
+        "isBatchedStockType": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "PurchasePrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "RetailPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "PostalServiceId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PostalServiceName": {
+          "type": "string"
+        },
+        "CategoryId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "CategoryName": {
+          "type": "string"
+        },
+        "PackageGroupId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PackageGroupName": {
+          "type": "string"
+        },
+        "Height": {
+          "format": "double",
+          "type": "number"
+        },
+        "Width": {
+          "format": "double",
+          "type": "number"
+        },
+        "Depth": {
+          "format": "double",
+          "type": "number"
+        },
+        "Weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "CreationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchNumberScanRequired": {
+          "type": "boolean"
+        },
+        "SerialNumberScanRequired": {
+          "type": "boolean"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "StockItemSupplierStat": {
+      "type": "object",
+      "properties": {
+        "IsDefault": {
+          "type": "boolean"
+        },
+        "Supplier": {
+          "type": "string"
+        },
+        "SupplierID": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Code": {
+          "type": "string"
+        },
+        "SupplierBarcode": {
+          "type": "string"
+        },
+        "LeadTime": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PurchasePrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "MinPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "MaxPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "AveragePrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "AverageLeadTime": {
+          "format": "double",
+          "type": "number"
+        },
+        "SupplierMinOrderQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SupplierPackSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SupplierCurrency": {
+          "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "StockItemLevel": {
+      "type": "object",
+      "properties": {
+        "Location": {
+          "$ref": "#/definitions/InventoryStockLocation"
+        },
+        "StockLevel": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "MinimumLevel": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "InOrderBook": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Due": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "JIT": {
+          "type": "boolean"
+        },
+        "InOrders": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "Available": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "UnitCost": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "AutoAdjust": {
+          "type": "boolean"
+        },
+        "LastUpdateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "LastUpdateOperation": {
+          "type": "string"
+        },
+        "rowid": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PendingUpdate": {
+          "type": "boolean"
+        },
+        "StockItemPurchasePrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "StockItemDescription": {
+      "type": "object",
+      "properties": {
+        "pkRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Source": {
+          "type": "string"
+        },
+        "SubSource": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "StockItemExtendedProperty": {
+      "type": "object",
+      "properties": {
+        "pkRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkStockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ProperyName": {
+          "type": "string"
+        },
+        "PropertyValue": {
+          "type": "string"
+        },
+        "PropertyType": {
+          "type": "string"
+        }
+      }
+    },
+    "StockItemTitle": {
+      "type": "object",
+      "properties": {
+        "pkRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Source": {
+          "type": "string"
+        },
+        "SubSource": {
+          "type": "string"
+        },
+        "Title": {
+          "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "StockItemPrice": {
+      "type": "object",
+      "properties": {
+        "Rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemPricingRule"
+          }
+        },
+        "pkRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Source": {
+          "type": "string"
+        },
+        "SubSource": {
+          "type": "string"
+        },
+        "Price": {
+          "format": "double",
+          "type": "number"
+        },
+        "Tag": {
+          "type": "string"
+        },
+        "UpdateStatus": {
+          "enum": [
+            "NoChange",
+            "Pending",
+            "SentNotConfirmed",
+            "Success",
+            "Error"
+          ],
+          "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "StockItemImage": {
+      "type": "object",
+      "properties": {
+        "Source": {
+          "type": "string"
+        },
+        "FullSource": {
+          "type": "string"
+        },
+        "CheckSumValue": {
+          "type": "string"
+        },
+        "pkRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "IsMain": {
+          "type": "boolean"
+        },
+        "SortOrder": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ChecksumValue": {
+          "type": "string"
+        },
+        "RawChecksum": {
+          "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "InventoryStockLocation": {
+      "type": "object",
+      "properties": {
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockLocationIntId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "LocationName": {
+          "type": "string"
+        },
+        "IsFulfillmentCenter": {
+          "type": "boolean"
+        },
+        "LocationTag": {
+          "type": "string"
+        },
+        "BinRack": {
+          "type": "string"
+        },
+        "IsWarehouseManaged": {
+          "type": "boolean"
+        }
+      }
+    },
+    "StockItemPricingRule": {
+      "type": "object",
+      "properties": {
+        "pkRowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fkStockPricingId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Type": {
+          "type": "string"
+        },
+        "LowerBound": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Value": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "Stock_GetStockItemsFullByIdsRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/GetStockItemsFullByIdsRequest",
+          "description": "Object with a list of pkStockItemIds and Data Requirements"
+        }
+      }
+    },
+    "GetStockItemsFullByIdsRequest": {
+      "type": "object",
+      "properties": {
+        "StockItemIds": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "DataRequirements": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "StockLevels",
+              "Supplier",
+              "ChannelTitle",
+              "ChannelDescription",
+              "ChannelPrice",
+              "ExtendedProperties",
+              "Images"
+            ],
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetStockItemsFullByIdsResponse": {
+      "type": "object",
+      "properties": {
+        "StockItemsFullExtended": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemFullExtended"
+          }
+        }
+      }
+    },
+    "StockItemFullExtended": {
+      "type": "object",
+      "properties": {
+        "ItemChannelDescriptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemDescription"
+          }
+        },
+        "ItemExtendedProperties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemExtendedProperty"
+          }
+        },
+        "ItemChannelTitles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemTitle"
+          }
+        },
+        "ItemChannelPrices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemPrice"
+          }
+        },
+        "Suppliers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemSupplierStat"
+          }
+        },
+        "StockLevels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemLevel"
+          }
+        },
+        "Images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemImage"
+          }
+        },
+        "ItemNumber": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "BarcodeNumber": {
+          "type": "string"
+        },
+        "MetaData": {
+          "type": "string"
+        },
+        "isBatchedStockType": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "PurchasePrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "RetailPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "PostalServiceId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PostalServiceName": {
+          "type": "string"
+        },
+        "CategoryId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "CategoryName": {
+          "type": "string"
+        },
+        "PackageGroupId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PackageGroupName": {
+          "type": "string"
+        },
+        "Height": {
+          "format": "double",
+          "type": "number"
+        },
+        "Width": {
+          "format": "double",
+          "type": "number"
+        },
+        "Depth": {
+          "format": "double",
+          "type": "number"
+        },
+        "Weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "CreationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "IsCompositeParent": {
+          "type": "boolean"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchNumberScanRequired": {
+          "type": "boolean"
+        },
+        "SerialNumberScanRequired": {
+          "type": "boolean"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "Stock_GetStockLevelByLocationRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/GetStockLevelByLocationRequest",
+          "description": ""
+        }
+      }
+    },
+    "GetStockLevelByLocationRequest": {
+      "type": "object",
+      "properties": {
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "GetStockLevelByLocationResponse": {
+      "type": "object",
+      "properties": {
+        "StockLevel": {
+          "$ref": "#/definitions/StockItemLevel"
+        }
+      }
+    },
+    "Stock_GetStockLevel_BatchRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/GetStockLevel_BatchRequest",
+          "description": "Method request parameters"
+        }
+      }
+    },
+    "GetStockLevel_BatchRequest": {
+      "type": "object",
+      "properties": {
+        "StockItemIds": {
+          "description": "List of stock item ids to get stock level",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "GetStockLevel_BatchResponse": {
+      "description": "Response class with info about stock level in each location for a list of stock items",
+      "type": "object",
+      "properties": {
+        "pkStockItemId": {
+          "format": "uuid",
+          "description": "Id of the stock item",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemLevels": {
+          "description": "List of stock level for each location",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemLevel"
+          }
+        }
+      }
+    },
+    "Stock_UpdateStockMinimumLevelRequest": {
+      "type": "object",
+      "properties": {
+        "stockItemId": {
+          "format": "uuid",
+          "description": "stockItemId",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "locationId": {
+          "format": "uuid",
+          "description": "locationId",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "minimumLevel": {
+          "format": "int32",
+          "description": "minimumLevel",
+          "type": "integer"
+        }
+      }
+    },
+    "StockItemSold": {
+      "type": "object",
+      "properties": {
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ItemNumber": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "StockItemDuePO": {
+      "type": "object",
+      "properties": {
+        "SupplierName": {
+          "type": "string"
+        },
+        "Location": {
+          "$ref": "#/definitions/InventoryStockLocation"
+        },
+        "SupplierId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "DateOfPurchase": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "QuotedDeliveryDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Delivered": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UnitCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "StockItemReturn": {
+      "type": "object",
+      "properties": {
+        "Year": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Month": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Reason": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "StockItemScrap": {
+      "type": "object",
+      "properties": {
+        "Year": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Month": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Reason": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Cost": {
+          "format": "double",
+          "type": "number"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "StockItemSoldStat": {
+      "type": "object",
+      "properties": {
+        "Source": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Total": {
+          "format": "double",
+          "type": "number"
+        },
+        "Cost": {
+          "format": "double",
+          "type": "number"
+        },
+        "ProfitMargin": {
+          "format": "double",
+          "type": "number"
+        },
+        "Detail": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemSoldStatDetail"
+          }
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "StockItemSoldStatDetail": {
+      "type": "object",
+      "properties": {
+        "Subsource": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Total": {
+          "format": "double",
+          "type": "number"
+        },
+        "Cost": {
+          "format": "double",
+          "type": "number"
+        },
+        "ProfitMargin": {
+          "format": "double",
+          "type": "number"
+        },
+        "Detail": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemSoldStatFinalDetail"
+          }
+        }
+      }
+    },
+    "StockItemSoldStatFinalDetail": {
+      "type": "object",
+      "properties": {
+        "Date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Total": {
+          "format": "double",
+          "type": "number"
+        },
+        "Cost": {
+          "format": "double",
+          "type": "number"
+        },
+        "ProfitMargin": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "Stock_SetStockLevelRequest": {
+      "type": "object",
+      "properties": {
+        "stockLevels": {
+          "description": "The new stock items levels to set",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockLevelUpdate"
+          }
+        },
+        "changeSource": {
+          "description": "",
+          "type": "string"
+        }
+      }
+    },
+    "StockLevelUpdate": {
+      "type": "object",
+      "properties": {
+        "SKU": {
+          "type": "string"
+        },
+        "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Level": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "Stock_UpdateStockLevelsBySKURequest": {
+      "type": "object",
+      "properties": {
+        "stockLevels": {
+          "description": "The new stock items levels to adjust",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockLevelUpdate"
+          }
+        },
+        "changeSource": {
+          "description": "",
+          "type": "string"
+        }
+      }
+    },
+    "Stock_BookInStockItemRequest": {
+      "type": "object",
+      "properties": {
+        "stockItem": {
+          "$ref": "#/definitions/BookInStockItem",
+          "description": "Book in parameters used to update stock items"
+        }
+      }
+    },
+    "BookInStockItem": {
+      "type": "object",
+      "properties": {
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "QuantityReceived": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CostPerUnit": {
+          "format": "double",
+          "type": "number"
+        },
+        "BinRack": {
+          "type": "string"
+        }
+      }
+    },
+    "Stock_CreateStockBatchesRequest": {
+      "type": "object",
+      "properties": {
+        "batches": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemBatch"
+          }
+        }
+      }
+    },
+    "StockItemBatch": {
+      "type": "object",
+      "properties": {
+        "BatchId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BatchNumber": {
+          "type": "string"
+        },
+        "ExpiresOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "SellBy": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Inventory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemBatchInventory"
+          }
+        },
+        "IsDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "StockItemBatchInventory": {
+      "type": "object",
+      "properties": {
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BinRack": {
+          "type": "string"
+        },
+        "PrioritySequence": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "StartQuantity": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "PickedQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchStatus": {
+          "type": "string"
+        },
+        "IsDeleted": {
+          "type": "boolean"
+        },
+        "WarehouseBinrackStandardType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "WarehouseBinrackTypeName": {
+          "type": "string"
+        },
+        "InTransfer": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BinRackId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "WarehouseBinrackTypeId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "Stock_BookInStockBatchRequest": {
+      "type": "object",
+      "properties": {
+        "stockItem": {
+          "$ref": "#/definitions/BatchedBookIn",
+          "description": "Batch stock item"
+        }
+      }
+    },
+    "BatchedBookIn": {
+      "type": "object",
+      "properties": {
+        "SKU": {
+          "type": "string"
+        },
+        "BatchNumber": {
+          "type": "string"
+        },
+        "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BinRack": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "BatchStatus": {
+          "type": "string"
+        },
+        "PrioritySequence": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ExpiresOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "SellBy": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "GetBinrackByIdRequest": {
+      "type": "object",
+      "properties": {
+        "BinrackIds": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "BinracksResponse": {
+      "type": "object",
+      "properties": {
+        "BinRacks": {
+          "description": "List of binracks available for the given item in the order applicability.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseBinRack"
+          }
+        },
+        "Decisions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "WarehouseBinRack": {
+      "type": "object",
+      "properties": {
+        "BinRackId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BinRackTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BinRack": {
+          "type": "string"
+        },
+        "GeoPosition": {
+          "$ref": "#/definitions/GeoPosition"
+        },
+        "Dimension": {
+          "$ref": "#/definitions/Dimension"
+        },
+        "RoutingSequence": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "MaxCapacityVolumetric": {
+          "format": "double",
+          "type": "number"
+        },
+        "CurrentFullPercentage": {
+          "format": "double",
+          "type": "number"
+        },
+        "MaxQuantityCapacity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CurrentQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CurrentVolumetric": {
+          "format": "double",
+          "type": "number"
+        },
+        "OptimalReplenishFullPercentage": {
+          "format": "double",
+          "type": "number"
+        },
+        "CriticalReplenishFullPercentage": {
+          "format": "double",
+          "type": "number"
+        },
+        "ItemRestriction": {
+          "type": "boolean"
+        },
+        "GroupRestriction": {
+          "type": "boolean"
+        },
+        "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "TypeName": {
+          "type": "string"
+        },
+        "StandardType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsVolumetric": {
+          "type": "boolean"
+        },
+        "AccessOrientation": {
+          "type": "string"
+        },
+        "StorageGroups": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "UniqueSkus": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ItemsInfo": {
+          "$ref": "#/definitions/WarehouseBinRackItemsInfo"
+        },
+        "BinrackType": {
+          "$ref": "#/definitions/WarehouseBinRackType"
+        },
+        "IsValidForStockItem": {
+          "type": "boolean"
+        }
+      }
+    },
+    "GeoPosition": {
+      "type": "object",
+      "properties": {
+        "X": {
+          "format": "double",
+          "type": "number"
+        },
+        "Y": {
+          "format": "double",
+          "type": "number"
+        },
+        "Z": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "Dimension": {
+      "type": "object",
+      "properties": {
+        "Width": {
+          "format": "double",
+          "type": "number"
+        },
+        "Depth": {
+          "format": "double",
+          "type": "number"
+        },
+        "Height": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "WarehouseBinRackItemsInfo": {
+      "type": "object",
+      "properties": {
+        "BinRackId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "NumberOfItems": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalQuantity": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "WarehouseBinRackType": {
+      "type": "object",
+      "properties": {
+        "BinRackTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "StandardType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "LocationBound": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "IsVolumetric": {
+          "type": "boolean"
+        },
+        "DefaultBatchStatus": {
+          "enum": [
+            "Unchanged",
+            "Available",
+            "Restricted"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "CreateWarehouseMoveRequest": {
+      "type": "object",
+      "properties": {
+        "BatchInventoryId": {
+          "format": "int32",
+          "description": "Batch Inventory Id of the stock item you are moving",
+          "type": "integer"
+        },
+        "Quantity": {
+          "format": "int32",
+          "description": "Quantity of items being moved",
+          "type": "integer"
+        },
+        "BinrackIdDestination": {
+          "format": "int32",
+          "description": "Destination if known, can be null",
+          "type": "integer"
+        },
+        "JobId": {
+          "format": "int32",
+          "description": "If the move is part of a specific job, specify job id so it can be marked off from the job",
+          "type": "integer"
+        },
+        "TotId": {
+          "format": "int32",
+          "description": "(Optional) Move to TOT id, create or retrive tot scan barcode first. To unassign from Tot send 0",
+          "type": "integer"
+        },
+        "TxType": {
+          "description": "Type of the move. Open means its an instruction to move, In Transit actually marks the item as unavilable and physically being moved",
+          "enum": [
+            "Open",
+            "InTransit"
+          ],
+          "type": "string"
+        },
+        "UserId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "GetWarehouseMoveResponse": {
+      "type": "object",
+      "properties": {
+        "WarehouseMove": {
+          "$ref": "#/definitions/WarehouseMoveDetailed",
+          "description": "Move details"
+        }
+      }
+    },
+    "WarehouseMoveDetailed": {
+      "type": "object",
+      "properties": {
+        "BinrackFrom": {
+          "$ref": "#/definitions/WarehouseBinRack"
+        },
+        "BinrackDestination": {
+          "$ref": "#/definitions/WarehouseBinRack"
+        },
+        "Batch": {
+          "$ref": "#/definitions/StockItemBatch"
+        },
+        "MoveId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UserId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "UserName": {
+          "type": "string"
+        },
+        "BinrackIdFrom": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BinrackIdDestination": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TxType": {
+          "enum": [
+            "Open",
+            "InTransit"
+          ],
+          "type": "string"
+        },
+        "JobId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "BatchId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "TotId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "Stock_BatchStockLevelDeltaRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/BatchStockLevelDetaRequest"
+        }
+      }
+    },
+    "BatchStockLevelDetaRequest": {
+      "type": "object",
+      "properties": {
+        "StockLevelDeltas": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BatchStockLevelDelta"
+          }
+        },
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "BatchStockLevelDelta": {
+      "type": "object",
+      "properties": {
+        "SKU": {
+          "type": "string"
+        },
+        "BatchNumber": {
+          "type": "string"
+        },
+        "BinRack": {
+          "type": "string"
+        },
+        "DeltaQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Reason": {
+          "type": "string"
+        },
+        "pkBatchInventoryId": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "StockValue": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "Errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "NewLevel": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "BatchStatus": {
+          "type": "string"
+        }
+      }
+    },
+    "BatchStockLevelDeltaResponse": {
+      "type": "object",
+      "properties": {
+        "ProcessedDeltas": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BatchStockLevelDelta"
+          }
+        },
+        "ProcessedContainsErrors": {
+          "type": "boolean"
+        }
+      }
+    },
+    "AddRollingStockTakeRequest": {
+      "type": "object",
+      "properties": {
+        "LocationId": {
+          "format": "uuid",
+          "description": "Location Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "SessionDuriationSeconds": {
+          "format": "int32",
+          "description": "Time in seconds the stock take session has taken",
+          "type": "integer"
+        },
+        "Items": {
+          "description": "List of stock take items. Maximum 1000 items in a stock take session",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockTakeItem"
+          }
+        }
+      }
+    },
+    "StockTakeItem": {
+      "type": "object",
+      "properties": {
+        "BinRack": {
+          "description": "(optional) Only applicable to non-batched and non-WMS locations. Singular BinRack will be updated for the given item for a given location. Will be ignored for a batched or WMS item.",
+          "type": "string"
+        },
+        "PickingWaveItems": {
+          "description": "(optional) Pickwave items associated with the batch. This data will be used for concurrency check and validation of data. \r\nSuper important stuff when you are submitting batch inventory stock count in WMS location. \r\nOrder items will automatically be allocated to a specific batch when the order is placed/printed/added to pickwave. This will normally block stock count, \r\nhowever it is possible to get the state of pickwave items, and if all items are picked from the location the user can still count them. When stock count is submitted\r\nwe need to also submit the state of the pickwave at the point of count, so we can compare state was and the state is, discount any stock from the count that was processed/shipped\t\r\nIf this parameter is not supplied and the batch is allocated to orders, the stock count for this item will be blocked and will not be submitted",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BatchPickingWaveStockItems"
+          }
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Quantity": {
+          "format": "int32",
+          "description": "Current stock level",
+          "type": "integer"
+        },
+        "OriginalQuantity": {
+          "format": "int32",
+          "description": "(Optional) Original quantity, used to validate if the original has changed since the items have been counted. If supplied and different to expected then an error will be returned.",
+          "type": "integer"
+        },
+        "StockValue": {
+          "format": "double",
+          "description": "(optional) Stock value (unit cost * quantity). If not provided it will be calculated from current stock value",
+          "type": "number"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "description": "(conditional) If item is batched or in WMS location, you must provide BatchInventoryId which is being updated. \r\nIf its newly discovered item, use BookInStockBatch call in Stock controller to create a new batch inventory",
+          "type": "integer"
+        }
+      }
+    },
+    "BatchPickingWaveStockItems": {
+      "type": "object",
+      "properties": {
+        "PickingWaveItemsRowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PickingWaveId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UserName": {
+          "type": "string"
+        },
+        "ToPickQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PickedQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "OrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UserId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "AddRollingStockTakeResponse": {
+      "type": "object",
+      "properties": {
+        "ErroredItems": {
+          "description": "List of items that have failed validation, if any items are returned then the stock take won't be submitted.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockTakeItemWithError"
+          }
+        }
+      }
+    },
+    "StockTakeItemWithError": {
+      "type": "object",
+      "properties": {
+        "BinRack": {
+          "description": "(optional) Only applicable to non-batched and non-WMS locations. Singular BinRack will be updated for the given item for a given location. Will be ignored for a batched or WMS item.",
+          "type": "string"
+        },
+        "PickingWaveItems": {
+          "description": "(optional) Pickwave items associated with the batch. This data will be used for concurrency check and validation of data. \r\nSuper important stuff when you are submitting batch inventory stock count in WMS location. \r\nOrder items will automatically be allocated to a specific batch when the order is placed/printed/added to pickwave. This will normally block stock count, \r\nhowever it is possible to get the state of pickwave items, and if all items are picked from the location the user can still count them. When stock count is submitted\r\nwe need to also submit the state of the pickwave at the point of count, so we can compare state was and the state is, discount any stock from the count that was processed/shipped\t\r\nIf this parameter is not supplied and the batch is allocated to orders, the stock count for this item will be blocked and will not be submitted",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BatchPickingWaveStockItems"
+          }
+        },
+        "Errors": {
+          "description": "List of errors for specific stock take item",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Quantity": {
+          "format": "int32",
+          "description": "Current stock level",
+          "type": "integer"
+        },
+        "OriginalQuantity": {
+          "format": "int32",
+          "description": "(Optional) Original quantity, used to validate if the original has changed since the items have been counted. If supplied and different to expected then an error will be returned.",
+          "type": "integer"
+        },
+        "StockValue": {
+          "format": "double",
+          "description": "(optional) Stock value (unit cost * quantity). If not provided it will be calculated from current stock value",
+          "type": "number"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "description": "(conditional) If item is batched or in WMS location, you must provide BatchInventoryId which is being updated. \r\nIf its newly discovered item, use BookInStockBatch call in Stock controller to create a new batch inventory",
+          "type": "integer"
+        }
+      }
+    },
+    "UpdateStockLevelsBulkRequest": {
+      "type": "object",
+      "properties": {
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UpdateStockLevelsBulkRequestItem"
+          }
+        }
+      }
+    },
+    "UpdateStockLevelsBulkRequestItem": {
+      "type": "object",
+      "properties": {
+        "SKU": {
+          "description": "SKU - Optional if stock item id is provided",
+          "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "StockItemId - Optional if stock SKU is provided, calls will be faster if this is provided.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockLocationName": {
+          "description": "Stock location name, optional if StockLocationId is provided.",
+          "type": "string"
+        },
+        "StockLocationId": {
+          "format": "uuid",
+          "description": "Stock Location Id, optional if StockLocationName is provided, calls will be faster if this is provided.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockLevel": {
+          "format": "int32",
+          "description": "StockLevel - Optional",
+          "type": "integer"
+        },
+        "StockValue": {
+          "format": "double",
+          "description": "StockValue - Optional, if unit cost is provided then value will be calculated from this, otherwise existing stock value or purchase price will be used.",
+          "type": "number"
+        },
+        "UnitCost": {
+          "format": "double",
+          "description": "UnitCost - Optional, if stock value is provided then value will be calculated from this, otherwise existing stock value or purchase price will be used.",
+          "type": "number"
+        },
+        "Binrack": {
+          "description": "Binrack - Optional, if not provided or empty exisitng binrack will remain.",
+          "type": "string"
+        },
+        "MinimumLevel": {
+          "format": "int32",
+          "description": "Minimum level - Optional",
+          "type": "integer"
+        },
+        "RowIndex": {
+          "format": "int32",
+          "description": "RowIndex - Optional, can be used to marry up request items with response items.",
+          "type": "integer"
+        }
+      }
+    },
+    "UpdateStockLevelsBulkResponse": {
+      "type": "object",
+      "properties": {
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UpdateStockLevelsBulkResponseItem"
+          }
+        }
+      }
+    },
+    "UpdateStockLevelsBulkResponseItem": {
+      "type": "object",
+      "properties": {
+        "Errors": {
+          "description": "Errors assocaited with request item.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "SKU": {
+          "description": "SKU - Optional if stock item id is provided",
+          "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "StockItemId - Optional if stock SKU is provided, calls will be faster if this is provided.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockLocationName": {
+          "description": "Stock location name, optional if StockLocationId is provided.",
+          "type": "string"
+        },
+        "StockLocationId": {
+          "format": "uuid",
+          "description": "Stock Location Id, optional if StockLocationName is provided, calls will be faster if this is provided.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockLevel": {
+          "format": "int32",
+          "description": "StockLevel - Optional",
+          "type": "integer"
+        },
+        "StockValue": {
+          "format": "double",
+          "description": "StockValue - Optional, if unit cost is provided then value will be calculated from this, otherwise existing stock value or purchase price will be used.",
+          "type": "number"
+        },
+        "UnitCost": {
+          "format": "double",
+          "description": "UnitCost - Optional, if stock value is provided then value will be calculated from this, otherwise existing stock value or purchase price will be used.",
+          "type": "number"
+        },
+        "Binrack": {
+          "description": "Binrack - Optional, if not provided or empty exisitng binrack will remain.",
+          "type": "string"
+        },
+        "MinimumLevel": {
+          "format": "int32",
+          "description": "Minimum level - Optional",
+          "type": "integer"
+        },
+        "RowIndex": {
+          "format": "int32",
+          "description": "RowIndex - Optional, can be used to marry up request items with response items.",
+          "type": "integer"
+        }
+      }
+    },
+    "GetStockItemsByIdsRequest": {
+      "type": "object",
+      "properties": {
+        "StockItemIds": {
+          "description": "Collection of Stock item id (uniqueidentifier)",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "GetStockItemsByIdsResponse": {
+      "type": "object",
+      "properties": {
+        "Items": {
+          "description": "List of stock item headers.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemHeader"
+          }
+        }
+      }
+    },
+    "StockItemHeader": {
+      "type": "object",
+      "properties": {
+        "ItemNumber": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "BarcodeNumber": {
+          "type": "string"
+        },
+        "MetaData": {
+          "type": "string"
+        },
+        "IsVariationParent": {
+          "type": "boolean"
+        },
+        "isBatchedStockType": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "PurchasePrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "RetailPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "PostalServiceId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PostalServiceName": {
+          "type": "string"
+        },
+        "CategoryId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "CategoryName": {
+          "type": "string"
+        },
+        "PackageGroupId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PackageGroupName": {
+          "type": "string"
+        },
+        "Height": {
+          "format": "double",
+          "type": "number"
+        },
+        "Width": {
+          "format": "double",
+          "type": "number"
+        },
+        "Depth": {
+          "format": "double",
+          "type": "number"
+        },
+        "Weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "CreationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchNumberScanRequired": {
+          "type": "boolean"
+        },
+        "SerialNumberScanRequired": {
+          "type": "boolean"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "GetStockItemTypeInfoRequest": {
+      "type": "object",
+      "properties": {
+        "SKUS": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "StockItemIntIds": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "GetStockItemTypeInfoResponse": {
+      "type": "object",
+      "properties": {
+        "StockItemInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemTypeInfo"
+          }
+        }
+      }
+    },
+    "StockItemTypeInfo": {
+      "type": "object",
+      "properties": {
+        "SKU": {
+          "type": "string"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "IsVariationGroup": {
+          "type": "boolean"
+        },
+        "IsCompositeParent": {
+          "type": "boolean"
+        },
+        "IsArchived": {
+          "type": "boolean"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "UpdateSkuGroupIdentifierRequest": {
+      "type": "object",
+      "properties": {
+        "Identifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UpdateSkuGroupIdentifierRequestItems"
+          }
+        }
+      }
+    },
+    "UpdateSkuGroupIdentifierRequestItems": {
+      "type": "object",
+      "properties": {
+        "SkuGroupId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SkuGroupIdentifierType": {
+          "enum": [
+            "Id",
+            "Barcode"
+          ],
+          "type": "string"
+        },
+        "Identifier": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdateSkuGroupIdentifierResponse": {
+      "type": "object",
+      "properties": {}
+    },
+    "Stock_GetStockItemsLocationRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/GetStockItemsLocationRequest",
+          "description": ""
+        }
+      }
+    },
+    "GetStockItemsLocationRequest": {
+      "type": "object",
+      "properties": {
+        "StockItemLocations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockLocationStockItemId"
+          }
+        },
+        "AuthToken": {
+          "type": "string"
+        },
+        "AccountId": {
+          "type": "string"
+        },
+        "VendorFriendlyName": {
+          "type": "string"
+        },
+        "Vendor": {
+          "type": "string"
+        }
+      }
+    },
+    "StockLocationStockItemId": {
+      "type": "object",
+      "properties": {
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "GetStockItemsLocationResponse": {
+      "type": "object",
+      "properties": {
+        "StockItemLocations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemLocation"
+          }
+        }
+      }
+    },
+    "StockItemLocation": {
+      "type": "object",
+      "properties": {
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LocationName": {
+          "type": "string"
+        },
+        "BinRack": {
+          "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

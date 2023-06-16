@@ -1,0 +1,2538 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "openorders",
+    "title": "Open Orders API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/OpenOrders/GetViewStats": {
+      "post": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "GetViewStats",
+        "operationId": "GetViewStats",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetViewStatsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OrderViewStats"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/OpenOrders/SearchOrders": {
+      "post": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "SearchOrders",
+        "operationId": "SearchOrders",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SearchOrdersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SearchOrdersResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/OpenOrders/GetOpenOrderIds": {
+      "post": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "GetOpenOrderIds",
+        "operationId": "GetOpenOrderIds",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetOpenOrdersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GenericPagedResult_Guid"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/OpenOrders/GetOpenOrders": {
+      "post": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "GetOpenOrders",
+        "operationId": "GetOpenOrders",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetOpenOrdersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PostFilterPagedResponse_OpenOrder"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/OpenOrders/GetIdentifiers": {
+      "get": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "GetIdentifiers",
+        "description": "Get all identifiers that are available to add to an order",
+        "operationId": "GetIdentifiers",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Identifier"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/OpenOrders/GetIdentifiersByOrderIds": {
+      "post": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "GetIdentifiersByOrderIds",
+        "description": "Get all identifiers for a list of orderIds",
+        "operationId": "GetIdentifiersByOrderIds",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetOrderIdentifierRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OrderIdentifier"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/OpenOrders/SaveIdentifier": {
+      "post": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "SaveIdentifier",
+        "description": "Create or update an order identifier",
+        "operationId": "SaveIdentifier",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SaveIdentifiersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Identifier"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/OpenOrders/DeleteIdentifier": {
+      "post": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "DeleteIdentifier",
+        "description": "Delete an identifier. This will also remove the identifier from all orders that it's assigned to",
+        "operationId": "DeleteIdentifier",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteIdentifiersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/OpenOrders/AssignOrderIdentifier": {
+      "post": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "AssignOrderIdentifier",
+        "description": "Add an identifier to an order",
+        "operationId": "AssignOrderIdentifier",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ChangeOrderIdentifierRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AssignResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/OpenOrders/UnassignOrderIdentifier": {
+      "post": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "UnassignOrderIdentifier",
+        "description": "Remove an identifier from an order",
+        "operationId": "UnassignOrderIdentifier",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ChangeOrderIdentifierRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AssignResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/OpenOrders/GetOrdersLowFidelity": {
+      "post": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "GetOrdersLowFidelity",
+        "description": "Returns low fidelity view of open orders. The data is generally useful for very basic view or counters of what is in the open orders. Useful for finding orders quickly as it returns all scannable fields of the order and order items such as order ids, skus, barcodes etc.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.DespatchConsoleNode",
+        "operationId": "GetOrdersLowFidelity",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetOrdersLowFidelityRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetOrdersLowFidelityResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/OpenOrders/GetOpenOrdersDetails": {
+      "post": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "GetOpenOrdersDetails",
+        "description": "Open order details by order ids. Not limited by the number of orders you can retrieve. This call is designed to return ONLY open orders, \r\nit is much faster than GetOrderDetail call\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode",
+        "operationId": "GetOpenOrdersDetails",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetOpenOrdersDetailsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetOpenOrdersDetailsResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/OpenOrders/AssignStockToOrders": {
+      "post": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "AssignStockToOrders",
+        "description": "Assign Stock to Orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode",
+        "operationId": "AssignStockToOrders",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AssignStockToOrdersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AssignStockToOrdersResponse_OrderItemBatchExtended_Guid"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/OpenOrders/DeleteAssignedStock": {
+      "post": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "DeleteAssignedStock",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode",
+        "operationId": "DeleteAssignedStock",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ClearStockAssignmentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AssignStockToOrdersResponse_Int32_Int32"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/OpenOrders/GetAvailableChannels": {
+      "get": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "GetAvailableChannels",
+        "operationId": "GetAvailableChannels",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetAvailableChannelsResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/OpenOrders/GetOrderItemIndicators": {
+      "post": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "GetOrderItemIndicators",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode",
+        "operationId": "GetOrderItemIndicators",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetOrderItemIndicatorRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetOrderItemIndicatorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GetViewStatsRequest": {
+      "type": "object",
+      "properties": {
+        "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ViewId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UserId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IncludeUserManagement": {
+          "type": "boolean"
+        },
+        "OnlyVisible": {
+          "type": "boolean"
+        },
+        "RebuildCacheIfRequired": {
+          "description": "If only the currently built stats are required, pass false here. Useful for polling whether a long running cache build has finished\r\nThe default is true.",
+          "type": "boolean"
+        }
+      }
+    },
+    "OrderViewStats": {
+      "type": "object",
+      "properties": {
+        "ViewId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ViewName": {
+          "type": "string"
+        },
+        "IsSystem": {
+          "type": "boolean"
+        },
+        "TotalOrders": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ExpiryDate": {
+          "format": "date-time",
+          "type": "string",
+          "readOnly": true
+        },
+        "IsCalculating": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "ViewExists": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "LastRequested": {
+          "format": "date-time",
+          "type": "string",
+          "readOnly": true
+        },
+        "UserManagement": {
+          "$ref": "#/definitions/ViewUserManagement"
+        },
+        "OrderViewUserPreference": {
+          "$ref": "#/definitions/OrderViewUserPreference"
+        },
+        "Owner": {
+          "$ref": "#/definitions/ViewUser",
+          "readOnly": true
+        },
+        "IsCacheable": {
+          "type": "boolean",
+          "readOnly": true
+        }
+      }
+    },
+    "ViewUserManagement": {
+      "type": "object",
+      "properties": {
+        "ViewId": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "ViewUsers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewUser"
+          }
+        },
+        "ViewGroups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewGroup"
+          }
+        }
+      }
+    },
+    "OrderViewUserPreference": {
+      "type": "object",
+      "properties": {
+        "ViewId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsVisible": {
+          "type": "boolean"
+        },
+        "Sequence": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "ViewUser": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "IsOwner": {
+          "type": "boolean"
+        },
+        "UserId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EmailAddress": {
+          "type": "string"
+        },
+        "UserType": {
+          "type": "string"
+        }
+      }
+    },
+    "ViewGroup": {
+      "type": "object",
+      "properties": {
+        "GroupId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        }
+      }
+    },
+    "SearchOrdersRequest": {
+      "type": "object",
+      "properties": {
+        "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "SearchTerm": {
+          "type": "string"
+        },
+        "IncludeProcessed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "SearchOrdersResponse": {
+      "type": "object",
+      "properties": {
+        "OpenOrders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderViewIds"
+          }
+        },
+        "ProcessedOrders": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "OrderViewIds": {
+      "type": "object",
+      "properties": {
+        "ViewId": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "readOnly": true,
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "TotalOrders": {
+          "format": "int64",
+          "type": "integer",
+          "readOnly": true
+        },
+        "OrderIds": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          },
+          "readOnly": true
+        },
+        "Count": {
+          "format": "int64",
+          "type": "integer",
+          "readOnly": true
+        }
+      }
+    },
+    "GetOpenOrdersRequest": {
+      "type": "object",
+      "properties": {
+        "ViewId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "EntriesPerPage": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "OrderIds": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "GenericPagedResult_Guid": {
+      "type": "object",
+      "properties": {
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EntriesPerPage": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalEntries": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "TotalPages": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "Data": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "PostFilterPagedResponse_OpenOrder": {
+      "type": "object",
+      "properties": {
+        "ResultCountRemovedByPostFilter": {
+          "format": "int64",
+          "type": "integer",
+          "readOnly": true
+        },
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EntriesPerPage": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalEntries": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "TotalPages": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "Data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OpenOrder"
+          }
+        }
+      }
+    },
+    "OpenOrder": {
+      "type": "object",
+      "properties": {
+        "NumOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "GeneralInfo": {
+          "$ref": "#/definitions/OrderGeneralInfo"
+        },
+        "ShippingInfo": {
+          "$ref": "#/definitions/OrderShippingInfo"
+        },
+        "CustomerInfo": {
+          "$ref": "#/definitions/OrderCustomerInfo"
+        },
+        "TotalsInfo": {
+          "$ref": "#/definitions/OrderTotalsInfo"
+        },
+        "TaxInfo": {
+          "$ref": "#/definitions/OrderTaxInfo"
+        },
+        "FolderName": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "IsPostFilteredOut": {
+          "type": "boolean"
+        },
+        "CanFulfil": {
+          "type": "boolean"
+        },
+        "Fulfillment": {
+          "$ref": "#/definitions/OrderFulfillmentState"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItem"
+          }
+        },
+        "HasItems": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "TotalItemsSum": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "OrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "OrderGeneralInfo": {
+      "type": "object",
+      "properties": {
+        "Status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "LabelPrinted": {
+          "type": "boolean"
+        },
+        "LabelError": {
+          "type": "string"
+        },
+        "InvoicePrinted": {
+          "type": "boolean"
+        },
+        "PickListPrinted": {
+          "type": "boolean"
+        },
+        "IsRuleRun": {
+          "type": "boolean"
+        },
+        "Notes": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PartShipped": {
+          "type": "boolean"
+        },
+        "Marker": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsParked": {
+          "type": "boolean"
+        },
+        "Identifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Identifier"
+          }
+        },
+        "ReferenceNum": {
+          "type": "string"
+        },
+        "SecondaryReference": {
+          "type": "string"
+        },
+        "ExternalReferenceNum": {
+          "type": "string"
+        },
+        "ReceivedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Source": {
+          "type": "string"
+        },
+        "SubSource": {
+          "type": "string"
+        },
+        "SiteCode": {
+          "type": "string"
+        },
+        "HoldOrCancel": {
+          "type": "boolean"
+        },
+        "DespatchByDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ScheduledDelivery": {
+          "$ref": "#/definitions/ScheduledDelivery"
+        },
+        "HasScheduledDelivery": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "Location": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "NumItems": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PickwaveIds": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "StockAllocationType": {
+          "enum": [
+            "NotAllocated",
+            "Insuffient",
+            "Partial",
+            "Full",
+            "OverAllocated"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "OrderShippingInfo": {
+      "type": "object",
+      "properties": {
+        "Vendor": {
+          "type": "string"
+        },
+        "PostalServiceId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PostalServiceName": {
+          "type": "string"
+        },
+        "TotalWeight": {
+          "format": "double",
+          "type": "number"
+        },
+        "ItemWeight": {
+          "format": "double",
+          "type": "number"
+        },
+        "PackageCategoryId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PackageCategory": {
+          "type": "string"
+        },
+        "PackageTypeId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PackageType": {
+          "type": "string"
+        },
+        "PostageCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "PostageCostExTax": {
+          "format": "double",
+          "type": "number"
+        },
+        "TrackingNumber": {
+          "type": "string"
+        },
+        "ManualAdjust": {
+          "type": "boolean"
+        }
+      }
+    },
+    "OrderCustomerInfo": {
+      "type": "object",
+      "properties": {
+        "ChannelBuyerName": {
+          "type": "string"
+        },
+        "Address": {
+          "$ref": "#/definitions/CustomerAddress"
+        },
+        "BillingAddress": {
+          "$ref": "#/definitions/CustomerAddress"
+        }
+      }
+    },
+    "OrderTotalsInfo": {
+      "type": "object",
+      "properties": {
+        "Subtotal": {
+          "format": "double",
+          "type": "number"
+        },
+        "PostageCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "PostageCostExTax": {
+          "format": "double",
+          "type": "number"
+        },
+        "Tax": {
+          "format": "double",
+          "type": "number"
+        },
+        "TotalCharge": {
+          "format": "double",
+          "type": "number"
+        },
+        "PaymentMethod": {
+          "type": "string"
+        },
+        "PaymentMethodId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ProfitMargin": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "TotalDiscount": {
+          "format": "double",
+          "type": "number"
+        },
+        "Currency": {
+          "type": "string"
+        },
+        "CountryTaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "OrderTaxInfo": {
+      "type": "object",
+      "properties": {
+        "TaxNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderFulfillmentState": {
+      "type": "object",
+      "properties": {
+        "FulfillmentState": {
+          "enum": [
+            "Unknown",
+            "Insufficient_Stock",
+            "Insufficient_To_Fulfill_All",
+            "Sufficient_Stock"
+          ],
+          "type": "string"
+        },
+        "PurchaseOrderState": {
+          "enum": [
+            "Insufficient_PO",
+            "Sufficient_PO"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "OrderItem": {
+      "type": "object",
+      "properties": {
+        "ItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ItemNumber": {
+          "type": "string"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "ItemSource": {
+          "type": "string"
+        },
+        "Title": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CategoryName": {
+          "type": "string"
+        },
+        "CompositeAvailablity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockLevelsSpecified": {
+          "type": "boolean"
+        },
+        "OnOrder": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "OnPurchaseOrder": {
+          "$ref": "#/definitions/OrderItemOnOrder"
+        },
+        "InOrderBook": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Level": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "MinimumLevel": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "AvailableStock": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PricePerUnit": {
+          "format": "double",
+          "type": "number"
+        },
+        "UnitCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "DespatchStockUnitCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "Discount": {
+          "format": "double",
+          "type": "number"
+        },
+        "Tax": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "Cost": {
+          "format": "double",
+          "type": "number"
+        },
+        "CostIncTax": {
+          "format": "double",
+          "type": "number"
+        },
+        "CompositeSubItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItem"
+          }
+        },
+        "IsService": {
+          "type": "boolean"
+        },
+        "SalesTax": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxCostInclusive": {
+          "type": "boolean"
+        },
+        "PartShipped": {
+          "type": "boolean"
+        },
+        "Weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "BarcodeNumber": {
+          "type": "string"
+        },
+        "Market": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ChannelSKU": {
+          "type": "string"
+        },
+        "ChannelTitle": {
+          "type": "string"
+        },
+        "DiscountValue": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "HasImage": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "ImageId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "AdditionalInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItemOption"
+          }
+        },
+        "StockLevelIndicator": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ShippingCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "PartShippedQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ItemName": {
+          "type": "string"
+        },
+        "BatchNumberScanRequired": {
+          "type": "boolean"
+        },
+        "SerialNumberScanRequired": {
+          "type": "boolean"
+        },
+        "BinRack": {
+          "type": "string"
+        },
+        "BinRacks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItemBinRack"
+          }
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isBatchedStockItem": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "IsWarehouseManaged": {
+          "type": "boolean"
+        },
+        "IsUnlinked": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Boxes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemBoxConfiguration"
+          }
+        },
+        "RowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "OrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "Identifier": {
+      "type": "object",
+      "properties": {
+        "IdentifierId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsCustom": {
+          "type": "boolean"
+        },
+        "ImageId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ImageUrl": {
+          "type": "string"
+        },
+        "Tag": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        }
+      }
+    },
+    "ScheduledDelivery": {
+      "type": "object",
+      "properties": {
+        "From": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "To": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "CustomerAddress": {
+      "type": "object",
+      "properties": {
+        "EmailAddress": {
+          "type": "string"
+        },
+        "Address1": {
+          "type": "string"
+        },
+        "Address2": {
+          "type": "string"
+        },
+        "Address3": {
+          "type": "string"
+        },
+        "Town": {
+          "type": "string"
+        },
+        "Region": {
+          "type": "string"
+        },
+        "PostCode": {
+          "type": "string"
+        },
+        "Country": {
+          "type": "string"
+        },
+        "Continent": {
+          "type": "string"
+        },
+        "FullName": {
+          "type": "string"
+        },
+        "Company": {
+          "type": "string"
+        },
+        "PhoneNumber": {
+          "type": "string"
+        },
+        "CountryId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "OrderItemOnOrder": {
+      "type": "object",
+      "properties": {
+        "pkPurchaseItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Rowid": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkPurchaseId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ExternalInvoiceNumber": {
+          "type": "string"
+        },
+        "fkSupplierId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "DateOfDelivery": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "QuotedDeliveryDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "SupplierName": {
+          "type": "string"
+        },
+        "fkLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "OrderItemOption": {
+      "type": "object",
+      "properties": {
+        "pkOptionId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Property": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderItemBinRack": {
+      "type": "object",
+      "properties": {
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BinRack": {
+          "type": "string"
+        },
+        "Location": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BatchId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "OrderItemBatchId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "StockItemBoxConfiguration": {
+      "type": "object",
+      "properties": {
+        "BoxId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BoxName": {
+          "type": "string"
+        },
+        "Width": {
+          "format": "double",
+          "type": "number"
+        },
+        "Height": {
+          "format": "double",
+          "type": "number"
+        },
+        "Length": {
+          "format": "double",
+          "type": "number"
+        },
+        "Weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "ValuePercentage": {
+          "format": "double",
+          "type": "number"
+        },
+        "Barcode": {
+          "type": "string"
+        },
+        "PackagingTypeId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LogicalDelete": {
+          "type": "boolean"
+        }
+      }
+    },
+    "GetOrderIdentifierRequest": {
+      "type": "object",
+      "properties": {
+        "OrderIds": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "OrderIdentifier": {
+      "type": "object",
+      "properties": {
+        "fkOrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "IdentifierId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsCustom": {
+          "type": "boolean"
+        },
+        "ImageId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ImageUrl": {
+          "type": "string"
+        },
+        "Tag": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        }
+      }
+    },
+    "SaveIdentifiersRequest": {
+      "description": "The identifier to save. For a new identifier, only the name, tag and image url are required.",
+      "type": "object",
+      "properties": {
+        "Identifier": {
+          "$ref": "#/definitions/Identifier"
+        }
+      }
+    },
+    "DeleteIdentifiersRequest": {
+      "type": "object",
+      "properties": {
+        "Tag": {
+          "description": "Tag of the order identifier to delete. E.g. CUSTOM_PRINT. It is not possible to delete a system tag such as AMAZON_PRIME",
+          "type": "string"
+        }
+      }
+    },
+    "ChangeOrderIdentifierRequest": {
+      "description": "Add/remove from all orders in the request body to the provided tag",
+      "type": "object",
+      "properties": {
+        "OrderIds": {
+          "description": "Primary key of the orders to assign/unassign the identifier to.",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "Tag": {
+          "description": "Identifier tag to assign/unassign. E.g. AMAZON_PRIME",
+          "type": "string"
+        }
+      }
+    },
+    "AssignResult": {
+      "type": "object",
+      "properties": {
+        "Changed": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "NotChanged": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "GetOrdersLowFidelityRequest": {
+      "type": "object",
+      "properties": {
+        "LocationId": {
+          "format": "uuid",
+          "description": "(Optional) Fulfilment location id. Defaults to Default location",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "GetOrdersLowFidelityResponse": {
+      "type": "object",
+      "properties": {
+        "Orders": {
+          "description": "List of low fidelity order headers with order items, composites and product identifiers",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OpenOrderLowFidelity"
+          }
+        }
+      }
+    },
+    "OpenOrderLowFidelity": {
+      "type": "object",
+      "properties": {
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OpenOrderItem"
+          }
+        },
+        "OrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "pkOrderID": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReferenceNum": {
+          "type": "string"
+        },
+        "ExternalReference": {
+          "type": "string"
+        },
+        "PostalTrackingNumber": {
+          "type": "string"
+        },
+        "OrderDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DispatchBy": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "OpenOrderItem": {
+      "type": "object",
+      "properties": {
+        "CompositeChild": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItemBase"
+          }
+        },
+        "ProductIdentifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductIdentifier"
+          }
+        },
+        "ContainsComposites": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "BarcodeNumber": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "OrderItemBase": {
+      "type": "object",
+      "properties": {
+        "ProductIdentifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductIdentifier"
+          }
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "BarcodeNumber": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "ProductIdentifier": {
+      "type": "object",
+      "properties": {
+        "Type": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        },
+        "Site": {
+          "type": "string"
+        }
+      }
+    },
+    "GetOpenOrdersDetailsRequest": {
+      "type": "object",
+      "properties": {
+        "OrderIds": {
+          "description": "List of order ids as unique identifiers",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "DetailLevel": {
+          "description": "(optional) List of detail level limiters. If the list is null or empty Full details will be returned, as in all detail levels are applied",
+          "type": "array",
+          "items": {
+            "enum": [
+              "FOLDER",
+              "NOTES",
+              "IDENTIFIERS",
+              "EXTENDEDPROPERTIES",
+              "BINRACKS"
+            ],
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetOpenOrdersDetailsResponse": {
+      "type": "object",
+      "properties": {
+        "Orders": {
+          "description": "List of orders",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderDetails"
+          }
+        }
+      }
+    },
+    "OrderDetails": {
+      "type": "object",
+      "properties": {
+        "OrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "NumOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Processed": {
+          "type": "boolean"
+        },
+        "ProcessedDateTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "FulfilmentLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "GeneralInfo": {
+          "$ref": "#/definitions/OrderGeneralInfo"
+        },
+        "ShippingInfo": {
+          "$ref": "#/definitions/OrderShippingInfo"
+        },
+        "CustomerInfo": {
+          "$ref": "#/definitions/OrderCustomerInfo"
+        },
+        "TotalsInfo": {
+          "$ref": "#/definitions/OrderTotalsInfo"
+        },
+        "ExtendedProperties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExtendedProperty"
+          }
+        },
+        "FolderName": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItem"
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderNote"
+          }
+        },
+        "PaidDateTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "TaxId": {
+          "type": "string"
+        }
+      }
+    },
+    "ExtendedProperty": {
+      "type": "object",
+      "properties": {
+        "RowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        },
+        "Type": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderNote": {
+      "type": "object",
+      "properties": {
+        "OrderNoteId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "OrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "NoteDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Internal": {
+          "type": "boolean"
+        },
+        "Note": {
+          "type": "string"
+        },
+        "CreatedBy": {
+          "type": "string"
+        },
+        "NoteTypeId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "AssignStockToOrdersRequest": {
+      "type": "object",
+      "properties": {
+        "OrderIds": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "BatchAssignmentMode": {
+          "enum": [
+            "ALL",
+            "AUTO_ONLY",
+            "UNASSIGNED_ONLY"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "AssignStockToOrdersResponse_OrderItemBatchExtended_Guid": {
+      "type": "object",
+      "properties": {
+        "BatchActionResult": {
+          "$ref": "#/definitions/BatchActionResult_OrderItemBatchExtended_Guid"
+        }
+      }
+    },
+    "BatchActionResult_OrderItemBatchExtended_Guid": {
+      "type": "object",
+      "properties": {
+        "ProcessedOrders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItemBatchExtended"
+          }
+        },
+        "UnprocessedOrders": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "format": "uuid",
+              "type": "string",
+              "example": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        }
+      }
+    },
+    "OrderItemBatchExtended": {
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "OrderId": {
+          "format": "uuid",
+          "type": "string",
+          "readOnly": true,
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Batches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItemBatch"
+          }
+        }
+      }
+    },
+    "OrderItemBatch": {
+      "type": "object",
+      "properties": {
+        "OrderItemBatchId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "OrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Batch": {
+          "$ref": "#/definitions/StockItemBatch"
+        },
+        "DespatchUnitValue": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "AssignmentType": {
+          "enum": [
+            "AUTO",
+            "MANUAL"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "StockItemBatch": {
+      "type": "object",
+      "properties": {
+        "BatchId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BatchNumber": {
+          "type": "string"
+        },
+        "ExpiresOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "SellBy": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Inventory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemBatchInventory"
+          }
+        },
+        "IsDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "StockItemBatchInventory": {
+      "type": "object",
+      "properties": {
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BinRack": {
+          "type": "string"
+        },
+        "PrioritySequence": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "StartQuantity": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "PickedQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchStatus": {
+          "type": "string"
+        },
+        "IsDeleted": {
+          "type": "boolean"
+        },
+        "WarehouseBinrackStandardType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "WarehouseBinrackTypeName": {
+          "type": "string"
+        },
+        "InTransfer": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BinRackId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "WarehouseBinrackTypeId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "ClearStockAssignmentRequest": {
+      "type": "object",
+      "properties": {
+        "OrderIds": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "AssignStockToOrdersResponse_Int32_Int32": {
+      "type": "object",
+      "properties": {
+        "BatchActionResult": {
+          "$ref": "#/definitions/BatchActionResult_Int32_Int32"
+        }
+      }
+    },
+    "BatchActionResult_Int32_Int32": {
+      "type": "object",
+      "properties": {
+        "ProcessedOrders": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "UnprocessedOrders": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        }
+      }
+    },
+    "GetAvailableChannelsResponse": {
+      "type": "object",
+      "properties": {
+        "Channels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ServiceInformation"
+          }
+        }
+      }
+    },
+    "ServiceInformation": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Identifier": {
+          "type": "string"
+        },
+        "Logo": {
+          "type": "string"
+        }
+      }
+    },
+    "GetOrderItemIndicatorRequest": {
+      "type": "object",
+      "properties": {
+        "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IndicatorRequest"
+          }
+        }
+      }
+    },
+    "IndicatorRequest": {
+      "type": "object",
+      "properties": {
+        "OrderItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "GetOrderItemIndicatorResponse": {
+      "type": "object",
+      "properties": {
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItemIndicator"
+          }
+        }
+      }
+    },
+    "OrderItemIndicator": {
+      "type": "object",
+      "properties": {
+        "OrderItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Indicator": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "FulfillmentState": {
+          "enum": [
+            "Unknown",
+            "Insufficient_Stock",
+            "Insufficient_To_Fulfill_All",
+            "Sufficient_Stock"
+          ],
+          "type": "string"
+        },
+        "PurchaseOrderState": {
+          "enum": [
+            "Insufficient_PO",
+            "Sufficient_PO"
+          ],
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

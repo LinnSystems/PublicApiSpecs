@@ -1,0 +1,431 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "locations",
+    "title": "Locations API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/Locations/GetLocation": {
+      "get": {
+        "tags": [
+          "Locations"
+        ],
+        "summary": "GetLocation",
+        "description": "Use this call to retrieve a location and basic information about it from your Linnworks account.",
+        "operationId": "GetLocation",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkStockLocationId",
+            "in": "query",
+            "description": "The pkStockLocationId which identifies the location",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/StockLocation"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Locations/AddLocation": {
+      "post": {
+        "tags": [
+          "Locations"
+        ],
+        "summary": "AddLocation",
+        "description": "Use this call to add a new location.",
+        "operationId": "AddLocation",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Locations_AddLocationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Locations_AddLocationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Locations/UpdateLocation": {
+      "post": {
+        "tags": [
+          "Locations"
+        ],
+        "summary": "UpdateLocation",
+        "description": "Use this call to update a location's name and/or details",
+        "operationId": "UpdateLocation",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Locations_UpdateLocationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Locations_UpdateLocationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Locations/DeleteLocation": {
+      "post": {
+        "tags": [
+          "Locations"
+        ],
+        "summary": "DeleteLocation",
+        "description": "Use this call to delete a location by its id",
+        "operationId": "DeleteLocation",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Locations_DeleteLocationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Locations_DeleteLocationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Locations/GetWarehouseTOTEs": {
+      "post": {
+        "tags": [
+          "Locations"
+        ],
+        "summary": "GetWarehouseTOTEs",
+        "description": "Gets list of tots for a specific location or find a specific tot depending on the request parameters. Specify tot id or tot barcode to find specific tot in the location or \r\nif nothing is specified or parameters are omitted, all tots for the location will be returned",
+        "operationId": "GetWarehouseTOTEs",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetWarehouseTotesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetWarehouseTotesResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Locations/DeleteWarehouseTOTE": {
+      "post": {
+        "tags": [
+          "Locations"
+        ],
+        "summary": "DeleteWarehouseTOTE",
+        "description": "Delete existing Tote from location\n<b>Permissions Required: </b> GlobalPermissions.Inventory.InventorySettings.LocationsNode",
+        "operationId": "DeleteWarehouseTOTE",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Locations_DeleteWarehouseTOTERequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Locations_DeleteWarehouseTOTERequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DeleteWarehouseToteResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "StockLocation": {
+      "type": "object",
+      "properties": {
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LocationName": {
+          "type": "string"
+        },
+        "Address1": {
+          "type": "string"
+        },
+        "Address2": {
+          "type": "string"
+        },
+        "City": {
+          "type": "string"
+        },
+        "County": {
+          "type": "string"
+        },
+        "Country": {
+          "type": "string"
+        },
+        "ZipCode": {
+          "type": "string"
+        },
+        "IsNotTrackable": {
+          "type": "boolean"
+        },
+        "LocationTag": {
+          "type": "string"
+        },
+        "IsFulfillmentCenter": {
+          "type": "boolean"
+        },
+        "CountInOrderUntilAcknowledgement": {
+          "type": "boolean"
+        },
+        "FulfilmentCenterDeductStockWhenProcessed": {
+          "type": "boolean"
+        },
+        "IsWarehouseManaged": {
+          "type": "boolean"
+        },
+        "StockLocationIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "Locations_AddLocationRequest": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "$ref": "#/definitions/StockLocation",
+          "description": "The StockLocation object describing the StockLocation to be added."
+        }
+      }
+    },
+    "Locations_UpdateLocationRequest": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "$ref": "#/definitions/StockLocation",
+          "description": "Stock location information to update"
+        }
+      }
+    },
+    "Locations_DeleteLocationRequest": {
+      "type": "object",
+      "properties": {
+        "pkStockLocationId": {
+          "format": "uuid",
+          "description": "Id of the location to delete",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "GetWarehouseTotesRequest": {
+      "type": "object",
+      "properties": {
+        "LocationId": {
+          "format": "uuid",
+          "description": "Location Id of the TOTs",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ToteBarcode": {
+          "description": "(Optional) Barcode of the TOT. If provided the response will contain one record that matches exactly to the TotBarcode or returns an empty response if nothing is found. If not provided, empty string or null and TotId is null or not specified all TOTs for the warehouse will be returned.",
+          "type": "string"
+        },
+        "TotId": {
+          "format": "int32",
+          "description": "(Optional) Id of the TOT, if specified TotBarcode is ignored. If null and TotBarcode not specified then returns all tots in the warehouse",
+          "type": "integer"
+        }
+      }
+    },
+    "GetWarehouseTotesResponse": {
+      "type": "object",
+      "properties": {
+        "Totes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseTOTE"
+          }
+        }
+      }
+    },
+    "WarehouseTOTE": {
+      "type": "object",
+      "properties": {
+        "ToteId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ToteBarcode": {
+          "type": "string"
+        },
+        "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "Locations_DeleteWarehouseTOTERequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/DeleteWarehouseToteRequest"
+        }
+      }
+    },
+    "DeleteWarehouseToteRequest": {
+      "type": "object",
+      "properties": {
+        "ToteIds": {
+          "description": "List of warehouse tote ids to delete",
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "LocationId": {
+          "format": "uuid",
+          "description": "Location id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "DeleteWarehouseToteResponse": {
+      "type": "object",
+      "properties": {
+        "DeletedToteIds": {
+          "description": "deleted list of totes",
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

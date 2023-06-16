@@ -1,0 +1,5370 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "returnsrefunds",
+    "title": "Returns and Refunds API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/ReturnsRefunds/GetRefundOptions": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "GetRefundOptions",
+        "description": "Returns channel-specific information regarding the types of refund that can be applied to the given order\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode",
+        "operationId": "GetRefundOptions",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_GetRefundOptionsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_GetRefundOptionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetRefundOptionsResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/GetActionableRefundHeaders": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "GetActionableRefundHeaders",
+        "description": "Returns a paged list of booked refund headers\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode",
+        "operationId": "GetActionableRefundHeaders",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_GetActionableRefundHeadersRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_GetActionableRefundHeadersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetActionableRefundHeadersResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/GetProcessedOrAckedErrorRefundHeaders": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "GetProcessedOrAckedErrorRefundHeaders",
+        "description": "Returns a paged list of processed or acknowledged error refund headers\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode",
+        "operationId": "GetProcessedOrAckedErrorRefundHeaders",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_GetProcessedOrAckedErrorRefundHeadersRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_GetProcessedOrAckedErrorRefundHeadersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetProcessedOrAckedErrorRefundHeadersResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/GetRMAHeadersByOrderId": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "GetRMAHeadersByOrderId",
+        "description": "Returns all RMA headers associated with the given order ID\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode",
+        "operationId": "GetRMAHeadersByOrderId",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_GetRMAHeadersByOrderIdRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_GetRMAHeadersByOrderIdRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetRMAHeadersByOrderIdResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/GetRefundHeadersByOrderId": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "GetRefundHeadersByOrderId",
+        "description": "Returns all refund headers associated with the given order ID\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode",
+        "operationId": "GetRefundHeadersByOrderId",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_GetRefundHeadersByOrderIdRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_GetRefundHeadersByOrderIdRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetRefundHeadersByOrderIdResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/GetRefundLinesByHeaderId": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "GetRefundLinesByHeaderId",
+        "description": "Returns a refund, given its header ID\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode",
+        "operationId": "GetRefundLinesByHeaderId",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_GetRefundLinesByHeaderIdRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_GetRefundLinesByHeaderIdRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetRefundLinesByHeaderIdResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/CreateRefund": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "CreateRefund",
+        "description": "Creates a refund in the system for approval\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.CreateRefundsNode",
+        "operationId": "CreateRefund",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_CreateRefundRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_CreateRefundRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreateRefundResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/UpdateRefund": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "UpdateRefund",
+        "description": "Updates an existing refund in the system. Requires create and delete permissions\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.CreateRefundsNode",
+        "operationId": "UpdateRefund",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_UpdateRefundRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_UpdateRefundRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UpdateRefundResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/AcknowledgeRefundErrors": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "AcknowledgeRefundErrors",
+        "description": "Acknowledges error responses for a given refund header\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ApproveRefundsNode",
+        "operationId": "AcknowledgeRefundErrors",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_AcknowledgeRefundErrorsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_AcknowledgeRefundErrorsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AcknowledgeRefundErrorsResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/AcknowledgeRMAErrors": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "AcknowledgeRMAErrors",
+        "description": "Acknowledges all error responses for a given RMA header\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.AcceptReturnsExchangesNode",
+        "operationId": "AcknowledgeRMAErrors",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_AcknowledgeRMAErrorsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_AcknowledgeRMAErrorsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AcknowledgeRMAErrorsResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/ActionRefund": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "ActionRefund",
+        "description": "Sends a refund to the channel for actioning\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ApproveRefundsNode",
+        "operationId": "ActionRefund",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_ActionRefundRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_ActionRefundRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ActionRefundResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/DeleteRefund": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "DeleteRefund",
+        "description": "Deletes all lines from the given refund header that have not yet been processed, or acknowledged as errors, removing it from the \"Actionable Refunds\" screen. If no lines are left, the header row is deleted\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.DeleteRefundsNode",
+        "operationId": "DeleteRefund",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_DeleteRefundRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_DeleteRefundRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DeleteRefundResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/DeleteRMA": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "DeleteRMA",
+        "description": "Deletes all lines from the given RMA header that have not yet been processed, or acknowledged as errors, removing it from the \"RMA Bookings\" screen. If no lines are left, the header row is deleted\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.DeleteReturnsExchangesNode",
+        "operationId": "DeleteRMA",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_DeleteRMARequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_DeleteRMARequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DeleteRMAResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/GetReturnOptions": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "GetReturnOptions",
+        "description": "Returns channel-specific information regarding the types of refund that can be applied to the given order\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.ViewReturnsExchangesNode",
+        "operationId": "GetReturnOptions",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_GetReturnOptionsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_GetReturnOptionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetReturnOptionsResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/GetActionableRMAHeaders": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "GetActionableRMAHeaders",
+        "description": "Returns a paged list of booked refund headers\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.ViewReturnsExchangesNode",
+        "operationId": "GetActionableRMAHeaders",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_GetActionableRMAHeadersRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_GetActionableRMAHeadersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetActionableRMAHeadersResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/GetProcessedOrAckedErrorRMAHeaders": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "GetProcessedOrAckedErrorRMAHeaders",
+        "description": "Returns a paged list of processed or acknowledged error RMA headers\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.ViewReturnsExchangesNode",
+        "operationId": "GetProcessedOrAckedErrorRMAHeaders",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_GetProcessedOrAckedErrorRMAHeadersRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_GetProcessedOrAckedErrorRMAHeadersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetProcessedOrAckedErrorRMAHeadersResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/CreateRMABooking": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "CreateRMABooking",
+        "description": "Creates an RMA booking in the system\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.CreateReturnsExchangesNode",
+        "operationId": "CreateRMABooking",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_CreateRMABookingRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_CreateRMABookingRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreateRMABookingResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/UpdateRMABooking": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "UpdateRMABooking",
+        "description": "Updates an RMA booking in the system. Requires create and delete permissions\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.CreateReturnsExchangesNode",
+        "operationId": "UpdateRMABooking",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_UpdateRMABookingRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_UpdateRMABookingRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UpdateRMABookingResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/ActionRMABooking": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "ActionRMABooking",
+        "description": "Accepts a booked return or exchange in the system\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.AcceptReturnsExchangesNode",
+        "operationId": "ActionRMABooking",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_ActionRMABookingRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_ActionRMABookingRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ActionRMABookingResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/GetRefundOrders": {
+      "get": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "GetRefundOrders",
+        "description": "Gets all refund order items for all orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "operationId": "GetRefundOrders",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RefundOrder"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/GetBookedReturnsExchangeOrders": {
+      "get": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "GetBookedReturnsExchangeOrders",
+        "description": "Gets all booked returns/exchange orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "operationId": "GetBookedReturnsExchangeOrders",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BookedReturnsExchangeOrder"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/DeleteBookedOrder": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "DeleteBookedOrder",
+        "description": "Deletes a returns/exchange order\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.DeleteReturnsExchangesNode",
+        "operationId": "DeleteBookedOrder",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_DeleteBookedOrderRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_DeleteBookedOrderRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/ActionBookedOrder": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "ActionBookedOrder",
+        "description": "Action list of booked returns/exchange items for a given order ID. If the return is for a batched item, the batch must be booked in manually.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "operationId": "ActionBookedOrder",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_ActionBookedOrderRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_ActionBookedOrderRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/DeleteBookedItem": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "DeleteBookedItem",
+        "description": "Delete a booked returns/exchange order item\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.DeleteReturnsExchangesNode",
+        "operationId": "DeleteBookedItem",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_DeleteBookedItemRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_DeleteBookedItemRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/RefundOrder": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "RefundOrder",
+        "description": "Refund an order given the order ID\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "operationId": "RefundOrder",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_RefundOrderRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_RefundOrderRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/GetWarehouseLocations": {
+      "get": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "GetWarehouseLocations",
+        "description": "Gets all warehouse locations\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "operationId": "GetWarehouseLocations",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WarehouseLocation"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/EditBookedItemInfo": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "EditBookedItemInfo",
+        "description": "Edit booked exchange/return item\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "operationId": "EditBookedItemInfo",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_EditBookedItemInfoRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_EditBookedItemInfoRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/DeletePendingRefundItem": {
+      "post": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "DeletePendingRefundItem",
+        "description": "Delete a refund item\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.DeleteRefundsNode",
+        "operationId": "DeletePendingRefundItem",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ReturnsRefunds_DeletePendingRefundItemRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReturnsRefunds_DeletePendingRefundItemRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "deprecated": true,
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/GetTotalRefunds": {
+      "get": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "GetTotalRefunds",
+        "description": "Gets the refundable amount of an order\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "operationId": "GetTotalRefunds",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "fkOrderId",
+            "in": "query",
+            "description": "unique order ID of the order",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/SearchReturnsRefundsPaged": {
+      "get": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "SearchReturnsRefundsPaged",
+        "description": "Searches through returns/refunds history that meets the parameters' criteria\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "operationId": "SearchReturnsRefundsPaged",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "The lower end of the date range to search. Can be null if searching for 'all dates'. Maximum range is 3 months.",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "The upper end of the date range to search. Can be null if searching for 'all dates'. Maximum range is 3 months.",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "dateType",
+            "in": "query",
+            "description": "The search type (e.g. ALLDATES)",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "ALLDATES",
+              "RECEIVED",
+              "PROCESSED",
+              "BOOKED",
+              "ACTIONED"
+            ]
+          },
+          {
+            "name": "searchField",
+            "in": "query",
+            "description": "The field to search by. Can be found by calling GetSearchTypes.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "exactMatch",
+            "in": "query",
+            "description": "Set to true if an exact match is required for the search data.",
+            "required": true,
+            "type": "boolean"
+          },
+          {
+            "name": "searchTerm",
+            "in": "query",
+            "description": "The term which you are searching for.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageNum",
+            "in": "query",
+            "description": "The page number of the request.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "numEntriesPerPage",
+            "in": "query",
+            "description": "The number of entries required on a page. Maximum 200.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "historyType",
+            "in": "query",
+            "description": "Search type. Allow RETURNS or REFUNDS",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "RETURNS",
+              "REFUNDS",
+              "CANCELLATIONS"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GenericPagedResult_ReturnsRefundsWeb"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/CreateReturnsRefundsCSV": {
+      "get": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "CreateReturnsRefundsCSV",
+        "description": "Creates a CSV file of the search result for download\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "operationId": "CreateReturnsRefundsCSV",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "The lower end of the date range to search. Can be null if searching for 'all dates'. Maximum range is 3 months.",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "The upper end of the date range to search. Can be null if searching for 'all dates'. Maximum range is 3 months.",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "dateType",
+            "in": "query",
+            "description": "The search type (e.g. ALLDATES)",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "ALLDATES",
+              "RECEIVED",
+              "PROCESSED",
+              "BOOKED",
+              "ACTIONED"
+            ]
+          },
+          {
+            "name": "searchField",
+            "in": "query",
+            "description": "The field to search by. Can be found by calling GetSearchTypes.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "exactMatch",
+            "in": "query",
+            "description": "Set to true if an exact match is required for the search data.",
+            "required": true,
+            "type": "boolean"
+          },
+          {
+            "name": "searchTerm",
+            "in": "query",
+            "description": "The term which you are searching for.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sortColumn",
+            "in": "query",
+            "description": "The column to sort by",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sortDirection",
+            "in": "query",
+            "description": "The sort direction (true = ascending, false = descending).",
+            "required": true,
+            "type": "boolean"
+          },
+          {
+            "name": "historyType",
+            "in": "query",
+            "description": "Search type. Allow RETURNS or REFUNDS",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "RETURNS",
+              "REFUNDS",
+              "CANCELLATIONS"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ReturnsRefunds/GetSearchTypes": {
+      "get": {
+        "tags": [
+          "ReturnsRefunds"
+        ],
+        "summary": "GetSearchTypes",
+        "description": "Gets a list of valid search types. These are needed to search processed orders.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "operationId": "GetSearchTypes",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "historyType",
+            "in": "query",
+            "description": "Search type. Allow RETURNS or REFUNDS",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "RETURNS",
+              "REFUNDS",
+              "CANCELLATIONS"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SearchField"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "ReturnsRefunds_GetRefundOptionsRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/GetRefundOptionsRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "GetRefundOptionsRequest": {
+      "type": "object",
+      "properties": {
+        "RefundHeaderId": {
+          "format": "int32",
+          "description": "If included, will return the relevant refund header as part of the RefundOptions object in the response",
+          "type": "integer"
+        },
+        "OrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "GetRefundOptionsResponse": {
+      "type": "object",
+      "properties": {
+        "RefundOptions": {
+          "$ref": "#/definitions/RefundOptions"
+        }
+      }
+    },
+    "RefundOptions": {
+      "type": "object",
+      "properties": {
+        "CanRefund": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "CanRefundInternally": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "CanRefundItems": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "CanRefundServices": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "CanRefundShipping": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "CanRefundShippingIndependently": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "CanRefundAdditionally": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "CanRefundFreeText": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "CanInsufficientRefundFreeText": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "RefundFreeTextOrNoteMaxLength": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "SubStatuses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PostSaleSubStatus"
+          },
+          "readOnly": true
+        },
+        "InsufficientRefundReasons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChannelReason"
+          },
+          "readOnly": true
+        },
+        "ItemRefundReasons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChannelReason"
+          },
+          "readOnly": true
+        },
+        "ServiceRefundReasons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChannelReason"
+          },
+          "readOnly": true
+        },
+        "ShippingRefundReasons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChannelReason"
+          },
+          "readOnly": true
+        },
+        "CannotRefundReason": {
+          "enum": [
+            "None",
+            "NotImplemented",
+            "DisabledInConfig",
+            "MissingOrderInLinnworks",
+            "OpenOrderInLinnworks",
+            "OrderIsFullyRefundedInLinnworks",
+            "NoNewRefundsSpecified",
+            "NoUpdatedRefundsSpecified",
+            "MultipleReferences",
+            "SubStatusTagNotInTheSystem",
+            "SubStatusTagIsNotActionable",
+            "MultipleSubStatusTags",
+            "RefundNotInSystem",
+            "Other"
+          ],
+          "type": "string"
+        },
+        "Order": {
+          "$ref": "#/definitions/OrderDetails",
+          "readOnly": true
+        },
+        "RefundHeader": {
+          "$ref": "#/definitions/OrderRefundHeader"
+        },
+        "AllExistingRefunds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VerifiedRefund"
+          }
+        },
+        "Errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "readOnly": true
+        }
+      }
+    },
+    "PostSaleSubStatus": {
+      "type": "object",
+      "properties": {
+        "StatusTag": {
+          "type": "string"
+        },
+        "StatusDescription": {
+          "type": "string"
+        },
+        "Actionable": {
+          "type": "boolean"
+        },
+        "ActionDescription": {
+          "type": "string"
+        },
+        "EditableFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ChannelReason": {
+      "type": "object",
+      "properties": {
+        "Tag": {
+          "type": "string"
+        },
+        "DisplayName": {
+          "type": "string"
+        },
+        "Types": {
+          "enum": [
+            "None",
+            "Cancellation",
+            "ItemRefund",
+            "ShippingRefund",
+            "ServiceRefund",
+            "ItemReturn",
+            "InsufficientRefund",
+            "AdditionalRefund"
+          ],
+          "type": "string"
+        },
+        "SubReasons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChannelSubReason"
+          }
+        }
+      }
+    },
+    "OrderDetails": {
+      "type": "object",
+      "properties": {
+        "OrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "NumOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Processed": {
+          "type": "boolean"
+        },
+        "ProcessedDateTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "FulfilmentLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "GeneralInfo": {
+          "$ref": "#/definitions/OrderGeneralInfo"
+        },
+        "ShippingInfo": {
+          "$ref": "#/definitions/OrderShippingInfo"
+        },
+        "CustomerInfo": {
+          "$ref": "#/definitions/OrderCustomerInfo"
+        },
+        "TotalsInfo": {
+          "$ref": "#/definitions/OrderTotalsInfo"
+        },
+        "ExtendedProperties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExtendedProperty"
+          }
+        },
+        "FolderName": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItem"
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderNote"
+          }
+        },
+        "PaidDateTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "TaxId": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderRefundHeader": {
+      "type": "object",
+      "properties": {
+        "RefundHeaderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "OrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "NumOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ExternalReference": {
+          "type": "string"
+        },
+        "CreatedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Currency": {
+          "type": "string"
+        },
+        "Amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus"
+        },
+        "Actioned": {
+          "type": "boolean"
+        },
+        "LastActionDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "OrderSource": {
+          "type": "string"
+        },
+        "OrderSubSource": {
+          "type": "string"
+        },
+        "ChannelInitiated": {
+          "type": "boolean"
+        },
+        "RefundLines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VerifiedRefund"
+          }
+        },
+        "RefundLink": {
+          "type": "string"
+        }
+      }
+    },
+    "VerifiedRefund": {
+      "type": "object",
+      "properties": {
+        "RefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "RefundHeaderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus"
+        },
+        "RefundedUnit": {
+          "enum": [
+            "Item",
+            "Shipping",
+            "Service",
+            "Additional"
+          ],
+          "type": "string"
+        },
+        "IsShippingRefund": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "IsAdditionalRefund": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "IsCancellation": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "RefundedItem": {
+          "$ref": "#/definitions/VerifiedRefundItem"
+        },
+        "ValidationError": {
+          "type": "string"
+        },
+        "Error": {
+          "type": "string"
+        },
+        "Errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RefundError"
+          }
+        },
+        "ExternalReference": {
+          "type": "string"
+        },
+        "Actioned": {
+          "type": "boolean"
+        },
+        "ActionedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ChannelInitiated": {
+          "type": "boolean"
+        },
+        "Deleted": {
+          "type": "boolean"
+        },
+        "IsFreeText": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "FreeTextOrNote": {
+          "type": "string"
+        },
+        "Amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReasonTag": {
+          "type": "string"
+        },
+        "SubReasonTag": {
+          "type": "string"
+        },
+        "InsufficientRefundTag": {
+          "type": "string"
+        },
+        "InsufficientRefundNote": {
+          "type": "string"
+        }
+      }
+    },
+    "ChannelSubReason": {
+      "type": "object",
+      "properties": {
+        "Tag": {
+          "type": "string"
+        },
+        "DisplayName": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderGeneralInfo": {
+      "type": "object",
+      "properties": {
+        "Status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "LabelPrinted": {
+          "type": "boolean"
+        },
+        "LabelError": {
+          "type": "string"
+        },
+        "InvoicePrinted": {
+          "type": "boolean"
+        },
+        "PickListPrinted": {
+          "type": "boolean"
+        },
+        "IsRuleRun": {
+          "type": "boolean"
+        },
+        "Notes": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PartShipped": {
+          "type": "boolean"
+        },
+        "Marker": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsParked": {
+          "type": "boolean"
+        },
+        "Identifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Identifier"
+          }
+        },
+        "ReferenceNum": {
+          "type": "string"
+        },
+        "SecondaryReference": {
+          "type": "string"
+        },
+        "ExternalReferenceNum": {
+          "type": "string"
+        },
+        "ReceivedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Source": {
+          "type": "string"
+        },
+        "SubSource": {
+          "type": "string"
+        },
+        "SiteCode": {
+          "type": "string"
+        },
+        "HoldOrCancel": {
+          "type": "boolean"
+        },
+        "DespatchByDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ScheduledDelivery": {
+          "$ref": "#/definitions/ScheduledDelivery"
+        },
+        "HasScheduledDelivery": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "Location": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "NumItems": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PickwaveIds": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "StockAllocationType": {
+          "enum": [
+            "NotAllocated",
+            "Insuffient",
+            "Partial",
+            "Full",
+            "OverAllocated"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "OrderShippingInfo": {
+      "type": "object",
+      "properties": {
+        "Vendor": {
+          "type": "string"
+        },
+        "PostalServiceId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PostalServiceName": {
+          "type": "string"
+        },
+        "TotalWeight": {
+          "format": "double",
+          "type": "number"
+        },
+        "ItemWeight": {
+          "format": "double",
+          "type": "number"
+        },
+        "PackageCategoryId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PackageCategory": {
+          "type": "string"
+        },
+        "PackageTypeId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PackageType": {
+          "type": "string"
+        },
+        "PostageCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "PostageCostExTax": {
+          "format": "double",
+          "type": "number"
+        },
+        "TrackingNumber": {
+          "type": "string"
+        },
+        "ManualAdjust": {
+          "type": "boolean"
+        }
+      }
+    },
+    "OrderCustomerInfo": {
+      "type": "object",
+      "properties": {
+        "ChannelBuyerName": {
+          "type": "string"
+        },
+        "Address": {
+          "$ref": "#/definitions/CustomerAddress"
+        },
+        "BillingAddress": {
+          "$ref": "#/definitions/CustomerAddress"
+        }
+      }
+    },
+    "OrderTotalsInfo": {
+      "type": "object",
+      "properties": {
+        "Subtotal": {
+          "format": "double",
+          "type": "number"
+        },
+        "PostageCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "PostageCostExTax": {
+          "format": "double",
+          "type": "number"
+        },
+        "Tax": {
+          "format": "double",
+          "type": "number"
+        },
+        "TotalCharge": {
+          "format": "double",
+          "type": "number"
+        },
+        "PaymentMethod": {
+          "type": "string"
+        },
+        "PaymentMethodId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ProfitMargin": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "TotalDiscount": {
+          "format": "double",
+          "type": "number"
+        },
+        "Currency": {
+          "type": "string"
+        },
+        "CountryTaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "ExtendedProperty": {
+      "type": "object",
+      "properties": {
+        "RowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        },
+        "Type": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderItem": {
+      "type": "object",
+      "properties": {
+        "ItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ItemNumber": {
+          "type": "string"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "ItemSource": {
+          "type": "string"
+        },
+        "Title": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CategoryName": {
+          "type": "string"
+        },
+        "CompositeAvailablity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockLevelsSpecified": {
+          "type": "boolean"
+        },
+        "OnOrder": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "OnPurchaseOrder": {
+          "$ref": "#/definitions/OrderItemOnOrder"
+        },
+        "InOrderBook": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Level": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "MinimumLevel": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "AvailableStock": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PricePerUnit": {
+          "format": "double",
+          "type": "number"
+        },
+        "UnitCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "DespatchStockUnitCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "Discount": {
+          "format": "double",
+          "type": "number"
+        },
+        "Tax": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "Cost": {
+          "format": "double",
+          "type": "number"
+        },
+        "CostIncTax": {
+          "format": "double",
+          "type": "number"
+        },
+        "CompositeSubItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItem"
+          }
+        },
+        "IsService": {
+          "type": "boolean"
+        },
+        "SalesTax": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxCostInclusive": {
+          "type": "boolean"
+        },
+        "PartShipped": {
+          "type": "boolean"
+        },
+        "Weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "BarcodeNumber": {
+          "type": "string"
+        },
+        "Market": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ChannelSKU": {
+          "type": "string"
+        },
+        "ChannelTitle": {
+          "type": "string"
+        },
+        "DiscountValue": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "HasImage": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "ImageId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "AdditionalInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItemOption"
+          }
+        },
+        "StockLevelIndicator": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ShippingCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "PartShippedQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ItemName": {
+          "type": "string"
+        },
+        "BatchNumberScanRequired": {
+          "type": "boolean"
+        },
+        "SerialNumberScanRequired": {
+          "type": "boolean"
+        },
+        "BinRack": {
+          "type": "string"
+        },
+        "BinRacks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItemBinRack"
+          }
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isBatchedStockItem": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "IsWarehouseManaged": {
+          "type": "boolean"
+        },
+        "IsUnlinked": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Boxes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemBoxConfiguration"
+          }
+        },
+        "RowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "OrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "OrderNote": {
+      "type": "object",
+      "properties": {
+        "OrderNoteId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "OrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "NoteDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Internal": {
+          "type": "boolean"
+        },
+        "Note": {
+          "type": "string"
+        },
+        "CreatedBy": {
+          "type": "string"
+        },
+        "NoteTypeId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "PostSaleStatus": {
+      "type": "object",
+      "properties": {
+        "StatusHeader": {
+          "enum": [
+            "OPEN",
+            "PROCESSED",
+            "ERROR",
+            "ERROR_ACKED",
+            "PENDING"
+          ],
+          "type": "string"
+        },
+        "StatusDetail": {
+          "$ref": "#/definitions/PostSaleSubStatus"
+        }
+      }
+    },
+    "VerifiedRefundItem": {
+      "type": "object",
+      "properties": {
+        "OrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnRowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ItemSKU": {
+          "type": "string"
+        },
+        "ChannelSKU": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "Cost": {
+          "format": "double",
+          "type": "number"
+        },
+        "CancelledQuantity": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "RefundError": {
+      "type": "object",
+      "properties": {
+        "RefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ErrorMessage": {
+          "type": "string"
+        },
+        "DateStamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Acknowledged": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Identifier": {
+      "type": "object",
+      "properties": {
+        "IdentifierId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsCustom": {
+          "type": "boolean"
+        },
+        "ImageId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ImageUrl": {
+          "type": "string"
+        },
+        "Tag": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        }
+      }
+    },
+    "ScheduledDelivery": {
+      "type": "object",
+      "properties": {
+        "From": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "To": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "CustomerAddress": {
+      "type": "object",
+      "properties": {
+        "EmailAddress": {
+          "type": "string"
+        },
+        "Address1": {
+          "type": "string"
+        },
+        "Address2": {
+          "type": "string"
+        },
+        "Address3": {
+          "type": "string"
+        },
+        "Town": {
+          "type": "string"
+        },
+        "Region": {
+          "type": "string"
+        },
+        "PostCode": {
+          "type": "string"
+        },
+        "Country": {
+          "type": "string"
+        },
+        "Continent": {
+          "type": "string"
+        },
+        "FullName": {
+          "type": "string"
+        },
+        "Company": {
+          "type": "string"
+        },
+        "PhoneNumber": {
+          "type": "string"
+        },
+        "CountryId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "OrderItemOnOrder": {
+      "type": "object",
+      "properties": {
+        "pkPurchaseItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Rowid": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkPurchaseId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ExternalInvoiceNumber": {
+          "type": "string"
+        },
+        "fkSupplierId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "DateOfDelivery": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "QuotedDeliveryDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "SupplierName": {
+          "type": "string"
+        },
+        "fkLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "OrderItemOption": {
+      "type": "object",
+      "properties": {
+        "pkOptionId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Property": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderItemBinRack": {
+      "type": "object",
+      "properties": {
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BinRack": {
+          "type": "string"
+        },
+        "Location": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BatchId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "OrderItemBatchId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "StockItemBoxConfiguration": {
+      "type": "object",
+      "properties": {
+        "BoxId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BoxName": {
+          "type": "string"
+        },
+        "Width": {
+          "format": "double",
+          "type": "number"
+        },
+        "Height": {
+          "format": "double",
+          "type": "number"
+        },
+        "Length": {
+          "format": "double",
+          "type": "number"
+        },
+        "Weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "ValuePercentage": {
+          "format": "double",
+          "type": "number"
+        },
+        "Barcode": {
+          "type": "string"
+        },
+        "PackagingTypeId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LogicalDelete": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ReturnsRefunds_GetActionableRefundHeadersRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/GetActionableRefundHeadersRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "GetActionableRefundHeadersRequest": {
+      "type": "object",
+      "properties": {
+        "Page": {
+          "format": "int32",
+          "description": "The page number to return for a given set of filters",
+          "type": "integer"
+        },
+        "Filters": {
+          "$ref": "#/definitions/ActionablePostSaleSearchFilters",
+          "description": "A set of filters to restrict the refund headers output by the call"
+        }
+      }
+    },
+    "ActionablePostSaleSearchFilters": {
+      "type": "object",
+      "properties": {
+        "Actionable": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "Type": {
+          "enum": [
+            "HEADER_ID",
+            "ORDER_ID",
+            "HEADER_REFERENCE",
+            "ORDER_REFERENCES",
+            "ORDER_TRACKING",
+            "ITEM_INFO",
+            "CUSTOMER_INFO"
+          ],
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        }
+      }
+    },
+    "GetActionableRefundHeadersResponse": {
+      "type": "object",
+      "properties": {
+        "Page": {
+          "format": "int32",
+          "description": "The page number returned",
+          "type": "integer"
+        },
+        "TotalHeaders": {
+          "format": "int32",
+          "description": "A count of the total number of refund headers matching the filter set by the request",
+          "type": "integer"
+        },
+        "HeadersPerPage": {
+          "format": "int32",
+          "description": "A count of the number of refund headers returned per page",
+          "type": "integer"
+        },
+        "RefundHeaders": {
+          "description": "A collection of refund headers matching the filter set by the request",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderRefundHeader"
+          }
+        }
+      }
+    },
+    "ReturnsRefunds_GetProcessedOrAckedErrorRefundHeadersRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/GetProcessedOrAckedErrorRefundHeadersRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "GetProcessedOrAckedErrorRefundHeadersRequest": {
+      "type": "object",
+      "properties": {
+        "Page": {
+          "format": "int32",
+          "description": "The page number to return for a given set of filters",
+          "type": "integer"
+        },
+        "Filters": {
+          "$ref": "#/definitions/ProcessedPostSaleSearchFilters",
+          "description": "A set of filters to restrict the refund headers output by the call"
+        }
+      }
+    },
+    "ProcessedPostSaleSearchFilters": {
+      "type": "object",
+      "properties": {
+        "Actionable": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "Type": {
+          "enum": [
+            "HEADER_ID",
+            "ORDER_ID",
+            "HEADER_REFERENCE",
+            "ORDER_REFERENCES",
+            "ORDER_TRACKING",
+            "ITEM_INFO",
+            "CUSTOMER_INFO"
+          ],
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        }
+      }
+    },
+    "GetProcessedOrAckedErrorRefundHeadersResponse": {
+      "type": "object",
+      "properties": {
+        "Page": {
+          "format": "int32",
+          "description": "The page number returned",
+          "type": "integer"
+        },
+        "TotalHeaders": {
+          "format": "int32",
+          "description": "A count of the total number of refund headers matching the filter set by the request",
+          "type": "integer"
+        },
+        "HeadersPerPage": {
+          "format": "int32",
+          "description": "A count of the number of refund headers returned per page",
+          "type": "integer"
+        },
+        "RefundHeaders": {
+          "description": "A collection of refund headers matching the filter set by the request",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderRefundHeader"
+          }
+        }
+      }
+    },
+    "ReturnsRefunds_GetRMAHeadersByOrderIdRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/GetRMAHeadersByOrderIdRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "GetRMAHeadersByOrderIdRequest": {
+      "type": "object",
+      "properties": {
+        "OrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "GetRMAHeadersByOrderIdResponse": {
+      "type": "object",
+      "properties": {
+        "RMAHeaders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderRMAHeader"
+          }
+        }
+      }
+    },
+    "OrderRMAHeader": {
+      "type": "object",
+      "properties": {
+        "RMAHeaderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "OrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "NumOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "OrderSource": {
+          "type": "string"
+        },
+        "OrderSubSource": {
+          "type": "string"
+        },
+        "ExternalReference": {
+          "type": "string"
+        },
+        "ChannelInitiated": {
+          "type": "boolean"
+        },
+        "CreatedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus"
+        },
+        "Actioned": {
+          "type": "boolean"
+        },
+        "LastActionDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "RMALines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VerifiedRMAItem"
+          }
+        }
+      }
+    },
+    "VerifiedRMAItem": {
+      "type": "object",
+      "properties": {
+        "RMARowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RMAHeaderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Type": {
+          "enum": [
+            "Return",
+            "Exchange",
+            "Resend"
+          ],
+          "type": "string"
+        },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus"
+        },
+        "ExternalReference": {
+          "type": "string"
+        },
+        "CreatedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Actioned": {
+          "type": "boolean"
+        },
+        "ActionedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Deleted": {
+          "type": "boolean"
+        },
+        "ResendQuantity": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "NewOrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ValidationError": {
+          "type": "string"
+        },
+        "Error": {
+          "type": "string"
+        },
+        "Errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RMAError"
+          }
+        },
+        "Info": {
+          "type": "string"
+        },
+        "ExchangeStockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ExchangeSKU": {
+          "type": "string"
+        },
+        "ExchangeTitle": {
+          "type": "string"
+        },
+        "ExchangeQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DespatchLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "AdditionalCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "OrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnItemSKU": {
+          "type": "string"
+        },
+        "ReturnItemTitle": {
+          "type": "string"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReturnLocation": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RefundAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "RefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ScrapQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReasonCategory": {
+          "type": "string"
+        },
+        "IsFreeText": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "Reason": {
+          "type": "string"
+        },
+        "ReasonTag": {
+          "type": "string"
+        },
+        "SubReasonTag": {
+          "type": "string"
+        },
+        "BinrackOverride": {
+          "type": "string"
+        }
+      }
+    },
+    "RMAError": {
+      "type": "object",
+      "properties": {
+        "RMARowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ErrorMessage": {
+          "type": "string"
+        },
+        "DateStamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Acknowledged": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ReturnsRefunds_GetRefundHeadersByOrderIdRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/GetRefundHeadersByOrderIdRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "GetRefundHeadersByOrderIdRequest": {
+      "type": "object",
+      "properties": {
+        "OrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "GetRefundHeadersByOrderIdResponse": {
+      "type": "object",
+      "properties": {
+        "RefundHeaders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderRefundHeader"
+          }
+        }
+      }
+    },
+    "ReturnsRefunds_GetRefundLinesByHeaderIdRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/GetRefundLinesByHeaderIdRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "GetRefundLinesByHeaderIdRequest": {
+      "type": "object",
+      "properties": {
+        "RefundHeaderId": {
+          "format": "int32",
+          "description": "The unique identifier for the refund header to load",
+          "type": "integer"
+        },
+        "OrderId": {
+          "format": "uuid",
+          "description": "The unique identifier for the order this refund pertains to. Used as a safety to ensure the correct refund is being worked with",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "GetRefundLinesByHeaderIdResponse": {
+      "type": "object",
+      "properties": {
+        "RefundHeaderId": {
+          "format": "int32",
+          "description": "The unique identifier for the loaded refund",
+          "type": "integer"
+        },
+        "RefundLines": {
+          "description": "A collection of all refunds associated with the loaded header",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VerifiedRefund"
+          }
+        },
+        "RefundOptions": {
+          "$ref": "#/definitions/RefundOptions",
+          "description": "Channel-specific information about refund requirements, e.g. accepted refund reasons"
+        }
+      }
+    },
+    "ReturnsRefunds_CreateRefundRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/CreateRefundRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "CreateRefundRequest": {
+      "type": "object",
+      "properties": {
+        "ChannelInitiated": {
+          "description": "Determines whether the refund was initiated on the channel, or within Linnworks",
+          "type": "boolean"
+        },
+        "OrderId": {
+          "format": "uuid",
+          "description": "The unique identifier for the order this refund is associated with",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "RefundLines": {
+          "description": "A collection of line-level refunds detailing the refund as a whole",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NewRefundLine"
+          }
+        }
+      }
+    },
+    "NewRefundLine": {
+      "type": "object",
+      "properties": {
+        "ReturnRowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "OrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "RefundedUnit": {
+          "enum": [
+            "Item",
+            "Shipping",
+            "Service",
+            "Additional"
+          ],
+          "type": "string"
+        },
+        "CancelledQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsFreeText": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "FreeTextOrNote": {
+          "type": "string"
+        },
+        "Amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReasonTag": {
+          "type": "string"
+        },
+        "SubReasonTag": {
+          "type": "string"
+        },
+        "InsufficientRefundTag": {
+          "type": "string"
+        },
+        "InsufficientRefundNote": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateRefundResponse": {
+      "type": "object",
+      "properties": {
+        "RefundHeaderId": {
+          "format": "int32",
+          "description": "The unique identifier for the refund header.",
+          "type": "integer"
+        },
+        "RefundReference": {
+          "description": "An automatically generated string to help identify the refund",
+          "type": "string"
+        },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus",
+          "description": "Identifies the overall state of the refund and its approval on the channel"
+        },
+        "CannotRefundReason": {
+          "description": "If the validation has failed at any stage, this field identifies the cause of the failure",
+          "enum": [
+            "None",
+            "NotImplemented",
+            "DisabledInConfig",
+            "MissingOrderInLinnworks",
+            "OpenOrderInLinnworks",
+            "OrderIsFullyRefundedInLinnworks",
+            "NoNewRefundsSpecified",
+            "NoUpdatedRefundsSpecified",
+            "MultipleReferences",
+            "SubStatusTagNotInTheSystem",
+            "SubStatusTagIsNotActionable",
+            "MultipleSubStatusTags",
+            "RefundNotInSystem",
+            "Other"
+          ],
+          "type": "string"
+        },
+        "Errors": {
+          "description": "Any global validation errors are added to this list, as well as any errors from the RefundLines collection",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "RefundLines": {
+          "description": "A collection of validated line-level refunds, with any applicable errors included",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VerifiedRefund"
+          }
+        }
+      }
+    },
+    "ReturnsRefunds_UpdateRefundRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/UpdateRefundRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "UpdateRefundRequest": {
+      "type": "object",
+      "properties": {
+        "RefundHeaderId": {
+          "format": "int32",
+          "description": "The identifier for the refund header to update",
+          "type": "integer"
+        },
+        "OrderId": {
+          "format": "uuid",
+          "description": "The unique identifier for the order the refund lines pertain to",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "RefundLines": {
+          "description": "A list of refund lines to update within the given refund",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UpdatedRefundLine"
+          }
+        }
+      }
+    },
+    "UpdatedRefundLine": {
+      "type": "object",
+      "properties": {
+        "RefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "RemoveFromRefund": {
+          "type": "boolean"
+        },
+        "IsFreeText": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "FreeTextOrNote": {
+          "type": "string"
+        },
+        "Amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReasonTag": {
+          "type": "string"
+        },
+        "SubReasonTag": {
+          "type": "string"
+        },
+        "InsufficientRefundTag": {
+          "type": "string"
+        },
+        "InsufficientRefundNote": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdateRefundResponse": {
+      "type": "object",
+      "properties": {
+        "RefundHeaderId": {
+          "format": "int32",
+          "description": "The unique identifier for the refund header.",
+          "type": "integer"
+        },
+        "RefundReference": {
+          "description": "An automatically generated string to help identify the refund",
+          "type": "string"
+        },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus",
+          "description": "Identifies the overall state of the refund and its approval on the channel"
+        },
+        "CannotRefundReason": {
+          "description": "If the validation has failed at any stage, this field identifies the cause of the failure",
+          "enum": [
+            "None",
+            "NotImplemented",
+            "DisabledInConfig",
+            "MissingOrderInLinnworks",
+            "OpenOrderInLinnworks",
+            "OrderIsFullyRefundedInLinnworks",
+            "NoNewRefundsSpecified",
+            "NoUpdatedRefundsSpecified",
+            "MultipleReferences",
+            "SubStatusTagNotInTheSystem",
+            "SubStatusTagIsNotActionable",
+            "MultipleSubStatusTags",
+            "RefundNotInSystem",
+            "Other"
+          ],
+          "type": "string"
+        },
+        "Errors": {
+          "description": "Any global validation errors are added to this list, as well as any errors from the RefundLines collection",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "RefundLines": {
+          "description": "A collection of validated line-level refunds, with any applicable errors included",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VerifiedRefund"
+          }
+        }
+      }
+    },
+    "ReturnsRefunds_AcknowledgeRefundErrorsRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/AcknowledgeRefundErrorsRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "AcknowledgeRefundErrorsRequest": {
+      "type": "object",
+      "properties": {
+        "RefundHeaderId": {
+          "format": "int32",
+          "description": "The unique identifier for the refund header whose errors will be acknowledged",
+          "type": "integer"
+        },
+        "RefundRowIds": {
+          "description": "A list of row ids to acknowledge errors for. Can be left empty when \"AcknowledgeAllErrors\" is set to true",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "AcknowledgeAllErrors": {
+          "description": "Ignores the RefundRowIds list and acknowledges all errors for the given refund header id",
+          "type": "boolean"
+        }
+      }
+    },
+    "AcknowledgeRefundErrorsResponse": {
+      "type": "object",
+      "properties": {
+        "EntireRefundHeaderSetToErrorAcked": {
+          "description": "Determines whether the entire refund header was set to \"ERROR_ACKED\" state as a result of this call (will be found in the History tab)",
+          "type": "boolean"
+        },
+        "RefundHeaderId": {
+          "format": "int32",
+          "description": "The unique identifier for the refund header.",
+          "type": "integer"
+        },
+        "RefundReference": {
+          "description": "An automatically generated string to help identify the refund",
+          "type": "string"
+        },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus",
+          "description": "Identifies the overall state of the refund and its approval on the channel"
+        },
+        "CannotRefundReason": {
+          "description": "If the validation has failed at any stage, this field identifies the cause of the failure",
+          "enum": [
+            "None",
+            "NotImplemented",
+            "DisabledInConfig",
+            "MissingOrderInLinnworks",
+            "OpenOrderInLinnworks",
+            "OrderIsFullyRefundedInLinnworks",
+            "NoNewRefundsSpecified",
+            "NoUpdatedRefundsSpecified",
+            "MultipleReferences",
+            "SubStatusTagNotInTheSystem",
+            "SubStatusTagIsNotActionable",
+            "MultipleSubStatusTags",
+            "RefundNotInSystem",
+            "Other"
+          ],
+          "type": "string"
+        },
+        "Errors": {
+          "description": "Any global validation errors are added to this list, as well as any errors from the RefundLines collection",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "RefundLines": {
+          "description": "A collection of validated line-level refunds, with any applicable errors included",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VerifiedRefund"
+          }
+        }
+      }
+    },
+    "ReturnsRefunds_AcknowledgeRMAErrorsRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/AcknowledgeRMAErrorsRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "AcknowledgeRMAErrorsRequest": {
+      "type": "object",
+      "properties": {
+        "RMAHeaderId": {
+          "format": "int32",
+          "description": "The unique identifier for the RMA header whose errors will be acknowledged",
+          "type": "integer"
+        },
+        "RMARowIds": {
+          "description": "A list of row ids to acknowledge errors for",
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "AcknowledgeAllErrors": {
+          "description": "Ignores the RefundRowIds list and acknowledges all errors for the given rma header id",
+          "type": "boolean"
+        }
+      }
+    },
+    "AcknowledgeRMAErrorsResponse": {
+      "type": "object",
+      "properties": {
+        "EntireRMAHeaderSetToErrorAcked": {
+          "description": "Determines whether the entire RMA header was set to \"ERROR_ACKED\" state as a result of this call (will be found in the History tab)",
+          "type": "boolean"
+        },
+        "RMAHeaderId": {
+          "format": "int32",
+          "description": "An identifier for the RMA request header being worked with. Newly created RMA headers will have this field populated as part of the \"Create\" request",
+          "type": "integer"
+        },
+        "Items": {
+          "description": "A collection of verified and validated items that have been added to this RMA request",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VerifiedRMAItem"
+          }
+        },
+        "Errors": {
+          "description": "Any global validation errors are included in this collection, along with a concatenation of any errors found in an individual item",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Info": {
+          "description": "Any global validation information is included in this collection, along with a concatenation of any information found in an individual item",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ReturnsRefunds_ActionRefundRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/ActionRefundRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "ActionRefundRequest": {
+      "type": "object",
+      "properties": {
+        "RefundHeaderId": {
+          "format": "int32",
+          "description": "The unique identifier for the refund header to action",
+          "type": "integer"
+        },
+        "OrderId": {
+          "format": "uuid",
+          "description": "The order ID this refund header pertains to. Used as a double-step verification to ensure the right refund header is being actioned",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Request": {
+          "$ref": "#/definitions/ActionForm",
+          "description": "When actioning a refund beyond the initial approval, the channel may require additional information, which can be passed via this field. Not required"
+        }
+      }
+    },
+    "ActionForm": {
+      "type": "object",
+      "properties": {
+        "caption": {
+          "type": "string"
+        },
+        "controls": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ActionFormControl"
+          }
+        }
+      }
+    },
+    "ActionFormControl": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "caption": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        }
+      }
+    },
+    "ActionRefundResponse": {
+      "type": "object",
+      "properties": {
+        "SuccessfullyActioned": {
+          "description": "Determines whether the header was marked as actioned in the database",
+          "type": "boolean"
+        },
+        "RefundHeaderId": {
+          "format": "int32",
+          "description": "The unique identifier for the refund header.",
+          "type": "integer"
+        },
+        "RefundReference": {
+          "description": "An automatically generated string to help identify the refund",
+          "type": "string"
+        },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus",
+          "description": "Identifies the overall state of the refund and its approval on the channel"
+        },
+        "CannotRefundReason": {
+          "description": "If the validation has failed at any stage, this field identifies the cause of the failure",
+          "enum": [
+            "None",
+            "NotImplemented",
+            "DisabledInConfig",
+            "MissingOrderInLinnworks",
+            "OpenOrderInLinnworks",
+            "OrderIsFullyRefundedInLinnworks",
+            "NoNewRefundsSpecified",
+            "NoUpdatedRefundsSpecified",
+            "MultipleReferences",
+            "SubStatusTagNotInTheSystem",
+            "SubStatusTagIsNotActionable",
+            "MultipleSubStatusTags",
+            "RefundNotInSystem",
+            "Other"
+          ],
+          "type": "string"
+        },
+        "Errors": {
+          "description": "Any global validation errors are added to this list, as well as any errors from the RefundLines collection",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "RefundLines": {
+          "description": "A collection of validated line-level refunds, with any applicable errors included",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VerifiedRefund"
+          }
+        }
+      }
+    },
+    "ReturnsRefunds_DeleteRefundRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/DeleteRefundRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "DeleteRefundRequest": {
+      "type": "object",
+      "properties": {
+        "RefundHeaderId": {
+          "format": "int32",
+          "description": "Identifies the refund header to be deleted",
+          "type": "integer"
+        }
+      }
+    },
+    "DeleteRefundResponse": {
+      "type": "object",
+      "properties": {}
+    },
+    "ReturnsRefunds_DeleteRMARequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/DeleteRMARequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "DeleteRMARequest": {
+      "type": "object",
+      "properties": {
+        "RMAHeaderId": {
+          "format": "int32",
+          "description": "Identifies the RMA header to be deleted",
+          "type": "integer"
+        }
+      }
+    },
+    "DeleteRMAResponse": {
+      "type": "object",
+      "properties": {}
+    },
+    "ReturnsRefunds_GetReturnOptionsRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/GetReturnOptionsRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "GetReturnOptionsRequest": {
+      "type": "object",
+      "properties": {
+        "OrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "RMAHeaderId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "GetReturnOptionsResponse": {
+      "type": "object",
+      "properties": {
+        "ReturnOptions": {
+          "$ref": "#/definitions/ReturnOptions"
+        }
+      }
+    },
+    "ReturnOptions": {
+      "type": "object",
+      "properties": {
+        "CanReturn": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "CanReturnInternally": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "MustHaveRefund": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "RefundAutoPopulated": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "CanHaveRefund": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "ReturnReasons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChannelReason"
+          },
+          "readOnly": true
+        },
+        "SubStatuses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PostSaleSubStatus"
+          },
+          "readOnly": true
+        },
+        "RefundOptions": {
+          "$ref": "#/definitions/RefundOptions"
+        },
+        "CannotReturnReason": {
+          "enum": [
+            "None",
+            "NotImplemented",
+            "DisabledInConfig",
+            "MissingOrderInLinnworks",
+            "OpenOrderInLinnworks",
+            "AlreadyReturnedOnChannel",
+            "AlreadyReturnedInLinnworks",
+            "NoNewRMAsSpecified",
+            "SubStatusTagNotInTheSystem",
+            "SubStatusTagIsNotActionable",
+            "MultipleSubStatusTags",
+            "Other"
+          ],
+          "type": "string"
+        },
+        "Order": {
+          "$ref": "#/definitions/OrderDetails",
+          "readOnly": true
+        },
+        "RMAHeader": {
+          "$ref": "#/definitions/OrderRMAHeader"
+        },
+        "AllExistingRMAs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VerifiedRMAItem"
+          },
+          "readOnly": true
+        },
+        "Errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "readOnly": true
+        },
+        "Info": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "readOnly": true
+        }
+      }
+    },
+    "ReturnsRefunds_GetActionableRMAHeadersRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/GetActionableRMAHeadersRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "GetActionableRMAHeadersRequest": {
+      "type": "object",
+      "properties": {
+        "Page": {
+          "format": "int32",
+          "description": "The page number to return for a given set of filters",
+          "type": "integer"
+        },
+        "Filters": {
+          "$ref": "#/definitions/ActionablePostSaleSearchFilters",
+          "description": "A set of filters to restrict the RMA headers output by the call"
+        }
+      }
+    },
+    "GetActionableRMAHeadersResponse": {
+      "type": "object",
+      "properties": {
+        "Page": {
+          "format": "int32",
+          "description": "The page number returned",
+          "type": "integer"
+        },
+        "TotalHeaders": {
+          "format": "int32",
+          "description": "A count of the total number of RMA headers matching the filter set by the request",
+          "type": "integer"
+        },
+        "HeadersPerPage": {
+          "format": "int32",
+          "description": "A count of the number of RMA headers returned per page",
+          "type": "integer"
+        },
+        "RMAHeaders": {
+          "description": "A collection of RMA headers matching the filter set by the request",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderRMAHeader"
+          }
+        }
+      }
+    },
+    "ReturnsRefunds_GetProcessedOrAckedErrorRMAHeadersRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/GetProcessedOrAckedErrorRMAHeadersRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "GetProcessedOrAckedErrorRMAHeadersRequest": {
+      "type": "object",
+      "properties": {
+        "Page": {
+          "format": "int32",
+          "description": "The page number to return for a given set of filters",
+          "type": "integer"
+        },
+        "Filters": {
+          "$ref": "#/definitions/ProcessedPostSaleSearchFilters",
+          "description": "A set of filters to restrict the refund headers output by the call"
+        }
+      }
+    },
+    "GetProcessedOrAckedErrorRMAHeadersResponse": {
+      "type": "object",
+      "properties": {
+        "Page": {
+          "format": "int32",
+          "description": "The page number returned",
+          "type": "integer"
+        },
+        "TotalHeaders": {
+          "format": "int32",
+          "description": "A count of the total number of RMA headers matching the filter set by the request",
+          "type": "integer"
+        },
+        "HeadersPerPage": {
+          "format": "int32",
+          "description": "A count of the number of RMA headers returned per page",
+          "type": "integer"
+        },
+        "RMAHeaders": {
+          "description": "A collection of RMA headers matching the filter set by the request",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderRMAHeader"
+          }
+        }
+      }
+    },
+    "ReturnsRefunds_CreateRMABookingRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/CreateRMABookingRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "CreateRMABookingRequest": {
+      "type": "object",
+      "properties": {
+        "ChannelInitiated": {
+          "description": "Determines whether the RMA request was initiated on the channel, or within Linnworks",
+          "type": "boolean"
+        },
+        "OrderId": {
+          "format": "uuid",
+          "description": "The unique identifier for the order a return booking is being created for",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnItems": {
+          "description": "A collection of items to be returned as part of this booking",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ReturnItem"
+          }
+        },
+        "ExchangeItems": {
+          "description": "A collection of items to be exchanged as part of this booking",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExchangeItem"
+          }
+        },
+        "ResendItems": {
+          "description": "A collection of items to be resent as part of this booking",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResendItem"
+          }
+        },
+        "Reference": {
+          "description": "(Optional) If provided, sets the External Reference of the RMA header to the provided value. Otherwise, this value is automatically generated",
+          "type": "string"
+        }
+      }
+    },
+    "ReturnItem": {
+      "type": "object",
+      "properties": {
+        "OrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnItemSKU": {
+          "type": "string"
+        },
+        "ReturnItemTitle": {
+          "type": "string"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReturnLocation": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RefundAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "RefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ScrapQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReasonCategory": {
+          "type": "string"
+        },
+        "IsFreeText": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "Reason": {
+          "type": "string"
+        },
+        "ReasonTag": {
+          "type": "string"
+        },
+        "SubReasonTag": {
+          "type": "string"
+        },
+        "BinrackOverride": {
+          "type": "string"
+        }
+      }
+    },
+    "ExchangeItem": {
+      "type": "object",
+      "properties": {
+        "ExchangeStockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ExchangeSKU": {
+          "type": "string"
+        },
+        "ExchangeTitle": {
+          "type": "string"
+        },
+        "ExchangeQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DespatchLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "AdditionalCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "OrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnItemSKU": {
+          "type": "string"
+        },
+        "ReturnItemTitle": {
+          "type": "string"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReturnLocation": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RefundAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "RefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ScrapQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReasonCategory": {
+          "type": "string"
+        },
+        "IsFreeText": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "Reason": {
+          "type": "string"
+        },
+        "ReasonTag": {
+          "type": "string"
+        },
+        "SubReasonTag": {
+          "type": "string"
+        },
+        "BinrackOverride": {
+          "type": "string"
+        }
+      }
+    },
+    "ResendItem": {
+      "type": "object",
+      "properties": {
+        "ResendQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DespatchLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "AdditionalCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "OrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnItemSKU": {
+          "type": "string"
+        },
+        "ReturnItemTitle": {
+          "type": "string"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReturnLocation": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RefundAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "RefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ScrapQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReasonCategory": {
+          "type": "string"
+        },
+        "IsFreeText": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "Reason": {
+          "type": "string"
+        },
+        "ReasonTag": {
+          "type": "string"
+        },
+        "SubReasonTag": {
+          "type": "string"
+        },
+        "BinrackOverride": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateRMABookingResponse": {
+      "type": "object",
+      "properties": {
+        "RMAHeaderId": {
+          "format": "int32",
+          "description": "An identifier for the RMA request header being worked with. Newly created RMA headers will have this field populated as part of the \"Create\" request",
+          "type": "integer"
+        },
+        "Items": {
+          "description": "A collection of verified and validated items that have been added to this RMA request",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VerifiedRMAItem"
+          }
+        },
+        "Errors": {
+          "description": "Any global validation errors are included in this collection, along with a concatenation of any errors found in an individual item",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Info": {
+          "description": "Any global validation information is included in this collection, along with a concatenation of any information found in an individual item",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ReturnsRefunds_UpdateRMABookingRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/UpdateRMABookingRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "UpdateRMABookingRequest": {
+      "type": "object",
+      "properties": {
+        "OrderId": {
+          "format": "uuid",
+          "description": "The unique identifier for the order the return lines pertain to",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "RMAHeaderId": {
+          "format": "int32",
+          "description": "The unique identifier for the RMA header to update",
+          "type": "integer"
+        },
+        "ReturnItems": {
+          "description": "A collection of updated return items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UpdatedReturnItem"
+          }
+        },
+        "ExchangeItems": {
+          "description": "A collection of updated exchange items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UpdatedExchangeItem"
+          }
+        },
+        "ResendItems": {
+          "description": "A collection of updated resend items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UpdatedResendItem"
+          }
+        },
+        "AllowCreationOfNewOrder": {
+          "description": "If an existing RMA order has been deleted or cancelled, this flag determines whether a new one should be created, or an error should be returned",
+          "type": "boolean"
+        }
+      }
+    },
+    "UpdatedReturnItem": {
+      "type": "object",
+      "properties": {
+        "RMARowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RemoveFromBooking": {
+          "type": "boolean"
+        },
+        "OrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnItemSKU": {
+          "type": "string"
+        },
+        "ReturnItemTitle": {
+          "type": "string"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReturnLocation": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RefundAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "RefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ScrapQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReasonCategory": {
+          "type": "string"
+        },
+        "IsFreeText": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "Reason": {
+          "type": "string"
+        },
+        "ReasonTag": {
+          "type": "string"
+        },
+        "SubReasonTag": {
+          "type": "string"
+        },
+        "BinrackOverride": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdatedExchangeItem": {
+      "type": "object",
+      "properties": {
+        "RMARowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RemoveFromBooking": {
+          "type": "boolean"
+        },
+        "ExchangeStockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ExchangeSKU": {
+          "type": "string"
+        },
+        "ExchangeTitle": {
+          "type": "string"
+        },
+        "ExchangeQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DespatchLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "AdditionalCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "OrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnItemSKU": {
+          "type": "string"
+        },
+        "ReturnItemTitle": {
+          "type": "string"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReturnLocation": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RefundAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "RefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ScrapQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReasonCategory": {
+          "type": "string"
+        },
+        "IsFreeText": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "Reason": {
+          "type": "string"
+        },
+        "ReasonTag": {
+          "type": "string"
+        },
+        "SubReasonTag": {
+          "type": "string"
+        },
+        "BinrackOverride": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdatedResendItem": {
+      "type": "object",
+      "properties": {
+        "RMARowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RemoveFromBooking": {
+          "type": "boolean"
+        },
+        "ResendQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DespatchLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "AdditionalCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "OrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnItemSKU": {
+          "type": "string"
+        },
+        "ReturnItemTitle": {
+          "type": "string"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReturnLocation": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RefundAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "RefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ScrapQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReasonCategory": {
+          "type": "string"
+        },
+        "IsFreeText": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "Reason": {
+          "type": "string"
+        },
+        "ReasonTag": {
+          "type": "string"
+        },
+        "SubReasonTag": {
+          "type": "string"
+        },
+        "BinrackOverride": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdateRMABookingResponse": {
+      "type": "object",
+      "properties": {
+        "RMAHeaderId": {
+          "format": "int32",
+          "description": "An identifier for the RMA request header being worked with. Newly created RMA headers will have this field populated as part of the \"Create\" request",
+          "type": "integer"
+        },
+        "Items": {
+          "description": "A collection of verified and validated items that have been added to this RMA request",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VerifiedRMAItem"
+          }
+        },
+        "Errors": {
+          "description": "Any global validation errors are included in this collection, along with a concatenation of any errors found in an individual item",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Info": {
+          "description": "Any global validation information is included in this collection, along with a concatenation of any information found in an individual item",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ReturnsRefunds_ActionRMABookingRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/ActionRMABookingRequest",
+          "description": "The request class for this call"
+        }
+      }
+    },
+    "ActionRMABookingRequest": {
+      "type": "object",
+      "properties": {
+        "RMAHeaderId": {
+          "format": "int32",
+          "description": "The unique identifier for the RMA header to action",
+          "type": "integer"
+        },
+        "OrderId": {
+          "format": "uuid",
+          "description": "The order ID this RMA header pertains to. Used as a double-step verification to ensure the right RMA header is being actioned",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Request": {
+          "$ref": "#/definitions/ActionForm",
+          "description": "When actioning an RMA beyond the initial approval, the channel may require additional information, which can be passed via this field. Not required"
+        }
+      }
+    },
+    "ActionRMABookingResponse": {
+      "type": "object",
+      "properties": {
+        "RefundHeaderId": {
+          "format": "int32",
+          "description": "If a refund was created as part of accepting the return/exchange booking, this identifies the created header",
+          "type": "integer"
+        },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus",
+          "description": "For the header that was actioned, returns its status"
+        },
+        "SuccessfullyActioned": {
+          "description": "Determines whether the header was marked as actioned in the database",
+          "type": "boolean"
+        },
+        "RMAHeaderId": {
+          "format": "int32",
+          "description": "An identifier for the RMA request header being worked with. Newly created RMA headers will have this field populated as part of the \"Create\" request",
+          "type": "integer"
+        },
+        "Items": {
+          "description": "A collection of verified and validated items that have been added to this RMA request",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VerifiedRMAItem"
+          }
+        },
+        "Errors": {
+          "description": "Any global validation errors are included in this collection, along with a concatenation of any errors found in an individual item",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Info": {
+          "description": "Any global validation information is included in this collection, along with a concatenation of any information found in an individual item",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RefundOrder": {
+      "type": "object",
+      "properties": {
+        "pkOrderID": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "nOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "cFullName": {
+          "type": "string"
+        },
+        "Source": {
+          "type": "string"
+        },
+        "SubSource": {
+          "type": "string"
+        },
+        "Amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "IssueRefundUrl": {
+          "type": "string"
+        },
+        "cCurrency": {
+          "type": "string"
+        },
+        "ReferenceNum": {
+          "type": "string"
+        },
+        "SecondaryReference": {
+          "type": "string"
+        },
+        "RefundReference": {
+          "type": "string"
+        },
+        "RefundDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "SubTotal": {
+          "format": "double",
+          "type": "number"
+        },
+        "Total": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "BookedReturnsExchangeOrder": {
+      "type": "object",
+      "properties": {
+        "pkOrderID": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "nOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReferenceNum": {
+          "type": "string"
+        },
+        "SecondaryReference": {
+          "type": "string"
+        },
+        "cFullName": {
+          "type": "string"
+        },
+        "ReturnDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "ReturnsRefunds_DeleteBookedOrderRequest": {
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "description": "unique ID of the order",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "ReturnsRefunds_ActionBookedOrderRequest": {
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "description": "unique ID of the order",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "bookedItems": {
+          "description": "list of returns/exchange items to be actioned",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BookedReturnsExchangeItem"
+          }
+        }
+      }
+    },
+    "BookedReturnsExchangeItem": {
+      "type": "object",
+      "properties": {
+        "fkOrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "OrderItemBatchId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchNumber": {
+          "type": "string"
+        },
+        "RowType": {
+          "type": "string"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "ReturnQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "MaxReturnQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "NewQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "NewSKU": {
+          "type": "string"
+        },
+        "NewTitle": {
+          "type": "string"
+        },
+        "fkNewStockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Category": {
+          "type": "string"
+        },
+        "Reason": {
+          "type": "string"
+        },
+        "fkReturnLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnLocation": {
+          "type": "string"
+        },
+        "PendingRefundAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "Scrapped": {
+          "type": "boolean"
+        },
+        "ScrapQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ParentOrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "AdditionalCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "cCurrency": {
+          "type": "string"
+        },
+        "pkReturnId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ChannelReason": {
+          "type": "string"
+        },
+        "ChannelReasonSec": {
+          "type": "string"
+        },
+        "ReturnDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DespatchUnitValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "BatchInventory": {
+          "$ref": "#/definitions/StockItemBatchInventory"
+        }
+      }
+    },
+    "StockItemBatchInventory": {
+      "type": "object",
+      "properties": {
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BinRack": {
+          "type": "string"
+        },
+        "PrioritySequence": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "StartQuantity": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "PickedQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchStatus": {
+          "type": "string"
+        },
+        "IsDeleted": {
+          "type": "boolean"
+        },
+        "WarehouseBinrackStandardType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "WarehouseBinrackTypeName": {
+          "type": "string"
+        },
+        "InTransfer": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BinRackId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "WarehouseBinrackTypeId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "ReturnsRefunds_DeleteBookedItemRequest": {
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "description": "unique ID of the order",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkReturnId": {
+          "format": "int32",
+          "description": "unique row ID of the return/exchange item",
+          "type": "integer"
+        }
+      }
+    },
+    "ReturnsRefunds_RefundOrderRequest": {
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "description": "unique ID of the order",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "refundReference": {
+          "description": "Refund Reference Id",
+          "type": "string"
+        }
+      }
+    },
+    "WarehouseLocation": {
+      "type": "object",
+      "properties": {
+        "LocationName": {
+          "type": "string"
+        },
+        "pkStockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "ReturnsRefunds_EditBookedItemInfoRequest": {
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "description": "unique ID of the order",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "bookedReturnsExchangeItem": {
+          "$ref": "#/definitions/BookedReturnsExchangeItem",
+          "description": "The updated booked return/exchange item object"
+        }
+      }
+    },
+    "ReturnsRefunds_DeletePendingRefundItemRequest": {
+      "type": "object",
+      "properties": {
+        "fkOrderId": {
+          "format": "uuid",
+          "description": "unique order ID of the refund order",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkRefundRowId": {
+          "format": "uuid",
+          "description": "unique refund row ID of the refund item to delete",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "GenericPagedResult_ReturnsRefundsWeb": {
+      "type": "object",
+      "properties": {
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EntriesPerPage": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalEntries": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "TotalPages": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "Data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ReturnsRefundsWeb"
+          }
+        }
+      }
+    },
+    "ReturnsRefundsWeb": {
+      "type": "object",
+      "properties": {
+        "Row": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "pkOrderID": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "cShippingAddress": {
+          "type": "string"
+        },
+        "dProcessedOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "fPostageCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "fTotalCharge": {
+          "format": "double",
+          "type": "number"
+        },
+        "PostageCostExTax": {
+          "format": "double",
+          "type": "number"
+        },
+        "Subtotal": {
+          "format": "double",
+          "type": "number"
+        },
+        "fTax": {
+          "format": "double",
+          "type": "number"
+        },
+        "TotalDiscount": {
+          "format": "double",
+          "type": "number"
+        },
+        "CountryTaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "nOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "cCurrency": {
+          "type": "string"
+        },
+        "PostalTrackingNumber": {
+          "type": "string"
+        },
+        "cCountry": {
+          "type": "string"
+        },
+        "Source": {
+          "type": "string"
+        },
+        "PostalServiceName": {
+          "type": "string"
+        },
+        "PostalServiceCode": {
+          "type": "string"
+        },
+        "Vendor": {
+          "type": "string"
+        },
+        "ReferenceNum": {
+          "type": "string"
+        },
+        "SecondaryReference": {
+          "type": "string"
+        },
+        "ExternalReference": {
+          "type": "string"
+        },
+        "Address1": {
+          "type": "string"
+        },
+        "Address2": {
+          "type": "string"
+        },
+        "Address3": {
+          "type": "string"
+        },
+        "Town": {
+          "type": "string"
+        },
+        "Region": {
+          "type": "string"
+        },
+        "BuyerPhoneNumber": {
+          "type": "string"
+        },
+        "Company": {
+          "type": "string"
+        },
+        "SubSource": {
+          "type": "string"
+        },
+        "ChannelBuyerName": {
+          "type": "string"
+        },
+        "AccountName": {
+          "type": "string"
+        },
+        "cFullName": {
+          "type": "string"
+        },
+        "cEmailAddress": {
+          "type": "string"
+        },
+        "cPostCode": {
+          "type": "string"
+        },
+        "dPaidOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "cBillingAddress": {
+          "type": "string"
+        },
+        "BillingName": {
+          "type": "string"
+        },
+        "BillingCompany": {
+          "type": "string"
+        },
+        "BillingAddress1": {
+          "type": "string"
+        },
+        "BillingAddress2": {
+          "type": "string"
+        },
+        "BillingAddress3": {
+          "type": "string"
+        },
+        "BillingTown": {
+          "type": "string"
+        },
+        "BillingRegion": {
+          "type": "string"
+        },
+        "BillingPostCode": {
+          "type": "string"
+        },
+        "BillingCountryName": {
+          "type": "string"
+        },
+        "BillingPhoneNumber": {
+          "type": "string"
+        },
+        "cItemNumber": {
+          "type": "string"
+        },
+        "cItemName": {
+          "type": "string"
+        },
+        "pkReturnId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RowType": {
+          "type": "string"
+        },
+        "ReturnReference": {
+          "type": "string"
+        },
+        "PendingRefundAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "LastDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Reason": {
+          "type": "string"
+        },
+        "ChannelReason": {
+          "type": "string"
+        },
+        "ChannelReasonSec": {
+          "type": "string"
+        },
+        "Category": {
+          "type": "string"
+        },
+        "ReturnQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fkReturnLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Scrapped": {
+          "type": "boolean"
+        },
+        "ScrapQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReturnDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Location": {
+          "type": "string"
+        },
+        "ItemNumber": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "NewQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RefundReference": {
+          "type": "string"
+        },
+        "pkRefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "CancellationQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fkOrderItemReturnId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ActionDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "RefundStatus": {
+          "enum": [
+            "OPEN",
+            "PROCESSED",
+            "ERROR",
+            "ERROR_ACKED",
+            "PENDING"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "SearchField": {
+      "type": "object",
+      "properties": {
+        "Field": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "AllowForAllDates": {
+          "type": "boolean"
+        },
+        "ExactSearchOptional": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

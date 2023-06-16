@@ -1,0 +1,186 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "shippingservice",
+    "title": "Shipping service API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/ShippingService/PostShipmentUpload": {
+      "post": {
+        "tags": [
+          "ShippingService"
+        ],
+        "summary": "PostShipmentUpload",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostShipmentUploadNode",
+        "operationId": "PostShipmentUpload",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PostShipmentUploadRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ShippingService/CancelOrderShippingLabel": {
+      "post": {
+        "tags": [
+          "ShippingService"
+        ],
+        "summary": "CancelOrderShippingLabel",
+        "description": "Cancels the shipping label for an order\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.ShippingLabelNode",
+        "operationId": "CancelOrderShippingLabel",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ShippingService_CancelOrderShippingLabelRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ShippingService_CancelOrderShippingLabelRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CancelOrderShippingLabelResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "PostShipmentUploadRequest": {
+      "type": "object",
+      "properties": {
+        "FileUploadItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FileUploadItem"
+          }
+        }
+      }
+    },
+    "FileUploadItem": {
+      "type": "object",
+      "properties": {
+        "EncodedFile": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "DocType": {
+          "type": "string"
+        },
+        "ExpirationDate": {
+          "type": "string"
+        },
+        "DocUsageType": {
+          "type": "string"
+        },
+        "OrderId": {
+          "type": "string"
+        },
+        "AccountId": {
+          "type": "string"
+        },
+        "Vendor": {
+          "type": "string"
+        }
+      }
+    },
+    "ShippingService_CancelOrderShippingLabelRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/CancelOrderShippingLabelRequest",
+          "description": ""
+        }
+      }
+    },
+    "CancelOrderShippingLabelRequest": {
+      "description": "Class used for reqeust parameters for CancelOrderShippingLabel",
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "description": "Unique Order id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "CancelOrderShippingLabelResponse": {
+      "description": "Class used for getting shipping label cancelation parameter",
+      "type": "object",
+      "properties": {
+        "LabelCanceled": {
+          "description": "Identifies that the label is canceled successfully in the courier system",
+          "type": "boolean"
+        },
+        "MustCancelManually": {
+          "description": "Identifies that the label is canceled in Linnworks Only and must also be canceled manually with the courier. This normally indicates that the courier does not support label cancelation.",
+          "type": "boolean"
+        },
+        "IsError": {
+          "description": "Is error",
+          "type": "boolean"
+        },
+        "ErrorMessage": {
+          "description": "Error Message if IsError is true",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

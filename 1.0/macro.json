@@ -1,0 +1,335 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "macro",
+    "title": "Macros API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/Macro/GetInstalledMacros": {
+      "get": {
+        "tags": [
+          "Macro"
+        ],
+        "summary": "GetInstalledMacros",
+        "description": "Get a list of all macros and their related applications as installed on the users system\n<b>Permissions Required: </b> GlobalPermissions.Applications.MacroConfigurationNode",
+        "operationId": "GetInstalledMacros",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetInstalledMacrosResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Macro/GetMacroConfigurations": {
+      "get": {
+        "tags": [
+          "Macro"
+        ],
+        "summary": "GetMacroConfigurations",
+        "description": "Get all the macro configurations for the user account\n<b>Permissions Required: </b> GlobalPermissions.Applications.MacroConfigurationNode",
+        "operationId": "GetMacroConfigurations",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MacroRegister"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GetInstalledMacroRequest": {
+      "type": "object",
+      "properties": {}
+    },
+    "GetInstalledMacrosResponse": {
+      "type": "object",
+      "properties": {
+        "Macros": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InstalledMacro"
+          }
+        }
+      }
+    },
+    "InstalledMacro": {
+      "type": "object",
+      "properties": {
+        "ApplicationName": {
+          "type": "string"
+        },
+        "ApplicationLogo": {
+          "type": "string"
+        },
+        "MacroName": {
+          "type": "string"
+        },
+        "MacroDescription": {
+          "type": "string"
+        },
+        "ExecutionType": {
+          "enum": [
+            "API",
+            "Scheduled",
+            "RulesEngine_Order"
+          ],
+          "type": "string"
+        },
+        "SourceCodeType": {
+          "enum": [
+            "netcore10",
+            "netcore21",
+            "netcore31",
+            "net6"
+          ],
+          "type": "string"
+        },
+        "Parameters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ParameterDefinition"
+          }
+        }
+      }
+    },
+    "ParameterDefinition": {
+      "type": "object",
+      "properties": {
+        "Type": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "IsRequired": {
+          "type": "boolean"
+        },
+        "DefaultValue": {
+          "type": "string"
+        },
+        "FriendlyName": {
+          "type": "string"
+        },
+        "ParameterDescription": {
+          "type": "string"
+        },
+        "RegexValidation": {
+          "type": "string"
+        },
+        "RegexErrorMessage": {
+          "type": "string"
+        },
+        "MustBeSpecified1": {
+          "type": "boolean"
+        },
+        "isHidden": {
+          "type": "boolean"
+        },
+        "isReadOnly": {
+          "type": "boolean"
+        },
+        "IsSecure": {
+          "type": "boolean"
+        },
+        "GroupName": {
+          "type": "string"
+        },
+        "Sortorder": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "GetMacroConfigurationsRequest": {
+      "type": "object",
+      "properties": {}
+    },
+    "MacroRegister": {
+      "type": "object",
+      "properties": {
+        "MacroId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ApplicationName": {
+          "type": "string"
+        },
+        "MacroName": {
+          "type": "string"
+        },
+        "FriendlyName": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "Started": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Completed": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Executing": {
+          "type": "boolean"
+        },
+        "CurrentState": {
+          "type": "string"
+        },
+        "Parameters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MacroParameter"
+          }
+        },
+        "Specification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NamedScheduleConfiguration"
+          }
+        },
+        "TimeZoneOffset": {
+          "format": "double",
+          "type": "number"
+        },
+        "MacroType": {
+          "type": "string"
+        },
+        "Migrated": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "MacroParameter": {
+      "type": "object",
+      "properties": {
+        "MacroId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ParameterName": {
+          "type": "string"
+        },
+        "ParameterValue": {
+          "type": "string"
+        },
+        "IsSecure": {
+          "type": "boolean"
+        }
+      }
+    },
+    "NamedScheduleConfiguration": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "RepetitionType": {
+          "enum": [
+            "OneTime",
+            "Recurrent"
+          ],
+          "type": "string"
+        },
+        "OneTimeDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DailyFrequency": {
+          "enum": [
+            "Daily",
+            "Weekly"
+          ],
+          "type": "string"
+        },
+        "OccursFrequencyStartingDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "OccursFrequencyEveryX": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "WeeklyDays": {
+          "type": "string"
+        },
+        "OccursFrequency": {
+          "enum": [
+            "OneTime",
+            "Recurrent"
+          ],
+          "type": "string"
+        },
+        "OccursOnceAtTime": {
+          "type": "string"
+        },
+        "OccursEveryHours": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StartingTime": {
+          "type": "string"
+        },
+        "EndingTime": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

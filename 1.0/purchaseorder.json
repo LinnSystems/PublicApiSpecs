@@ -1,0 +1,4640 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "purchaseorder",
+    "title": "Purchase Orders API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/PurchaseOrder/Search_PurchaseOrders2": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Search_PurchaseOrders2",
+        "description": "Searches purchase order by a number of parameters, such as Date of Purchase, status, reference number.\r\nReturns paged result of purchase order header.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.SearchPurchaseOrderNode",
+        "operationId": "Search_PurchaseOrders2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "Search Parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Search_PurchaseOrder2Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Search_PurchaseOrdersResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Search_PurchaseOrders": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Search_PurchaseOrders",
+        "description": "Searches purchase order by a number of parameters, such as Date of Purchase, status, reference number.\r\nReturns paged result of purchase order header.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.SearchPurchaseOrderNode",
+        "operationId": "Search_PurchaseOrders",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Search_PurchaseOrdersRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Search_PurchaseOrdersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Search_PurchaseOrdersResult"
+            }
+          }
+        },
+        "deprecated": true,
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Create_PurchaseOrder_Initial": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Create_PurchaseOrder_Initial",
+        "description": "Creates initial purchase order in pending status. Once PO is created you can add stock items to it.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "operationId": "Create_PurchaseOrder_Initial",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Create_PurchaseOrder_InitialRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Create_PurchaseOrder_InitialRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "uuid",
+              "type": "string",
+              "example": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Update_PurchaseOrderHeader": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Update_PurchaseOrderHeader",
+        "description": "Update purchase order header, only if status is not Delivered. Returns modified/recalculated purchase order header\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "operationId": "Update_PurchaseOrderHeader",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Update_PurchaseOrderHeaderRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Update_PurchaseOrderHeaderRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrderHeader"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Modify_PurchaseOrderItems_Bulk": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Modify_PurchaseOrderItems_Bulk",
+        "description": "Delete, add and update purchase order items and cause purchase order totals recalculation\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "operationId": "Modify_PurchaseOrderItems_Bulk",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Modify_PurchaseOrderItems_BulkRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Modify_PurchaseOrderItems_BulkRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Modify_PurchaseOrderItems_BulkResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Add_PurchaseOrderItem": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Add_PurchaseOrderItem",
+        "description": "Method adds purchase order item to an existing PENDING order. Items can only be added to PENDING purchase orders. Returns class that represents modified/recalculated purchase order header and modified purchase order item line\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "operationId": "Add_PurchaseOrderItem",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Add_PurchaseOrderItemRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Add_PurchaseOrderItemRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Update_PurchaseOrderItemResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Update_PurchaseOrderItem": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Update_PurchaseOrderItem",
+        "description": "Update purchase order item, quantity, cost, pack size, pack quantity, in PENDING order only. Returns class that represents modified/recalculated purchase order header and modified purchase order item line\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "operationId": "Update_PurchaseOrderItem",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Update_PurchaseOrderItemRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Update_PurchaseOrderItemRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Update_PurchaseOrderItemResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Delete_PurchaseOrderItem": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Delete_PurchaseOrderItem",
+        "description": "Delete purchase order item line from PENDING order. Returns recalculated/modified purchase order header\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "operationId": "Delete_PurchaseOrderItem",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Delete_PurchaseOrderItemRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Delete_PurchaseOrderItemRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrderHeader"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/GetPurchaseOrdersWithStockItems": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "GetPurchaseOrdersWithStockItems",
+        "description": "Gets a list of Purchase Order Ids that contain undelivered stock items\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.SearchPurchaseOrderNode",
+        "operationId": "GetPurchaseOrdersWithStockItems",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_GetPurchaseOrdersWithStockItemsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_GetPurchaseOrdersWithStockItemsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string",
+                "example": "00000000-0000-0000-0000-000000000000"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Get_PurchaseOrder": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Get_PurchaseOrder",
+        "description": "Get purchase order header and items in one call\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "operationId": "Get_PurchaseOrder",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Get_PurchaseOrderRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Get_PurchaseOrderRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Get_PurchaseOrderResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Get_PurchaseOrderNote": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Get_PurchaseOrderNote",
+        "description": "Get purchase order notes\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "operationId": "Get_PurchaseOrderNote",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Get_PurchaseOrderNoteRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Get_PurchaseOrderNoteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PurchaseOrderNote"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/ExportPurchaseOrder": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "ExportPurchaseOrder",
+        "operationId": "ExportPurchaseOrder",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_ExportPurchaseOrderRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_ExportPurchaseOrderRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DownloadResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Add_PurchaseOrderNote": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Add_PurchaseOrderNote",
+        "description": "Add purchase order note\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "operationId": "Add_PurchaseOrderNote",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Add_PurchaseOrderNoteRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Add_PurchaseOrderNoteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrderNote"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Delete_PurchaseOrderNote": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Delete_PurchaseOrderNote",
+        "description": "Delete Note for Purchase Order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "operationId": "Delete_PurchaseOrderNote",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Delete_PurchaseOrderNoteRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Delete_PurchaseOrderNoteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Change_PurchaseOrderStatus": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Change_PurchaseOrderStatus",
+        "description": "Change purchase order status. Can change from:\r\nPENDING to OPEN, which will populate Due (OnOrder) values in stock levels,\r\nOPEN to DELIVERED, which will consolidate Due values in stock levels \r\nPARTIAL to DELIVERED, which will consolidate Due values in stock levels\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "operationId": "Change_PurchaseOrderStatus",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Change_PurchaseOrderStatusRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Change_PurchaseOrderStatusRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrderHeader"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Deliver_PurchaseItemAll_ExceptBatchItems": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Deliver_PurchaseItemAll_ExceptBatchItems",
+        "description": "Update purchase order item, quantity, cost, pack size, pack quantity, in PENDING order only. Returns class that represents modified/recalculated purchase order header and modified purchase order item line\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.DeliverPurchaseOrderNode",
+        "operationId": "Deliver_PurchaseItemAll_ExceptBatchItems",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Deliver_PurchaseItemAll_ExceptBatchItemsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Deliver_PurchaseItemAll_ExceptBatchItemsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Deliver_PurchaseOrderItemAllNoBatchResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Deliver_PurchaseItems_WithQuantity": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Deliver_PurchaseItems_WithQuantity",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.DeliverPurchaseOrderNode",
+        "operationId": "Deliver_PurchaseItems_WithQuantity",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Deliver_PurchaseItems_WithQuantityRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Deliver_PurchaseItems_WithQuantityRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Deliver_PurchaseItemAll": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Deliver_PurchaseItemAll",
+        "description": "Update purchase order item, quantity, cost, pack size, pack quantity, in PENDING order only. Returns class that represents modified/recalculated purchase order header and modified purchase order item line\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.DeliverPurchaseOrderNode",
+        "operationId": "Deliver_PurchaseItemAll",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Deliver_PurchaseItemAllRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Deliver_PurchaseItemAllRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Deliver_PurchaseOrderItemAllResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Deliver_PurchaseItem": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Deliver_PurchaseItem",
+        "description": "Deliver purchase order item. This will affect current stock level according to the delivered quantity. \r\nYou can specify the total number of delivered items. If all items are delivered, the purchase order status will be changed to delivered\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.DeliverPurchaseOrderNode",
+        "operationId": "Deliver_PurchaseItem",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Deliver_PurchaseItemRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Deliver_PurchaseItemRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Update_PurchaseOrderItemResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/GetPurchaseOrderStatusList": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "GetPurchaseOrderStatusList",
+        "description": "Get a list of available statuses",
+        "operationId": "GetPurchaseOrderStatusList",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_GetPurchaseOrderStatusListRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_GetPurchaseOrderStatusListRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "PENDING",
+                  "OPEN",
+                  "PARTIAL",
+                  "DELIVERED"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Delete_PurchaseOrder": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Delete_PurchaseOrder",
+        "description": "Delete a Purchase Order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "operationId": "Delete_PurchaseOrder",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Delete_PurchaseOrderRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Delete_PurchaseOrderRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Get_PurchaseOrderAudit": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Get_PurchaseOrderAudit",
+        "description": "Get the Audit Log of a Purchase Order. Returns maxium 1000 records in descending order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "operationId": "Get_PurchaseOrderAudit",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Get_PurchaseOrderAuditRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Get_PurchaseOrderAuditRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PurchaseOrderAudit"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Get_PurchaseOrderExtendedProperty": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Get_PurchaseOrderExtendedProperty",
+        "description": "Get all purchase order extended properties\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "operationId": "Get_PurchaseOrderExtendedProperty",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Get_PurchaseOrderExtendedPropertyRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Get_PurchaseOrderExtendedPropertyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Get_PurchaseOrderExtendedPropertyResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Add_PurchaseOrderExtendedProperty": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Add_PurchaseOrderExtendedProperty",
+        "description": "Adds extended properties to a purchase order. Property name must be unique otherwise the method throws an error. Maxium number of extended properties allowed for a single purchase order is 50. If total count of extended properties exceeds 50 an error will be thrown.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "operationId": "Add_PurchaseOrderExtendedProperty",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Add_PurchaseOrderExtendedPropertyRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Add_PurchaseOrderExtendedPropertyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Add_PurchaseOrderExtendedPropertyResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Update_PurchaseOrderExtendedProperty": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Update_PurchaseOrderExtendedProperty",
+        "description": "Updates purchase order extended property by id. If supplied id doesn't exists, the routine will throw an error\r\nThe routine checks for duplicated propery names and throws an error if duplicated property name.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "operationId": "Update_PurchaseOrderExtendedProperty",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Update_PurchaseOrderExtendedPropertyRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Update_PurchaseOrderExtendedPropertyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Delete_PurchaseOrderExtendedProperty": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Delete_PurchaseOrderExtendedProperty",
+        "description": "Delete extended property items by id\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "operationId": "Delete_PurchaseOrderExtendedProperty",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Delete_PurchaseOrderExtendedPropertyRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Delete_PurchaseOrderExtendedPropertyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Get_AdditionalCostTypes": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Get_AdditionalCostTypes",
+        "description": "Get purchase order additional costs types",
+        "operationId": "Get_AdditionalCostTypes",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Get_AdditionalCostTypesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Get_AdditionalCostTypesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Get_AdditionalCostTypesResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Add_AdditionalCostTypes": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Add_AdditionalCostTypes",
+        "description": "Add new additional cost type\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ChangeAdditionalTypesNode",
+        "operationId": "Add_AdditionalCostTypes",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Add_AdditionalCostTypesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Add_AdditionalCostTypesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Add_AdditionalCostTypesResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Update_AdditionalCostTypes": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Update_AdditionalCostTypes",
+        "description": "Update additional cost type\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ChangeAdditionalTypesNode",
+        "operationId": "Update_AdditionalCostTypes",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Update_AdditionalCostTypesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Update_AdditionalCostTypesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Update_AdditionalCostTypesResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Delete_AdditionalCostTypes": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Delete_AdditionalCostTypes",
+        "description": "Delete additional cost type\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ChangeAdditionalTypesNode",
+        "operationId": "Delete_AdditionalCostTypes",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Delete_AdditionalCostTypesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Delete_AdditionalCostTypesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Modify_AdditionalCost": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Modify_AdditionalCost",
+        "description": "Modify purchase order additional costs. You can add new lines, update and delete existing. The method will return modified list back to you with each record identified by unique identifier. \r\nPurchase Order header will also be returned with new total recalculated\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "operationId": "Modify_AdditionalCost",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Modify_AdditionalCostRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Modify_AdditionalCostRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Modify_AdditionalCostResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Get_Additional_Cost": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Get_Additional_Cost",
+        "description": "Get additional costs of a purchase order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "operationId": "Get_Additional_Cost",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Get_Additional_CostRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Get_Additional_CostRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Get_Additional_CostResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Modify_AdditionalCostAllocation": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Modify_AdditionalCostAllocation",
+        "description": "Modify additional cost allocation items\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "operationId": "Modify_AdditionalCostAllocation",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Modify_AdditionalCostAllocationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Modify_AdditionalCostAllocationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Modify_AdditionalCostAllocationResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Modify_PaymentStatement": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Modify_PaymentStatement",
+        "description": "Modify purchase order payment statements. You can add new lines, update and delete existing. The method will return modified list back to you with each record identified by unique identifier.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "operationId": "Modify_PaymentStatement",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Modify_PaymentStatementRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Modify_PaymentStatementRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Modify_PaymentStatementResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Get_Payment_Statement": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Get_Payment_Statement",
+        "description": "Get payment statements of a purchase order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "operationId": "Get_Payment_Statement",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Get_Payment_StatementRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Get_Payment_StatementRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Get_PaymentStatementResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/FindStockItem": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "FindStockItem",
+        "description": "Try to find an item by SKU of SpplierCode\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "operationId": "FindStockItem",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_FindStockItemRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_FindStockItemRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FindStockItem_Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Get_DeliveredRecords": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Get_DeliveredRecords",
+        "description": "Get delivered item records for specific PO\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "operationId": "Get_DeliveredRecords",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Get_DeliveredRecordsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Get_DeliveredRecordsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Get_DeliveredRecords_Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Get_EmailsSent": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Get_EmailsSent",
+        "description": "Get delivered item records for specific PO\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "operationId": "Get_EmailsSent",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Get_EmailsSentRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Get_EmailsSentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Get_EmailsSentResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/Get_EmailCSVFile": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "Get_EmailCSVFile",
+        "description": "Get the URL of the CSV file for the specific purchase order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "operationId": "Get_EmailCSVFile",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_Get_EmailCSVFileRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_Get_EmailCSVFileRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Get_EmailCSVFileResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PurchaseOrder/CreatePOsFromInventory": {
+      "post": {
+        "tags": [
+          "PurchaseOrder"
+        ],
+        "summary": "CreatePOsFromInventory",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "operationId": "CreatePOsFromInventory",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PurchaseOrder_CreatePOsFromInventoryRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder_CreatePOsFromInventoryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreatePOsFromInventoryResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "Search_PurchaseOrder2Request": {
+      "description": "Search Purchase order class",
+      "type": "object",
+      "properties": {
+        "DateFrom": {
+          "format": "date-time",
+          "description": "Purchase order date range from (optional)",
+          "type": "string"
+        },
+        "DateTo": {
+          "format": "date-time",
+          "description": "Purchase order date range to (optional)",
+          "type": "string"
+        },
+        "Status": {
+          "description": "Purchase order status: PENDING - purchase order can be changed, not yet affecting stock levels\r\nOPEN - purchase order is created and stock levels Due are reflected\r\nPARTIAL - partially delivered \r\nDELIVERED - fully delivered",
+          "enum": [
+            "PENDING",
+            "OPEN",
+            "PARTIAL",
+            "DELIVERED"
+          ],
+          "type": "string"
+        },
+        "SearchValue": {
+          "description": "Specifies search value to filter with result set",
+          "type": "string"
+        },
+        "SearchType": {
+          "description": "Specifies search value type for search value",
+          "enum": [
+            "All",
+            "Reference",
+            "StockItemSKU",
+            "SupplierCode",
+            "SupplierReference"
+          ],
+          "type": "string"
+        },
+        "EntriesPerPage": {
+          "format": "int32",
+          "description": "Number of records returned, sorted by Purchase Order Date",
+          "type": "integer"
+        },
+        "PageNumber": {
+          "format": "int32",
+          "description": "Page Number",
+          "type": "integer"
+        },
+        "Location": {
+          "description": "Current Location",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "Supplier": {
+          "description": "Current Supplier",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "Search_PurchaseOrdersResult": {
+      "description": "Search_PurchaseOrders result class. Contains the Result - the list of returned purchase order headers, and current paging information",
+      "type": "object",
+      "properties": {
+        "Result": {
+          "description": "List of purchase order headers",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurchaseOrderHeader"
+          }
+        },
+        "TotalPages": {
+          "format": "int32",
+          "description": "Total number of pages",
+          "type": "integer"
+        },
+        "CurrentPageNumber": {
+          "format": "int32",
+          "description": "Currently request page number",
+          "type": "integer"
+        },
+        "EntriesPerPage": {
+          "format": "int32",
+          "description": "Requested entries per page",
+          "type": "integer"
+        },
+        "TotalNumberOfRecords": {
+          "format": "int32",
+          "description": "Total number of records matching the search request",
+          "type": "integer"
+        }
+      }
+    },
+    "PurchaseOrderHeader": {
+      "type": "object",
+      "properties": {
+        "pkPurchaseID": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkSupplierId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ExternalInvoiceNumber": {
+          "type": "string"
+        },
+        "Status": {
+          "enum": [
+            "PENDING",
+            "OPEN",
+            "PARTIAL",
+            "DELIVERED"
+          ],
+          "type": "string"
+        },
+        "Currency": {
+          "type": "string"
+        },
+        "SupplierReferenceNumber": {
+          "type": "string"
+        },
+        "Locked": {
+          "type": "boolean"
+        },
+        "UnitAmountTaxIncludedType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "LineCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DeliveredLinesCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DateOfPurchase": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateOfDelivery": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "QuotedDeliveryDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "PostagePaid": {
+          "format": "double",
+          "type": "number"
+        },
+        "TotalCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "taxPaid": {
+          "format": "double",
+          "type": "number"
+        },
+        "ShippingTaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConvertedShippingCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConvertedShippingTax": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConvertedOtherCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConvertedOtherTax": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConvertedGrandTotal": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "PurchaseOrder_Search_PurchaseOrdersRequest": {
+      "type": "object",
+      "properties": {
+        "searchParameter": {
+          "$ref": "#/definitions/Search_PurchaseOrderParameter",
+          "description": "Search Parameter class"
+        }
+      }
+    },
+    "Search_PurchaseOrderParameter": {
+      "description": "Search Purchase order class",
+      "type": "object",
+      "properties": {
+        "DateFrom": {
+          "format": "date-time",
+          "description": "Purchase order date range from (optional)",
+          "type": "string"
+        },
+        "DateTo": {
+          "format": "date-time",
+          "description": "Purchase order date range to (optional)",
+          "type": "string"
+        },
+        "Status": {
+          "description": "Purchase order status: PENDING - purchase order can be changed, not yet affecting stock levels\r\nOPEN - purchase order is created and stock levels Due are reflected\r\nPARTIAL - partially delivered \r\nDELIVERED - fully delivered",
+          "enum": [
+            "PENDING",
+            "OPEN",
+            "PARTIAL",
+            "DELIVERED"
+          ],
+          "type": "string"
+        },
+        "ReferenceLike": {
+          "description": "Purchase order reference or Supplier PO reference, works as a like will return all POs that contain ReferenceLike value",
+          "type": "string"
+        },
+        "EntriesPerPage": {
+          "format": "int32",
+          "description": "Number of records returned, sorted by Purchase Order Date",
+          "type": "integer"
+        },
+        "PageNumber": {
+          "format": "int32",
+          "description": "Page Number",
+          "type": "integer"
+        },
+        "Location": {
+          "description": "Current Location",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "Supplier": {
+          "description": "Current Supplier",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "PurchaseOrder_Create_PurchaseOrder_InitialRequest": {
+      "type": "object",
+      "properties": {
+        "createParameters": {
+          "$ref": "#/definitions/Create_PurchaseOrder_InitialParameter",
+          "description": "pkPurchaseId"
+        }
+      }
+    },
+    "Create_PurchaseOrder_InitialParameter": {
+      "description": "Class that represents entry parameters for creating new PENDING purchase order",
+      "type": "object",
+      "properties": {
+        "fkSupplierId": {
+          "format": "uuid",
+          "description": "Supplier unique identifier. Use Inventory/GetSupplierList to get the supplier ids",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkLocationId": {
+          "format": "uuid",
+          "description": "Location id where the PO will be delivered to. Use Inventory/GetStockLocations to get the location ids",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ExternalInvoiceNumber": {
+          "description": "Purchase order reference",
+          "type": "string"
+        },
+        "Currency": {
+          "description": "Currency of the purchase order",
+          "type": "string"
+        },
+        "SupplierReferenceNumber": {
+          "description": "Supplier purchase order reference number",
+          "type": "string"
+        },
+        "UnitAmountTaxIncludedType": {
+          "format": "int32",
+          "description": "Unit amount includes,excludes or no tax. 0 - Excludes Tax, 1 - Includes tax, 2 - No Tax",
+          "type": "integer"
+        },
+        "DateOfPurchase": {
+          "format": "date-time",
+          "description": "DateTime of the purchase order",
+          "type": "string"
+        },
+        "QuotedDeliveryDate": {
+          "format": "date-time",
+          "description": "DateTime of the expected delivery date.",
+          "type": "string"
+        },
+        "PostagePaid": {
+          "format": "double",
+          "description": "**DEPRECIATED** \r\nUse additional costs with Shipping flag to record shipping costs. This field remains available in the API for backward compatibility and acts pretty much like an additional cost item with type",
+          "type": "number"
+        },
+        "ShippingTaxRate": {
+          "format": "double",
+          "description": "**DEPRECIATED** \r\nUse additional costs with Shipping flag to record shipping costs. This field remains available in the API for backward compatibility and acts pretty much like an additional cost item with type",
+          "type": "number"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "description": "Currency conversion rate, multiplier to change the purchase order currency into the system currecny",
+          "type": "number"
+        }
+      }
+    },
+    "PurchaseOrder_Update_PurchaseOrderHeaderRequest": {
+      "type": "object",
+      "properties": {
+        "updateParameter": {
+          "$ref": "#/definitions/Update_PurchaseOrderHeaderParameter",
+          "description": "Update purchase order header class"
+        }
+      }
+    },
+    "Update_PurchaseOrderHeaderParameter": {
+      "description": "Change purchase order status. You can change from PENDING to OPEN, from OPEN to DELIVERED, from PARTIAL to DELIVERED",
+      "type": "object",
+      "properties": {
+        "pkPurchaseID": {
+          "format": "uuid",
+          "description": "Unique identifier for the purchase order. You have to use this ID for all updates to the PO",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "SupplierReferenceNumber": {
+          "description": "Supplier reference number for the purchase order",
+          "type": "string"
+        },
+        "fkLocationId": {
+          "format": "uuid",
+          "description": "Unique idenfidier of the location where the PO is expected to be delivered to. Empty Guid is default location. Use Locations API methods to get the names and additional details for the locations",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkSupplierId": {
+          "format": "uuid",
+          "description": "Unique identifier for the supplier. Empty Guid is default supplier. Otherwise use Supplier API to get the names and additional data for the supplier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Currency": {
+          "description": "Currency of the values in the purchase order",
+          "type": "string"
+        },
+        "ExternalInvoiceNumber": {
+          "description": "Purchase order reference",
+          "type": "string"
+        },
+        "UnitAmountTaxIncludedType": {
+          "format": "int32",
+          "description": "Unit amount includes,excludes or no tax. 0 - Excludes Tax, 1 - Includes tax, 2 - No Tax. Nullable if null, the value not updated",
+          "type": "integer"
+        },
+        "DateOfPurchase": {
+          "format": "date-time",
+          "description": "DateTime of the purchase order delivered, will be set to DateOfPurchase until the PO is fully delivered UTC",
+          "type": "string"
+        },
+        "QuotedDeliveryDate": {
+          "format": "date-time",
+          "description": "DateTime of the purchase order quoted/expected delivery date UTC",
+          "type": "string"
+        },
+        "ShippingTaxRate": {
+          "format": "double",
+          "description": "**DEPRECIATED** \r\nUse additional costs with Shipping flag to record shipping costs. This field remains available in the API for backward compatibility and acts pretty much like an additional cost item with type",
+          "type": "number"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "description": "Conversion rate of the purchase order currency. When PO is delivered Stock Value will be multipled by this conversion rate. For example if your system currency is GBP and Purchase order is in EUR the conversion rate is 0.81.",
+          "type": "number"
+        },
+        "PostagePaid": {
+          "format": "double",
+          "description": "**DEPRECIATED** \r\nUse additional costs with Shipping flag to record shipping costs. This field remains available in the API for backward compatibility and acts pretty much like an additional cost item with type",
+          "type": "number"
+        }
+      }
+    },
+    "PurchaseOrder_Modify_PurchaseOrderItems_BulkRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/Modify_PurchaseOrderItems_BulkRequest"
+        }
+      }
+    },
+    "Modify_PurchaseOrderItems_BulkRequest": {
+      "description": "Request that contains lists to delete, add and update purchase order items",
+      "type": "object",
+      "properties": {
+        "PurchaseId": {
+          "format": "uuid",
+          "description": "Purchase order id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ItemsToAdd": {
+          "description": "New purchase order items to add",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AddPurchaseOrderItem"
+          }
+        },
+        "ItemsToUpdate": {
+          "description": "Purchase order items to update",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UpdatePurchaseOrderItem"
+          }
+        },
+        "ItemsToDelete": {
+          "description": "Purchase order items to delete. PurchaseOrderItemId(s)",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "AddPurchaseOrderItem": {
+      "description": "Purchase order item to add",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "uuid",
+          "description": "unique row id, the same id will be returned to you in the response",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "pkStockItemId. Use Get Stock Item API call to get the id of a product by SKU or Title",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Qty": {
+          "format": "int32",
+          "description": "Quantity of items in the purchase order line",
+          "type": "integer"
+        },
+        "Cost": {
+          "format": "double",
+          "description": "Line Total cost of all the purchase order item inclusive of tax (unitcost * qty) + tax",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "description": "Product tax rate",
+          "type": "number"
+        },
+        "PackQuantity": {
+          "format": "int32",
+          "description": "Number of items in a single pack. This is for reference purposes only. Not used for any calculations.",
+          "type": "integer"
+        },
+        "PackSize": {
+          "format": "int32",
+          "description": "Number of packs ordered. This is for reference purposes only. Not used for any calculations.",
+          "type": "integer"
+        }
+      }
+    },
+    "UpdatePurchaseOrderItem": {
+      "description": "Purchase order item to update",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "uuid",
+          "description": "unique row id, to uniquely identify submitted item. This Id will be returned in the response so you can match request to response items",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PurchaseItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "pkStockItemId. Use Get Stock Item API call to get the id of a product by SKU or Title",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Qty": {
+          "format": "int32",
+          "description": "Quantity of items in the purchase order line",
+          "type": "integer"
+        },
+        "Cost": {
+          "format": "double",
+          "description": "Line Total cost of all the purchase order item inclusive of tax (unitcost * qty) + tax",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "description": "Product tax rate",
+          "type": "number"
+        },
+        "PackQuantity": {
+          "format": "int32",
+          "description": "Number of items in a single pack. This is for reference purposes only. Not used for any calculations.",
+          "type": "integer"
+        },
+        "PackSize": {
+          "format": "int32",
+          "description": "Number of packs ordered. This is for reference purposes only. Not used for any calculations.",
+          "type": "integer"
+        }
+      }
+    },
+    "Modify_PurchaseOrderItems_BulkResponse": {
+      "description": "Response class for Modify_PurchaseOrderItems_Bulk",
+      "type": "object",
+      "properties": {
+        "ModifiedItems": {
+          "description": "Modified purchase order items. Newly added items, updated items. Deleted items not returned back to the client.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ModifiedPurchaseOrderItem"
+          }
+        },
+        "PurchaseOrderHeader": {
+          "$ref": "#/definitions/PurchaseOrderHeader",
+          "description": "Recalculated purchase order header"
+        }
+      }
+    },
+    "ModifiedPurchaseOrderItem": {
+      "description": "Modified purchase order item",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "uuid",
+          "description": "unique row id which was supplied in the ModifyPurchaseOrderItem, you can match this id to the request item. The same Id is returned to back from the request parameter",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PurchaseItemId": {
+          "format": "uuid",
+          "description": "Unique purchase order item id. Purchase order item is deleted and updated by PurchaseOrderItemId",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "pkStockItemId. Use Get Stock Item API call to get the id of a product by SKU or Title",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Qty": {
+          "format": "int32",
+          "description": "Quantity of items in the purchase order line",
+          "type": "integer"
+        },
+        "BoundToOpenOrdersItems": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "QuantityBoundToOpenOrdersItems": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "Cost": {
+          "format": "double",
+          "description": "Line Total cost of all the purchase order item inclusive of tax (unitcost * qty) + tax",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "description": "Product tax rate",
+          "type": "number"
+        },
+        "PackQuantity": {
+          "format": "int32",
+          "description": "Number of items in a single pack. This is for reference purposes only. Not used for any calculations.",
+          "type": "integer"
+        },
+        "PackSize": {
+          "format": "int32",
+          "description": "Number of packs ordered. This is for reference purposes only. Not used for any calculations.",
+          "type": "integer"
+        }
+      }
+    },
+    "PurchaseOrder_Add_PurchaseOrderItemRequest": {
+      "type": "object",
+      "properties": {
+        "addItemParameter": {
+          "$ref": "#/definitions/Add_PurchaseOrderItemParameter",
+          "description": "Add purchase item parameter class"
+        }
+      }
+    },
+    "Add_PurchaseOrderItemParameter": {
+      "description": "Class represents parameter for adding line to the purchase order.",
+      "type": "object",
+      "properties": {
+        "pkPurchaseId": {
+          "format": "uuid",
+          "description": "Purchase order id. You can only add items to pending purchase orders",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkStockItemId": {
+          "format": "uuid",
+          "description": "pkStockItemId. Use Get Stock Item API call to get the id of a product by SKU or Title",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Qty": {
+          "format": "int32",
+          "description": "Quantity of items in the purchase order line",
+          "type": "integer"
+        },
+        "PackQuantity": {
+          "format": "int32",
+          "description": "Number of items in a single pack. This is for reference purposes only. Not used for any calculations.",
+          "type": "integer"
+        },
+        "PackSize": {
+          "format": "int32",
+          "description": "Number of packs ordered. This is for reference purposes only. Not used for any calculations.",
+          "type": "integer"
+        },
+        "Cost": {
+          "format": "double",
+          "description": "Line Total cost of all the purchase order item inclusive of tax (unitcost * qty) + tax",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "description": "Product tax rate",
+          "type": "number"
+        }
+      }
+    },
+    "Update_PurchaseOrderItemResponse": {
+      "description": "Response from update/add purchase order item, contains newly added purchase order item line and Purchase order header with recaluclated totals",
+      "type": "object",
+      "properties": {
+        "NewPurchaseOrderItem": {
+          "$ref": "#/definitions/PurchaseOrderItem",
+          "description": "Newly added purchase order line"
+        },
+        "PurchaseOrderHeader": {
+          "$ref": "#/definitions/PurchaseOrderHeader",
+          "description": "Recalculated purchase order header"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "description": "If the item was batched or booked into a WMS location, this is the batch inventory id for the booked in stock. \r\nIf an item was not delivered or was a non batched item, this will be null.",
+          "type": "integer"
+        }
+      }
+    },
+    "PurchaseOrderItem": {
+      "type": "object",
+      "properties": {
+        "pkPurchaseItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkStockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Cost": {
+          "format": "double",
+          "type": "number"
+        },
+        "Delivered": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "Tax": {
+          "format": "double",
+          "type": "number"
+        },
+        "PackQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PackSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsDeleted": {
+          "type": "boolean"
+        },
+        "SortOrder": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DimHeight": {
+          "format": "double",
+          "type": "number"
+        },
+        "DimWidth": {
+          "format": "double",
+          "type": "number"
+        },
+        "DimDepth": {
+          "format": "double",
+          "type": "number"
+        },
+        "BarcodeNumber": {
+          "type": "string"
+        },
+        "QuantityBoundToOpenOrdersItems": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SupplierCode": {
+          "type": "string"
+        },
+        "BinRack": {
+          "type": "string"
+        },
+        "SupplierBarcode": {
+          "type": "string"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BoundToOpenOrdersItems": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SkuGroupIds": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "PurchaseOrder_Update_PurchaseOrderItemRequest": {
+      "type": "object",
+      "properties": {
+        "updateItemParameter": {
+          "$ref": "#/definitions/Update_PurchaseOrderItemParameter",
+          "description": "Edit purchase order item class"
+        }
+      }
+    },
+    "Update_PurchaseOrderItemParameter": {
+      "description": "Update purchase order item parameter",
+      "type": "object",
+      "properties": {
+        "pkPurchaseItemId": {
+          "format": "uuid",
+          "description": "Purchase order item unique row identifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkPurchaseId": {
+          "format": "uuid",
+          "description": "Purchase order id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Quantity": {
+          "format": "int32",
+          "description": "Quantity to be updated. (optional)",
+          "type": "integer"
+        },
+        "PackQuantity": {
+          "format": "int32",
+          "description": "Number of items in a single pack. This is for reference purposes only. Not used for any calculations. Optional",
+          "type": "integer"
+        },
+        "PackSize": {
+          "format": "int32",
+          "description": "Number of packs ordered. This is for reference purposes only. Not used for any calculations. Optional",
+          "type": "integer"
+        },
+        "Cost": {
+          "format": "double",
+          "description": "Line Total cost of all the purchase order item inclusive of tax (unitcost * qty) + tax. \r\nValue should be in the currency of the purchase order\r\n(Optional) if not specified the cost will be recalculated from current cost specified on the PO",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "description": "Tax Rate (Optional)",
+          "type": "number"
+        }
+      }
+    },
+    "PurchaseOrder_Delete_PurchaseOrderItemRequest": {
+      "type": "object",
+      "properties": {
+        "deleteItemParameter": {
+          "$ref": "#/definitions/Delete_PurchaseOrderItemParameter",
+          "description": "Delete purchase order item parameter"
+        }
+      }
+    },
+    "Delete_PurchaseOrderItemParameter": {
+      "description": "Delete purchase order item parameter. Purchase order items can only be deleted from PENDING Purchase Orders. Once PO is open, no modifications can be done",
+      "type": "object",
+      "properties": {
+        "pkPurchaseItemId": {
+          "format": "uuid",
+          "description": "Purchase order item unique row identifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkPurchaseId": {
+          "format": "uuid",
+          "description": "Purchase order id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "PurchaseOrder_GetPurchaseOrdersWithStockItemsRequest": {
+      "type": "object",
+      "properties": {
+        "purchaseOrder": {
+          "$ref": "#/definitions/PurchaseOrderWithStockItem",
+          "description": "Purchase Order class made up of a Stock Item Id and a nullable Location Id"
+        }
+      }
+    },
+    "PurchaseOrderWithStockItem": {
+      "description": "List of Purchase Order Ids return using the Stock Item and Location Id parameters",
+      "type": "object",
+      "properties": {
+        "StockItemId": {
+          "format": "uuid",
+          "description": "The Id of the Stock Item",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LocationIds": {
+          "description": "List of Location Ids to determine whether to return Purchase Order Ids based on stock location as well as Stock Item Id",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "PurchaseOrder_Get_PurchaseOrderRequest": {
+      "type": "object",
+      "properties": {
+        "pkPurchaseId": {
+          "format": "uuid",
+          "description": "Purchase Order unique identifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "Get_PurchaseOrderResponse": {
+      "description": "Single purchase order class.",
+      "type": "object",
+      "properties": {
+        "PurchaseOrderHeader": {
+          "$ref": "#/definitions/PurchaseOrderHeader",
+          "description": "Purchase order header"
+        },
+        "PurchaseOrderItem": {
+          "description": "Purchase order items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurchaseOrderItem"
+          }
+        },
+        "AdditionalCosts": {
+          "description": "Count of notes on the purchase order",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurchaseOrderAdditionalCost"
+          }
+        },
+        "NoteCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PaymentStatements": {
+          "description": "Purchase order payment statements",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurchaseOrderPaymentStatement"
+          }
+        },
+        "DeliveredRecords": {
+          "description": "Purchase order delivered records",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurchaseOrderDeliveredRecord"
+          },
+          "readOnly": true
+        }
+      }
+    },
+    "PurchaseOrderAdditionalCost": {
+      "type": "object",
+      "properties": {
+        "PurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "AdditionalCostTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Reference": {
+          "type": "string"
+        },
+        "SubTotalLineCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "Tax": {
+          "format": "double",
+          "type": "number"
+        },
+        "Currency": {
+          "type": "string"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "TotalLineCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "CostAllocation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurchaseOrderAdditionalCostAllocation"
+          }
+        },
+        "AllocationLocked": {
+          "type": "boolean"
+        },
+        "AdditionalCostTypeName": {
+          "type": "string"
+        },
+        "AdditionalCostTypeIsShippingType": {
+          "type": "boolean"
+        },
+        "AdditionalCostTypeIsPartialAllocation": {
+          "type": "boolean"
+        },
+        "Print": {
+          "type": "boolean"
+        },
+        "AllocationMethod": {
+          "enum": [
+            "ByValue",
+            "ByCBM"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "PurchaseOrderPaymentStatement": {
+      "type": "object",
+      "properties": {
+        "PurchasePaymentStatementId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "LineCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "Currency": {
+          "type": "string"
+        },
+        "Reference": {
+          "type": "string"
+        },
+        "CreationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "PaymentDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "fkPurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "PurchaseOrderDeliveredRecord": {
+      "type": "object",
+      "properties": {
+        "pkDeliveryRecordId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fkPurchaseItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkStockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "UnitCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "DeliveredQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CreatedDateTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ModifiedDateTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "fkBatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "PurchaseOrderAdditionalCostAllocation": {
+      "type": "object",
+      "properties": {
+        "CostAllocationId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PurchaseItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "AllocationPercentage": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "PurchaseOrder_Get_PurchaseOrderNoteRequest": {
+      "type": "object",
+      "properties": {
+        "pkPurchaseId": {
+          "format": "uuid",
+          "description": "Purchase order unique identifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "PurchaseOrderNote": {
+      "type": "object",
+      "properties": {
+        "pkPurchaseOrderNoteId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Note": {
+          "type": "string"
+        },
+        "NoteDateTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UserName": {
+          "type": "string"
+        },
+        "NoteDate": {
+          "type": "string",
+          "readOnly": true
+        },
+        "NoteTime": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "PurchaseOrder_ExportPurchaseOrderRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/ExportPurchaseOrderSettingModel"
+        }
+      }
+    },
+    "ExportPurchaseOrderSettingModel": {
+      "type": "object",
+      "properties": {
+        "ColumnMappings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ColumnPurchaseOrderMappingModel"
+          }
+        },
+        "Delimiter": {
+          "type": "string"
+        },
+        "Encoding": {
+          "enum": [
+            "UTF8",
+            "UTF16",
+            "UTF16BE",
+            "SHIFTJIS"
+          ],
+          "type": "string"
+        },
+        "PurchaseId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StringDelimiter": {
+          "type": "string"
+        },
+        "FileName": {
+          "type": "string"
+        }
+      }
+    },
+    "ColumnPurchaseOrderMappingModel": {
+      "type": "object",
+      "properties": {
+        "CsvField": {
+          "type": "string"
+        },
+        "Index": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "LinnworksFieldType": {
+          "enum": [
+            "Sku",
+            "SupplierCode",
+            "SupplierBarcode",
+            "Title",
+            "PackSize",
+            "PackQuantity",
+            "Quantity",
+            "UnitCost",
+            "TaxRate",
+            "Tax",
+            "LineTotal"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "DownloadResponse": {
+      "type": "object",
+      "properties": {
+        "Url": {
+          "type": "string"
+        },
+        "Path": {
+          "type": "string"
+        }
+      }
+    },
+    "PurchaseOrder_Add_PurchaseOrderNoteRequest": {
+      "type": "object",
+      "properties": {
+        "pkPurchaseId": {
+          "format": "uuid",
+          "description": "Purchase order unique identifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Note": {
+          "description": "Note text, 2000 chars max (longer notes are truncated)",
+          "type": "string"
+        }
+      }
+    },
+    "PurchaseOrder_Delete_PurchaseOrderNoteRequest": {
+      "type": "object",
+      "properties": {
+        "pkPurchaseId": {
+          "format": "uuid",
+          "description": "Purchase order unique identifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkPurchaseOrderNoteId": {
+          "format": "uuid",
+          "description": "Purchase order note unique identifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "PurchaseOrder_Change_PurchaseOrderStatusRequest": {
+      "type": "object",
+      "properties": {
+        "changeStatusParameter": {
+          "$ref": "#/definitions/Change_PurchaseOrderStatusParameter",
+          "description": "Class that represents the parameters for Changing the Purchase Order Status"
+        }
+      }
+    },
+    "Change_PurchaseOrderStatusParameter": {
+      "description": "Change purchase order status. You can change from PENDING to OPEN, from OPEN to DELIVERED, from PARTIAL to DELIVERED",
+      "type": "object",
+      "properties": {
+        "pkPurchaseId": {
+          "format": "uuid",
+          "description": "Purchase order uniqueidentifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "status": {
+          "description": "Change purchase order status to the specified value",
+          "enum": [
+            "PENDING",
+            "OPEN",
+            "PARTIAL",
+            "DELIVERED"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "PurchaseOrder_Deliver_PurchaseItemAll_ExceptBatchItemsRequest": {
+      "type": "object",
+      "properties": {
+        "purchaseId": {
+          "format": "uuid",
+          "description": "Purchase Order ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "Deliver_PurchaseOrderItemAllNoBatchResponse": {
+      "description": "Response from delivering all items in an open/partial PO except Batch itesm",
+      "type": "object",
+      "properties": {
+        "poHeaderAndItems": {
+          "$ref": "#/definitions/Deliver_PurchaseOrderItemAllResponse",
+          "description": "Delivered items and Recalculated purchase order header"
+        },
+        "allItemsDelivered": {
+          "description": "Set to true if all items in the PO have been marked as delivered",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "Informs customers why not all items have been marked as delivered",
+          "type": "string"
+        }
+      }
+    },
+    "Deliver_PurchaseOrderItemAllResponse": {
+      "description": "Response from delivering all items in an open/partial PO",
+      "type": "object",
+      "properties": {
+        "PurchaseOrderItems": {
+          "description": "Delivered items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurchaseOrderItem"
+          }
+        },
+        "PurchaseOrderHeader": {
+          "$ref": "#/definitions/PurchaseOrderHeader",
+          "description": "Recalculated purchase order header"
+        }
+      }
+    },
+    "PurchaseOrder_Deliver_PurchaseItems_WithQuantityRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/Deliver_PurchaseItems_WithQuantityRequest"
+        }
+      }
+    },
+    "Deliver_PurchaseItems_WithQuantityRequest": {
+      "type": "object",
+      "properties": {
+        "pkPurchaseId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PODeliveredItems"
+          }
+        }
+      }
+    },
+    "PODeliveredItems": {
+      "type": "object",
+      "properties": {
+        "pkPurchaseItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "QuantityDelivered": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "PurchaseOrder_Deliver_PurchaseItemAllRequest": {
+      "type": "object",
+      "properties": {
+        "purchaseId": {
+          "format": "uuid",
+          "description": "Purchase Order ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "PurchaseOrder_Deliver_PurchaseItemRequest": {
+      "type": "object",
+      "properties": {
+        "deliverItemParameter": {
+          "$ref": "#/definitions/Deliver_PurchaseItemParameter",
+          "description": "Class that represents parameters for Deliver Purchase Item"
+        }
+      }
+    },
+    "Deliver_PurchaseItemParameter": {
+      "description": "Add/change delivered quantity on the purchase order item. The PO status will automatically be changed to PARTIAL or DELIVERED \r\nYou can use Delivered parameter to specify exact quantity of items delivered or \r\nAddToDelivered to add quantity to delivered",
+      "type": "object",
+      "properties": {
+        "BatchNumber": {
+          "description": "If defined, this value will be used to apply the delivery to a batch",
+          "type": "string"
+        },
+        "BinRack": {
+          "description": "If defined, this value will be used to apply the delivery to a batch",
+          "type": "string"
+        },
+        "PrioritySequence": {
+          "format": "int32",
+          "description": "If defined, this value will be used to apply the delivery to a batch only when the batch in the provided binrack did not exist before.",
+          "type": "integer"
+        },
+        "BatchStatus": {
+          "description": "If defined, this value will be used to apply the delivery to a batch",
+          "type": "string"
+        },
+        "pkPurchaseId": {
+          "format": "uuid",
+          "description": "Purchase order unique identifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkPurchaseItemId": {
+          "format": "uuid",
+          "description": "Purchase order item unique record identifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Delivered": {
+          "format": "int32",
+          "description": "Exact quantity of items delivered. If AddToDelivered is specified this value must be null",
+          "type": "integer"
+        },
+        "AddToDelivered": {
+          "format": "int32",
+          "description": "Add quantity to delivered. If Delivered is specified this value must be null",
+          "type": "integer"
+        }
+      }
+    },
+    "PurchaseOrder_GetPurchaseOrderStatusListRequest": {
+      "type": "object",
+      "properties": {}
+    },
+    "PurchaseOrder_Delete_PurchaseOrderRequest": {
+      "type": "object",
+      "properties": {
+        "pkPurchaseId": {
+          "format": "uuid",
+          "description": "Purchase Order unique id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "PurchaseOrder_Get_PurchaseOrderAuditRequest": {
+      "type": "object",
+      "properties": {
+        "auditLog": {
+          "$ref": "#/definitions/Search_PurchaseOrder_AuditLog",
+          "description": "Class that represents parameters when searching the Audit Log"
+        }
+      }
+    },
+    "Search_PurchaseOrder_AuditLog": {
+      "description": "Class that represents parameters when searching the Audit Log",
+      "type": "object",
+      "properties": {
+        "pkPurchaseId": {
+          "format": "uuid",
+          "description": "Purchase Order Unique Identifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "PurchaseOrderAudit": {
+      "type": "object",
+      "properties": {
+        "pkPurchaseAuditTrailId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "AuditTrailDateTimeStamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "fkPurchaseId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "AuditTrailType": {
+          "type": "string"
+        },
+        "AuditTrailTag": {
+          "type": "string"
+        },
+        "AuditTrailNote": {
+          "type": "string"
+        },
+        "UserName": {
+          "type": "string"
+        },
+        "AuditTrailDate": {
+          "type": "string",
+          "readOnly": true
+        },
+        "AuditTrailTime": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "PurchaseOrder_Get_PurchaseOrderExtendedPropertyRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/Get_PurchaseOrderExtendedPropertyRequest",
+          "description": ""
+        }
+      }
+    },
+    "Get_PurchaseOrderExtendedPropertyRequest": {
+      "type": "object",
+      "properties": {
+        "PurchaseId": {
+          "format": "uuid",
+          "description": "Purchase Order unique identifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "Get_PurchaseOrderExtendedPropertyResponse": {
+      "type": "object",
+      "properties": {
+        "Items": {
+          "description": "Purchase order extended properties",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurchaseOrderExtendedProperty"
+          }
+        }
+      }
+    },
+    "PurchaseOrderExtendedProperty": {
+      "type": "object",
+      "properties": {
+        "RowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PurchaseID": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "AddedDateTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UserName": {
+          "type": "string"
+        },
+        "PropertyName": {
+          "type": "string"
+        },
+        "PropertyValue": {
+          "type": "string"
+        }
+      }
+    },
+    "PurchaseOrder_Add_PurchaseOrderExtendedPropertyRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/Add_PurchaseOrderExtendedPropertyRequest",
+          "description": ""
+        }
+      }
+    },
+    "Add_PurchaseOrderExtendedPropertyRequest": {
+      "type": "object",
+      "properties": {
+        "PurchaseId": {
+          "format": "uuid",
+          "description": "Purchase order uniqueidentifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ExtendedPropertyItems": {
+          "description": "List of Extended Properties to be added to the purchase order",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Add_PurchaseOrderExtendedProperty_Item"
+          }
+        }
+      }
+    },
+    "Add_PurchaseOrderExtendedProperty_Item": {
+      "type": "object",
+      "properties": {
+        "PropertyName": {
+          "type": "string"
+        },
+        "PropertyValue": {
+          "type": "string"
+        }
+      }
+    },
+    "Add_PurchaseOrderExtendedPropertyResponse": {
+      "type": "object",
+      "properties": {
+        "Items": {
+          "description": "Added purchase order extended properties",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurchaseOrderExtendedProperty"
+          }
+        }
+      }
+    },
+    "PurchaseOrder_Update_PurchaseOrderExtendedPropertyRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/Update_PurchaseOrderExtendedPropertyRequest",
+          "description": ""
+        }
+      }
+    },
+    "Update_PurchaseOrderExtendedPropertyRequest": {
+      "type": "object",
+      "properties": {
+        "PurchaseId": {
+          "format": "uuid",
+          "description": "Purchase order uniqueidentifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ExtendedPropertyItems": {
+          "description": "items to update",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Update_PurchaseOrderExtendedPropertyItem"
+          }
+        }
+      }
+    },
+    "Update_PurchaseOrderExtendedPropertyItem": {
+      "type": "object",
+      "properties": {
+        "RowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PropertyName": {
+          "type": "string"
+        },
+        "PropertyValue": {
+          "type": "string"
+        }
+      }
+    },
+    "PurchaseOrder_Delete_PurchaseOrderExtendedPropertyRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/Delete_PurchaseOrderExtendedPropertyRequest",
+          "description": ""
+        }
+      }
+    },
+    "Delete_PurchaseOrderExtendedPropertyRequest": {
+      "type": "object",
+      "properties": {
+        "PurchaseId": {
+          "format": "uuid",
+          "description": "Purchase order unique identifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "RowIds": {
+          "description": "List of ids to delete",
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "PurchaseOrder_Get_AdditionalCostTypesRequest": {
+      "type": "object",
+      "properties": {}
+    },
+    "Get_AdditionalCostTypesResponse": {
+      "type": "object",
+      "properties": {
+        "AdditionalTypes": {
+          "description": "List of additional costs types",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurchaseOrderAdditionalCostType"
+          }
+        }
+      }
+    },
+    "PurchaseOrderAdditionalCostType": {
+      "type": "object",
+      "properties": {
+        "AdditionalCostTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TypeName": {
+          "type": "string"
+        },
+        "IsShippingType": {
+          "type": "boolean"
+        },
+        "IsPartialAllocation": {
+          "type": "boolean"
+        },
+        "Print": {
+          "type": "boolean"
+        },
+        "AllocationMethod": {
+          "enum": [
+            "ByValue",
+            "ByCBM"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "PurchaseOrder_Add_AdditionalCostTypesRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/Add_AdditionalCostTypesRequest"
+        }
+      }
+    },
+    "Add_AdditionalCostTypesRequest": {
+      "type": "object",
+      "properties": {
+        "TypeName": {
+          "description": "Additional cost name",
+          "type": "string"
+        },
+        "IsShippingType": {
+          "description": "Type of additional cost is shipping cost",
+          "type": "boolean"
+        },
+        "IsPartialAllocation": {
+          "description": "Type must be 100% allocated to PO items",
+          "type": "boolean"
+        },
+        "Print": {
+          "description": "Type must appear on prints and emails",
+          "type": "boolean"
+        },
+        "AllocationMethod": {
+          "enum": [
+            "ByValue",
+            "ByCBM"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "Add_AdditionalCostTypesResponse": {
+      "type": "object",
+      "properties": {
+        "NewAdditionalCostType": {
+          "$ref": "#/definitions/PurchaseOrderAdditionalCostType",
+          "description": "Added AdditionalCostType"
+        }
+      }
+    },
+    "PurchaseOrder_Update_AdditionalCostTypesRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/Update_AdditionalCostTypesRequest"
+        }
+      }
+    },
+    "Update_AdditionalCostTypesRequest": {
+      "type": "object",
+      "properties": {
+        "AdditionalCostTypeId": {
+          "format": "int32",
+          "description": "Additional Cost type id to update",
+          "type": "integer"
+        },
+        "TypeName": {
+          "description": "Additional cost name, if null the field is not updated",
+          "type": "string"
+        },
+        "IsShippingType": {
+          "description": "Type of additional cost is shipping cost, if null, the field is not updated",
+          "type": "boolean"
+        },
+        "IsPartialAllocation": {
+          "description": "Type must be 100% allocated to PO items, if null, the field is not updated",
+          "type": "boolean"
+        },
+        "Print": {
+          "description": "Type must appear on prints and emails",
+          "type": "boolean"
+        },
+        "AllocationMethod": {
+          "enum": [
+            "ByValue",
+            "ByCBM"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "Update_AdditionalCostTypesResponse": {
+      "type": "object",
+      "properties": {
+        "UpdatedAdditionalCostType": {
+          "$ref": "#/definitions/PurchaseOrderAdditionalCostType",
+          "description": "Update additional cost type"
+        }
+      }
+    },
+    "PurchaseOrder_Delete_AdditionalCostTypesRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/Delete_AdditionalCostTypesRequest"
+        }
+      }
+    },
+    "Delete_AdditionalCostTypesRequest": {
+      "type": "object",
+      "properties": {
+        "AdditionalCostTypeId": {
+          "format": "int32",
+          "description": "Additional cost type Ids to delete",
+          "type": "integer"
+        }
+      }
+    },
+    "PurchaseOrder_Modify_AdditionalCostRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/Modify_AdditionalCostRequest",
+          "description": ""
+        }
+      }
+    },
+    "Modify_AdditionalCostRequest": {
+      "type": "object",
+      "properties": {
+        "itemsToAdd": {
+          "description": "list of additional cost items to add. Each item has Id which will be returned to you to match the item you are adding to array on your side",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AddAdditionalCostItem"
+          }
+        },
+        "itemsToUpdate": {
+          "description": "List of items to update. Each line is identified by",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UpdateAdditionalCostItem"
+          }
+        },
+        "itemsToDelete": {
+          "description": "List of items to delete, provide list of PurchaseAdditionalCostItemId's",
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "PurchaseId": {
+          "format": "uuid",
+          "description": "Purchase order id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "AddAdditionalCostItem": {
+      "description": "Add additional cost item Id",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "uuid",
+          "description": "Each item in the request can have unique Id supplied (uniqueidentifier) this Id will be returned to you in the response so you can match request item with the response",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "AdditionalCostTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Reference": {
+          "description": "Additional cost reference",
+          "type": "string"
+        },
+        "SubTotalLineCost": {
+          "format": "double",
+          "description": "Line Subtotal (Total less tax)",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "description": "Tax rate",
+          "type": "number"
+        },
+        "Currency": {
+          "description": "Currency code",
+          "type": "string"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "description": "Conversion rate from system currency, i.e. system currency rate to additional cost currency. For example if your system currency is GBP and additional cost is in USD the converted value is USD / Rate, example calculation, Rate 1.27, Additional cost total is 100, converted value = 100 USD / 1.27 = 78.98 GBP",
+          "type": "number"
+        },
+        "AllocationLocked": {
+          "description": "If this flag is set, new items added to PO will not be part of the allocation cost",
+          "type": "boolean"
+        },
+        "Print": {
+          "description": "Indicate if the type will appear on prints and emaisl",
+          "type": "boolean"
+        },
+        "AllocationMethod": {
+          "enum": [
+            "ByValue",
+            "ByCBM"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "UpdateAdditionalCostItem": {
+      "type": "object",
+      "properties": {
+        "PurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "description": "Additional cost line row id, uniquely identifying each cost line",
+          "type": "integer"
+        },
+        "Id": {
+          "format": "uuid",
+          "description": "Each item in the request can have unique Id supplied (uniqueidentifier) this Id will be returned to you in the response so you can match request item with the response",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "AdditionalCostTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Reference": {
+          "description": "Additional cost reference",
+          "type": "string"
+        },
+        "SubTotalLineCost": {
+          "format": "double",
+          "description": "Line Subtotal (Total less tax)",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "description": "Tax rate",
+          "type": "number"
+        },
+        "Currency": {
+          "description": "Currency code",
+          "type": "string"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "description": "Conversion rate from system currency, i.e. system currency rate to additional cost currency. For example if your system currency is GBP and additional cost is in USD the converted value is USD / Rate, example calculation, Rate 1.27, Additional cost total is 100, converted value = 100 USD / 1.27 = 78.98 GBP",
+          "type": "number"
+        },
+        "AllocationLocked": {
+          "description": "If this flag is set, new items added to PO will not be part of the allocation cost",
+          "type": "boolean"
+        },
+        "Print": {
+          "description": "Indicate if the type will appear on prints and emaisl",
+          "type": "boolean"
+        },
+        "AllocationMethod": {
+          "enum": [
+            "ByValue",
+            "ByCBM"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "Modify_AdditionalCostResponse": {
+      "type": "object",
+      "properties": {
+        "ModifiedItems": {
+          "description": "List of modified items, added or updated. Each item has Id which was provided in the request",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ModifiedAdditionalCostItem"
+          }
+        },
+        "PurchaseOrderHeader": {
+          "$ref": "#/definitions/PurchaseOrderHeader",
+          "description": "Purchase order header with recalculated total"
+        }
+      }
+    },
+    "ModifiedAdditionalCostItem": {
+      "description": "Newly added purchase additional cost item",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "uuid",
+          "description": "Each item in the request can have unique Id supplied (uniqueidentifier) this Id will be returned to you in the response so you can match request item with the response",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "AdditionalCostTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Reference": {
+          "type": "string"
+        },
+        "SubTotalLineCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "Tax": {
+          "format": "double",
+          "type": "number"
+        },
+        "Currency": {
+          "type": "string"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "TotalLineCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "CostAllocation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurchaseOrderAdditionalCostAllocation"
+          }
+        },
+        "AllocationLocked": {
+          "type": "boolean"
+        },
+        "AdditionalCostTypeName": {
+          "type": "string"
+        },
+        "AdditionalCostTypeIsShippingType": {
+          "type": "boolean"
+        },
+        "AdditionalCostTypeIsPartialAllocation": {
+          "type": "boolean"
+        },
+        "Print": {
+          "type": "boolean"
+        },
+        "AllocationMethod": {
+          "enum": [
+            "ByValue",
+            "ByCBM"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "PurchaseOrder_Get_Additional_CostRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/Get_Additional_CostRequest",
+          "description": ""
+        }
+      }
+    },
+    "Get_Additional_CostRequest": {
+      "description": "Request class for getting purchase order additional costs",
+      "type": "object",
+      "properties": {
+        "PurchaseId": {
+          "format": "uuid",
+          "description": "Purchase order unique identifier of a PO",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "Get_Additional_CostResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "description": "List of additional cost items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurchaseOrderAdditionalCost"
+          }
+        }
+      }
+    },
+    "PurchaseOrder_Modify_AdditionalCostAllocationRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/Modify_AdditionalCostAllocationRequest",
+          "description": ""
+        }
+      }
+    },
+    "Modify_AdditionalCostAllocationRequest": {
+      "description": "Request contains items for modifyin, deleting and adding additional cost allocation items",
+      "type": "object",
+      "properties": {
+        "PurchaseId": {
+          "format": "uuid",
+          "description": "Purchase order id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "itemsToAdd": {
+          "description": "Items to add",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AddAdditionalCostAllocationItem"
+          }
+        },
+        "itemsToUpdate": {
+          "description": "Items to update",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UpdateAdditionalCostAllocationItem"
+          }
+        },
+        "itemsToDelete": {
+          "description": "Items to delete by CostAllocationId",
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "AddAdditionalCostAllocationItem": {
+      "type": "object",
+      "properties": {
+        "PurchaseItemId": {
+          "format": "uuid",
+          "description": "Specific purchase order line id the cost is attributed to",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Id": {
+          "format": "uuid",
+          "description": "unique row id, the same id will be returned to you in the response",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "description": "Relation to additional cost line",
+          "type": "integer"
+        },
+        "AllocationPercentage": {
+          "format": "double",
+          "description": "Percentage of the cost that will be attributed to Purchase order item id",
+          "type": "number"
+        }
+      }
+    },
+    "UpdateAdditionalCostAllocationItem": {
+      "type": "object",
+      "properties": {
+        "CostAllocationId": {
+          "format": "int32",
+          "description": "Allocation row id that will be updated with the new AllocationPercentage",
+          "type": "integer"
+        },
+        "Id": {
+          "format": "uuid",
+          "description": "unique row id, the same id will be returned to you in the response",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "description": "Relation to additional cost line",
+          "type": "integer"
+        },
+        "AllocationPercentage": {
+          "format": "double",
+          "description": "Percentage of the cost that will be attributed to Purchase order item id",
+          "type": "number"
+        }
+      }
+    },
+    "Modify_AdditionalCostAllocationResponse": {
+      "type": "object",
+      "properties": {
+        "ModifiedItems": {
+          "description": "list of modified items with Ids matched to CostAllocationId",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ModifiedAdditionalCostAllocationItem"
+          }
+        }
+      }
+    },
+    "ModifiedAdditionalCostAllocationItem": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "uuid",
+          "description": "Relation to the initial request. This Id will match to what was specified in the request so that the client side can be updated with new CostAllocationIds",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "CostAllocationId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PurchaseItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "AllocationPercentage": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "PurchaseOrder_Modify_PaymentStatementRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/Modify_PaymentStatementRequest",
+          "description": ""
+        }
+      }
+    },
+    "Modify_PaymentStatementRequest": {
+      "type": "object",
+      "properties": {
+        "itemsToAdd": {
+          "description": "list of payment statements to add. Each item has Id which will be returned to you to match the item you are adding to array on your side",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AddPaymentStatementItem"
+          }
+        },
+        "itemsToUpdate": {
+          "description": "List of payment statements to update. Each line is identified by",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UpdatePaymentStatementItem"
+          }
+        },
+        "itemsToDelete": {
+          "description": "List of payment statements to delete, provide list of PurchasePaymentStatementId's",
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "PurchaseId": {
+          "format": "uuid",
+          "description": "Purchase order id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "AddPaymentStatementItem": {
+      "description": "Add payment statement item Id",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "uuid",
+          "description": "Each item in the request can have unique Id supplied (uniqueidentifier) this Id will be returned to you in the response so you can match request item with the response",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Reference": {
+          "description": "Payment statement reference",
+          "type": "string"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "description": "Conversion rate from system currency, i.e. system currency rate to additional cost currency. For example if your system currency is GBP and payment statementis in USD the converted value is USD / Rate, example calculation, Rate 1.27, Additional cost total is 100, converted value = 100 USD / 1.27 = 78.98 GBP",
+          "type": "number"
+        },
+        "Currency": {
+          "description": "Currency code",
+          "type": "string"
+        },
+        "fkPurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "description": "Relation to additional cost line. If no value is set then the payment statement relates to PO supplier",
+          "type": "integer"
+        },
+        "LineCost": {
+          "format": "double",
+          "description": "Cost of the purchase order the payment contributes to",
+          "type": "number"
+        },
+        "PaymentDate": {
+          "format": "date-time",
+          "description": "Date when payment statement was marked as paid",
+          "type": "string"
+        },
+        "CreationDate": {
+          "format": "date-time",
+          "description": "Date when the payment statement was added",
+          "type": "string"
+        }
+      }
+    },
+    "UpdatePaymentStatementItem": {
+      "type": "object",
+      "properties": {
+        "PurchasePaymentStatementId": {
+          "format": "int32",
+          "description": "Payment Statement line row id, uniquely identifying each cost line",
+          "type": "integer"
+        },
+        "Id": {
+          "format": "uuid",
+          "description": "Each item in the request can have unique Id supplied (uniqueidentifier) this Id will be returned to you in the response so you can match request item with the response",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Reference": {
+          "description": "Payment statement reference",
+          "type": "string"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "description": "Conversion rate from system currency, i.e. system currency rate to additional cost currency. For example if your system currency is GBP and payment statementis in USD the converted value is USD / Rate, example calculation, Rate 1.27, Additional cost total is 100, converted value = 100 USD / 1.27 = 78.98 GBP",
+          "type": "number"
+        },
+        "Currency": {
+          "description": "Currency code",
+          "type": "string"
+        },
+        "fkPurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "description": "Relation to additional cost line. If no value is set then the payment statement relates to PO supplier",
+          "type": "integer"
+        },
+        "LineCost": {
+          "format": "double",
+          "description": "Cost of the purchase order the payment contributes to",
+          "type": "number"
+        },
+        "PaymentDate": {
+          "format": "date-time",
+          "description": "Date when payment statement was marked as paid",
+          "type": "string"
+        },
+        "CreationDate": {
+          "format": "date-time",
+          "description": "Date when the payment statement was added",
+          "type": "string"
+        }
+      }
+    },
+    "Modify_PaymentStatementResponse": {
+      "type": "object",
+      "properties": {
+        "ModifiedItems": {
+          "description": "List of modified items, added or updated. Each item has Id which was provided in the request",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ModifiedPaymentStatementItem"
+          }
+        }
+      }
+    },
+    "ModifiedPaymentStatementItem": {
+      "description": "Newly added purchase payment statement",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "uuid",
+          "description": "Each item in the request can have unique Id supplied (uniqueidentifier) this Id will be returned to you in the response so you can match request item with the response",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PurchasePaymentStatementId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "LineCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "Currency": {
+          "type": "string"
+        },
+        "Reference": {
+          "type": "string"
+        },
+        "CreationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "PaymentDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "fkPurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "PurchaseOrder_Get_Payment_StatementRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/Get_PaymentStatementRequest",
+          "description": ""
+        }
+      }
+    },
+    "Get_PaymentStatementRequest": {
+      "description": "Request class for getting purchase order payment statements",
+      "type": "object",
+      "properties": {
+        "PurchaseId": {
+          "format": "uuid",
+          "description": "Purchase order unique identifier of a PO",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "Get_PaymentStatementResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "description": "List of payment statements",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurchaseOrderPaymentStatement"
+          }
+        }
+      }
+    },
+    "PurchaseOrder_FindStockItemRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/FindStockItemRequest",
+          "description": ""
+        }
+      }
+    },
+    "FindStockItemRequest": {
+      "type": "object",
+      "properties": {
+        "Codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "FindStockItem_Response": {
+      "type": "object",
+      "properties": {
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurchaseItemFound"
+          }
+        }
+      }
+    },
+    "PurchaseItemFound": {
+      "type": "object",
+      "properties": {
+        "pkStockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ItemNumber": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "PurchasePrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "KnownPurchasePrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "SupplierCode": {
+          "type": "string"
+        },
+        "SupplierBarcode": {
+          "type": "string"
+        },
+        "fkSupplierId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "SupplierMinOrderQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SupplierPackSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ContainsComposites": {
+          "type": "boolean"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "PurchaseOrder_Get_DeliveredRecordsRequest": {
+      "type": "object",
+      "properties": {
+        "pkPurchaseId": {
+          "format": "uuid",
+          "description": "PO id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "Get_DeliveredRecords_Response": {
+      "type": "object",
+      "properties": {
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurchaseOrderDeliveredRecord"
+          },
+          "readOnly": true
+        }
+      }
+    },
+    "PurchaseOrder_Get_EmailsSentRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/Get_EmailsSentRequest",
+          "description": ""
+        }
+      }
+    },
+    "Get_EmailsSentRequest": {
+      "type": "object",
+      "properties": {
+        "pkPurchaseId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "Get_EmailsSentResponse": {
+      "type": "object",
+      "properties": {
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EmailSent"
+          },
+          "readOnly": true
+        }
+      }
+    },
+    "EmailSent": {
+      "type": "object",
+      "properties": {
+        "AttachmentUrl": {
+          "type": "string",
+          "readOnly": true
+        },
+        "pkEmailId": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "Recipient": {
+          "type": "string",
+          "readOnly": true
+        },
+        "SendDate": {
+          "format": "date-time",
+          "type": "string",
+          "readOnly": true
+        },
+        "Subject": {
+          "type": "string",
+          "readOnly": true
+        },
+        "UserName": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "PurchaseOrder_Get_EmailCSVFileRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/Get_EmailCSVFileRequest",
+          "description": ""
+        }
+      }
+    },
+    "Get_EmailCSVFileRequest": {
+      "type": "object",
+      "properties": {
+        "pkPurchaseId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "Get_EmailCSVFileResponse": {
+      "type": "object",
+      "properties": {
+        "Url": {
+          "type": "string"
+        }
+      }
+    },
+    "PurchaseOrder_CreatePOsFromInventoryRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/CreatePOsFromInventoryRequest"
+        }
+      }
+    },
+    "CreatePOsFromInventoryRequest": {
+      "type": "object",
+      "properties": {
+        "ToCreate": {
+          "description": "A list of items that should either be added to a PO, either new or existing, depending on data",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MyInventoryPOCreationItems"
+          }
+        },
+        "LocationId": {
+          "format": "uuid",
+          "description": "Linnworks stock location id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "MyInventoryPOCreationItems": {
+      "type": "object",
+      "properties": {
+        "IsNew": {
+          "type": "boolean"
+        },
+        "PurchaseOrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "OpenOrderItemsBound": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "SupplierId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "SupplierName": {
+          "type": "string"
+        },
+        "OustandingPOQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SuggestedReorderAmount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "QuantityInDraftPOs": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "ImageURL": {
+          "type": "string"
+        },
+        "SupplierAssigned": {
+          "type": "boolean"
+        },
+        "CalculationMethod": {
+          "enum": [
+            "Error",
+            "MinimumLevel",
+            "PreviousPOs",
+            "ReorderPoint",
+            "OpenOrders"
+          ],
+          "type": "string"
+        },
+        "ErrorMessage": {
+          "type": "string"
+        },
+        "CanBeOrdered": {
+          "type": "boolean"
+        },
+        "ErrorCode": {
+          "enum": [
+            "NO_ERROR",
+            "ABOVE_MIN_LEVEL",
+            "SUPPLIER_NOT_FOUND",
+            "NO_DEFAULT_SUPPLIER",
+            "STOCK_LEVEL_UNKNOWN",
+            "UNSPECIFIED_RP_ERROR",
+            "NO_PREVIOUS_POS",
+            "BELOW_SUPPLIER_MINIMUM",
+            "NO_MINIMUM_LEVEL",
+            "ITEM_UNTRACKED",
+            "UNSUPPORTED_OO_REQUEST",
+            "UNSUPPORTED_CALC_TYPE"
+          ],
+          "type": "string"
+        },
+        "SupplierPackSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "MinimumOrderQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RequestedSupplierId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "CreatePOsFromInventoryResponse": {
+      "type": "object",
+      "properties": {
+        "PurchaseOrders": {
+          "description": "A dictionary where the key is supplier Id and the tuple represents the purchase order id and the external invoice number for that PO",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Tuple_Guid_String"
+          }
+        },
+        "SkippedStockItems": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "Tuple_Guid_String": {
+      "type": "object",
+      "properties": {
+        "Item1": {
+          "format": "uuid",
+          "type": "string",
+          "readOnly": true,
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Item2": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

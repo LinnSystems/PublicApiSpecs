@@ -1,0 +1,461 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "email",
+    "title": "Email API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/Email/GetEmailTemplates": {
+      "get": {
+        "tags": [
+          "Email"
+        ],
+        "summary": "GetEmailTemplates",
+        "description": "Get the whole list of email header templates\n<b>Permissions Required: </b> GlobalPermissions.Email.Templates.GetEmailTemplatesNode",
+        "operationId": "GetEmailTemplates",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EmailTemplateHeader"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Email/GetEmailTemplate": {
+      "get": {
+        "tags": [
+          "Email"
+        ],
+        "summary": "GetEmailTemplate",
+        "description": "Get the full data of a specific email template\n<b>Permissions Required: </b> GlobalPermissions.Email.Templates.GetEmailTemplateNode",
+        "operationId": "GetEmailTemplate",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkEmailTemplateRowId",
+            "in": "query",
+            "description": "Id of the email template to retrieve",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/EmailTemplate"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Email/GenerateAdhocEmail": {
+      "post": {
+        "tags": [
+          "Email"
+        ],
+        "summary": "GenerateAdhocEmail",
+        "description": "Generate a custom email\n<b>Permissions Required: </b> GlobalPermissions.Email.SendEmails.SendAdhocEmailsNode",
+        "operationId": "GenerateAdhocEmail",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Email_GenerateAdhocEmailRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Email_GenerateAdhocEmailRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GenerateAdhocEmailResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Email/GenerateFreeTextEmail": {
+      "post": {
+        "tags": [
+          "Email"
+        ],
+        "summary": "GenerateFreeTextEmail",
+        "description": "Generate a custom email\n<b>Permissions Required: </b> GlobalPermissions.Email.SendEmails.SendFreeTextEmailsNode",
+        "operationId": "GenerateFreeTextEmail",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Email_GenerateFreeTextEmailRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Email_GenerateFreeTextEmailRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GenerateFreeTextEmailResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "EmailTemplateHeader": {
+      "type": "object",
+      "properties": {
+        "pkEmailTemplateRowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "TemplateType": {
+          "type": "string"
+        },
+        "IsConditions": {
+          "type": "boolean"
+        },
+        "Condition": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "fkEmailAccountRowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "AccountName": {
+          "type": "string"
+        },
+        "AttachPDF": {
+          "type": "boolean"
+        },
+        "IsAdhoc": {
+          "type": "boolean"
+        },
+        "HTML": {
+          "type": "boolean"
+        }
+      }
+    },
+    "EmailTemplate": {
+      "type": "object",
+      "properties": {
+        "pkEmailTemplateRowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "TemplateType": {
+          "type": "string"
+        },
+        "TemplateTypeDefinition": {
+          "$ref": "#/definitions/EmailTemplateType",
+          "readOnly": true
+        },
+        "Subject": {
+          "type": "string"
+        },
+        "Condition": {
+          "type": "string"
+        },
+        "PreviewBeforeGenerating": {
+          "type": "boolean"
+        },
+        "HTML": {
+          "type": "boolean"
+        },
+        "AttachPDF": {
+          "type": "boolean"
+        },
+        "Body": {
+          "type": "string"
+        },
+        "fkEmailAccountRowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PromptPreviewReferenceNumber": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "EmailTemplateType": {
+      "type": "object",
+      "properties": {
+        "AttachedFileName": {
+          "type": "string"
+        },
+        "AttachmentHelpText": {
+          "type": "string"
+        },
+        "Type": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "IsAdhoc": {
+          "type": "boolean"
+        },
+        "IsDesignerVisible": {
+          "type": "boolean"
+        },
+        "ParsableCreator": {
+          "$ref": "#/definitions/EmailParsableCreator"
+        },
+        "Tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TemplateTag"
+          },
+          "readOnly": true
+        },
+        "AttachPDFAvailable": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "PrintingTemplateType": {
+          "type": "string"
+        }
+      }
+    },
+    "EmailParsableCreator": {
+      "type": "object",
+      "properties": {}
+    },
+    "TemplateTag": {
+      "type": "object",
+      "properties": {
+        "Tag": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "SelectionPath": {
+          "type": "string"
+        },
+        "IsList": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Email_GenerateAdhocEmailRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/GenerateAdhocEmailRequest",
+          "description": "Custom email generation request body"
+        }
+      }
+    },
+    "GenerateAdhocEmailRequest": {
+      "description": "Custom email generation request body",
+      "type": "object",
+      "properties": {
+        "ids": {
+          "description": "List of ids to send template for",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "templateId": {
+          "format": "int32",
+          "description": "Template id to send",
+          "type": "integer"
+        },
+        "tags": {
+          "description": "Tags to append to email",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EmailStubCustomTag"
+          }
+        },
+        "attachments": {
+          "description": "List of attachments to send with the email",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "EmailStubCustomTag": {
+      "type": "object",
+      "properties": {
+        "pkEmailStubTagId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fkEmailStubId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TagName": {
+          "type": "string"
+        },
+        "TagValue": {
+          "type": "string"
+        }
+      }
+    },
+    "GenerateAdhocEmailResponse": {
+      "type": "object",
+      "properties": {
+        "isComplete": {
+          "type": "boolean"
+        },
+        "FailedRecipients": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Email_GenerateFreeTextEmailRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/GenerateFreeTextEmailRequest",
+          "description": ""
+        }
+      }
+    },
+    "GenerateFreeTextEmailRequest": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "description": "List of ids to send template for",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "subject": {
+          "description": "Subject of email",
+          "type": "string"
+        },
+        "body": {
+          "description": "Body of email",
+          "type": "string"
+        },
+        "templateType": {
+          "type": "string"
+        }
+      }
+    },
+    "GenerateFreeTextEmailResponse": {
+      "type": "object",
+      "properties": {
+        "isComplete": {
+          "type": "boolean"
+        },
+        "FailedRecipients": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

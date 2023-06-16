@@ -1,0 +1,433 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "postalservices",
+    "title": "Postal Services API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/PostalServices/GetPostalServices": {
+      "get": {
+        "tags": [
+          "PostalServices"
+        ],
+        "summary": "GetPostalServices",
+        "description": "Gets a list of the users postal services and information on channels and couriers linked to each service\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostalServicesNode",
+        "operationId": "GetPostalServices",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PostalService_WithChannelAndShippingLinks"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PostalServices/CreatePostalService": {
+      "post": {
+        "tags": [
+          "PostalServices"
+        ],
+        "summary": "CreatePostalService",
+        "description": "Adds a new postal service to the database\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostalServicesNode",
+        "operationId": "CreatePostalService",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "PostalServices_CreatePostalServiceRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PostalServices_CreatePostalServiceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PostalService"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PostalServices/UpdatePostalService": {
+      "post": {
+        "tags": [
+          "PostalServices"
+        ],
+        "summary": "UpdatePostalService",
+        "description": "Changes an existing postal service in the database\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostalServicesNode",
+        "operationId": "UpdatePostalService",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "PostalServices_UpdatePostalServiceRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PostalServices_UpdatePostalServiceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PostalServices/DeletePostalService": {
+      "post": {
+        "tags": [
+          "PostalServices"
+        ],
+        "summary": "DeletePostalService",
+        "description": "Changes an existing postal service in the database\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostalServicesNode",
+        "operationId": "DeletePostalService",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "PostalServices_DeletePostalServiceRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PostalServices_DeletePostalServiceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PostalServices/GetChannelLinks": {
+      "get": {
+        "tags": [
+          "PostalServices"
+        ],
+        "summary": "GetChannelLinks",
+        "description": "Returns Channel Service Link Information\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostalServicesNode",
+        "operationId": "GetChannelLinks",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "postalServiceId",
+            "in": "query",
+            "description": "Postal service ID",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ChannelServiceLinks"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "PostalService_WithChannelAndShippingLinks": {
+      "description": "Class which exposes only those elements required by linnworks.net front end",
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "description": "Postal service ID",
+          "type": "string",
+          "readOnly": true,
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "hasMappedShippingService": {
+          "description": "If there is channel linking with shipping service",
+          "type": "boolean"
+        },
+        "Channels": {
+          "description": "Channel information",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Channel"
+          }
+        },
+        "ShippingServices": {
+          "description": "Shipping service information",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShippingService"
+          }
+        },
+        "PostalServiceName": {
+          "type": "string"
+        },
+        "PostalServiceTag": {
+          "type": "string"
+        },
+        "ServiceCountry": {
+          "type": "string"
+        },
+        "PostalServiceCode": {
+          "type": "string"
+        },
+        "Vendor": {
+          "type": "string"
+        },
+        "PrintModule": {
+          "type": "string"
+        },
+        "PrintModuleTitle": {
+          "type": "string"
+        },
+        "pkPostalServiceId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "TrackingNumberRequired": {
+          "type": "boolean"
+        },
+        "WeightRequired": {
+          "type": "boolean"
+        },
+        "IgnorePackagingGroup": {
+          "type": "boolean"
+        },
+        "fkShippingAPIConfigId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IntegratedServiceId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "Channel": {
+      "type": "object",
+      "properties": {
+        "pkPostalServiceId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PostalServiceName": {
+          "type": "string"
+        },
+        "Source": {
+          "type": "string"
+        },
+        "SubSource": {
+          "type": "string"
+        }
+      }
+    },
+    "ShippingService": {
+      "type": "object",
+      "properties": {
+        "pkPostalServiceId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PostalServiceName": {
+          "type": "string"
+        },
+        "vendor": {
+          "type": "string"
+        },
+        "accountid": {
+          "type": "string"
+        },
+        "vendorFriendlyName": {
+          "type": "string"
+        }
+      }
+    },
+    "PostalServices_CreatePostalServiceRequest": {
+      "type": "object",
+      "properties": {
+        "PostalServiceDetails": {
+          "$ref": "#/definitions/PostalService_WithChannelAndShippingLinks",
+          "description": "Information about postal service"
+        }
+      }
+    },
+    "PostalService": {
+      "type": "object",
+      "properties": {
+        "PostalServiceName": {
+          "type": "string"
+        },
+        "PostalServiceTag": {
+          "type": "string"
+        },
+        "ServiceCountry": {
+          "type": "string"
+        },
+        "PostalServiceCode": {
+          "type": "string"
+        },
+        "Vendor": {
+          "type": "string"
+        },
+        "PrintModule": {
+          "type": "string"
+        },
+        "PrintModuleTitle": {
+          "type": "string"
+        },
+        "pkPostalServiceId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "TrackingNumberRequired": {
+          "type": "boolean"
+        },
+        "WeightRequired": {
+          "type": "boolean"
+        },
+        "IgnorePackagingGroup": {
+          "type": "boolean"
+        },
+        "fkShippingAPIConfigId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IntegratedServiceId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "PostalServices_UpdatePostalServiceRequest": {
+      "type": "object",
+      "properties": {
+        "PostalServiceDetails": {
+          "$ref": "#/definitions/PostalService",
+          "description": "Information about postal service"
+        }
+      }
+    },
+    "PostalServices_DeletePostalServiceRequest": {
+      "type": "object",
+      "properties": {
+        "idToDelete": {
+          "format": "uuid",
+          "description": "Postal service ID to delete",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "ChannelServiceLinks": {
+      "type": "object",
+      "properties": {
+        "Channel": {
+          "type": "string"
+        },
+        "ChannelName": {
+          "type": "string"
+        },
+        "ChannelService": {
+          "type": "string"
+        },
+        "ChannelTag": {
+          "type": "string"
+        },
+        "Site": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

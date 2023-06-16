@@ -1,0 +1,3372 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "processedorders",
+    "title": "Processed Orders API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/ProcessedOrders/RefundFreeText": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "RefundFreeText",
+        "description": "Use this call to add or update a free text refund. This method can also be used to change the refund amount for any pending manual refund. Please check any automated refunds are valid prior to calling this method.",
+        "operationId": "RefundFreeText",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_RefundFreeTextRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_RefundFreeTextRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RefundInfo"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/RefundShipping": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "RefundShipping",
+        "description": "Use this call to refund shipping for an order. Please check the refund options to ensure that a shipping refund is possible.",
+        "operationId": "RefundShipping",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_RefundShippingRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_RefundShippingRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RefundInfo"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/MarkManualRefundsAsActioned": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "MarkManualRefundsAsActioned",
+        "description": "Use this call to update pending manual refunds to the actioned state.",
+        "operationId": "MarkManualRefundsAsActioned",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_MarkManualRefundsAsActionedRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_MarkManualRefundsAsActionedRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/RefundServices": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "RefundServices",
+        "description": "Use this call to refund one or more services on an order. Please check that any automated refunds are valid prior to calling this method.",
+        "operationId": "RefundServices",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_RefundServicesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_RefundServicesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RefundInfo"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/ValidateCompleteOrderRefund": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "ValidateCompleteOrderRefund",
+        "description": "Use this call to check if it is possible to do an automated full-order refund.",
+        "operationId": "ValidateCompleteOrderRefund",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_ValidateCompleteOrderRefundRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_ValidateCompleteOrderRefundRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ValidationResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/GetRefundsOptions": {
+      "get": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "GetRefundsOptions",
+        "description": "Use this call to get information about manual/automated refunds (which kinds of refunds are possible) for a given order.",
+        "operationId": "GetRefundsOptions",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkOrderId",
+            "in": "query",
+            "description": "The id of the order",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RefundScreenOptions"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/GetRefundableServiceItems": {
+      "get": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "GetRefundableServiceItems",
+        "description": "Use this call to get a list of service items which can be refunded.",
+        "operationId": "GetRefundableServiceItems",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkOrderId",
+            "in": "query",
+            "description": "The id of the order which the service items belong to.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ServiceItem"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/GetTotalRefunds": {
+      "get": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "GetTotalRefunds",
+        "description": "Use this call to retrieve the total value of refunds against an order.",
+        "operationId": "GetTotalRefunds",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkOrderId",
+            "in": "query",
+            "description": "The id of the order",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "includeBookings",
+            "in": "query",
+            "description": "If true, pending refunds against return bookings and exchange bookings will be included. (Optional, default is false.)",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExistingRefundTotal"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/IsRefundValid": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "IsRefundValid",
+        "description": "Use this call to determine if the refunds in a given return set are valid.",
+        "operationId": "IsRefundValid",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_IsRefundValidRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_IsRefundValidRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ValidationResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/IsRefundValidationRequiredByOrderId": {
+      "get": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "IsRefundValidationRequiredByOrderId",
+        "description": "Use this call to determine if validation of refunds or returns/exchanges with refund components is required for a given order.",
+        "operationId": "IsRefundValidationRequiredByOrderId",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkOrderId",
+            "in": "query",
+            "description": "The order id of the order which requires validation",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/GetChannelRefundReasons": {
+      "get": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "GetChannelRefundReasons",
+        "description": "Use this call to get a list of valid channel refund reasons for a given order. These are needed for channel refunds.",
+        "operationId": "GetChannelRefundReasons",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkOrderId",
+            "in": "query",
+            "description": "The order id to get reasons for",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ChannelRefundReason"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/GetReturnsExchanges": {
+      "get": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "GetReturnsExchanges",
+        "description": "Use this call to get a basic list of returns, exchanges and resends for an order.",
+        "operationId": "GetReturnsExchanges",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkOrderId",
+            "in": "query",
+            "description": "The order id to get the returns for",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReturnInfo"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/GetReturnItemsInfo": {
+      "get": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "GetReturnItemsInfo",
+        "description": "Use this call to get a list of all items on an order, including return quantities and resend quantities. The information can be used to calculate how many items has already been returned.",
+        "operationId": "GetReturnItemsInfo",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkOrderId",
+            "in": "query",
+            "description": "The order id to get the returns for",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OrderItemReturnInfo"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/GetReturnOrderInfo": {
+      "get": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "GetReturnOrderInfo",
+        "description": "Use this call to get basic information about a processed order (e.g. source, subsource, address) as seen on the Returns/Refunds screens.",
+        "operationId": "GetReturnOrderInfo",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkOrderId",
+            "in": "query",
+            "description": "The id of the order.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "includeRefundLink",
+            "in": "query",
+            "description": "Is a refund link required (not available for all channels).",
+            "required": true,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ReturnOrderHeader"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/GetOrderInfo": {
+      "get": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "GetOrderInfo",
+        "description": "Use this call to retrieve detailed information about a processed order (header level).",
+        "operationId": "GetOrderInfo",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkOrderId",
+            "in": "query",
+            "description": "The id of the order.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrderWeb"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/GetOrderTrackingURLs": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "GetOrderTrackingURLs",
+        "description": "Use this call to retrieve detailed TrackingURL for orders Vendor and TrackingNumber.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ProcessedOrdersNode",
+        "operationId": "GetOrderTrackingURLs",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "The request for TrackingURL.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetOrderTrackingURLsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetOrderTrackingURLsResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/SearchProcessedOrders": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "SearchProcessedOrders",
+        "description": "Search Processed Orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ProcessedOrdersNode",
+        "operationId": "SearchProcessedOrders",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_SearchProcessedOrdersRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_SearchProcessedOrdersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SearchProcessedOrdersResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/SearchProcessedOrdersPaged": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "SearchProcessedOrdersPaged",
+        "description": "Use this call to search for processed orders.",
+        "operationId": "SearchProcessedOrdersPaged",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_SearchProcessedOrdersPagedRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_SearchProcessedOrdersPagedRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GenericPagedResult_ProcessedOrderWeb"
+            }
+          }
+        },
+        "deprecated": true,
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/DownloadOrdersToCSV": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "DownloadOrdersToCSV",
+        "description": "Download Processed Orders to CSV\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ProcessedOrders.DownloadProcessedOrdersNode",
+        "operationId": "DownloadOrdersToCSV",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_DownloadOrdersToCSVRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_DownloadOrdersToCSVRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DownloadOrdersToCSVResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/AddReturnCategory": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "AddReturnCategory",
+        "description": "Use this call to add a new return category.",
+        "operationId": "AddReturnCategory",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_AddReturnCategoryRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_AddReturnCategoryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OrderReturnCategory"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/RenameReturnCategory": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "RenameReturnCategory",
+        "description": "Use this call to rename an existing return category.",
+        "operationId": "RenameReturnCategory",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_RenameReturnCategoryRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_RenameReturnCategoryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/DeleteReturnCategory": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "DeleteReturnCategory",
+        "description": "Use this call to delete an existing return category.",
+        "operationId": "DeleteReturnCategory",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_DeleteReturnCategoryRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_DeleteReturnCategoryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/GetProcessedRelatives": {
+      "get": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "GetProcessedRelatives",
+        "description": "Use this call to get a list of related orders.",
+        "operationId": "GetProcessedRelatives",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkOrderId",
+            "in": "query",
+            "description": "The order id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ProcessedOrderRelation"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/GetPackageSplit": {
+      "get": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "GetPackageSplit",
+        "description": "Use this call to get split packaging information for an order",
+        "operationId": "GetPackageSplit",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkOrderId",
+            "in": "query",
+            "description": "The order id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SplitPackaging"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/GetProcessedAuditTrail": {
+      "get": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "GetProcessedAuditTrail",
+        "description": "Use this call to get an order's audit trail information",
+        "operationId": "GetProcessedAuditTrail",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkOrderId",
+            "in": "query",
+            "description": "The order id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AuditEntry"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/GetProcessedOrderExtendedProperties": {
+      "get": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "GetProcessedOrderExtendedProperties",
+        "description": "Use this call to retrieve a list of order-level extended properties.",
+        "operationId": "GetProcessedOrderExtendedProperties",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkOrderId",
+            "in": "query",
+            "description": "The order id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OrderExtendedProperty"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/GetReturnCategories": {
+      "get": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "GetReturnCategories",
+        "description": "Use this call to retrieve a list of return categories. Used for refunds, resends and exchanges.",
+        "operationId": "GetReturnCategories",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OrderReturnCategory"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/GetProcessedOrderNotes": {
+      "get": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "GetProcessedOrderNotes",
+        "description": "Use this call to get a list of order notes for a given order",
+        "operationId": "GetProcessedOrderNotes",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkOrderId",
+            "in": "query",
+            "description": "The order id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ProcessedOrderNote"
+              }
+            }
+          }
+        },
+        "deprecated": true,
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/AddOrderNote": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "AddOrderNote",
+        "description": "Use this call to add a new note to an order",
+        "operationId": "AddOrderNote",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_AddOrderNoteRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_AddOrderNoteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "uuid",
+              "type": "string",
+              "example": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/ChangeOrderNote": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "ChangeOrderNote",
+        "description": "Edit an existing order note",
+        "operationId": "ChangeOrderNote",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_ChangeOrderNoteRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_ChangeOrderNoteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/DeleteOrderNote": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "DeleteOrderNote",
+        "description": "Delete an existing order note",
+        "operationId": "DeleteOrderNote",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_DeleteOrderNoteRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_DeleteOrderNoteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/CreateExchange": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "CreateExchange",
+        "description": "",
+        "operationId": "CreateExchange",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_CreateExchangeRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_CreateExchangeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReturnInfo"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/CreateResend": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "CreateResend",
+        "description": "Creates a resend",
+        "operationId": "CreateResend",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_CreateResendRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_CreateResendRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReturnInfo"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/CreateFullResend": {
+      "post": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "CreateFullResend",
+        "operationId": "CreateFullResend",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ProcessedOrders_CreateFullResendRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessedOrders_CreateFullResendRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReturnInfo"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/GetRefunds": {
+      "get": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "GetRefunds",
+        "description": "Gets all refund order items for an order",
+        "operationId": "GetRefunds",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkOrderId",
+            "in": "query",
+            "description": "Primary key for order",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RefundInfo"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ProcessedOrders/CheckOrderFullyReturned": {
+      "get": {
+        "tags": [
+          "ProcessedOrders"
+        ],
+        "summary": "CheckOrderFullyReturned",
+        "description": "Checks if order was fully returned",
+        "operationId": "CheckOrderFullyReturned",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkOrderId",
+            "in": "query",
+            "description": "Primary key for an order",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "ProcessedOrders_RefundFreeTextRequest": {
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "description": "The id of the order to add/update refunds for",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "refundItems": {
+          "description": "The new/altered refund items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RefundItem"
+          }
+        }
+      }
+    },
+    "RefundItem": {
+      "type": "object",
+      "properties": {
+        "pkRefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "IsManualRefund": {
+          "type": "boolean"
+        },
+        "Type": {
+          "enum": [
+            "Item",
+            "Service",
+            "Shipping",
+            "FreeText"
+          ],
+          "type": "string"
+        },
+        "fkOrderItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "RefundQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RefundAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "Reason": {
+          "type": "string"
+        },
+        "ChannelReason": {
+          "type": "string"
+        },
+        "ChannelReasonSec": {
+          "type": "string"
+        }
+      }
+    },
+    "RefundInfo": {
+      "type": "object",
+      "properties": {
+        "pkRefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "IsItem": {
+          "type": "boolean"
+        },
+        "IsService": {
+          "type": "boolean"
+        },
+        "Amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "Reason": {
+          "type": "string"
+        },
+        "Actioned": {
+          "type": "boolean"
+        },
+        "ActionDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ReturnReference": {
+          "type": "string"
+        },
+        "Cost": {
+          "format": "double",
+          "type": "number"
+        },
+        "RefundStatus": {
+          "enum": [
+            "OPEN",
+            "PROCESSED",
+            "ERROR",
+            "ERROR_ACKED",
+            "PENDING"
+          ],
+          "type": "string"
+        },
+        "IgnoredValidation": {
+          "type": "boolean"
+        },
+        "fkOrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ShouldSerializeChannelReason": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "ChannelReason": {
+          "type": "string"
+        },
+        "ShouldSerializeChannelReasonSec": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "ChannelReasonSec": {
+          "type": "string"
+        },
+        "IsNew": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ProcessedOrders_RefundShippingRequest": {
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "description": "The id of the order whose shipping needs to be refunded",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "ProcessedOrders_MarkManualRefundsAsActionedRequest": {
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "description": "The id of the order to action refunds on.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "ProcessedOrders_RefundServicesRequest": {
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "description": "The id of the order to refund services for.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "refundItems": {
+          "description": "Refunds for service items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RefundItem"
+          }
+        }
+      }
+    },
+    "ProcessedOrders_ValidateCompleteOrderRefundRequest": {
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "description": "The id of the order",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "ValidationResult": {
+      "type": "object",
+      "properties": {
+        "Type": {
+          "enum": [
+            "Success",
+            "Unknown",
+            "RefundAutomationDisabled",
+            "NotAllowedByChannel",
+            "InvalidRefundAmounts",
+            "NotImplementedForChannel"
+          ],
+          "type": "string"
+        },
+        "InvalidItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RefundItem"
+          }
+        },
+        "AdditionalInformation": {
+          "type": "string"
+        }
+      }
+    },
+    "RefundScreenOptions": {
+      "type": "object",
+      "properties": {
+        "FreeTextOption": {
+          "enum": [
+            "OK",
+            "ChannelRefundFunctionalityNotImplemented",
+            "ChannelRefundsDisabled",
+            "NotAllowed"
+          ],
+          "type": "string"
+        },
+        "CanRefundShipping": {
+          "type": "boolean"
+        },
+        "OrderHasServiceItems": {
+          "type": "boolean"
+        },
+        "IsShippingRefundAutomated": {
+          "type": "boolean"
+        },
+        "IsServiceRefundAutomated": {
+          "type": "boolean"
+        },
+        "SupportsAutomatedRefunds": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ServiceItem": {
+      "type": "object",
+      "properties": {
+        "pkOrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ServiceName": {
+          "type": "string"
+        },
+        "ServiceCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "DefaultChannelReason": {
+          "$ref": "#/definitions/ChannelRefundReason"
+        },
+        "DefaultChannelSubReason": {
+          "$ref": "#/definitions/ChannelRefundSubReason"
+        },
+        "ItemNumber": {
+          "type": "string"
+        },
+        "AllowsAutomatedRefund": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ChannelRefundReason": {
+      "type": "object",
+      "properties": {
+        "Tag": {
+          "type": "string"
+        },
+        "DisplayName": {
+          "type": "string"
+        },
+        "SubReasons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChannelRefundSubReason"
+          }
+        }
+      }
+    },
+    "ChannelRefundSubReason": {
+      "type": "object",
+      "properties": {
+        "Tag": {
+          "type": "string"
+        },
+        "DisplayName": {
+          "type": "string"
+        }
+      }
+    },
+    "ExistingRefundTotal": {
+      "type": "object",
+      "properties": {
+        "Amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "TotalCharge": {
+          "format": "double",
+          "type": "number"
+        },
+        "Refundable": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        }
+      }
+    },
+    "ProcessedOrders_IsRefundValidRequest": {
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "description": "The id of the order to validate the refund with",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "refundItems": {
+          "description": "The refund rows",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RefundItem"
+          }
+        }
+      }
+    },
+    "ReturnInfo": {
+      "type": "object",
+      "properties": {
+        "pkReturnId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RowType": {
+          "enum": [
+            "UNKNOWN",
+            "RETURN",
+            "RETURNREFUND",
+            "EXCHANGE",
+            "RESEND",
+            "RETURNBOOKING",
+            "EXCHANGEBOOKING"
+          ],
+          "type": "string"
+        },
+        "ReturnReference": {
+          "type": "string"
+        },
+        "fkOrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkOrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "OrderItemBatchId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "BatchNumber": {
+          "type": "string"
+        },
+        "Reason": {
+          "type": "string"
+        },
+        "ChannelReason": {
+          "type": "string"
+        },
+        "ChannelReasonSec": {
+          "type": "string"
+        },
+        "Category": {
+          "type": "string"
+        },
+        "ReturnQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fkReturnLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Scrapped": {
+          "type": "boolean"
+        },
+        "ScrapQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "LastState": {
+          "type": "string"
+        },
+        "LastDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Completed": {
+          "type": "boolean"
+        },
+        "fkNewOrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkNewOrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkNewStockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "NewQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "NewOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "NewOrderCancelled": {
+          "type": "boolean"
+        },
+        "NewSKU": {
+          "type": "string"
+        },
+        "NewItemTitle": {
+          "type": "string"
+        },
+        "NewOrderProcessedOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "AdditionalCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "fkRefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "RefundedAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "PendingRefund": {
+          "format": "double",
+          "type": "number"
+        },
+        "ReturnDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "OrderItemReturnInfo": {
+      "type": "object",
+      "properties": {
+        "ChildItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItemReturnInfo"
+          }
+        },
+        "Batches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItemReturnInfoBatched"
+          }
+        },
+        "OrderId": {
+          "format": "uuid",
+          "type": "string",
+          "readOnly": true,
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkOrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ParentRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnableQty": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "OrderQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReturnedQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "UnitValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxCostInclusive": {
+          "type": "boolean"
+        },
+        "Currency": {
+          "type": "string"
+        },
+        "IsCompositeParent": {
+          "type": "boolean"
+        },
+        "IsPartialCompositeReturn": {
+          "type": "boolean"
+        },
+        "ParentRatio": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "pkStockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ResentQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fkRefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "OrderItemReturnInfoBatched": {
+      "type": "object",
+      "properties": {
+        "OrderItemBatchId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchNumber": {
+          "type": "string"
+        },
+        "DespatchUnitValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "OrderId": {
+          "format": "uuid",
+          "type": "string",
+          "readOnly": true,
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkOrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ParentRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnableQty": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "OrderQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReturnedQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "UnitValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxCostInclusive": {
+          "type": "boolean"
+        },
+        "Currency": {
+          "type": "string"
+        },
+        "IsCompositeParent": {
+          "type": "boolean"
+        },
+        "IsPartialCompositeReturn": {
+          "type": "boolean"
+        },
+        "ParentRatio": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "pkStockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ResentQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fkRefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "ReturnOrderHeader": {
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "nOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Source": {
+          "type": "string"
+        },
+        "SubSource": {
+          "type": "string"
+        },
+        "PostalServiceName": {
+          "type": "string"
+        },
+        "cShippingAddress": {
+          "type": "string"
+        },
+        "cCurrency": {
+          "type": "string"
+        },
+        "dReceivedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "dProcessedOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "fTotalCharge": {
+          "format": "double",
+          "type": "number"
+        },
+        "RefundLink": {
+          "type": "string"
+        }
+      }
+    },
+    "ProcessedOrderWeb": {
+      "type": "object",
+      "properties": {
+        "pkOrderID": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "cShippingAddress": {
+          "type": "string"
+        },
+        "dReceivedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "dProcessedOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "timeDiff": {
+          "format": "double",
+          "type": "number"
+        },
+        "fPostageCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "fTotalCharge": {
+          "format": "double",
+          "type": "number"
+        },
+        "PostageCostExTax": {
+          "format": "double",
+          "type": "number"
+        },
+        "Subtotal": {
+          "format": "double",
+          "type": "number"
+        },
+        "fTax": {
+          "format": "double",
+          "type": "number"
+        },
+        "TotalDiscount": {
+          "format": "double",
+          "type": "number"
+        },
+        "ProfitMargin": {
+          "format": "double",
+          "type": "number"
+        },
+        "CountryTaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "nOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nStatus": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "cCurrency": {
+          "type": "string"
+        },
+        "PostalTrackingNumber": {
+          "type": "string"
+        },
+        "cCountry": {
+          "type": "string"
+        },
+        "Source": {
+          "type": "string"
+        },
+        "PostalServiceName": {
+          "type": "string"
+        },
+        "PostalServiceCode": {
+          "type": "string"
+        },
+        "Vendor": {
+          "type": "string"
+        },
+        "BillingEmailAddress": {
+          "type": "string"
+        },
+        "ReferenceNum": {
+          "type": "string"
+        },
+        "SecondaryReference": {
+          "type": "string"
+        },
+        "ExternalReference": {
+          "type": "string"
+        },
+        "Address1": {
+          "type": "string"
+        },
+        "Address2": {
+          "type": "string"
+        },
+        "Address3": {
+          "type": "string"
+        },
+        "Town": {
+          "type": "string"
+        },
+        "Region": {
+          "type": "string"
+        },
+        "BuyerPhoneNumber": {
+          "type": "string"
+        },
+        "Company": {
+          "type": "string"
+        },
+        "SubSource": {
+          "type": "string"
+        },
+        "ChannelBuyerName": {
+          "type": "string"
+        },
+        "AccountName": {
+          "type": "string"
+        },
+        "cFullName": {
+          "type": "string"
+        },
+        "cEmailAddress": {
+          "type": "string"
+        },
+        "cPostCode": {
+          "type": "string"
+        },
+        "dPaidOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "dCancelledOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "PackageCategory": {
+          "type": "string"
+        },
+        "PackageTitle": {
+          "type": "string"
+        },
+        "ItemWeight": {
+          "format": "double",
+          "type": "number"
+        },
+        "TotalWeight": {
+          "format": "double",
+          "type": "number"
+        },
+        "FolderCollection": {
+          "type": "string"
+        },
+        "cBillingAddress": {
+          "type": "string"
+        },
+        "BillingName": {
+          "type": "string"
+        },
+        "BillingCompany": {
+          "type": "string"
+        },
+        "BillingAddress1": {
+          "type": "string"
+        },
+        "BillingAddress2": {
+          "type": "string"
+        },
+        "BillingAddress3": {
+          "type": "string"
+        },
+        "BillingTown": {
+          "type": "string"
+        },
+        "BillingRegion": {
+          "type": "string"
+        },
+        "BillingPostCode": {
+          "type": "string"
+        },
+        "BillingCountryName": {
+          "type": "string"
+        },
+        "BillingPhoneNumber": {
+          "type": "string"
+        },
+        "HoldOrCancel": {
+          "type": "boolean"
+        },
+        "IsResend": {
+          "type": "boolean"
+        },
+        "IsExchange": {
+          "type": "boolean"
+        },
+        "TaxId": {
+          "type": "string"
+        },
+        "FulfilmentLocationName": {
+          "type": "string"
+        }
+      }
+    },
+    "GetOrderTrackingURLsRequest": {
+      "type": "object",
+      "properties": {
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TrackingURLRequestItem"
+          }
+        }
+      }
+    },
+    "TrackingURLRequestItem": {
+      "type": "object",
+      "properties": {
+        "OrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Vendor": {
+          "type": "string"
+        },
+        "PostalTrackingNumber": {
+          "type": "string"
+        },
+        "Postcode": {
+          "type": "string"
+        }
+      }
+    },
+    "GetOrderTrackingURLsResponse": {
+      "type": "object",
+      "properties": {
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TrackingURLResponseItem"
+          }
+        }
+      }
+    },
+    "TrackingURLResponseItem": {
+      "type": "object",
+      "properties": {
+        "TrackingURL": {
+          "type": "string"
+        },
+        "OrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Vendor": {
+          "type": "string"
+        },
+        "PostalTrackingNumber": {
+          "type": "string"
+        },
+        "Postcode": {
+          "type": "string"
+        }
+      }
+    },
+    "ProcessedOrders_SearchProcessedOrdersRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/SearchProcessedOrdersRequest",
+          "description": "Search parameters consisting of keyword, dates, filters and sorting."
+        }
+      }
+    },
+    "SearchProcessedOrdersRequest": {
+      "type": "object",
+      "properties": {
+        "SearchTerm": {
+          "description": "Search Term",
+          "type": "string"
+        },
+        "SearchFilters": {
+          "description": "Search Filters",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SearchFilters"
+          }
+        },
+        "DateField": {
+          "description": "Date Field Type",
+          "enum": [
+            "processed",
+            "payment",
+            "cancelled",
+            "received"
+          ],
+          "type": "string"
+        },
+        "FromDate": {
+          "format": "date-time",
+          "description": "From Date",
+          "type": "string"
+        },
+        "ToDate": {
+          "format": "date-time",
+          "description": "To Date",
+          "type": "string"
+        },
+        "PageNumber": {
+          "format": "int32",
+          "description": "Page Number",
+          "type": "integer"
+        },
+        "ResultsPerPage": {
+          "format": "int32",
+          "description": "Results Per Page",
+          "type": "integer"
+        },
+        "SearchSorting": {
+          "$ref": "#/definitions/SearchSorting",
+          "description": "Search Sorting"
+        }
+      }
+    },
+    "SearchFilters": {
+      "type": "object",
+      "properties": {
+        "SearchField": {
+          "enum": [
+            "Source",
+            "SubSource",
+            "ItemIdentifier"
+          ],
+          "type": "string"
+        },
+        "SearchTerm": {
+          "type": "string"
+        }
+      }
+    },
+    "SearchSorting": {
+      "type": "object",
+      "properties": {
+        "SortField": {
+          "type": "string"
+        },
+        "SortDirection": {
+          "enum": [
+            "ASC",
+            "DESC"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "SearchProcessedOrdersResponse": {
+      "type": "object",
+      "properties": {
+        "ProcessedOrders": {
+          "$ref": "#/definitions/GenericPagedResult_ProcessedOrderWeb"
+        }
+      }
+    },
+    "GenericPagedResult_ProcessedOrderWeb": {
+      "type": "object",
+      "properties": {
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EntriesPerPage": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalEntries": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "TotalPages": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "Data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProcessedOrderWeb"
+          }
+        }
+      }
+    },
+    "ProcessedOrders_SearchProcessedOrdersPagedRequest": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "format": "date-time",
+          "description": "The lower end of the date range to search. Can be null if searching for 'all dates'. Maximum range is 3 months.",
+          "type": "string"
+        },
+        "to": {
+          "format": "date-time",
+          "description": "The upper end of the date range to search. Can be null if searching for 'all dates'. Maximum range is 3 months.",
+          "type": "string"
+        },
+        "dateType": {
+          "description": "The search type (e.g. ALLDATES)",
+          "enum": [
+            "ALLDATES",
+            "RECEIVED",
+            "PROCESSED",
+            "PAYMENTRECEIVED",
+            "CANCELLED"
+          ],
+          "type": "string"
+        },
+        "searchField": {
+          "description": "The field to search by. Can be found by calling GetSearchTypes.",
+          "type": "string"
+        },
+        "exactMatch": {
+          "description": "Set to true if an exact match is required for the search data.",
+          "type": "boolean"
+        },
+        "searchTerm": {
+          "description": "The term which you are searching for.",
+          "type": "string"
+        },
+        "pageNum": {
+          "format": "int32",
+          "description": "The page number of the request.",
+          "type": "integer"
+        },
+        "numEntriesPerPage": {
+          "format": "int32",
+          "description": "The number of entries required on a page. Maximum 200.",
+          "type": "integer"
+        }
+      }
+    },
+    "ProcessedOrders_DownloadOrdersToCSVRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/DownloadOrdersToCSVRequest",
+          "description": "Request parameter populated with search criteria for the file download"
+        }
+      }
+    },
+    "DownloadOrdersToCSVRequest": {
+      "type": "object",
+      "properties": {
+        "SearchTerm": {
+          "description": "Search Term",
+          "type": "string"
+        },
+        "SearchFilters": {
+          "description": "Search Filters",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SearchFilters"
+          }
+        },
+        "DateField": {
+          "description": "Date Field Type",
+          "enum": [
+            "processed",
+            "payment",
+            "cancelled",
+            "received"
+          ],
+          "type": "string"
+        },
+        "FromDate": {
+          "format": "date-time",
+          "description": "From Date",
+          "type": "string"
+        },
+        "ToDate": {
+          "format": "date-time",
+          "description": "To Date",
+          "type": "string"
+        },
+        "SearchSorting": {
+          "$ref": "#/definitions/SearchSorting",
+          "description": "Search Sorting"
+        }
+      }
+    },
+    "DownloadOrdersToCSVResponse": {
+      "type": "object",
+      "properties": {
+        "Url": {
+          "type": "string"
+        },
+        "DownloadProgress": {
+          "format": "float",
+          "type": "number"
+        },
+        "UploadProgress": {
+          "format": "float",
+          "type": "number"
+        },
+        "Id": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "CreationDate": {
+          "type": "string"
+        }
+      }
+    },
+    "ProcessedOrders_AddReturnCategoryRequest": {
+      "type": "object",
+      "properties": {
+        "categoryName": {
+          "description": "The name of the category to add.",
+          "type": "string"
+        }
+      }
+    },
+    "OrderReturnCategory": {
+      "type": "object",
+      "properties": {
+        "pkItemId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CategoryName": {
+          "type": "string"
+        }
+      }
+    },
+    "ProcessedOrders_RenameReturnCategoryRequest": {
+      "type": "object",
+      "properties": {
+        "pkItemId": {
+          "format": "int32",
+          "description": "The id of the category to be renamed.",
+          "type": "integer"
+        },
+        "newName": {
+          "description": "The new name for the category.",
+          "type": "string"
+        }
+      }
+    },
+    "ProcessedOrders_DeleteReturnCategoryRequest": {
+      "type": "object",
+      "properties": {
+        "pkItemId": {
+          "format": "int32",
+          "description": "The id of the category to delete.",
+          "type": "integer"
+        }
+      }
+    },
+    "ProcessedOrderRelation": {
+      "type": "object",
+      "properties": {
+        "ParentOrderPkOrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ChildOrderPkOrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ParentOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ChildOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RelationType": {
+          "type": "string"
+        }
+      }
+    },
+    "SplitPackaging": {
+      "type": "object",
+      "properties": {
+        "pkBinId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkOrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PackageTitle": {
+          "type": "string"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "TrackingNumber": {
+          "type": "string"
+        },
+        "BinIndex": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "AuditEntry": {
+      "type": "object",
+      "properties": {
+        "sid_history": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fkOrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "HistoryNote": {
+          "type": "string"
+        },
+        "fkOrderHistoryTypeId": {
+          "type": "string"
+        },
+        "DateStamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Tag": {
+          "type": "string"
+        },
+        "UpdatedBy": {
+          "type": "string"
+        },
+        "TypeDescription": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderExtendedProperty": {
+      "type": "object",
+      "properties": {
+        "rowid": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PropertyName": {
+          "type": "string"
+        },
+        "PropertyValue": {
+          "type": "string"
+        },
+        "PropertyType": {
+          "type": "string"
+        }
+      }
+    },
+    "ProcessedOrderNote": {
+      "type": "object",
+      "properties": {
+        "pkOrderNoteId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkOrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Note": {
+          "type": "string"
+        },
+        "NoteEntryDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "NoteUserName": {
+          "type": "string"
+        },
+        "Internal": {
+          "type": "boolean"
+        },
+        "NoteTypeId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "ProcessedOrders_AddOrderNoteRequest": {
+      "type": "object",
+      "properties": {
+        "pkOrderID": {
+          "format": "uuid",
+          "description": "The order id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "noteText": {
+          "description": "The note text",
+          "type": "string"
+        },
+        "isInternal": {
+          "description": "True if the note should be internal, False if it shouldn't",
+          "type": "boolean"
+        }
+      }
+    },
+    "ProcessedOrders_ChangeOrderNoteRequest": {
+      "type": "object",
+      "properties": {
+        "pkOrderNoteId": {
+          "format": "uuid",
+          "description": "Primary key for order note",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "noteText": {
+          "description": "New note message",
+          "type": "string"
+        },
+        "isInternal": {
+          "description": "Whether the note is an internal note",
+          "type": "boolean"
+        },
+        "noteTypeId": {
+          "format": "int32",
+          "description": "Set the type of note",
+          "type": "integer"
+        }
+      }
+    },
+    "ProcessedOrders_DeleteOrderNoteRequest": {
+      "type": "object",
+      "properties": {
+        "pkOrderNoteId": {
+          "format": "uuid",
+          "description": "Primary key for order note",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "ProcessedOrders_CreateExchangeRequest": {
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "description": "The order id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "exchangeItems": {
+          "description": "A list of items to be exchanged, including quantity, scrap, refund, etc.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RowQty"
+          }
+        },
+        "despatchLocation": {
+          "format": "uuid",
+          "description": "The id of the location to despatch replacement items from",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "returnLocation": {
+          "format": "uuid",
+          "description": "The id of the location to return stock to",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "channelReason": {
+          "description": "Channel reason - required if a refund on the channel is required",
+          "type": "string"
+        },
+        "channelSubReason": {
+          "description": "Channel subreason - required if a refund on the channel is required.",
+          "type": "string"
+        },
+        "category": {
+          "description": "The refund category",
+          "type": "string"
+        },
+        "reason": {
+          "description": "The reason for the reason",
+          "type": "string"
+        },
+        "isBooking": {
+          "description": "True if it is a exchange booking, False if it is a new exchange",
+          "type": "boolean"
+        },
+        "ignoredValidation": {
+          "description": "True if failed validation has been ignored (see IsRefundValid). Otherwise, false. When set to true, refunds will not be automatically actioned on the channel. Ignored if creating a booking as a refund is not created at this stage.",
+          "type": "boolean"
+        }
+      }
+    },
+    "RowQty": {
+      "type": "object",
+      "properties": {
+        "OrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "OrderItemBatchId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Refund": {
+          "format": "double",
+          "type": "number"
+        },
+        "Qty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ScrapQty": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Batch": {
+          "$ref": "#/definitions/OrderItemBatch"
+        },
+        "AdditionalCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "NewStockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "NewQty": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "OrderItemBatch": {
+      "type": "object",
+      "properties": {
+        "OrderItemBatchId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "OrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Batch": {
+          "$ref": "#/definitions/StockItemBatch"
+        },
+        "DespatchUnitValue": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "AssignmentType": {
+          "enum": [
+            "AUTO",
+            "MANUAL"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "StockItemBatch": {
+      "type": "object",
+      "properties": {
+        "BatchId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BatchNumber": {
+          "type": "string"
+        },
+        "ExpiresOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "SellBy": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Inventory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemBatchInventory"
+          }
+        },
+        "IsDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "StockItemBatchInventory": {
+      "type": "object",
+      "properties": {
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BinRack": {
+          "type": "string"
+        },
+        "PrioritySequence": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "StartQuantity": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "PickedQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchStatus": {
+          "type": "string"
+        },
+        "IsDeleted": {
+          "type": "boolean"
+        },
+        "WarehouseBinrackStandardType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "WarehouseBinrackTypeName": {
+          "type": "string"
+        },
+        "InTransfer": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BinRackId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "WarehouseBinrackTypeId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "ProcessedOrders_CreateResendRequest": {
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "description": "Order ID that needs to be resend",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "resendItems": {
+          "description": "Resend items information",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RowQty"
+          }
+        },
+        "despatchLocation": {
+          "format": "uuid",
+          "description": "Location ID where from resend be despatched",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "category": {
+          "description": "Category",
+          "type": "string"
+        },
+        "reason": {
+          "description": "Resond reason",
+          "type": "string"
+        },
+        "additionalCost": {
+          "format": "double",
+          "description": "Order-level additional cost",
+          "type": "number"
+        }
+      }
+    },
+    "ProcessedOrders_CreateFullResendRequest": {
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "despatchLocation": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "category": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "additionalCost": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

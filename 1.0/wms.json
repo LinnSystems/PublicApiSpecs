@@ -1,0 +1,946 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "wms",
+    "title": "WMS API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/Wms/GetWarehouseZoneTypes": {
+      "get": {
+        "tags": [
+          "Wms"
+        ],
+        "summary": "GetWarehouseZoneTypes",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagementNode",
+        "operationId": "GetWarehouseZoneTypes",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetWarehouseZoneTypesResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Wms/UpdateWarehouseZoneType": {
+      "post": {
+        "tags": [
+          "Wms"
+        ],
+        "summary": "UpdateWarehouseZoneType",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode",
+        "operationId": "UpdateWarehouseZoneType",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateWarehouseZoneTypeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UpdateWarehouseZoneTypeResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Wms/AddWarehouseZoneType": {
+      "post": {
+        "tags": [
+          "Wms"
+        ],
+        "summary": "AddWarehouseZoneType",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode",
+        "operationId": "AddWarehouseZoneType",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddWarehouseZoneTypeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AddWarehouseZoneTypeResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Wms/DeleteWarehouseZoneType": {
+      "post": {
+        "tags": [
+          "Wms"
+        ],
+        "summary": "DeleteWarehouseZoneType",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode",
+        "operationId": "DeleteWarehouseZoneType",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteWarehouseZoneTypeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DeleteWarehouseZoneTypeResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Wms/GetWarehouseZonesByLocation": {
+      "get": {
+        "tags": [
+          "Wms"
+        ],
+        "summary": "GetWarehouseZonesByLocation",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagementNode",
+        "operationId": "GetWarehouseZonesByLocation",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "stockLocationIntId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "onlyBinrackAssignable",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetWarehouseZonesByLocationResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Wms/GetBinrackZonesByBinrackIdOrName": {
+      "post": {
+        "tags": [
+          "Wms"
+        ],
+        "summary": "GetBinrackZonesByBinrackIdOrName",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagementNode",
+        "operationId": "GetBinrackZonesByBinrackIdOrName",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetBinrackZonesByBinrackIdOrNameRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetBinrackZonesByBinrackIdOrNameResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Wms/UpdateWarehouseBinrackBinrackToZone": {
+      "post": {
+        "tags": [
+          "Wms"
+        ],
+        "summary": "UpdateWarehouseBinrackBinrackToZone",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagementNode",
+        "operationId": "UpdateWarehouseBinrackBinrackToZone",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateWarehouseBinrackBinrackToZoneRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UpdateWarehouseBinrackBinrackToZoneResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Wms/GetBinrackZonesByZoneIdOrName": {
+      "post": {
+        "tags": [
+          "Wms"
+        ],
+        "summary": "GetBinrackZonesByZoneIdOrName",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagementNode",
+        "operationId": "GetBinrackZonesByZoneIdOrName",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetBinrackZonesByZoneIdOrNameRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetBinrackZonesByZoneIdOrNameResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Wms/AddWarehouseZone": {
+      "post": {
+        "tags": [
+          "Wms"
+        ],
+        "summary": "AddWarehouseZone",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode",
+        "operationId": "AddWarehouseZone",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddWarehouseZoneRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AddWarehouseZoneResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Wms/DeleteWarehouseZone": {
+      "post": {
+        "tags": [
+          "Wms"
+        ],
+        "summary": "DeleteWarehouseZone",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode",
+        "operationId": "DeleteWarehouseZone",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteWarehouseZoneRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DeleteWarehouseZoneResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Wms/UpdateWarehouseZone": {
+      "post": {
+        "tags": [
+          "Wms"
+        ],
+        "summary": "UpdateWarehouseZone",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode",
+        "operationId": "UpdateWarehouseZone",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateWarehouseZoneRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UpdateWarehouseZoneResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GetWarehouseZoneTypesRequest": {
+      "type": "object",
+      "properties": {}
+    },
+    "GetWarehouseZoneTypesResponse": {
+      "type": "object",
+      "properties": {
+        "Types": {
+          "description": "Warehouse zone types",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseZoneType"
+          }
+        }
+      }
+    },
+    "WarehouseZoneType": {
+      "type": "object",
+      "properties": {
+        "ZoneTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "StockLocationIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "UpdateWarehouseZoneTypeRequest": {
+      "type": "object",
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/WarehouseZoneType"
+        }
+      }
+    },
+    "UpdateWarehouseZoneTypeResponse": {
+      "type": "object",
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/WarehouseZoneType"
+        }
+      }
+    },
+    "AddWarehouseZoneTypeRequest": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "description": "Warehouse zone type name",
+          "type": "string"
+        },
+        "StockLocationIntId": {
+          "format": "int32",
+          "description": "Stock location interger id",
+          "type": "integer"
+        }
+      }
+    },
+    "AddWarehouseZoneTypeResponse": {
+      "type": "object",
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/WarehouseZoneType"
+        }
+      }
+    },
+    "DeleteWarehouseZoneTypeRequest": {
+      "type": "object",
+      "properties": {
+        "ZoneTypeId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "DeleteWarehouseZoneTypeResponse": {
+      "type": "object",
+      "properties": {}
+    },
+    "GetWarehouseZonesByLocationRequest": {
+      "type": "object",
+      "properties": {
+        "StockLocationIntId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "OnlyBinrackAssignable": {
+          "type": "boolean"
+        }
+      }
+    },
+    "GetWarehouseZonesByLocationResponse": {
+      "type": "object",
+      "properties": {
+        "Zones": {
+          "description": "Warehouse Zones",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseZone"
+          }
+        },
+        "ZoneTypes": {
+          "description": "Warehouse Zone types",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseZoneType"
+          }
+        },
+        "ZoneGroups": {
+          "description": "Zone groups",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseZoneGroup"
+          }
+        },
+        "ZoneGroupsToZones": {
+          "description": "Zone groups to zones.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseZoneGroupToZone"
+          }
+        },
+        "ZonesBinracksCount": {
+          "description": "Zone binrack counts. Only returns zone if binrack is directly in zone.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseZoneBinrackCount"
+          }
+        },
+        "ZonesToZonesHierarchy": {
+          "description": "Zone to zones hierarchy",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseZoneToZone"
+          }
+        }
+      }
+    },
+    "WarehouseZone": {
+      "type": "object",
+      "properties": {
+        "ZoneId": {
+          "format": "int32",
+          "description": "Unique zone id",
+          "type": "integer"
+        },
+        "ZoneTypeId": {
+          "format": "int32",
+          "description": "Zone type Id",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "Zone name, unique to location",
+          "type": "string"
+        },
+        "ParentZoneId": {
+          "format": "int32",
+          "description": "Parent zone id (immediate parent in hierarchy)",
+          "type": "integer"
+        },
+        "HierarchyLevel": {
+          "format": "int32",
+          "description": "Hierarchy level from top most parent.",
+          "type": "integer"
+        },
+        "StockLocationIntId": {
+          "format": "int32",
+          "description": "Stock location interger id",
+          "type": "integer"
+        }
+      }
+    },
+    "WarehouseZoneGroup": {
+      "type": "object",
+      "properties": {
+        "ZoneGroupId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        }
+      }
+    },
+    "WarehouseZoneGroupToZone": {
+      "type": "object",
+      "properties": {
+        "ZoneId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ZoneGroupId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "WarehouseZoneBinrackCount": {
+      "type": "object",
+      "properties": {
+        "ZoneId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Count": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "WarehouseZoneToZone": {
+      "type": "object",
+      "properties": {
+        "ZoneId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ZoneIdParent": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "GetBinrackZonesByBinrackIdOrNameRequest": {
+      "type": "object",
+      "properties": {
+        "BinrackIds": {
+          "description": "Binrack Ids, StockLocationIntId optional, if different to supplied binrack ids, zones will still be returned.",
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "BinrackNames": {
+          "description": "Binrack names, StockLocationIntId required.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "StockLocationIntId": {
+          "format": "int32",
+          "description": "Stock Location interger id.",
+          "type": "integer"
+        }
+      }
+    },
+    "GetBinrackZonesByBinrackIdOrNameResponse": {
+      "type": "object",
+      "properties": {
+        "Zones": {
+          "description": "Warehouse Zones",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseZone"
+          }
+        },
+        "BinrackToZones": {
+          "description": "Warehosue binrack to zones.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseBinrackToZone"
+          }
+        }
+      }
+    },
+    "WarehouseBinrackToZone": {
+      "type": "object",
+      "properties": {
+        "ZoneId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BinrackId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "UpdateWarehouseBinrackBinrackToZoneRequest": {
+      "type": "object",
+      "properties": {
+        "BinrackToZones": {
+          "description": "Binrack to zones collection, a BinRackId of zero will assume the Binrack should be removed from the zone.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseBinrackToZoneRequestItem"
+          }
+        }
+      }
+    },
+    "WarehouseBinrackToZoneRequestItem": {
+      "type": "object",
+      "properties": {
+        "RowIndex": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ZoneId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BinrackId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "UpdateWarehouseBinrackBinrackToZoneResponse": {
+      "type": "object",
+      "properties": {
+        "BinrackToZones": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseBinrackToZoneResponseItem"
+          }
+        }
+      }
+    },
+    "WarehouseBinrackToZoneResponseItem": {
+      "type": "object",
+      "properties": {
+        "Errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "RowIndex": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ZoneId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BinrackId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "GetBinrackZonesByZoneIdOrNameRequest": {
+      "type": "object",
+      "properties": {
+        "StockLocationIntId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ZoneNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ZoneIds": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "GetBinrackZonesByZoneIdOrNameResponse": {
+      "type": "object",
+      "properties": {
+        "WarehouseZones": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseZone"
+          }
+        }
+      }
+    },
+    "AddWarehouseZoneRequest": {
+      "type": "object",
+      "properties": {
+        "ZoneTypeId": {
+          "format": "int32",
+          "description": "Zone type Id",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "Zone name, unique to location",
+          "type": "string"
+        },
+        "ParentZoneId": {
+          "format": "int32",
+          "description": "Parent zone id (immediate parent in hierarchy)",
+          "type": "integer"
+        },
+        "HierarchyLevel": {
+          "format": "int32",
+          "description": "Hierarchy level from top most parent.",
+          "type": "integer"
+        },
+        "StockLocationIntId": {
+          "format": "int32",
+          "description": "Stock location interger id",
+          "type": "integer"
+        }
+      }
+    },
+    "AddWarehouseZoneResponse": {
+      "type": "object",
+      "properties": {
+        "Zone": {
+          "$ref": "#/definitions/WarehouseZone"
+        }
+      }
+    },
+    "DeleteWarehouseZoneRequest": {
+      "type": "object",
+      "properties": {
+        "ZoneId": {
+          "format": "int32",
+          "description": "Zone id to delete.",
+          "type": "integer"
+        }
+      }
+    },
+    "DeleteWarehouseZoneResponse": {
+      "type": "object",
+      "properties": {}
+    },
+    "UpdateWarehouseZoneRequest": {
+      "type": "object",
+      "properties": {
+        "Zone": {
+          "$ref": "#/definitions/WarehouseZone"
+        }
+      }
+    },
+    "UpdateWarehouseZoneResponse": {
+      "type": "object",
+      "properties": {
+        "Zone": {
+          "$ref": "#/definitions/WarehouseZone"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

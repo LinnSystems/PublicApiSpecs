@@ -1,0 +1,2428 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "rulesengine",
+    "title": "Rules Engine API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/RulesEngine/GetEvaluatorTypes": {
+      "get": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "GetEvaluatorTypes",
+        "description": "Use this call to get a list of valid evaluators and the groups which they belong to.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "GetEvaluatorTypes",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EvaluatorDescriptor"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/GetEvaluationFields": {
+      "get": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "GetEvaluationFields",
+        "description": "Use this call to get a list of valid evaluation fields for a given rule type.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "GetEvaluationFields",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The rule type.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "Test",
+              "Orders"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FieldDescriptor"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/GetOptions": {
+      "get": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "GetOptions",
+        "description": "Use this call to get a list of valid options for a given field (and, if relevant, key).\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "GetOptions",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "fieldName",
+            "in": "query",
+            "description": "The field name.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The rule type.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "Test",
+              "Orders"
+            ]
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "description": "The key (optional).",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/GetMultiOptions": {
+      "get": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "GetMultiOptions",
+        "description": "Use this call to get a list of valid options for a given set of fields (and, if relevant, keys).\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "GetMultiOptions",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The rule type.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "Test",
+              "Orders"
+            ]
+          },
+          {
+            "name": "fieldKeys",
+            "in": "query",
+            "description": "A list of fields and optionally keys.",
+            "required": true,
+            "type": "array",
+            "items": {},
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MultiOptionResponse"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/GetKeyOptions": {
+      "get": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "GetKeyOptions",
+        "description": "Use this call to get a list of valid keys for a given field.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "GetKeyOptions",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The rule type",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "Test",
+              "Orders"
+            ]
+          },
+          {
+            "name": "fieldName",
+            "in": "query",
+            "description": "The field name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/GetMultiKeyOptions": {
+      "get": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "GetMultiKeyOptions",
+        "description": "Use this call to get a list of valid keys for a set of fields.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "GetMultiKeyOptions",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The rule type.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "Test",
+              "Orders"
+            ]
+          },
+          {
+            "name": "fieldNames",
+            "in": "query",
+            "description": "The field names to get the keys for",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MultiKeyOptionResponse"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/GetRules": {
+      "get": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "GetRules",
+        "description": "Use this call to retrieve a list of rules\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "GetRules",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RuleHeaderBasic"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/GetRulesByType": {
+      "get": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "GetRulesByType",
+        "description": "Use this call to retrieve a list of rules of a given type\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "GetRulesByType",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The rule type.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "Test",
+              "Orders"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RuleHeaderBasic"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/GetRuleConditionNodes": {
+      "get": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "GetRuleConditionNodes",
+        "description": "Use this call to get information about the nodes belonging to a rule, excluding the condition items.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "GetRuleConditionNodes",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkRuleId",
+            "in": "query",
+            "description": "The rule id.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RuleConditionHeader"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/GetConditionWeb": {
+      "get": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "GetConditionWeb",
+        "description": "Use this call to retrieve details about a given condition.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "GetConditionWeb",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkConditionId",
+            "in": "query",
+            "description": "The condition id.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ConditionHeaderBasic"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/GetActionTypes": {
+      "get": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "GetActionTypes",
+        "description": "Use this call to retrieve a list of valid action types for the rule type\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "GetActionTypes",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The rule type.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "Test",
+              "Orders"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ActionTypeDescriptor"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/CreateNewCondition": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "CreateNewCondition",
+        "description": "Use this call to create a new condition.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "CreateNewCondition",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "RulesEngine_CreateNewConditionRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_CreateNewConditionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RuleConditionHeader"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/SaveConditionChanges": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "SaveConditionChanges",
+        "description": "Use this call to update a conditon and its condition items.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "SaveConditionChanges",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "RulesEngine_SaveConditionChangesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_SaveConditionChangesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/CheckConditionNameExists": {
+      "get": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "CheckConditionNameExists",
+        "description": "Use this call to check to see if a condition name already exists at a specific level.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "CheckConditionNameExists",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "fkRuleId",
+            "in": "query",
+            "description": "The rule id.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "fkConditionId",
+            "in": "query",
+            "description": "Must be specified if checking that a condition name exists under a sub-condition. If checking rule-level conditions, do not specify.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "excludeConditionId",
+            "in": "query",
+            "description": "If the check is for renaming a condition, specify the condition id here to exclude it from the results.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "conditionName",
+            "in": "query",
+            "description": "The name to check.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/GetActionOptions": {
+      "get": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "GetActionOptions",
+        "description": "Use this call to get a list of valid options for a given action\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "GetActionOptions",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The action type",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "AssignShippingService",
+              "AssignToFolder",
+              "AssignToLocation",
+              "SplitOrderByWeight",
+              "SplitOrderByValue",
+              "SplitOrderSingle",
+              "AssignOrderExtendedProperty",
+              "ChangeOrderLockStatus",
+              "ChangeOrderParkStatus",
+              "AssignTagToOrder",
+              "ExecuteMacro",
+              "AssignIdentifierToOrder",
+              "BlockOrderFromMerging",
+              "SendToFulfillmentNetwork"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/ActionOption"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/UpdateAction": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "UpdateAction",
+        "description": "Use this call to update an action\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "UpdateAction",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "RulesEngine_UpdateActionRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_UpdateActionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/AddAction": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "AddAction",
+        "description": "Use this call to add a new action to a condition node.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "AddAction",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "RulesEngine_AddActionRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_AddActionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ActionWeb"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/DeleteAction": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "DeleteAction",
+        "description": "Use this call to delete an action from a rule.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "DeleteAction",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "RulesEngine_DeleteActionRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_DeleteActionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/DeleteCondition": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "DeleteCondition",
+        "description": "Use this call to delete a conditio and its subconditions/actions\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "DeleteCondition",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "RulesEngine_DeleteConditionRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_DeleteConditionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/SwapConditions": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "SwapConditions",
+        "description": "Use this call to swap the sort order of two conditions belonging to the same parent\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "SwapConditions",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "RulesEngine_SwapConditionsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_SwapConditionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/GetRequiredFieldsByRuleId": {
+      "get": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "GetRequiredFieldsByRuleId",
+        "description": "Use this call to get a list of fields and keys used by a given rule.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "GetRequiredFieldsByRuleId",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkRuleId",
+            "in": "query",
+            "description": "The rule id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RulesFields"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/GetRequiredFieldsByType": {
+      "get": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "GetRequiredFieldsByType",
+        "description": "Use this call to get a list of fields and keys used by a given rule type\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "GetRequiredFieldsByType",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The rule type.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "Test",
+              "Orders"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RulesFields"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/TestEvaluateRule": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "TestEvaluateRule",
+        "description": "Use this call to test a rule against a set of test values\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "TestEvaluateRule",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "RulesEngine_TestEvaluateRuleRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_TestEvaluateRuleRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RuleEvaluationResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/SetDraftLive": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "SetDraftLive",
+        "description": "Use this call to set a draft rule live (if the draft is a copy for editing an existing rule, the existing rule will be deleted and the draft promoted).\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "SetDraftLive",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "RulesEngine_SetDraftLiveRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_SetDraftLiveRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/CreateDraftFromExisting": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "CreateDraftFromExisting",
+        "description": "Use this call to create a draft copy in order to edit an existing rule. Once set live, this draft will replace the rule it was copied from.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "CreateDraftFromExisting",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "RulesEngine_CreateDraftFromExistingRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_CreateDraftFromExistingRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/CreateNewDraftFromExisting": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "CreateNewDraftFromExisting",
+        "description": "Use this call to create a new draft based on an existing rule. Once set live, this draft will be a unique rule in its own right.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "CreateNewDraftFromExisting",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "RulesEngine_CreateNewDraftFromExistingRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_CreateNewDraftFromExistingRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RuleHeaderBasic"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/CreateNewDraft": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "CreateNewDraft",
+        "description": "Use this call to create a new draft rule of a specified type.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "CreateNewDraft",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "RulesEngine_CreateNewDraftRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_CreateNewDraftRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RuleHeaderBasic"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/SetRuleEnabled": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "SetRuleEnabled",
+        "description": "Use this call to set the enabled state of a rule\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "SetRuleEnabled",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "RulesEngine_SetRuleEnabledRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_SetRuleEnabledRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/SetRuleName": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "SetRuleName",
+        "description": "Use this call to rename a rule.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "SetRuleName",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "RulesEngine_SetRuleNameRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_SetRuleNameRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/DeleteRuleById": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "DeleteRuleById",
+        "description": "Use this call to permanently delete a rule from the system.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "DeleteRuleById",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "RulesEngine_DeleteRuleByIdRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_DeleteRuleByIdRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/SwapRules": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "SwapRules",
+        "description": "Use this call to change the executing order of the rules by swapping them with each other.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "SwapRules",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "RulesEngine_SwapRulesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_SwapRulesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/SetConditionEnabled": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "SetConditionEnabled",
+        "description": "Use this call to enable or disable a condition. Any subconditions or actions belonging to the condition will not be evaluated or executed if it is disabled.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "SetConditionEnabled",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "RulesEngine_SetConditionEnabledRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_SetConditionEnabledRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/CopyCondition": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "CopyCondition",
+        "description": "Use this call to copy a condition, its subconditions and actions.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "CopyCondition",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "RulesEngine_CopyConditionRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_CopyConditionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RuleConditionHeader"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RulesEngine/CopyAction": {
+      "post": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "CopyAction",
+        "description": "Use this call to copy an action from one condition to another condition. Actions may not be attached to the rule header or condition nodes with subconditions.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "operationId": "CopyAction",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "RulesEngine_CopyActionRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_CopyActionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RuleAction"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "EvaluatorDescriptor": {
+      "type": "object",
+      "properties": {
+        "EvaluatorType": {
+          "enum": [
+            "Default",
+            "BetweenExclusive",
+            "BetweenInclusive",
+            "GreaterThan",
+            "GreaterThanOrEqualTo",
+            "LessThan",
+            "LessThanOrEqualTo",
+            "Equals",
+            "NotEquals",
+            "StartsWith",
+            "NotStartsWith",
+            "EndsWith",
+            "NotEndsWith",
+            "Contains",
+            "NotContains",
+            "RegexMatch",
+            "NotRegexMatch",
+            "InSet",
+            "NotInSet",
+            "StartsWithSetValue",
+            "NotStartsWithSetValue",
+            "EndsWithSetValue",
+            "NotEndsWithSetValue",
+            "ContainsSetValue",
+            "NotContainsSetValue",
+            "RegexMatchSetValue",
+            "NotRegexMatchSetValue"
+          ],
+          "type": "string"
+        },
+        "ClientType": {
+          "enum": [
+            "SingleValue",
+            "RangeValue",
+            "SetValue"
+          ],
+          "type": "string"
+        },
+        "ClientTypeName": {
+          "type": "string"
+        },
+        "EvaluatorGroup": {
+          "enum": [
+            "BasicEquality",
+            "Range",
+            "Set",
+            "NumberEquality",
+            "StringEquality"
+          ],
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "GroupIndex": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EvalIndex": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "FieldDescriptor": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "FieldName": {
+          "type": "string"
+        },
+        "FieldGroup": {
+          "type": "string"
+        },
+        "IsASet": {
+          "type": "boolean"
+        },
+        "ValidEvaluatorGroups": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "BasicEquality",
+              "Range",
+              "Set",
+              "NumberEquality",
+              "StringEquality"
+            ],
+            "type": "string"
+          }
+        },
+        "Key": {
+          "type": "string"
+        },
+        "KeyDisplayName": {
+          "type": "string"
+        },
+        "HasKeyOptions": {
+          "type": "boolean"
+        },
+        "HasAttributeKey": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "HasOptions": {
+          "type": "boolean"
+        },
+        "DisplayType": {
+          "enum": [
+            "FreeText",
+            "AutoComplete",
+            "Dropdown",
+            "None"
+          ],
+          "type": "string"
+        },
+        "ExactMatchRequired": {
+          "type": "boolean"
+        }
+      }
+    },
+    "FieldKeys": {
+      "description": "",
+      "type": "object",
+      "properties": {
+        "FieldName": {
+          "type": "string"
+        },
+        "Keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "MultiOptionResponse": {
+      "description": "",
+      "type": "object",
+      "properties": {
+        "Field": {
+          "description": "Evaluation field",
+          "type": "string"
+        },
+        "Key": {
+          "description": "Evaluation key",
+          "type": "string"
+        },
+        "Options": {
+          "description": "Evaluation options",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "KeyedOptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OptionBase"
+          }
+        }
+      }
+    },
+    "OptionBase": {
+      "type": "object",
+      "properties": {
+        "Text": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        }
+      }
+    },
+    "MultiKeyOptionResponse": {
+      "type": "object",
+      "properties": {
+        "Field": {
+          "description": "Option field",
+          "type": "string"
+        },
+        "Options": {
+          "description": "List of options",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RuleHeaderBasic": {
+      "type": "object",
+      "properties": {
+        "pkRuleId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RuleName": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "RunOrder": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RuleType": {
+          "enum": [
+            "Test",
+            "Orders"
+          ],
+          "type": "string"
+        },
+        "pkRuleId_Draft": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Draft": {
+          "type": "boolean"
+        },
+        "RuleTypeDisplayName": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "RuleConditionHeader": {
+      "type": "object",
+      "properties": {
+        "pkConditionId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fkRuleId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RunOrder": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "ConditionName": {
+          "type": "string"
+        },
+        "fkParentConditionId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IRuleConditionItem"
+          }
+        },
+        "Action": {
+          "$ref": "#/definitions/RuleAction"
+        },
+        "Subrules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RuleConditionHeader"
+          }
+        }
+      }
+    },
+    "IRuleConditionItem": {
+      "type": "object",
+      "properties": {}
+    },
+    "RuleAction": {
+      "type": "object",
+      "properties": {
+        "pkActionId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ActionName": {
+          "type": "string"
+        },
+        "ActionType": {
+          "enum": [
+            "AssignShippingService",
+            "AssignToFolder",
+            "AssignToLocation",
+            "SplitOrderByWeight",
+            "SplitOrderByValue",
+            "SplitOrderSingle",
+            "AssignOrderExtendedProperty",
+            "ChangeOrderLockStatus",
+            "ChangeOrderParkStatus",
+            "AssignTagToOrder",
+            "ExecuteMacro",
+            "AssignIdentifierToOrder",
+            "BlockOrderFromMerging",
+            "SendToFulfillmentNetwork"
+          ],
+          "type": "string"
+        },
+        "ActionValue": {
+          "type": "string"
+        },
+        "fkConditionId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RuleVersion": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fkRuleId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Properties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RuleActionProperty"
+          }
+        }
+      }
+    },
+    "RuleActionProperty": {
+      "type": "object",
+      "properties": {
+        "ActionPropertyId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ActionId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DisplayName": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        }
+      }
+    },
+    "ConditionHeaderBasic": {
+      "type": "object",
+      "properties": {
+        "pkConditionId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fkParentConditionId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fkRuleId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ConditionName": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "Conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ConditionItemBasic"
+          }
+        }
+      }
+    },
+    "ConditionItemBasic": {
+      "type": "object",
+      "properties": {
+        "pkConditionItemId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fkConditionId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "FieldName": {
+          "type": "string"
+        },
+        "Evaluation": {
+          "enum": [
+            "Default",
+            "BetweenExclusive",
+            "BetweenInclusive",
+            "GreaterThan",
+            "GreaterThanOrEqualTo",
+            "LessThan",
+            "LessThanOrEqualTo",
+            "Equals",
+            "NotEquals",
+            "StartsWith",
+            "NotStartsWith",
+            "EndsWith",
+            "NotEndsWith",
+            "Contains",
+            "NotContains",
+            "RegexMatch",
+            "NotRegexMatch",
+            "InSet",
+            "NotInSet",
+            "StartsWithSetValue",
+            "NotStartsWithSetValue",
+            "EndsWithSetValue",
+            "NotEndsWithSetValue",
+            "ContainsSetValue",
+            "NotContainsSetValue",
+            "RegexMatchSetValue",
+            "NotRegexMatchSetValue"
+          ],
+          "type": "string"
+        },
+        "Values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "KeyValue": {
+          "type": "string"
+        }
+      }
+    },
+    "ActionTypeDescriptor": {
+      "type": "object",
+      "properties": {
+        "Value": {
+          "enum": [
+            "AssignShippingService",
+            "AssignToFolder",
+            "AssignToLocation",
+            "SplitOrderByWeight",
+            "SplitOrderByValue",
+            "SplitOrderSingle",
+            "AssignOrderExtendedProperty",
+            "ChangeOrderLockStatus",
+            "ChangeOrderParkStatus",
+            "AssignTagToOrder",
+            "ExecuteMacro",
+            "AssignIdentifierToOrder",
+            "BlockOrderFromMerging",
+            "SendToFulfillmentNetwork"
+          ],
+          "type": "string"
+        },
+        "DisplayName": {
+          "type": "string"
+        },
+        "Properties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ActionTypeDescriptorProperties"
+          }
+        },
+        "DisplayType": {
+          "enum": [
+            "FreeText",
+            "AutoComplete",
+            "Dropdown",
+            "None"
+          ],
+          "type": "string",
+          "readOnly": true
+        },
+        "FieldType": {
+          "enum": [
+            "Default",
+            "String",
+            "Int",
+            "Bool",
+            "Guid",
+            "Float",
+            "Double"
+          ],
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "ActionTypeDescriptorProperties": {
+      "type": "object",
+      "properties": {
+        "DisplayName": {
+          "type": "string"
+        },
+        "DisplayType": {
+          "enum": [
+            "FreeText",
+            "AutoComplete",
+            "Dropdown",
+            "None"
+          ],
+          "type": "string"
+        },
+        "FieldType": {
+          "enum": [
+            "Default",
+            "String",
+            "Int",
+            "Bool",
+            "Guid",
+            "Float",
+            "Double"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "RulesEngine_CreateNewConditionRequest": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/ConditionHeaderBasic",
+          "description": "An object describing the condition to be added."
+        }
+      }
+    },
+    "RulesEngine_SaveConditionChangesRequest": {
+      "type": "object",
+      "properties": {
+        "conditionHeader": {
+          "$ref": "#/definitions/ConditionHeaderBasic",
+          "description": "The condition object describing the revised condition. pkConditionId and fkRuleId must be unchanged."
+        }
+      }
+    },
+    "ActionOption": {
+      "type": "object",
+      "properties": {
+        "Icon": {
+          "type": "string"
+        },
+        "Text": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        }
+      }
+    },
+    "RulesEngine_UpdateActionRequest": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/ActionWeb",
+          "description": "The details of the updated action. pkActionId and fkConditionId must be unchanged original."
+        }
+      }
+    },
+    "ActionWeb": {
+      "type": "object",
+      "properties": {
+        "pkActionId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fkConditionId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ActionName": {
+          "type": "string"
+        },
+        "ActionType": {
+          "enum": [
+            "AssignShippingService",
+            "AssignToFolder",
+            "AssignToLocation",
+            "SplitOrderByWeight",
+            "SplitOrderByValue",
+            "SplitOrderSingle",
+            "AssignOrderExtendedProperty",
+            "ChangeOrderLockStatus",
+            "ChangeOrderParkStatus",
+            "AssignTagToOrder",
+            "ExecuteMacro",
+            "AssignIdentifierToOrder",
+            "BlockOrderFromMerging",
+            "SendToFulfillmentNetwork"
+          ],
+          "type": "string"
+        },
+        "Properties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ActionWebProperty"
+          }
+        }
+      }
+    },
+    "ActionWebProperty": {
+      "type": "object",
+      "properties": {
+        "ActionPropertyId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DisplayName": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        }
+      }
+    },
+    "RulesEngine_AddActionRequest": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/ActionWeb",
+          "description": "An object describing the action to add."
+        }
+      }
+    },
+    "RulesEngine_DeleteActionRequest": {
+      "type": "object",
+      "properties": {
+        "pkActionId": {
+          "format": "int32",
+          "description": "The id of the action to delete",
+          "type": "integer"
+        }
+      }
+    },
+    "RulesEngine_DeleteConditionRequest": {
+      "type": "object",
+      "properties": {
+        "pkConditionId": {
+          "format": "int32",
+          "description": "The condition to delete",
+          "type": "integer"
+        }
+      }
+    },
+    "RulesEngine_SwapConditionsRequest": {
+      "type": "object",
+      "properties": {
+        "pkConditionId1": {
+          "format": "int32",
+          "description": "The id of the first condition",
+          "type": "integer"
+        },
+        "pkConditionId2": {
+          "format": "int32",
+          "description": "The id of the second condition",
+          "type": "integer"
+        }
+      }
+    },
+    "RulesFields": {
+      "type": "object",
+      "properties": {
+        "FieldNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "FieldKeys": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "IdName": {
+          "type": "string"
+        }
+      }
+    },
+    "RulesEngine_TestEvaluateRuleRequest": {
+      "type": "object",
+      "properties": {
+        "testValues": {
+          "description": "Test values",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TestpadValue"
+          }
+        },
+        "pkRuleId": {
+          "format": "int32",
+          "description": "The rule to test against",
+          "type": "integer"
+        }
+      }
+    },
+    "TestpadValue": {
+      "type": "object",
+      "properties": {
+        "FieldName": {
+          "type": "string"
+        },
+        "Key": {
+          "type": "string"
+        },
+        "Values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RuleEvaluationResult": {
+      "type": "object",
+      "properties": {
+        "LastConditionId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "LastActionId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "RulesEngine_SetDraftLiveRequest": {
+      "type": "object",
+      "properties": {
+        "pkRuleId": {
+          "format": "int32",
+          "description": "The id of the draft rule.",
+          "type": "integer"
+        }
+      }
+    },
+    "RulesEngine_CreateDraftFromExistingRequest": {
+      "type": "object",
+      "properties": {
+        "pkRuleId": {
+          "format": "int32",
+          "description": "The rule id to create a draft of.",
+          "type": "integer"
+        }
+      }
+    },
+    "RulesEngine_CreateNewDraftFromExistingRequest": {
+      "type": "object",
+      "properties": {
+        "pkRuleId": {
+          "format": "int32",
+          "description": "The existing rule id.",
+          "type": "integer"
+        },
+        "ruleName": {
+          "description": "The name of the new draft.",
+          "type": "string"
+        }
+      }
+    },
+    "RulesEngine_CreateNewDraftRequest": {
+      "type": "object",
+      "properties": {
+        "ruleName": {
+          "description": "The name for the new draft.",
+          "type": "string"
+        },
+        "type": {
+          "description": "The rule type.",
+          "enum": [
+            "Test",
+            "Orders"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "RulesEngine_SetRuleEnabledRequest": {
+      "type": "object",
+      "properties": {
+        "pkRuleId": {
+          "format": "int32",
+          "description": "The rule id",
+          "type": "integer"
+        },
+        "enabled": {
+          "description": "Boolean incidating whether or not the rule is enabled",
+          "type": "boolean"
+        }
+      }
+    },
+    "RulesEngine_SetRuleNameRequest": {
+      "type": "object",
+      "properties": {
+        "pkRuleId": {
+          "format": "int32",
+          "description": "The rule id",
+          "type": "integer"
+        },
+        "ruleName": {
+          "description": "The new name for the rule",
+          "type": "string"
+        }
+      }
+    },
+    "RulesEngine_DeleteRuleByIdRequest": {
+      "type": "object",
+      "properties": {
+        "pkRuleId": {
+          "format": "int32",
+          "description": "The rule id to delete.",
+          "type": "integer"
+        }
+      }
+    },
+    "RulesEngine_SwapRulesRequest": {
+      "type": "object",
+      "properties": {
+        "pkRuleId1": {
+          "format": "int32",
+          "description": "The first rule id",
+          "type": "integer"
+        },
+        "pkRuleId2": {
+          "format": "int32",
+          "description": "The second rule id",
+          "type": "integer"
+        }
+      }
+    },
+    "RulesEngine_SetConditionEnabledRequest": {
+      "type": "object",
+      "properties": {
+        "pkConditionId": {
+          "format": "int32",
+          "description": "The condition id.",
+          "type": "integer"
+        },
+        "enabled": {
+          "description": "True for enabled, False for disabled.",
+          "type": "boolean"
+        }
+      }
+    },
+    "RulesEngine_CopyConditionRequest": {
+      "type": "object",
+      "properties": {
+        "pkRuleId": {
+          "format": "int32",
+          "description": "The rule to which the conditions belong.",
+          "type": "integer"
+        },
+        "targetParentConditionId": {
+          "format": "int32",
+          "description": "The condition to which the copy should be appended as a child.",
+          "type": "integer"
+        },
+        "pkConditionId": {
+          "format": "int32",
+          "description": "The condition to copy.",
+          "type": "integer"
+        },
+        "includeChildren": {
+          "description": "Include subconditions?",
+          "type": "boolean"
+        },
+        "includeActions": {
+          "description": "Include actions?",
+          "type": "boolean"
+        }
+      }
+    },
+    "RulesEngine_CopyActionRequest": {
+      "type": "object",
+      "properties": {
+        "pkRuleId": {
+          "format": "int32",
+          "description": "The rule which the action belongs to.",
+          "type": "integer"
+        },
+        "targetParentConditionId": {
+          "format": "int32",
+          "description": "The condition to add the action to.",
+          "type": "integer"
+        },
+        "pkActionId": {
+          "format": "int32",
+          "description": "The id of the action to copy.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

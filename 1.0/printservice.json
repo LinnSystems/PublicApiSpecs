@@ -1,0 +1,826 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "printservice",
+    "title": "Print Service API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/PrintService/CreatePDFfromJobForceTemplateStockIn": {
+      "post": {
+        "tags": [
+          "PrintService"
+        ],
+        "summary": "CreatePDFfromJobForceTemplateStockIn",
+        "description": "Creates a PDF file from a print job request",
+        "operationId": "CreatePDFfromJobForceTemplateStockIn",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "PrintService_CreatePDFfromJobForceTemplateStockInRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PrintService_CreatePDFfromJobForceTemplateStockInRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreatePDFResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PrintService/CreatePDFfromJobForceTemplate": {
+      "post": {
+        "tags": [
+          "PrintService"
+        ],
+        "summary": "CreatePDFfromJobForceTemplate",
+        "description": "Creates a PDF file from a print job request",
+        "operationId": "CreatePDFfromJobForceTemplate",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "PrintService_CreatePDFfromJobForceTemplateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PrintService_CreatePDFfromJobForceTemplateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreatePDFResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PrintService/CreatePDFfromJobForceTemplateWithQuantities": {
+      "post": {
+        "tags": [
+          "PrintService"
+        ],
+        "summary": "CreatePDFfromJobForceTemplateWithQuantities",
+        "description": "Creates a PDF file with Stock Item labels from a print job request",
+        "operationId": "CreatePDFfromJobForceTemplateWithQuantities",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "PrintService_CreatePDFfromJobForceTemplateWithQuantitiesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PrintService_CreatePDFfromJobForceTemplateWithQuantitiesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreatePDFResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PrintService/PrintTemplatePreview": {
+      "post": {
+        "tags": [
+          "PrintService"
+        ],
+        "summary": "PrintTemplatePreview",
+        "description": "Generate a PDF preview of a specific template",
+        "operationId": "PrintTemplatePreview",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "PrintService_PrintTemplatePreviewRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PrintService_PrintTemplatePreviewRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreatePDFResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PrintService/GetTemplateList": {
+      "get": {
+        "tags": [
+          "PrintService"
+        ],
+        "summary": "GetTemplateList",
+        "description": "Get list of templates for a specific type",
+        "operationId": "GetTemplateList",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "templateType",
+            "in": "query",
+            "description": "The template type to load (e.g. Warehouse Transfer). Empty body will return them all",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TemplateHeader"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PrintService/VP_GetPrinters": {
+      "get": {
+        "tags": [
+          "PrintService"
+        ],
+        "summary": "VP_GetPrinters",
+        "description": "Gets list of virtual printers.",
+        "operationId": "VP_GetPrinters",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VirtualPrinter"
+              }
+            }
+          }
+        },
+        "deprecated": true,
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PrintService/GetUsersForPrinterConfig": {
+      "get": {
+        "tags": [
+          "PrintService"
+        ],
+        "summary": "GetUsersForPrinterConfig",
+        "description": "Gets a list of users for printer configuration. Only super admin can get the full list. Non super admins can only get their own user",
+        "operationId": "GetUsersForPrinterConfig",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PermissionsUser"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PrintService/CreateReturnShippingLabelsPDFWithSKUs": {
+      "post": {
+        "tags": [
+          "PrintService"
+        ],
+        "summary": "CreateReturnShippingLabelsPDFWithSKUs",
+        "description": "Creates a PDF file of return shipping labels for a single order",
+        "operationId": "CreateReturnShippingLabelsPDFWithSKUs",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "PrintService_CreateReturnShippingLabelsPDFWithSKUsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PrintService_CreateReturnShippingLabelsPDFWithSKUsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreatePDFResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/PrintService/CreateReturnShippingLabelsPDF": {
+      "post": {
+        "tags": [
+          "PrintService"
+        ],
+        "summary": "CreateReturnShippingLabelsPDF",
+        "description": "Creates a PDF file of return shipping labels for a single order",
+        "operationId": "CreateReturnShippingLabelsPDF",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "PrintService_CreateReturnShippingLabelsPDFRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PrintService_CreateReturnShippingLabelsPDFRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreatePDFResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "PrintService_CreatePDFfromJobForceTemplateStockInRequest": {
+      "type": "object",
+      "properties": {
+        "templateType": {
+          "description": "The template type",
+          "type": "string"
+        },
+        "PrintingKeys": {
+          "description": "A list of IDs to print (e.g. Order IDs or Warehouse Transfer IDs)",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PrintingKey"
+          }
+        },
+        "templateID": {
+          "format": "int32",
+          "description": "The ID of the template to use",
+          "type": "integer"
+        },
+        "parameters": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/KeyValue_String_String"
+          }
+        },
+        "printerName": {
+          "description": "printer name of the ivrtual printer to use. If null then the sepecified in the template",
+          "type": "string"
+        },
+        "printZoneCode": {
+          "description": "Print zone code, if present, will override the printer used if the template has a set printer for that zone",
+          "type": "string"
+        },
+        "pageStartNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "operationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "context": {
+          "$ref": "#/definitions/ClientContext"
+        }
+      }
+    },
+    "PrintingKey": {
+      "type": "object",
+      "properties": {
+        "Key": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "KeyValue_String_String": {
+      "description": "This class imitates a KeyValuePair, but with setters",
+      "type": "object",
+      "properties": {
+        "Key": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        }
+      }
+    },
+    "ClientContext": {
+      "type": "object",
+      "properties": {
+        "Module": {
+          "type": "string"
+        }
+      }
+    },
+    "CreatePDFResult": {
+      "type": "object",
+      "properties": {
+        "KeyedError": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PrintError"
+          }
+        },
+        "URL": {
+          "description": "URL to PDF file",
+          "type": "string"
+        },
+        "IdsProcessed": {
+          "description": "List of processed order or item IDs",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "ProcessedIds": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "format": "uuid",
+              "type": "string",
+              "example": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        },
+        "PageCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PrintErrors": {
+          "description": "List of OrderId / Error message",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "PrintError": {
+      "type": "object",
+      "properties": {
+        "TemplateType": {
+          "type": "string"
+        },
+        "Id": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Error": {
+          "type": "string"
+        },
+        "Tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PrintErrorTags"
+          }
+        }
+      }
+    },
+    "PrintErrorTags": {
+      "type": "object",
+      "properties": {
+        "Tag": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        }
+      }
+    },
+    "PrintService_CreatePDFfromJobForceTemplateRequest": {
+      "type": "object",
+      "properties": {
+        "templateType": {
+          "description": "The template type",
+          "type": "string"
+        },
+        "IDs": {
+          "description": "A list of IDs to print (e.g. Order IDs or Warehouse Transfer IDs)",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "templateID": {
+          "format": "int32",
+          "description": "The ID of the template to use",
+          "type": "integer"
+        },
+        "parameters": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/KeyValue_String_String"
+          }
+        },
+        "printerName": {
+          "description": "printer name of the ivrtual printer to use. If null then the sepecified in the template",
+          "type": "string"
+        },
+        "printZoneCode": {
+          "description": "Print zone code, if present, will override the printer used if the template has a set printer for that zone",
+          "type": "string"
+        },
+        "pageStartNumber": {
+          "format": "int32",
+          "description": "First page number. Used for splitting prints into multiple requests.",
+          "type": "integer"
+        },
+        "operationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "context": {
+          "$ref": "#/definitions/ClientContext"
+        }
+      }
+    },
+    "PrintService_CreatePDFfromJobForceTemplateWithQuantitiesRequest": {
+      "type": "object",
+      "properties": {
+        "templateType": {
+          "description": "The template type",
+          "type": "string"
+        },
+        "IDsAndQuantities": {
+          "description": "Stock Id and quantity of stock",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/KeyValue_Guid_Int32"
+          }
+        },
+        "templateID": {
+          "format": "int32",
+          "description": "The ID of the template to use",
+          "type": "integer"
+        },
+        "parameters": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/KeyValue_String_String"
+          }
+        },
+        "printerName": {
+          "description": "Printer name of the virtual printer to use. If null then the sepecified in the template",
+          "type": "string"
+        },
+        "printZoneCode": {
+          "description": "Print zone code, if present, will override the printer used if the template has a set printer for that zone",
+          "type": "string"
+        }
+      }
+    },
+    "KeyValue_Guid_Int32": {
+      "description": "This class imitates a KeyValuePair, but with setters",
+      "type": "object",
+      "properties": {
+        "Key": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Value": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "PrintService_PrintTemplatePreviewRequest": {
+      "type": "object",
+      "properties": {
+        "templateId": {
+          "format": "int32",
+          "description": "Template id",
+          "type": "integer"
+        }
+      }
+    },
+    "TemplateHeader": {
+      "type": "object",
+      "properties": {
+        "pkTemplateRowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TemplateId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "TemplateType": {
+          "type": "string"
+        },
+        "TemplateName": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "IsDefault": {
+          "type": "boolean"
+        },
+        "IsEmailAttachment": {
+          "type": "boolean"
+        },
+        "VisibilityCondition": {
+          "type": "string"
+        },
+        "bLogicalDelete": {
+          "type": "boolean"
+        },
+        "IsConditional": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "ConditionRating": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        }
+      }
+    },
+    "VirtualPrinter": {
+      "type": "object",
+      "properties": {
+        "PrinterName": {
+          "description": "Name used to identify the printer in linnworks",
+          "type": "string"
+        },
+        "PrinterLocationName": {
+          "description": "Name used to identify the instance of the virtual printer client",
+          "type": "string"
+        },
+        "PrinterLocalName": {
+          "description": "Printer name as seen in windows OS (e.g. Microsoft Print to PDF)",
+          "type": "string"
+        },
+        "Status": {
+          "description": "Whether the printer is online or offline",
+          "enum": [
+            "UNKNOWN",
+            "OFFLINE",
+            "ONLINE"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "PermissionsUser": {
+      "type": "object",
+      "properties": {
+        "UserId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SuperAdmin": {
+          "type": "boolean"
+        },
+        "fkUserId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "EmailAddress": {
+          "type": "string"
+        },
+        "UserType": {
+          "type": "string"
+        },
+        "TotpAuthenticationEnabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "PrintService_CreateReturnShippingLabelsPDFWithSKUsRequest": {
+      "type": "object",
+      "properties": {
+        "referenceNum": {
+          "description": "Reference number of the order to print return labels for",
+          "type": "string"
+        },
+        "SKUsAndQuantities": {
+          "description": "A list of the SKUs and quantities to include. If empty then same as the outbound shipment",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/KeyValue_String_Int32"
+          }
+        },
+        "returnPostalServiceName": {
+          "description": "Name of the postal service to use. If null then specified in settings or same as the outbound shipment",
+          "type": "string"
+        }
+      }
+    },
+    "KeyValue_String_Int32": {
+      "description": "This class imitates a KeyValuePair, but with setters",
+      "type": "object",
+      "properties": {
+        "Key": {
+          "type": "string"
+        },
+        "Value": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "PrintService_CreateReturnShippingLabelsPDFRequest": {
+      "type": "object",
+      "properties": {
+        "IDs": {
+          "description": "A list containing the (single) pkOrderId of the order to print return labels for",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "orderItemIdsAndQuantities": {
+          "description": "A list of the order item IDs and quantities to include. If empty then same as the outbound shipment",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/KeyValue_Guid_Int32"
+          }
+        },
+        "returnPostalServiceName": {
+          "description": "Name of the postal service to use. If null then specified in settings or same as the outbound shipment",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

@@ -1,0 +1,3187 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "warehousetransfer",
+    "title": "Warehouse Transfer API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/WarehouseTransfer/GetActiveTransfersForLocation": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetActiveTransfersForLocation",
+        "description": "Use this call to get all of the active transfers related to this location\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetActiveTransfersForLocation",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "locationId",
+            "in": "query",
+            "description": "pkLocationId for",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WarehouseTransfer"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetActiveTransfersAllLocations": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetActiveTransfersAllLocations",
+        "description": "Use this call to get all active transfers for all locations\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetActiveTransfersAllLocations",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WarehouseTransfer"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/CreateTransferRequestWithReturn": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "CreateTransferRequestWithReturn",
+        "description": "Use this call to create a new transfer request with default reference number\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "CreateTransferRequestWithReturn",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_CreateTransferRequestWithReturnRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_CreateTransferRequestWithReturnRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/CreateTransferFromDescrepancies": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "CreateTransferFromDescrepancies",
+        "description": "Use this call to create a new transfer request from discrepancies\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "CreateTransferFromDescrepancies",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_CreateTransferFromDescrepanciesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_CreateTransferFromDescrepanciesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/DeleteTransfer": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "DeleteTransfer",
+        "description": "Use this call to delete a transfer\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "DeleteTransfer",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_DeleteTransferRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_DeleteTransferRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/DeleteTransferProperty": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "DeleteTransferProperty",
+        "description": "Use this call to delete a property from the transfer\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "DeleteTransferProperty",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_DeleteTransferPropertyRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_DeleteTransferPropertyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetTransferWithNotes": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetTransferWithNotes",
+        "description": "Use this call to get a warehouse transfer object with items\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetTransferWithNotes",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkTransferId",
+            "in": "query",
+            "description": "pkTransferId for required Transfer",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/ChangeTransferStatus": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "ChangeTransferStatus",
+        "description": "Use this call to change a transfer's status\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "ChangeTransferStatus",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_ChangeTransferStatusRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_ChangeTransferStatusRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/AddTransferNote": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "AddTransferNote",
+        "description": "Use this call to add a note to the transfer\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "AddTransferNote",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_AddTransferNoteRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_AddTransferNoteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "uuid",
+              "type": "string",
+              "example": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/AddTransferBinNote": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "AddTransferBinNote",
+        "description": "Use this call to add a note to a bin\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "AddTransferBinNote",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_AddTransferBinNoteRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_AddTransferBinNoteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "uuid",
+              "type": "string",
+              "example": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/AddItemToTransfer": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "AddItemToTransfer",
+        "description": "Use this call to add an item to the transfer (only works for transfers in draft/request states)\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "AddItemToTransfer",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_AddItemToTransferRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_AddItemToTransferRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransferItem"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/AddItemsToTransfer": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "AddItemsToTransfer",
+        "description": "Use this call to add multiple items to the transfer (only works for transfers in draft/request states)\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "AddItemsToTransfer",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "Request object with data needed",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddItemsToTransferRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AddItemsToTransferResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/AddTransferProperty": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "AddTransferProperty",
+        "description": "Use this call to add a property to the transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "AddTransferProperty",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_AddTransferPropertyRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_AddTransferPropertyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "uuid",
+              "type": "string",
+              "example": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/RemoveItemFromTransfer": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "RemoveItemFromTransfer",
+        "description": "Use this call to remove an item from a transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "RemoveItemFromTransfer",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_RemoveItemFromTransferRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_RemoveItemFromTransferRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/SetReferenceNumber": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "SetReferenceNumber",
+        "description": "Use this call to change the transfer reference number (this call only works before the transfer is in transit)\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "SetReferenceNumber",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_SetReferenceNumberRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_SetReferenceNumberRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/ChangeTransferFromLocation": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "ChangeTransferFromLocation",
+        "description": "Use this call to update the from location of a transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "ChangeTransferFromLocation",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_ChangeTransferFromLocationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_ChangeTransferFromLocationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/ChangeTransferToLocation": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "ChangeTransferToLocation",
+        "description": "Use this call to update the to location of a transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "ChangeTransferToLocation",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_ChangeTransferToLocationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_ChangeTransferToLocationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/ChangeTransferLocations": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "ChangeTransferLocations",
+        "description": "Use this call to update the from and to locations of a transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "ChangeTransferLocations",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_ChangeTransferLocationsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_ChangeTransferLocationsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/ChangeTransferProperty": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "ChangeTransferProperty",
+        "description": "Use this call to change a property belonging to a given transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "ChangeTransferProperty",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_ChangeTransferPropertyRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_ChangeTransferPropertyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetTransferItems": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetTransferItems",
+        "description": "Use this call to retrieve a list of items on  the order and request/sent/received levels. This method will return multiple entries for a single item if the item exists in multiple bins.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetTransferItems",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkTransferId",
+            "in": "query",
+            "description": "The id of the transfer.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WarehouseTransferItem"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/ChangeTransferItemRequestQuantity": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "ChangeTransferItemRequestQuantity",
+        "description": "Use this call to change the requested quantity for an item on a transfer in Draft or Request states.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "ChangeTransferItemRequestQuantity",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_ChangeTransferItemRequestQuantityRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_ChangeTransferItemRequestQuantityRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/ChangeTransferItemSentQuantity": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "ChangeTransferItemSentQuantity",
+        "description": "Use this call to change the sent quantity of an item in the specified bin.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "ChangeTransferItemSentQuantity",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_ChangeTransferItemSentQuantityRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_ChangeTransferItemSentQuantityRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransferItem"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/ChangeTransferItemReceivedQuantity": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "ChangeTransferItemReceivedQuantity",
+        "description": "Use this call to change the received quantity of a transfer item.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "ChangeTransferItemReceivedQuantity",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_ChangeTransferItemReceivedQuantityRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_ChangeTransferItemReceivedQuantityRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetTransferNotes": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetTransferNotes",
+        "description": "Use this call to retrieve a list of transfer-level notes for a given transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetTransferNotes",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkTransferId",
+            "in": "query",
+            "description": "The id of the transfer",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WarehouseTransferNote"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetTransferItemNotes": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetTransferItemNotes",
+        "description": "Use this call to retrieve the notes from a transfer item.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetTransferItemNotes",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkTransferId",
+            "in": "query",
+            "description": "The id of the transfer to which the item belongs.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "pkTransferItemId",
+            "in": "query",
+            "description": "The id of the transfer item.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WarehouseTransferItemNote"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/AddTransferItemNote": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "AddTransferItemNote",
+        "description": "Use this call to add a note to a transfer item.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "AddTransferItemNote",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_AddTransferItemNoteRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_AddTransferItemNoteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "uuid",
+              "type": "string",
+              "example": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetTransferAudit": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetTransferAudit",
+        "description": "Use this call to retrieve all of the audit entries for the specified transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetTransferAudit",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkTransferId",
+            "in": "query",
+            "description": "The id of the transfer to retrieve audit entries for.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WarehouseTransferAudit"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetTransferProperties": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetTransferProperties",
+        "description": "Use this call to retrieve a list of properties associated with a given transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetTransferProperties",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkTransferId",
+            "in": "query",
+            "description": "The id of the transfer.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WarehouseTransferProperty"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/SearchTransfersAllLocations": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "SearchTransfersAllLocations",
+        "description": "Use this call to search for transfers which match a specific criteria\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "SearchTransfersAllLocations",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "searchType",
+            "in": "query",
+            "description": "The type of search.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "SKU",
+              "ITEMTITLE",
+              "ITEMBARCODE",
+              "TRANSFERREFERENCE",
+              "BINREFERENCE"
+            ]
+          },
+          {
+            "name": "searchText",
+            "in": "query",
+            "description": "The search term.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string",
+                "example": "00000000-0000-0000-0000-000000000000"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetArchivedTransfers": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetArchivedTransfers",
+        "description": "Use this call to retrieve all of the archived transfers in the system (i.e. Delivered or Deleted).\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetArchivedTransfers",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "The page number (starting at 1).",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "entriesPerPage",
+            "in": "query",
+            "description": "The number of entries to be returned per page.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GenericPagedResult_WarehouseTransfer"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetArchivedTransfersFiltered": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetArchivedTransfersFiltered",
+        "description": "Use this call to search for archived transfers which match a specific search term.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetArchivedTransfersFiltered",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "searchType",
+            "in": "query",
+            "description": "The type of search.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "SKU",
+              "ITEMTITLE",
+              "ITEMBARCODE",
+              "TRANSFERREFERENCE",
+              "BINREFERENCE"
+            ]
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "The search term.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "The page number (starting at 1).",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "entriesPerPage",
+            "in": "query",
+            "description": "The number of entries to be returned per page.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GenericPagedResult_WarehouseTransfer"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetArchivedTransfersBetweenDates": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetArchivedTransfersBetweenDates",
+        "description": "Use this call to search for archived transfers which were created between two dates.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetArchivedTransfersBetweenDates",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "description": "The start date.",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "The end date.",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "The page number (starting at 1).",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "entriesPerPage",
+            "in": "query",
+            "description": "The number of entries to be returned per page.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GenericPagedResult_WarehouseTransfer"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetArchivedTransfersBetweenArchivedDates": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetArchivedTransfersBetweenArchivedDates",
+        "description": "Use this call to search for archived transfers which were archived between two dates.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetArchivedTransfersBetweenArchivedDates",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "description": "The start date.",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "The end date.",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "The page number (starting at 1).",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "entriesPerPage",
+            "in": "query",
+            "description": "The number of entries to be returned per page.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GenericPagedResult_WarehouseTransfer"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/SearchTransfersByLocation": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "SearchTransfersByLocation",
+        "description": "Use this call to search for transfers which match a specific criteria\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "SearchTransfersByLocation",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "searchType",
+            "in": "query",
+            "description": "The type of search.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "SKU",
+              "ITEMTITLE",
+              "ITEMBARCODE",
+              "TRANSFERREFERENCE",
+              "BINREFERENCE"
+            ]
+          },
+          {
+            "name": "searchText",
+            "in": "query",
+            "description": "The search term.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "locationID",
+            "in": "query",
+            "description": "The location ID to search.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string",
+                "example": "00000000-0000-0000-0000-000000000000"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetListTransfers": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetListTransfers",
+        "description": "Use this call to load a list of basic transfers\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetListTransfers",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "The Ids to load",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WarehouseTransfer"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetModifiedBasic": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetModifiedBasic",
+        "description": "Use this call to retrieve a basic list of transfers which have been significantly modified between the specified UTC date and now.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetModifiedBasic",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "updateDate",
+            "in": "query",
+            "description": "A UTC date/time",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WarehouseTransfer"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetServerTime": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetServerTime",
+        "description": "Use this call to get the current UTC date\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetServerTime",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetTransferWithItems": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetTransferWithItems",
+        "description": "Use this call to get a transfer object with its items.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetTransferWithItems",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkTransferId",
+            "in": "query",
+            "description": "The id of the transfer to be loaded.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/ChangeBinDetails": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "ChangeBinDetails",
+        "description": "Use this call to change details of a bin.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "ChangeBinDetails",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_ChangeBinDetailsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_ChangeBinDetailsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/AllocateItemToBin": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "AllocateItemToBin",
+        "description": "Use this call to allocate stock, in part or in full, from one bin to another.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "AllocateItemToBin",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_AllocateItemToBinRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_AllocateItemToBinRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/CreateNewBin": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "CreateNewBin",
+        "description": "Use this call to create a new bin.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "CreateNewBin",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_CreateNewBinRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_CreateNewBinRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransferBin"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/RemoveAllEmptyBins": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "RemoveAllEmptyBins",
+        "description": "Use this call to delete bins with no items. To be used if a bin is created and no items are assigned to it.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "RemoveAllEmptyBins",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_RemoveAllEmptyBinsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_RemoveAllEmptyBinsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetTransferBinNotes": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetTransferBinNotes",
+        "description": "Use this call to retrieve notes from a specific bin.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetTransferBinNotes",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkBinId",
+            "in": "query",
+            "description": "The id of the bin.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WarehouseTransferBinNote"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetDiscrepancyItems": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetDiscrepancyItems",
+        "description": "Use this call to get a list of items whose quantities do not match those that were originally expected. E.g. Received &lt; Sent when Delivered or Sent &lt; Requested when Accepted. Only call this method once after the transfer is Accepted and once when it has been Delivered.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetDiscrepancyItems",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkTransferId",
+            "in": "query",
+            "description": "The id of the transfer.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WarehouseTransferItem"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/GetStockAvailability": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "GetStockAvailability",
+        "description": "Use this call to retrieve information on inbound transfers and purchase orders for the given transfer item.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "GetStockAvailability",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkTransferItemId",
+            "in": "query",
+            "description": "The transfer item id.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StockAvailability"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/IsDraftTransferChanged": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "IsDraftTransferChanged",
+        "description": "Use this call to work out if a draft transfer has been changed since it was created.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "IsDraftTransferChanged",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkTransferId",
+            "in": "query",
+            "description": "The id of the transfer to check.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/DeleteEmptyDraftTransfer": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "DeleteEmptyDraftTransfer",
+        "description": "Use this call to delete a draft transfer with no items, properties or notes.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "DeleteEmptyDraftTransfer",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_DeleteEmptyDraftTransferRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_DeleteEmptyDraftTransferRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/CheckForDraftTransfer": {
+      "get": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "CheckForDraftTransfer",
+        "description": "Use this call to see if a draft transfer already exists for the two locations\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "CheckForDraftTransfer",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "toLocationId",
+            "in": "query",
+            "description": "The id of the location the transfer should be going to",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "fromLocationId",
+            "in": "query",
+            "description": "The id of the location the transfer should be coming from",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "uuid",
+              "type": "string",
+              "example": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WarehouseTransfer/PrintTransfer": {
+      "post": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "summary": "PrintTransfer",
+        "description": "Creates a PDF for this transfer and returns the URL\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "operationId": "PrintTransfer",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "WarehouseTransfer_PrintTransferRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_PrintTransferRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "WarehouseTransfer": {
+      "type": "object",
+      "properties": {
+        "PkTransferId": {
+          "format": "uuid",
+          "description": "Transfer ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "FromLocationId": {
+          "format": "uuid",
+          "description": "Location from which transfer is made (unique identifier)",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ToLocationId": {
+          "format": "uuid",
+          "description": "Location to which transfer is made (unique identifier)",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "FromLocation": {
+          "description": "Name of location from which transfer is made",
+          "type": "string"
+        },
+        "ToLocation": {
+          "description": "Name of location to which transfer is made",
+          "type": "string"
+        },
+        "Status": {
+          "description": "Current transfer status",
+          "enum": [
+            "Draft",
+            "Request",
+            "Accepted",
+            "Packing",
+            "InTransit",
+            "CheckingIn",
+            "Delivered"
+          ],
+          "type": "string"
+        },
+        "nStatus": {
+          "format": "int32",
+          "description": "Status ID",
+          "type": "integer"
+        },
+        "ReferenceNumber": {
+          "description": "Transfer reference number",
+          "type": "string"
+        },
+        "OrderDate": {
+          "format": "date-time",
+          "description": "When transer was ordered",
+          "type": "string"
+        },
+        "NumberOfItems": {
+          "format": "int32",
+          "description": "Number of items transfered",
+          "type": "integer"
+        },
+        "NumberOfNotes": {
+          "format": "int32",
+          "description": "Number of transfer notes",
+          "type": "integer"
+        },
+        "fkOriginalTransferId": {
+          "format": "uuid",
+          "description": "Original transfer ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "OriginalTransferReference": {
+          "description": "Original transfer reference number",
+          "type": "string"
+        },
+        "IsDiscrepancyTransfer": {
+          "description": "If its a discrepency transfer",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "BLogicalDelete": {
+          "description": "If transfer is deleted",
+          "type": "boolean"
+        },
+        "Bins": {
+          "description": "List of transfer bins",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseTransferBin"
+          }
+        },
+        "Notes": {
+          "description": "List of transfer notes",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseTransferNote"
+          }
+        },
+        "AuditTrail": {
+          "description": "List of transfer audits",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseTransferAudit"
+          }
+        },
+        "TransferProperties": {
+          "description": "List of transfer properties",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseTransferProperty"
+          }
+        },
+        "UpdateStatus": {
+          "$ref": "#/definitions/UpdateStatus",
+          "description": "Which status is updated"
+        }
+      }
+    },
+    "WarehouseTransferBin": {
+      "type": "object",
+      "properties": {
+        "PkBinId": {
+          "format": "uuid",
+          "description": "Bin ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BinName": {
+          "description": "Transfer bin name",
+          "type": "string"
+        },
+        "BinReference": {
+          "description": "Bin reference",
+          "type": "string"
+        },
+        "BinBarcode": {
+          "description": "Bin barcode",
+          "type": "string"
+        },
+        "BinNotes": {
+          "description": "List of transfer bin notes",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseTransferBinNote"
+          }
+        },
+        "BinItems": {
+          "description": "List of transfer items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseTransferItem"
+          }
+        }
+      }
+    },
+    "WarehouseTransferNote": {
+      "type": "object",
+      "properties": {
+        "PkTransferNoteId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "NoteUser": {
+          "type": "string"
+        },
+        "Note": {
+          "type": "string"
+        },
+        "NoteDateTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "NoteRead": {
+          "type": "boolean"
+        }
+      }
+    },
+    "WarehouseTransferAudit": {
+      "type": "object",
+      "properties": {
+        "PkTransferAuditId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "AuditType": {
+          "enum": [
+            "TransferStatusChange",
+            "TransferItem",
+            "TransferNote",
+            "TransferProperty",
+            "TransferBin",
+            "TransferInformation",
+            "TransferMerge",
+            "TransferArchived"
+          ],
+          "type": "string"
+        },
+        "nAuditType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "AuditDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "AuditNote": {
+          "type": "string"
+        }
+      }
+    },
+    "WarehouseTransferProperty": {
+      "type": "object",
+      "properties": {
+        "PkTransferPropertyId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "TransferPropertyName": {
+          "type": "string"
+        },
+        "TransferPropertyValue": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdateStatus": {
+      "type": "object",
+      "properties": {
+        "Notes": {
+          "type": "boolean"
+        },
+        "Items": {
+          "type": "boolean"
+        },
+        "Properties": {
+          "type": "boolean"
+        },
+        "Information": {
+          "type": "boolean"
+        },
+        "Status": {
+          "type": "boolean"
+        }
+      }
+    },
+    "WarehouseTransferBinNote": {
+      "type": "object",
+      "properties": {
+        "PkTransferBinNoteId": {
+          "format": "uuid",
+          "description": "Transfer bin note ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "NoteUser": {
+          "description": "User who created note",
+          "type": "string"
+        },
+        "Note": {
+          "description": "Note text",
+          "type": "string"
+        },
+        "NoteDateTime": {
+          "format": "date-time",
+          "description": "When bin note was added",
+          "type": "string"
+        },
+        "NoteRead": {
+          "description": "If bin note is readable",
+          "type": "boolean"
+        },
+        "PkBinId": {
+          "format": "uuid",
+          "description": "Bin ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "WarehouseTransferItem": {
+      "type": "object",
+      "properties": {
+        "PkTransferItemId": {
+          "format": "uuid",
+          "description": "Transfer ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "FkStockItemId": {
+          "format": "uuid",
+          "description": "Stock item ID (unique identifier)",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "SKU": {
+          "description": "Product SKU",
+          "type": "string"
+        },
+        "Barcode": {
+          "description": "Product barcode",
+          "type": "string"
+        },
+        "ItemTitle": {
+          "description": "Product title",
+          "type": "string"
+        },
+        "RequestedQuantity": {
+          "format": "int32",
+          "description": "Quantity requested for transfer",
+          "type": "integer"
+        },
+        "SentQuantity": {
+          "format": "int32",
+          "description": "Quantity transferred",
+          "type": "integer"
+        },
+        "ReceivedQuantity": {
+          "format": "int32",
+          "description": "Quantity received",
+          "type": "integer"
+        },
+        "InFromLocationQuantity": {
+          "format": "int32",
+          "description": "Quantity from location",
+          "type": "integer"
+        },
+        "DueFromLocationQuantity": {
+          "format": "int32",
+          "description": "Due from location quantity",
+          "type": "integer"
+        },
+        "InToLocationQuantity": {
+          "format": "int32",
+          "description": "Currently in location quantity",
+          "type": "integer"
+        },
+        "ItemNoteCount": {
+          "format": "int32",
+          "description": "Items notes count",
+          "type": "integer"
+        },
+        "BinRackNumber": {
+          "description": "Stock item binrack",
+          "type": "string"
+        },
+        "PkBinId": {
+          "format": "uuid",
+          "description": "Transfer bin ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ItemNotes": {
+          "description": "List of transfer notes",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseTransferItemNote"
+          }
+        }
+      }
+    },
+    "WarehouseTransferItemNote": {
+      "type": "object",
+      "properties": {
+        "PkTransferItemNoteId": {
+          "format": "uuid",
+          "description": "Stock item ID (unique identifier)",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "NoteUser": {
+          "description": "User who added note",
+          "type": "string"
+        },
+        "Note": {
+          "description": "Note text",
+          "type": "string"
+        },
+        "NoteDateTime": {
+          "format": "date-time",
+          "description": "When note was added",
+          "type": "string"
+        },
+        "NoteRead": {
+          "description": "If note is readable",
+          "type": "boolean"
+        },
+        "FkBinId": {
+          "format": "uuid",
+          "description": "Bin ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PkTransferItemId": {
+          "format": "uuid",
+          "description": "Transfer ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "WarehouseTransfer_CreateTransferRequestWithReturnRequest": {
+      "type": "object",
+      "properties": {
+        "fromLocationId": {
+          "format": "uuid",
+          "description": "pkLocationId for from Location",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "toLocationId": {
+          "format": "uuid",
+          "description": "pkLocationId for to Location",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "WarehouseTransfer_CreateTransferFromDescrepanciesRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "pkTransferId",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "WarehouseTransfer_DeleteTransferRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "pkTransferId",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "DeleteReason": {
+          "description": "Explanation for deletion",
+          "type": "string"
+        }
+      }
+    },
+    "WarehouseTransfer_DeleteTransferPropertyRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "pkTransferId",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkTransferPropertyId": {
+          "format": "uuid",
+          "description": "pkTransferPropertyId",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "WarehouseTransfer_ChangeTransferStatusRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "pkTransferId for transfer requiring status change",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "newStatus": {
+          "description": "new status for transfer",
+          "enum": [
+            "Draft",
+            "Request",
+            "Accepted",
+            "Packing",
+            "InTransit",
+            "CheckingIn",
+            "Delivered"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "WarehouseTransfer_AddTransferNoteRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "pkTransferId",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "note": {
+          "description": "Note text",
+          "type": "string"
+        }
+      }
+    },
+    "WarehouseTransfer_AddTransferBinNoteRequest": {
+      "type": "object",
+      "properties": {
+        "fkTransferBinId": {
+          "format": "uuid",
+          "description": "fkTransferBinId",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "note": {
+          "description": "Note text",
+          "type": "string"
+        },
+        "fkTransferId": {
+          "format": "uuid",
+          "description": "fkTransferId",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "WarehouseTransfer_AddItemToTransferRequest": {
+      "type": "object",
+      "properties": {
+        "fkTransferId": {
+          "format": "uuid",
+          "description": "fkTransferId",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkStockItemId": {
+          "format": "uuid",
+          "description": "pkStockItemId",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "AddItemsToTransferRequest": {
+      "type": "object",
+      "properties": {
+        "TransferId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "TransferItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseTransferItemQuantity"
+          }
+        }
+      }
+    },
+    "WarehouseTransferItemQuantity": {
+      "type": "object",
+      "properties": {
+        "fkStockItemId": {
+          "format": "uuid",
+          "description": "Stock item ID (unique identifier)",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Quantity": {
+          "format": "int32",
+          "description": "Item request quantity",
+          "type": "integer"
+        },
+        "pkTransferItemId": {
+          "format": "uuid",
+          "description": "Transfer item ID (unique identifier)",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "AddItemsToTransferResponse": {
+      "type": "object",
+      "properties": {
+        "TransferItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseTransferItem"
+          }
+        }
+      }
+    },
+    "WarehouseTransfer_AddTransferPropertyRequest": {
+      "type": "object",
+      "properties": {
+        "fkTransferId": {
+          "format": "uuid",
+          "description": "The transfer to add the property to.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "propertyName": {
+          "description": "The property name.",
+          "type": "string"
+        },
+        "propertyValue": {
+          "description": "The property value.",
+          "type": "string"
+        }
+      }
+    },
+    "WarehouseTransfer_RemoveItemFromTransferRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "The id of the transfer.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkTransferItemId": {
+          "format": "uuid",
+          "description": "The id of the transfer item.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "WarehouseTransfer_SetReferenceNumberRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "The transfer id of the transfer to change the reference number of.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReferenceNumber": {
+          "description": "The new reference number.",
+          "type": "string"
+        }
+      }
+    },
+    "WarehouseTransfer_ChangeTransferFromLocationRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "The id of the transfer.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "newLocationId": {
+          "format": "uuid",
+          "description": "The location id which represents the from location.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "WarehouseTransfer_ChangeTransferToLocationRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "The id of the transfer.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "newLocationId": {
+          "format": "uuid",
+          "description": "The location id which represents the to location.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "WarehouseTransfer_ChangeTransferLocationsRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "The id of the transfer.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fromLocationId": {
+          "format": "uuid",
+          "description": "The location id which represents the from location.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "toLocationId": {
+          "format": "uuid",
+          "description": "The location id which represents the to location.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "WarehouseTransfer_ChangeTransferPropertyRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "The id of the transfer the property belongs to.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkTransferPropertyId": {
+          "format": "uuid",
+          "description": "The id of the property.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "newValue": {
+          "description": "The new value for the property.",
+          "type": "string"
+        }
+      }
+    },
+    "WarehouseTransfer_ChangeTransferItemRequestQuantityRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "The id of the transfer.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkTransferItemId": {
+          "format": "uuid",
+          "description": "The id of the transfer item.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Quantity": {
+          "format": "int32",
+          "description": "The new request quantity.",
+          "type": "integer"
+        }
+      }
+    },
+    "WarehouseTransfer_ChangeTransferItemSentQuantityRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "The id of the transfer.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkBinId": {
+          "format": "uuid",
+          "description": "The id of the bin.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkTransferItemId": {
+          "format": "uuid",
+          "description": "The id of the item.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Quantity": {
+          "format": "int32",
+          "description": "The new quantity.",
+          "type": "integer"
+        }
+      }
+    },
+    "WarehouseTransfer_ChangeTransferItemReceivedQuantityRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "The id of the transfer.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkBinId": {
+          "format": "uuid",
+          "description": "The id of the bin.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkTransferItemId": {
+          "format": "uuid",
+          "description": "The id of the bin item.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Quantity": {
+          "format": "int32",
+          "description": "The new quantity.",
+          "type": "integer"
+        }
+      }
+    },
+    "WarehouseTransfer_AddTransferItemNoteRequest": {
+      "type": "object",
+      "properties": {
+        "fkTransferId": {
+          "format": "uuid",
+          "description": "The id of the transfer to which the item belongs.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkTransferItemId": {
+          "format": "uuid",
+          "description": "The id of the item.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "note": {
+          "description": "The note text.",
+          "type": "string"
+        }
+      }
+    },
+    "GenericPagedResult_WarehouseTransfer": {
+      "description": "Order item object",
+      "type": "object",
+      "properties": {
+        "PageNumber": {
+          "format": "int32",
+          "description": "Result page number",
+          "type": "integer"
+        },
+        "EntriesPerPage": {
+          "format": "int32",
+          "description": "Result page size, quantity of records per page",
+          "type": "integer"
+        },
+        "TotalEntries": {
+          "format": "int64",
+          "description": "Total records",
+          "type": "integer"
+        },
+        "TotalPages": {
+          "format": "int32",
+          "description": "Total pages",
+          "type": "integer",
+          "readOnly": true
+        },
+        "Data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseTransfer"
+          }
+        }
+      }
+    },
+    "WarehouseTransfer_ChangeBinDetailsRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "The id of the transfer the bin belongs to.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkBinId": {
+          "format": "uuid",
+          "description": "The id of the bin.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BinName": {
+          "description": "The new name for the bin (pass an empty string if no change is required).",
+          "type": "string"
+        },
+        "BinReference": {
+          "description": "The new reference for the bin (pass an empty string if no change is required).",
+          "type": "string"
+        },
+        "BinBarcode": {
+          "description": "The new barcode for the bin  (pass an empty string if no change is required).",
+          "type": "string"
+        }
+      }
+    },
+    "WarehouseTransfer_AllocateItemToBinRequest": {
+      "type": "object",
+      "properties": {
+        "pkSrcBinId": {
+          "format": "uuid",
+          "description": "The id of the source bin.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkDstBinId": {
+          "format": "uuid",
+          "description": "The id of the destination bin.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "pkTransferItemId": {
+          "format": "uuid",
+          "description": "The transfer item to be reallocated.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "quantity": {
+          "format": "int32",
+          "description": "The quantity to reallocate.",
+          "type": "integer"
+        }
+      }
+    },
+    "WarehouseTransfer_CreateNewBinRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "The transfer to create the bin for.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "barcode": {
+          "description": "The barcode of the bin.",
+          "type": "string"
+        }
+      }
+    },
+    "WarehouseTransfer_RemoveAllEmptyBinsRequest": {
+      "type": "object",
+      "properties": {}
+    },
+    "StockAvailability": {
+      "type": "object",
+      "properties": {
+        "PkId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LevelType": {
+          "enum": [
+            "Transfer",
+            "PurchaseOrder"
+          ],
+          "type": "string"
+        },
+        "Status": {
+          "enum": [
+            "Draft",
+            "Request",
+            "Accepted",
+            "Packing",
+            "InTransit",
+            "CheckingIn",
+            "Delivered",
+            "PARTIAL",
+            "PENDING",
+            "OPEN"
+          ],
+          "type": "string"
+        },
+        "ReferenceNumber": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "WarehouseTransfer_DeleteEmptyDraftTransferRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "The id of the transfer to be deleted.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "WarehouseTransfer_PrintTransferRequest": {
+      "type": "object",
+      "properties": {
+        "pkTransferId": {
+          "format": "uuid",
+          "description": "The transfer ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

@@ -1,0 +1,429 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "settings",
+    "title": "Settings API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/Settings/GetCurrencyConversionRates": {
+      "get": {
+        "tags": [
+          "Settings"
+        ],
+        "summary": "GetCurrencyConversionRates",
+        "description": "Get Currency Conversion Rates",
+        "operationId": "GetCurrencyConversionRates",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "getCurrenciesFromOrders",
+            "in": "query",
+            "description": "If you want to get currencies from orders",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "description": "Currency",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CurrencyConversionRate"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Settings/GetAvailableTimeZones": {
+      "get": {
+        "tags": [
+          "Settings"
+        ],
+        "summary": "GetAvailableTimeZones",
+        "operationId": "GetAvailableTimeZones",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetAvailableTimeZonesResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Settings/UpdateCurrencyConversionRates": {
+      "post": {
+        "tags": [
+          "Settings"
+        ],
+        "summary": "UpdateCurrencyConversionRates",
+        "description": "Update Currency Conversion Rates\n<b>Permissions Required: </b> GlobalPermissions.Settings.CurrencyRates.EditCurrencyRatesNode",
+        "operationId": "UpdateCurrencyConversionRates",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Settings_UpdateCurrencyConversionRatesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Settings_UpdateCurrencyConversionRatesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Settings/InsertCurrencyConversionRates": {
+      "post": {
+        "tags": [
+          "Settings"
+        ],
+        "summary": "InsertCurrencyConversionRates",
+        "description": "Insert currency conversion rates\n<b>Permissions Required: </b> GlobalPermissions.Settings.CurrencyRates.EditCurrencyRatesNode",
+        "operationId": "InsertCurrencyConversionRates",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Settings_InsertCurrencyConversionRatesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Settings_InsertCurrencyConversionRatesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Settings/DeleteCurrencyConversionRates": {
+      "post": {
+        "tags": [
+          "Settings"
+        ],
+        "summary": "DeleteCurrencyConversionRates",
+        "description": "Delete currency conversion rates\n<b>Permissions Required: </b> GlobalPermissions.Settings.CurrencyRates.EditCurrencyRatesNode",
+        "operationId": "DeleteCurrencyConversionRates",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Settings_DeleteCurrencyConversionRatesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Settings_DeleteCurrencyConversionRatesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Settings/GetMeasures": {
+      "get": {
+        "tags": [
+          "Settings"
+        ],
+        "summary": "GetMeasures",
+        "description": "Get user measures units from the database",
+        "operationId": "GetMeasures",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Measures"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Settings/GetLatestCurrencyRate": {
+      "get": {
+        "tags": [
+          "Settings"
+        ],
+        "summary": "GetLatestCurrencyRate",
+        "description": "Gets latest conversion rates for all known currencies. The rate is updated every couple of hours.",
+        "operationId": "GetLatestCurrencyRate",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "baseCurrency",
+            "in": "query",
+            "description": "Base currency for conversion rates, if null, USD is used",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetLatestCurrencyRateResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GetConversionRatesRequest": {
+      "type": "object",
+      "properties": {
+        "GetCurrenciesFromOrders": {
+          "description": "If you want to get currencies from orders",
+          "type": "boolean"
+        },
+        "Currency": {
+          "description": "Currency",
+          "type": "string"
+        }
+      }
+    },
+    "CurrencyConversionRate": {
+      "type": "object",
+      "properties": {
+        "Currency": {
+          "description": "Currency code (e.g. GBP)",
+          "type": "string"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "description": "Currency conversion rate to default currency",
+          "type": "number"
+        }
+      }
+    },
+    "GetAvailableTimeZonesResponse": {
+      "type": "object",
+      "properties": {
+        "TimeZones": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AvailableTimeZone"
+          }
+        }
+      }
+    },
+    "AvailableTimeZone": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string",
+          "readOnly": true
+        },
+        "Name": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "Settings_UpdateCurrencyConversionRatesRequest": {
+      "type": "object",
+      "properties": {
+        "rates": {
+          "description": "Rates to update. Currency is the key",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CurrencyConversionRate"
+          }
+        }
+      }
+    },
+    "Settings_InsertCurrencyConversionRatesRequest": {
+      "type": "object",
+      "properties": {
+        "rates": {
+          "description": "Currencies to insert",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CurrencyConversionRate"
+          }
+        }
+      }
+    },
+    "Settings_DeleteCurrencyConversionRatesRequest": {
+      "type": "object",
+      "properties": {
+        "currencies": {
+          "description": "Currencies to delete",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Measures": {
+      "type": "object",
+      "properties": {
+        "Dimension": {
+          "description": "Dimension measures",
+          "type": "string"
+        },
+        "Weight": {
+          "description": "Weight measures",
+          "type": "string"
+        }
+      }
+    },
+    "GetLatestCurrencyRateRequest": {
+      "type": "object",
+      "properties": {
+        "BaseCurrency": {
+          "description": "Base currency for conversion rates, if null, USD is used",
+          "type": "string"
+        }
+      }
+    },
+    "GetLatestCurrencyRateResponse": {
+      "type": "object",
+      "properties": {
+        "BaseCurrency": {
+          "type": "string"
+        },
+        "Rates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CurrencyRate"
+          }
+        }
+      }
+    },
+    "CurrencyRate": {
+      "description": "Class represents currency conversion rate to base currency",
+      "type": "object",
+      "properties": {
+        "Currency": {
+          "description": "Currency code",
+          "type": "string"
+        },
+        "Rate": {
+          "format": "double",
+          "description": "Currency rate to Base Currency. CurrencyRate / BaseCurrencyRate = Converted value",
+          "type": "number"
+        },
+        "AccurateAsOf": {
+          "format": "date-time",
+          "description": "UTC time when the currency rate was updated",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}
