@@ -47,7 +47,7 @@
         "tags": [
           "Wms"
         ],
-        "summary": "UpdateWarehouseZoneType",
+        "summary": "UpdateWarehouseZoneTypeTest",
         "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode",
         "operationId": "UpdateWarehouseZoneType",
         "consumes": [
