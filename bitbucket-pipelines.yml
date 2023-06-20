@@ -7,8 +7,8 @@ pipelines:
             clone:
                 enabled: false
             script:
-                - git clone --bare git@bitbucket.org:linn_systems/linn_public_api_contracts.git --branch master
-                - cd linn_public_api_contracts.git
+                - git clone --bare git@bitbucket.org:linn_systems/linn_public_api_specs.git --branch master
+                - cd linn_public_api_specs.git
                 - git push --force git@github.com:LinnSystems/PublicApiSpecs.git master:main
         - step:
             name: Readme API sync
@@ -16,8 +16,8 @@ pipelines:
             clone:
                 enabled: false
             script:
-                - git clone git@bitbucket.org:linn_systems/linn_public_api_contracts.git --branch master
-                - cd linn_public_api_contracts
+                - git clone git@bitbucket.org:linn_systems/linn_public_api_specs.git --branch master
+                - cd linn_public_api_specs
                 - npx rdme@v8 openapi '2.0/authenticate.yml' --key=$key --id=6399a5c4268d5f0985d4cead
                 - npx rdme@v8 openapi '2.0/countries.json' --key=$key --id=6426bc4c00c98e00433bae06
                 - npx rdme@v8 openapi '2.0/inventory.json' --key=$key --id=63a18738dd3627008a5d7e0b
