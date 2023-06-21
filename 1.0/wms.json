@@ -47,8 +47,8 @@
         "tags": [
           "Wms"
         ],
-        "summary": "UpdateWarehouseZoneTypeTest",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode",
+        "summary": "UpdateWarehouseZoneTypeTest2",
+        "description": "This is a test\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode",
         "operationId": "UpdateWarehouseZoneType",
         "consumes": [
           "application/json"
