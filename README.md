@@ -4,7 +4,7 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-* Quick summary
+* API2 framework documentation
 * Version
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
