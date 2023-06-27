@@ -7,9 +7,14 @@ pipelines:
             clone:
                 enabled: false
             script:
-                - git clone --bare git@bitbucket.org:linn_systems/linn_public_api_specs.git --branch main
-                - cd linn_public_api_specs.git
-                - git push --force git@github.com:LinnSystems/PublicApiSpecs.git main:main
+                - git clone git@bitbucket.org:linn_systems/linn_public_api_specs.git --branch master
+                - cd linn_public_api_specs
+                - ls -l
+                - rm -rf bitbucket-pipelines.yml
+                - ls -l
+                - git add --all
+                - git -c user.name='LinnSystems' -c user.email=team-devops@linnworks.com commit -m "API docs updated"
+                - git push --force git@github.com:LinnSystems/PublicApiSpecs.git master:main
         - step:
             name: Readme API sync
             image: node:14
