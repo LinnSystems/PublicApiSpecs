@@ -23,6 +23,7 @@ pipelines:
             script:
                 - git clone git@bitbucket.org:linn_systems/linn_public_api_specs.git --branch main
                 - cd linn_public_api_specs
+                - rm -rf bitbucket-pipelines.yml
                 - npx rdme@v8 openapi '2.0/authenticate.yml' --key=$key --id=6399a5c4268d5f0985d4cead
                 - npx rdme@v8 openapi '2.0/countries.json' --key=$key --id=6426bc4c00c98e00433bae06
                 - npx rdme@v8 openapi '2.0/inventory.json' --key=$key --id=63a18738dd3627008a5d7e0b
