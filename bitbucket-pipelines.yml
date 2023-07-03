@@ -7,23 +7,23 @@ pipelines:
             clone:
                 enabled: false
             script:
-                - git clone --bare git@bitbucket.org:linn_systems/linn_public_api_specs.git --branch main
-                - cd linn_public_api_specs.git
-                - git push --force git@github.com:LinnSystems/PublicApiSpecs.git main:main
+                - git clone git@bitbucket.org:linn_systems/linn_public_api_specs.git --branch master
+                - cd linn_public_api_specs
+                - ls -l
+                - rm -rf bitbucket-pipelines.yml
+                - ls -l
+                - git add --all
+                - git -c user.name='LinnSystems' -c user.email=team-devops@linnworks.com commit -m "API docs updated"
+                - git push --force git@github.com:LinnSystems/PublicApiSpecs.git master:main
         - step:
             name: Readme API sync
             image: node:14
             clone:
                 enabled: false
             script:
-                - git clone git@bitbucket.org:linn_systems/linn_public_api_specs.git --branch main
+                - git clone git@bitbucket.org:linn_systems/linn_public_api_specs.git --branch master
                 - cd linn_public_api_specs
-                - npx rdme@v8 openapi '2.0/authenticate.yml' --key=$key --id=6399a5c4268d5f0985d4cead
-                - npx rdme@v8 openapi '2.0/countries.json' --key=$key --id=6426bc4c00c98e00433bae06
-                - npx rdme@v8 openapi '2.0/inventory.json' --key=$key --id=63a18738dd3627008a5d7e0b
-                - npx rdme@v8 openapi '2.0/locations.yml' --key=$key --id=6426bc76be686f003c05e680
-                - npx rdme@v8 openapi '2.0/orders.json' --key=$key --id=6426bcb1b396350011044372
-                - npx rdme@v8 openapi '2.0/stock.json' --key=$key --id=64413eb53657d40066923c92
+                - rm -rf bitbucket-pipelines.yml
                 - npx rdme@v8 openapi '1.0/dashboards.json' --key=$key --id=645b965ee0f2960acb847481
                 - npx rdme@v8 openapi '1.0/email.json' --key=$key --id=645bae620b0c650ab6a09182
                 - npx rdme@v8 openapi '1.0/genericlistings.json' --key=$key --id=6464e9b6184fd9013a81af12
