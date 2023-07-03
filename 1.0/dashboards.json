@@ -29,7 +29,6 @@
             "name": "locationId",
             "in": "query",
             "description": "Used to specify report location id or null for combined",
-            "required": true,
             "type": "string",
             "format": "uuid"
           },
@@ -37,7 +36,6 @@
             "name": "numRows",
             "in": "query",
             "description": "Used to specify number of returned rows",
-            "required": true,
             "type": "integer",
             "format": "int32"
           }
@@ -82,7 +80,6 @@
             "name": "period",
             "in": "query",
             "description": "Used to specify report number of months",
-            "required": true,
             "type": "integer",
             "format": "int32"
           }
@@ -127,7 +124,6 @@
             "name": "period",
             "in": "query",
             "description": "Used to specify report number of months",
-            "required": true,
             "type": "integer",
             "format": "int32"
           },
@@ -135,7 +131,6 @@
             "name": "timeScale",
             "in": "query",
             "description": "time scale",
-            "required": true,
             "type": "integer",
             "format": "int32"
           }
@@ -183,7 +178,6 @@
             "name": "type",
             "in": "query",
             "description": "Used to specify type of report: 1 - group result by quantity, 2 - group result by turnover",
-            "required": true,
             "type": "string",
             "enum": [
               "GroupedByQuantity",
@@ -194,7 +188,6 @@
             "name": "period",
             "in": "query",
             "description": "Used to specify report number of months",
-            "required": true,
             "type": "integer",
             "format": "int32"
           },
@@ -202,7 +195,6 @@
             "name": "numRows",
             "in": "query",
             "description": "Number of rows required",
-            "required": true,
             "type": "integer",
             "format": "int32"
           },
@@ -210,7 +202,6 @@
             "name": "orderStatus",
             "in": "query",
             "description": "Order status",
-            "required": true,
             "type": "integer",
             "format": "int32"
           }
@@ -255,7 +246,6 @@
             "name": "date",
             "in": "query",
             "description": "Used to specify report date or null for current period",
-            "required": true,
             "type": "string",
             "format": "date-time"
           }
@@ -300,7 +290,6 @@
             "name": "date",
             "in": "query",
             "description": "Used to specify report date or null for current period",
-            "required": true,
             "type": "string",
             "format": "date-time"
           },
@@ -308,7 +297,6 @@
             "name": "locationId",
             "in": "query",
             "description": "Used to specify report location id",
-            "required": true,
             "type": "string",
             "format": "uuid"
           }
@@ -353,7 +341,6 @@
             "name": "date",
             "in": "query",
             "description": "Used to specify report date or null for current period",
-            "required": true,
             "type": "string",
             "format": "date-time"
           },
@@ -361,7 +348,6 @@
             "name": "locationId",
             "in": "query",
             "description": "Used to specify report location id",
-            "required": true,
             "type": "string",
             "format": "uuid"
           },
@@ -369,7 +355,6 @@
             "name": "categoryId",
             "in": "query",
             "description": "Used to specify report category id",
-            "required": true,
             "type": "string",
             "format": "uuid"
           },
@@ -377,7 +362,6 @@
             "name": "pageNumber",
             "in": "query",
             "description": "Used to specify report page number",
-            "required": true,
             "type": "integer",
             "format": "int32"
           },
@@ -385,7 +369,6 @@
             "name": "entriesPerPage",
             "in": "query",
             "description": "Used to specify number of entries per page in report",
-            "required": true,
             "type": "integer",
             "format": "int32"
           }

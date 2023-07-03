@@ -47,8 +47,8 @@
         "tags": [
           "Wms"
         ],
-        "summary": "UpdateWarehouseZoneTypeTest2",
-        "description": "This is a test\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode",
+        "summary": "UpdateWarehouseZoneType",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode",
         "operationId": "UpdateWarehouseZoneType",
         "consumes": [
           "application/json"
@@ -63,7 +63,6 @@
           {
             "name": "request",
             "in": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/UpdateWarehouseZoneTypeRequest"
             }
@@ -107,7 +106,6 @@
           {
             "name": "request",
             "in": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/AddWarehouseZoneTypeRequest"
             }
@@ -151,7 +149,6 @@
           {
             "name": "request",
             "in": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/DeleteWarehouseZoneTypeRequest"
             }
@@ -242,7 +239,6 @@
           {
             "name": "request",
             "in": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/GetBinrackZonesByBinrackIdOrNameRequest"
             }
@@ -286,7 +282,6 @@
           {
             "name": "request",
             "in": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/UpdateWarehouseBinrackBinrackToZoneRequest"
             }
@@ -330,7 +325,6 @@
           {
             "name": "request",
             "in": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/GetBinrackZonesByZoneIdOrNameRequest"
             }
@@ -374,7 +368,6 @@
           {
             "name": "request",
             "in": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/AddWarehouseZoneRequest"
             }
@@ -418,7 +411,6 @@
           {
             "name": "request",
             "in": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/DeleteWarehouseZoneRequest"
             }
@@ -462,7 +454,6 @@
           {
             "name": "request",
             "in": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/UpdateWarehouseZoneRequest"
             }

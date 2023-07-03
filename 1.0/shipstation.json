@@ -1,0 +1,370 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "shipstation",
+    "title": "ShipStation API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/ShipStation/GetShipStationIntegrations": {
+      "get": {
+        "tags": [
+          "ShipStation"
+        ],
+        "summary": "GetShipStationIntegrations",
+        "description": "Used for ShipStation to get all ShipStation integrations",
+        "operationId": "GetShipStationIntegrations",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ShipStationConfig"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ShipStation/GetShipStationIntegration": {
+      "get": {
+        "tags": [
+          "ShipStation"
+        ],
+        "summary": "GetShipStationIntegration",
+        "description": "Used for ShipStation to get single ShipStation integration by its id",
+        "operationId": "GetShipStationIntegration",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "integrationId",
+            "in": "query",
+            "description": "Id of the integration to retrieve",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ShipStationConfig"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ShipStation/CreateShipStationIntegration": {
+      "post": {
+        "tags": [
+          "ShipStation"
+        ],
+        "summary": "CreateShipStationIntegration",
+        "description": "Used for ShipStation to create a new ShipStation integration",
+        "operationId": "CreateShipStationIntegration",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ShipStation_CreateShipStationIntegrationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ShipStation_CreateShipStationIntegrationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ShipStationConfig"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ShipStation/DeleteShipStationIntegration": {
+      "post": {
+        "tags": [
+          "ShipStation"
+        ],
+        "summary": "DeleteShipStationIntegration",
+        "description": "Used for ShipStation to delete a ShipStation integration by its id",
+        "operationId": "DeleteShipStationIntegration",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "ShipStation_DeleteShipStationIntegrationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ShipStation_DeleteShipStationIntegrationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ShipStation/EditShipStationIntegration": {
+      "post": {
+        "tags": [
+          "ShipStation"
+        ],
+        "summary": "EditShipStationIntegration",
+        "description": "Used for ShipStation to update a ShipStation integration",
+        "operationId": "EditShipStationIntegration",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ShipStation_EditShipStationIntegrationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ShipStation_EditShipStationIntegrationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "ShipStationConfig": {
+      "type": "object",
+      "properties": {
+        "ConfigV": {
+          "format": "int32",
+          "description": "Config version (for legacy purposes)",
+          "type": "integer"
+        },
+        "ConfigId": {
+          "description": "A unique identifier for the config within Linnworks",
+          "type": "string"
+        },
+        "Name": {
+          "description": "An identifier for the config within Linnworks",
+          "type": "string"
+        },
+        "Enabled": {
+          "description": "Defines whether the config is enabled",
+          "type": "boolean"
+        },
+        "ExportLocations": {
+          "description": "The order locations to look for orders in",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "ExportFolder": {
+          "format": "uuid",
+          "description": "The order folder to export orders from",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LastSync": {
+          "format": "date-time",
+          "description": "The last sync date with ShipStation",
+          "type": "string"
+        },
+        "AutoProcessOrdersLocation": {
+          "format": "uuid",
+          "description": "The location to process orders from",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ExportChildItems": {
+          "description": "Toggles whether or not to export child items",
+          "type": "boolean"
+        },
+        "ImportedOrderTag": {
+          "format": "int32",
+          "description": "The order tag to assign ShipStation imported orders",
+          "type": "integer"
+        },
+        "DefaultShipServiceShipStation": {
+          "format": "uuid",
+          "description": "The default ShipStation shipping service",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "DefaultShipServiceLinnworks": {
+          "format": "uuid",
+          "description": "The default Linnworks shipping service",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "UseChannelData": {
+          "description": "Toggles between sending channel SKU/Title or linnworks SKU/Title to ShipStation",
+          "type": "boolean"
+        },
+        "ShipServices": {
+          "description": "A list of assigned shipping services",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShipService"
+          }
+        },
+        "WeightUnit": {
+          "description": "The weight unit for order items",
+          "enum": [
+            "none",
+            "oz",
+            "lb",
+            "gm",
+            "kg"
+          ],
+          "type": "string"
+        },
+        "CustomOrderField1": {
+          "description": "A custom field allowing user to pass custom information about the order",
+          "type": "string"
+        },
+        "CustomOrderField2": {
+          "description": "A custom field allowing user to pass custom information about the order",
+          "type": "string"
+        },
+        "CustomOrderField3": {
+          "description": "A custom field allowing user to pass custom information about the order",
+          "type": "string"
+        }
+      }
+    },
+    "ShipService": {
+      "description": "Shipping service mapping between ShipStation and linnworks",
+      "type": "object",
+      "properties": {
+        "ShipStationServiceId": {
+          "format": "uuid",
+          "description": "The unique identifier for the ShipStation service",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LinnworksServiceId": {
+          "format": "uuid",
+          "description": "The unique identifier for the linnworks service",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "ShipStation_CreateShipStationIntegrationRequest": {
+      "type": "object",
+      "properties": {
+        "integration": {
+          "$ref": "#/definitions/ShipStationConfig",
+          "description": "An integration object to create"
+        }
+      }
+    },
+    "ShipStation_DeleteShipStationIntegrationRequest": {
+      "type": "object",
+      "properties": {
+        "integrationId": {
+          "description": "Id of the integration to delete",
+          "type": "string"
+        }
+      }
+    },
+    "ShipStation_EditShipStationIntegrationRequest": {
+      "type": "object",
+      "properties": {
+        "integration": {
+          "$ref": "#/definitions/ShipStationConfig",
+          "description": "An integration object to update"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

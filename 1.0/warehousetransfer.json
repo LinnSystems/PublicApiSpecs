@@ -29,7 +29,6 @@
             "name": "locationId",
             "in": "query",
             "description": "pkLocationId for",
-            "required": true,
             "type": "string",
             "format": "uuid"
           }
@@ -269,7 +268,6 @@
             "name": "pkTransferId",
             "in": "query",
             "description": "pkTransferId for required Transfer",
-            "required": true,
             "type": "string",
             "format": "uuid"
           }
@@ -485,7 +483,6 @@
             "name": "request",
             "in": "body",
             "description": "Request object with data needed",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/AddItemsToTransferRequest"
             }
@@ -790,7 +787,6 @@
             "name": "pkTransferId",
             "in": "query",
             "description": "The id of the transfer.",
-            "required": true,
             "type": "string",
             "format": "uuid"
           }
@@ -951,7 +947,6 @@
             "name": "pkTransferId",
             "in": "query",
             "description": "The id of the transfer",
-            "required": true,
             "type": "string",
             "format": "uuid"
           }
@@ -996,7 +991,6 @@
             "name": "pkTransferId",
             "in": "query",
             "description": "The id of the transfer to which the item belongs.",
-            "required": true,
             "type": "string",
             "format": "uuid"
           },
@@ -1004,7 +998,6 @@
             "name": "pkTransferItemId",
             "in": "query",
             "description": "The id of the transfer item.",
-            "required": true,
             "type": "string",
             "format": "uuid"
           }
@@ -1095,7 +1088,6 @@
             "name": "pkTransferId",
             "in": "query",
             "description": "The id of the transfer to retrieve audit entries for.",
-            "required": true,
             "type": "string",
             "format": "uuid"
           }
@@ -1140,7 +1132,6 @@
             "name": "pkTransferId",
             "in": "query",
             "description": "The id of the transfer.",
-            "required": true,
             "type": "string",
             "format": "uuid"
           }
@@ -1185,7 +1176,6 @@
             "name": "searchType",
             "in": "query",
             "description": "The type of search.",
-            "required": true,
             "type": "string",
             "enum": [
               "SKU",
@@ -1199,7 +1189,6 @@
             "name": "searchText",
             "in": "query",
             "description": "The search term.",
-            "required": true,
             "type": "string"
           }
         ],
@@ -1245,7 +1234,6 @@
             "name": "pageNumber",
             "in": "query",
             "description": "The page number (starting at 1).",
-            "required": true,
             "type": "integer",
             "format": "int32"
           },
@@ -1253,7 +1241,6 @@
             "name": "entriesPerPage",
             "in": "query",
             "description": "The number of entries to be returned per page.",
-            "required": true,
             "type": "integer",
             "format": "int32"
           }
@@ -1295,7 +1282,6 @@
             "name": "searchType",
             "in": "query",
             "description": "The type of search.",
-            "required": true,
             "type": "string",
             "enum": [
               "SKU",
@@ -1309,14 +1295,12 @@
             "name": "filter",
             "in": "query",
             "description": "The search term.",
-            "required": true,
             "type": "string"
           },
           {
             "name": "pageNumber",
             "in": "query",
             "description": "The page number (starting at 1).",
-            "required": true,
             "type": "integer",
             "format": "int32"
           },
@@ -1324,7 +1308,6 @@
             "name": "entriesPerPage",
             "in": "query",
             "description": "The number of entries to be returned per page.",
-            "required": true,
             "type": "integer",
             "format": "int32"
           }
@@ -1366,7 +1349,6 @@
             "name": "start",
             "in": "query",
             "description": "The start date.",
-            "required": true,
             "type": "string",
             "format": "date-time"
           },
@@ -1374,7 +1356,6 @@
             "name": "end",
             "in": "query",
             "description": "The end date.",
-            "required": true,
             "type": "string",
             "format": "date-time"
           },
@@ -1382,7 +1363,6 @@
             "name": "pageNumber",
             "in": "query",
             "description": "The page number (starting at 1).",
-            "required": true,
             "type": "integer",
             "format": "int32"
           },
@@ -1390,7 +1370,6 @@
             "name": "entriesPerPage",
             "in": "query",
             "description": "The number of entries to be returned per page.",
-            "required": true,
             "type": "integer",
             "format": "int32"
           }
@@ -1432,7 +1411,6 @@
             "name": "start",
             "in": "query",
             "description": "The start date.",
-            "required": true,
             "type": "string",
             "format": "date-time"
           },
@@ -1440,7 +1418,6 @@
             "name": "end",
             "in": "query",
             "description": "The end date.",
-            "required": true,
             "type": "string",
             "format": "date-time"
           },
@@ -1448,7 +1425,6 @@
             "name": "pageNumber",
             "in": "query",
             "description": "The page number (starting at 1).",
-            "required": true,
             "type": "integer",
             "format": "int32"
           },
@@ -1456,7 +1432,6 @@
             "name": "entriesPerPage",
             "in": "query",
             "description": "The number of entries to be returned per page.",
-            "required": true,
             "type": "integer",
             "format": "int32"
           }
@@ -1498,7 +1473,6 @@
             "name": "searchType",
             "in": "query",
             "description": "The type of search.",
-            "required": true,
             "type": "string",
             "enum": [
               "SKU",
@@ -1512,14 +1486,12 @@
             "name": "searchText",
             "in": "query",
             "description": "The search term.",
-            "required": true,
             "type": "string"
           },
           {
             "name": "locationID",
             "in": "query",
             "description": "The location ID to search.",
-            "required": true,
             "type": "string",
             "format": "uuid"
           }
@@ -1547,14 +1519,16 @@
       }
     },
     "/api/WarehouseTransfer/GetListTransfers": {
-      "get": {
+      "post": {
         "tags": [
           "WarehouseTransfer"
         ],
         "summary": "GetListTransfers",
         "description": "Use this call to load a list of basic transfers\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
         "operationId": "GetListTransfers",
-        "consumes": [],
+        "consumes": [
+          "application/json"
+        ],
         "produces": [
           "application/json",
           "text/json",
@@ -1563,16 +1537,12 @@
         ],
         "parameters": [
           {
-            "name": "ids",
-            "in": "query",
-            "description": "The Ids to load",
+            "name": "WarehouseTransfer_GetListTransfersRequest",
+            "in": "body",
             "required": true,
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "collectionFormat": "multi"
+            "schema": {
+              "$ref": "#/definitions/WarehouseTransfer_GetListTransfersRequest"
+            }
           }
         ],
         "responses": {
@@ -1615,7 +1585,6 @@
             "name": "updateDate",
             "in": "query",
             "description": "A UTC date/time",
-            "required": true,
             "type": "string",
             "format": "date-time"
           }
@@ -1693,7 +1662,6 @@
             "name": "pkTransferId",
             "in": "query",
             "description": "The id of the transfer to be loaded.",
-            "required": true,
             "type": "string",
             "format": "uuid"
           }
@@ -1896,7 +1864,6 @@
             "name": "pkBinId",
             "in": "query",
             "description": "The id of the bin.",
-            "required": true,
             "type": "string",
             "format": "uuid"
           }
@@ -1941,7 +1908,6 @@
             "name": "pkTransferId",
             "in": "query",
             "description": "The id of the transfer.",
-            "required": true,
             "type": "string",
             "format": "uuid"
           }
@@ -1986,7 +1952,6 @@
             "name": "pkTransferItemId",
             "in": "query",
             "description": "The transfer item id.",
-            "required": true,
             "type": "string",
             "format": "uuid"
           }
@@ -2031,7 +1996,6 @@
             "name": "pkTransferId",
             "in": "query",
             "description": "The id of the transfer to check.",
-            "required": true,
             "type": "string",
             "format": "uuid"
           }
@@ -2109,7 +2073,6 @@
             "name": "toLocationId",
             "in": "query",
             "description": "The id of the location the transfer should be going to",
-            "required": true,
             "type": "string",
             "format": "uuid"
           },
@@ -2117,7 +2080,6 @@
             "name": "fromLocationId",
             "in": "query",
             "description": "The id of the location the transfer should be coming from",
-            "required": true,
             "type": "string",
             "format": "uuid"
           }
@@ -3034,6 +2996,20 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/WarehouseTransfer"
+          }
+        }
+      }
+    },
+    "WarehouseTransfer_GetListTransfersRequest": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "description": "The Ids to load",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
           }
         }
       }

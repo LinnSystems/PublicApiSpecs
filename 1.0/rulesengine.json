@@ -64,7 +64,6 @@
             "name": "type",
             "in": "query",
             "description": "The rule type.",
-            "required": true,
             "type": "string",
             "enum": [
               "Test",
@@ -112,14 +111,12 @@
             "name": "fieldName",
             "in": "query",
             "description": "The field name.",
-            "required": true,
             "type": "string"
           },
           {
             "name": "type",
             "in": "query",
             "description": "The rule type.",
-            "required": true,
             "type": "string",
             "enum": [
               "Test",
@@ -130,7 +127,6 @@
             "name": "key",
             "in": "query",
             "description": "The key (optional).",
-            "required": true,
             "type": "string"
           }
         ],
@@ -155,14 +151,16 @@
       }
     },
     "/api/RulesEngine/GetMultiOptions": {
-      "get": {
+      "post": {
         "tags": [
           "RulesEngine"
         ],
         "summary": "GetMultiOptions",
         "description": "Use this call to get a list of valid options for a given set of fields (and, if relevant, keys).\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
         "operationId": "GetMultiOptions",
-        "consumes": [],
+        "consumes": [
+          "application/json"
+        ],
         "produces": [
           "application/json",
           "text/json",
@@ -171,24 +169,12 @@
         ],
         "parameters": [
           {
-            "name": "type",
-            "in": "query",
-            "description": "The rule type.",
+            "name": "RulesEngine_GetMultiOptionsRequest",
+            "in": "body",
             "required": true,
-            "type": "string",
-            "enum": [
-              "Test",
-              "Orders"
-            ]
-          },
-          {
-            "name": "fieldKeys",
-            "in": "query",
-            "description": "A list of fields and optionally keys.",
-            "required": true,
-            "type": "array",
-            "items": {},
-            "collectionFormat": "multi"
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_GetMultiOptionsRequest"
+            }
           }
         ],
         "responses": {
@@ -231,7 +217,6 @@
             "name": "type",
             "in": "query",
             "description": "The rule type",
-            "required": true,
             "type": "string",
             "enum": [
               "Test",
@@ -242,7 +227,6 @@
             "name": "fieldName",
             "in": "query",
             "description": "The field name",
-            "required": true,
             "type": "string"
           }
         ],
@@ -267,14 +251,16 @@
       }
     },
     "/api/RulesEngine/GetMultiKeyOptions": {
-      "get": {
+      "post": {
         "tags": [
           "RulesEngine"
         ],
         "summary": "GetMultiKeyOptions",
         "description": "Use this call to get a list of valid keys for a set of fields.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
         "operationId": "GetMultiKeyOptions",
-        "consumes": [],
+        "consumes": [
+          "application/json"
+        ],
         "produces": [
           "application/json",
           "text/json",
@@ -283,26 +269,12 @@
         ],
         "parameters": [
           {
-            "name": "type",
-            "in": "query",
-            "description": "The rule type.",
+            "name": "RulesEngine_GetMultiKeyOptionsRequest",
+            "in": "body",
             "required": true,
-            "type": "string",
-            "enum": [
-              "Test",
-              "Orders"
-            ]
-          },
-          {
-            "name": "fieldNames",
-            "in": "query",
-            "description": "The field names to get the keys for",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "multi"
+            "schema": {
+              "$ref": "#/definitions/RulesEngine_GetMultiKeyOptionsRequest"
+            }
           }
         ],
         "responses": {
@@ -380,7 +352,6 @@
             "name": "type",
             "in": "query",
             "description": "The rule type.",
-            "required": true,
             "type": "string",
             "enum": [
               "Test",
@@ -428,7 +399,6 @@
             "name": "pkRuleId",
             "in": "query",
             "description": "The rule id.",
-            "required": true,
             "type": "integer",
             "format": "int32"
           }
@@ -473,7 +443,6 @@
             "name": "pkConditionId",
             "in": "query",
             "description": "The condition id.",
-            "required": true,
             "type": "integer",
             "format": "int32"
           }
@@ -515,7 +484,6 @@
             "name": "type",
             "in": "query",
             "description": "The rule type.",
-            "required": true,
             "type": "string",
             "enum": [
               "Test",
@@ -643,7 +611,6 @@
             "name": "fkRuleId",
             "in": "query",
             "description": "The rule id.",
-            "required": true,
             "type": "integer",
             "format": "int32"
           },
@@ -651,7 +618,6 @@
             "name": "fkConditionId",
             "in": "query",
             "description": "Must be specified if checking that a condition name exists under a sub-condition. If checking rule-level conditions, do not specify.",
-            "required": true,
             "type": "integer",
             "format": "int32"
           },
@@ -659,7 +625,6 @@
             "name": "excludeConditionId",
             "in": "query",
             "description": "If the check is for renaming a condition, specify the condition id here to exclude it from the results.",
-            "required": true,
             "type": "integer",
             "format": "int32"
           },
@@ -667,7 +632,6 @@
             "name": "conditionName",
             "in": "query",
             "description": "The name to check.",
-            "required": true,
             "type": "string"
           }
         ],
@@ -708,7 +672,6 @@
             "name": "type",
             "in": "query",
             "description": "The action type",
-            "required": true,
             "type": "string",
             "enum": [
               "AssignShippingService",
@@ -959,7 +922,6 @@
             "name": "pkRuleId",
             "in": "query",
             "description": "The rule id",
-            "required": true,
             "type": "integer",
             "format": "int32"
           }
@@ -1001,7 +963,6 @@
             "name": "type",
             "in": "query",
             "description": "The rule type.",
-            "required": true,
             "type": "string",
             "enum": [
               "Test",
@@ -1519,6 +1480,7 @@
   },
   "definitions": {
     "EvaluatorDescriptor": {
+      "description": "",
       "type": "object",
       "properties": {
         "EvaluatorType": {
@@ -1588,6 +1550,7 @@
       }
     },
     "FieldDescriptor": {
+      "description": "",
       "type": "object",
       "properties": {
         "Name": {
@@ -1645,6 +1608,26 @@
         }
       }
     },
+    "RulesEngine_GetMultiOptionsRequest": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "The rule type.",
+          "enum": [
+            "Test",
+            "Orders"
+          ],
+          "type": "string"
+        },
+        "fieldKeys": {
+          "description": "A list of fields and optionally keys.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FieldKeys"
+          }
+        }
+      }
+    },
     "FieldKeys": {
       "description": "",
       "type": "object",
@@ -1698,6 +1681,26 @@
         }
       }
     },
+    "RulesEngine_GetMultiKeyOptionsRequest": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "The rule type.",
+          "enum": [
+            "Test",
+            "Orders"
+          ],
+          "type": "string"
+        },
+        "fieldNames": {
+          "description": "The field names to get the keys for",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "MultiKeyOptionResponse": {
       "type": "object",
       "properties": {
@@ -1724,19 +1727,19 @@
         "RuleName": {
           "type": "string"
         },
-        "Enabled": {
-          "type": "boolean"
-        },
-        "RunOrder": {
-          "format": "int32",
-          "type": "integer"
-        },
         "RuleType": {
           "enum": [
             "Test",
             "Orders"
           ],
           "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "RunOrder": {
+          "format": "int32",
+          "type": "integer"
         },
         "pkRuleId_Draft": {
           "format": "int32",
@@ -1943,14 +1946,14 @@
           ],
           "type": "string"
         },
+        "KeyValue": {
+          "type": "string"
+        },
         "Values": {
           "type": "array",
           "items": {
             "type": "string"
           }
-        },
-        "KeyValue": {
-          "type": "string"
         }
       }
     },

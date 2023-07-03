@@ -1,2337 +1,2334 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "version": "picking",
-        "title": "Picking API"
+  "swagger": "2.0",
+  "info": {
+    "version": "picking",
+    "title": "Picking API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/Picking/GetAllPickingWaveHeaders": {
+      "get": {
+        "tags": [
+          "Picking"
+        ],
+        "summary": "GetAllPickingWaveHeaders",
+        "description": "Get a list of all pickwaves\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.AllPickingWavesNode",
+        "operationId": "GetAllPickingWaveHeaders",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "description": "Pickwave state (optional), if not supplied then all states.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "Unallocated",
+              "Allocated",
+              "InProgress",
+              "Paused",
+              "Complete",
+              "Abandoned",
+              "Packing",
+              "Shipped"
+            ]
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "description": "Location id for waves",
+            "required": false,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "detailLevel",
+            "in": "query",
+            "description": "Detail level, if not supplied then all is assumed",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "All",
+              "OnlyPickWave"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetPickingWaveHeadersResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
     },
-    "host": "eu-ext.linnworks.net",
-    "schemes": [
-        "https"
-    ],
-    "paths": {
-        "/api/Picking/GetAllPickingWaveHeaders": {
-            "get": {
-                "tags": [
-                    "Picking"
-                ],
-                "summary": "GetAllPickingWaveHeaders",
-                "description": "Get a list of all pickwaves\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.AllPickingWavesNode",
-                "operationId": "GetAllPickingWaveHeaders",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "state",
-                        "in": "query",
-                        "description": "Pickwave state (optional), if not supplied then all states.",
-                        "required": false,
-                        "type": "string",
-                        "enum": [
-                            "Unallocated",
-                            "Allocated",
-                            "InProgress",
-                            "Paused",
-                            "Complete",
-                            "Abandoned",
-                            "Packing",
-                            "Shipped"
-                        ]
-                    },
-                    {
-                        "name": "locationId",
-                        "in": "query",
-                        "description": "Location id for waves",
-                        "required": false,
-                        "type": "string",
-                        "format": "uuid"
-                    },
-                    {
-                        "name": "detailLevel",
-                        "in": "query",
-                        "description": "Detail level, if not supplied then all is assumed",
-                        "required": false,
-                        "type": "string",
-                        "enum": [
-                            "All",
-                            "OnlyPickWave"
-                        ]
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/GetPickingWaveHeadersResponse"
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "token": [
-                            "token"
-                        ]
-                    }
-                ]
+    "/api/Picking/GetMyPickingWaveHeaders": {
+      "get": {
+        "tags": [
+          "Picking"
+        ],
+        "summary": "GetMyPickingWaveHeaders",
+        "description": "Get a list of list of pickwaves for the current user\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
+        "operationId": "GetMyPickingWaveHeaders",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "description": "Pickwave state (optional), if not supplied then all states.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "Unallocated",
+              "Allocated",
+              "InProgress",
+              "Paused",
+              "Complete",
+              "Abandoned",
+              "Packing",
+              "Shipped"
+            ]
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "description": "Location id for waves",
+            "required": false,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "detailLevel",
+            "in": "query",
+            "description": "Detail level, if not supplied then all is assumed",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "All",
+              "OnlyPickWave"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetPickingWaveHeadersResponse"
             }
+          }
         },
-        "/api/Picking/GetMyPickingWaveHeaders": {
-            "get": {
-                "tags": [
-                    "Picking"
-                ],
-                "summary": "GetMyPickingWaveHeaders",
-                "description": "Get a list of list of pickwaves for the current user\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
-                "operationId": "GetMyPickingWaveHeaders",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "state",
-                        "in": "query",
-                        "description": "Pickwave state (optional), if not supplied then all states.",
-                        "required": false,
-                        "type": "string",
-                        "enum": [
-                            "Unallocated",
-                            "Allocated",
-                            "InProgress",
-                            "Paused",
-                            "Complete",
-                            "Abandoned",
-                            "Packing",
-                            "Shipped"
-                        ]
-                    },
-                    {
-                        "name": "locationId",
-                        "in": "query",
-                        "description": "Location id for waves",
-                        "required": false,
-                        "type": "string",
-                        "format": "uuid"
-                    },
-                    {
-                        "name": "detailLevel",
-                        "in": "query",
-                        "description": "Detail level, if not supplied then all is assumed",
-                        "required": false,
-                        "type": "string",
-                        "enum": [
-                            "All",
-                            "OnlyPickWave"
-                        ]
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/GetPickingWaveHeadersResponse"
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "token": [
-                            "token"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/api/Picking/GetAllPickingWaves": {
-            "get": {
-                "tags": [
-                    "Picking"
-                ],
-                "summary": "GetAllPickingWaves",
-                "description": "Get a list of all pickwaves\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.AllPickingWavesNode",
-                "operationId": "GetAllPickingWaves",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "state",
-                        "in": "query",
-                        "description": "Pickwave state (optional), if not supplied then all states.",
-                        "required": false,
-                        "type": "string",
-                        "enum": [
-                            "Unallocated",
-                            "Allocated",
-                            "InProgress",
-                            "Paused",
-                            "Complete",
-                            "Abandoned",
-                            "Packing",
-                            "Shipped"
-                        ]
-                    },
-                    {
-                        "name": "locationId",
-                        "in": "query",
-                        "description": "Location id for waves",
-                        "required": false,
-                        "type": "string",
-                        "format": "uuid"
-                    },
-                    {
-                        "name": "detailLevel",
-                        "in": "query",
-                        "description": "Detail level, if not supplied then all is assumed",
-                        "required": false,
-                        "type": "string",
-                        "enum": [
-                            "All",
-                            "OnlyPickWave"
-                        ]
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/GetPickingWavesResponse"
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "token": [
-                            "token"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/api/Picking/GetMyPickingWaves": {
-            "get": {
-                "tags": [
-                    "Picking"
-                ],
-                "summary": "GetMyPickingWaves",
-                "description": "Get a list of list of pickwaves for the current user\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
-                "operationId": "GetMyPickingWaves",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "state",
-                        "in": "query",
-                        "description": "Pickwave state (optional), if not supplied then all states.",
-                        "required": false,
-                        "type": "string",
-                        "enum": [
-                            "Unallocated",
-                            "Allocated",
-                            "InProgress",
-                            "Paused",
-                            "Complete",
-                            "Abandoned",
-                            "Packing",
-                            "Shipped"
-                        ]
-                    },
-                    {
-                        "name": "locationId",
-                        "in": "query",
-                        "description": "Location id for waves",
-                        "required": false,
-                        "type": "string",
-                        "format": "uuid"
-                    },
-                    {
-                        "name": "detailLevel",
-                        "in": "query",
-                        "description": "Detail level, if not supplied then all is assumed",
-                        "required": false,
-                        "type": "string",
-                        "enum": [
-                            "All",
-                            "OnlyPickWave"
-                        ]
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/GetPickingWavesResponse"
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "token": [
-                            "token"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/api/Picking/GetPickingWave": {
-            "get": {
-                "tags": [
-                    "Picking"
-                ],
-                "summary": "GetPickingWave",
-                "description": "Get a specific pickwave by id\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
-                "operationId": "GetPickingWave",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "pickingWaveId",
-                        "in": "query",
-                        "description": "Pickwave id",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/GetPickingWavesResponse"
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "token": [
-                            "token"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/api/Picking/UpdatePickingWaveItem": {
-            "post": {
-                "tags": [
-                    "Picking"
-                ],
-                "summary": "UpdatePickingWaveItem",
-                "description": "Update on or more pickwave items\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
-                "operationId": "UpdatePickingWaveItem",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "Picking_UpdatePickingWaveItemRequest",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Picking_UpdatePickingWaveItemRequest"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/GetPickingWavesResponse"
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "token": [
-                            "token"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/api/Picking/UpdatePickingWaveHeader": {
-            "post": {
-                "tags": [
-                    "Picking"
-                ],
-                "summary": "UpdatePickingWaveHeader",
-                "description": "Update a pickwave header\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
-                "operationId": "UpdatePickingWaveHeader",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "request",
-                        "in": "body",
-                        "description": "",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/PickingWaveUpdateRequest"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/GetPickingWavesResponse"
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "token": [
-                            "token"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/api/Picking/GeneratePickingWave": {
-            "post": {
-                "tags": [
-                    "Picking"
-                ],
-                "summary": "GeneratePickingWave",
-                "description": "Generate a new pickwave\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.GeneratePickingWavesNode",
-                "operationId": "GeneratePickingWave",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "request",
-                        "in": "body",
-                        "description": "",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/PickingWaveGenerate"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/GeneratePickingWaveResponse"
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "token": [
-                            "token"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/api/Picking/CheckAllocatableToPickwave": {
-            "post": {
-                "tags": [
-                    "Picking"
-                ],
-                "summary": "CheckAllocatableToPickwave",
-                "description": "Check a list of Linnworks order ids to see if they can be added to a pickwave\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.GeneratePickingWavesNode",
-                "operationId": "CheckAllocatableToPickwave",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "Picking_CheckAllocatableToPickwaveRequest",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Picking_CheckAllocatableToPickwaveRequest"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/CheckAllocatableToPickwaveResponse"
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "token": [
-                            "token"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/api/Picking/GetPickwaveUsersWithSummary": {
-            "get": {
-                "tags": [
-                    "Picking"
-                ],
-                "summary": "GetPickwaveUsersWithSummary",
-                "description": "Returns a list of pickwaves as well as dummy entries for users who have permissions to complete pickwaves, but don't currently have any assigned. These entries will have a PickwaveId of 0.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.GeneratePickingWavesNode",
-                "operationId": "GetPickwaveUsersWithSummary",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "state",
-                        "in": "query",
-                        "description": "Pickwave state (optional), if not supplied then all states.",
-                        "required": false,
-                        "type": "string",
-                        "enum": [
-                            "Unallocated",
-                            "Allocated",
-                            "InProgress",
-                            "Paused",
-                            "Complete",
-                            "Abandoned",
-                            "Packing",
-                            "Shipped"
-                        ]
-                    },
-                    {
-                        "name": "locationId",
-                        "in": "query",
-                        "description": "Location id for waves",
-                        "required": false,
-                        "type": "string",
-                        "format": "uuid"
-                    },
-                    {
-                        "name": "detailLevel",
-                        "in": "query",
-                        "description": "Detail level, if not supplied then all is assumed",
-                        "required": false,
-                        "type": "string",
-                        "enum": [
-                            "All",
-                            "OnlyPickWave"
-                        ]
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/GetPickwaveUsersWithSummaryResponse"
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "token": [
-                            "token"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/api/Picking/DeleteOrdersFromPickingWaves": {
-            "post": {
-                "tags": [
-                    "Picking"
-                ],
-                "summary": "DeleteOrdersFromPickingWaves",
-                "description": "Delete one or more orders from a pickwave\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.DeletePickingWavesNode",
-                "operationId": "DeleteOrdersFromPickingWaves",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "Picking_DeleteOrdersFromPickingWavesRequest",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Picking_DeleteOrdersFromPickingWavesRequest"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/DeleteOrdersFromPickingWavesResponse"
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "token": [
-                            "token"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/api/Picking/GetItemBinracks": {
-            "get": {
-                "tags": [
-                    "Picking"
-                ],
-                "summary": "GetItemBinracks",
-                "description": "Returns a list of places that the requested item can be found, other than the location already suggested.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
-                "operationId": "GetItemBinracks",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "stockItemId",
-                        "in": "query",
-                        "description": "Stock item Id",
-                        "required": false,
-                        "type": "string",
-                        "format": "uuid"
-                    },
-                    {
-                        "name": "stockLocationId",
-                        "in": "query",
-                        "description": "Linnworks stock location Id",
-                        "required": false,
-                        "type": "string",
-                        "format": "uuid"
-                    },
-                    {
-                        "name": "currentBinRackSuggestion",
-                        "in": "query",
-                        "description": "The name of the location that is currently set to pick from",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "includeNonPickLocations",
-                        "in": "query",
-                        "description": "If true, the response will also contain binracks that cannot be selected to pick from",
-                        "required": false,
-                        "type": "boolean"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/GetItemBinracksResponse"
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "token": [
-                            "token"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/api/Picking/UpdatePickingWaveItemWithNewBinrack": {
-            "post": {
-                "tags": [
-                    "Picking"
-                ],
-                "summary": "UpdatePickingWaveItemWithNewBinrack",
-                "description": "Updates the batch/binrack for allocated pickwave item. Only applicable to pickwave items with batch information\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
-                "operationId": "UpdatePickingWaveItemWithNewBinrack",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "Picking_UpdatePickingWaveItemWithNewBinrackRequest",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Picking_UpdatePickingWaveItemWithNewBinrackRequest"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/GetPickingWavesResponse"
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "token": [
-                            "token"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/api/Picking/UpdatePickedItemDelta": {
-            "post": {
-                "tags": [
-                    "Picking"
-                ],
-                "summary": "UpdatePickedItemDelta",
-                "description": "Updates the batch/binrack for allocated pickwave item. Only applicable to pickwave items with batch information\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
-                "operationId": "UpdatePickedItemDelta",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "request",
-                        "in": "body",
-                        "description": "",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/UpdatePickedItemDeltaRequest"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/GetPickingWavesResponse"
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "token": [
-                            "token"
-                        ]
-                    }
-                ]
-            }
-        }
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
     },
-    "definitions": {
-        "GetPickingWavesRequest": {
-            "description": "Request for getting all pickwaves irrespective of user.",
-            "type": "object",
-            "properties": {
-                "State": {
-                    "description": "Pickwave state (optional), if not supplied then all states.",
-                    "enum": [
-                        "Unallocated",
-                        "Allocated",
-                        "InProgress",
-                        "Paused",
-                        "Complete",
-                        "Abandoned",
-                        "Packing",
-                        "Shipped"
-                    ],
-                    "type": "string"
-                },
-                "LocationId": {
-                    "format": "uuid",
-                    "description": "Location id for waves",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "DetailLevel": {
-                    "description": "Detail level, if not supplied then all is assumed",
-                    "enum": [
-                        "All",
-                        "OnlyPickWave"
-                    ],
-                    "type": "string"
-                }
+    "/api/Picking/GetAllPickingWaves": {
+      "get": {
+        "tags": [
+          "Picking"
+        ],
+        "summary": "GetAllPickingWaves",
+        "description": "Get a list of all pickwaves\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.AllPickingWavesNode",
+        "operationId": "GetAllPickingWaves",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "description": "Pickwave state (optional), if not supplied then all states.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "Unallocated",
+              "Allocated",
+              "InProgress",
+              "Paused",
+              "Complete",
+              "Abandoned",
+              "Packing",
+              "Shipped"
+            ]
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "description": "Location id for waves",
+            "required": false,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "detailLevel",
+            "in": "query",
+            "description": "Detail level, if not supplied then all is assumed",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "All",
+              "OnlyPickWave"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetPickingWavesResponse"
             }
+          }
         },
-        "GetPickingWaveHeadersResponse": {
-            "type": "object",
-            "properties": {
-                "PickwaveHeaders": {
-                    "description": "List of pickingwave headers without order details",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickingWave"
-                    }
-                }
-            }
-        },
-        "PickingWave": {
-            "description": "Pickwave",
-            "type": "object",
-            "properties": {
-                "LocationId": {
-                    "format": "uuid",
-                    "description": "Location Id",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "UserId": {
-                    "format": "int32",
-                    "description": "Allocated user id",
-                    "type": "integer"
-                },
-                "EmailAddress": {
-                    "description": "Allocated user EmailAddress",
-                    "type": "string"
-                },
-                "CreatedDate": {
-                    "format": "date-time",
-                    "description": "Creation date",
-                    "type": "string"
-                },
-                "OrderCount": {
-                    "format": "int32",
-                    "description": "Order Count - Number of orders in pickwave.",
-                    "type": "integer"
-                },
-                "ItemCount": {
-                    "format": "int32",
-                    "description": "Item Count - Number of items in pickwave.",
-                    "type": "integer"
-                },
-                "ItemsPicked": {
-                    "format": "int32",
-                    "description": "Items Picked - Number of items picked in pickwave.",
-                    "type": "integer"
-                },
-                "OrdersPicked": {
-                    "format": "int32",
-                    "description": "Orders Picked - Number of orders picked in pickwave.",
-                    "type": "integer"
-                },
-                "AccumulatedInProgressSeconds": {
-                    "format": "int32",
-                    "description": "Time taken in pickwave",
-                    "type": "integer"
-                },
-                "StartTime": {
-                    "format": "date-time",
-                    "description": "Start date time of pickwave",
-                    "type": "string"
-                },
-                "EndTime": {
-                    "format": "date-time",
-                    "description": "End date time of pickwave",
-                    "type": "string"
-                },
-                "GroupType": {
-                    "description": "Pickwave group type",
-                    "enum": [
-                        "Items",
-                        "Orders"
-                    ],
-                    "type": "string"
-                },
-                "Orders": {
-                    "description": "Orders in pickwave. This data is not returned if just headers are requested.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickingWaveOrder"
-                    }
-                },
-                "Options": {
-                    "$ref": "#/definitions/PickingWaveOptions"
-                },
-                "PickingWaveId": {
-                    "format": "int32",
-                    "description": "Pickwave id",
-                    "type": "integer"
-                },
-                "State": {
-                    "description": "Current state of pickwave",
-                    "enum": [
-                        "Unallocated",
-                        "Allocated",
-                        "InProgress",
-                        "Paused",
-                        "Complete",
-                        "Abandoned",
-                        "Packing",
-                        "Shipped"
-                    ],
-                    "type": "string"
-                }
-            }
-        },
-        "PickingWaveOrder": {
-            "description": "Pickwave order",
-            "type": "object",
-            "properties": {
-                "PickingWaveOrdersRowId": {
-                    "format": "int32",
-                    "description": "Pickwave order id",
-                    "type": "integer"
-                },
-                "PickingWaveId": {
-                    "format": "int32",
-                    "description": "Pickwave id",
-                    "type": "integer"
-                },
-                "OrderId": {
-                    "format": "int32",
-                    "description": "Order Id",
-                    "type": "integer"
-                },
-                "PickState": {
-                    "description": "Pick state",
-                    "enum": [
-                        "Unpicked",
-                        "PartialPicked",
-                        "Picked",
-                        "Processed",
-                        "LockedOrParked",
-                        "Cancelled",
-                        "Deleted"
-                    ],
-                    "type": "string"
-                },
-                "SortOrder": {
-                    "format": "int32",
-                    "description": "Sort order",
-                    "type": "integer"
-                },
-                "ItemCount": {
-                    "format": "int32",
-                    "description": "Items count",
-                    "type": "integer"
-                },
-                "PickedItemsCount": {
-                    "format": "int32",
-                    "description": "Picked items count",
-                    "type": "integer"
-                },
-                "Items": {
-                    "description": "Pickwave order items.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickingWaveItem"
-                    }
-                }
-            }
-        },
-        "PickingWaveOptions": {
-            "type": "object",
-            "properties": {
-                "ItemScanType": {
-                    "description": "Item scan type, dictates if the user must scan all items or can provide aggregate count",
-                    "enum": [
-                        "Any",
-                        "IndividualItem",
-                        "AggregateItem"
-                    ],
-                    "type": "string"
-                },
-                "TrayScanRequired": {
-                    "description": "If the user must scan the tray the item went into.",
-                    "type": "boolean"
-                },
-                "TotScanRequired": {
-                    "description": "If the user must scan the tot before scanning items.",
-                    "type": "boolean"
-                },
-                "BinRackScanRequired": {
-                    "description": "If the user must scan the binrack before picking an item.",
-                    "type": "boolean"
-                }
-            }
-        },
-        "PickingWaveItem": {
-            "description": "Pickwave order item",
-            "type": "object",
-            "properties": {
-                "PickingWaveItemsRowId": {
-                    "format": "int32",
-                    "description": "Pickwave item row id",
-                    "type": "integer"
-                },
-                "PickingWaveId": {
-                    "format": "int32",
-                    "description": "Pickwave id",
-                    "type": "integer"
-                },
-                "PickedQuantity": {
-                    "format": "int32",
-                    "description": "Quatity picked",
-                    "type": "integer"
-                },
-                "TotBarcode": {
-                    "description": "Tote Barcode",
-                    "type": "string"
-                },
-                "SortOrder": {
-                    "format": "int32",
-                    "description": "Sort order",
-                    "type": "integer"
-                },
-                "ToPickQuantity": {
-                    "format": "int32",
-                    "description": "Quantity to pick",
-                    "type": "integer"
-                },
-                "TOTId": {
-                    "format": "int32",
-                    "description": "ToT Id",
-                    "type": "integer"
-                },
-                "TrayTag": {
-                    "description": "Tray tag",
-                    "type": "string"
-                },
-                "PickingTag": {
-                    "description": "Picking tag",
-                    "type": "string"
-                },
-                "ItemState": {
-                    "enum": [
-                        "Normal",
-                        "OrderStateInvalid",
-                        "Abandonned",
-                        "DeletedFromOrder"
-                    ],
-                    "type": "string"
-                },
-                "BatchInventoryId": {
-                    "format": "int32",
-                    "description": "Batch Inventory Id",
-                    "type": "integer"
-                },
-                "OrderId": {
-                    "format": "int32",
-                    "description": "Linnworks Order Id",
-                    "type": "integer"
-                },
-                "OrderItemRowId": {
-                    "format": "uuid",
-                    "description": "Unique order item row identifier",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "StockItemId": {
-                    "format": "uuid",
-                    "description": "StockItemId",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                }
-            }
-        },
-        "GetPickingWavesResponse": {
-            "type": "object",
-            "properties": {
-                "PickingWaves": {
-                    "description": "Pickwaves",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickingWaveDetailed"
-                    }
-                },
-                "Skus": {
-                    "description": "List of SKUs.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/StockItemInfo"
-                    }
-                },
-                "Bins": {
-                    "description": "List of bins and batches of items in the bins.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/BinRackStockItem"
-                    }
-                }
-            }
-        },
-        "PickingWaveDetailed": {
-            "type": "object",
-            "properties": {
-                "LocationId": {
-                    "format": "uuid",
-                    "description": "Location Id",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "UserId": {
-                    "format": "int32",
-                    "description": "Allocated user id",
-                    "type": "integer"
-                },
-                "EmailAddress": {
-                    "description": "Allocated user EmailAddress",
-                    "type": "string"
-                },
-                "CreatedDate": {
-                    "format": "date-time",
-                    "description": "Creation date",
-                    "type": "string"
-                },
-                "OrderCount": {
-                    "format": "int32",
-                    "description": "Order Count - Number of orders in pickwave.",
-                    "type": "integer"
-                },
-                "ItemCount": {
-                    "format": "int32",
-                    "description": "Item Count - Number of items in pickwave.",
-                    "type": "integer"
-                },
-                "ItemsPicked": {
-                    "format": "int32",
-                    "description": "Items Picked - Number of items picked in pickwave.",
-                    "type": "integer"
-                },
-                "OrdersPicked": {
-                    "format": "int32",
-                    "description": "Orders Picked - Number of orders picked in pickwave.",
-                    "type": "integer"
-                },
-                "AccumulatedInProgressSeconds": {
-                    "format": "int32",
-                    "description": "Time taken in pickwave",
-                    "type": "integer"
-                },
-                "StartTime": {
-                    "format": "date-time",
-                    "description": "Start date time of pickwave",
-                    "type": "string"
-                },
-                "EndTime": {
-                    "format": "date-time",
-                    "description": "End date time of pickwave",
-                    "type": "string"
-                },
-                "GroupType": {
-                    "description": "Pickwave group type",
-                    "enum": [
-                        "Items",
-                        "Orders"
-                    ],
-                    "type": "string"
-                },
-                "Orders": {
-                    "description": "Orders in pickwave.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickingWaveOrderDetailed"
-                    }
-                },
-                "Options": {
-                    "$ref": "#/definitions/PickingWaveOptions"
-                },
-                "PickingWaveId": {
-                    "format": "int32",
-                    "description": "Pickwave id",
-                    "type": "integer"
-                },
-                "State": {
-                    "description": "Current state of pickwave",
-                    "enum": [
-                        "Unallocated",
-                        "Allocated",
-                        "InProgress",
-                        "Paused",
-                        "Complete",
-                        "Abandoned",
-                        "Packing",
-                        "Shipped"
-                    ],
-                    "type": "string"
-                }
-            }
-        },
-        "StockItemInfo": {
-            "description": "Basic stock item information",
-            "type": "object",
-            "properties": {
-                "SKU": {
-                    "description": "Item SKU",
-                    "type": "string"
-                },
-                "StockItemId": {
-                    "format": "uuid",
-                    "description": "Item unique id",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "ItemTitle": {
-                    "description": "Item Title",
-                    "type": "string"
-                },
-                "Barcode": {
-                    "description": "Barcode number on the item header",
-                    "type": "string"
-                },
-                "PrimaryImageURL": {
-                    "description": "Image URL",
-                    "type": "string"
-                },
-                "Identifiers": {
-                    "description": "Product identifiers",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/StockItemIdentifier"
-                    }
-                }
-            }
-        },
-        "BinRackStockItem": {
-            "description": "Bin Rack",
-            "type": "object",
-            "properties": {
-                "BinRackId": {
-                    "format": "int32",
-                    "description": "Unique id for the binrack",
-                    "type": "integer"
-                },
-                "StandardType": {
-                    "format": "int32",
-                    "description": "Bin Rack type name",
-                    "type": "integer"
-                },
-                "BatchId": {
-                    "format": "int32",
-                    "description": "Batch id",
-                    "type": "integer"
-                },
-                "BatchInventoryId": {
-                    "format": "int32",
-                    "description": "Batch inventory id",
-                    "type": "integer"
-                },
-                "PrioritySequence": {
-                    "format": "int32",
-                    "description": "Consume priority sequence",
-                    "type": "integer"
-                },
-                "BatchStatus": {
-                    "description": "Batch status, \"Available\", \"Restricted\", \"Damaged\", \"Expired\"",
-                    "type": "string"
-                },
-                "BinRack": {
-                    "description": "BinRack name",
-                    "type": "string"
-                },
-                "CurrentFullPercentage": {
-                    "format": "double",
-                    "description": "Maximum volumetric capacity of the location WxDxH = volumetric",
-                    "type": "number"
-                },
-                "Quantity": {
-                    "format": "int32",
-                    "description": "Quantity available in the location",
-                    "type": "integer"
-                },
-                "InTransit": {
-                    "format": "int32",
-                    "description": "Quantity of items currently in transit",
-                    "type": "integer"
-                },
-                "PickedQuantity": {
-                    "format": "int32",
-                    "description": "Indicate how many units are now allocated in open orders",
-                    "type": "integer"
-                },
-                "InventoryTrackingType": {
-                    "format": "int32",
-                    "description": "0 - None, 1 - Order by sell by date, 2 - Ordered by priority sequence",
-                    "type": "integer"
-                },
-                "StockItemId": {
-                    "format": "uuid",
-                    "description": "Product ID",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "BatchNumber": {
-                    "description": "Batch number",
-                    "type": "string"
-                },
-                "ExpiresOn": {
-                    "format": "date-time",
-                    "description": "Batch expiry date",
-                    "type": "string"
-                },
-                "SellBy": {
-                    "format": "date-time",
-                    "description": "Batch sell by date",
-                    "type": "string"
-                },
-                "BinrackTypeName": {
-                    "type": "string"
-                },
-                "LocationId": {
-                    "format": "uuid",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                }
-            }
-        },
-        "PickingWaveOrderDetailed": {
-            "type": "object",
-            "properties": {
-                "PickingWaveOrdersRowId": {
-                    "format": "int32",
-                    "description": "Pickwave order id",
-                    "type": "integer"
-                },
-                "PickingWaveId": {
-                    "format": "int32",
-                    "description": "Pickwave id",
-                    "type": "integer"
-                },
-                "OrderId": {
-                    "format": "int32",
-                    "description": "Order Id",
-                    "type": "integer"
-                },
-                "PickState": {
-                    "description": "Pick state",
-                    "enum": [
-                        "Unpicked",
-                        "PartialPicked",
-                        "Picked",
-                        "Processed",
-                        "LockedOrParked",
-                        "Cancelled",
-                        "Deleted"
-                    ],
-                    "type": "string"
-                },
-                "SortOrder": {
-                    "format": "int32",
-                    "description": "Sort order",
-                    "type": "integer"
-                },
-                "ItemCount": {
-                    "format": "int32",
-                    "description": "Items count",
-                    "type": "integer"
-                },
-                "PickedItemsCount": {
-                    "format": "int32",
-                    "description": "Picked items count",
-                    "type": "integer"
-                },
-                "Items": {
-                    "description": "Pickwave order items.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickingWaveItemDetailed"
-                    }
-                },
-                "Composition": {
-                    "description": "Relationship between pickwave items and composite parent rows.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickingWaveItemComposition"
-                    }
-                },
-                "OrderId_Guid": {
-                    "format": "uuid",
-                    "description": "Internal guid orderid",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "IsProcessed": {
-                    "description": "Is order processed",
-                    "type": "boolean"
-                },
-                "IsCancelled": {
-                    "description": "Is order hold or cancelled",
-                    "type": "boolean"
-                },
-                "IsOnHold": {
-                    "description": "Is order on hold status",
-                    "type": "boolean"
-                },
-                "IsLocked": {
-                    "description": "Is order locked.",
-                    "type": "boolean"
-                },
-                "IsPaid": {
-                    "description": "Is order paid",
-                    "type": "boolean"
-                }
-            }
-        },
-        "StockItemIdentifier": {
-            "description": "Stock item identifiers.",
-            "type": "object",
-            "properties": {
-                "StockItemId": {
-                    "format": "uuid",
-                    "description": "Stock item id",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "Type": {
-                    "description": "Product identifier type",
-                    "enum": [
-                        "EAN",
-                        "MPN",
-                        "GTIN",
-                        "UPC",
-                        "ASIN",
-                        "ISBN",
-                        "Google",
-                        "CustomID",
-                        "PZN",
-                        "GCID",
-                        "ePID"
-                    ],
-                    "type": "string"
-                },
-                "Value": {
-                    "description": "Product identifier",
-                    "type": "string"
-                }
-            }
-        },
-        "PickingWaveItemDetailed": {
-            "type": "object",
-            "properties": {
-                "SortOrder": {
-                    "format": "int32",
-                    "description": "Sort order",
-                    "type": "integer"
-                },
-                "ToPickQuantity": {
-                    "format": "int32",
-                    "description": "Quantity to pick",
-                    "type": "integer"
-                },
-                "TOTId": {
-                    "format": "int32",
-                    "description": "ToT Id",
-                    "type": "integer"
-                },
-                "TrayTag": {
-                    "description": "Tray tag",
-                    "type": "string"
-                },
-                "PickingTag": {
-                    "description": "Picking tag",
-                    "type": "string"
-                },
-                "PickingWaveItemsRowId": {
-                    "format": "int32",
-                    "description": "Pickwave item row id",
-                    "type": "integer"
-                },
-                "PickingWaveId": {
-                    "format": "int32",
-                    "description": "Pickwave id",
-                    "type": "integer"
-                },
-                "PickedQuantity": {
-                    "format": "int32",
-                    "description": "Quatity picked",
-                    "type": "integer"
-                },
-                "ItemState": {
-                    "description": "Pickwave item state",
-                    "enum": [
-                        "Normal",
-                        "OrderStateInvalid",
-                        "Abandonned",
-                        "DeletedFromOrder"
-                    ],
-                    "type": "string"
-                },
-                "Totes": {
-                    "description": "Collection of pickwave item totes.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickingWaveItemTote"
-                    }
-                },
-                "BatchInventoryId": {
-                    "format": "int32",
-                    "description": "Batch Inventory Id",
-                    "type": "integer"
-                },
-                "OrderId": {
-                    "format": "int32",
-                    "description": "Linnworks Order Id",
-                    "type": "integer"
-                },
-                "OrderItemRowId": {
-                    "format": "uuid",
-                    "description": "Unique order item row identifier",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "StockItemId": {
-                    "format": "uuid",
-                    "description": "StockItemId",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                }
-            }
-        },
-        "PickingWaveItemComposition": {
-            "type": "object",
-            "properties": {
-                "StockItemId": {
-                    "format": "uuid",
-                    "description": "Stock item id",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "OrderItemRowId": {
-                    "format": "uuid",
-                    "description": "Composite parent order item row id",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "Quantity": {
-                    "format": "int32",
-                    "description": "Quantity of composite.",
-                    "type": "integer"
-                },
-                "Children": {
-                    "description": "Child row relationships to parent",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickingWaveItemComposition"
-                    }
-                }
-            }
-        },
-        "PickingWaveItemTote": {
-            "type": "object",
-            "properties": {
-                "RowId": {
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "PickingWaveItemsRowId": {
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "ToteId": {
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "TrayTag": {
-                    "type": "string"
-                },
-                "PickedQuantity": {
-                    "format": "int32",
-                    "type": "integer"
-                }
-            }
-        },
-        "GetPickingWaveRequest": {
-            "description": "Get pickwave request",
-            "type": "object",
-            "properties": {
-                "PickingWaveId": {
-                    "format": "int32",
-                    "description": "Pickwave id",
-                    "type": "integer"
-                }
-            }
-        },
-        "Picking_UpdatePickingWaveItemRequest": {
-            "type": "object",
-            "properties": {
-                "request": {
-                    "$ref": "#/definitions/PickingWaveItemUpdateRequest",
-                    "description": ""
-                }
-            }
-        },
-        "PickingWaveItemUpdateRequest": {
-            "description": "Pickwave item update request.",
-            "type": "object",
-            "properties": {
-                "WaveItemUpdates": {
-                    "description": "List of pickwave items to update",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickingWaveItemUpdate"
-                    }
-                }
-            }
-        },
-        "PickingWaveItemUpdate": {
-            "type": "object",
-            "properties": {
-                "PickingWaveItemsRowId": {
-                    "format": "int32",
-                    "description": "Pickwave item row id",
-                    "type": "integer"
-                },
-                "TOTId": {
-                    "format": "int32",
-                    "description": "ToT Id",
-                    "type": "integer"
-                },
-                "TrayTag": {
-                    "description": "Tray tag",
-                    "type": "string"
-                },
-                "PickingTag": {
-                    "description": "Picking tag",
-                    "type": "string"
-                },
-                "PickedQuantity": {
-                    "format": "int32",
-                    "description": "Picked quantity",
-                    "type": "integer"
-                },
-                "OrderState": {
-                    "description": "Order State",
-                    "enum": [
-                        "Unpicked",
-                        "PartialPicked",
-                        "Picked",
-                        "Processed",
-                        "LockedOrParked",
-                        "Cancelled",
-                        "Deleted"
-                    ],
-                    "type": "string"
-                },
-                "ItemState": {
-                    "description": "Item State",
-                    "enum": [
-                        "Normal",
-                        "OrderStateInvalid",
-                        "Abandonned",
-                        "DeletedFromOrder"
-                    ],
-                    "type": "string"
-                },
-                "ToPickQuantity": {
-                    "format": "int32",
-                    "description": "To Pick Quantity",
-                    "type": "integer"
-                }
-            }
-        },
-        "PickingWaveUpdateRequest": {
-            "type": "object",
-            "properties": {
-                "PickingWaveId": {
-                    "format": "int32",
-                    "description": "Pickwave id",
-                    "type": "integer"
-                },
-                "UserId": {
-                    "format": "int32",
-                    "description": "Allocated user id, null will keep the current assigned user, -1 will de-allocated the user from the pickwave.",
-                    "type": "integer"
-                },
-                "State": {
-                    "description": "Current state of pickwave",
-                    "enum": [
-                        "Unallocated",
-                        "Allocated",
-                        "InProgress",
-                        "Paused",
-                        "Complete",
-                        "Abandoned",
-                        "Packing",
-                        "Shipped"
-                    ],
-                    "type": "string"
-                },
-                "StartTime": {
-                    "format": "date-time",
-                    "description": "Start date time of pickwave",
-                    "type": "string"
-                },
-                "EndTime": {
-                    "format": "date-time",
-                    "description": "End date time of pickwave",
-                    "type": "string"
-                }
-            }
-        },
-        "PickingWaveGenerate": {
-            "type": "object",
-            "properties": {
-                "LocationId": {
-                    "format": "uuid",
-                    "description": "Location Id",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "UserId": {
-                    "format": "int32",
-                    "description": "Allocated user id",
-                    "type": "integer"
-                },
-                "Orders": {
-                    "description": "Pickwave items",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickingWaveGenerateOrder"
-                    }
-                },
-                "Pickwaves": {
-                    "description": "Collection of pickwaves and their orders to generate. All order singular or composite child row ids must be provided, if batches exist on the order item then batch id must be supplied);",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickingWaveGenerateMulti"
-                    }
-                },
-                "GroupType": {
-                    "description": "Pickwave group type",
-                    "enum": [
-                        "Items",
-                        "Orders"
-                    ],
-                    "type": "string"
-                }
-            }
-        },
-        "PickingWaveGenerateOrder": {
-            "type": "object",
-            "properties": {
-                "OrderId": {
-                    "format": "int32",
-                    "description": "Order Id (Integer)",
-                    "type": "integer"
-                }
-            }
-        },
-        "PickingWaveGenerateMulti": {
-            "type": "object",
-            "properties": {
-                "Orders": {
-                    "description": "Orders",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickingWaveGenerateOrderMulti"
-                    }
-                },
-                "GroupType": {
-                    "description": "Pickwave group type (optional, if not set parent sort will be used)",
-                    "enum": [
-                        "Items",
-                        "Orders"
-                    ],
-                    "type": "string"
-                }
-            }
-        },
-        "PickingWaveGenerateOrderMulti": {
-            "type": "object",
-            "properties": {
-                "Items": {
-                    "description": "Items to be added to the pickwave.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickingWaveGenerateItemMulti"
-                    }
-                },
-                "OrderId": {
-                    "format": "int32",
-                    "description": "Order Id (Integer)",
-                    "type": "integer"
-                }
-            }
-        },
-        "PickingWaveGenerateItemMulti": {
-            "type": "object",
-            "properties": {
-                "OrderItemRowId": {
-                    "format": "uuid",
-                    "description": "Order item row id",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "BatchInventoryId": {
-                    "format": "int32",
-                    "description": "Batch inventory id, if the item is batched or location is warehouse managed and id is not supplied then the whole order item will be added to the pickwave.",
-                    "type": "integer"
-                }
-            }
-        },
-        "GeneratePickingWaveResponse": {
-            "type": "object",
-            "properties": {
-                "ValidationResults": {
-                    "description": "Validation errors if generate fails.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickWaveAllocateCheckResult"
-                    }
-                },
-                "PickingWaves": {
-                    "description": "Pickwaves",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickingWaveDetailed"
-                    }
-                },
-                "Skus": {
-                    "description": "List of SKUs.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/StockItemInfo"
-                    }
-                },
-                "Bins": {
-                    "description": "List of bins and batches of items in the bins.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/BinRackStockItem"
-                    }
-                }
-            }
-        },
-        "PickWaveAllocateCheckResult": {
-            "description": "Pickwave allocated check result.",
-            "type": "object",
-            "properties": {
-                "OrderId": {
-                    "format": "int32",
-                    "description": "Order Id interger",
-                    "type": "integer"
-                },
-                "OrderId_Guid": {
-                    "format": "uuid",
-                    "description": "Order Id uniqueidentifier",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "Errors": {
-                    "description": "Errors",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickWaveAllocateCheckResultError"
-                    }
-                },
-                "HasErrors": {
-                    "description": "Has Errors",
-                    "type": "boolean",
-                    "readOnly": true
-                },
-                "OrderDetails": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickWaveAllocateCheckResultOrderDetails"
-                    }
-                }
-            }
-        },
-        "PickWaveAllocateCheckResultError": {
-            "type": "object",
-            "properties": {
-                "Error": {
-                    "description": "Error message",
-                    "type": "string"
-                },
-                "ErrorType": {
-                    "description": "Error type enum.",
-                    "enum": [
-                        "Unknown",
-                        "NeedsStockAllocation",
-                        "IsLocked",
-                        "IsParked",
-                        "IsInFulfilmentCentre",
-                        "IsCancelled",
-                        "IsProcessed",
-                        "NoVaidItems",
-                        "UnlinkedItem",
-                        "AlreadyExistsInWave",
-                        "OrderDoesntExist",
-                        "AllCombinationOfItemsDontExist",
-                        "DuplicateCombinationsOfItemsExist",
-                        "DifferentLocation"
-                    ],
-                    "type": "string"
-                },
-                "OrderItemRowId": {
-                    "format": "uuid",
-                    "description": "Order item row id, if null or guid empty then top level order error.",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                }
-            }
-        },
-        "PickWaveAllocateCheckResultOrderDetails": {
-            "description": "Order details return, flat data for order lines that can be used to create pickwaves",
-            "type": "object",
-            "properties": {
-                "LocationId": {
-                    "format": "uuid",
-                    "description": "Location the order resides in",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "OrderItemRowId": {
-                    "format": "uuid",
-                    "description": "Order item row id",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "BatchInventoryId": {
-                    "format": "int32",
-                    "description": "Batch inventory id, if the order item contains batches.",
-                    "type": "integer"
-                },
-                "StockItemId": {
-                    "format": "uuid",
-                    "description": "Stock item id",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "SKU": {
-                    "description": "SKU",
-                    "type": "string"
-                },
-                "ItemTitle": {
-                    "description": "Item title",
-                    "type": "string"
-                },
-                "Binrack": {
-                    "description": "Binrack",
-                    "type": "string"
-                },
-                "BatchNumber": {
-                    "description": "Batch number",
-                    "type": "string"
-                },
-                "Quantity": {
-                    "format": "int32",
-                    "description": "Quantity on either order item row or allocated batch row.",
-                    "type": "integer"
-                },
-                "RoutingSequence": {
-                    "format": "int32",
-                    "description": "(WMS only) Routing sequence of the binrack.",
-                    "type": "integer"
-                }
-            }
-        },
-        "Picking_CheckAllocatableToPickwaveRequest": {
-            "type": "object",
-            "properties": {
-                "request": {
-                    "$ref": "#/definitions/CheckAllocatableToPickwaveRequest",
-                    "description": ""
-                }
-            }
-        },
-        "CheckAllocatableToPickwaveRequest": {
-            "description": "Request for allocatioable orders to pickwave.",
-            "type": "object",
-            "properties": {
-                "OrderIds": {
-                    "description": "List of integer order ids",
-                    "type": "array",
-                    "items": {
-                        "format": "int32",
-                        "type": "integer"
-                    }
-                }
-            }
-        },
-        "CheckAllocatableToPickwaveResponse": {
-            "description": "Check allocatable to pickwave response.",
-            "type": "object",
-            "properties": {
-                "Results": {
-                    "description": "List of results",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickWaveAllocateCheckResult"
-                    }
-                }
-            }
-        },
-        "GetPickwaveUsersWithSummaryResponse": {
-            "type": "object",
-            "properties": {
-                "PickingWaves": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickingWave"
-                    }
-                }
-            }
-        },
-        "Picking_DeleteOrdersFromPickingWavesRequest": {
-            "type": "object",
-            "properties": {
-                "request": {
-                    "$ref": "#/definitions/DeleteOrdersFromPickingWavesRequest",
-                    "description": ""
-                }
-            }
-        },
-        "DeleteOrdersFromPickingWavesRequest": {
-            "type": "object",
-            "properties": {
-                "OrderIds": {
-                    "description": "List of Linnworks OrderIds",
-                    "type": "array",
-                    "items": {
-                        "format": "int32",
-                        "type": "integer"
-                    }
-                }
-            }
-        },
-        "DeleteOrdersFromPickingWavesResponse": {
-            "type": "object",
-            "properties": {
-                "ProcessedOrderIds": {
-                    "description": "Order Ids that had pickwaves deleted from them",
-                    "type": "array",
-                    "items": {
-                        "format": "int32",
-                        "type": "integer"
-                    }
-                },
-                "NoPickwaves": {
-                    "description": "OrderIds where there was no pickwave found against them",
-                    "type": "array",
-                    "items": {
-                        "format": "int32",
-                        "type": "integer"
-                    }
-                }
-            }
-        },
-        "GetItemBinracksRequest": {
-            "type": "object",
-            "properties": {
-                "StockItemId": {
-                    "format": "uuid",
-                    "description": "Stock item Id",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "StockLocationId": {
-                    "format": "uuid",
-                    "description": "Linnworks stock location Id",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "CurrentBinRackSuggestion": {
-                    "description": "The name of the location that is currently set to pick from",
-                    "type": "string"
-                },
-                "IncludeNonPickLocations": {
-                    "description": "If true, the response will also contain binracks that cannot be selected to pick from",
-                    "type": "boolean"
-                }
-            }
-        },
-        "GetItemBinracksResponse": {
-            "type": "object",
-            "properties": {
-                "AlternateLocations": {
-                    "description": "A list of other batches that are available in the given linnworks stock location",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/StockItemBatch"
-                    }
-                },
-                "PickableBins": {
-                    "description": "A list of stock that is available to pick from",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/BinRackStockItem"
-                    }
-                },
-                "NonPickableBins": {
-                    "description": "A list of stock that cannot directly be picked from",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/BinRackStockItem"
-                    }
-                }
-            }
-        },
-        "StockItemBatch": {
-            "type": "object",
-            "properties": {
-                "BatchId": {
-                    "format": "int32",
-                    "description": "Batch ID",
-                    "type": "integer"
-                },
-                "SKU": {
-                    "description": "Product SKU",
-                    "type": "string"
-                },
-                "InventoryTrackingType": {
-                    "format": "int32",
-                    "description": "0 - None, 1 - Order by sell by date, 2 - Ordered by priority sequence",
-                    "type": "integer"
-                },
-                "StockItemId": {
-                    "format": "uuid",
-                    "description": "Product ID",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "BatchNumber": {
-                    "description": "Batch number",
-                    "type": "string"
-                },
-                "ExpiresOn": {
-                    "format": "date-time",
-                    "description": "Batch expiry date",
-                    "type": "string"
-                },
-                "SellBy": {
-                    "format": "date-time",
-                    "description": "Batch sell by date",
-                    "type": "string"
-                },
-                "Inventory": {
-                    "description": "Batch records",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/StockItemBatchInventory"
-                    }
-                },
-                "IsDeleted": {
-                    "description": "Is the batch deleted",
-                    "type": "boolean"
-                }
-            }
-        },
-        "StockItemBatchInventory": {
-            "type": "object",
-            "properties": {
-                "BatchInventoryId": {
-                    "format": "int32",
-                    "description": "Stock item batch record ID",
-                    "type": "integer"
-                },
-                "BatchId": {
-                    "format": "int32",
-                    "description": "Batch ID",
-                    "type": "integer"
-                },
-                "StockLocationId": {
-                    "format": "uuid",
-                    "description": "Location ID",
-                    "type": "string",
-                    "example": "00000000-0000-0000-0000-000000000000"
-                },
-                "BinRack": {
-                    "description": "BinRack",
-                    "type": "string"
-                },
-                "PrioritySequence": {
-                    "format": "int32",
-                    "description": "Pick order",
-                    "type": "integer"
-                },
-                "Quantity": {
-                    "format": "int32",
-                    "description": "Quantity",
-                    "type": "integer"
-                },
-                "StockValue": {
-                    "format": "double",
-                    "description": "Current stock value",
-                    "type": "number"
-                },
-                "StartQuantity": {
-                    "format": "int32",
-                    "description": "Quantity originally booked in",
-                    "type": "integer",
-                    "readOnly": true
-                },
-                "PickedQuantity": {
-                    "format": "int32",
-                    "description": "Indicate how many units are now allocated in open orders",
-                    "type": "integer"
-                },
-                "BatchStatus": {
-                    "description": "Batch Status",
-                    "type": "string"
-                },
-                "IsDeleted": {
-                    "description": "Is BatchInventory deleted",
-                    "type": "boolean"
-                },
-                "WarehouseBinrackStandardType": {
-                    "format": "int32",
-                    "description": "Warehouse binrack standard type",
-                    "type": "integer"
-                },
-                "WarehouseBinrackTypeName": {
-                    "description": "Warehouse binrack type friendly name",
-                    "type": "string"
-                },
-                "InTransfer": {
-                    "format": "int32",
-                    "description": "Number of items in Transfer phase.",
-                    "type": "integer"
-                },
-                "BinRackId": {
-                    "format": "int32",
-                    "description": "Binrack Id (Use for WMS)",
-                    "type": "integer"
-                },
-                "WarehouseBinrackTypeId": {
-                    "format": "int32",
-                    "description": "Warehouse binrack type unique id.",
-                    "type": "integer"
-                }
-            }
-        },
-        "Picking_UpdatePickingWaveItemWithNewBinrackRequest": {
-            "type": "object",
-            "properties": {
-                "request": {
-                    "$ref": "#/definitions/UpdatePickingWaveItemWithNewBinrackRequest",
-                    "description": ""
-                }
-            }
-        },
-        "UpdatePickingWaveItemWithNewBinrackRequest": {
-            "type": "object",
-            "properties": {
-                "PickingWaveId": {
-                    "format": "int32",
-                    "description": "Pickwave id",
-                    "type": "integer"
-                },
-                "PickingWaveItemRowIds": {
-                    "description": "List of pickwave item row ids to replace with the new location",
-                    "type": "array",
-                    "items": {
-                        "format": "int32",
-                        "type": "integer"
-                    }
-                },
-                "NewBatchInventoryId": {
-                    "format": "int32",
-                    "description": "The new batch inventory to pick",
-                    "type": "integer"
-                },
-                "SortType": {
-                    "description": "Dictates how the returned pickwave should be sorted",
-                    "enum": [
-                        "GoNow",
-                        "ResortPickwave"
-                    ],
-                    "type": "string"
-                }
-            }
-        },
-        "UpdatePickedItemDeltaRequest": {
-            "type": "object",
-            "properties": {
-                "Deltas": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/UpdatePickedItemDeltaRequestItem"
-                    }
-                }
-            }
-        },
-        "UpdatePickedItemDeltaRequestItem": {
-            "type": "object",
-            "properties": {
-                "PickingWaveItemsRowId": {
-                    "format": "int32",
-                    "description": "Picking wave row id",
-                    "type": "integer"
-                },
-                "ToteId": {
-                    "format": "int32",
-                    "description": "Tote id",
-                    "type": "integer"
-                },
-                "TrayTag": {
-                    "description": "Tray tag (optional)",
-                    "type": "string"
-                },
-                "PickedQuantityDelta": {
-                    "format": "int32",
-                    "description": "Picked quantity delta",
-                    "type": "integer"
-                }
-            }
-        }
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
     },
-    "securityDefinitions": {
-        "token": {
-            "type": "apiKey",
-            "description": "Authorization Header",
-            "name": "Authorization",
-            "in": "header"
-        }
+    "/api/Picking/GetMyPickingWaves": {
+      "get": {
+        "tags": [
+          "Picking"
+        ],
+        "summary": "GetMyPickingWaves",
+        "description": "Get a list of list of pickwaves for the current user\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
+        "operationId": "GetMyPickingWaves",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "description": "Pickwave state (optional), if not supplied then all states.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "Unallocated",
+              "Allocated",
+              "InProgress",
+              "Paused",
+              "Complete",
+              "Abandoned",
+              "Packing",
+              "Shipped"
+            ]
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "description": "Location id for waves",
+            "required": false,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "detailLevel",
+            "in": "query",
+            "description": "Detail level, if not supplied then all is assumed",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "All",
+              "OnlyPickWave"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetPickingWavesResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Picking/GetPickingWave": {
+      "get": {
+        "tags": [
+          "Picking"
+        ],
+        "summary": "GetPickingWave",
+        "description": "Get a specific pickwave by id\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
+        "operationId": "GetPickingWave",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pickingWaveId",
+            "in": "query",
+            "description": "Pickwave id",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetPickingWavesResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Picking/UpdatePickingWaveItem": {
+      "post": {
+        "tags": [
+          "Picking"
+        ],
+        "summary": "UpdatePickingWaveItem",
+        "description": "Update on or more pickwave items\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
+        "operationId": "UpdatePickingWaveItem",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Picking_UpdatePickingWaveItemRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Picking_UpdatePickingWaveItemRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetPickingWavesResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Picking/UpdatePickingWaveHeader": {
+      "post": {
+        "tags": [
+          "Picking"
+        ],
+        "summary": "UpdatePickingWaveHeader",
+        "description": "Update a pickwave header\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
+        "operationId": "UpdatePickingWaveHeader",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PickingWaveUpdateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetPickingWavesResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Picking/GeneratePickingWave": {
+      "post": {
+        "tags": [
+          "Picking"
+        ],
+        "summary": "GeneratePickingWave",
+        "description": "Generate a new pickwave\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.GeneratePickingWavesNode",
+        "operationId": "GeneratePickingWave",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PickingWaveGenerate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GeneratePickingWaveResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Picking/CheckAllocatableToPickwave": {
+      "post": {
+        "tags": [
+          "Picking"
+        ],
+        "summary": "CheckAllocatableToPickwave",
+        "description": "Check a list of Linnworks order ids to see if they can be added to a pickwave\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.GeneratePickingWavesNode",
+        "operationId": "CheckAllocatableToPickwave",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Picking_CheckAllocatableToPickwaveRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Picking_CheckAllocatableToPickwaveRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CheckAllocatableToPickwaveResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Picking/GetPickwaveUsersWithSummary": {
+      "get": {
+        "tags": [
+          "Picking"
+        ],
+        "summary": "GetPickwaveUsersWithSummary",
+        "description": "Returns a list of pickwaves as well as dummy entries for users who have permissions to complete pickwaves, but don't currently have any assigned. These entries will have a PickwaveId of 0.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.GeneratePickingWavesNode",
+        "operationId": "GetPickwaveUsersWithSummary",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "description": "Pickwave state (optional), if not supplied then all states.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "Unallocated",
+              "Allocated",
+              "InProgress",
+              "Paused",
+              "Complete",
+              "Abandoned",
+              "Packing",
+              "Shipped"
+            ]
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "description": "Location id for waves",
+            "required": false,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "detailLevel",
+            "in": "query",
+            "description": "Detail level, if not supplied then all is assumed",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "All",
+              "OnlyPickWave"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetPickwaveUsersWithSummaryResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Picking/DeleteOrdersFromPickingWaves": {
+      "post": {
+        "tags": [
+          "Picking"
+        ],
+        "summary": "DeleteOrdersFromPickingWaves",
+        "description": "Delete one or more orders from a pickwave\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.DeletePickingWavesNode",
+        "operationId": "DeleteOrdersFromPickingWaves",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Picking_DeleteOrdersFromPickingWavesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Picking_DeleteOrdersFromPickingWavesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DeleteOrdersFromPickingWavesResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Picking/GetItemBinracks": {
+      "get": {
+        "tags": [
+          "Picking"
+        ],
+        "summary": "GetItemBinracks",
+        "description": "Returns a list of places that the requested item can be found, other than the location already suggested.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
+        "operationId": "GetItemBinracks",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "stockItemId",
+            "in": "query",
+            "description": "Stock item Id",
+            "required": false,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "stockLocationId",
+            "in": "query",
+            "description": "Linnworks stock location Id",
+            "required": false,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "currentBinRackSuggestion",
+            "in": "query",
+            "description": "The name of the location that is currently set to pick from",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "includeNonPickLocations",
+            "in": "query",
+            "description": "If true, the response will also contain binracks that cannot be selected to pick from",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetItemBinracksResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Picking/UpdatePickingWaveItemWithNewBinrack": {
+      "post": {
+        "tags": [
+          "Picking"
+        ],
+        "summary": "UpdatePickingWaveItemWithNewBinrack",
+        "description": "Updates the batch/binrack for allocated pickwave item. Only applicable to pickwave items with batch information\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
+        "operationId": "UpdatePickingWaveItemWithNewBinrack",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Picking_UpdatePickingWaveItemWithNewBinrackRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Picking_UpdatePickingWaveItemWithNewBinrackRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetPickingWavesResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Picking/UpdatePickedItemDelta": {
+      "post": {
+        "tags": [
+          "Picking"
+        ],
+        "summary": "UpdatePickedItemDelta",
+        "description": "Updates the batch/binrack for allocated pickwave item. Only applicable to pickwave items with batch information\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
+        "operationId": "UpdatePickedItemDelta",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdatePickedItemDeltaRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetPickingWavesResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
     }
+  },
+  "definitions": {
+    "GetPickingWavesRequest": {
+      "description": "Request for getting all pickwaves irrespective of user.",
+      "type": "object",
+      "properties": {
+        "State": {
+          "description": "Pickwave state (optional), if not supplied then all states.",
+          "enum": [
+            "Unallocated",
+            "Allocated",
+            "InProgress",
+            "Paused",
+            "Complete",
+            "Abandoned",
+            "Packing",
+            "Shipped"
+          ],
+          "type": "string"
+        },
+        "LocationId": {
+          "format": "uuid",
+          "description": "Location id for waves",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "DetailLevel": {
+          "description": "Detail level, if not supplied then all is assumed",
+          "enum": [
+            "All",
+            "OnlyPickWave"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "GetPickingWaveHeadersResponse": {
+      "type": "object",
+      "properties": {
+        "PickwaveHeaders": {
+          "description": "List of pickingwave headers without order details",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickingWave"
+          }
+        }
+      }
+    },
+    "PickingWave": {
+      "description": "Pickwave",
+      "type": "object",
+      "properties": {
+        "LocationId": {
+          "format": "uuid",
+          "description": "Location Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "UserId": {
+          "format": "int32",
+          "description": "Allocated user id",
+          "type": "integer"
+        },
+        "EmailAddress": {
+          "description": "Allocated user EmailAddress",
+          "type": "string"
+        },
+        "CreatedDate": {
+          "format": "date-time",
+          "description": "Creation date",
+          "type": "string"
+        },
+        "OrderCount": {
+          "format": "int32",
+          "description": "Order Count - Number of orders in pickwave.",
+          "type": "integer"
+        },
+        "ItemCount": {
+          "format": "int32",
+          "description": "Item Count - Number of items in pickwave.",
+          "type": "integer"
+        },
+        "ItemsPicked": {
+          "format": "int32",
+          "description": "Items Picked - Number of items picked in pickwave.",
+          "type": "integer"
+        },
+        "OrdersPicked": {
+          "format": "int32",
+          "description": "Orders Picked - Number of orders picked in pickwave.",
+          "type": "integer"
+        },
+        "AccumulatedInProgressSeconds": {
+          "format": "int32",
+          "description": "Time taken in pickwave",
+          "type": "integer"
+        },
+        "StartTime": {
+          "format": "date-time",
+          "description": "Start date time of pickwave",
+          "type": "string"
+        },
+        "EndTime": {
+          "format": "date-time",
+          "description": "End date time of pickwave",
+          "type": "string"
+        },
+        "GroupType": {
+          "description": "Pickwave group type",
+          "enum": [
+            "Items",
+            "Orders"
+          ],
+          "type": "string"
+        },
+        "Orders": {
+          "description": "Orders in pickwave. This data is not returned if just headers are requested.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickingWaveOrder"
+          }
+        },
+        "Options": {
+          "$ref": "#/definitions/PickingWaveOptions"
+        },
+        "PickingWaveId": {
+          "format": "int32",
+          "description": "Pickwave id",
+          "type": "integer"
+        },
+        "State": {
+          "description": "Current state of pickwave",
+          "enum": [
+            "Unallocated",
+            "Allocated",
+            "InProgress",
+            "Paused",
+            "Complete",
+            "Abandoned",
+            "Packing",
+            "Shipped"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "PickingWaveOrder": {
+      "description": "Pickwave order",
+      "type": "object",
+      "properties": {
+        "PickingWaveOrdersRowId": {
+          "format": "int32",
+          "description": "Pickwave order id",
+          "type": "integer"
+        },
+        "PickingWaveId": {
+          "format": "int32",
+          "description": "Pickwave id",
+          "type": "integer"
+        },
+        "OrderId": {
+          "format": "int32",
+          "description": "Order Id",
+          "type": "integer"
+        },
+        "PickState": {
+          "description": "Pick state",
+          "enum": [
+            "Unpicked",
+            "PartialPicked",
+            "Picked",
+            "Processed",
+            "LockedOrParked",
+            "Cancelled",
+            "Deleted"
+          ],
+          "type": "string"
+        },
+        "SortOrder": {
+          "format": "int32",
+          "description": "Sort order",
+          "type": "integer"
+        },
+        "ItemCount": {
+          "format": "int32",
+          "description": "Items count",
+          "type": "integer"
+        },
+        "PickedItemsCount": {
+          "format": "int32",
+          "description": "Picked items count",
+          "type": "integer"
+        },
+        "Items": {
+          "description": "Pickwave order items.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickingWaveItem"
+          }
+        }
+      }
+    },
+    "PickingWaveOptions": {
+      "type": "object",
+      "properties": {
+        "ItemScanType": {
+          "description": "Item scan type, dictates if the user must scan all items or can provide aggregate count",
+          "enum": [
+            "Any",
+            "IndividualItem",
+            "AggregateItem"
+          ],
+          "type": "string"
+        },
+        "TrayScanRequired": {
+          "description": "If the user must scan the tray the item went into.",
+          "type": "boolean"
+        },
+        "TotScanRequired": {
+          "description": "If the user must scan the tot before scanning items.",
+          "type": "boolean"
+        },
+        "BinRackScanRequired": {
+          "description": "If the user must scan the binrack before picking an item.",
+          "type": "boolean"
+        }
+      }
+    },
+    "PickingWaveItem": {
+      "description": "Pickwave order item",
+      "type": "object",
+      "properties": {
+        "PickingWaveItemsRowId": {
+          "format": "int32",
+          "description": "Pickwave item row id",
+          "type": "integer"
+        },
+        "PickingWaveId": {
+          "format": "int32",
+          "description": "Pickwave id",
+          "type": "integer"
+        },
+        "PickedQuantity": {
+          "format": "int32",
+          "description": "Quatity picked",
+          "type": "integer"
+        },
+        "TotBarcode": {
+          "description": "Tote Barcode",
+          "type": "string"
+        },
+        "SortOrder": {
+          "format": "int32",
+          "description": "Sort order",
+          "type": "integer"
+        },
+        "ToPickQuantity": {
+          "format": "int32",
+          "description": "Quantity to pick",
+          "type": "integer"
+        },
+        "TOTId": {
+          "format": "int32",
+          "description": "ToT Id",
+          "type": "integer"
+        },
+        "TrayTag": {
+          "description": "Tray tag",
+          "type": "string"
+        },
+        "PickingTag": {
+          "description": "Picking tag",
+          "type": "string"
+        },
+        "ItemState": {
+          "enum": [
+            "Normal",
+            "OrderStateInvalid",
+            "Abandonned",
+            "DeletedFromOrder"
+          ],
+          "type": "string"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "description": "Batch Inventory Id",
+          "type": "integer"
+        },
+        "OrderId": {
+          "format": "int32",
+          "description": "Linnworks Order Id",
+          "type": "integer"
+        },
+        "OrderItemRowId": {
+          "format": "uuid",
+          "description": "Unique order item row identifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "StockItemId",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "GetPickingWavesResponse": {
+      "type": "object",
+      "properties": {
+        "PickingWaves": {
+          "description": "Pickwaves",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickingWaveDetailed"
+          }
+        },
+        "Skus": {
+          "description": "List of SKUs.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemInfo"
+          }
+        },
+        "Bins": {
+          "description": "List of bins and batches of items in the bins.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BinRackStockItem"
+          }
+        }
+      }
+    },
+    "PickingWaveDetailed": {
+      "type": "object",
+      "properties": {
+        "LocationId": {
+          "format": "uuid",
+          "description": "Location Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "UserId": {
+          "format": "int32",
+          "description": "Allocated user id",
+          "type": "integer"
+        },
+        "EmailAddress": {
+          "description": "Allocated user EmailAddress",
+          "type": "string"
+        },
+        "CreatedDate": {
+          "format": "date-time",
+          "description": "Creation date",
+          "type": "string"
+        },
+        "OrderCount": {
+          "format": "int32",
+          "description": "Order Count - Number of orders in pickwave.",
+          "type": "integer"
+        },
+        "ItemCount": {
+          "format": "int32",
+          "description": "Item Count - Number of items in pickwave.",
+          "type": "integer"
+        },
+        "ItemsPicked": {
+          "format": "int32",
+          "description": "Items Picked - Number of items picked in pickwave.",
+          "type": "integer"
+        },
+        "OrdersPicked": {
+          "format": "int32",
+          "description": "Orders Picked - Number of orders picked in pickwave.",
+          "type": "integer"
+        },
+        "AccumulatedInProgressSeconds": {
+          "format": "int32",
+          "description": "Time taken in pickwave",
+          "type": "integer"
+        },
+        "StartTime": {
+          "format": "date-time",
+          "description": "Start date time of pickwave",
+          "type": "string"
+        },
+        "EndTime": {
+          "format": "date-time",
+          "description": "End date time of pickwave",
+          "type": "string"
+        },
+        "GroupType": {
+          "description": "Pickwave group type",
+          "enum": [
+            "Items",
+            "Orders"
+          ],
+          "type": "string"
+        },
+        "Orders": {
+          "description": "Orders in pickwave.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickingWaveOrderDetailed"
+          }
+        },
+        "Options": {
+          "$ref": "#/definitions/PickingWaveOptions"
+        },
+        "PickingWaveId": {
+          "format": "int32",
+          "description": "Pickwave id",
+          "type": "integer"
+        },
+        "State": {
+          "description": "Current state of pickwave",
+          "enum": [
+            "Unallocated",
+            "Allocated",
+            "InProgress",
+            "Paused",
+            "Complete",
+            "Abandoned",
+            "Packing",
+            "Shipped"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "StockItemInfo": {
+      "description": "Basic stock item information",
+      "type": "object",
+      "properties": {
+        "SKU": {
+          "description": "Item SKU",
+          "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Item unique id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ItemTitle": {
+          "description": "Item Title",
+          "type": "string"
+        },
+        "Barcode": {
+          "description": "Barcode number on the item header",
+          "type": "string"
+        },
+        "PrimaryImageURL": {
+          "description": "Image URL",
+          "type": "string"
+        },
+        "Identifiers": {
+          "description": "Product identifiers",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemIdentifier"
+          }
+        }
+      }
+    },
+    "BinRackStockItem": {
+      "description": "Bin Rack",
+      "type": "object",
+      "properties": {
+        "BinRackId": {
+          "format": "int32",
+          "description": "Unique id for the binrack",
+          "type": "integer"
+        },
+        "StandardType": {
+          "format": "int32",
+          "description": "Bin Rack type name",
+          "type": "integer"
+        },
+        "BatchId": {
+          "format": "int32",
+          "description": "Batch id",
+          "type": "integer"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "description": "Batch inventory id",
+          "type": "integer"
+        },
+        "PrioritySequence": {
+          "format": "int32",
+          "description": "Consume priority sequence",
+          "type": "integer"
+        },
+        "BatchStatus": {
+          "description": "Batch status, \"Available\", \"Restricted\", \"Damaged\", \"Expired\"",
+          "type": "string"
+        },
+        "BinRack": {
+          "description": "BinRack name",
+          "type": "string"
+        },
+        "CurrentFullPercentage": {
+          "format": "double",
+          "description": "Maximum volumetric capacity of the location WxDxH = volumetric",
+          "type": "number"
+        },
+        "Quantity": {
+          "format": "int32",
+          "description": "Quantity available in the location",
+          "type": "integer"
+        },
+        "InTransit": {
+          "format": "int32",
+          "description": "Quantity of items currently in transit",
+          "type": "integer"
+        },
+        "PickedQuantity": {
+          "format": "int32",
+          "description": "Indicate how many units are now allocated in open orders",
+          "type": "integer"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "description": "0 - None, 1 - Order by sell by date, 2 - Ordered by priority sequence",
+          "type": "integer"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Product ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BatchNumber": {
+          "description": "Batch number",
+          "type": "string"
+        },
+        "ExpiresOn": {
+          "format": "date-time",
+          "description": "Batch expiry date",
+          "type": "string"
+        },
+        "SellBy": {
+          "format": "date-time",
+          "description": "Batch sell by date",
+          "type": "string"
+        },
+        "BinrackTypeName": {
+          "type": "string"
+        },
+        "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "PickingWaveOrderDetailed": {
+      "type": "object",
+      "properties": {
+        "PickingWaveOrdersRowId": {
+          "format": "int32",
+          "description": "Pickwave order id",
+          "type": "integer"
+        },
+        "PickingWaveId": {
+          "format": "int32",
+          "description": "Pickwave id",
+          "type": "integer"
+        },
+        "OrderId": {
+          "format": "int32",
+          "description": "Order Id",
+          "type": "integer"
+        },
+        "PickState": {
+          "description": "Pick state",
+          "enum": [
+            "Unpicked",
+            "PartialPicked",
+            "Picked",
+            "Processed",
+            "LockedOrParked",
+            "Cancelled",
+            "Deleted"
+          ],
+          "type": "string"
+        },
+        "SortOrder": {
+          "format": "int32",
+          "description": "Sort order",
+          "type": "integer"
+        },
+        "ItemCount": {
+          "format": "int32",
+          "description": "Items count",
+          "type": "integer"
+        },
+        "PickedItemsCount": {
+          "format": "int32",
+          "description": "Picked items count",
+          "type": "integer"
+        },
+        "Items": {
+          "description": "Pickwave order items.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickingWaveItemDetailed"
+          }
+        },
+        "Composition": {
+          "description": "Relationship between pickwave items and composite parent rows.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickingWaveItemComposition"
+          }
+        },
+        "OrderId_Guid": {
+          "format": "uuid",
+          "description": "Internal guid orderid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "IsProcessed": {
+          "description": "Is order processed",
+          "type": "boolean"
+        },
+        "IsCancelled": {
+          "description": "Is order hold or cancelled",
+          "type": "boolean"
+        },
+        "IsOnHold": {
+          "description": "Is order on hold status",
+          "type": "boolean"
+        },
+        "IsLocked": {
+          "description": "Is order locked.",
+          "type": "boolean"
+        },
+        "IsPaid": {
+          "description": "Is order paid",
+          "type": "boolean"
+        }
+      }
+    },
+    "StockItemIdentifier": {
+      "description": "Stock item identifiers.",
+      "type": "object",
+      "properties": {
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock item id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Type": {
+          "description": "Product identifier type",
+          "enum": [
+            "EAN",
+            "MPN",
+            "GTIN",
+            "UPC",
+            "ASIN",
+            "ISBN",
+            "Google",
+            "CustomID",
+            "PZN",
+            "GCID",
+            "ePID"
+          ],
+          "type": "string"
+        },
+        "Value": {
+          "description": "Product identifier",
+          "type": "string"
+        }
+      }
+    },
+    "PickingWaveItemDetailed": {
+      "type": "object",
+      "properties": {
+        "SortOrder": {
+          "format": "int32",
+          "description": "Sort order",
+          "type": "integer"
+        },
+        "ToPickQuantity": {
+          "format": "int32",
+          "description": "Quantity to pick",
+          "type": "integer"
+        },
+        "TOTId": {
+          "format": "int32",
+          "description": "ToT Id",
+          "type": "integer"
+        },
+        "TrayTag": {
+          "description": "Tray tag",
+          "type": "string"
+        },
+        "PickingTag": {
+          "description": "Picking tag",
+          "type": "string"
+        },
+        "PickingWaveItemsRowId": {
+          "format": "int32",
+          "description": "Pickwave item row id",
+          "type": "integer"
+        },
+        "PickingWaveId": {
+          "format": "int32",
+          "description": "Pickwave id",
+          "type": "integer"
+        },
+        "PickedQuantity": {
+          "format": "int32",
+          "description": "Quatity picked",
+          "type": "integer"
+        },
+        "ItemState": {
+          "description": "Pickwave item state",
+          "enum": [
+            "Normal",
+            "OrderStateInvalid",
+            "Abandonned",
+            "DeletedFromOrder"
+          ],
+          "type": "string"
+        },
+        "Totes": {
+          "description": "Collection of pickwave item totes.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickingWaveItemTote"
+          }
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "description": "Batch Inventory Id",
+          "type": "integer"
+        },
+        "OrderId": {
+          "format": "int32",
+          "description": "Linnworks Order Id",
+          "type": "integer"
+        },
+        "OrderItemRowId": {
+          "format": "uuid",
+          "description": "Unique order item row identifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "StockItemId",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "PickingWaveItemComposition": {
+      "type": "object",
+      "properties": {
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock item id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "OrderItemRowId": {
+          "format": "uuid",
+          "description": "Composite parent order item row id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Quantity": {
+          "format": "int32",
+          "description": "Quantity of composite.",
+          "type": "integer"
+        },
+        "Children": {
+          "description": "Child row relationships to parent",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickingWaveItemComposition"
+          }
+        }
+      }
+    },
+    "PickingWaveItemTote": {
+      "type": "object",
+      "properties": {
+        "RowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PickingWaveItemsRowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ToteId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TrayTag": {
+          "type": "string"
+        },
+        "PickedQuantity": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "GetPickingWaveRequest": {
+      "description": "Get pickwave request",
+      "type": "object",
+      "properties": {
+        "PickingWaveId": {
+          "format": "int32",
+          "description": "Pickwave id",
+          "type": "integer"
+        }
+      }
+    },
+    "Picking_UpdatePickingWaveItemRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/PickingWaveItemUpdateRequest",
+          "description": ""
+        }
+      }
+    },
+    "PickingWaveItemUpdateRequest": {
+      "description": "Pickwave item update request.",
+      "type": "object",
+      "properties": {
+        "WaveItemUpdates": {
+          "description": "List of pickwave items to update",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickingWaveItemUpdate"
+          }
+        }
+      }
+    },
+    "PickingWaveItemUpdate": {
+      "type": "object",
+      "properties": {
+        "PickingWaveItemsRowId": {
+          "format": "int32",
+          "description": "Pickwave item row id",
+          "type": "integer"
+        },
+        "TOTId": {
+          "format": "int32",
+          "description": "ToT Id",
+          "type": "integer"
+        },
+        "TrayTag": {
+          "description": "Tray tag",
+          "type": "string"
+        },
+        "PickingTag": {
+          "description": "Picking tag",
+          "type": "string"
+        },
+        "PickedQuantity": {
+          "format": "int32",
+          "description": "Picked quantity",
+          "type": "integer"
+        },
+        "OrderState": {
+          "description": "Order State",
+          "enum": [
+            "Unpicked",
+            "PartialPicked",
+            "Picked",
+            "Processed",
+            "LockedOrParked",
+            "Cancelled",
+            "Deleted"
+          ],
+          "type": "string"
+        },
+        "ItemState": {
+          "description": "Item State",
+          "enum": [
+            "Normal",
+            "OrderStateInvalid",
+            "Abandonned",
+            "DeletedFromOrder"
+          ],
+          "type": "string"
+        },
+        "ToPickQuantity": {
+          "format": "int32",
+          "description": "To Pick Quantity",
+          "type": "integer"
+        }
+      }
+    },
+    "PickingWaveUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "PickingWaveId": {
+          "format": "int32",
+          "description": "Pickwave id",
+          "type": "integer"
+        },
+        "UserId": {
+          "format": "int32",
+          "description": "Allocated user id, null will keep the current assigned user, -1 will de-allocated the user from the pickwave.",
+          "type": "integer"
+        },
+        "State": {
+          "description": "Current state of pickwave",
+          "enum": [
+            "Unallocated",
+            "Allocated",
+            "InProgress",
+            "Paused",
+            "Complete",
+            "Abandoned",
+            "Packing",
+            "Shipped"
+          ],
+          "type": "string"
+        },
+        "StartTime": {
+          "format": "date-time",
+          "description": "Start date time of pickwave",
+          "type": "string"
+        },
+        "EndTime": {
+          "format": "date-time",
+          "description": "End date time of pickwave",
+          "type": "string"
+        }
+      }
+    },
+    "PickingWaveGenerate": {
+      "type": "object",
+      "properties": {
+        "LocationId": {
+          "format": "uuid",
+          "description": "Location Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "UserId": {
+          "format": "int32",
+          "description": "Allocated user id",
+          "type": "integer"
+        },
+        "Orders": {
+          "description": "Pickwave items",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickingWaveGenerateOrder"
+          }
+        },
+        "Pickwaves": {
+          "description": "Collection of pickwaves and their orders to generate. All order singular or composite child row ids must be provided, if batches exist on the order item then batch id must be supplied);",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickingWaveGenerateMulti"
+          }
+        },
+        "GroupType": {
+          "description": "Pickwave group type",
+          "enum": [
+            "Items",
+            "Orders"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "PickingWaveGenerateOrder": {
+      "type": "object",
+      "properties": {
+        "OrderId": {
+          "format": "int32",
+          "description": "Order Id (Integer)",
+          "type": "integer"
+        }
+      }
+    },
+    "PickingWaveGenerateMulti": {
+      "type": "object",
+      "properties": {
+        "Orders": {
+          "description": "Orders",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickingWaveGenerateOrderMulti"
+          }
+        },
+        "GroupType": {
+          "description": "Pickwave group type (optional, if not set parent sort will be used)",
+          "enum": [
+            "Items",
+            "Orders"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "PickingWaveGenerateOrderMulti": {
+      "type": "object",
+      "properties": {
+        "Items": {
+          "description": "Items to be added to the pickwave.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickingWaveGenerateItemMulti"
+          }
+        },
+        "OrderId": {
+          "format": "int32",
+          "description": "Order Id (Integer)",
+          "type": "integer"
+        }
+      }
+    },
+    "PickingWaveGenerateItemMulti": {
+      "type": "object",
+      "properties": {
+        "OrderItemRowId": {
+          "format": "uuid",
+          "description": "Order item row id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "description": "Batch inventory id, if the item is batched or location is warehouse managed and id is not supplied then the whole order item will be added to the pickwave.",
+          "type": "integer"
+        }
+      }
+    },
+    "GeneratePickingWaveResponse": {
+      "type": "object",
+      "properties": {
+        "ValidationResults": {
+          "description": "Validation errors if generate fails.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickWaveAllocateCheckResult"
+          }
+        },
+        "PickingWaves": {
+          "description": "Pickwaves",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickingWaveDetailed"
+          }
+        },
+        "Skus": {
+          "description": "List of SKUs.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemInfo"
+          }
+        },
+        "Bins": {
+          "description": "List of bins and batches of items in the bins.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BinRackStockItem"
+          }
+        }
+      }
+    },
+    "PickWaveAllocateCheckResult": {
+      "description": "Pickwave allocated check result.",
+      "type": "object",
+      "properties": {
+        "OrderId": {
+          "format": "int32",
+          "description": "Order Id interger",
+          "type": "integer"
+        },
+        "OrderId_Guid": {
+          "format": "uuid",
+          "description": "Order Id uniqueidentifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Errors": {
+          "description": "Errors",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickWaveAllocateCheckResultError"
+          }
+        },
+        "HasErrors": {
+          "description": "Has Errors",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "OrderDetails": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickWaveAllocateCheckResultOrderDetails"
+          }
+        }
+      }
+    },
+    "PickWaveAllocateCheckResultError": {
+      "type": "object",
+      "properties": {
+        "Error": {
+          "description": "Error message",
+          "type": "string"
+        },
+        "ErrorType": {
+          "description": "Error type enum.",
+          "enum": [
+            "Unknown",
+            "NeedsStockAllocation",
+            "IsLocked",
+            "IsParked",
+            "IsInFulfilmentCentre",
+            "IsCancelled",
+            "IsProcessed",
+            "NoVaidItems",
+            "UnlinkedItem",
+            "AlreadyExistsInWave",
+            "OrderDoesntExist",
+            "AllCombinationOfItemsDontExist",
+            "DuplicateCombinationsOfItemsExist",
+            "DifferentLocation"
+          ],
+          "type": "string"
+        },
+        "OrderItemRowId": {
+          "format": "uuid",
+          "description": "Order item row id, if null or guid empty then top level order error.",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "PickWaveAllocateCheckResultOrderDetails": {
+      "description": "Order details return, flat data for order lines that can be used to create pickwaves",
+      "type": "object",
+      "properties": {
+        "LocationId": {
+          "format": "uuid",
+          "description": "Location the order resides in",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "OrderItemRowId": {
+          "format": "uuid",
+          "description": "Order item row id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "description": "Batch inventory id, if the order item contains batches.",
+          "type": "integer"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock item id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "SKU": {
+          "description": "SKU",
+          "type": "string"
+        },
+        "ItemTitle": {
+          "description": "Item title",
+          "type": "string"
+        },
+        "Binrack": {
+          "description": "Binrack",
+          "type": "string"
+        },
+        "BatchNumber": {
+          "description": "Batch number",
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "description": "Quantity on either order item row or allocated batch row.",
+          "type": "integer"
+        },
+        "RoutingSequence": {
+          "format": "int32",
+          "description": "(WMS only) Routing sequence of the binrack.",
+          "type": "integer"
+        }
+      }
+    },
+    "Picking_CheckAllocatableToPickwaveRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/CheckAllocatableToPickwaveRequest",
+          "description": ""
+        }
+      }
+    },
+    "CheckAllocatableToPickwaveRequest": {
+      "description": "Request for allocatioable orders to pickwave.",
+      "type": "object",
+      "properties": {
+        "OrderIds": {
+          "description": "List of integer order ids",
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "CheckAllocatableToPickwaveResponse": {
+      "description": "Check allocatable to pickwave response.",
+      "type": "object",
+      "properties": {
+        "Results": {
+          "description": "List of results",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickWaveAllocateCheckResult"
+          }
+        }
+      }
+    },
+    "GetPickwaveUsersWithSummaryResponse": {
+      "type": "object",
+      "properties": {
+        "PickingWaves": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickingWave"
+          }
+        }
+      }
+    },
+    "Picking_DeleteOrdersFromPickingWavesRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/DeleteOrdersFromPickingWavesRequest",
+          "description": ""
+        }
+      }
+    },
+    "DeleteOrdersFromPickingWavesRequest": {
+      "type": "object",
+      "properties": {
+        "OrderIds": {
+          "description": "List of Linnworks OrderIds",
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "DeleteOrdersFromPickingWavesResponse": {
+      "type": "object",
+      "properties": {
+        "ProcessedOrderIds": {
+          "description": "Order Ids that had pickwaves deleted from them",
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "NoPickwaves": {
+          "description": "OrderIds where there was no pickwave found against them",
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "GetItemBinracksRequest": {
+      "type": "object",
+      "properties": {
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock item Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockLocationId": {
+          "format": "uuid",
+          "description": "Linnworks stock location Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "CurrentBinRackSuggestion": {
+          "description": "The name of the location that is currently set to pick from",
+          "type": "string"
+        },
+        "IncludeNonPickLocations": {
+          "description": "If true, the response will also contain binracks that cannot be selected to pick from",
+          "type": "boolean"
+        }
+      }
+    },
+    "GetItemBinracksResponse": {
+      "type": "object",
+      "properties": {
+        "AlternateLocations": {
+          "description": "A list of other batches that are available in the given linnworks stock location",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemBatch"
+          }
+        },
+        "PickableBins": {
+          "description": "A list of stock that is available to pick from",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BinRackStockItem"
+          }
+        },
+        "NonPickableBins": {
+          "description": "A list of stock that cannot directly be picked from",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BinRackStockItem"
+          }
+        }
+      }
+    },
+    "StockItemBatch": {
+      "type": "object",
+      "properties": {
+        "BatchId": {
+          "format": "int32",
+          "description": "Batch ID",
+          "type": "integer"
+        },
+        "SKU": {
+          "description": "Product SKU",
+          "type": "string"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "description": "0 - None, 1 - Order by sell by date, 2 - Ordered by priority sequence",
+          "type": "integer"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Product ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BatchNumber": {
+          "description": "Batch number",
+          "type": "string"
+        },
+        "ExpiresOn": {
+          "format": "date-time",
+          "description": "Batch expiry date",
+          "type": "string"
+        },
+        "SellBy": {
+          "format": "date-time",
+          "description": "Batch sell by date",
+          "type": "string"
+        },
+        "Inventory": {
+          "description": "Batch records",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemBatchInventory"
+          }
+        },
+        "IsDeleted": {
+          "description": "Is the batch deleted",
+          "type": "boolean"
+        }
+      }
+    },
+    "StockItemBatchInventory": {
+      "type": "object",
+      "properties": {
+        "BatchInventoryId": {
+          "format": "int32",
+          "description": "Stock item batch record ID",
+          "type": "integer"
+        },
+        "BatchId": {
+          "format": "int32",
+          "description": "Batch ID",
+          "type": "integer"
+        },
+        "StockLocationId": {
+          "format": "uuid",
+          "description": "Location ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BinRack": {
+          "description": "BinRack",
+          "type": "string"
+        },
+        "PrioritySequence": {
+          "format": "int32",
+          "description": "Pick order",
+          "type": "integer"
+        },
+        "Quantity": {
+          "format": "int32",
+          "description": "Quantity",
+          "type": "integer"
+        },
+        "StockValue": {
+          "format": "double",
+          "description": "Current stock value",
+          "type": "number"
+        },
+        "StartQuantity": {
+          "format": "int32",
+          "description": "Quantity originally booked in",
+          "type": "integer",
+          "readOnly": true
+        },
+        "PickedQuantity": {
+          "format": "int32",
+          "description": "Indicate how many units are now allocated in open orders",
+          "type": "integer"
+        },
+        "BatchStatus": {
+          "description": "Batch Status",
+          "type": "string"
+        },
+        "IsDeleted": {
+          "description": "Is BatchInventory deleted",
+          "type": "boolean"
+        },
+        "WarehouseBinrackStandardType": {
+          "format": "int32",
+          "description": "Warehouse binrack standard type",
+          "type": "integer"
+        },
+        "WarehouseBinrackTypeName": {
+          "description": "Warehouse binrack type friendly name",
+          "type": "string"
+        },
+        "InTransfer": {
+          "format": "int32",
+          "description": "Number of items in Transfer phase.",
+          "type": "integer"
+        },
+        "BinRackId": {
+          "format": "int32",
+          "description": "Binrack Id (Use for WMS)",
+          "type": "integer"
+        },
+        "WarehouseBinrackTypeId": {
+          "format": "int32",
+          "description": "Warehouse binrack type unique id.",
+          "type": "integer"
+        }
+      }
+    },
+    "Picking_UpdatePickingWaveItemWithNewBinrackRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/UpdatePickingWaveItemWithNewBinrackRequest",
+          "description": ""
+        }
+      }
+    },
+    "UpdatePickingWaveItemWithNewBinrackRequest": {
+      "type": "object",
+      "properties": {
+        "PickingWaveId": {
+          "format": "int32",
+          "description": "Pickwave id",
+          "type": "integer"
+        },
+        "PickingWaveItemRowIds": {
+          "description": "List of pickwave item row ids to replace with the new location",
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "NewBatchInventoryId": {
+          "format": "int32",
+          "description": "The new batch inventory to pick",
+          "type": "integer"
+        },
+        "SortType": {
+          "description": "Dictates how the returned pickwave should be sorted",
+          "enum": [
+            "GoNow",
+            "ResortPickwave"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "UpdatePickedItemDeltaRequest": {
+      "type": "object",
+      "properties": {
+        "Deltas": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UpdatePickedItemDeltaRequestItem"
+          }
+        }
+      }
+    },
+    "UpdatePickedItemDeltaRequestItem": {
+      "type": "object",
+      "properties": {
+        "PickingWaveItemsRowId": {
+          "format": "int32",
+          "description": "Picking wave row id",
+          "type": "integer"
+        },
+        "ToteId": {
+          "format": "int32",
+          "description": "Tote id",
+          "type": "integer"
+        },
+        "TrayTag": {
+          "description": "Tray tag (optional)",
+          "type": "string"
+        },
+        "PickedQuantityDelta": {
+          "format": "int32",
+          "description": "Picked quantity delta",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
 }

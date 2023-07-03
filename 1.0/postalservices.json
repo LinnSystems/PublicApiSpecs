@@ -180,7 +180,6 @@
             "name": "postalServiceId",
             "in": "query",
             "description": "Postal service ID",
-            "required": true,
             "type": "string",
             "format": "uuid"
           }
@@ -259,16 +258,20 @@
         },
         "pkPostalServiceId": {
           "format": "uuid",
+          "description": "Postal service ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "TrackingNumberRequired": {
+          "description": "If tracking number required for this service",
           "type": "boolean"
         },
         "WeightRequired": {
+          "description": "If weight required for this service",
           "type": "boolean"
         },
         "IgnorePackagingGroup": {
+          "description": "If packaging group can be ignored",
           "type": "boolean"
         },
         "fkShippingAPIConfigId": {
@@ -287,16 +290,20 @@
       "properties": {
         "pkPostalServiceId": {
           "format": "uuid",
+          "description": "Postal service ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PostalServiceName": {
+          "description": "Postal service name",
           "type": "string"
         },
         "Source": {
+          "description": "ChannelName/Source (e.g. EBAY)",
           "type": "string"
         },
         "SubSource": {
+          "description": "Subsource name (e.g. EBAY1)",
           "type": "string"
         }
       }
@@ -306,19 +313,24 @@
       "properties": {
         "pkPostalServiceId": {
           "format": "uuid",
+          "description": "Postal service ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PostalServiceName": {
+          "description": "Postal service name",
           "type": "string"
         },
         "vendor": {
+          "description": "Courier name (e.g. Royal Mail)",
           "type": "string"
         },
         "accountid": {
+          "description": "Shipping account ID",
           "type": "string"
         },
         "vendorFriendlyName": {
+          "description": "Courier Friendly Name (e.g. FedEx (US) for ShipEngine)",
           "type": "string"
         }
       }
@@ -358,16 +370,20 @@
         },
         "pkPostalServiceId": {
           "format": "uuid",
+          "description": "Postal service ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "TrackingNumberRequired": {
+          "description": "If tracking number required for this service",
           "type": "boolean"
         },
         "WeightRequired": {
+          "description": "If weight required for this service",
           "type": "boolean"
         },
         "IgnorePackagingGroup": {
+          "description": "If packaging group can be ignored",
           "type": "boolean"
         },
         "fkShippingAPIConfigId": {
@@ -405,18 +421,23 @@
       "type": "object",
       "properties": {
         "Channel": {
+          "description": "ChannelName/Source (e.g. EBAY)",
           "type": "string"
         },
         "ChannelName": {
+          "description": "Subsource (e.g. EBAY1)",
           "type": "string"
         },
         "ChannelService": {
+          "description": "Channel shipping service name",
           "type": "string"
         },
         "ChannelTag": {
+          "description": "Channel shpping service tag",
           "type": "string"
         },
         "Site": {
+          "description": "Channel site",
           "type": "string"
         }
       }
