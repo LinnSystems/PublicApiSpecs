@@ -2405,14 +2405,17 @@
     "ProcessedOrderWeb": {
       "type": "object",
       "properties": {
-        "pkOrderID": {
-          "format": "uuid",
-          "description": "Order ID",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
+        "nOrderId": {
+          "format": "int32",
+          "description": "Linnworks order ID",
+          "type": "integer"
         },
-        "cShippingAddress": {
-          "description": "Customer's shipping address",
+        "ReferenceNum": {
+          "description": "Order reference number",
+          "type": "string"
+        },
+        "SubSource": {
+          "description": "Order subsource (e.g. EBAY1)",
           "type": "string"
         },
         "dReceivedDate": {
@@ -2425,67 +2428,12 @@
           "description": "Date when order was processed",
           "type": "string"
         },
-        "timeDiff": {
-          "format": "double",
-          "description": "Days elapsed between order received and order processed",
-          "type": "number"
-        },
-        "fPostageCost": {
-          "format": "double",
-          "description": "Order postage cost",
-          "type": "number"
-        },
-        "fTotalCharge": {
-          "format": "double",
-          "description": "Order total charge",
-          "type": "number"
-        },
-        "PostageCostExTax": {
-          "format": "double",
-          "description": "Postage cost excluding tax",
-          "type": "number"
-        },
-        "Subtotal": {
-          "format": "double",
-          "description": "Order subtotal",
-          "type": "number"
-        },
-        "fTax": {
-          "format": "double",
-          "description": "Order tax",
-          "type": "number"
-        },
-        "TotalDiscount": {
-          "format": "double",
-          "description": "Total discount",
-          "type": "number"
-        },
-        "ProfitMargin": {
-          "format": "double",
-          "description": "Profit margin",
-          "type": "number"
-        },
-        "CountryTaxRate": {
-          "format": "double",
-          "description": "Country specific tax rate",
-          "type": "number"
-        },
-        "nOrderId": {
-          "format": "int32",
-          "description": "Linnworks order ID",
-          "type": "integer"
-        },
-        "nStatus": {
-          "format": "int32",
-          "description": "Order status",
-          "type": "integer"
-        },
-        "cCurrency": {
-          "description": "Order currency",
+        "cFullName": {
+          "description": "Customer full name",
           "type": "string"
         },
-        "PostalTrackingNumber": {
-          "description": "Postal tracking number",
+        "cEmailAddress": {
+          "description": "Customer email address",
           "type": "string"
         },
         "cCountry": {
@@ -2500,19 +2448,44 @@
           "description": "Postal service name (e.g. Next day delivery)",
           "type": "string"
         },
+        "PostalTrackingNumber": {
+          "description": "Postal tracking number",
+          "type": "string"
+        },
+        "fTotalCharge": {
+          "format": "double",
+          "description": "Order total charge",
+          "type": "number"
+        },
+        "cCurrency": {
+          "description": "Order currency",
+          "type": "string"
+        },
+        "IsResend": {
+          "description": "If order was created from a resend",
+          "type": "boolean"
+        },
+        "nStatus": {
+          "format": "int32",
+          "description": "Order status",
+          "type": "integer"
+        },
+        "dCancelledOn": {
+          "format": "date-time",
+          "description": "When order was cancelled",
+          "type": "string"
+        },
+        "TaxId": {
+          "description": "Order tax id",
+          "type": "string"
+        },
+        "dPaidOn": {
+          "format": "date-time",
+          "description": "When order was marked as PAID",
+          "type": "string"
+        },
         "PostalServiceCode": {
           "description": "Postal service code",
-          "type": "string"
-        },
-        "Vendor": {
-          "description": "Courier name (e.g. DPD)",
-          "type": "string"
-        },
-        "BillingEmailAddress": {
-          "type": "string"
-        },
-        "ReferenceNum": {
-          "description": "Order reference number",
           "type": "string"
         },
         "SecondaryReference": {
@@ -2523,66 +2496,109 @@
           "description": "This is an additional reference number from the sales channel, typically used by eBay",
           "type": "string"
         },
-        "Address1": {
-          "description": "Order first line of address",
-          "type": "string"
-        },
-        "Address2": {
-          "description": "Order second line of address",
-          "type": "string"
-        },
-        "Address3": {
-          "description": "Order third line of address",
-          "type": "string"
-        },
-        "Town": {
-          "description": "Town",
+        "cPostCode": {
+          "description": "Post Code",
           "type": "string"
         },
         "Region": {
           "description": "Region, county, area",
           "type": "string"
         },
-        "BuyerPhoneNumber": {
-          "description": "Buyer phone number",
+        "Town": {
+          "description": "Town",
           "type": "string"
         },
-        "Company": {
-          "description": "Company",
+        "Address3": {
+          "description": "Order third line of address",
           "type": "string"
         },
-        "SubSource": {
-          "description": "Order subsource (e.g. EBAY1)",
+        "FulfilmentLocationName": {
+          "description": "Order fulfilment location",
           "type": "string"
         },
-        "ChannelBuyerName": {
-          "description": "Channel specific name used to identify the buyer, such as a username, normally used for eBay",
+        "Address1": {
+          "description": "Order first line of address",
           "type": "string"
         },
         "AccountName": {
           "description": "Customer channel account name",
           "type": "string"
         },
-        "cFullName": {
-          "description": "Customer full name",
+        "timeDiff": {
+          "format": "double",
+          "description": "Days elapsed between order received and order processed",
+          "type": "number"
+        },
+        "CountryTaxRate": {
+          "format": "double",
+          "description": "Country specific tax rate",
+          "type": "number"
+        },
+        "IsExchange": {
+          "description": "If order was created from an exchange",
+          "type": "boolean"
+        },
+        "fPostageCost": {
+          "format": "double",
+          "description": "Order postage cost",
+          "type": "number"
+        },
+        "fTax": {
+          "format": "double",
+          "description": "Order tax",
+          "type": "number"
+        },
+        "Subtotal": {
+          "format": "double",
+          "description": "Order subtotal",
+          "type": "number"
+        },
+        "Company": {
+          "description": "Company",
           "type": "string"
         },
-        "cEmailAddress": {
-          "description": "Customer email address",
+        "BuyerPhoneNumber": {
+          "description": "Buyer phone number",
           "type": "string"
         },
-        "cPostCode": {
-          "description": "Post Code",
+        "ChannelBuyerName": {
+          "description": "Channel specific name used to identify the buyer, such as a username, normally used for eBay",
           "type": "string"
         },
-        "dPaidOn": {
-          "format": "date-time",
-          "description": "When order was marked as PAID",
+        "Address2": {
+          "description": "Order second line of address",
           "type": "string"
         },
-        "dCancelledOn": {
-          "format": "date-time",
-          "description": "When order was cancelled",
+        "PostageCostExTax": {
+          "format": "double",
+          "description": "Postage cost excluding tax",
+          "type": "number"
+        },
+        "pkOrderID": {
+          "format": "uuid",
+          "description": "Order ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "cShippingAddress": {
+          "description": "Customer's shipping address",
+          "type": "string"
+        },
+        "TotalDiscount": {
+          "format": "double",
+          "description": "Total discount",
+          "type": "number"
+        },
+        "ProfitMargin": {
+          "format": "double",
+          "description": "Profit margin",
+          "type": "number"
+        },
+        "Vendor": {
+          "description": "Courier name (e.g. DPD)",
+          "type": "string"
+        },
+        "BillingEmailAddress": {
           "type": "string"
         },
         "PackageCategory": {
@@ -2654,22 +2670,6 @@
         "HoldOrCancel": {
           "description": "If order on hold or cancelled.",
           "type": "boolean"
-        },
-        "IsResend": {
-          "description": "If order was created from a resend",
-          "type": "boolean"
-        },
-        "IsExchange": {
-          "description": "If order was created from an exchange",
-          "type": "boolean"
-        },
-        "TaxId": {
-          "description": "Order tax id",
-          "type": "string"
-        },
-        "FulfilmentLocationName": {
-          "description": "Order fulfilment location",
-          "type": "string"
         }
       }
     },
