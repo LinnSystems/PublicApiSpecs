@@ -4166,7 +4166,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/InventoryStockLocation"
+                "$ref": "#/definitions/StockLocation"
               }
             }
           }
@@ -5539,12 +5539,6 @@
     "StockItemLabel": {
       "type": "object",
       "properties": {
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "ItemNumber": {
           "description": "Product SKU",
           "type": "string"
@@ -5572,6 +5566,12 @@
         },
         "LocationId": {
           "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
@@ -10514,20 +10514,59 @@
         }
       }
     },
-    "InventoryStockLocation": {
-      "description": "Simplified StockLocation information for use in settings screen",
+    "StockLocation": {
+      "description": "Stock Location",
       "type": "object",
       "properties": {
+        "Address1": {
+          "description": "1st line of address",
+          "type": "string"
+        },
+        "Address2": {
+          "description": "2nd line of address",
+          "type": "string"
+        },
+        "City": {
+          "description": "City",
+          "type": "string"
+        },
+        "County": {
+          "description": "County / Region",
+          "type": "string"
+        },
+        "Country": {
+          "description": "Country",
+          "type": "string"
+        },
+        "ZipCode": {
+          "description": "Postal code",
+          "type": "string"
+        },
+        "IsNotTrackable": {
+          "description": "Not trackable",
+          "type": "boolean"
+        },
+        "LocationTag": {
+          "description": "Location tag",
+          "type": "string"
+        },
+        "CountInOrderUntilAcknowledgement": {
+          "description": "Count in order",
+          "type": "boolean"
+        },
+        "FulfilmentCenterDeductStockWhenProcessed": {
+          "description": "Fulfilment center and stock will be deducted when order processed",
+          "type": "boolean"
+        },
+        "IsWarehouseManaged": {
+          "description": "Indicates if the location is warehouse managed.",
+          "type": "boolean"
+        },
         "StockLocationId": {
           "format": "uuid",
           "description": "Location ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "StockLocationIntId": {
-          "format": "int32",
-          "description": "Stock location integet id",
-          "type": "integer"
         },
         "LocationName": {
           "description": "Location name",
@@ -10537,17 +10576,10 @@
           "description": "If location is a fulfilment center",
           "type": "boolean"
         },
-        "LocationTag": {
-          "description": "Location tag",
-          "type": "string"
-        },
-        "BinRack": {
-          "description": "Bin rack",
-          "type": "string"
-        },
-        "IsWarehouseManaged": {
-          "description": "If the location is warehosue managed.",
-          "type": "boolean"
+        "StockLocationIntId": {
+          "format": "int32",
+          "description": "Stock location integer id.",
+          "type": "integer"
         }
       }
     },

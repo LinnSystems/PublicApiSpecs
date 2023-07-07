@@ -2873,7 +2873,7 @@
       "properties": {
         "Location": {
           "$ref": "#/definitions/InventoryStockLocation",
-          "description": "Location ID"
+          "description": "Location details\r\nBe careful! Not always all the fields are populated!"
         },
         "StockLevel": {
           "format": "int32",
@@ -3173,39 +3173,31 @@
       }
     },
     "InventoryStockLocation": {
-      "description": "Simplified StockLocation information for use in settings screen",
       "type": "object",
       "properties": {
         "StockLocationId": {
           "format": "uuid",
-          "description": "Location ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockLocationIntId": {
           "format": "int32",
-          "description": "Stock location integet id",
           "type": "integer"
         },
         "LocationName": {
-          "description": "Location name",
+          "type": "string"
+        },
+        "LocationTag": {
           "type": "string"
         },
         "IsFulfillmentCenter": {
-          "description": "If location is a fulfilment center",
           "type": "boolean"
-        },
-        "LocationTag": {
-          "description": "Location tag",
-          "type": "string"
-        },
-        "BinRack": {
-          "description": "Bin rack",
-          "type": "string"
         },
         "IsWarehouseManaged": {
-          "description": "If the location is warehosue managed.",
           "type": "boolean"
+        },
+        "BinRack": {
+          "type": "string"
         }
       }
     },
