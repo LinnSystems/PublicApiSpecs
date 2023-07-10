@@ -6684,17 +6684,17 @@
     "ConfigItem_String": {
       "type": "object",
       "properties": {
-        "pkPropertyId": {
-          "format": "int32",
-          "type": "integer",
-          "readOnly": true
-        },
         "Loaded": {
           "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
           "type": "boolean",
+          "readOnly": true
+        },
+        "pkPropertyId": {
+          "format": "int32",
+          "type": "integer",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6709,17 +6709,17 @@
     "ConfigItem_Boolean": {
       "type": "object",
       "properties": {
-        "pkPropertyId": {
-          "format": "int32",
-          "type": "integer",
-          "readOnly": true
-        },
         "Loaded": {
           "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
           "type": "boolean",
+          "readOnly": true
+        },
+        "pkPropertyId": {
+          "format": "int32",
+          "type": "integer",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6779,13 +6779,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6805,17 +6805,17 @@
         "OnGetSelectionList": {
           "$ref": "#/definitions/GetSelectionList_SelectStringValueOption"
         },
-        "pkPropertyId": {
-          "format": "int32",
-          "type": "integer",
-          "readOnly": true
-        },
         "Loaded": {
           "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
           "type": "boolean",
+          "readOnly": true
+        },
+        "pkPropertyId": {
+          "format": "int32",
+          "type": "integer",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6830,17 +6830,17 @@
     "ConfigProperty_Boolean": {
       "type": "object",
       "properties": {
-        "pkPropertyId": {
-          "format": "int32",
-          "type": "integer",
-          "readOnly": true
-        },
         "Loaded": {
           "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
           "type": "boolean",
+          "readOnly": true
+        },
+        "pkPropertyId": {
+          "format": "int32",
+          "type": "integer",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6867,17 +6867,17 @@
     "ConfigItem_Int32": {
       "type": "object",
       "properties": {
-        "pkPropertyId": {
-          "format": "int32",
-          "type": "integer",
-          "readOnly": true
-        },
         "Loaded": {
           "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
           "type": "boolean",
+          "readOnly": true
+        },
+        "pkPropertyId": {
+          "format": "int32",
+          "type": "integer",
           "readOnly": true
         },
         "PropertyValue": {
