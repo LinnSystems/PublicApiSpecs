@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "version": "warehousetransfer",
-    "title": "Warehouse Transfer API"
+    "title": "Warehouse Transfer (Legacy) API"
   },
   "host": "eu-ext.linnworks.net",
   "schemes": [

@@ -47,4 +47,6 @@ pipelines:
                 - npx rdme@v8 openapi '1.0/shippingservice.json' --key=$key --id=645ba12607bd6515d9f529b6
                 - npx rdme@v8 openapi '1.0/stock.json' --key=$key --id=643e784d123d7e0025573244
                 - npx rdme@v8 openapi '1.0/warehousetransfer.json' --key=$key --id=646605889e893a087456d352
+                - npx rdme@v8 openapi '1.0/warehousetransfer-new.json' --key=$key --id=64ae7846fccefe0056422c8d
                 - npx rdme@v8 openapi '1.0/wms.json' --key=$key --id=64663af3ed0b0308d428071a
+                - npx rdme@v8 openapi '2.0/warehousetransfer-v2.json' --key=$key --id=64ae78db3ff6b10051714af9
