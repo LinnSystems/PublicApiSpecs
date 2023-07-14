@@ -6248,6 +6248,11 @@
           "description": "UTC received date/time of the order",
           "type": "string"
         },
+        "UpdatedDate": {
+          "format": "date-time",
+          "description": "UTC date/time the order was last updated at",
+          "type": "string"
+        },
         "DispatchBy": {
           "format": "date-time",
           "description": "UTC date/time the order should be despatched by",

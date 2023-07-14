@@ -9,6 +9,42 @@
     "https"
   ],
   "paths": {
+    "/api/Inventory/UpdateInventoryItemPrices": {
+      "post": {
+        "tags": [
+          "Inventory"
+        ],
+        "summary": "UpdateInventoryItemPrices",
+        "description": "Use this call to update stock item prices\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "operationId": "UpdateInventoryItemPrices",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Inventory_UpdateInventoryItemPricesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Inventory_UpdateInventoryItemPricesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/Inventory/DeleteInventoryItemPrices": {
       "post": {
         "tags": [
@@ -5118,6 +5154,54 @@
         ]
       }
     },
+    "/api/Inventory/GetStockSupplierStatsBulk": {
+      "get": {
+        "tags": [
+          "Inventory"
+        ],
+        "summary": "GetStockSupplierStatsBulk",
+        "description": "Use this call to retrieve report about \"item supplier stat\"",
+        "operationId": "GetStockSupplierStatsBulk",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "inventoryItemIds",
+            "in": "query",
+            "description": "Used to specify report stock item ids",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StockItemSupplierStat"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/Inventory/CreateStockSupplierStat": {
       "post": {
         "tags": [
@@ -5305,56 +5389,74 @@
           }
         ]
       }
-    },
-    "/api/Inventory/UpdateInventoryItemPrices": {
-      "post": {
-        "tags": [
-          "Inventory"
-        ],
-        "summary": "UpdateInventoryItemPrices",
-        "description": "Use this call to update stock item prices\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
-        "operationId": "UpdateInventoryItemPrices",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "Inventory_UpdateInventoryItemPricesRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Inventory_UpdateInventoryItemPricesRequest"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        },
-        "security": [
-          {
-            "token": [
-              "token"
-            ]
-          }
-        ]
-      }
     }
   },
   "definitions": {
-    "Inventory_DeleteInventoryItemPricesRequest": {
+    "Inventory_UpdateInventoryItemPricesRequest": {
       "type": "object",
       "properties": {
-        "inventoryItemPriceIds": {
-          "description": "List of stock item prices",
+        "inventoryItemPrices": {
+          "description": "List of stock item prices to update",
           "type": "array",
           "items": {
-            "format": "uuid",
-            "type": "string",
-            "example": "00000000-0000-0000-0000-000000000000"
+            "$ref": "#/definitions/StockItemPrice"
           }
+        }
+      }
+    },
+    "StockItemPrice": {
+      "type": "object",
+      "properties": {
+        "Rules": {
+          "description": "Pricing rule",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemPricingRule"
+          }
+        },
+        "pkRowId": {
+          "format": "uuid",
+          "description": "Record row ID (generate random)",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Source": {
+          "description": "ChannelName/Source (e.g. EBAY)",
+          "type": "string"
+        },
+        "SubSource": {
+          "description": "SubSource (e.g. EBAY1)",
+          "type": "string"
+        },
+        "Price": {
+          "format": "double",
+          "description": "Channel price",
+          "type": "number"
+        },
+        "Tag": {
+          "description": "Product price tag",
+          "type": "string"
+        },
+        "UpdateStatus": {
+          "enum": [
+            "NoChange",
+            "Pending",
+            "SentNotConfirmed",
+            "Success",
+            "Error"
+          ],
+          "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "description": "Stock Item interger Id",
+          "type": "integer"
         }
       }
     },
@@ -5385,6 +5487,20 @@
           "format": "double",
           "description": "Value/Price level",
           "type": "number"
+        }
+      }
+    },
+    "Inventory_DeleteInventoryItemPricesRequest": {
+      "type": "object",
+      "properties": {
+        "inventoryItemPriceIds": {
+          "description": "List of stock item prices",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
         }
       }
     },
@@ -6574,6 +6690,12 @@
         "ConfigDiscount": {
           "$ref": "#/definitions/ConfigPropertySelectionList_SelectStringValueOption_String"
         },
+        "OrderDownloadErrorCount": {
+          "$ref": "#/definitions/ConfigItem_Int32"
+        },
+        "OrderDownloadGlobalErrorCount": {
+          "$ref": "#/definitions/ConfigItem_Int32"
+        },
         "HidesHeaderAttributes": {
           "$ref": "#/definitions/ConfigProperty_Boolean"
         },
@@ -6684,13 +6806,13 @@
     "ConfigItem_String": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6709,13 +6831,13 @@
     "ConfigItem_Boolean": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6805,13 +6927,13 @@
         "OnGetSelectionList": {
           "$ref": "#/definitions/GetSelectionList_SelectStringValueOption"
         },
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6827,16 +6949,42 @@
         }
       }
     },
-    "ConfigProperty_Boolean": {
+    "ConfigItem_Int32": {
       "type": "object",
       "properties": {
+        "pkPropertyId": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
         "Loaded": {
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "PropertyValue": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PropertyType": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "ConfigProperty_Boolean": {
+      "type": "object",
+      "properties": {
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6860,32 +7008,6 @@
           "items": {
             "$ref": "#/definitions/ConfigStockLocation"
           },
-          "readOnly": true
-        }
-      }
-    },
-    "ConfigItem_Int32": {
-      "type": "object",
-      "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
-        "pkPropertyId": {
-          "format": "int32",
-          "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
-        "PropertyValue": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "PropertyType": {
-          "type": "string",
           "readOnly": true
         }
       }
@@ -7956,6 +8078,12 @@
         },
         "ConfigDiscount": {
           "$ref": "#/definitions/ConfigPropertySelectionList_SelectStringValueOption_String"
+        },
+        "OrderDownloadErrorCount": {
+          "$ref": "#/definitions/ConfigItem_Int32"
+        },
+        "OrderDownloadGlobalErrorCount": {
+          "$ref": "#/definitions/ConfigItem_Int32"
         },
         "HidesHeaderAttributes": {
           "$ref": "#/definitions/ConfigProperty_Boolean"
@@ -11230,79 +11358,11 @@
         }
       }
     },
-    "StockItemPrice": {
-      "type": "object",
-      "properties": {
-        "Rules": {
-          "description": "Pricing rule",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/StockItemPricingRule"
-          }
-        },
-        "pkRowId": {
-          "format": "uuid",
-          "description": "Record row ID (generate random)",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "Source": {
-          "description": "ChannelName/Source (e.g. EBAY)",
-          "type": "string"
-        },
-        "SubSource": {
-          "description": "SubSource (e.g. EBAY1)",
-          "type": "string"
-        },
-        "Price": {
-          "format": "double",
-          "description": "Channel price",
-          "type": "number"
-        },
-        "Tag": {
-          "description": "Product price tag",
-          "type": "string"
-        },
-        "UpdateStatus": {
-          "enum": [
-            "NoChange",
-            "Pending",
-            "SentNotConfirmed",
-            "Success",
-            "Error"
-          ],
-          "type": "string"
-        },
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "StockItemIntId": {
-          "format": "int32",
-          "description": "Stock Item interger Id",
-          "type": "integer"
-        }
-      }
-    },
     "Inventory_CreateInventoryItemPricesRequest": {
       "type": "object",
       "properties": {
         "inventoryItemPrices": {
           "description": "List of stock item prices to create",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/StockItemPrice"
-          }
-        }
-      }
-    },
-    "Inventory_UpdateInventoryItemPricesRequest": {
-      "type": "object",
-      "properties": {
-        "inventoryItemPrices": {
-          "description": "List of stock item prices to update",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemPrice"
