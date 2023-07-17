@@ -699,6 +699,9 @@
         "RebuildCacheIfRequired": {
           "description": "If only the currently built stats are required, pass false here. Useful for polling whether a long running cache build has finished\r\nThe default is true.",
           "type": "boolean"
+        },
+        "RecalculateViewIfRequired": {
+          "type": "boolean"
         }
       }
     },
