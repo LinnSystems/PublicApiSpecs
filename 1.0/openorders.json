@@ -671,6 +671,49 @@
           }
         ]
       }
+    },
+    "/api/OpenOrders/MarkReadyForCollection": {
+      "post": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "MarkReadyForCollection",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode",
+        "operationId": "MarkReadyForCollection",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/MarkReadyForCollectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GenericOrderOperationResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
     }
   },
   "definitions": {
@@ -2758,6 +2801,40 @@
             "Sufficient_PO"
           ],
           "type": "string"
+        }
+      }
+    },
+    "MarkReadyForCollectionRequest": {
+      "type": "object",
+      "properties": {
+        "OrderIds": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "GenericOrderOperationResult": {
+      "type": "object",
+      "properties": {
+        "SuccessfulOrders": {
+          "description": "List of orders that were moved",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "KeyedErrors": {
+          "description": "Dictionary of keyed errors. These are the same errors as per the Errors property, but indexable by orderId",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
         }
       }
     }
