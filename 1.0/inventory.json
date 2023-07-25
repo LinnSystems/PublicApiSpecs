@@ -5655,6 +5655,12 @@
     "StockItemLabel": {
       "type": "object",
       "properties": {
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
         "ItemNumber": {
           "description": "Product SKU",
           "type": "string"
@@ -5682,12 +5688,6 @@
         },
         "LocationId": {
           "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
@@ -6542,9 +6542,6 @@
           ],
           "type": "string"
         },
-        "Site": {
-          "type": "string"
-        },
         "Value": {
           "type": "string"
         },
@@ -6553,6 +6550,9 @@
           "type": "string"
         },
         "ModifiedUserName": {
+          "type": "string"
+        },
+        "Site": {
           "type": "string"
         }
       }
@@ -9595,22 +9595,22 @@
     "StockItemChannelSKU": {
       "type": "object",
       "properties": {
+        "SKU": {
+          "description": "Product SKU number",
+          "type": "string"
+        },
+        "SubSource": {
+          "description": "Region code",
+          "type": "string"
+        },
         "ChannelSKURowId": {
           "format": "uuid",
           "description": "RowId of channel SKU",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
-        "SKU": {
-          "description": "Product SKU number",
-          "type": "string"
-        },
         "Source": {
           "description": "ChannelName/Source (e.g. EBAY)",
-          "type": "string"
-        },
-        "SubSource": {
-          "description": "Region code",
           "type": "string"
         },
         "UpdateStatus": {
