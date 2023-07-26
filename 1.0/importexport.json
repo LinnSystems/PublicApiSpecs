@@ -617,24 +617,24 @@
           "format": "int32",
           "type": "integer"
         },
-        "Order": {
-          "format": "int32",
-          "type": "integer"
-        },
         "Name": {
           "type": "string"
         },
-        "OwnerId": {
-          "format": "int32",
-          "type": "integer"
+        "ScheduleXML": {
+          "type": "string"
         },
         "Migrated": {
           "format": "int32",
           "description": "DST migration flag.\r\n<remarks>\r\n 0 - not migrated;\r\n 1 - migrated;\r\n 2 - migration failed;\r\n</remarks>",
           "type": "integer"
         },
-        "ScheduleXML": {
-          "type": "string"
+        "Order": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "OwnerId": {
+          "format": "int32",
+          "type": "integer"
         },
         "Configuration": {
           "$ref": "#/definitions/ScheduleConfiguration"
