@@ -15,7 +15,7 @@
           "Inventory"
         ],
         "summary": "UpdateInventoryItemPrices",
-        "description": "Use this call to update stock item prices\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to update stock item prices\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "UpdateInventoryItemPrices",
         "consumes": [
           "application/json"
@@ -51,7 +51,7 @@
           "Inventory"
         ],
         "summary": "DeleteInventoryItemPrices",
-        "description": "Use this call to delete stock item prices\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to delete stock item prices\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteInventoryItemPrices",
         "consumes": [
           "application/json"
@@ -87,7 +87,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemPriceChannelSuffixes",
-        "description": "Use this call to get all possible price change subsource suffices for all channels",
+        "description": "Use this call to get all possible price change subsource suffices for all channels\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetInventoryItemPriceChannelSuffixes",
         "consumes": [],
         "produces": [
@@ -125,7 +125,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemPriceTags",
-        "description": "Use this call to get all possible price change tags for all channels",
+        "description": "Use this call to get all possible price change tags for all channels\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetInventoryItemPriceTags",
         "consumes": [],
         "produces": [
@@ -163,7 +163,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemPriceRulesById",
-        "description": "Use this call to get stock item price rules by price id",
+        "description": "Use this call to get stock item price rules by price id\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetInventoryItemPriceRulesById",
         "consumes": [],
         "produces": [
@@ -207,7 +207,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemPriceRulesBySource",
-        "description": "Use this call to get stock item price rules by item id, source and subsource",
+        "description": "Use this call to get stock item price rules by item id, source and subsource\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetInventoryItemPriceRulesBySource",
         "consumes": [],
         "produces": [
@@ -263,7 +263,7 @@
           "Inventory"
         ],
         "summary": "CreateInventoryItemPricingRules",
-        "description": "Use this call to create stock item price rules\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to create stock item price rules\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateInventoryItemPricingRules",
         "consumes": [
           "application/json"
@@ -299,7 +299,7 @@
           "Inventory"
         ],
         "summary": "DeleteInventoryItemPricingRules",
-        "description": "Use this call to update stock item price rules\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to update stock item price rules\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteInventoryItemPricingRules",
         "consumes": [
           "application/json"
@@ -335,7 +335,7 @@
           "Inventory"
         ],
         "summary": "UpdateInventoryItemPricingRules",
-        "description": "Use this call to update stock item price rules\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to update stock item price rules\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateInventoryItemPricingRules",
         "consumes": [
           "application/json"
@@ -371,7 +371,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemDescriptions",
-        "description": "Use this call to get stockitem Descriptions",
+        "description": "Use this call to get stockitem Descriptions\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetInventoryItemDescriptions",
         "consumes": [],
         "produces": [
@@ -415,7 +415,7 @@
           "Inventory"
         ],
         "summary": "CreateInventoryItemDescriptions",
-        "description": "Use this call to create stockitem Descriptions\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to create stockitem Descriptions\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateInventoryItemDescriptions",
         "consumes": [
           "application/json"
@@ -451,7 +451,7 @@
           "Inventory"
         ],
         "summary": "UpdateInventoryItemDescriptions",
-        "description": "Use this call to update stockitem Descriptions\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to update stockitem Descriptions\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateInventoryItemDescriptions",
         "consumes": [
           "application/json"
@@ -487,7 +487,7 @@
           "Inventory"
         ],
         "summary": "DeleteInventoryItemDescriptions",
-        "description": "Use this call to delete stockitem Descriptions\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to delete stockitem Descriptions\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteInventoryItemDescriptions",
         "consumes": [
           "application/json"
@@ -523,7 +523,7 @@
           "Inventory"
         ],
         "summary": "GetStockItemLabels",
-        "description": "Use this call to get labels by search token",
+        "description": "Use this call to get labels by search token\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetStockItemLabels",
         "consumes": [
           "application/json"
@@ -570,7 +570,7 @@
           "Inventory"
         ],
         "summary": "GetBatchesByStockItemId",
-        "description": "Used to get batch info for stock item for all locations",
+        "description": "Used to get batch info for stock item for all locations\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetBatchesByStockItemId",
         "consumes": [],
         "produces": [
@@ -627,7 +627,7 @@
           "Inventory"
         ],
         "summary": "GetBatchInventoryById",
-        "description": "Retruns batch header and only batch inventory for provided batch\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode",
+        "description": "Retruns batch header and only batch inventory for provided batch\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetBatchInventoryById",
         "consumes": [
           "application/json"
@@ -671,7 +671,7 @@
           "Inventory"
         ],
         "summary": "GetStockItemBatchesByLocation",
-        "description": "Used to get batch info by stock item id and location id\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode",
+        "description": "Used to get batch info by stock item id and location id\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetStockItemBatchesByLocation",
         "consumes": [
           "application/json"
@@ -715,7 +715,7 @@
           "Inventory"
         ],
         "summary": "GetBatchAudit",
-        "description": "Get audit trail for batches\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode",
+        "description": "Get audit trail for batches\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetBatchAudit",
         "consumes": [
           "application/json"
@@ -759,7 +759,7 @@
           "Inventory"
         ],
         "summary": "DeleteBatchInventoryInBulk",
-        "description": "Used to delete batch inventory info\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Used to delete batch inventory info\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteBatchInventoryInBulk",
         "consumes": [
           "application/json"
@@ -795,7 +795,7 @@
           "Inventory"
         ],
         "summary": "DeleteBatchesByStockItemId",
-        "description": "Used to delete batches by stock item id\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Used to delete batches by stock item id\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteBatchesByStockItemId",
         "consumes": [
           "application/json"
@@ -831,7 +831,7 @@
           "Inventory"
         ],
         "summary": "UpdateBatchesWithInventory",
-        "description": "Used to update batches and batch inventory info\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Used to update batches and batch inventory info\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateBatchesWithInventory",
         "consumes": [
           "application/json"
@@ -867,7 +867,7 @@
           "Inventory"
         ],
         "summary": "CreateBatches",
-        "description": "Used to create new batches",
+        "description": "Used to create new batches\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateBatches",
         "consumes": [
           "application/json"
@@ -903,7 +903,7 @@
           "Inventory"
         ],
         "summary": "HasStockItemBatches",
-        "description": "Used to check if stock item has batches",
+        "description": "Used to check if stock item has batches\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "HasStockItemBatches",
         "consumes": [],
         "produces": [
@@ -944,7 +944,7 @@
           "Inventory"
         ],
         "summary": "UpdateCompositeParentStockLevel",
-        "description": "Updates the stock level of the composite parent item\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Updates the stock level of the composite parent item\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateCompositeParentStockLevel",
         "consumes": [
           "application/json"
@@ -989,7 +989,7 @@
           "Inventory"
         ],
         "summary": "GetEbayCompatibilityList",
-        "description": "Use this call to get a list of Ebay Compatibility\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode",
+        "description": "Use this call to get a list of Ebay Compatibility\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetEbayCompatibilityList",
         "consumes": [],
         "produces": [
@@ -1033,7 +1033,7 @@
           "Inventory"
         ],
         "summary": "InsertUpdateEbayCompatibilityList",
-        "description": "Use this call to insert and update a list of Ebay Compatibility\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode",
+        "description": "Use this call to insert and update a list of Ebay Compatibility\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "InsertUpdateEbayCompatibilityList",
         "consumes": [
           "application/json"
@@ -1077,7 +1077,7 @@
           "Inventory"
         ],
         "summary": "DeleteEbayCompatibilityList",
-        "description": "Use this call to delete a list of Ebay Compatibility\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode",
+        "description": "Use this call to delete a list of Ebay Compatibility\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteEbayCompatibilityList",
         "consumes": [
           "application/json"
@@ -1121,7 +1121,7 @@
           "Inventory"
         ],
         "summary": "GetScrapCategories",
-        "description": "Used to get scrap categories\n<b>Permissions Required: </b> GlobalPermissions.Inventory.ScrapItemsNode",
+        "description": "Used to get scrap categories\n<b>Permissions Required: </b> GlobalPermissions.Inventory.ScrapItemsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetScrapCategories",
         "consumes": [],
         "produces": [
@@ -1153,7 +1153,7 @@
           "Inventory"
         ],
         "summary": "AddScrapCategories",
-        "description": "Used to add scrap categories\n<b>Permissions Required: </b> GlobalPermissions.Inventory.ScrapItems.ScrapCategoriesNode",
+        "description": "Used to add scrap categories\n<b>Permissions Required: </b> GlobalPermissions.Inventory.ScrapItems.ScrapCategoriesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddScrapCategories",
         "consumes": [
           "application/json"
@@ -1197,7 +1197,7 @@
           "Inventory"
         ],
         "summary": "DeleteScrapCategories",
-        "description": "Used to delete scrap categories\n<b>Permissions Required: </b> GlobalPermissions.Inventory.ScrapItems.ScrapCategoriesNode",
+        "description": "Used to delete scrap categories\n<b>Permissions Required: </b> GlobalPermissions.Inventory.ScrapItems.ScrapCategoriesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteScrapCategories",
         "consumes": [
           "application/json"
@@ -1233,7 +1233,7 @@
           "Inventory"
         ],
         "summary": "UpdateScrapCategories",
-        "description": "Used to update scrap categories\n<b>Permissions Required: </b> GlobalPermissions.Inventory.ScrapItems.ScrapCategoriesNode",
+        "description": "Used to update scrap categories\n<b>Permissions Required: </b> GlobalPermissions.Inventory.ScrapItems.ScrapCategoriesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateScrapCategories",
         "consumes": [
           "application/json"
@@ -1269,7 +1269,7 @@
           "Inventory"
         ],
         "summary": "GetScrapHistory",
-        "description": "Used to get scrap history\n<b>Permissions Required: </b> GlobalPermissions.Inventory.ScrapItems.ScrapHistoryNode",
+        "description": "Used to get scrap history\n<b>Permissions Required: </b> GlobalPermissions.Inventory.ScrapItems.ScrapHistoryNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetScrapHistory",
         "consumes": [
           "application/json"
@@ -1313,7 +1313,7 @@
           "Inventory"
         ],
         "summary": "AddScrapItem",
-        "description": "Used to add scrap item\n<b>Permissions Required: </b> GlobalPermissions.Inventory.ScrapItems.ScrapStockNode",
+        "description": "Used to add scrap item\n<b>Permissions Required: </b> GlobalPermissions.Inventory.ScrapItems.ScrapStockNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddScrapItem",
         "consumes": [
           "application/json"
@@ -1357,7 +1357,7 @@
           "Inventory"
         ],
         "summary": "ScrapBatchedItem",
-        "description": "Used to scrap batched item\n<b>Permissions Required: </b> GlobalPermissions.Inventory.ScrapItems.ScrapStockNode",
+        "description": "Used to scrap batched item\n<b>Permissions Required: </b> GlobalPermissions.Inventory.ScrapItems.ScrapStockNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ScrapBatchedItem",
         "consumes": [
           "application/json"
@@ -1401,7 +1401,7 @@
           "Inventory"
         ],
         "summary": "BulkScrapBatchedItems",
-        "description": "Scrap batched items in bulk without consumption\n<b>Permissions Required: </b> GlobalPermissions.Inventory.ScrapItems.ScrapStockNode",
+        "description": "Scrap batched items in bulk without consumption\n<b>Permissions Required: </b> GlobalPermissions.Inventory.ScrapItems.ScrapStockNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "BulkScrapBatchedItems",
         "consumes": [
           "application/json"
@@ -1437,7 +1437,7 @@
           "Inventory"
         ],
         "summary": "GetProductIdentifiersByStockItemId",
-        "description": "Used to get product identifiers for a stock item\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode",
+        "description": "Used to get product identifiers for a stock item\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetProductIdentifiersByStockItemId",
         "consumes": [
           "application/json"
@@ -1481,7 +1481,7 @@
           "Inventory"
         ],
         "summary": "AddProductIdentifiers",
-        "description": "Used to add product identifiers\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Used to add product identifiers\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "AddProductIdentifiers",
         "consumes": [
           "application/json"
@@ -1517,7 +1517,7 @@
           "Inventory"
         ],
         "summary": "UpdateProductIdentifiers",
-        "description": "Used to update product identifiers\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Used to update product identifiers\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateProductIdentifiers",
         "consumes": [
           "application/json"
@@ -1553,7 +1553,7 @@
           "Inventory"
         ],
         "summary": "DeleteProductIdentifiers",
-        "description": "Used to delete product identifiers\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Used to delete product identifiers\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteProductIdentifiers",
         "consumes": [
           "application/json"
@@ -1589,7 +1589,7 @@
           "Inventory"
         ],
         "summary": "GetProductIdentifierTypes",
-        "description": "Use this call to get available Product Identifier types\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode",
+        "description": "Use this call to get available Product Identifier types\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetProductIdentifierTypes",
         "consumes": [],
         "produces": [
@@ -1621,7 +1621,7 @@
           "Inventory"
         ],
         "summary": "GetProductIdentifiersBulkByStockItemId",
-        "description": "Used to get product identifiers for multiple stock items\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode",
+        "description": "Used to get product identifiers for multiple stock items\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetProductIdentifiersBulkByStockItemId",
         "consumes": [
           "application/json"
@@ -1665,7 +1665,7 @@
           "Inventory"
         ],
         "summary": "GetChannels",
-        "description": "Use this call to get all channels",
+        "description": "Use this call to get all channels\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetChannels",
         "consumes": [],
         "produces": [
@@ -1700,7 +1700,7 @@
           "Inventory"
         ],
         "summary": "GetChannelsBySource",
-        "description": "Use this call to get channels by source",
+        "description": "Use this call to get channels by source\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetChannelsBySource",
         "consumes": [],
         "produces": [
@@ -1743,7 +1743,7 @@
           "Inventory"
         ],
         "summary": "GetExtendedPropertyNames",
-        "description": "Use this call to get all available extended property names",
+        "description": "Use this call to get all available extended property names\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetExtendedPropertyNames",
         "consumes": [],
         "produces": [
@@ -1785,7 +1785,7 @@
           "Inventory"
         ],
         "summary": "GetAllExtendedPropertyNames",
-        "description": "Use this call to get extended properties for all types",
+        "description": "Use this call to get extended properties for all types\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetAllExtendedPropertyNames",
         "consumes": [],
         "produces": [
@@ -1823,7 +1823,7 @@
           "Inventory"
         ],
         "summary": "GetExtendedPropertyTypes",
-        "description": "Use this call to get default extended property types",
+        "description": "Use this call to get default extended property types\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetExtendedPropertyTypes",
         "consumes": [],
         "produces": [
@@ -1858,7 +1858,7 @@
           "Inventory"
         ],
         "summary": "GetPackageGroups",
-        "description": "Use this call to get all package groups",
+        "description": "Use this call to get all package groups\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetPackageGroups",
         "consumes": [],
         "produces": [
@@ -1893,7 +1893,7 @@
           "Inventory"
         ],
         "summary": "GetPostalServices",
-        "description": "Use this call to get all postal services",
+        "description": "Use this call to get all postal services\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetPostalServices",
         "consumes": [],
         "produces": [
@@ -1928,7 +1928,7 @@
           "Inventory"
         ],
         "summary": "AddImageToInventoryItem",
-        "description": "Adds an image to the stock item\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode",
+        "description": "Adds an image to the stock item\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddImageToInventoryItem",
         "consumes": [
           "application/json"
@@ -1972,7 +1972,7 @@
           "Inventory"
         ],
         "summary": "UpdateInventoryItemField",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "UpdateInventoryItemField",
         "consumes": [
           "application/json"
@@ -2019,7 +2019,7 @@
           "Inventory"
         ],
         "summary": "UpdateInventoryItemStockField",
-        "description": "Update and return stock level\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Update and return stock level\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "UpdateInventoryItemStockField",
         "consumes": [
           "application/json"
@@ -2066,7 +2066,7 @@
           "Inventory"
         ],
         "summary": "UpdateInventoryItemLevels",
-        "description": "Update and return stock level records for the stock item and any composite related items\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockLevelsNode",
+        "description": "Update and return stock level records for the stock item and any composite related items\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockLevelsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "UpdateInventoryItemLevels",
         "consumes": [
           "application/json"
@@ -2116,7 +2116,7 @@
           "Inventory"
         ],
         "summary": "UpdateInventoryItemLocationField",
-        "description": "Update and return stock level records for the stock item\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemBinRackNode",
+        "description": "Update and return stock level records for the stock item\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemBinRackNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateInventoryItemLocationField",
         "consumes": [
           "application/json"
@@ -2163,7 +2163,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemById",
-        "description": "Use this call to get all product details",
+        "description": "Use this call to get all product details\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetInventoryItemById",
         "consumes": [],
         "produces": [
@@ -2204,7 +2204,7 @@
           "Inventory"
         ],
         "summary": "GetUserSpecificViews",
-        "description": "Use this call to get user-specific views from database",
+        "description": "Use this call to get user-specific views from database\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetUserSpecificViews",
         "consumes": [],
         "produces": [
@@ -2239,7 +2239,7 @@
           "Inventory"
         ],
         "summary": "CreateUserSpecificView",
-        "description": "Use this call to create a new user-specific view",
+        "description": "Use this call to create a new user-specific view\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateUserSpecificView",
         "consumes": [
           "application/json"
@@ -2275,7 +2275,7 @@
           "Inventory"
         ],
         "summary": "UpdateUserSpecificView",
-        "description": "Use this call to update an existing user-specific view",
+        "description": "Use this call to update an existing user-specific view\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateUserSpecificView",
         "consumes": [
           "application/json"
@@ -2311,7 +2311,7 @@
           "Inventory"
         ],
         "summary": "DeleteUserSpecificView",
-        "description": "Use this call to delete user-specific view from database",
+        "description": "Use this call to delete user-specific view from database\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteUserSpecificView",
         "consumes": [
           "application/json"
@@ -2347,7 +2347,7 @@
           "Inventory"
         ],
         "summary": "GetPreDefinedViews",
-        "description": "Use this call to get pre-defined (standard) views",
+        "description": "Use this call to get pre-defined (standard) views\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetPreDefinedViews",
         "consumes": [],
         "produces": [
@@ -2382,7 +2382,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemsCount",
-        "description": "Use this call to get total items count",
+        "description": "Use this call to get total items count\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetInventoryItemsCount",
         "consumes": [],
         "produces": [
@@ -2429,7 +2429,7 @@
           "Inventory"
         ],
         "summary": "AddInventoryItem",
-        "description": "Use this call to add stock item.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode",
+        "description": "Use this call to add stock item.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddInventoryItem",
         "consumes": [
           "application/json"
@@ -2465,7 +2465,7 @@
           "Inventory"
         ],
         "summary": "AddInventoryItemBulk",
-        "description": "Use this call to add up to 200 stock items.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode",
+        "description": "Use this call to add up to 200 stock items.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddInventoryItemBulk",
         "consumes": [
           "application/json"
@@ -2509,7 +2509,7 @@
           "Inventory"
         ],
         "summary": "DuplicateInventoryItem",
-        "description": "Use this call to add stock item by duplicating existing one\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode",
+        "description": "Use this call to add stock item by duplicating existing one\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DuplicateInventoryItem",
         "consumes": [
           "application/json"
@@ -2545,7 +2545,7 @@
           "Inventory"
         ],
         "summary": "ArchiveInventoryItems",
-        "description": "Use this call to archive inventory items. Send only list of IDs and empty list of regions.",
+        "description": "Use this call to archive inventory items. Send only list of IDs and empty list of regions.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ArchiveInventoryItems",
         "consumes": [
           "application/json"
@@ -2581,7 +2581,7 @@
           "Inventory"
         ],
         "summary": "UnarchiveInventoryItems",
-        "description": "Use this call to unarchive inventory items",
+        "description": "Use this call to unarchive inventory items\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UnarchiveInventoryItems",
         "consumes": [
           "application/json"
@@ -2617,7 +2617,7 @@
           "Inventory"
         ],
         "summary": "GetNewItemNumber",
-        "description": "Use this call to get next unused SKU",
+        "description": "Use this call to get next unused SKU\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetNewItemNumber",
         "consumes": [],
         "produces": [
@@ -2649,7 +2649,7 @@
           "Inventory"
         ],
         "summary": "UpdateInventoryItem",
-        "description": "Use this call to update stock item with images\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to update stock item with images\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "UpdateInventoryItem",
         "consumes": [
           "application/json"
@@ -2685,7 +2685,7 @@
           "Inventory"
         ],
         "summary": "DeleteInventoryItems",
-        "description": "Use this call to delete inventory item.\r\nAll associated information will be unlinked/removed from this stock item.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.DeleteMyInventoryItems.DeleteItemsNode",
+        "description": "Use this call to delete inventory item.\r\nAll associated information will be unlinked/removed from this stock item.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.DeleteMyInventoryItems.DeleteItemsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteInventoryItems",
         "consumes": [
           "application/json"
@@ -2721,7 +2721,7 @@
           "Inventory"
         ],
         "summary": "AdjustTemplatesInstant",
-        "description": "Use this call to adjust templates",
+        "description": "Use this call to adjust templates\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AdjustTemplatesInstant",
         "consumes": [
           "application/json"
@@ -2757,7 +2757,7 @@
           "Inventory"
         ],
         "summary": "AdjustEbayTemplatesInstantLMS",
-        "description": "Use this call to create LMS Update (Only works for fixed price templates)",
+        "description": "Use this call to create LMS Update (Only works for fixed price templates)\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AdjustEbayTemplatesInstantLMS",
         "consumes": [
           "application/json"
@@ -2793,7 +2793,7 @@
           "Inventory"
         ],
         "summary": "AdjustEbayTemplatesDispatchLMS",
-        "description": "Use this call to create LMS Update for dispatch time only (Mr Auto)",
+        "description": "Use this call to create LMS Update for dispatch time only (Mr Auto)\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AdjustEbayTemplatesDispatchLMS",
         "consumes": [
           "application/json"
@@ -2829,7 +2829,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemChannelSKUs",
-        "description": "Use this call to get stockitem channel skus",
+        "description": "Use this call to get stockitem channel skus\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetInventoryItemChannelSKUs",
         "consumes": [],
         "produces": [
@@ -2873,7 +2873,7 @@
           "Inventory"
         ],
         "summary": "BatchGetInventoryItemChannelSKUs",
-        "description": "Use this call to get stock item channel skus for a list of inventory items",
+        "description": "Use this call to get stock item channel skus for a list of inventory items\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "BatchGetInventoryItemChannelSKUs",
         "consumes": [
           "application/json"
@@ -2920,7 +2920,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemChannelSKUsWithLocation",
-        "description": "Use this call to retrieve all stock item channel sku's with location for a given channel sku RowId",
+        "description": "Use this call to retrieve all stock item channel sku's with location for a given channel sku RowId\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetInventoryItemChannelSKUsWithLocation",
         "consumes": [],
         "produces": [
@@ -2964,7 +2964,7 @@
           "Inventory"
         ],
         "summary": "UpdateInventoryItemChannelSKUs",
-        "description": "Update inventory Channel SKU's properties, such as Max Listed Quantity\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Update inventory Channel SKU's properties, such as Max Listed Quantity\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "UpdateInventoryItemChannelSKUs",
         "consumes": [
           "application/json"
@@ -3000,7 +3000,7 @@
           "Inventory"
         ],
         "summary": "UpdateInventoryItemChannelSKUsWithLocation",
-        "description": "Update inventory Channel SKU's with location properties, such as Max Listed Quantity\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Update inventory Channel SKU's with location properties, such as Max Listed Quantity\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateInventoryItemChannelSKUsWithLocation",
         "consumes": [
           "application/json"
@@ -3036,7 +3036,7 @@
           "Inventory"
         ],
         "summary": "CreateInventoryItemChannelSKUs",
-        "description": "Use this call to create stockitem channel skus",
+        "description": "Use this call to create stockitem channel skus\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateInventoryItemChannelSKUs",
         "consumes": [
           "application/json"
@@ -3072,7 +3072,7 @@
           "Inventory"
         ],
         "summary": "DeleteInventoryItemChannelSKUs",
-        "description": "Use this call to delete stockitem channel skus",
+        "description": "Use this call to delete stockitem channel skus\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteInventoryItemChannelSKUs",
         "consumes": [
           "application/json"
@@ -3108,7 +3108,7 @@
           "Inventory"
         ],
         "summary": "IsInventoryItemChannelSKULinked",
-        "description": "Use this call to check if ChannelSKU is linked",
+        "description": "Use this call to check if ChannelSKU is linked\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "IsInventoryItemChannelSKULinked",
         "consumes": [],
         "produces": [
@@ -3160,7 +3160,7 @@
           "Inventory"
         ],
         "summary": "UnlinkChannelListing",
-        "description": "Use this call to unlink  inventory listing from inventory item",
+        "description": "Use this call to unlink  inventory listing from inventory item\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UnlinkChannelListing",
         "consumes": [
           "application/json"
@@ -3196,7 +3196,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemAuditTrail",
-        "description": "Use this call to get StockItem AuditTrail",
+        "description": "Use this call to get StockItem AuditTrail\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetInventoryItemAuditTrail",
         "consumes": [],
         "produces": [
@@ -3240,7 +3240,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemAuditTrailPaged",
-        "description": "Use this call to retrieve StockItem AuditTrail list by filters",
+        "description": "Use this call to retrieve StockItem AuditTrail list by filters\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetInventoryItemAuditTrailPaged",
         "consumes": [
           "application/json"
@@ -3284,7 +3284,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemBatchInformation",
-        "description": "Used to get the batch information of a specific item\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockReadNode",
+        "description": "Used to get the batch information of a specific item\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockReadNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetInventoryItemBatchInformation",
         "consumes": [
           "application/json"
@@ -3331,7 +3331,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemBatchInformationByIds",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockReadNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockReadNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetInventoryItemBatchInformationByIds",
         "consumes": [
           "application/json"
@@ -3375,7 +3375,7 @@
           "Inventory"
         ],
         "summary": "HasStockItemStockLevel",
-        "description": "Used to check has stock item stock level or not",
+        "description": "Used to check has stock item stock level or not\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "HasStockItemStockLevel",
         "consumes": [
           "application/json"
@@ -3419,7 +3419,7 @@
           "Inventory"
         ],
         "summary": "UpdateBatchDetails",
-        "description": "Used to update batch details for stock item\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Used to update batch details for stock item\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateBatchDetails",
         "consumes": [
           "application/json"
@@ -3455,7 +3455,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemImages",
-        "description": "Use this call to Get inventory item images",
+        "description": "Use this call to Get inventory item images\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetInventoryItemImages",
         "consumes": [],
         "produces": [
@@ -3499,7 +3499,7 @@
           "Inventory"
         ],
         "summary": "GetStockItemIdsBySKU",
-        "description": "Use this call to Get inventory item images\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockReadNode",
+        "description": "Use this call to Get inventory item images\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockReadNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetStockItemIdsBySKU",
         "consumes": [
           "application/json"
@@ -3543,7 +3543,7 @@
           "Inventory"
         ],
         "summary": "GetImagesInBulk",
-        "description": "Use this call to Get inventory item images\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockReadNode",
+        "description": "Use this call to Get inventory item images\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockReadNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetImagesInBulk",
         "consumes": [
           "application/json"
@@ -3587,7 +3587,7 @@
           "Inventory"
         ],
         "summary": "SetInventoryItemImageAsMain",
-        "description": "Use this call to update inventory item main image",
+        "description": "Use this call to update inventory item main image\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetInventoryItemImageAsMain",
         "consumes": [
           "application/json"
@@ -3623,7 +3623,7 @@
           "Inventory"
         ],
         "summary": "UploadImagesToInventoryItem",
-        "description": "Use this call to upload images from Uploader to StockItem",
+        "description": "Use this call to upload images from Uploader to StockItem\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UploadImagesToInventoryItem",
         "consumes": [
           "application/json"
@@ -3670,7 +3670,7 @@
           "Inventory"
         ],
         "summary": "UpdateImages",
-        "description": "Update properties on images\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Update properties on images\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateImages",
         "consumes": [
           "application/json"
@@ -3706,7 +3706,7 @@
           "Inventory"
         ],
         "summary": "DeleteImagesFromInventoryItem",
-        "description": "Use this call to delete images from inventory items\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to delete images from inventory items\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteImagesFromInventoryItem",
         "consumes": [
           "application/json"
@@ -3742,7 +3742,7 @@
           "Inventory"
         ],
         "summary": "GetCategories",
-        "description": "Use this call to get categories",
+        "description": "Use this call to get categories\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetCategories",
         "consumes": [],
         "produces": [
@@ -3777,7 +3777,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryBatchTypes",
-        "description": "Use this call to get available inventory batch types",
+        "description": "Use this call to get available inventory batch types\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetInventoryBatchTypes",
         "consumes": [],
         "produces": [
@@ -3813,7 +3813,7 @@
           "Inventory"
         ],
         "summary": "CreateCategory",
-        "description": "Use this call to create new category",
+        "description": "Use this call to create new category\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateCategory",
         "consumes": [
           "application/json"
@@ -3857,7 +3857,7 @@
           "Inventory"
         ],
         "summary": "UpdateCategory",
-        "description": "Use this call to update category name\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to update category name\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateCategory",
         "consumes": [
           "application/json"
@@ -3893,7 +3893,7 @@
           "Inventory"
         ],
         "summary": "DeleteCategoryById",
-        "description": "Use this call to delete category by id.",
+        "description": "Use this call to delete category by id.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteCategoryById",
         "consumes": [
           "application/json"
@@ -3929,7 +3929,7 @@
           "Inventory"
         ],
         "summary": "GetCountryCodes",
-        "description": "Use this call to get all country codes from ebay channel",
+        "description": "Use this call to get all country codes from ebay channel\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetCountryCodes",
         "consumes": [],
         "produces": [
@@ -3964,7 +3964,7 @@
           "Inventory"
         ],
         "summary": "GetCountries",
-        "description": "Use this call to get list of all countries",
+        "description": "Use this call to get list of all countries\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetCountries",
         "consumes": [],
         "produces": [
@@ -3999,7 +3999,7 @@
           "Inventory"
         ],
         "summary": "CreateCountries",
-        "description": "Use this call to create new countries",
+        "description": "Use this call to create new countries\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateCountries",
         "consumes": [
           "application/json"
@@ -4035,7 +4035,7 @@
           "Inventory"
         ],
         "summary": "UpdateCountries",
-        "description": "Use this call to udpate countries",
+        "description": "Use this call to udpate countries\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateCountries",
         "consumes": [
           "application/json"
@@ -4071,7 +4071,7 @@
           "Inventory"
         ],
         "summary": "DeleteCountries",
-        "description": "Use this call to delete countries",
+        "description": "Use this call to delete countries\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteCountries",
         "consumes": [
           "application/json"
@@ -4107,7 +4107,7 @@
           "Inventory"
         ],
         "summary": "CreateCountryRegions",
-        "description": "Create regions for country",
+        "description": "Create regions for country\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateCountryRegions",
         "consumes": [
           "application/json"
@@ -4151,7 +4151,7 @@
           "Inventory"
         ],
         "summary": "UpdateCountryRegions",
-        "description": "Update regions for country",
+        "description": "Update regions for country\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateCountryRegions",
         "consumes": [
           "application/json"
@@ -4187,7 +4187,7 @@
           "Inventory"
         ],
         "summary": "GetStockLocations",
-        "description": "Use this call to get all stock locations",
+        "description": "Use this call to get all stock locations\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetStockLocations",
         "consumes": [],
         "produces": [
@@ -4222,7 +4222,7 @@
           "Inventory"
         ],
         "summary": "IsOwnedStockLocation",
-        "description": "Checks whether a location is FBA or has an enabled inventory update import",
+        "description": "Checks whether a location is FBA or has an enabled inventory update import\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "IsOwnedStockLocation",
         "consumes": [],
         "produces": [
@@ -4263,7 +4263,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemLocations",
-        "description": "Use this call to get stock item locations bin/rack",
+        "description": "Use this call to get stock item locations bin/rack\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetInventoryItemLocations",
         "consumes": [],
         "produces": [
@@ -4307,7 +4307,7 @@
           "Inventory"
         ],
         "summary": "AddItemLocations",
-        "description": "Use this call to add stock item locations bin/rack\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemBinRackNode",
+        "description": "Use this call to add stock item locations bin/rack\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemBinRackNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddItemLocations",
         "consumes": [
           "application/json"
@@ -4343,7 +4343,7 @@
           "Inventory"
         ],
         "summary": "UpdateItemLocations",
-        "description": "Use this call to update stock item locations bin/rack\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemBinRackNode",
+        "description": "Use this call to update stock item locations bin/rack\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemBinRackNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateItemLocations",
         "consumes": [
           "application/json"
@@ -4379,7 +4379,7 @@
           "Inventory"
         ],
         "summary": "DeleteItemLocations",
-        "description": "Use this call to delete stock item locations bin/rack\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemBinRackNode",
+        "description": "Use this call to delete stock item locations bin/rack\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemBinRackNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteItemLocations",
         "consumes": [
           "application/json"
@@ -4415,7 +4415,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemCompositions",
-        "description": "Use this call to get all StockItem Compositions",
+        "description": "Use this call to get all StockItem Compositions\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetInventoryItemCompositions",
         "consumes": [],
         "produces": [
@@ -4465,7 +4465,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemsCompositionByIds",
-        "description": "Use this call to get all StockItem Compositions",
+        "description": "Use this call to get all StockItem Compositions\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetInventoryItemsCompositionByIds",
         "consumes": [
           "application/json"
@@ -4509,7 +4509,7 @@
           "Inventory"
         ],
         "summary": "CreateInventoryItemCompositions",
-        "description": "Use this call to create compositions for stockItem\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to create compositions for stockItem\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateInventoryItemCompositions",
         "consumes": [
           "application/json"
@@ -4545,7 +4545,7 @@
           "Inventory"
         ],
         "summary": "UpdateInventoryItemCompositions",
-        "description": "Use this call to update stockItem compositions\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to update stockItem compositions\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateInventoryItemCompositions",
         "consumes": [
           "application/json"
@@ -4581,7 +4581,7 @@
           "Inventory"
         ],
         "summary": "DeleteInventoryItemCompositions",
-        "description": "Use this call to delete stockItem compositions\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to delete stockItem compositions\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteInventoryItemCompositions",
         "consumes": [
           "application/json"
@@ -4617,7 +4617,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemExtendedProperties",
-        "description": "Use this call to get stockitem Extended Properties",
+        "description": "Use this call to get stockitem Extended Properties\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetInventoryItemExtendedProperties",
         "consumes": [
           "application/json"
@@ -4664,7 +4664,7 @@
           "Inventory"
         ],
         "summary": "CreateInventoryItemExtendedProperties",
-        "description": "Use this call to create stockitem Extended Properties\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to create stockitem Extended Properties\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "CreateInventoryItemExtendedProperties",
         "consumes": [
           "application/json"
@@ -4700,7 +4700,7 @@
           "Inventory"
         ],
         "summary": "UpdateInventoryItemExtendedProperties",
-        "description": "Use this call to update stockitem Extended Properties\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to update stockitem Extended Properties\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateInventoryItemExtendedProperties",
         "consumes": [
           "application/json"
@@ -4736,7 +4736,7 @@
           "Inventory"
         ],
         "summary": "DeleteInventoryItemExtendedProperties",
-        "description": "Use this call to delete stockitem Extended Properties\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to delete stockitem Extended Properties\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "DeleteInventoryItemExtendedProperties",
         "consumes": [
           "application/json"
@@ -4772,7 +4772,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemTitles",
-        "description": "Use this call to get stockitem Titles",
+        "description": "Use this call to get stockitem Titles\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetInventoryItemTitles",
         "consumes": [],
         "produces": [
@@ -4816,7 +4816,7 @@
           "Inventory"
         ],
         "summary": "CreateInventoryItemTitles",
-        "description": "Use this call to create stockitem Titles\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to create stockitem Titles\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateInventoryItemTitles",
         "consumes": [
           "application/json"
@@ -4852,7 +4852,7 @@
           "Inventory"
         ],
         "summary": "UpdateInventoryItemTitles",
-        "description": "Use this call to update stockitem Titles\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to update stockitem Titles\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateInventoryItemTitles",
         "consumes": [
           "application/json"
@@ -4888,7 +4888,7 @@
           "Inventory"
         ],
         "summary": "DeleteInventoryItemTitles",
-        "description": "Use this call to delete stockitem Titles\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to delete stockitem Titles\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteInventoryItemTitles",
         "consumes": [
           "application/json"
@@ -4924,7 +4924,7 @@
           "Inventory"
         ],
         "summary": "GetSuppliers",
-        "description": "Use this call to retrieve list of all Suppliers' names",
+        "description": "Use this call to retrieve list of all Suppliers' names\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetSuppliers",
         "consumes": [],
         "produces": [
@@ -4959,7 +4959,7 @@
           "Inventory"
         ],
         "summary": "GetSupplierDetails",
-        "description": "Use this call to retrieve details of one Supplier\n<b>Permissions Required: </b> GlobalPermissions.Inventory.InventorySettings.SuppliersNode",
+        "description": "Use this call to retrieve details of one Supplier\n<b>Permissions Required: </b> GlobalPermissions.Inventory.InventorySettings.SuppliersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetSupplierDetails",
         "consumes": [],
         "produces": [
@@ -5000,7 +5000,7 @@
           "Inventory"
         ],
         "summary": "AddSupplier",
-        "description": "Use this call to create a new supplier\n<b>Permissions Required: </b> GlobalPermissions.Inventory.InventorySettings.SuppliersNode",
+        "description": "Use this call to create a new supplier\n<b>Permissions Required: </b> GlobalPermissions.Inventory.InventorySettings.SuppliersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddSupplier",
         "consumes": [
           "application/json"
@@ -5044,7 +5044,7 @@
           "Inventory"
         ],
         "summary": "UpdateSupplier",
-        "description": "Use this call to update supplier\n<b>Permissions Required: </b> GlobalPermissions.Inventory.InventorySettings.SuppliersNode",
+        "description": "Use this call to update supplier\n<b>Permissions Required: </b> GlobalPermissions.Inventory.InventorySettings.SuppliersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateSupplier",
         "consumes": [
           "application/json"
@@ -5080,7 +5080,7 @@
           "Inventory"
         ],
         "summary": "DeleteSuppliers",
-        "description": "Use this call delete Supplied by Id\r\n<param name=\"suppliersIds\">List of Supplier IDs</param>\n<b>Permissions Required: </b> GlobalPermissions.Inventory.InventorySettings.SuppliersNode",
+        "description": "Use this call delete Supplied by Id\r\n<param name=\"suppliersIds\">List of Supplier IDs</param>\n<b>Permissions Required: </b> GlobalPermissions.Inventory.InventorySettings.SuppliersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteSuppliers",
         "consumes": [
           "application/json"
@@ -5116,7 +5116,7 @@
           "Inventory"
         ],
         "summary": "GetStockSupplierStat",
-        "description": "Use this call to retrieve report about \"item supplier stat\"",
+        "description": "Use this call to retrieve report about \"item supplier stat\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetStockSupplierStat",
         "consumes": [],
         "produces": [
@@ -5160,7 +5160,7 @@
           "Inventory"
         ],
         "summary": "GetStockSupplierStatsBulk",
-        "description": "Use this call to retrieve report about \"item supplier stat\"",
+        "description": "Use this call to retrieve report about \"item supplier stat\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetStockSupplierStatsBulk",
         "consumes": [],
         "produces": [
@@ -5208,7 +5208,7 @@
           "Inventory"
         ],
         "summary": "CreateStockSupplierStat",
-        "description": "Use this call to create item supplier stat",
+        "description": "Use this call to create item supplier stat\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateStockSupplierStat",
         "consumes": [
           "application/json"
@@ -5244,7 +5244,7 @@
           "Inventory"
         ],
         "summary": "UpdateStockSupplierStat",
-        "description": "Use this call to update item supplier stat",
+        "description": "Use this call to update item supplier stat\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateStockSupplierStat",
         "consumes": [
           "application/json"
@@ -5280,7 +5280,7 @@
           "Inventory"
         ],
         "summary": "DeleteStockSupplierStat",
-        "description": "Use this call to delete item supplier stat",
+        "description": "Use this call to delete item supplier stat\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteStockSupplierStat",
         "consumes": [
           "application/json"
@@ -5316,7 +5316,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemPrices",
-        "description": "Use this call to get stock item prices by channel",
+        "description": "Use this call to get stock item prices by channel\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetInventoryItemPrices",
         "consumes": [],
         "produces": [
@@ -5360,7 +5360,7 @@
           "Inventory"
         ],
         "summary": "CreateInventoryItemPrices",
-        "description": "Use this call to create stock item prices for a specific channel\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode",
+        "description": "Use this call to create stock item prices for a specific channel\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "CreateInventoryItemPrices",
         "consumes": [
           "application/json"
@@ -5655,12 +5655,6 @@
     "StockItemLabel": {
       "type": "object",
       "properties": {
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "ItemNumber": {
           "description": "Product SKU",
           "type": "string"
@@ -5688,6 +5682,12 @@
         },
         "LocationId": {
           "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
@@ -6334,25 +6334,25 @@
         "ItemTitle": {
           "type": "string"
         },
-        "ScrapReason": {
-          "type": "string"
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
         },
         "CategoryName": {
           "type": "string"
         },
-        "Quantity": {
-          "format": "int32",
-          "type": "integer"
+        "ScrapReason": {
+          "type": "string"
         },
         "TotalCost": {
           "format": "double",
           "type": "number"
         },
-        "CreatedDate": {
-          "format": "date-time",
+        "UserName": {
           "type": "string"
         },
-        "UserName": {
+        "CreatedDate": {
+          "format": "date-time",
           "type": "string"
         },
         "StockLocationId": {

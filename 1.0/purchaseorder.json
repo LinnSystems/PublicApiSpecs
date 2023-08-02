@@ -15,7 +15,7 @@
           "PurchaseOrder"
         ],
         "summary": "Search_PurchaseOrders2",
-        "description": "Searches purchase order by a number of parameters, such as Date of Purchase, status, reference number.\r\nReturns paged result of purchase order header.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.SearchPurchaseOrderNode",
+        "description": "Searches purchase order by a number of parameters, such as Date of Purchase, status, reference number.\r\nReturns paged result of purchase order header.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.SearchPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Search_PurchaseOrders2",
         "consumes": [
           "application/json"
@@ -59,7 +59,7 @@
           "PurchaseOrder"
         ],
         "summary": "Search_PurchaseOrders",
-        "description": "Searches purchase order by a number of parameters, such as Date of Purchase, status, reference number.\r\nReturns paged result of purchase order header.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.SearchPurchaseOrderNode",
+        "description": "Searches purchase order by a number of parameters, such as Date of Purchase, status, reference number.\r\nReturns paged result of purchase order header.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.SearchPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "Search_PurchaseOrders",
         "consumes": [
           "application/json"
@@ -104,7 +104,7 @@
           "PurchaseOrder"
         ],
         "summary": "Create_PurchaseOrder_Initial",
-        "description": "Creates initial purchase order in pending status. Once PO is created you can add stock items to it.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "description": "Creates initial purchase order in pending status. Once PO is created you can add stock items to it.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Create_PurchaseOrder_Initial",
         "consumes": [
           "application/json"
@@ -150,7 +150,7 @@
           "PurchaseOrder"
         ],
         "summary": "Update_PurchaseOrderHeader",
-        "description": "Update purchase order header, only if status is not Delivered. Returns modified/recalculated purchase order header\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "description": "Update purchase order header, only if status is not Delivered. Returns modified/recalculated purchase order header\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Update_PurchaseOrderHeader",
         "consumes": [
           "application/json"
@@ -194,7 +194,7 @@
           "PurchaseOrder"
         ],
         "summary": "Modify_PurchaseOrderItems_Bulk",
-        "description": "Delete, add and update purchase order items and cause purchase order totals recalculation\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "description": "Delete, add and update purchase order items and cause purchase order totals recalculation\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Modify_PurchaseOrderItems_Bulk",
         "consumes": [
           "application/json"
@@ -238,7 +238,7 @@
           "PurchaseOrder"
         ],
         "summary": "Add_PurchaseOrderItem",
-        "description": "Method adds purchase order item to an existing PENDING order. Items can only be added to PENDING purchase orders. Returns class that represents modified/recalculated purchase order header and modified purchase order item line\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "description": "Method adds purchase order item to an existing PENDING order. Items can only be added to PENDING purchase orders. Returns class that represents modified/recalculated purchase order header and modified purchase order item line\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "Add_PurchaseOrderItem",
         "consumes": [
           "application/json"
@@ -282,7 +282,7 @@
           "PurchaseOrder"
         ],
         "summary": "Update_PurchaseOrderItem",
-        "description": "Update purchase order item, quantity, cost, pack size, pack quantity, in PENDING order only. Returns class that represents modified/recalculated purchase order header and modified purchase order item line\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "description": "Update purchase order item, quantity, cost, pack size, pack quantity, in PENDING order only. Returns class that represents modified/recalculated purchase order header and modified purchase order item line\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Update_PurchaseOrderItem",
         "consumes": [
           "application/json"
@@ -326,7 +326,7 @@
           "PurchaseOrder"
         ],
         "summary": "Delete_PurchaseOrderItem",
-        "description": "Delete purchase order item line from PENDING order. Returns recalculated/modified purchase order header\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "description": "Delete purchase order item line from PENDING order. Returns recalculated/modified purchase order header\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Delete_PurchaseOrderItem",
         "consumes": [
           "application/json"
@@ -370,7 +370,7 @@
           "PurchaseOrder"
         ],
         "summary": "GetPurchaseOrdersWithStockItems",
-        "description": "Gets a list of Purchase Order Ids that contain undelivered stock items\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.SearchPurchaseOrderNode",
+        "description": "Gets a list of Purchase Order Ids that contain undelivered stock items\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.SearchPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetPurchaseOrdersWithStockItems",
         "consumes": [
           "application/json"
@@ -419,7 +419,7 @@
           "PurchaseOrder"
         ],
         "summary": "Get_PurchaseOrder",
-        "description": "Get purchase order header and items in one call\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "description": "Get purchase order header and items in one call\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "Get_PurchaseOrder",
         "consumes": [
           "application/json"
@@ -463,7 +463,7 @@
           "PurchaseOrder"
         ],
         "summary": "Get_PurchaseOrderNote",
-        "description": "Get purchase order notes\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "description": "Get purchase order notes\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "Get_PurchaseOrderNote",
         "consumes": [
           "application/json"
@@ -510,6 +510,7 @@
           "PurchaseOrder"
         ],
         "summary": "ExportPurchaseOrder",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ExportPurchaseOrder",
         "consumes": [
           "application/json"
@@ -553,7 +554,7 @@
           "PurchaseOrder"
         ],
         "summary": "Add_PurchaseOrderNote",
-        "description": "Add purchase order note\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "description": "Add purchase order note\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Add_PurchaseOrderNote",
         "consumes": [
           "application/json"
@@ -597,7 +598,7 @@
           "PurchaseOrder"
         ],
         "summary": "Delete_PurchaseOrderNote",
-        "description": "Delete Note for Purchase Order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "description": "Delete Note for Purchase Order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Delete_PurchaseOrderNote",
         "consumes": [
           "application/json"
@@ -642,7 +643,7 @@
           "PurchaseOrder"
         ],
         "summary": "Change_PurchaseOrderStatus",
-        "description": "Change purchase order status. Can change from:\r\nPENDING to OPEN, which will populate Due (OnOrder) values in stock levels,\r\nOPEN to DELIVERED, which will consolidate Due values in stock levels \r\nPARTIAL to DELIVERED, which will consolidate Due values in stock levels\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "description": "Change purchase order status. Can change from:\r\nPENDING to OPEN, which will populate Due (OnOrder) values in stock levels,\r\nOPEN to DELIVERED, which will consolidate Due values in stock levels \r\nPARTIAL to DELIVERED, which will consolidate Due values in stock levels\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Change_PurchaseOrderStatus",
         "consumes": [
           "application/json"
@@ -686,7 +687,7 @@
           "PurchaseOrder"
         ],
         "summary": "Deliver_PurchaseItemAll_ExceptBatchItems",
-        "description": "Update purchase order item, quantity, cost, pack size, pack quantity, in PENDING order only. Returns class that represents modified/recalculated purchase order header and modified purchase order item line\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.DeliverPurchaseOrderNode",
+        "description": "Update purchase order item, quantity, cost, pack size, pack quantity, in PENDING order only. Returns class that represents modified/recalculated purchase order header and modified purchase order item line\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.DeliverPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Deliver_PurchaseItemAll_ExceptBatchItems",
         "consumes": [
           "application/json"
@@ -730,7 +731,7 @@
           "PurchaseOrder"
         ],
         "summary": "Deliver_PurchaseItems_WithQuantity",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.DeliverPurchaseOrderNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.DeliverPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Deliver_PurchaseItems_WithQuantity",
         "consumes": [
           "application/json"
@@ -766,7 +767,7 @@
           "PurchaseOrder"
         ],
         "summary": "Deliver_PurchaseItemAll",
-        "description": "Update purchase order item, quantity, cost, pack size, pack quantity, in PENDING order only. Returns class that represents modified/recalculated purchase order header and modified purchase order item line\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.DeliverPurchaseOrderNode",
+        "description": "Update purchase order item, quantity, cost, pack size, pack quantity, in PENDING order only. Returns class that represents modified/recalculated purchase order header and modified purchase order item line\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.DeliverPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Deliver_PurchaseItemAll",
         "consumes": [
           "application/json"
@@ -810,7 +811,7 @@
           "PurchaseOrder"
         ],
         "summary": "Deliver_PurchaseItem",
-        "description": "Deliver purchase order item. This will affect current stock level according to the delivered quantity. \r\nYou can specify the total number of delivered items. If all items are delivered, the purchase order status will be changed to delivered\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.DeliverPurchaseOrderNode",
+        "description": "Deliver purchase order item. This will affect current stock level according to the delivered quantity. \r\nYou can specify the total number of delivered items. If all items are delivered, the purchase order status will be changed to delivered\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.DeliverPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "Deliver_PurchaseItem",
         "consumes": [
           "application/json"
@@ -854,7 +855,7 @@
           "PurchaseOrder"
         ],
         "summary": "GetPurchaseOrderStatusList",
-        "description": "Get a list of available statuses",
+        "description": "Get a list of available statuses\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetPurchaseOrderStatusList",
         "consumes": [
           "application/json"
@@ -907,7 +908,7 @@
           "PurchaseOrder"
         ],
         "summary": "Delete_PurchaseOrder",
-        "description": "Delete a Purchase Order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "description": "Delete a Purchase Order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Delete_PurchaseOrder",
         "consumes": [
           "application/json"
@@ -943,7 +944,7 @@
           "PurchaseOrder"
         ],
         "summary": "Get_PurchaseOrderAudit",
-        "description": "Get the Audit Log of a Purchase Order. Returns maxium 1000 records in descending order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "description": "Get the Audit Log of a Purchase Order. Returns maxium 1000 records in descending order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Get_PurchaseOrderAudit",
         "consumes": [
           "application/json"
@@ -990,7 +991,7 @@
           "PurchaseOrder"
         ],
         "summary": "Get_PurchaseOrderExtendedProperty",
-        "description": "Get all purchase order extended properties\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "description": "Get all purchase order extended properties\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "Get_PurchaseOrderExtendedProperty",
         "consumes": [
           "application/json"
@@ -1034,7 +1035,7 @@
           "PurchaseOrder"
         ],
         "summary": "Add_PurchaseOrderExtendedProperty",
-        "description": "Adds extended properties to a purchase order. Property name must be unique otherwise the method throws an error. Maxium number of extended properties allowed for a single purchase order is 50. If total count of extended properties exceeds 50 an error will be thrown.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "description": "Adds extended properties to a purchase order. Property name must be unique otherwise the method throws an error. Maxium number of extended properties allowed for a single purchase order is 50. If total count of extended properties exceeds 50 an error will be thrown.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Add_PurchaseOrderExtendedProperty",
         "consumes": [
           "application/json"
@@ -1078,7 +1079,7 @@
           "PurchaseOrder"
         ],
         "summary": "Update_PurchaseOrderExtendedProperty",
-        "description": "Updates purchase order extended property by id. If supplied id doesn't exists, the routine will throw an error\r\nThe routine checks for duplicated propery names and throws an error if duplicated property name.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "description": "Updates purchase order extended property by id. If supplied id doesn't exists, the routine will throw an error\r\nThe routine checks for duplicated propery names and throws an error if duplicated property name.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Update_PurchaseOrderExtendedProperty",
         "consumes": [
           "application/json"
@@ -1114,7 +1115,7 @@
           "PurchaseOrder"
         ],
         "summary": "Delete_PurchaseOrderExtendedProperty",
-        "description": "Delete extended property items by id\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "description": "Delete extended property items by id\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Delete_PurchaseOrderExtendedProperty",
         "consumes": [
           "application/json"
@@ -1150,7 +1151,7 @@
           "PurchaseOrder"
         ],
         "summary": "Get_AdditionalCostTypes",
-        "description": "Get purchase order additional costs types",
+        "description": "Get purchase order additional costs types\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Get_AdditionalCostTypes",
         "consumes": [
           "application/json"
@@ -1194,7 +1195,7 @@
           "PurchaseOrder"
         ],
         "summary": "Add_AdditionalCostTypes",
-        "description": "Add new additional cost type\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ChangeAdditionalTypesNode",
+        "description": "Add new additional cost type\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ChangeAdditionalTypesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Add_AdditionalCostTypes",
         "consumes": [
           "application/json"
@@ -1238,7 +1239,7 @@
           "PurchaseOrder"
         ],
         "summary": "Update_AdditionalCostTypes",
-        "description": "Update additional cost type\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ChangeAdditionalTypesNode",
+        "description": "Update additional cost type\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ChangeAdditionalTypesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Update_AdditionalCostTypes",
         "consumes": [
           "application/json"
@@ -1282,7 +1283,7 @@
           "PurchaseOrder"
         ],
         "summary": "Delete_AdditionalCostTypes",
-        "description": "Delete additional cost type\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ChangeAdditionalTypesNode",
+        "description": "Delete additional cost type\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ChangeAdditionalTypesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Delete_AdditionalCostTypes",
         "consumes": [
           "application/json"
@@ -1318,7 +1319,7 @@
           "PurchaseOrder"
         ],
         "summary": "Modify_AdditionalCost",
-        "description": "Modify purchase order additional costs. You can add new lines, update and delete existing. The method will return modified list back to you with each record identified by unique identifier. \r\nPurchase Order header will also be returned with new total recalculated\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "description": "Modify purchase order additional costs. You can add new lines, update and delete existing. The method will return modified list back to you with each record identified by unique identifier. \r\nPurchase Order header will also be returned with new total recalculated\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Modify_AdditionalCost",
         "consumes": [
           "application/json"
@@ -1362,7 +1363,7 @@
           "PurchaseOrder"
         ],
         "summary": "Get_Additional_Cost",
-        "description": "Get additional costs of a purchase order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "description": "Get additional costs of a purchase order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Get_Additional_Cost",
         "consumes": [
           "application/json"
@@ -1406,7 +1407,7 @@
           "PurchaseOrder"
         ],
         "summary": "Modify_AdditionalCostAllocation",
-        "description": "Modify additional cost allocation items\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "description": "Modify additional cost allocation items\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Modify_AdditionalCostAllocation",
         "consumes": [
           "application/json"
@@ -1450,7 +1451,7 @@
           "PurchaseOrder"
         ],
         "summary": "Modify_PaymentStatement",
-        "description": "Modify purchase order payment statements. You can add new lines, update and delete existing. The method will return modified list back to you with each record identified by unique identifier.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "description": "Modify purchase order payment statements. You can add new lines, update and delete existing. The method will return modified list back to you with each record identified by unique identifier.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Modify_PaymentStatement",
         "consumes": [
           "application/json"
@@ -1494,7 +1495,7 @@
           "PurchaseOrder"
         ],
         "summary": "Get_Payment_Statement",
-        "description": "Get payment statements of a purchase order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "description": "Get payment statements of a purchase order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Get_Payment_Statement",
         "consumes": [
           "application/json"
@@ -1538,7 +1539,7 @@
           "PurchaseOrder"
         ],
         "summary": "FindStockItem",
-        "description": "Try to find an item by SKU of SpplierCode\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "description": "Try to find an item by SKU of SpplierCode\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "FindStockItem",
         "consumes": [
           "application/json"
@@ -1582,7 +1583,7 @@
           "PurchaseOrder"
         ],
         "summary": "Get_DeliveredRecords",
-        "description": "Get delivered item records for specific PO\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "description": "Get delivered item records for specific PO\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Get_DeliveredRecords",
         "consumes": [
           "application/json"
@@ -1626,7 +1627,7 @@
           "PurchaseOrder"
         ],
         "summary": "Get_EmailsSent",
-        "description": "Get delivered item records for specific PO\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "description": "Get delivered item records for specific PO\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Get_EmailsSent",
         "consumes": [
           "application/json"
@@ -1670,7 +1671,7 @@
           "PurchaseOrder"
         ],
         "summary": "Get_EmailCSVFile",
-        "description": "Get the URL of the CSV file for the specific purchase order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode",
+        "description": "Get the URL of the CSV file for the specific purchase order\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.ViewPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Get_EmailCSVFile",
         "consumes": [
           "application/json"
@@ -1714,7 +1715,7 @@
           "PurchaseOrder"
         ],
         "summary": "CreatePOsFromInventory",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreatePOsFromInventory",
         "consumes": [
           "application/json"

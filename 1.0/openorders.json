@@ -15,6 +15,7 @@
           "OpenOrders"
         ],
         "summary": "GetViewStats",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetViewStats",
         "consumes": [
           "application/json"
@@ -60,6 +61,7 @@
           "OpenOrders"
         ],
         "summary": "SearchOrders",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SearchOrders",
         "consumes": [
           "application/json"
@@ -102,6 +104,7 @@
           "OpenOrders"
         ],
         "summary": "GetOpenOrderIds",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOpenOrderIds",
         "consumes": [
           "application/json"
@@ -144,6 +147,7 @@
           "OpenOrders"
         ],
         "summary": "GetOpenOrders",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOpenOrders",
         "consumes": [
           "application/json"
@@ -186,7 +190,7 @@
           "OpenOrders"
         ],
         "summary": "GetIdentifiers",
-        "description": "Get all identifiers that are available to add to an order",
+        "description": "Get all identifiers that are available to add to an order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetIdentifiers",
         "consumes": [],
         "produces": [
@@ -221,7 +225,7 @@
           "OpenOrders"
         ],
         "summary": "GetIdentifiersByOrderIds",
-        "description": "Get all identifiers for a list of orderIds",
+        "description": "Get all identifiers for a list of orderIds\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetIdentifiersByOrderIds",
         "consumes": [
           "application/json"
@@ -267,7 +271,7 @@
           "OpenOrders"
         ],
         "summary": "SaveIdentifier",
-        "description": "Create or update an order identifier",
+        "description": "Create or update an order identifier\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SaveIdentifier",
         "consumes": [
           "application/json"
@@ -311,7 +315,7 @@
           "OpenOrders"
         ],
         "summary": "DeleteIdentifier",
-        "description": "Delete an identifier. This will also remove the identifier from all orders that it's assigned to",
+        "description": "Delete an identifier. This will also remove the identifier from all orders that it's assigned to\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteIdentifier",
         "consumes": [
           "application/json"
@@ -346,7 +350,7 @@
           "OpenOrders"
         ],
         "summary": "AssignOrderIdentifier",
-        "description": "Add an identifier to an order",
+        "description": "Add an identifier to an order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "AssignOrderIdentifier",
         "consumes": [
           "application/json"
@@ -389,7 +393,7 @@
           "OpenOrders"
         ],
         "summary": "UnassignOrderIdentifier",
-        "description": "Remove an identifier from an order",
+        "description": "Remove an identifier from an order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "UnassignOrderIdentifier",
         "consumes": [
           "application/json"
@@ -432,7 +436,7 @@
           "OpenOrders"
         ],
         "summary": "GetOrdersLowFidelity",
-        "description": "Returns low fidelity view of open orders. The data is generally useful for very basic view or counters of what is in the open orders. Useful for finding orders quickly as it returns all scannable fields of the order and order items such as order ids, skus, barcodes etc.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.DespatchConsoleNode",
+        "description": "Returns low fidelity view of open orders. The data is generally useful for very basic view or counters of what is in the open orders. Useful for finding orders quickly as it returns all scannable fields of the order and order items such as order ids, skus, barcodes etc.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.DespatchConsoleNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOrdersLowFidelity",
         "consumes": [
           "application/json"
@@ -475,7 +479,7 @@
           "OpenOrders"
         ],
         "summary": "GetOpenOrdersDetails",
-        "description": "Open order details by order ids. Not limited by the number of orders you can retrieve. This call is designed to return ONLY open orders, \r\nit is much faster than GetOrderDetail call\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode",
+        "description": "Open order details by order ids. Not limited by the number of orders you can retrieve. This call is designed to return ONLY open orders, \r\nit is much faster than GetOrderDetail call\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOpenOrdersDetails",
         "consumes": [
           "application/json"
@@ -518,7 +522,7 @@
           "OpenOrders"
         ],
         "summary": "AssignStockToOrders",
-        "description": "Assign Stock to Orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode",
+        "description": "Assign Stock to Orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AssignStockToOrders",
         "consumes": [
           "application/json"
@@ -561,7 +565,7 @@
           "OpenOrders"
         ],
         "summary": "DeleteAssignedStock",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteAssignedStock",
         "consumes": [
           "application/json"
@@ -604,6 +608,7 @@
           "OpenOrders"
         ],
         "summary": "GetAvailableChannels",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetAvailableChannels",
         "consumes": [],
         "produces": [
@@ -635,7 +640,7 @@
           "OpenOrders"
         ],
         "summary": "GetOrderItemIndicators",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOrderItemIndicators",
         "consumes": [
           "application/json"
@@ -678,7 +683,7 @@
           "OpenOrders"
         ],
         "summary": "MarkReadyForCollection",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "MarkReadyForCollection",
         "consumes": [
           "application/json"

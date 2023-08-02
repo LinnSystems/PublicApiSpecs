@@ -15,7 +15,7 @@
           "ProcessedOrders"
         ],
         "summary": "RefundFreeText",
-        "description": "Use this call to add or update a free text refund. This method can also be used to change the refund amount for any pending manual refund. Please check any automated refunds are valid prior to calling this method.",
+        "description": "Use this call to add or update a free text refund. This method can also be used to change the refund amount for any pending manual refund. Please check any automated refunds are valid prior to calling this method.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "RefundFreeText",
         "consumes": [
           "application/json"
@@ -62,7 +62,7 @@
           "ProcessedOrders"
         ],
         "summary": "RefundShipping",
-        "description": "Use this call to refund shipping for an order. Please check the refund options to ensure that a shipping refund is possible.",
+        "description": "Use this call to refund shipping for an order. Please check the refund options to ensure that a shipping refund is possible.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "RefundShipping",
         "consumes": [
           "application/json"
@@ -109,7 +109,7 @@
           "ProcessedOrders"
         ],
         "summary": "MarkManualRefundsAsActioned",
-        "description": "Use this call to update pending manual refunds to the actioned state.",
+        "description": "Use this call to update pending manual refunds to the actioned state.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "MarkManualRefundsAsActioned",
         "consumes": [
           "application/json"
@@ -145,7 +145,7 @@
           "ProcessedOrders"
         ],
         "summary": "RefundServices",
-        "description": "Use this call to refund one or more services on an order. Please check that any automated refunds are valid prior to calling this method.",
+        "description": "Use this call to refund one or more services on an order. Please check that any automated refunds are valid prior to calling this method.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "RefundServices",
         "consumes": [
           "application/json"
@@ -192,7 +192,7 @@
           "ProcessedOrders"
         ],
         "summary": "ValidateCompleteOrderRefund",
-        "description": "Use this call to check if it is possible to do an automated full-order refund.",
+        "description": "Use this call to check if it is possible to do an automated full-order refund.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ValidateCompleteOrderRefund",
         "consumes": [
           "application/json"
@@ -236,7 +236,7 @@
           "ProcessedOrders"
         ],
         "summary": "GetRefundsOptions",
-        "description": "Use this call to get information about manual/automated refunds (which kinds of refunds are possible) for a given order.",
+        "description": "Use this call to get information about manual/automated refunds (which kinds of refunds are possible) for a given order.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetRefundsOptions",
         "consumes": [],
         "produces": [
@@ -277,7 +277,7 @@
           "ProcessedOrders"
         ],
         "summary": "GetRefundableServiceItems",
-        "description": "Use this call to get a list of service items which can be refunded.",
+        "description": "Use this call to get a list of service items which can be refunded.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetRefundableServiceItems",
         "consumes": [],
         "produces": [
@@ -321,7 +321,7 @@
           "ProcessedOrders"
         ],
         "summary": "GetTotalRefunds",
-        "description": "Use this call to retrieve the total value of refunds against an order.",
+        "description": "Use this call to retrieve the total value of refunds against an order.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetTotalRefunds",
         "consumes": [],
         "produces": [
@@ -368,7 +368,7 @@
           "ProcessedOrders"
         ],
         "summary": "IsRefundValid",
-        "description": "Use this call to determine if the refunds in a given return set are valid.",
+        "description": "Use this call to determine if the refunds in a given return set are valid.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "IsRefundValid",
         "consumes": [
           "application/json"
@@ -412,7 +412,7 @@
           "ProcessedOrders"
         ],
         "summary": "IsRefundValidationRequiredByOrderId",
-        "description": "Use this call to determine if validation of refunds or returns/exchanges with refund components is required for a given order.",
+        "description": "Use this call to determine if validation of refunds or returns/exchanges with refund components is required for a given order.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "IsRefundValidationRequiredByOrderId",
         "consumes": [],
         "produces": [
@@ -453,7 +453,7 @@
           "ProcessedOrders"
         ],
         "summary": "GetChannelRefundReasons",
-        "description": "Use this call to get a list of valid channel refund reasons for a given order. These are needed for channel refunds.",
+        "description": "Use this call to get a list of valid channel refund reasons for a given order. These are needed for channel refunds.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetChannelRefundReasons",
         "consumes": [],
         "produces": [
@@ -497,7 +497,7 @@
           "ProcessedOrders"
         ],
         "summary": "GetReturnsExchanges",
-        "description": "Use this call to get a basic list of returns, exchanges and resends for an order.",
+        "description": "Use this call to get a basic list of returns, exchanges and resends for an order.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetReturnsExchanges",
         "consumes": [],
         "produces": [
@@ -541,7 +541,7 @@
           "ProcessedOrders"
         ],
         "summary": "GetReturnItemsInfo",
-        "description": "Use this call to get a list of all items on an order, including return quantities and resend quantities. The information can be used to calculate how many items has already been returned.",
+        "description": "Use this call to get a list of all items on an order, including return quantities and resend quantities. The information can be used to calculate how many items has already been returned.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetReturnItemsInfo",
         "consumes": [],
         "produces": [
@@ -585,7 +585,7 @@
           "ProcessedOrders"
         ],
         "summary": "GetReturnOrderInfo",
-        "description": "Use this call to get basic information about a processed order (e.g. source, subsource, address) as seen on the Returns/Refunds screens.",
+        "description": "Use this call to get basic information about a processed order (e.g. source, subsource, address) as seen on the Returns/Refunds screens.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetReturnOrderInfo",
         "consumes": [],
         "produces": [
@@ -632,7 +632,7 @@
           "ProcessedOrders"
         ],
         "summary": "GetOrderInfo",
-        "description": "Use this call to retrieve detailed information about a processed order (header level).",
+        "description": "Use this call to retrieve detailed information about a processed order (header level).\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetOrderInfo",
         "consumes": [],
         "produces": [
@@ -673,7 +673,7 @@
           "ProcessedOrders"
         ],
         "summary": "GetOrderTrackingURLs",
-        "description": "Use this call to retrieve detailed TrackingURL for orders Vendor and TrackingNumber.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ProcessedOrdersNode",
+        "description": "Use this call to retrieve detailed TrackingURL for orders Vendor and TrackingNumber.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ProcessedOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOrderTrackingURLs",
         "consumes": [
           "application/json"
@@ -717,7 +717,7 @@
           "ProcessedOrders"
         ],
         "summary": "SearchProcessedOrders",
-        "description": "Search Processed Orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ProcessedOrdersNode",
+        "description": "Search Processed Orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ProcessedOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SearchProcessedOrders",
         "consumes": [
           "application/json"
@@ -761,7 +761,7 @@
           "ProcessedOrders"
         ],
         "summary": "SearchProcessedOrdersPaged",
-        "description": "Use this call to search for processed orders.",
+        "description": "Use this call to search for processed orders.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SearchProcessedOrdersPaged",
         "consumes": [
           "application/json"
@@ -806,7 +806,7 @@
           "ProcessedOrders"
         ],
         "summary": "DownloadOrdersToCSV",
-        "description": "Download Processed Orders to CSV\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ProcessedOrders.DownloadProcessedOrdersNode",
+        "description": "Download Processed Orders to CSV\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ProcessedOrders.DownloadProcessedOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DownloadOrdersToCSV",
         "consumes": [
           "application/json"
@@ -850,7 +850,7 @@
           "ProcessedOrders"
         ],
         "summary": "AddReturnCategory",
-        "description": "Use this call to add a new return category.",
+        "description": "Use this call to add a new return category.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddReturnCategory",
         "consumes": [
           "application/json"
@@ -894,7 +894,7 @@
           "ProcessedOrders"
         ],
         "summary": "RenameReturnCategory",
-        "description": "Use this call to rename an existing return category.",
+        "description": "Use this call to rename an existing return category.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "RenameReturnCategory",
         "consumes": [
           "application/json"
@@ -930,7 +930,7 @@
           "ProcessedOrders"
         ],
         "summary": "DeleteReturnCategory",
-        "description": "Use this call to delete an existing return category.",
+        "description": "Use this call to delete an existing return category.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteReturnCategory",
         "consumes": [
           "application/json"
@@ -966,7 +966,7 @@
           "ProcessedOrders"
         ],
         "summary": "GetProcessedRelatives",
-        "description": "Use this call to get a list of related orders.",
+        "description": "Use this call to get a list of related orders.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetProcessedRelatives",
         "consumes": [],
         "produces": [
@@ -1010,7 +1010,7 @@
           "ProcessedOrders"
         ],
         "summary": "GetPackageSplit",
-        "description": "Use this call to get split packaging information for an order",
+        "description": "Use this call to get split packaging information for an order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetPackageSplit",
         "consumes": [],
         "produces": [
@@ -1054,7 +1054,7 @@
           "ProcessedOrders"
         ],
         "summary": "GetProcessedAuditTrail",
-        "description": "Use this call to get an order's audit trail information",
+        "description": "Use this call to get an order's audit trail information\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetProcessedAuditTrail",
         "consumes": [],
         "produces": [
@@ -1098,7 +1098,7 @@
           "ProcessedOrders"
         ],
         "summary": "GetProcessedOrderExtendedProperties",
-        "description": "Use this call to retrieve a list of order-level extended properties.",
+        "description": "Use this call to retrieve a list of order-level extended properties.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetProcessedOrderExtendedProperties",
         "consumes": [],
         "produces": [
@@ -1142,7 +1142,7 @@
           "ProcessedOrders"
         ],
         "summary": "GetReturnCategories",
-        "description": "Use this call to retrieve a list of return categories. Used for refunds, resends and exchanges.",
+        "description": "Use this call to retrieve a list of return categories. Used for refunds, resends and exchanges.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetReturnCategories",
         "consumes": [],
         "produces": [
@@ -1177,7 +1177,7 @@
           "ProcessedOrders"
         ],
         "summary": "GetProcessedOrderNotes",
-        "description": "Use this call to get a list of order notes for a given order",
+        "description": "Use this call to get a list of order notes for a given order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetProcessedOrderNotes",
         "consumes": [],
         "produces": [
@@ -1222,7 +1222,7 @@
           "ProcessedOrders"
         ],
         "summary": "AddOrderNote",
-        "description": "Use this call to add a new note to an order",
+        "description": "Use this call to add a new note to an order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "AddOrderNote",
         "consumes": [
           "application/json"
@@ -1268,7 +1268,7 @@
           "ProcessedOrders"
         ],
         "summary": "ChangeOrderNote",
-        "description": "Edit an existing order note",
+        "description": "Edit an existing order note\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ChangeOrderNote",
         "consumes": [
           "application/json"
@@ -1304,7 +1304,7 @@
           "ProcessedOrders"
         ],
         "summary": "DeleteOrderNote",
-        "description": "Delete an existing order note",
+        "description": "Delete an existing order note\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteOrderNote",
         "consumes": [
           "application/json"
@@ -1340,7 +1340,7 @@
           "ProcessedOrders"
         ],
         "summary": "CreateExchange",
-        "description": "",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateExchange",
         "consumes": [
           "application/json"
@@ -1387,7 +1387,7 @@
           "ProcessedOrders"
         ],
         "summary": "CreateResend",
-        "description": "Creates a resend",
+        "description": "Creates a resend\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateResend",
         "consumes": [
           "application/json"
@@ -1434,6 +1434,7 @@
           "ProcessedOrders"
         ],
         "summary": "CreateFullResend",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateFullResend",
         "consumes": [
           "application/json"
@@ -1480,7 +1481,7 @@
           "ProcessedOrders"
         ],
         "summary": "GetRefunds",
-        "description": "Gets all refund order items for an order",
+        "description": "Gets all refund order items for an order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetRefunds",
         "consumes": [],
         "produces": [
@@ -1524,7 +1525,7 @@
           "ProcessedOrders"
         ],
         "summary": "CheckOrderFullyReturned",
-        "description": "Checks if order was fully returned",
+        "description": "Checks if order was fully returned\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CheckOrderFullyReturned",
         "consumes": [],
         "produces": [
@@ -3068,6 +3069,19 @@
     "SplitPackaging": {
       "type": "object",
       "properties": {
+        "BinIndex": {
+          "format": "int32",
+          "description": "Bin split index",
+          "type": "integer"
+        },
+        "ItemTitle": {
+          "description": "Item Title",
+          "type": "string"
+        },
+        "PackageTitle": {
+          "description": "Package name",
+          "type": "string"
+        },
         "pkBinId": {
           "format": "uuid",
           "description": "Split bin ID",
@@ -3080,36 +3094,23 @@
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
-        "PackageTitle": {
-          "description": "Package name",
-          "type": "string"
-        },
-        "SKU": {
-          "description": "Product SKU",
-          "type": "string"
-        },
-        "ItemTitle": {
-          "description": "Item Title",
-          "type": "string"
-        },
         "Quantity": {
           "format": "int32",
           "description": "Quantity",
           "type": "integer"
         },
-        "Weight": {
-          "format": "double",
-          "description": "Item weight",
-          "type": "number"
+        "SKU": {
+          "description": "Product SKU",
+          "type": "string"
         },
         "TrackingNumber": {
           "description": "Tracking number",
           "type": "string"
         },
-        "BinIndex": {
-          "format": "int32",
-          "description": "Bin split index",
-          "type": "integer"
+        "Weight": {
+          "format": "double",
+          "description": "Item weight",
+          "type": "number"
         }
       }
     },

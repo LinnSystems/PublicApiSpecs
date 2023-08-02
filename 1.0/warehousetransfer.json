@@ -15,7 +15,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetActiveTransfersForLocation",
-        "description": "Use this call to get all of the active transfers related to this location\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to get all of the active transfers related to this location\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetActiveTransfersForLocation",
         "consumes": [],
         "produces": [
@@ -59,7 +59,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetActiveTransfersAllLocations",
-        "description": "Use this call to get all active transfers for all locations\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to get all active transfers for all locations\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetActiveTransfersAllLocations",
         "consumes": [],
         "produces": [
@@ -94,7 +94,7 @@
           "WarehouseTransfer"
         ],
         "summary": "CreateTransferRequestWithReturn",
-        "description": "Use this call to create a new transfer request with default reference number\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to create a new transfer request with default reference number\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateTransferRequestWithReturn",
         "consumes": [
           "application/json"
@@ -138,7 +138,7 @@
           "WarehouseTransfer"
         ],
         "summary": "CreateTransferFromDescrepancies",
-        "description": "Use this call to create a new transfer request from discrepancies\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to create a new transfer request from discrepancies\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateTransferFromDescrepancies",
         "consumes": [
           "application/json"
@@ -182,7 +182,7 @@
           "WarehouseTransfer"
         ],
         "summary": "DeleteTransfer",
-        "description": "Use this call to delete a transfer\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to delete a transfer\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteTransfer",
         "consumes": [
           "application/json"
@@ -218,7 +218,7 @@
           "WarehouseTransfer"
         ],
         "summary": "DeleteTransferProperty",
-        "description": "Use this call to delete a property from the transfer\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to delete a property from the transfer\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteTransferProperty",
         "consumes": [
           "application/json"
@@ -254,7 +254,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetTransferWithNotes",
-        "description": "Use this call to get a warehouse transfer object with items\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to get a warehouse transfer object with items\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetTransferWithNotes",
         "consumes": [],
         "produces": [
@@ -295,7 +295,7 @@
           "WarehouseTransfer"
         ],
         "summary": "ChangeTransferStatus",
-        "description": "Use this call to change a transfer's status\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to change a transfer's status\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ChangeTransferStatus",
         "consumes": [
           "application/json"
@@ -331,7 +331,7 @@
           "WarehouseTransfer"
         ],
         "summary": "AddTransferNote",
-        "description": "Use this call to add a note to the transfer\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to add a note to the transfer\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddTransferNote",
         "consumes": [
           "application/json"
@@ -377,7 +377,7 @@
           "WarehouseTransfer"
         ],
         "summary": "AddTransferBinNote",
-        "description": "Use this call to add a note to a bin\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to add a note to a bin\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddTransferBinNote",
         "consumes": [
           "application/json"
@@ -423,7 +423,7 @@
           "WarehouseTransfer"
         ],
         "summary": "AddItemToTransfer",
-        "description": "Use this call to add an item to the transfer (only works for transfers in draft/request states)\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to add an item to the transfer (only works for transfers in draft/request states)\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddItemToTransfer",
         "consumes": [
           "application/json"
@@ -467,7 +467,7 @@
           "WarehouseTransfer"
         ],
         "summary": "AddItemsToTransfer",
-        "description": "Use this call to add multiple items to the transfer (only works for transfers in draft/request states)\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to add multiple items to the transfer (only works for transfers in draft/request states)\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddItemsToTransfer",
         "consumes": [
           "application/json"
@@ -511,7 +511,7 @@
           "WarehouseTransfer"
         ],
         "summary": "AddTransferProperty",
-        "description": "Use this call to add a property to the transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to add a property to the transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddTransferProperty",
         "consumes": [
           "application/json"
@@ -557,7 +557,7 @@
           "WarehouseTransfer"
         ],
         "summary": "RemoveItemFromTransfer",
-        "description": "Use this call to remove an item from a transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to remove an item from a transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "RemoveItemFromTransfer",
         "consumes": [
           "application/json"
@@ -593,7 +593,7 @@
           "WarehouseTransfer"
         ],
         "summary": "SetReferenceNumber",
-        "description": "Use this call to change the transfer reference number (this call only works before the transfer is in transit)\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to change the transfer reference number (this call only works before the transfer is in transit)\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetReferenceNumber",
         "consumes": [
           "application/json"
@@ -629,7 +629,7 @@
           "WarehouseTransfer"
         ],
         "summary": "ChangeTransferFromLocation",
-        "description": "Use this call to update the from location of a transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to update the from location of a transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ChangeTransferFromLocation",
         "consumes": [
           "application/json"
@@ -665,7 +665,7 @@
           "WarehouseTransfer"
         ],
         "summary": "ChangeTransferToLocation",
-        "description": "Use this call to update the to location of a transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to update the to location of a transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ChangeTransferToLocation",
         "consumes": [
           "application/json"
@@ -701,7 +701,7 @@
           "WarehouseTransfer"
         ],
         "summary": "ChangeTransferLocations",
-        "description": "Use this call to update the from and to locations of a transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to update the from and to locations of a transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ChangeTransferLocations",
         "consumes": [
           "application/json"
@@ -737,7 +737,7 @@
           "WarehouseTransfer"
         ],
         "summary": "ChangeTransferProperty",
-        "description": "Use this call to change a property belonging to a given transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to change a property belonging to a given transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ChangeTransferProperty",
         "consumes": [
           "application/json"
@@ -773,7 +773,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetTransferItems",
-        "description": "Use this call to retrieve a list of items on  the order and request/sent/received levels. This method will return multiple entries for a single item if the item exists in multiple bins.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to retrieve a list of items on  the order and request/sent/received levels. This method will return multiple entries for a single item if the item exists in multiple bins.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetTransferItems",
         "consumes": [],
         "produces": [
@@ -817,7 +817,7 @@
           "WarehouseTransfer"
         ],
         "summary": "ChangeTransferItemRequestQuantity",
-        "description": "Use this call to change the requested quantity for an item on a transfer in Draft or Request states.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to change the requested quantity for an item on a transfer in Draft or Request states.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ChangeTransferItemRequestQuantity",
         "consumes": [
           "application/json"
@@ -853,7 +853,7 @@
           "WarehouseTransfer"
         ],
         "summary": "ChangeTransferItemSentQuantity",
-        "description": "Use this call to change the sent quantity of an item in the specified bin.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to change the sent quantity of an item in the specified bin.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ChangeTransferItemSentQuantity",
         "consumes": [
           "application/json"
@@ -897,7 +897,7 @@
           "WarehouseTransfer"
         ],
         "summary": "ChangeTransferItemReceivedQuantity",
-        "description": "Use this call to change the received quantity of a transfer item.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to change the received quantity of a transfer item.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ChangeTransferItemReceivedQuantity",
         "consumes": [
           "application/json"
@@ -933,7 +933,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetTransferNotes",
-        "description": "Use this call to retrieve a list of transfer-level notes for a given transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to retrieve a list of transfer-level notes for a given transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetTransferNotes",
         "consumes": [],
         "produces": [
@@ -977,7 +977,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetTransferItemNotes",
-        "description": "Use this call to retrieve the notes from a transfer item.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to retrieve the notes from a transfer item.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetTransferItemNotes",
         "consumes": [],
         "produces": [
@@ -1028,7 +1028,7 @@
           "WarehouseTransfer"
         ],
         "summary": "AddTransferItemNote",
-        "description": "Use this call to add a note to a transfer item.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to add a note to a transfer item.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddTransferItemNote",
         "consumes": [
           "application/json"
@@ -1074,7 +1074,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetTransferAudit",
-        "description": "Use this call to retrieve all of the audit entries for the specified transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to retrieve all of the audit entries for the specified transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetTransferAudit",
         "consumes": [],
         "produces": [
@@ -1118,7 +1118,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetTransferProperties",
-        "description": "Use this call to retrieve a list of properties associated with a given transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to retrieve a list of properties associated with a given transfer.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetTransferProperties",
         "consumes": [],
         "produces": [
@@ -1162,7 +1162,7 @@
           "WarehouseTransfer"
         ],
         "summary": "SearchTransfersAllLocations",
-        "description": "Use this call to search for transfers which match a specific criteria\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to search for transfers which match a specific criteria\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SearchTransfersAllLocations",
         "consumes": [],
         "produces": [
@@ -1220,7 +1220,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetArchivedTransfers",
-        "description": "Use this call to retrieve all of the archived transfers in the system (i.e. Delivered or Deleted).\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to retrieve all of the archived transfers in the system (i.e. Delivered or Deleted).\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetArchivedTransfers",
         "consumes": [],
         "produces": [
@@ -1268,7 +1268,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetArchivedTransfersFiltered",
-        "description": "Use this call to search for archived transfers which match a specific search term.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to search for archived transfers which match a specific search term.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetArchivedTransfersFiltered",
         "consumes": [],
         "produces": [
@@ -1335,7 +1335,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetArchivedTransfersBetweenDates",
-        "description": "Use this call to search for archived transfers which were created between two dates.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to search for archived transfers which were created between two dates.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetArchivedTransfersBetweenDates",
         "consumes": [],
         "produces": [
@@ -1397,7 +1397,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetArchivedTransfersBetweenArchivedDates",
-        "description": "Use this call to search for archived transfers which were archived between two dates.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to search for archived transfers which were archived between two dates.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetArchivedTransfersBetweenArchivedDates",
         "consumes": [],
         "produces": [
@@ -1459,7 +1459,7 @@
           "WarehouseTransfer"
         ],
         "summary": "SearchTransfersByLocation",
-        "description": "Use this call to search for transfers which match a specific criteria\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to search for transfers which match a specific criteria\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SearchTransfersByLocation",
         "consumes": [],
         "produces": [
@@ -1524,7 +1524,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetListTransfers",
-        "description": "Use this call to load a list of basic transfers\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to load a list of basic transfers\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetListTransfers",
         "consumes": [
           "application/json"
@@ -1571,7 +1571,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetModifiedBasic",
-        "description": "Use this call to retrieve a basic list of transfers which have been significantly modified between the specified UTC date and now.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to retrieve a basic list of transfers which have been significantly modified between the specified UTC date and now.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetModifiedBasic",
         "consumes": [],
         "produces": [
@@ -1615,7 +1615,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetServerTime",
-        "description": "Use this call to get the current UTC date\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to get the current UTC date\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetServerTime",
         "consumes": [],
         "produces": [
@@ -1648,7 +1648,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetTransferWithItems",
-        "description": "Use this call to get a transfer object with its items.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to get a transfer object with its items.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetTransferWithItems",
         "consumes": [],
         "produces": [
@@ -1689,7 +1689,7 @@
           "WarehouseTransfer"
         ],
         "summary": "ChangeBinDetails",
-        "description": "Use this call to change details of a bin.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to change details of a bin.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ChangeBinDetails",
         "consumes": [
           "application/json"
@@ -1725,7 +1725,7 @@
           "WarehouseTransfer"
         ],
         "summary": "AllocateItemToBin",
-        "description": "Use this call to allocate stock, in part or in full, from one bin to another.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to allocate stock, in part or in full, from one bin to another.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AllocateItemToBin",
         "consumes": [
           "application/json"
@@ -1770,7 +1770,7 @@
           "WarehouseTransfer"
         ],
         "summary": "CreateNewBin",
-        "description": "Use this call to create a new bin.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to create a new bin.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateNewBin",
         "consumes": [
           "application/json"
@@ -1814,7 +1814,7 @@
           "WarehouseTransfer"
         ],
         "summary": "RemoveAllEmptyBins",
-        "description": "Use this call to delete bins with no items. To be used if a bin is created and no items are assigned to it.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to delete bins with no items. To be used if a bin is created and no items are assigned to it.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "RemoveAllEmptyBins",
         "consumes": [
           "application/json"
@@ -1850,7 +1850,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetTransferBinNotes",
-        "description": "Use this call to retrieve notes from a specific bin.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to retrieve notes from a specific bin.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetTransferBinNotes",
         "consumes": [],
         "produces": [
@@ -1894,7 +1894,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetDiscrepancyItems",
-        "description": "Use this call to get a list of items whose quantities do not match those that were originally expected. E.g. Received &lt; Sent when Delivered or Sent &lt; Requested when Accepted. Only call this method once after the transfer is Accepted and once when it has been Delivered.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to get a list of items whose quantities do not match those that were originally expected. E.g. Received &lt; Sent when Delivered or Sent &lt; Requested when Accepted. Only call this method once after the transfer is Accepted and once when it has been Delivered.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetDiscrepancyItems",
         "consumes": [],
         "produces": [
@@ -1938,7 +1938,7 @@
           "WarehouseTransfer"
         ],
         "summary": "GetStockAvailability",
-        "description": "Use this call to retrieve information on inbound transfers and purchase orders for the given transfer item.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to retrieve information on inbound transfers and purchase orders for the given transfer item.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetStockAvailability",
         "consumes": [],
         "produces": [
@@ -1982,7 +1982,7 @@
           "WarehouseTransfer"
         ],
         "summary": "IsDraftTransferChanged",
-        "description": "Use this call to work out if a draft transfer has been changed since it was created.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to work out if a draft transfer has been changed since it was created.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "IsDraftTransferChanged",
         "consumes": [],
         "produces": [
@@ -2023,7 +2023,7 @@
           "WarehouseTransfer"
         ],
         "summary": "DeleteEmptyDraftTransfer",
-        "description": "Use this call to delete a draft transfer with no items, properties or notes.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to delete a draft transfer with no items, properties or notes.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteEmptyDraftTransfer",
         "consumes": [
           "application/json"
@@ -2059,7 +2059,7 @@
           "WarehouseTransfer"
         ],
         "summary": "CheckForDraftTransfer",
-        "description": "Use this call to see if a draft transfer already exists for the two locations\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Use this call to see if a draft transfer already exists for the two locations\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CheckForDraftTransfer",
         "consumes": [],
         "produces": [
@@ -2109,7 +2109,7 @@
           "WarehouseTransfer"
         ],
         "summary": "PrintTransfer",
-        "description": "Creates a PDF for this transfer and returns the URL\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode",
+        "description": "Creates a PDF for this transfer and returns the URL\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseTransferNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "PrintTransfer",
         "consumes": [
           "application/json"

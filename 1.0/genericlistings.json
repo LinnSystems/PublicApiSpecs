@@ -15,7 +15,7 @@
           "GenericListings"
         ],
         "summary": "SaveTemplateFields",
-        "description": "Use this call to manipulate the fields on a template. This can be used to modify a generic template created using the CreateTemplate endpoint.\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+        "description": "Use this call to manipulate the fields on a template. This can be used to modify a generic template created using the CreateTemplate endpoint.\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SaveTemplateFields",
         "consumes": [
           "application/json"
@@ -59,7 +59,7 @@
           "GenericListings"
         ],
         "summary": "ProcessTemplates",
-        "description": "Use this call to push a template that you have created to a channel. This endpoint can also be used to update, relist, delete a template from a channel.\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+        "description": "Use this call to push a template that you have created to a channel. This endpoint can also be used to update, relist, delete a template from a channel.\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ProcessTemplates",
         "consumes": [
           "application/json"
@@ -103,7 +103,7 @@
           "GenericListings"
         ],
         "summary": "CreateTemplates",
-        "description": "Use this call to create a generic template based on the inventory item details and the configurator details. This template will contain the full details of the item that will be listed on the channel.\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+        "description": "Use this call to create a generic template based on the inventory item details and the configurator details. This template will contain the full details of the item that will be listed on the channel.\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateTemplates",
         "consumes": [
           "application/json"
@@ -147,7 +147,7 @@
           "GenericListings"
         ],
         "summary": "OpenTemplatesByInventory",
-        "description": "Use this call to get template details for Generic Listings using Stock Item IDs.\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+        "description": "Use this call to get template details for Generic Listings using Stock Item IDs.\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "OpenTemplatesByInventory",
         "consumes": [
           "application/json"
@@ -191,7 +191,7 @@
           "GenericListings"
         ],
         "summary": "GetConfiguratorsInfoPaged",
-        "description": "Use this call to get the existing Generic Listing Tool configurators.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+        "description": "Use this call to get the existing Generic Listing Tool configurators.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetConfiguratorsInfoPaged",
         "consumes": [
           "application/json"
@@ -235,7 +235,7 @@
           "GenericListings"
         ],
         "summary": "SaveConfiguratorFields",
-        "description": "Use this call to update a configurators fields.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+        "description": "Use this call to update a configurators fields.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SaveConfiguratorFields",
         "consumes": [
           "application/json"
@@ -279,7 +279,7 @@
           "GenericListings"
         ],
         "summary": "GetConfiguratorDescription",
-        "description": "Use this call to get the existing Generic Listing Tool configurators description.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+        "description": "Use this call to get the existing Generic Listing Tool configurators description.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetConfiguratorDescription",
         "consumes": [
           "application/json"
@@ -323,7 +323,7 @@
           "GenericListings"
         ],
         "summary": "SaveConfiguratorDescription",
-        "description": "Use this call to update a configurators description.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+        "description": "Use this call to update a configurators description.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SaveConfiguratorDescription",
         "consumes": [
           "application/json"
@@ -367,7 +367,7 @@
           "GenericListings"
         ],
         "summary": "GetConfiguratorData",
-        "description": "Use this call to get the existing Generic Listing Tool configurators data.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+        "description": "Use this call to get the existing Generic Listing Tool configurators data.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetConfiguratorData",
         "consumes": [
           "application/json"
@@ -411,7 +411,7 @@
           "GenericListings"
         ],
         "summary": "SaveConfiguratorData",
-        "description": "Use this call to update a configurators data (attributes of the configurator).\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+        "description": "Use this call to update a configurators data (attributes of the configurator).\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SaveConfiguratorData",
         "consumes": [
           "application/json"
@@ -455,7 +455,7 @@
           "GenericListings"
         ],
         "summary": "CreateConfigurator",
-        "description": "Use this call to create a configurator. The configurator setup will be dependant on the channel that you want to create it for.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+        "description": "Use this call to create a configurator. The configurator setup will be dependant on the channel that you want to create it for.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateConfigurator",
         "consumes": [
           "application/json"
@@ -499,7 +499,7 @@
           "GenericListings"
         ],
         "summary": "DeleteConfigurators",
-        "description": "Use this call to delete a configurator.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+        "description": "Use this call to delete a configurator.\r\n\r\nMore information on configurators can be found in the [Linnworks general documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteConfigurators",
         "consumes": [
           "application/json"

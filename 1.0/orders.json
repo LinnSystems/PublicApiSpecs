@@ -15,7 +15,7 @@
           "Orders"
         ],
         "summary": "GetOrderById",
-        "description": "Retrieves the order detail for a unique system order id identifier (pkOrderId)\r\nFor working with open orders recommended to use OpenOrders/GetOpenOrdersDetails\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode",
+        "description": "Retrieves the order detail for a unique system order id identifier (pkOrderId)\r\nFor working with open orders recommended to use OpenOrders/GetOpenOrdersDetails\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOrderById",
         "consumes": [],
         "produces": [
@@ -56,7 +56,7 @@
           "Orders"
         ],
         "summary": "GetOrdersById",
-        "description": "Retrieves the order detail list for a list of order id identifiers (pkOrderId)\r\nFor working with open orders recommended to use OpenOrders/GetOpenOrdersDetails\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode",
+        "description": "Retrieves the order detail list for a list of order id identifiers (pkOrderId)\r\nFor working with open orders recommended to use OpenOrders/GetOpenOrdersDetails\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetOrdersById",
         "consumes": [
           "application/json"
@@ -103,7 +103,7 @@
           "Orders"
         ],
         "summary": "GetOrderPackagingCalculation",
-        "description": "Retrieves order packaging, weight and dimension information with split packaging. The method can perform ad hoc recalculation and saving of any changes.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode",
+        "description": "Retrieves order packaging, weight and dimension information with split packaging. The method can perform ad hoc recalculation and saving of any changes.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOrderPackagingCalculation",
         "consumes": [
           "application/json"
@@ -150,7 +150,7 @@
           "Orders"
         ],
         "summary": "RecalculateSingleOrderPackaging",
-        "description": "Designed to recalculate order packaging totals based on the object provided\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode",
+        "description": "Designed to recalculate order packaging totals based on the object provided\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "RecalculateSingleOrderPackaging",
         "consumes": [
           "application/json"
@@ -194,7 +194,7 @@
           "Orders"
         ],
         "summary": "SetOrderSplitPackagingManualOverwrite",
-        "description": "Designed to save order split packaging after a manual override\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode",
+        "description": "Designed to save order split packaging after a manual override\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetOrderSplitPackagingManualOverwrite",
         "consumes": [
           "application/json"
@@ -238,7 +238,7 @@
           "Orders"
         ],
         "summary": "SetOrderPackaging",
-        "description": "Designed to save order packaging when it has already been calculated but not saved or is a manual edit.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode",
+        "description": "Designed to save order packaging when it has already been calculated but not saved or is a manual edit.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetOrderPackaging",
         "consumes": [
           "application/json"
@@ -282,7 +282,7 @@
           "Orders"
         ],
         "summary": "GetOrderItemBatchsByOrderId",
-        "description": "Get a list of order item batch information for the specified order",
+        "description": "Get a list of order item batch information for the specified order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOrderItemBatchsByOrderId",
         "consumes": [
           "application/json"
@@ -329,7 +329,7 @@
           "Orders"
         ],
         "summary": "GetOrderItemBatchesByOrderIds",
-        "description": "Get a list of order item batch information for the specified orders",
+        "description": "Get a list of order item batch information for the specified orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOrderItemBatchesByOrderIds",
         "consumes": [
           "application/json"
@@ -373,7 +373,7 @@
           "Orders"
         ],
         "summary": "GetAllAvailableOrderItemBatchsByOrderId",
-        "description": "Get a list of available batchs for each order item for the specified order",
+        "description": "Get a list of available batchs for each order item for the specified order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetAllAvailableOrderItemBatchsByOrderId",
         "consumes": [
           "application/json"
@@ -420,7 +420,7 @@
           "Orders"
         ],
         "summary": "CreateOrders",
-        "description": "Creates new orders, once an order is paid it will be skipped on save. Returns list of pkOrderId's that were saved.",
+        "description": "Creates new orders, once an order is paid it will be skipped on save. Returns list of pkOrderId's that were saved.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateOrders",
         "consumes": [
           "application/json"
@@ -469,7 +469,7 @@
           "Orders"
         ],
         "summary": "AddExtendedProperties",
-        "description": "Adds extended properties to a Linnworks orders.\r\nThis will NOT update properties that match on property name / value",
+        "description": "Adds extended properties to a Linnworks orders.\r\nThis will NOT update properties that match on property name / value\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddExtendedProperties",
         "consumes": [
           "application/json"
@@ -513,6 +513,7 @@
           "Orders"
         ],
         "summary": "GetAssignedOrderItemBatches",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetAssignedOrderItemBatches",
         "consumes": [
           "application/json"
@@ -559,6 +560,7 @@
           "Orders"
         ],
         "summary": "AssignOrderItemBatches",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AssignOrderItemBatches",
         "consumes": [
           "application/json"
@@ -594,6 +596,7 @@
           "Orders"
         ],
         "summary": "AssignStockToOrder",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AssignStockToOrder",
         "consumes": [
           "application/json"
@@ -640,7 +643,7 @@
           "Orders"
         ],
         "summary": "GetUserLocationId",
-        "description": "Get the user location from settings\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode",
+        "description": "Get the user location from settings\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetUserLocationId",
         "consumes": [],
         "produces": [
@@ -674,7 +677,7 @@
           "Orders"
         ],
         "summary": "GetOpenOrders",
-        "description": "Get a paged list of open orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode",
+        "description": "Get a paged list of open orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetOpenOrders",
         "consumes": [
           "application/json"
@@ -718,7 +721,7 @@
           "Orders"
         ],
         "summary": "GetAllOpenOrders",
-        "description": "Get the list of Id's of all open orders (without pagination)\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode",
+        "description": "Get the list of Id's of all open orders (without pagination)\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetAllOpenOrders",
         "consumes": [
           "application/json"
@@ -767,7 +770,7 @@
           "Orders"
         ],
         "summary": "GetAllOpenOrdersBetweenIndex",
-        "description": "Get the list of open order id's between two index with the current filters and sorting\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode",
+        "description": "Get the list of open order id's between two index with the current filters and sorting\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetAllOpenOrdersBetweenIndex",
         "consumes": [
           "application/json"
@@ -816,7 +819,7 @@
           "Orders"
         ],
         "summary": "SetLabelsPrinted",
-        "description": "Mark a list of orders as label printed",
+        "description": "Mark a list of orders as label printed\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetLabelsPrinted",
         "consumes": [
           "application/json"
@@ -865,7 +868,7 @@
           "Orders"
         ],
         "summary": "SetInvoicesPrinted",
-        "description": "Mark a list of orders as invoice printed",
+        "description": "Mark a list of orders as invoice printed\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetInvoicesPrinted",
         "consumes": [
           "application/json"
@@ -914,7 +917,7 @@
           "Orders"
         ],
         "summary": "SetPickListPrinted",
-        "description": "Sets the print flag for the given orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode",
+        "description": "Sets the print flag for the given orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetPickListPrinted",
         "consumes": [
           "application/json"
@@ -950,7 +953,7 @@
           "Orders"
         ],
         "summary": "RunRulesEngine",
-        "description": "Run Rules Engine on Open Orders",
+        "description": "Run Rules Engine on Open Orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "RunRulesEngine",
         "consumes": [
           "application/json"
@@ -999,7 +1002,7 @@
           "Orders"
         ],
         "summary": "GetOrderItemComposition",
-        "description": "Get the detail (composition) of a specific order item",
+        "description": "Get the detail (composition) of a specific order item\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOrderItemComposition",
         "consumes": [],
         "produces": [
@@ -1054,7 +1057,7 @@
           "Orders"
         ],
         "summary": "ChangeOrderTag",
-        "description": "Change the tag for the specific order list. Tags can be 1-6 for custom tags, or 7 to initialize a 'parked' status on the order.",
+        "description": "Change the tag for the specific order list. Tags can be 1-6 for custom tags, or 7 to initialize a 'parked' status on the order.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "ChangeOrderTag",
         "consumes": [
           "application/json"
@@ -1103,7 +1106,7 @@
           "Orders"
         ],
         "summary": "GetAvailableFolders",
-        "description": "Get list of available folders that orders can be assigned to",
+        "description": "Get list of available folders that orders can be assigned to\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetAvailableFolders",
         "consumes": [],
         "produces": [
@@ -1138,7 +1141,7 @@
           "Orders"
         ],
         "summary": "SetAvailableFolders",
-        "description": "Set the list of available folders that orders can be assigned to",
+        "description": "Set the list of available folders that orders can be assigned to\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetAvailableFolders",
         "consumes": [
           "application/json"
@@ -1185,7 +1188,7 @@
           "Orders"
         ],
         "summary": "AssignToFolder",
-        "description": "Assign a list of orders to a specific folder",
+        "description": "Assign a list of orders to a specific folder\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "AssignToFolder",
         "consumes": [
           "application/json"
@@ -1234,7 +1237,7 @@
           "Orders"
         ],
         "summary": "UnassignToFolder",
-        "description": "Unassign a list of orders to a specific folder",
+        "description": "Unassign a list of orders to a specific folder\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "UnassignToFolder",
         "consumes": [
           "application/json"
@@ -1283,7 +1286,7 @@
           "Orders"
         ],
         "summary": "GetOrderXmlJSTree",
-        "description": "Get order XML received from channel",
+        "description": "Get order XML received from channel\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOrderXmlJSTree",
         "consumes": [],
         "produces": [
@@ -1324,7 +1327,7 @@
           "Orders"
         ],
         "summary": "GetOrderXml",
-        "description": "Get order XML received from channel",
+        "description": "Get order XML received from channel\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetOrderXml",
         "consumes": [],
         "produces": [
@@ -1368,7 +1371,7 @@
           "Orders"
         ],
         "summary": "ChangeShippingMethod",
-        "description": "Change the shipping method to a list of orders",
+        "description": "Change the shipping method to a list of orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ChangeShippingMethod",
         "consumes": [
           "application/json"
@@ -1417,7 +1420,7 @@
           "Orders"
         ],
         "summary": "ChangeStatus",
-        "description": "Change the status to a list of orders\r\n0 = 'UNPAID'\r\n1 = 'PAID'\r\n2 = 'RETURN'\r\n3 = 'PENDING'\r\n4 = 'RESEND'",
+        "description": "Change the status to a list of orders\r\n0 = 'UNPAID'\r\n1 = 'PAID'\r\n2 = 'RETURN'\r\n3 = 'PENDING'\r\n4 = 'RESEND'\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ChangeStatus",
         "consumes": [
           "application/json"
@@ -1466,7 +1469,7 @@
           "Orders"
         ],
         "summary": "LockOrder",
-        "description": "Lock a list of orders",
+        "description": "Lock a list of orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "LockOrder",
         "consumes": [
           "application/json"
@@ -1502,7 +1505,7 @@
           "Orders"
         ],
         "summary": "DeleteOrder",
-        "description": "Delete a specific order\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.DeleteOrdersNode",
+        "description": "Delete a specific order\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.DeleteOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteOrder",
         "consumes": [
           "application/json"
@@ -1538,7 +1541,7 @@
           "Orders"
         ],
         "summary": "CancelOrder",
-        "description": "Cancel a specific order",
+        "description": "Cancel a specific order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CancelOrder",
         "consumes": [
           "application/json"
@@ -1582,7 +1585,7 @@
           "Orders"
         ],
         "summary": "MoveToLocation",
-        "description": "Move a list of orders to a specific location",
+        "description": "Move a list of orders to a specific location\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "MoveToLocation",
         "consumes": [
           "application/json"
@@ -1626,7 +1629,7 @@
           "Orders"
         ],
         "summary": "ClearShippingLabelInfo",
-        "description": "Clear the shipping label info to a list of orders",
+        "description": "Clear the shipping label info to a list of orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ClearShippingLabelInfo",
         "consumes": [
           "application/json"
@@ -1673,7 +1676,7 @@
           "Orders"
         ],
         "summary": "ClearInvoicePrinted",
-        "description": "Clear invoice printed flag for a list of orders",
+        "description": "Clear invoice printed flag for a list of orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ClearInvoicePrinted",
         "consumes": [
           "application/json"
@@ -1722,7 +1725,7 @@
           "Orders"
         ],
         "summary": "ClearPickListPrinted",
-        "description": "Clear invoice printed flag for a list of orders",
+        "description": "Clear invoice printed flag for a list of orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "ClearPickListPrinted",
         "consumes": [
           "application/json"
@@ -1771,7 +1774,7 @@
           "Orders"
         ],
         "summary": "GetShippingMethods",
-        "description": "Get available shipping methods",
+        "description": "Get available shipping methods\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetShippingMethods",
         "consumes": [],
         "produces": [
@@ -1806,7 +1809,7 @@
           "Orders"
         ],
         "summary": "GetPackagingGroups",
-        "description": "Get available packaging groups",
+        "description": "Get available packaging groups\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetPackagingGroups",
         "consumes": [],
         "produces": [
@@ -1841,7 +1844,7 @@
           "Orders"
         ],
         "summary": "GetExtendedProperties",
-        "description": "Get the extended properties for a specific order",
+        "description": "Get the extended properties for a specific order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetExtendedProperties",
         "consumes": [],
         "produces": [
@@ -1885,7 +1888,7 @@
           "Orders"
         ],
         "summary": "GetExtendedPropertyTypes",
-        "description": "Get the available types of extended properties",
+        "description": "Get the available types of extended properties\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetExtendedPropertyTypes",
         "consumes": [],
         "produces": [
@@ -1920,7 +1923,7 @@
           "Orders"
         ],
         "summary": "GetExtendedPropertyNames",
-        "description": "Get the available types of extended properties",
+        "description": "Get the available types of extended properties\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetExtendedPropertyNames",
         "consumes": [],
         "produces": [
@@ -1955,7 +1958,7 @@
           "Orders"
         ],
         "summary": "SetExtendedProperties",
-        "description": "Set the extended properties for a specific order",
+        "description": "Set the extended properties for a specific order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "SetExtendedProperties",
         "consumes": [
           "application/json"
@@ -2002,7 +2005,7 @@
           "Orders"
         ],
         "summary": "GetBatchPilots",
-        "description": "Get the list of available batch pilots",
+        "description": "Get the list of available batch pilots\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetBatchPilots",
         "consumes": [],
         "produces": [
@@ -2037,7 +2040,7 @@
           "Orders"
         ],
         "summary": "GetOrder",
-        "description": "Get a specific open order",
+        "description": "Get a specific open order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOrder",
         "consumes": [
           "application/json"
@@ -2081,7 +2084,7 @@
           "Orders"
         ],
         "summary": "GetOrders",
-        "description": "Get list of open orders",
+        "description": "Get list of open orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOrders",
         "consumes": [
           "application/json"
@@ -2128,7 +2131,7 @@
           "Orders"
         ],
         "summary": "GetOrderAuditTrail",
-        "description": "Get order audit trail",
+        "description": "Get order audit trail\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetOrderAuditTrail",
         "consumes": [],
         "produces": [
@@ -2172,7 +2175,7 @@
           "Orders"
         ],
         "summary": "GetOrderAuditTrailsByIds",
-        "description": "Returns a list of audit trails for the provided order ids",
+        "description": "Returns a list of audit trails for the provided order ids\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOrderAuditTrailsByIds",
         "consumes": [
           "application/json"
@@ -2216,7 +2219,7 @@
           "Orders"
         ],
         "summary": "GetOrderNotes",
-        "description": "Get the order notes",
+        "description": "Get the order notes\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetOrderNotes",
         "consumes": [],
         "produces": [
@@ -2260,6 +2263,7 @@
           "Orders"
         ],
         "summary": "GetOrdersNotes",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOrdersNotes",
         "consumes": [
           "application/json"
@@ -2309,6 +2313,7 @@
           "Orders"
         ],
         "summary": "GetOrderNoteTypes",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOrderNoteTypes",
         "consumes": [],
         "produces": [
@@ -2343,7 +2348,7 @@
           "Orders"
         ],
         "summary": "SetOrderNotes",
-        "description": "Set the order notes for a specific order\r\nSetOrderNotes overwrites the existing order notes with those in the list provided. \r\nAny existing notes should be retrieved using GetOrderNotes and added to this list, so that they are not lost/overwritten.",
+        "description": "Set the order notes for a specific order\r\nSetOrderNotes overwrites the existing order notes with those in the list provided. \r\nAny existing notes should be retrieved using GetOrderNotes and added to this list, so that they are not lost/overwritten.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "SetOrderNotes",
         "consumes": [
           "application/json"
@@ -2379,7 +2384,7 @@
           "Orders"
         ],
         "summary": "GetOrderRelations",
-        "description": "Get order relations",
+        "description": "Get order relations\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetOrderRelations",
         "consumes": [],
         "produces": [
@@ -2423,7 +2428,7 @@
           "Orders"
         ],
         "summary": "GetOrdersRelations",
-        "description": "Get order relations for a list of orders.",
+        "description": "Get order relations for a list of orders.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOrdersRelations",
         "consumes": [
           "application/json"
@@ -2473,7 +2478,7 @@
           "Orders"
         ],
         "summary": "GetOrderItems",
-        "description": "Get order items",
+        "description": "Get order items\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetOrderItems",
         "consumes": [],
         "produces": [
@@ -2524,7 +2529,7 @@
           "Orders"
         ],
         "summary": "GetOpenOrderItemsSuppliers",
-        "description": "Get items suppliers list for a specific order",
+        "description": "Get items suppliers list for a specific order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOpenOrderItemsSuppliers",
         "consumes": [],
         "produces": [
@@ -2568,7 +2573,7 @@
           "Orders"
         ],
         "summary": "AddOrderItem",
-        "description": "Add an item to a specific order.\r\nLine pricing is optional with the default values being\r\n- PricePerUnit: Stock item retail price\r\n- DiscountPercentage: 0\r\n- TaxRatePercentage: Stock item tax rate.\r\n- TaxInclusive: true",
+        "description": "Add an item to a specific order.\r\nLine pricing is optional with the default values being\r\n- PricePerUnit: Stock item retail price\r\n- DiscountPercentage: 0\r\n- TaxRatePercentage: Stock item tax rate.\r\n- TaxInclusive: true\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "AddOrderItem",
         "consumes": [
           "application/json"
@@ -2612,7 +2617,7 @@
           "Orders"
         ],
         "summary": "AddOrderService",
-        "description": "Add a service to an order",
+        "description": "Add a service to an order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddOrderService",
         "consumes": [
           "application/json"
@@ -2656,7 +2661,7 @@
           "Orders"
         ],
         "summary": "UpdateOrderItem",
-        "description": "Update an order item",
+        "description": "Update an order item\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateOrderItem",
         "consumes": [
           "application/json"
@@ -2700,7 +2705,7 @@
           "Orders"
         ],
         "summary": "RemoveOrderItem",
-        "description": "Remove item from an order",
+        "description": "Remove item from an order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "RemoveOrderItem",
         "consumes": [
           "application/json"
@@ -2744,7 +2749,7 @@
           "Orders"
         ],
         "summary": "GetCountries",
-        "description": "Get list of available countries",
+        "description": "Get list of available countries\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetCountries",
         "consumes": [],
         "produces": [
@@ -2779,7 +2784,7 @@
           "Orders"
         ],
         "summary": "GetPaymentMethods",
-        "description": "Get the available payment methods",
+        "description": "Get the available payment methods\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetPaymentMethods",
         "consumes": [],
         "produces": [
@@ -2814,7 +2819,7 @@
           "Orders"
         ],
         "summary": "GetDefaultPaymentMethodIdForNewOrder",
-        "description": "Get the default payment method for new direct orders",
+        "description": "Get the default payment method for new direct orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetDefaultPaymentMethodIdForNewOrder",
         "consumes": [],
         "produces": [
@@ -2848,7 +2853,7 @@
           "Orders"
         ],
         "summary": "SetDefaultPaymentMethodIdForNewOrder",
-        "description": "Set the default payment method for new direct orders",
+        "description": "Set the default payment method for new direct orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetDefaultPaymentMethodIdForNewOrder",
         "consumes": [
           "application/json"
@@ -2884,7 +2889,7 @@
           "Orders"
         ],
         "summary": "SetPaymentMethods",
-        "description": "Set the available payment methods",
+        "description": "Set the available payment methods\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetPaymentMethods",
         "consumes": [
           "application/json"
@@ -2931,7 +2936,7 @@
           "Orders"
         ],
         "summary": "CreateNewOrder",
-        "description": "Create an empty draft order. (Please see CreateOrders call)\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.CreateOrdersNode",
+        "description": "Create an empty draft order. (Please see CreateOrders call)\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.CreateOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateNewOrder",
         "consumes": [
           "application/json"
@@ -2975,7 +2980,7 @@
           "Orders"
         ],
         "summary": "GetDraftOrders",
-        "description": "Get list of draft orders",
+        "description": "Get list of draft orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetDraftOrders",
         "consumes": [],
         "produces": [
@@ -3012,7 +3017,7 @@
           "Orders"
         ],
         "summary": "CompleteOrder",
-        "description": "Complete a specific order",
+        "description": "Complete a specific order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CompleteOrder",
         "consumes": [
           "application/json"
@@ -3056,7 +3061,7 @@
           "Orders"
         ],
         "summary": "SplitOrder",
-        "description": "Split a specific order",
+        "description": "Split a specific order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SplitOrder",
         "consumes": [
           "application/json"
@@ -3103,7 +3108,7 @@
           "Orders"
         ],
         "summary": "MergeOrders",
-        "description": "Merge a list of orders into a new one\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.MergeOrdersNode",
+        "description": "Merge a list of orders into a new one\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.MergeOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "MergeOrders",
         "consumes": [
           "application/json"
@@ -3147,7 +3152,7 @@
           "Orders"
         ],
         "summary": "ProcessOrder",
-        "description": "Process a specific order",
+        "description": "Process a specific order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "ProcessOrder",
         "consumes": [
           "application/json"
@@ -3189,7 +3194,7 @@
           "Orders"
         ],
         "summary": "ProcessOrder_RequiredBatchScans",
-        "description": "Update the order with the batch numbers scanned during process order (i.e. those items with dbo.StockItem.BatchNumberScanRequired set)\r\nbatches must be provided for all items in the order which require batch number scanning (including composite children)\r\nOverwrites any existing batch assignment for the required items",
+        "description": "Update the order with the batch numbers scanned during process order (i.e. those items with dbo.StockItem.BatchNumberScanRequired set)\r\nbatches must be provided for all items in the order which require batch number scanning (including composite children)\r\nOverwrites any existing batch assignment for the required items\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ProcessOrder_RequiredBatchScans",
         "consumes": [
           "application/json"
@@ -3225,7 +3230,7 @@
           "Orders"
         ],
         "summary": "ProcessOrdersInBatch",
-        "description": "Process a list of orders",
+        "description": "Process a list of orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "ProcessOrdersInBatch",
         "consumes": [
           "application/json"
@@ -3272,7 +3277,7 @@
           "Orders"
         ],
         "summary": "ProcessFulfilmentCentreOrder",
-        "description": "Process Orders associated with a Fulfilment Centre\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode",
+        "description": "Process Orders associated with a Fulfilment Centre\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "ProcessFulfilmentCentreOrder",
         "consumes": [
           "application/json"
@@ -3314,7 +3319,7 @@
           "Orders"
         ],
         "summary": "SetOrderGeneralInfo",
-        "description": "Update the general info of a specific order",
+        "description": "Update the general info of a specific order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "SetOrderGeneralInfo",
         "consumes": [
           "application/json"
@@ -3350,7 +3355,7 @@
           "Orders"
         ],
         "summary": "SetOrderShippingInfo",
-        "description": "Update the shipping info of a specific order",
+        "description": "Update the shipping info of a specific order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "SetOrderShippingInfo",
         "consumes": [
           "application/json"
@@ -3394,7 +3399,7 @@
           "Orders"
         ],
         "summary": "SetOrderCustomerInfo",
-        "description": "Update the customer info of a specific order",
+        "description": "Update the customer info of a specific order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetOrderCustomerInfo",
         "consumes": [
           "application/json"
@@ -3438,7 +3443,7 @@
           "Orders"
         ],
         "summary": "SetOrderTotalsInfo",
-        "description": "Update totals info of a specific order",
+        "description": "Update totals info of a specific order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetOrderTotalsInfo",
         "consumes": [
           "application/json"
@@ -3474,7 +3479,7 @@
           "Orders"
         ],
         "summary": "ValidateCoupon",
-        "description": "Validate a coupon",
+        "description": "Validate a coupon\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ValidateCoupon",
         "consumes": [
           "application/json"
@@ -3518,7 +3523,7 @@
           "Orders"
         ],
         "summary": "AddCoupon",
-        "description": "Add a coupon to a specific order",
+        "description": "Add a coupon to a specific order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddCoupon",
         "consumes": [
           "application/json"
@@ -3562,7 +3567,7 @@
           "Orders"
         ],
         "summary": "UpdateBillingAddress",
-        "description": "Update the billing address of a specific order",
+        "description": "Update the billing address of a specific order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateBillingAddress",
         "consumes": [
           "application/json"
@@ -3598,7 +3603,7 @@
           "Orders"
         ],
         "summary": "SetAdditionalInfo",
-        "description": "Overwrites the existing order item additional info",
+        "description": "Overwrites the existing order item additional info\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "SetAdditionalInfo",
         "consumes": [
           "application/json"
@@ -3634,7 +3639,7 @@
           "Orders"
         ],
         "summary": "UpdateAdditionalInfo",
-        "description": "Updates additional info of a specific item\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode",
+        "description": "Updates additional info of a specific item\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "UpdateAdditionalInfo",
         "consumes": [
           "application/json"
@@ -3670,7 +3675,7 @@
           "Orders"
         ],
         "summary": "GetOrderViews",
-        "description": "Get open order views",
+        "description": "Get open order views\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOrderViews",
         "consumes": [],
         "produces": [
@@ -3706,7 +3711,7 @@
           "Orders"
         ],
         "summary": "GetOrderView",
-        "description": "Get a specific open order view",
+        "description": "Get a specific open order view\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOrderView",
         "consumes": [],
         "produces": [
@@ -3753,7 +3758,7 @@
           "Orders"
         ],
         "summary": "SaveOrderView",
-        "description": "Update a open order view",
+        "description": "Update a open order view\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SaveOrderView",
         "consumes": [
           "application/json"
@@ -3789,7 +3794,7 @@
           "Orders"
         ],
         "summary": "CustomerLookUp",
-        "description": "Get a list of possible addresses based on a search",
+        "description": "Get a list of possible addresses based on a search\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CustomerLookUp",
         "consumes": [],
         "produces": [
@@ -3838,7 +3843,7 @@
           "Orders"
         ],
         "summary": "GetLinkedItems",
-        "description": "Get linked items to another one",
+        "description": "Get linked items to another one\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetLinkedItems",
         "consumes": [],
         "produces": [
@@ -3882,7 +3887,7 @@
           "Orders"
         ],
         "summary": "UpdateLinkItem",
-        "description": "Update linked item",
+        "description": "Update linked item\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateLinkItem",
         "consumes": [
           "application/json"
@@ -3918,7 +3923,7 @@
           "Orders"
         ],
         "summary": "CreateNewItemAndLink",
-        "description": "Create a new item and link it to a specific stock item",
+        "description": "Create a new item and link it to a specific stock item\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateNewItemAndLink",
         "consumes": [
           "application/json"
@@ -3964,7 +3969,7 @@
           "Orders"
         ],
         "summary": "GetOrderPackagingSplit",
-        "description": "Get a possible order split by packaging",
+        "description": "Get a possible order split by packaging\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetOrderPackagingSplit",
         "consumes": [],
         "produces": [
@@ -4014,7 +4019,7 @@
           "Orders"
         ],
         "summary": "SetOrderPackagingSplit",
-        "description": "Split an order by packaging",
+        "description": "Split an order by packaging\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetOrderPackagingSplit",
         "consumes": [
           "application/json"
@@ -4058,7 +4063,7 @@
           "Orders"
         ],
         "summary": "GetOpenOrderIdByOrderOrReferenceId",
-        "description": "Get an order by reference number or order number\n<b>Permissions Required: </b> GlobalPermissions.OrderBookNode",
+        "description": "Get an order by reference number or order number\n<b>Permissions Required: </b> GlobalPermissions.OrderBookNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOpenOrderIdByOrderOrReferenceId",
         "consumes": [
           "application/json"
@@ -4104,7 +4109,7 @@
           "Orders"
         ],
         "summary": "ProcessOrderByOrderOrReferenceId",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.DespatchConsoleNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.DespatchConsoleNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ProcessOrderByOrderOrReferenceId",
         "consumes": [
           "application/json"
@@ -4148,7 +4153,7 @@
           "Orders"
         ],
         "summary": "GetOpenOrdersByItemBarcode",
-        "description": "Get orders by order item barcode\n<b>Permissions Required: </b> GlobalPermissions.OrderBookNode",
+        "description": "Get orders by order item barcode\n<b>Permissions Required: </b> GlobalPermissions.OrderBookNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOpenOrdersByItemBarcode",
         "consumes": [
           "application/json"
@@ -4192,7 +4197,7 @@
           "Orders"
         ],
         "summary": "GetOrderDetailsByReferenceId",
-        "description": "Retrieves a list of order details for a given order reference number, returns maximum of 50 orders.\r\nFor eBay orders, if Sellling Manager Pro sales number is available the order can be retrived by this number\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode",
+        "description": "Retrieves a list of order details for a given order reference number, returns maximum of 50 orders.\r\nFor eBay orders, if Sellling Manager Pro sales number is available the order can be retrived by this number\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetOrderDetailsByReferenceId",
         "consumes": [],
         "produces": [
@@ -4235,7 +4240,7 @@
           "Orders"
         ],
         "summary": "GetOrderDetailsByNumOrderId",
-        "description": "Retrieves the order detail for a given order numeric id. If not found  empty class is returned.  \r\nFor working with open orders recommended to use OpenOrders/GetOpenOrdersDetails\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode",
+        "description": "Retrieves the order detail for a given order numeric id. If not found  empty class is returned.  \r\nFor working with open orders recommended to use OpenOrders/GetOpenOrdersDetails\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetOrderDetailsByNumOrderId",
         "consumes": [],
         "produces": [

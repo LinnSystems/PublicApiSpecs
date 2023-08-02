@@ -15,7 +15,7 @@
           "Macro"
         ],
         "summary": "GetInstalledMacros",
-        "description": "Get a list of all macros and their related applications as installed on the users system\n<b>Permissions Required: </b> GlobalPermissions.Applications.MacroConfigurationNode",
+        "description": "Get a list of all macros and their related applications as installed on the users system\n<b>Permissions Required: </b> GlobalPermissions.Applications.MacroConfigurationNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetInstalledMacros",
         "consumes": [],
         "produces": [
@@ -48,7 +48,7 @@
           "Macro"
         ],
         "summary": "GetMacroConfigurations",
-        "description": "Get all the macro configurations for the user account\n<b>Permissions Required: </b> GlobalPermissions.Applications.MacroConfigurationNode",
+        "description": "Get all the macro configurations for the user account\n<b>Permissions Required: </b> GlobalPermissions.Applications.MacroConfigurationNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetMacroConfigurations",
         "consumes": [],
         "produces": [

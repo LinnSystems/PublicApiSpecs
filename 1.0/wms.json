@@ -15,7 +15,7 @@
           "Wms"
         ],
         "summary": "GetWarehouseZoneTypes",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagementNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagementNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetWarehouseZoneTypes",
         "consumes": [],
         "produces": [
@@ -48,7 +48,7 @@
           "Wms"
         ],
         "summary": "UpdateWarehouseZoneType",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateWarehouseZoneType",
         "consumes": [
           "application/json"
@@ -91,7 +91,7 @@
           "Wms"
         ],
         "summary": "AddWarehouseZoneType",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddWarehouseZoneType",
         "consumes": [
           "application/json"
@@ -134,7 +134,7 @@
           "Wms"
         ],
         "summary": "DeleteWarehouseZoneType",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteWarehouseZoneType",
         "consumes": [
           "application/json"
@@ -177,7 +177,7 @@
           "Wms"
         ],
         "summary": "GetWarehouseZonesByLocation",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagementNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagementNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetWarehouseZonesByLocation",
         "consumes": [],
         "produces": [
@@ -224,7 +224,7 @@
           "Wms"
         ],
         "summary": "GetBinrackZonesByBinrackIdOrName",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagementNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagementNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetBinrackZonesByBinrackIdOrName",
         "consumes": [
           "application/json"
@@ -267,7 +267,7 @@
           "Wms"
         ],
         "summary": "UpdateWarehouseBinrackBinrackToZone",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagementNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagementNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateWarehouseBinrackBinrackToZone",
         "consumes": [
           "application/json"
@@ -310,7 +310,7 @@
           "Wms"
         ],
         "summary": "GetBinrackZonesByZoneIdOrName",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagementNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagementNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetBinrackZonesByZoneIdOrName",
         "consumes": [
           "application/json"
@@ -353,7 +353,7 @@
           "Wms"
         ],
         "summary": "AddWarehouseZone",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddWarehouseZone",
         "consumes": [
           "application/json"
@@ -396,7 +396,7 @@
           "Wms"
         ],
         "summary": "DeleteWarehouseZone",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteWarehouseZone",
         "consumes": [
           "application/json"
@@ -439,7 +439,7 @@
           "Wms"
         ],
         "summary": "UpdateWarehouseZone",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.AdministrationNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateWarehouseZone",
         "consumes": [
           "application/json"

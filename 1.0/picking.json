@@ -15,7 +15,7 @@
           "Picking"
         ],
         "summary": "GetAllPickingWaveHeaders",
-        "description": "Get a list of all pickwaves\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.AllPickingWavesNode",
+        "description": "Get a list of all pickwaves\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.AllPickingWavesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetAllPickingWaveHeaders",
         "consumes": [],
         "produces": [
@@ -85,7 +85,7 @@
           "Picking"
         ],
         "summary": "GetMyPickingWaveHeaders",
-        "description": "Get a list of list of pickwaves for the current user\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
+        "description": "Get a list of list of pickwaves for the current user\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetMyPickingWaveHeaders",
         "consumes": [],
         "produces": [
@@ -155,7 +155,7 @@
           "Picking"
         ],
         "summary": "GetAllPickingWaves",
-        "description": "Get a list of all pickwaves\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.AllPickingWavesNode",
+        "description": "Get a list of all pickwaves\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.AllPickingWavesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetAllPickingWaves",
         "consumes": [],
         "produces": [
@@ -225,7 +225,7 @@
           "Picking"
         ],
         "summary": "GetMyPickingWaves",
-        "description": "Get a list of list of pickwaves for the current user\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
+        "description": "Get a list of list of pickwaves for the current user\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetMyPickingWaves",
         "consumes": [],
         "produces": [
@@ -295,7 +295,7 @@
           "Picking"
         ],
         "summary": "GetPickingWave",
-        "description": "Get a specific pickwave by id\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
+        "description": "Get a specific pickwave by id\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetPickingWave",
         "consumes": [],
         "produces": [
@@ -337,7 +337,7 @@
           "Picking"
         ],
         "summary": "UpdatePickingWaveItem",
-        "description": "Update on or more pickwave items\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
+        "description": "Update on or more pickwave items\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdatePickingWaveItem",
         "consumes": [
           "application/json"
@@ -381,7 +381,7 @@
           "Picking"
         ],
         "summary": "UpdatePickingWaveHeader",
-        "description": "Update a pickwave header\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
+        "description": "Update a pickwave header\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdatePickingWaveHeader",
         "consumes": [
           "application/json"
@@ -425,7 +425,7 @@
           "Picking"
         ],
         "summary": "GeneratePickingWave",
-        "description": "Generate a new pickwave\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.GeneratePickingWavesNode",
+        "description": "Generate a new pickwave\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.GeneratePickingWavesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GeneratePickingWave",
         "consumes": [
           "application/json"
@@ -469,7 +469,7 @@
           "Picking"
         ],
         "summary": "CheckAllocatableToPickwave",
-        "description": "Check a list of Linnworks order ids to see if they can be added to a pickwave\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.GeneratePickingWavesNode",
+        "description": "Check a list of Linnworks order ids to see if they can be added to a pickwave\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.GeneratePickingWavesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CheckAllocatableToPickwave",
         "consumes": [
           "application/json"
@@ -513,7 +513,7 @@
           "Picking"
         ],
         "summary": "GetPickwaveUsersWithSummary",
-        "description": "Returns a list of pickwaves as well as dummy entries for users who have permissions to complete pickwaves, but don't currently have any assigned. These entries will have a PickwaveId of 0.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.GeneratePickingWavesNode",
+        "description": "Returns a list of pickwaves as well as dummy entries for users who have permissions to complete pickwaves, but don't currently have any assigned. These entries will have a PickwaveId of 0.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.GeneratePickingWavesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetPickwaveUsersWithSummary",
         "consumes": [],
         "produces": [
@@ -583,7 +583,7 @@
           "Picking"
         ],
         "summary": "DeleteOrdersFromPickingWaves",
-        "description": "Delete one or more orders from a pickwave\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.DeletePickingWavesNode",
+        "description": "Delete one or more orders from a pickwave\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWaves.DeletePickingWavesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteOrdersFromPickingWaves",
         "consumes": [
           "application/json"
@@ -627,7 +627,7 @@
           "Picking"
         ],
         "summary": "GetItemBinracks",
-        "description": "Returns a list of places that the requested item can be found, other than the location already suggested.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
+        "description": "Returns a list of places that the requested item can be found, other than the location already suggested.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetItemBinracks",
         "consumes": [],
         "produces": [
@@ -691,7 +691,7 @@
           "Picking"
         ],
         "summary": "UpdatePickingWaveItemWithNewBinrack",
-        "description": "Updates the batch/binrack for allocated pickwave item. Only applicable to pickwave items with batch information\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
+        "description": "Updates the batch/binrack for allocated pickwave item. Only applicable to pickwave items with batch information\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdatePickingWaveItemWithNewBinrack",
         "consumes": [
           "application/json"
@@ -735,7 +735,7 @@
           "Picking"
         ],
         "summary": "UpdatePickedItemDelta",
-        "description": "Updates the batch/binrack for allocated pickwave item. Only applicable to pickwave items with batch information\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode",
+        "description": "Updates the batch/binrack for allocated pickwave item. Only applicable to pickwave items with batch information\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdatePickedItemDelta",
         "consumes": [
           "application/json"

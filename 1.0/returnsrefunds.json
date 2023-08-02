@@ -15,7 +15,7 @@
           "ReturnsRefunds"
         ],
         "summary": "GetRefundOptions",
-        "description": "Returns channel-specific information regarding the types of refund that can be applied to the given order\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode",
+        "description": "Returns channel-specific information regarding the types of refund that can be applied to the given order\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetRefundOptions",
         "consumes": [
           "application/json"
@@ -59,7 +59,7 @@
           "ReturnsRefunds"
         ],
         "summary": "GetActionableRefundHeaders",
-        "description": "Returns a paged list of booked refund headers\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode",
+        "description": "Returns a paged list of booked refund headers\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetActionableRefundHeaders",
         "consumes": [
           "application/json"
@@ -103,7 +103,7 @@
           "ReturnsRefunds"
         ],
         "summary": "GetProcessedOrAckedErrorRefundHeaders",
-        "description": "Returns a paged list of processed or acknowledged error refund headers\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode",
+        "description": "Returns a paged list of processed or acknowledged error refund headers\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetProcessedOrAckedErrorRefundHeaders",
         "consumes": [
           "application/json"
@@ -147,7 +147,7 @@
           "ReturnsRefunds"
         ],
         "summary": "GetRMAHeadersByOrderId",
-        "description": "Returns all RMA headers associated with the given order ID\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode",
+        "description": "Returns all RMA headers associated with the given order ID\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetRMAHeadersByOrderId",
         "consumes": [
           "application/json"
@@ -191,7 +191,7 @@
           "ReturnsRefunds"
         ],
         "summary": "GetRefundHeadersByOrderId",
-        "description": "Returns all refund headers associated with the given order ID\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode",
+        "description": "Returns all refund headers associated with the given order ID\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetRefundHeadersByOrderId",
         "consumes": [
           "application/json"
@@ -235,7 +235,7 @@
           "ReturnsRefunds"
         ],
         "summary": "GetRefundLinesByHeaderId",
-        "description": "Returns a refund, given its header ID\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode",
+        "description": "Returns a refund, given its header ID\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ViewRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetRefundLinesByHeaderId",
         "consumes": [
           "application/json"
@@ -279,7 +279,7 @@
           "ReturnsRefunds"
         ],
         "summary": "CreateRefund",
-        "description": "Creates a refund in the system for approval\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.CreateRefundsNode",
+        "description": "Creates a refund in the system for approval\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.CreateRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateRefund",
         "consumes": [
           "application/json"
@@ -323,7 +323,7 @@
           "ReturnsRefunds"
         ],
         "summary": "UpdateRefund",
-        "description": "Updates an existing refund in the system. Requires create and delete permissions\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.CreateRefundsNode",
+        "description": "Updates an existing refund in the system. Requires create and delete permissions\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.CreateRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateRefund",
         "consumes": [
           "application/json"
@@ -367,7 +367,7 @@
           "ReturnsRefunds"
         ],
         "summary": "AcknowledgeRefundErrors",
-        "description": "Acknowledges error responses for a given refund header\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ApproveRefundsNode",
+        "description": "Acknowledges error responses for a given refund header\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ApproveRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AcknowledgeRefundErrors",
         "consumes": [
           "application/json"
@@ -411,7 +411,7 @@
           "ReturnsRefunds"
         ],
         "summary": "AcknowledgeRMAErrors",
-        "description": "Acknowledges all error responses for a given RMA header\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.AcceptReturnsExchangesNode",
+        "description": "Acknowledges all error responses for a given RMA header\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.AcceptReturnsExchangesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AcknowledgeRMAErrors",
         "consumes": [
           "application/json"
@@ -455,7 +455,7 @@
           "ReturnsRefunds"
         ],
         "summary": "ActionRefund",
-        "description": "Sends a refund to the channel for actioning\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ApproveRefundsNode",
+        "description": "Sends a refund to the channel for actioning\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.ApproveRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ActionRefund",
         "consumes": [
           "application/json"
@@ -499,7 +499,7 @@
           "ReturnsRefunds"
         ],
         "summary": "DeleteRefund",
-        "description": "Deletes all lines from the given refund header that have not yet been processed, or acknowledged as errors, removing it from the \"Actionable Refunds\" screen. If no lines are left, the header row is deleted\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.DeleteRefundsNode",
+        "description": "Deletes all lines from the given refund header that have not yet been processed, or acknowledged as errors, removing it from the \"Actionable Refunds\" screen. If no lines are left, the header row is deleted\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.DeleteRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteRefund",
         "consumes": [
           "application/json"
@@ -543,7 +543,7 @@
           "ReturnsRefunds"
         ],
         "summary": "DeleteRMA",
-        "description": "Deletes all lines from the given RMA header that have not yet been processed, or acknowledged as errors, removing it from the \"RMA Bookings\" screen. If no lines are left, the header row is deleted\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.DeleteReturnsExchangesNode",
+        "description": "Deletes all lines from the given RMA header that have not yet been processed, or acknowledged as errors, removing it from the \"RMA Bookings\" screen. If no lines are left, the header row is deleted\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.DeleteReturnsExchangesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteRMA",
         "consumes": [
           "application/json"
@@ -587,7 +587,7 @@
           "ReturnsRefunds"
         ],
         "summary": "GetReturnOptions",
-        "description": "Returns channel-specific information regarding the types of refund that can be applied to the given order\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.ViewReturnsExchangesNode",
+        "description": "Returns channel-specific information regarding the types of refund that can be applied to the given order\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.ViewReturnsExchangesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetReturnOptions",
         "consumes": [
           "application/json"
@@ -631,7 +631,7 @@
           "ReturnsRefunds"
         ],
         "summary": "GetActionableRMAHeaders",
-        "description": "Returns a paged list of booked refund headers\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.ViewReturnsExchangesNode",
+        "description": "Returns a paged list of booked refund headers\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.ViewReturnsExchangesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetActionableRMAHeaders",
         "consumes": [
           "application/json"
@@ -675,7 +675,7 @@
           "ReturnsRefunds"
         ],
         "summary": "GetProcessedOrAckedErrorRMAHeaders",
-        "description": "Returns a paged list of processed or acknowledged error RMA headers\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.ViewReturnsExchangesNode",
+        "description": "Returns a paged list of processed or acknowledged error RMA headers\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.ViewReturnsExchangesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetProcessedOrAckedErrorRMAHeaders",
         "consumes": [
           "application/json"
@@ -719,7 +719,7 @@
           "ReturnsRefunds"
         ],
         "summary": "CreateRMABooking",
-        "description": "Creates an RMA booking in the system\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.CreateReturnsExchangesNode",
+        "description": "Creates an RMA booking in the system\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.CreateReturnsExchangesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateRMABooking",
         "consumes": [
           "application/json"
@@ -763,7 +763,7 @@
           "ReturnsRefunds"
         ],
         "summary": "UpdateRMABooking",
-        "description": "Updates an RMA booking in the system. Requires create and delete permissions\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.CreateReturnsExchangesNode",
+        "description": "Updates an RMA booking in the system. Requires create and delete permissions\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.CreateReturnsExchangesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateRMABooking",
         "consumes": [
           "application/json"
@@ -807,7 +807,7 @@
           "ReturnsRefunds"
         ],
         "summary": "ActionRMABooking",
-        "description": "Accepts a booked return or exchange in the system\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.AcceptReturnsExchangesNode",
+        "description": "Accepts a booked return or exchange in the system\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.AcceptReturnsExchangesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ActionRMABooking",
         "consumes": [
           "application/json"
@@ -851,7 +851,7 @@
           "ReturnsRefunds"
         ],
         "summary": "GetRefundOrders",
-        "description": "Gets all refund order items for all orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "description": "Gets all refund order items for all orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetRefundOrders",
         "consumes": [],
         "produces": [
@@ -886,7 +886,7 @@
           "ReturnsRefunds"
         ],
         "summary": "GetBookedReturnsExchangeOrders",
-        "description": "Gets all booked returns/exchange orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "description": "Gets all booked returns/exchange orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetBookedReturnsExchangeOrders",
         "consumes": [],
         "produces": [
@@ -921,7 +921,7 @@
           "ReturnsRefunds"
         ],
         "summary": "DeleteBookedOrder",
-        "description": "Deletes a returns/exchange order\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.DeleteReturnsExchangesNode",
+        "description": "Deletes a returns/exchange order\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.DeleteReturnsExchangesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteBookedOrder",
         "consumes": [
           "application/json"
@@ -957,7 +957,7 @@
           "ReturnsRefunds"
         ],
         "summary": "ActionBookedOrder",
-        "description": "Action list of booked returns/exchange items for a given order ID. If the return is for a batched item, the batch must be booked in manually.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "description": "Action list of booked returns/exchange items for a given order ID. If the return is for a batched item, the batch must be booked in manually.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ActionBookedOrder",
         "consumes": [
           "application/json"
@@ -993,7 +993,7 @@
           "ReturnsRefunds"
         ],
         "summary": "DeleteBookedItem",
-        "description": "Delete a booked returns/exchange order item\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.DeleteReturnsExchangesNode",
+        "description": "Delete a booked returns/exchange order item\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.ReturnsExchanges.DeleteReturnsExchangesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteBookedItem",
         "consumes": [
           "application/json"
@@ -1029,7 +1029,7 @@
           "ReturnsRefunds"
         ],
         "summary": "RefundOrder",
-        "description": "Refund an order given the order ID\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "description": "Refund an order given the order ID\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "RefundOrder",
         "consumes": [
           "application/json"
@@ -1065,7 +1065,7 @@
           "ReturnsRefunds"
         ],
         "summary": "GetWarehouseLocations",
-        "description": "Gets all warehouse locations\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "description": "Gets all warehouse locations\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetWarehouseLocations",
         "consumes": [],
         "produces": [
@@ -1100,7 +1100,7 @@
           "ReturnsRefunds"
         ],
         "summary": "EditBookedItemInfo",
-        "description": "Edit booked exchange/return item\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "description": "Edit booked exchange/return item\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "EditBookedItemInfo",
         "consumes": [
           "application/json"
@@ -1136,7 +1136,7 @@
           "ReturnsRefunds"
         ],
         "summary": "DeletePendingRefundItem",
-        "description": "Delete a refund item\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.DeleteRefundsNode",
+        "description": "Delete a refund item\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefunds.Refunds.DeleteRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeletePendingRefundItem",
         "consumes": [
           "application/json"
@@ -1173,7 +1173,7 @@
           "ReturnsRefunds"
         ],
         "summary": "GetTotalRefunds",
-        "description": "Gets the refundable amount of an order\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "description": "Gets the refundable amount of an order\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetTotalRefunds",
         "consumes": [],
         "produces": [
@@ -1215,7 +1215,7 @@
           "ReturnsRefunds"
         ],
         "summary": "SearchReturnsRefundsPaged",
-        "description": "Searches through returns/refunds history that meets the parameters' criteria\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "description": "Searches through returns/refunds history that meets the parameters' criteria\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SearchReturnsRefundsPaged",
         "consumes": [],
         "produces": [
@@ -1319,7 +1319,7 @@
           "ReturnsRefunds"
         ],
         "summary": "CreateReturnsRefundsCSV",
-        "description": "Creates a CSV file of the search result for download\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "description": "Creates a CSV file of the search result for download\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateReturnsRefundsCSV",
         "consumes": [],
         "produces": [
@@ -1421,7 +1421,7 @@
           "ReturnsRefunds"
         ],
         "summary": "GetSearchTypes",
-        "description": "Gets a list of valid search types. These are needed to search processed orders.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode",
+        "description": "Gets a list of valid search types. These are needed to search processed orders.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ReturnsRefundsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetSearchTypes",
         "consumes": [],
         "produces": [

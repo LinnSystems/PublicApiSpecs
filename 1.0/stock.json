@@ -15,7 +15,7 @@
           "Stock"
         ],
         "summary": "CheckVariationParentSKUExists",
-        "description": "Use this call to check if a potential parent SKU exist and its current status.",
+        "description": "Use this call to check if a potential parent SKU exist and its current status.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CheckVariationParentSKUExists",
         "consumes": [],
         "produces": [
@@ -60,7 +60,7 @@
           "Stock"
         ],
         "summary": "GetVariationGroupSearchTypes",
-        "description": "Use this call to retrieve a list of the search types for searching for variation groups",
+        "description": "Use this call to retrieve a list of the search types for searching for variation groups\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetVariationGroupSearchTypes",
         "consumes": [],
         "produces": [
@@ -95,7 +95,7 @@
           "Stock"
         ],
         "summary": "SearchVariationGroups",
-        "description": "Use this call to search for a variation group",
+        "description": "Use this call to search for a variation group\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SearchVariationGroups",
         "consumes": [],
         "produces": [
@@ -160,7 +160,7 @@
           "Stock"
         ],
         "summary": "DeleteVariationGroup",
-        "description": "Use this call to delete variation group by id\n<b>Permissions Required: </b> GlobalPermissions.Inventory.DeleteMyInventoryItems.DeleteItemsNode",
+        "description": "Use this call to delete variation group by id\n<b>Permissions Required: </b> GlobalPermissions.Inventory.DeleteMyInventoryItems.DeleteItemsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteVariationGroup",
         "consumes": [],
         "produces": [],
@@ -192,7 +192,7 @@
           "Stock"
         ],
         "summary": "DeleteVariationGroups",
-        "description": "Use this call to delete variation groups by ids\n<b>Permissions Required: </b> GlobalPermissions.Inventory.DeleteMyInventoryItems.DeleteItemsNode",
+        "description": "Use this call to delete variation groups by ids\n<b>Permissions Required: </b> GlobalPermissions.Inventory.DeleteMyInventoryItems.DeleteItemsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteVariationGroups",
         "consumes": [
           "application/json"
@@ -228,7 +228,7 @@
           "Stock"
         ],
         "summary": "GetVariationGroupByParentId",
-        "description": "Use this call to search for a variation group by the parent SKU's stock item id",
+        "description": "Use this call to search for a variation group by the parent SKU's stock item id\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetVariationGroupByParentId",
         "consumes": [],
         "produces": [
@@ -269,7 +269,7 @@
           "Stock"
         ],
         "summary": "GetVariationGroupByName",
-        "description": "Use this call to search for a variation group by the group name",
+        "description": "Use this call to search for a variation group by the group name\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetVariationGroupByName",
         "consumes": [],
         "produces": [
@@ -309,7 +309,7 @@
           "Stock"
         ],
         "summary": "RenameVariationGroup",
-        "description": "Use this call to rename a variation group",
+        "description": "Use this call to rename a variation group\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "RenameVariationGroup",
         "consumes": [
           "application/json"
@@ -345,7 +345,7 @@
           "Stock"
         ],
         "summary": "GetVariationItems",
-        "description": "Use this call to retrieve the items in this variation",
+        "description": "Use this call to retrieve the items in this variation\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetVariationItems",
         "consumes": [],
         "produces": [
@@ -389,7 +389,7 @@
           "Stock"
         ],
         "summary": "AddVariationItems",
-        "description": "Use this call to add a new item to a variation group",
+        "description": "Use this call to add a new item to a variation group\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "AddVariationItems",
         "consumes": [
           "application/json"
@@ -436,7 +436,7 @@
           "Stock"
         ],
         "summary": "DeleteVariationItem",
-        "description": "Use this call to add a new item to a variation group\n<b>Permissions Required: </b> GlobalPermissions.Inventory.DeleteMyInventoryItems.DeleteItemsNode",
+        "description": "Use this call to add a new item to a variation group\n<b>Permissions Required: </b> GlobalPermissions.Inventory.DeleteMyInventoryItems.DeleteItemsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteVariationItem",
         "consumes": [
           "application/json"
@@ -472,7 +472,7 @@
           "Stock"
         ],
         "summary": "DeleteVariationItems",
-        "description": "Use this call to delete variation items in bulk\n<b>Permissions Required: </b> GlobalPermissions.Inventory.DeleteMyInventoryItems.DeleteItemsNode",
+        "description": "Use this call to delete variation items in bulk\n<b>Permissions Required: </b> GlobalPermissions.Inventory.DeleteMyInventoryItems.DeleteItemsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteVariationItems",
         "consumes": [
           "application/json"
@@ -508,7 +508,7 @@
           "Stock"
         ],
         "summary": "CreateVariationGroup",
-        "description": "Use this call to create a variation group",
+        "description": "Use this call to create a variation group\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateVariationGroup",
         "consumes": [
           "application/json"
@@ -552,7 +552,7 @@
           "Stock"
         ],
         "summary": "SKUExists",
-        "description": "Use this call to check if a SKU exists within Linnworks.",
+        "description": "Use this call to check if a SKU exists within Linnworks.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "SKUExists",
         "consumes": [],
         "produces": [
@@ -592,7 +592,7 @@
           "Stock"
         ],
         "summary": "GetStockConsumption",
-        "description": "Use this call to retrieve report about \"stock consumption between two dates\"",
+        "description": "Use this call to retrieve report about \"stock consumption between two dates\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetStockConsumption",
         "consumes": [],
         "produces": [
@@ -657,7 +657,7 @@
           "Stock"
         ],
         "summary": "GetItemChangesHistory",
-        "description": "Use this call to retrieve report about \"stock changes of an item\"",
+        "description": "Use this call to retrieve report about \"stock changes of an item\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetItemChangesHistory",
         "consumes": [],
         "produces": [
@@ -719,7 +719,7 @@
           "Stock"
         ],
         "summary": "GetItemChangesHistoryCSV",
-        "description": "Use this call to retrieve link to csv file report about \"Stock changes of an item\"",
+        "description": "Use this call to retrieve link to csv file report about \"Stock changes of an item\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetItemChangesHistoryCSV",
         "consumes": [],
         "produces": [
@@ -767,7 +767,7 @@
           "Stock"
         ],
         "summary": "GetStockItems",
-        "description": "Use this call to retrieve report about \"Found stock items\"",
+        "description": "Use this call to retrieve report about \"Found stock items\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetStockItems",
         "consumes": [],
         "produces": [
@@ -839,7 +839,7 @@
           "Stock"
         ],
         "summary": "GetStockItemsByKey",
-        "description": "Returns a list of Stock Items for the provided key and location\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockReadNode",
+        "description": "Returns a list of Stock Items for the provided key and location\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockReadNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetStockItemsByKey",
         "consumes": [
           "application/json"
@@ -886,7 +886,7 @@
           "Stock"
         ],
         "summary": "GetStockItemsFull",
-        "description": "Used to get inventory information at a basic level",
+        "description": "Used to get inventory information at a basic level\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetStockItemsFull",
         "consumes": [
           "application/json"
@@ -933,7 +933,7 @@
           "Stock"
         ],
         "summary": "GetStockItemsFullByIds",
-        "description": "Used to get inventory item information at a basic level from ids.",
+        "description": "Used to get inventory item information at a basic level from ids.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetStockItemsFullByIds",
         "consumes": [
           "application/json"
@@ -977,7 +977,7 @@
           "Stock"
         ],
         "summary": "GetStockLevel",
-        "description": "Use this call to retrieve report about \"item stock level\"",
+        "description": "Use this call to retrieve report about \"item stock level\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetStockLevel",
         "consumes": [],
         "produces": [
@@ -1021,7 +1021,7 @@
           "Stock"
         ],
         "summary": "GetStockLevelByLocation",
-        "description": "Use this call to retrieve report about \"item stock level\"",
+        "description": "Use this call to retrieve report about \"item stock level\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetStockLevelByLocation",
         "consumes": [
           "application/json"
@@ -1065,7 +1065,7 @@
           "Stock"
         ],
         "summary": "GetStockLevel_Batch",
-        "description": "Use this call to retrieve report about \"item stock level\"",
+        "description": "Use this call to retrieve report about \"item stock level\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetStockLevel_Batch",
         "consumes": [
           "application/json"
@@ -1112,7 +1112,7 @@
           "Stock"
         ],
         "summary": "UpdateStockMinimumLevel",
-        "description": "Use this call to update stock minimum level",
+        "description": "Use this call to update stock minimum level\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "UpdateStockMinimumLevel",
         "consumes": [
           "application/json"
@@ -1148,7 +1148,7 @@
           "Stock"
         ],
         "summary": "GetStockSold",
-        "description": "Use this call to retrieve report about \"item stock sold\"",
+        "description": "Use this call to retrieve report about \"item stock sold\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetStockSold",
         "consumes": [],
         "produces": [
@@ -1192,7 +1192,7 @@
           "Stock"
         ],
         "summary": "GetStockDuePO",
-        "description": "Use this call to retrieve report about \"item stock due po\"",
+        "description": "Use this call to retrieve report about \"item stock due po\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetStockDuePO",
         "consumes": [],
         "produces": [
@@ -1236,7 +1236,7 @@
           "Stock"
         ],
         "summary": "GetStockItemReturnStat",
-        "description": "Use this call to retrieve report about \"item return stat\"",
+        "description": "Use this call to retrieve report about \"item return stat\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetStockItemReturnStat",
         "consumes": [],
         "produces": [
@@ -1280,7 +1280,7 @@
           "Stock"
         ],
         "summary": "GetStockItemScrapStat",
-        "description": "Use this call to retrieve report about \"item stock scrap stat\"",
+        "description": "Use this call to retrieve report about \"item stock scrap stat\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetStockItemScrapStat",
         "consumes": [],
         "produces": [
@@ -1324,7 +1324,7 @@
           "Stock"
         ],
         "summary": "GetSoldStat",
-        "description": "Use this call to retrieve report about \"item sold stat\"",
+        "description": "Use this call to retrieve report about \"item sold stat\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetSoldStat",
         "consumes": [],
         "produces": [
@@ -1368,7 +1368,7 @@
           "Stock"
         ],
         "summary": "SetStockLevel",
-        "description": "Set the stock level of a list of stock items identified by its SKU to the value provided\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockLevelsNode",
+        "description": "Set the stock level of a list of stock items identified by its SKU to the value provided\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockLevelsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "SetStockLevel",
         "consumes": [
           "application/json"
@@ -1415,7 +1415,7 @@
           "Stock"
         ],
         "summary": "UpdateStockLevelsBySKU",
-        "description": "Change the stock level of a list of stock items by the provided value\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockLevelsNode",
+        "description": "Change the stock level of a list of stock items by the provided value\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockLevelsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateStockLevelsBySKU",
         "consumes": [
           "application/json"
@@ -1462,7 +1462,7 @@
           "Stock"
         ],
         "summary": "BookInStockItem",
-        "description": "Increases the stock level and current stock value of a stock item by the specified quantity.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockLevelsNode",
+        "description": "Increases the stock level and current stock value of a stock item by the specified quantity.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockLevelsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "BookInStockItem",
         "consumes": [
           "application/json"
@@ -1498,7 +1498,7 @@
           "Stock"
         ],
         "summary": "CreateStockBatches",
-        "description": "Creates stock item batches\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockLevelsNode",
+        "description": "Creates stock item batches\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockLevelsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateStockBatches",
         "consumes": [
           "application/json"
@@ -1545,7 +1545,7 @@
           "Stock"
         ],
         "summary": "BookInStockBatch",
-        "description": "Increases the stock level and current stock value of a batched stock item by the specified quantity",
+        "description": "Increases the stock level and current stock value of a batched stock item by the specified quantity\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "BookInStockBatch",
         "consumes": [
           "application/json"
@@ -1589,7 +1589,7 @@
           "Stock"
         ],
         "summary": "GetBinRacksById",
-        "description": "Returns the list of BinRacks by BinRack Ids for WMS locations.",
+        "description": "Returns the list of BinRacks by BinRack Ids for WMS locations.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetBinRacksById",
         "consumes": [
           "application/json"
@@ -1632,7 +1632,7 @@
           "Stock"
         ],
         "summary": "CreateWarehouseMove",
-        "description": "Create a new warehouse move in state of In Transit or Open. \r\nTo create a new move you need the exact batch inventory id and bin rack id of the destination. However it is possible to create a move without knowing where it is going specifically, \r\nin which case don't supply BinrackIdDestination (or send null)\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.StockMoveNode",
+        "description": "Create a new warehouse move in state of In Transit or Open. \r\nTo create a new move you need the exact batch inventory id and bin rack id of the destination. However it is possible to create a move without knowing where it is going specifically, \r\nin which case don't supply BinrackIdDestination (or send null)\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.StockMoveNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateWarehouseMove",
         "consumes": [
           "application/json"
@@ -1675,6 +1675,7 @@
           "Stock"
         ],
         "summary": "BatchStockLevelDelta",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "BatchStockLevelDelta",
         "consumes": [
           "application/json"
@@ -1718,7 +1719,7 @@
           "Stock"
         ],
         "summary": "AddRollingStockTake",
-        "description": "Add rolling stock take/count. Rolling stock count will create a stock count header for every day (UTC based). Every request will create a session, adds all entries into the stock count\r\nrecounts all totals and discrepancies. WMS location or batched items requires BatchInventoryId to be specified. If you are submitting stock level for item that doesn't have batch inventory you must create it first, get its id and submit in the count\r\nThe method validates all entries, if any errors encountered the whole request will be rejected.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.StockTake.RollingStockCountNode",
+        "description": "Add rolling stock take/count. Rolling stock count will create a stock count header for every day (UTC based). Every request will create a session, adds all entries into the stock count\r\nrecounts all totals and discrepancies. WMS location or batched items requires BatchInventoryId to be specified. If you are submitting stock level for item that doesn't have batch inventory you must create it first, get its id and submit in the count\r\nThe method validates all entries, if any errors encountered the whole request will be rejected.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.StockTake.RollingStockCountNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddRollingStockTake",
         "consumes": [
           "application/json"
@@ -1761,7 +1762,7 @@
           "Stock"
         ],
         "summary": "UpdateStockLevelsBulk",
-        "description": "Allows the change of non batched / composite stock levels in build. Accepts either StockItemId or SKU and Stock location name or id\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockLevelsNode",
+        "description": "Allows the change of non batched / composite stock levels in build. Accepts either StockItemId or SKU and Stock location name or id\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockLevelsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateStockLevelsBulk",
         "consumes": [
           "application/json"
@@ -1805,7 +1806,7 @@
           "Stock"
         ],
         "summary": "GetStockItemsByIds",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockReadNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockReadNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetStockItemsByIds",
         "consumes": [
           "application/json"
@@ -1848,7 +1849,7 @@
           "Stock"
         ],
         "summary": "GetStockItemTypeInfo",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockReadNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockReadNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetStockItemTypeInfo",
         "consumes": [
           "application/json"
@@ -1891,7 +1892,7 @@
           "Stock"
         ],
         "summary": "UpdateSkuGroupIdentifier",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWriteNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWriteNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateSkuGroupIdentifier",
         "consumes": [
           "application/json"
@@ -1934,7 +1935,7 @@
           "Stock"
         ],
         "summary": "GetStockItemsLocation",
-        "description": "Get the location (including binrack) of a given list of stockItemIds and stockLocationIds\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode",
+        "description": "Get the location (including binrack) of a given list of stockItemIds and stockLocationIds\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetStockItemsLocation",
         "consumes": [
           "application/json"

@@ -15,7 +15,7 @@
           "ImportExport"
         ],
         "summary": "EnableImport",
-        "description": "Enable/disable a specific import\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ImportNode",
+        "description": "Enable/disable a specific import\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ImportNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "EnableImport",
         "consumes": [
           "application/json"
@@ -59,7 +59,7 @@
           "ImportExport"
         ],
         "summary": "RunNowImport",
-        "description": "Put the specific import immediately in the queue\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ImportNode",
+        "description": "Put the specific import immediately in the queue\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ImportNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "RunNowImport",
         "consumes": [
           "application/json"
@@ -95,7 +95,7 @@
           "ImportExport"
         ],
         "summary": "GetImport",
-        "description": "Get an import configuration\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ImportNode",
+        "description": "Get an import configuration\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ImportNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetImport",
         "consumes": [],
         "produces": [
@@ -136,7 +136,7 @@
           "ImportExport"
         ],
         "summary": "DeleteImport",
-        "description": "Delete an import configuration\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ImportNode",
+        "description": "Delete an import configuration\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ImportNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteImport",
         "consumes": [
           "application/json"
@@ -172,7 +172,7 @@
           "ImportExport"
         ],
         "summary": "GetFullfilmentCenterSettings",
-        "description": "Gets fulfillment center settings\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExportNode",
+        "description": "Gets fulfillment center settings\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExportNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetFullfilmentCenterSettings",
         "consumes": [],
         "produces": [
@@ -213,7 +213,7 @@
           "ImportExport"
         ],
         "summary": "EnableExport",
-        "description": "Enable/disable a specific export\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ExportNode",
+        "description": "Enable/disable a specific export\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ExportNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "EnableExport",
         "consumes": [
           "application/json"
@@ -257,7 +257,7 @@
           "ImportExport"
         ],
         "summary": "RunNowExport",
-        "description": "Put the specific export immediately in the queue\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ExportNode",
+        "description": "Put the specific export immediately in the queue\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ExportNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "RunNowExport",
         "consumes": [
           "application/json"
@@ -293,7 +293,7 @@
           "ImportExport"
         ],
         "summary": "GetExport",
-        "description": "Get an export configuration\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ExportNode",
+        "description": "Get an export configuration\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ExportNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetExport",
         "consumes": [],
         "produces": [
@@ -334,7 +334,7 @@
           "ImportExport"
         ],
         "summary": "DeleteExport",
-        "description": "Delete an export configuration\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ExportNode",
+        "description": "Delete an export configuration\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ExportNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteExport",
         "consumes": [
           "application/json"
@@ -370,7 +370,7 @@
           "ImportExport"
         ],
         "summary": "GetImportList",
-        "description": "Get all existing imports\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ImportNode",
+        "description": "Get all existing imports\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ImportNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetImportList",
         "consumes": [],
         "produces": [
@@ -403,7 +403,7 @@
           "ImportExport"
         ],
         "summary": "GetExportList",
-        "description": "Get all existing exports\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ExportNode",
+        "description": "Get all existing exports\n<b>Permissions Required: </b> GlobalPermissions.Settings.ImportExport.ExportNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetExportList",
         "consumes": [],
         "produces": [

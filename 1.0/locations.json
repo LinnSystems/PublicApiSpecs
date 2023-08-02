@@ -15,7 +15,7 @@
           "Locations"
         ],
         "summary": "GetLocation",
-        "description": "Use this call to retrieve a location and basic information about it from your Linnworks account.",
+        "description": "Use this call to retrieve a location and basic information about it from your Linnworks account.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetLocation",
         "consumes": [],
         "produces": [
@@ -56,7 +56,7 @@
           "Locations"
         ],
         "summary": "AddLocation",
-        "description": "Use this call to add a new location.",
+        "description": "Use this call to add a new location.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddLocation",
         "consumes": [
           "application/json"
@@ -92,7 +92,7 @@
           "Locations"
         ],
         "summary": "UpdateLocation",
-        "description": "Use this call to update a location's name and/or details",
+        "description": "Use this call to update a location's name and/or details\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateLocation",
         "consumes": [
           "application/json"
@@ -128,7 +128,7 @@
           "Locations"
         ],
         "summary": "DeleteLocation",
-        "description": "Use this call to delete a location by its id",
+        "description": "Use this call to delete a location by its id\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteLocation",
         "consumes": [
           "application/json"
@@ -164,7 +164,7 @@
           "Locations"
         ],
         "summary": "GetWarehouseTOTEs",
-        "description": "Gets list of tots for a specific location or find a specific tot depending on the request parameters. Specify tot id or tot barcode to find specific tot in the location or \r\nif nothing is specified or parameters are omitted, all tots for the location will be returned",
+        "description": "Gets list of tots for a specific location or find a specific tot depending on the request parameters. Specify tot id or tot barcode to find specific tot in the location or \r\nif nothing is specified or parameters are omitted, all tots for the location will be returned\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetWarehouseTOTEs",
         "consumes": [
           "application/json"
@@ -207,7 +207,7 @@
           "Locations"
         ],
         "summary": "DeleteWarehouseTOTE",
-        "description": "Delete existing Tote from location\n<b>Permissions Required: </b> GlobalPermissions.Inventory.InventorySettings.LocationsNode",
+        "description": "Delete existing Tote from location\n<b>Permissions Required: </b> GlobalPermissions.Inventory.InventorySettings.LocationsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteWarehouseTOTE",
         "consumes": [
           "application/json"

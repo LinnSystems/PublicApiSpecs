@@ -15,7 +15,7 @@
           "ShippingService"
         ],
         "summary": "PostShipmentUpload",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostShipmentUploadNode",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostShipmentUploadNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "PostShipmentUpload",
         "consumes": [
           "application/json"
@@ -50,7 +50,7 @@
           "ShippingService"
         ],
         "summary": "CancelOrderShippingLabel",
-        "description": "Cancels the shipping label for an order\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.ShippingLabelNode",
+        "description": "Cancels the shipping label for an order\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.ShippingLabelNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CancelOrderShippingLabel",
         "consumes": [
           "application/json"

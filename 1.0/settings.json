@@ -15,7 +15,7 @@
           "Settings"
         ],
         "summary": "GetCurrencyConversionRates",
-        "description": "Get Currency Conversion Rates",
+        "description": "Get Currency Conversion Rates\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetCurrencyConversionRates",
         "consumes": [],
         "produces": [
@@ -66,6 +66,7 @@
           "Settings"
         ],
         "summary": "GetAvailableTimeZones",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetAvailableTimeZones",
         "consumes": [],
         "produces": [
@@ -97,7 +98,7 @@
           "Settings"
         ],
         "summary": "UpdateCurrencyConversionRates",
-        "description": "Update Currency Conversion Rates\n<b>Permissions Required: </b> GlobalPermissions.Settings.CurrencyRates.EditCurrencyRatesNode",
+        "description": "Update Currency Conversion Rates\n<b>Permissions Required: </b> GlobalPermissions.Settings.CurrencyRates.EditCurrencyRatesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateCurrencyConversionRates",
         "consumes": [
           "application/json"
@@ -133,7 +134,7 @@
           "Settings"
         ],
         "summary": "InsertCurrencyConversionRates",
-        "description": "Insert currency conversion rates\n<b>Permissions Required: </b> GlobalPermissions.Settings.CurrencyRates.EditCurrencyRatesNode",
+        "description": "Insert currency conversion rates\n<b>Permissions Required: </b> GlobalPermissions.Settings.CurrencyRates.EditCurrencyRatesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "InsertCurrencyConversionRates",
         "consumes": [
           "application/json"
@@ -169,7 +170,7 @@
           "Settings"
         ],
         "summary": "DeleteCurrencyConversionRates",
-        "description": "Delete currency conversion rates\n<b>Permissions Required: </b> GlobalPermissions.Settings.CurrencyRates.EditCurrencyRatesNode",
+        "description": "Delete currency conversion rates\n<b>Permissions Required: </b> GlobalPermissions.Settings.CurrencyRates.EditCurrencyRatesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteCurrencyConversionRates",
         "consumes": [
           "application/json"
@@ -205,7 +206,7 @@
           "Settings"
         ],
         "summary": "GetMeasures",
-        "description": "Get user measures units from the database",
+        "description": "Get user measures units from the database\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetMeasures",
         "consumes": [],
         "produces": [
@@ -237,7 +238,7 @@
           "Settings"
         ],
         "summary": "GetLatestCurrencyRate",
-        "description": "Gets latest conversion rates for all known currencies. The rate is updated every couple of hours.",
+        "description": "Gets latest conversion rates for all known currencies. The rate is updated every couple of hours.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetLatestCurrencyRate",
         "consumes": [],
         "produces": [

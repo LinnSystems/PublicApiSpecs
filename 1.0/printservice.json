@@ -15,7 +15,7 @@
           "PrintService"
         ],
         "summary": "CreatePDFfromJobForceTemplateStockIn",
-        "description": "Creates a PDF file from a print job request",
+        "description": "Creates a PDF file from a print job request\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreatePDFfromJobForceTemplateStockIn",
         "consumes": [
           "application/json"
@@ -57,7 +57,7 @@
           "PrintService"
         ],
         "summary": "CreatePDFfromJobForceTemplate",
-        "description": "Creates a PDF file from a print job request",
+        "description": "Creates a PDF file from a print job request\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "CreatePDFfromJobForceTemplate",
         "consumes": [
           "application/json"
@@ -99,7 +99,7 @@
           "PrintService"
         ],
         "summary": "CreatePDFfromJobForceTemplateWithQuantities",
-        "description": "Creates a PDF file with Stock Item labels from a print job request",
+        "description": "Creates a PDF file with Stock Item labels from a print job request\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreatePDFfromJobForceTemplateWithQuantities",
         "consumes": [
           "application/json"
@@ -141,7 +141,7 @@
           "PrintService"
         ],
         "summary": "PrintTemplatePreview",
-        "description": "Generate a PDF preview of a specific template",
+        "description": "Generate a PDF preview of a specific template\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "PrintTemplatePreview",
         "consumes": [
           "application/json"
@@ -183,7 +183,7 @@
           "PrintService"
         ],
         "summary": "GetTemplateList",
-        "description": "Get list of templates for a specific type",
+        "description": "Get list of templates for a specific type\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetTemplateList",
         "consumes": [],
         "produces": [
@@ -226,7 +226,7 @@
           "PrintService"
         ],
         "summary": "VP_GetPrinters",
-        "description": "Gets list of virtual printers.",
+        "description": "Gets list of virtual printers.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "VP_GetPrinters",
         "consumes": [],
         "produces": [
@@ -262,7 +262,7 @@
           "PrintService"
         ],
         "summary": "GetUsersForPrinterConfig",
-        "description": "Gets a list of users for printer configuration. Only super admin can get the full list. Non super admins can only get their own user",
+        "description": "Gets a list of users for printer configuration. Only super admin can get the full list. Non super admins can only get their own user\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetUsersForPrinterConfig",
         "consumes": [],
         "produces": [
@@ -297,7 +297,7 @@
           "PrintService"
         ],
         "summary": "CreateReturnShippingLabelsPDFWithSKUs",
-        "description": "Creates a PDF file of return shipping labels for a single order",
+        "description": "Creates a PDF file of return shipping labels for a single order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateReturnShippingLabelsPDFWithSKUs",
         "consumes": [
           "application/json"
@@ -339,7 +339,7 @@
           "PrintService"
         ],
         "summary": "CreateReturnShippingLabelsPDF",
-        "description": "Creates a PDF file of return shipping labels for a single order",
+        "description": "Creates a PDF file of return shipping labels for a single order\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateReturnShippingLabelsPDF",
         "consumes": [
           "application/json"
@@ -736,13 +736,13 @@
           "format": "int32",
           "type": "integer"
         },
-        "SuperAdmin": {
-          "type": "boolean"
-        },
         "fkUserId": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "SuperAdmin": {
+          "type": "boolean"
         },
         "EmailAddress": {
           "type": "string"

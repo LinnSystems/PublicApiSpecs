@@ -15,7 +15,7 @@
           "ShipStation"
         ],
         "summary": "GetShipStationIntegrations",
-        "description": "Used for ShipStation to get all ShipStation integrations",
+        "description": "Used for ShipStation to get all ShipStation integrations\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetShipStationIntegrations",
         "consumes": [],
         "produces": [
@@ -50,7 +50,7 @@
           "ShipStation"
         ],
         "summary": "GetShipStationIntegration",
-        "description": "Used for ShipStation to get single ShipStation integration by its id",
+        "description": "Used for ShipStation to get single ShipStation integration by its id\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetShipStationIntegration",
         "consumes": [],
         "produces": [
@@ -90,7 +90,7 @@
           "ShipStation"
         ],
         "summary": "CreateShipStationIntegration",
-        "description": "Used for ShipStation to create a new ShipStation integration",
+        "description": "Used for ShipStation to create a new ShipStation integration\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateShipStationIntegration",
         "consumes": [
           "application/json"
@@ -134,7 +134,7 @@
           "ShipStation"
         ],
         "summary": "DeleteShipStationIntegration",
-        "description": "Used for ShipStation to delete a ShipStation integration by its id",
+        "description": "Used for ShipStation to delete a ShipStation integration by its id\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteShipStationIntegration",
         "consumes": [
           "application/json"
@@ -170,7 +170,7 @@
           "ShipStation"
         ],
         "summary": "EditShipStationIntegration",
-        "description": "Used for ShipStation to update a ShipStation integration",
+        "description": "Used for ShipStation to update a ShipStation integration\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "EditShipStationIntegration",
         "consumes": [
           "application/json"

@@ -15,7 +15,7 @@
           "Dashboards"
         ],
         "summary": "GetLowStockLevel",
-        "description": "Use this call to retrieve report about \"Low stock in location\"",
+        "description": "Use this call to retrieve report about \"Low stock in location\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetLowStockLevel",
         "consumes": [],
         "produces": [
@@ -66,7 +66,7 @@
           "Dashboards"
         ],
         "summary": "GetPerformanceTableData",
-        "description": "Use this call to retrieve report about \"Performance table\"",
+        "description": "Use this call to retrieve report about \"Performance table\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetPerformanceTableData",
         "consumes": [],
         "produces": [
@@ -110,7 +110,7 @@
           "Dashboards"
         ],
         "summary": "GetPerformanceDetail",
-        "description": "Use this call to retrieve report about \"Performance through time chart\"",
+        "description": "Use this call to retrieve report about \"Performance through time chart\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetPerformanceDetail",
         "consumes": [],
         "produces": [
@@ -164,7 +164,7 @@
           "Dashboards"
         ],
         "summary": "GetTopProducts",
-        "description": "Use this call to retrieve report about \"Top ordered products\" for top \"10\" products",
+        "description": "Use this call to retrieve report about \"Top ordered products\" for top \"10\" products\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetTopProducts",
         "consumes": [],
         "produces": [
@@ -232,7 +232,7 @@
           "Dashboards"
         ],
         "summary": "GetInventoryLocationData",
-        "description": "Use this call to retrieve report about \"Stock info for locations\"",
+        "description": "Use this call to retrieve report about \"Stock info for locations\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetInventoryLocationData",
         "consumes": [],
         "produces": [
@@ -276,7 +276,7 @@
           "Dashboards"
         ],
         "summary": "GetInventoryLocationCategoriesData",
-        "description": "Use this call to retrieve report about \"Stock info for categories in a specific location\"",
+        "description": "Use this call to retrieve report about \"Stock info for categories in a specific location\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetInventoryLocationCategoriesData",
         "consumes": [],
         "produces": [
@@ -327,7 +327,7 @@
           "Dashboards"
         ],
         "summary": "GetInventoryLocationProductsData",
-        "description": "Use this call to retrieve report about \"Stock info for products in a specific category and location\"",
+        "description": "Use this call to retrieve report about \"Stock info for products in a specific category and location\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetInventoryLocationProductsData",
         "consumes": [],
         "produces": [

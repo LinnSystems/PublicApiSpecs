@@ -15,7 +15,7 @@
           "Listings"
         ],
         "summary": "EndListingsPendingRelist",
-        "description": "End eBay listings pending relist\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfiguratorsNode",
+        "description": "End eBay listings pending relist\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "EndListingsPendingRelist",
         "consumes": [
           "application/json"
@@ -51,7 +51,7 @@
           "Listings"
         ],
         "summary": "SetListingStrikeOffState",
-        "description": "Set eBay Listing Strike State\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfiguratorsNode",
+        "description": "Set eBay Listing Strike State\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetListingStrikeOffState",
         "consumes": [
           "application/json"
@@ -87,7 +87,7 @@
           "Listings"
         ],
         "summary": "GeteBayConfigurators",
-        "description": "Use this call to get eBay configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme.The same configurator can be used to list multiple items that share common details.To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+        "description": "Use this call to get eBay configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme.The same configurator can be used to list multiple items that share common details.To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GeteBayConfigurators",
         "consumes": [],
         "produces": [
@@ -122,7 +122,7 @@
           "Listings"
         ],
         "summary": "CreateeBayConfigurators",
-        "description": "Use this call to create eBay configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme.The same configurator can be used to list multiple items that share common details.To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+        "description": "Use this call to create eBay configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme.The same configurator can be used to list multiple items that share common details.To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateeBayConfigurators",
         "consumes": [
           "application/json"
@@ -158,7 +158,7 @@
           "Listings"
         ],
         "summary": "UpdateeBayConfigurators",
-        "description": "Use this call to update eBay configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+        "description": "Use this call to update eBay configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateeBayConfigurators",
         "consumes": [
           "application/json"
@@ -194,7 +194,7 @@
           "Listings"
         ],
         "summary": "DeleteeBayConfigurators",
-        "description": "Use this call to delete eBay configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+        "description": "Use this call to delete eBay configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteeBayConfigurators",
         "consumes": [
           "application/json"
@@ -230,7 +230,7 @@
           "Listings"
         ],
         "summary": "GeteBayTemplates",
-        "description": "Use this call to return all created Ebay templates.\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+        "description": "Use this call to return all created Ebay templates.\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GeteBayTemplates",
         "consumes": [
           "application/json"
@@ -274,7 +274,7 @@
           "Listings"
         ],
         "summary": "CreateEbayTemplates",
-        "description": "Use this call to return a template based on the configurator setting you have requested. This allows you to see the template which can then be  retuned to the ProcessEbayListing endpoint which will build the listing.\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+        "description": "Use this call to return a template based on the configurator setting you have requested. This allows you to see the template which can then be  retuned to the ProcessEbayListing endpoint which will build the listing.\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateEbayTemplates",
         "consumes": [
           "application/json"
@@ -318,7 +318,7 @@
           "Listings"
         ],
         "summary": "ProcesseBayListings",
-        "description": "Use this call to create templates in Linnworks and can also be used to push the template to a channel. This will create the template even if it returns null. This will also push the template to the channel depending on what the status is set as.",
+        "description": "Use this call to create templates in Linnworks and can also be used to push the template to a channel. This will create the template even if it returns null. This will also push the template to the channel depending on what the status is set as.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ProcesseBayListings",
         "consumes": [
           "application/json"
@@ -354,7 +354,7 @@
           "Listings"
         ],
         "summary": "DeleteEbayTemplates",
-        "description": "Use this call to delete a Ebay template.",
+        "description": "Use this call to delete a Ebay template.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteEbayTemplates",
         "consumes": [
           "application/json"
@@ -390,7 +390,7 @@
           "Listings"
         ],
         "summary": "GetAmazonConfigurators",
-        "description": "Use this call to get Amazon configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+        "description": "Use this call to get Amazon configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetAmazonConfigurators",
         "consumes": [],
         "produces": [
@@ -425,7 +425,7 @@
           "Listings"
         ],
         "summary": "CreateAmazonConfigurators",
-        "description": "Use this call to create Amazon configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+        "description": "Use this call to create Amazon configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateAmazonConfigurators",
         "consumes": [
           "application/json"
@@ -461,7 +461,7 @@
           "Listings"
         ],
         "summary": "UpdateAmazonConfigurators",
-        "description": "Use this call to update Amazon configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+        "description": "Use this call to update Amazon configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateAmazonConfigurators",
         "consumes": [
           "application/json"
@@ -497,7 +497,7 @@
           "Listings"
         ],
         "summary": "DeleteAmazonConfigurators",
-        "description": "Use this call to delete Amazon configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+        "description": "Use this call to delete Amazon configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteAmazonConfigurators",
         "consumes": [
           "application/json"
@@ -533,7 +533,7 @@
           "Listings"
         ],
         "summary": "GetAmazonTemplates",
-        "description": "Use this call to return all created Amazon templates.",
+        "description": "Use this call to return all created Amazon templates.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetAmazonTemplates",
         "consumes": [
           "application/json"
@@ -577,7 +577,7 @@
           "Listings"
         ],
         "summary": "CreateAmazonTemplates",
-        "description": "Use this call to return a template based on the configurator setting you have requested. This allows you to see the template which can then be  retuned to the ProcessAmazonListing endpoint which will build the listing.",
+        "description": "Use this call to return a template based on the configurator setting you have requested. This allows you to see the template which can then be  retuned to the ProcessAmazonListing endpoint which will build the listing.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateAmazonTemplates",
         "consumes": [
           "application/json"
@@ -621,7 +621,7 @@
           "Listings"
         ],
         "summary": "ProcessAmazonListings",
-        "description": "Use this call to create templates in Linnworks and can also be used to push the template to a channel. This will create the template even if it returns null. This will also push the template to the channel depending on what the status is set as.\r\nAmazon Listing Statuses:\r\nNOT_LISTED,\r\nOK,\r\nCREATING(push to channel),\r\nUPDATING,\r\nUPDATING_PRICE,\r\nUPDATING_QUANTITY,\r\nUPDATING_IMAGES,\r\nCREATING_VARIATION,\r\nDELETING,\r\nSEARCHING_FOR_MATCHES,\r\nUPDATING_SHIPPING",
+        "description": "Use this call to create templates in Linnworks and can also be used to push the template to a channel. This will create the template even if it returns null. This will also push the template to the channel depending on what the status is set as.\r\nAmazon Listing Statuses:\r\nNOT_LISTED,\r\nOK,\r\nCREATING(push to channel),\r\nUPDATING,\r\nUPDATING_PRICE,\r\nUPDATING_QUANTITY,\r\nUPDATING_IMAGES,\r\nCREATING_VARIATION,\r\nDELETING,\r\nSEARCHING_FOR_MATCHES,\r\nUPDATING_SHIPPING\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ProcessAmazonListings",
         "consumes": [
           "application/json"
@@ -657,7 +657,7 @@
           "Listings"
         ],
         "summary": "DeleteAmazonTemplates",
-        "description": "Use this call to delete a Amazon template.",
+        "description": "Use this call to delete a Amazon template.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteAmazonTemplates",
         "consumes": [
           "application/json"
@@ -693,7 +693,7 @@
           "Listings"
         ],
         "summary": "GetMagentoConfigurators",
-        "description": "Use this call to get all Magento configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+        "description": "Use this call to get all Magento configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetMagentoConfigurators",
         "consumes": [],
         "produces": [
@@ -728,7 +728,7 @@
           "Listings"
         ],
         "summary": "ProcessMagentoListings",
-        "description": "Use this call to create templates in Linnworks and can also be used to push the template to a channel. This will create the template even if it returns null. This will also push the template to the channel depending on what the status is set as.",
+        "description": "Use this call to create templates in Linnworks and can also be used to push the template to a channel. This will create the template even if it returns null. This will also push the template to the channel depending on what the status is set as.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ProcessMagentoListings",
         "consumes": [
           "application/json"
@@ -764,7 +764,7 @@
           "Listings"
         ],
         "summary": "CreateMagentoConfigurators",
-        "description": "Use this call to create Magento configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+        "description": "Use this call to create Magento configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateMagentoConfigurators",
         "consumes": [
           "application/json"
@@ -800,7 +800,7 @@
           "Listings"
         ],
         "summary": "UpdateMagentoConfigurators",
-        "description": "Use this call to update Magento configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+        "description": "Use this call to update Magento configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateMagentoConfigurators",
         "consumes": [
           "application/json"
@@ -836,7 +836,7 @@
           "Listings"
         ],
         "summary": "DeleteMagentoConfigurators",
-        "description": "Use this call to delete Magento configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+        "description": "Use this call to delete Magento configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteMagentoConfigurators",
         "consumes": [
           "application/json"
@@ -872,7 +872,7 @@
           "Listings"
         ],
         "summary": "GetMagentoTemplates",
-        "description": "Use this call to return all created Magento templates.",
+        "description": "Use this call to return all created Magento templates.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetMagentoTemplates",
         "consumes": [
           "application/json"
@@ -916,7 +916,7 @@
           "Listings"
         ],
         "summary": "CreateMagentoTemplates",
-        "description": "Use this call to return a template based on the configurator setting you have requested. This allows you to see the template which can then be  retuned to the ProcessMagentoListing endpoint which will build the listing.",
+        "description": "Use this call to return a template based on the configurator setting you have requested. This allows you to see the template which can then be  retuned to the ProcessMagentoListing endpoint which will build the listing.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateMagentoTemplates",
         "consumes": [
           "application/json"
@@ -960,7 +960,7 @@
           "Listings"
         ],
         "summary": "DeleteMagentoTemplates",
-        "description": "Use this call to delete a Magento template.",
+        "description": "Use this call to delete a Magento template.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteMagentoTemplates",
         "consumes": [
           "application/json"
@@ -996,7 +996,7 @@
           "Listings"
         ],
         "summary": "GetBigCommerceTemplates",
-        "description": "Use this call to return all created Big Commerce templates.",
+        "description": "Use this call to return all created Big Commerce templates.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetBigCommerceTemplates",
         "consumes": [
           "application/json"
@@ -1040,7 +1040,7 @@
           "Listings"
         ],
         "summary": "CreateBigcommerceTemplates",
-        "description": "Use this call to return a template based on the configurator setting you have requested. This allows you to see the template which can then be  retuned to the ProcessBigCommerceListing endpoint which will build the listing.",
+        "description": "Use this call to return a template based on the configurator setting you have requested. This allows you to see the template which can then be  retuned to the ProcessBigCommerceListing endpoint which will build the listing.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateBigcommerceTemplates",
         "consumes": [
           "application/json"
@@ -1084,7 +1084,7 @@
           "Listings"
         ],
         "summary": "ProcessBigcommerceListings",
-        "description": "Use this call to create templates in Linnworks and can also be used to push the template to a channel. This will create the template even if it returns null. This will also push the template to the channel depending on what the status is set as.",
+        "description": "Use this call to create templates in Linnworks and can also be used to push the template to a channel. This will create the template even if it returns null. This will also push the template to the channel depending on what the status is set as.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ProcessBigcommerceListings",
         "consumes": [
           "application/json"
@@ -1120,7 +1120,7 @@
           "Listings"
         ],
         "summary": "GetBigcommerceConfigurators",
-        "description": "Use this call to get all Bigcommerce configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode",
+        "description": "Use this call to get all Bigcommerce configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetBigcommerceConfigurators",
         "consumes": [],
         "produces": [
@@ -1155,7 +1155,7 @@
           "Listings"
         ],
         "summary": "CreateBigcommerceConfigurators",
-        "description": "Use this call to create BigCommerce configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+        "description": "Use this call to create BigCommerce configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateBigcommerceConfigurators",
         "consumes": [
           "application/json"
@@ -1191,7 +1191,7 @@
           "Listings"
         ],
         "summary": "UpdateBigcommerceConfigurators",
-        "description": "Use this call to update BigCommerce configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+        "description": "Use this call to update BigCommerce configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateBigcommerceConfigurators",
         "consumes": [
           "application/json"
@@ -1227,7 +1227,7 @@
           "Listings"
         ],
         "summary": "DeleteBigcommerceConfigurators",
-        "description": "Use this call to delete BigCommerce configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode",
+        "description": "Use this call to delete BigCommerce configurators.\r\n            \r\nA configurator hosts common details for listings such as listing type, return policy, payment methods, shipping info, attributes, listing categories, etc. Configurators offer an efficient way of creating listings in bulk that follow a common theme. The same configurator can be used to list multiple items that share common details. To find out more about configurators you can visit our [documentation](https://docs.linnworks.com/articles/#!documentation/configurators)\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteBigcommerceConfigurators",
         "consumes": [
           "application/json"
@@ -1263,7 +1263,7 @@
           "Listings"
         ],
         "summary": "DeleteBigcommerceTemplates",
-        "description": "Use this call to delete a Big Commerce template.",
+        "description": "Use this call to delete a Big Commerce template.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteBigcommerceTemplates",
         "consumes": [
           "application/json"

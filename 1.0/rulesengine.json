@@ -15,7 +15,7 @@
           "RulesEngine"
         ],
         "summary": "GetEvaluatorTypes",
-        "description": "Use this call to get a list of valid evaluators and the groups which they belong to.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to get a list of valid evaluators and the groups which they belong to.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetEvaluatorTypes",
         "consumes": [],
         "produces": [
@@ -50,7 +50,7 @@
           "RulesEngine"
         ],
         "summary": "GetEvaluationFields",
-        "description": "Use this call to get a list of valid evaluation fields for a given rule type.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to get a list of valid evaluation fields for a given rule type.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetEvaluationFields",
         "consumes": [],
         "produces": [
@@ -97,7 +97,7 @@
           "RulesEngine"
         ],
         "summary": "GetOptions",
-        "description": "Use this call to get a list of valid options for a given field (and, if relevant, key).\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to get a list of valid options for a given field (and, if relevant, key).\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetOptions",
         "consumes": [],
         "produces": [
@@ -156,7 +156,7 @@
           "RulesEngine"
         ],
         "summary": "GetMultiOptions",
-        "description": "Use this call to get a list of valid options for a given set of fields (and, if relevant, keys).\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to get a list of valid options for a given set of fields (and, if relevant, keys).\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetMultiOptions",
         "consumes": [
           "application/json"
@@ -203,7 +203,7 @@
           "RulesEngine"
         ],
         "summary": "GetKeyOptions",
-        "description": "Use this call to get a list of valid keys for a given field.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to get a list of valid keys for a given field.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetKeyOptions",
         "consumes": [],
         "produces": [
@@ -256,7 +256,7 @@
           "RulesEngine"
         ],
         "summary": "GetMultiKeyOptions",
-        "description": "Use this call to get a list of valid keys for a set of fields.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to get a list of valid keys for a set of fields.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetMultiKeyOptions",
         "consumes": [
           "application/json"
@@ -303,7 +303,7 @@
           "RulesEngine"
         ],
         "summary": "GetRules",
-        "description": "Use this call to retrieve a list of rules\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to retrieve a list of rules\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetRules",
         "consumes": [],
         "produces": [
@@ -338,7 +338,7 @@
           "RulesEngine"
         ],
         "summary": "GetRulesByType",
-        "description": "Use this call to retrieve a list of rules of a given type\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to retrieve a list of rules of a given type\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetRulesByType",
         "consumes": [],
         "produces": [
@@ -385,7 +385,7 @@
           "RulesEngine"
         ],
         "summary": "GetRuleConditionNodes",
-        "description": "Use this call to get information about the nodes belonging to a rule, excluding the condition items.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to get information about the nodes belonging to a rule, excluding the condition items.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetRuleConditionNodes",
         "consumes": [],
         "produces": [
@@ -429,7 +429,7 @@
           "RulesEngine"
         ],
         "summary": "GetConditionWeb",
-        "description": "Use this call to retrieve details about a given condition.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to retrieve details about a given condition.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetConditionWeb",
         "consumes": [],
         "produces": [
@@ -470,7 +470,7 @@
           "RulesEngine"
         ],
         "summary": "GetActionTypes",
-        "description": "Use this call to retrieve a list of valid action types for the rule type\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to retrieve a list of valid action types for the rule type\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetActionTypes",
         "consumes": [],
         "produces": [
@@ -517,7 +517,7 @@
           "RulesEngine"
         ],
         "summary": "CreateNewCondition",
-        "description": "Use this call to create a new condition.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to create a new condition.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateNewCondition",
         "consumes": [
           "application/json"
@@ -561,7 +561,7 @@
           "RulesEngine"
         ],
         "summary": "SaveConditionChanges",
-        "description": "Use this call to update a conditon and its condition items.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to update a conditon and its condition items.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SaveConditionChanges",
         "consumes": [
           "application/json"
@@ -597,7 +597,7 @@
           "RulesEngine"
         ],
         "summary": "CheckConditionNameExists",
-        "description": "Use this call to check to see if a condition name already exists at a specific level.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to check to see if a condition name already exists at a specific level.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CheckConditionNameExists",
         "consumes": [],
         "produces": [
@@ -658,7 +658,7 @@
           "RulesEngine"
         ],
         "summary": "GetActionOptions",
-        "description": "Use this call to get a list of valid options for a given action\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to get a list of valid options for a given action\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetActionOptions",
         "consumes": [],
         "produces": [
@@ -720,7 +720,7 @@
           "RulesEngine"
         ],
         "summary": "UpdateAction",
-        "description": "Use this call to update an action\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to update an action\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdateAction",
         "consumes": [
           "application/json"
@@ -756,7 +756,7 @@
           "RulesEngine"
         ],
         "summary": "AddAction",
-        "description": "Use this call to add a new action to a condition node.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to add a new action to a condition node.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "AddAction",
         "consumes": [
           "application/json"
@@ -800,7 +800,7 @@
           "RulesEngine"
         ],
         "summary": "DeleteAction",
-        "description": "Use this call to delete an action from a rule.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to delete an action from a rule.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteAction",
         "consumes": [
           "application/json"
@@ -836,7 +836,7 @@
           "RulesEngine"
         ],
         "summary": "DeleteCondition",
-        "description": "Use this call to delete a conditio and its subconditions/actions\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to delete a conditio and its subconditions/actions\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteCondition",
         "consumes": [
           "application/json"
@@ -872,7 +872,7 @@
           "RulesEngine"
         ],
         "summary": "SwapConditions",
-        "description": "Use this call to swap the sort order of two conditions belonging to the same parent\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to swap the sort order of two conditions belonging to the same parent\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SwapConditions",
         "consumes": [
           "application/json"
@@ -908,7 +908,7 @@
           "RulesEngine"
         ],
         "summary": "GetRequiredFieldsByRuleId",
-        "description": "Use this call to get a list of fields and keys used by a given rule.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to get a list of fields and keys used by a given rule.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetRequiredFieldsByRuleId",
         "consumes": [],
         "produces": [
@@ -949,7 +949,7 @@
           "RulesEngine"
         ],
         "summary": "GetRequiredFieldsByType",
-        "description": "Use this call to get a list of fields and keys used by a given rule type\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to get a list of fields and keys used by a given rule type\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetRequiredFieldsByType",
         "consumes": [],
         "produces": [
@@ -993,7 +993,7 @@
           "RulesEngine"
         ],
         "summary": "TestEvaluateRule",
-        "description": "Use this call to test a rule against a set of test values\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to test a rule against a set of test values\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "TestEvaluateRule",
         "consumes": [
           "application/json"
@@ -1037,7 +1037,7 @@
           "RulesEngine"
         ],
         "summary": "SetDraftLive",
-        "description": "Use this call to set a draft rule live (if the draft is a copy for editing an existing rule, the existing rule will be deleted and the draft promoted).\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to set a draft rule live (if the draft is a copy for editing an existing rule, the existing rule will be deleted and the draft promoted).\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetDraftLive",
         "consumes": [
           "application/json"
@@ -1082,7 +1082,7 @@
           "RulesEngine"
         ],
         "summary": "CreateDraftFromExisting",
-        "description": "Use this call to create a draft copy in order to edit an existing rule. Once set live, this draft will replace the rule it was copied from.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to create a draft copy in order to edit an existing rule. Once set live, this draft will replace the rule it was copied from.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateDraftFromExisting",
         "consumes": [
           "application/json"
@@ -1127,7 +1127,7 @@
           "RulesEngine"
         ],
         "summary": "CreateNewDraftFromExisting",
-        "description": "Use this call to create a new draft based on an existing rule. Once set live, this draft will be a unique rule in its own right.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to create a new draft based on an existing rule. Once set live, this draft will be a unique rule in its own right.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateNewDraftFromExisting",
         "consumes": [
           "application/json"
@@ -1171,7 +1171,7 @@
           "RulesEngine"
         ],
         "summary": "CreateNewDraft",
-        "description": "Use this call to create a new draft rule of a specified type.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to create a new draft rule of a specified type.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateNewDraft",
         "consumes": [
           "application/json"
@@ -1215,7 +1215,7 @@
           "RulesEngine"
         ],
         "summary": "SetRuleEnabled",
-        "description": "Use this call to set the enabled state of a rule\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to set the enabled state of a rule\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetRuleEnabled",
         "consumes": [
           "application/json"
@@ -1251,7 +1251,7 @@
           "RulesEngine"
         ],
         "summary": "SetRuleName",
-        "description": "Use this call to rename a rule.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to rename a rule.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetRuleName",
         "consumes": [
           "application/json"
@@ -1287,7 +1287,7 @@
           "RulesEngine"
         ],
         "summary": "DeleteRuleById",
-        "description": "Use this call to permanently delete a rule from the system.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to permanently delete a rule from the system.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeleteRuleById",
         "consumes": [
           "application/json"
@@ -1323,7 +1323,7 @@
           "RulesEngine"
         ],
         "summary": "SwapRules",
-        "description": "Use this call to change the executing order of the rules by swapping them with each other.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to change the executing order of the rules by swapping them with each other.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SwapRules",
         "consumes": [
           "application/json"
@@ -1359,7 +1359,7 @@
           "RulesEngine"
         ],
         "summary": "SetConditionEnabled",
-        "description": "Use this call to enable or disable a condition. Any subconditions or actions belonging to the condition will not be evaluated or executed if it is disabled.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to enable or disable a condition. Any subconditions or actions belonging to the condition will not be evaluated or executed if it is disabled.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetConditionEnabled",
         "consumes": [
           "application/json"
@@ -1395,7 +1395,7 @@
           "RulesEngine"
         ],
         "summary": "CopyCondition",
-        "description": "Use this call to copy a condition, its subconditions and actions.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to copy a condition, its subconditions and actions.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CopyCondition",
         "consumes": [
           "application/json"
@@ -1439,7 +1439,7 @@
           "RulesEngine"
         ],
         "summary": "CopyAction",
-        "description": "Use this call to copy an action from one condition to another condition. Actions may not be attached to the rule header or condition nodes with subconditions.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode",
+        "description": "Use this call to copy an action from one condition to another condition. Actions may not be attached to the rule header or condition nodes with subconditions.\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CopyAction",
         "consumes": [
           "application/json"
@@ -1727,19 +1727,19 @@
         "RuleName": {
           "type": "string"
         },
-        "RuleType": {
-          "enum": [
-            "Test",
-            "Orders"
-          ],
-          "type": "string"
-        },
         "Enabled": {
           "type": "boolean"
         },
         "RunOrder": {
           "format": "int32",
           "type": "integer"
+        },
+        "RuleType": {
+          "enum": [
+            "Test",
+            "Orders"
+          ],
+          "type": "string"
         },
         "pkRuleId_Draft": {
           "format": "int32",
@@ -1765,19 +1765,19 @@
           "format": "int32",
           "type": "integer"
         },
-        "ConditionName": {
-          "type": "string"
-        },
         "RunOrder": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "fkParentConditionId": {
           "format": "int32",
           "type": "integer"
         },
         "Enabled": {
           "type": "boolean"
+        },
+        "ConditionName": {
+          "type": "string"
+        },
+        "fkParentConditionId": {
+          "format": "int32",
+          "type": "integer"
         },
         "Conditions": {
           "type": "array",
@@ -1807,10 +1807,6 @@
           "format": "int32",
           "type": "integer"
         },
-        "fkConditionId": {
-          "format": "int32",
-          "type": "integer"
-        },
         "ActionName": {
           "type": "string"
         },
@@ -1835,6 +1831,10 @@
         },
         "ActionValue": {
           "type": "string"
+        },
+        "fkConditionId": {
+          "format": "int32",
+          "type": "integer"
         },
         "RuleVersion": {
           "format": "int32",
@@ -1874,11 +1874,15 @@
     "ConditionHeaderBasic": {
       "type": "object",
       "properties": {
+        "pkConditionId": {
+          "format": "int32",
+          "type": "integer"
+        },
         "fkParentConditionId": {
           "format": "int32",
           "type": "integer"
         },
-        "pkConditionId": {
+        "fkRuleId": {
           "format": "int32",
           "type": "integer"
         },
@@ -1887,10 +1891,6 @@
         },
         "Enabled": {
           "type": "boolean"
-        },
-        "fkRuleId": {
-          "format": "int32",
-          "type": "integer"
         },
         "Conditions": {
           "type": "array",

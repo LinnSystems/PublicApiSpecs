@@ -15,7 +15,7 @@
           "PostalServices"
         ],
         "summary": "GetPostalServices",
-        "description": "Gets a list of the users postal services and information on channels and couriers linked to each service\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostalServicesNode",
+        "description": "Gets a list of the users postal services and information on channels and couriers linked to each service\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostalServicesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetPostalServices",
         "consumes": [],
         "produces": [
@@ -50,7 +50,7 @@
           "PostalServices"
         ],
         "summary": "CreatePostalService",
-        "description": "Adds a new postal service to the database\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostalServicesNode",
+        "description": "Adds a new postal service to the database\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostalServicesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreatePostalService",
         "consumes": [
           "application/json"
@@ -94,7 +94,7 @@
           "PostalServices"
         ],
         "summary": "UpdatePostalService",
-        "description": "Changes an existing postal service in the database\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostalServicesNode",
+        "description": "Changes an existing postal service in the database\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostalServicesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "UpdatePostalService",
         "consumes": [
           "application/json"
@@ -130,7 +130,7 @@
           "PostalServices"
         ],
         "summary": "DeletePostalService",
-        "description": "Changes an existing postal service in the database\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostalServicesNode",
+        "description": "Changes an existing postal service in the database\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostalServicesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "DeletePostalService",
         "consumes": [
           "application/json"
@@ -166,7 +166,7 @@
           "PostalServices"
         ],
         "summary": "GetChannelLinks",
-        "description": "Returns Channel Service Link Information\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostalServicesNode",
+        "description": "Returns Channel Service Link Information\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.PostalServicesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetChannelLinks",
         "consumes": [],
         "produces": [

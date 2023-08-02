@@ -15,7 +15,7 @@
           "PostSale"
         ],
         "summary": "GetCancellationOptions",
-        "description": "This method is used to validate whether a channel cancellation can be submitted for a given order\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.CancellationsNode",
+        "description": "This method is used to validate whether a channel cancellation can be submitted for a given order\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.CancellationsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetCancellationOptions",
         "consumes": [],
         "produces": [
@@ -54,7 +54,7 @@
           "PostSale"
         ],
         "summary": "CreateCancellation",
-        "description": "This method is used to further validate and create a cancellation in Linnworks, as well as submit it to the channel where this is requested\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.CancellationsNode",
+        "description": "This method is used to further validate and create a cancellation in Linnworks, as well as submit it to the channel where this is requested\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.CancellationsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "CreateCancellation",
         "consumes": [
           "application/json"
