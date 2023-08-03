@@ -868,7 +868,7 @@
           "Orders"
         ],
         "summary": "SetInvoicesPrinted",
-        "description": "Mark a list of orders as invoice printed. This operation can not be executed on locked or parked orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "description": "Mark a list of orders as invoice printed\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetInvoicesPrinted",
         "consumes": [
           "application/json"
@@ -917,7 +917,7 @@
           "Orders"
         ],
         "summary": "SetPickListPrinted",
-        "description": "Sets the print flag for the given orders. This operation can not be executed on locked or parked orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "description": "Sets the print flag for the given orders\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrdersNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "SetPickListPrinted",
         "consumes": [
           "application/json"
@@ -1188,7 +1188,7 @@
           "Orders"
         ],
         "summary": "AssignToFolder",
-        "description": "Assign a list of orders to a specific folder. This operation can not be executed on locked or parked orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
+        "description": "Assign a list of orders to a specific folder\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "AssignToFolder",
         "consumes": [
           "application/json"
@@ -1237,7 +1237,7 @@
           "Orders"
         ],
         "summary": "UnassignToFolder",
-        "description": "Unassign a list of orders to a specific folder. This operation can not be executed on locked or parked orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
+        "description": "Unassign a list of orders to a specific folder\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "UnassignToFolder",
         "consumes": [
           "application/json"
@@ -1676,7 +1676,7 @@
           "Orders"
         ],
         "summary": "ClearInvoicePrinted",
-        "description": "Clear invoice printed flag for a list of orders. This operation can not be executed on locked or parked orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "description": "Clear invoice printed flag for a list of orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ClearInvoicePrinted",
         "consumes": [
           "application/json"
@@ -1725,7 +1725,7 @@
           "Orders"
         ],
         "summary": "ClearPickListPrinted",
-        "description": "Clear invoice printed flag for a list of orders. This operation can not be executed on locked or parked orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
+        "description": "Clear invoice printed flag for a list of orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "ClearPickListPrinted",
         "consumes": [
           "application/json"
@@ -4382,17 +4382,9 @@
           "description": "Is invoice printed",
           "type": "boolean"
         },
-        "InvoicePrintError": {
-          "description": "Is there invoice print error",
-          "type": "string"
-        },
         "PickListPrinted": {
           "description": "Is pick list printed",
           "type": "boolean"
-        },
-        "PickListPrintError": {
-          "description": "Is there pick list print error",
-          "type": "string"
         },
         "IsRuleRun": {
           "description": "If rules engine rule ran on an order",
@@ -6877,8 +6869,6 @@
             "GENERAL_INFO_ITEMS_COUNT",
             "GENERAL_INFO_SHIPPING_LABEL_ERROR",
             "GENERAL_INFO_HAS_SHIPPING_LABEL_ERROR",
-            "GENERAL_INFO_INVOICE_PRINT_ERROR",
-            "GENERAL_INFO_PICK_LIST_PRINT_ERROR",
             "SHIPPING_INFORMATION",
             "SHIPPING_INFORMATION_VENDOR",
             "SHIPPING_INFORMATION_SERVICE",
@@ -7038,8 +7028,6 @@
             "GENERAL_INFO_ITEMS_COUNT",
             "GENERAL_INFO_SHIPPING_LABEL_ERROR",
             "GENERAL_INFO_HAS_SHIPPING_LABEL_ERROR",
-            "GENERAL_INFO_INVOICE_PRINT_ERROR",
-            "GENERAL_INFO_PICK_LIST_PRINT_ERROR",
             "SHIPPING_INFORMATION",
             "SHIPPING_INFORMATION_VENDOR",
             "SHIPPING_INFORMATION_SERVICE",
@@ -7175,8 +7163,6 @@
             "GENERAL_INFO_ITEMS_COUNT",
             "GENERAL_INFO_SHIPPING_LABEL_ERROR",
             "GENERAL_INFO_HAS_SHIPPING_LABEL_ERROR",
-            "GENERAL_INFO_INVOICE_PRINT_ERROR",
-            "GENERAL_INFO_PICK_LIST_PRINT_ERROR",
             "SHIPPING_INFORMATION",
             "SHIPPING_INFORMATION_VENDOR",
             "SHIPPING_INFORMATION_SERVICE",
@@ -7323,8 +7309,6 @@
             "GENERAL_INFO_ITEMS_COUNT",
             "GENERAL_INFO_SHIPPING_LABEL_ERROR",
             "GENERAL_INFO_HAS_SHIPPING_LABEL_ERROR",
-            "GENERAL_INFO_INVOICE_PRINT_ERROR",
-            "GENERAL_INFO_PICK_LIST_PRINT_ERROR",
             "SHIPPING_INFORMATION",
             "SHIPPING_INFORMATION_VENDOR",
             "SHIPPING_INFORMATION_SERVICE",
@@ -7481,8 +7465,6 @@
             "GENERAL_INFO_ITEMS_COUNT",
             "GENERAL_INFO_SHIPPING_LABEL_ERROR",
             "GENERAL_INFO_HAS_SHIPPING_LABEL_ERROR",
-            "GENERAL_INFO_INVOICE_PRINT_ERROR",
-            "GENERAL_INFO_PICK_LIST_PRINT_ERROR",
             "SHIPPING_INFORMATION",
             "SHIPPING_INFORMATION_VENDOR",
             "SHIPPING_INFORMATION_SERVICE",
@@ -7627,8 +7609,6 @@
             "GENERAL_INFO_ITEMS_COUNT",
             "GENERAL_INFO_SHIPPING_LABEL_ERROR",
             "GENERAL_INFO_HAS_SHIPPING_LABEL_ERROR",
-            "GENERAL_INFO_INVOICE_PRINT_ERROR",
-            "GENERAL_INFO_PICK_LIST_PRINT_ERROR",
             "SHIPPING_INFORMATION",
             "SHIPPING_INFORMATION_VENDOR",
             "SHIPPING_INFORMATION_SERVICE",
@@ -7787,8 +7767,6 @@
             "GENERAL_INFO_ITEMS_COUNT",
             "GENERAL_INFO_SHIPPING_LABEL_ERROR",
             "GENERAL_INFO_HAS_SHIPPING_LABEL_ERROR",
-            "GENERAL_INFO_INVOICE_PRINT_ERROR",
-            "GENERAL_INFO_PICK_LIST_PRINT_ERROR",
             "SHIPPING_INFORMATION",
             "SHIPPING_INFORMATION_VENDOR",
             "SHIPPING_INFORMATION_SERVICE",
