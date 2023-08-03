@@ -2495,11 +2495,6 @@
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
-        "StockItemIntId": {
-          "format": "int32",
-          "description": "Unique system stock integer identifier. Use this id to query linnworks api for product information, stock levels etc",
-          "type": "integer"
-        },
         "Quantity": {
           "format": "int32",
           "description": "Quantity of unique stock items ordered",
@@ -2567,22 +2562,13 @@
           "description": "Item Width",
           "type": "number"
         },
-        "BarcodeNumber": {
-          "description": "Barcode",
-          "type": "string"
-        },
         "DimDepth": {
           "format": "double",
           "description": "Item Depth",
           "type": "number"
         },
-        "BoundToOpenOrdersItems": {
-          "format": "int32",
-          "description": "Number of open order items this item is bound",
-          "type": "integer"
-        },
-        "BinRack": {
-          "description": "Bin rack",
+        "BarcodeNumber": {
+          "description": "Barcode",
           "type": "string"
         },
         "QuantityBoundToOpenOrdersItems": {
@@ -2594,8 +2580,22 @@
           "description": "Supplier Code",
           "type": "string"
         },
+        "BinRack": {
+          "description": "Bin rack",
+          "type": "string"
+        },
         "SupplierBarcode": {
           "type": "string"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "description": "Unique system stock integer identifier. Use this id to query linnworks api for product information, stock levels etc",
+          "type": "integer"
+        },
+        "BoundToOpenOrdersItems": {
+          "format": "int32",
+          "description": "Number of open order items this item is bound",
+          "type": "integer"
         },
         "SkuGroupIds": {
           "description": "Sku group id assocaited with purchase item. Used for containerisation.",
