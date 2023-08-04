@@ -1583,6 +1583,50 @@
         ]
       }
     },
+    "/api/Stock/SearchBinracks": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "SearchBinracks",
+        "description": "Finds all binracks where an item can be placed. Filters out the result by group and binrack restrictions for a particular stock item.\r\nList of BinRack Type Ids which should be searched can be supplied for a particular location, if null all binracktypes will be considered. You can get the list from Get Stock/GetBinrackTypes\r\nThe response will be ordered by where the system thinks the item should be moved. The logic is determined by one of the default behaviours of the system or by custom configuration of the warehouse stock flow\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagementNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "SearchBinracks",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Stock_SearchBinracksRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_SearchBinracksRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BinracksResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/Stock/GetBinRacksById": {
       "post": {
         "tags": [
@@ -1615,6 +1659,85 @@
             "schema": {
               "$ref": "#/definitions/BinracksResponse"
             }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetBinrackSkus": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetBinrackSkus",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "GetBinrackSkus",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/GetBinRackSkusRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BinrackSkuResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/CompleteWarehouseMove": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "CompleteWarehouseMove",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "CompleteWarehouseMove",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Stock_CompleteWarehouseMoveRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_CompleteWarehouseMoveRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
           }
         },
         "security": [
@@ -4117,15 +4240,45 @@
         }
       }
     },
-    "GetBinrackByIdRequest": {
+    "Stock_SearchBinracksRequest": {
       "type": "object",
       "properties": {
-        "BinrackIds": {
+        "request": {
+          "$ref": "#/definitions/SearchBinracksRequest",
+          "description": ""
+        }
+      }
+    },
+    "SearchBinracksRequest": {
+      "type": "object",
+      "properties": {
+        "BinRack": {
+          "description": "Bin rack search term. For example for PUT1.2.3878, bin rack search term PUT1 will yeild the result",
+          "type": "string"
+        },
+        "LocationId": {
+          "format": "uuid",
+          "description": "Specific location id. Location must be Warehouse Managed location",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "BinRackTypeIds": {
+          "description": "List of types of bin racks, nullable. If not provided all binrack types will be searched",
           "type": "array",
           "items": {
             "format": "int32",
             "type": "integer"
           }
+        },
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },
@@ -4364,6 +4517,70 @@
             "Restricted"
           ],
           "type": "string"
+        }
+      }
+    },
+    "GetBinrackByIdRequest": {
+      "type": "object",
+      "properties": {
+        "BinrackIds": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "GetBinRackSkusRequest": {
+      "type": "object",
+      "properties": {
+        "BinRackId": {
+          "format": "int32",
+          "description": "WMS BinRack Id",
+          "type": "integer"
+        },
+        "DetailLevel": {
+          "description": "Detail level required in the response",
+          "type": "array",
+          "items": {
+            "enum": [
+              "FilterZeroQtyBatches"
+            ],
+            "type": "string"
+          }
+        }
+      }
+    },
+    "BinrackSkuResponse": {
+      "type": "object",
+      "properties": {
+        "Skus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemBatch"
+          }
+        }
+      }
+    },
+    "Stock_CompleteWarehouseMoveRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/WarehouseMoveCompleteRequest"
+        }
+      }
+    },
+    "WarehouseMoveCompleteRequest": {
+      "type": "object",
+      "properties": {
+        "MoveId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "FinalBinrackId": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },

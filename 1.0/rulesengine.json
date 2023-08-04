@@ -1727,19 +1727,19 @@
         "RuleName": {
           "type": "string"
         },
-        "Enabled": {
-          "type": "boolean"
-        },
-        "RunOrder": {
-          "format": "int32",
-          "type": "integer"
-        },
         "RuleType": {
           "enum": [
             "Test",
             "Orders"
           ],
           "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "RunOrder": {
+          "format": "int32",
+          "type": "integer"
         },
         "pkRuleId_Draft": {
           "format": "int32",
@@ -1946,14 +1946,14 @@
           ],
           "type": "string"
         },
+        "KeyValue": {
+          "type": "string"
+        },
         "Values": {
           "type": "array",
           "items": {
             "type": "string"
           }
-        },
-        "KeyValue": {
-          "type": "string"
         }
       }
     },
