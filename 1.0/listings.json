@@ -1403,6 +1403,11 @@
     "eBayItem": {
       "type": "object",
       "properties": {
+        "ListId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
         "ItemNumber": {
           "type": "string"
         },
@@ -1413,30 +1418,95 @@
         "SKU": {
           "type": "string"
         },
-        "MappedBy": {
-          "type": "string"
-        },
-        "RelistPending": {
-          "type": "boolean"
-        },
         "Quantity": {
           "format": "int32",
           "description": "Quantity known listed on the channel at the point of getting the listings from the channel.\r\nThis value is not updated when inventory levels are synchronized",
           "type": "integer"
         },
-        "IsSuggestedToLink": {
-          "description": "Identifies if the system found suitable match",
+        "MappedBy": {
+          "type": "string"
+        },
+        "FixedPrice": {
           "type": "boolean"
         },
-        "IsLinked": {
-          "description": "Identifies if the item is linked",
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StartTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "EndTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ReslistedFrom": {
+          "type": "string"
+        },
+        "StrickenOff": {
           "type": "boolean"
+        },
+        "IsGTC": {
+          "type": "boolean"
+        },
+        "ListingPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "IsVariation": {
+          "type": "boolean"
+        },
+        "RelistPending": {
+          "type": "boolean"
+        },
+        "ChannelReferenceId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "StrikeOffDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "StrikeReason": {
+          "type": "string"
+        },
+        "LinkedWith": {
+          "type": "string"
+        },
+        "VariationItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/eBayItem"
+          }
+        },
+        "IsActive": {
+          "type": "boolean"
+        },
+        "ChannelSKURowId": {
+          "format": "uuid",
+          "description": "Stock_ChannelSKU RowId",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
         },
         "LinkedItemId": {
           "format": "uuid",
           "description": "Linked pkStockItemId",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "IgnoreSync": {
+          "description": "Identifies if the inventory should be synced for this item",
+          "type": "boolean"
+        },
+        "LinkedItemSku": {
+          "description": "Linked item SKU",
+          "type": "string"
+        },
+        "LinkedItemTitle": {
+          "description": "Linked item title",
+          "type": "string"
         },
         "MaxListedQuantity": {
           "format": "int32",
@@ -1453,83 +1523,13 @@
           "description": "Stock percentage allocated for the channel",
           "type": "number"
         },
-        "LinkedItemSku": {
-          "description": "Linked item SKU",
-          "type": "string"
-        },
-        "LinkedItemTitle": {
-          "description": "Linked item title",
-          "type": "string"
-        },
-        "IgnoreSync": {
-          "description": "Identifies if the inventory should be synced for this item",
+        "IsLinked": {
+          "description": "Identifies if the item is linked",
           "type": "boolean"
         },
-        "ChannelReferenceId": {
-          "type": "string",
-          "readOnly": true
-        },
-        "StrickenOff": {
+        "IsSuggestedToLink": {
+          "description": "Identifies if the system found suitable match",
           "type": "boolean"
-        },
-        "StockItemId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "StartTime": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "EndTime": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "StrikeOffDate": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "StrikeReason": {
-          "type": "string"
-        },
-        "LinkedWith": {
-          "type": "string"
-        },
-        "IsVariation": {
-          "type": "boolean"
-        },
-        "FixedPrice": {
-          "type": "boolean"
-        },
-        "ReslistedFrom": {
-          "type": "string"
-        },
-        "ListId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "ListingPrice": {
-          "format": "double",
-          "type": "number"
-        },
-        "VariationItems": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/eBayItem"
-          }
-        },
-        "IsGTC": {
-          "type": "boolean"
-        },
-        "IsActive": {
-          "type": "boolean"
-        },
-        "ChannelSKURowId": {
-          "format": "uuid",
-          "description": "Stock_ChannelSKU RowId",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
         },
         "IsMatchByTitle": {
           "description": "Identifies if the mapping matched by title",
