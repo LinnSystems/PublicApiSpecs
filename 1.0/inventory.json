@@ -6696,6 +6696,12 @@
         "OrderDownloadGlobalErrorCount": {
           "$ref": "#/definitions/ConfigItem_Int32"
         },
+        "OrderDespatchErrorCount": {
+          "$ref": "#/definitions/ConfigItem_Int32"
+        },
+        "OrderDespatchGlobalErrorCount": {
+          "$ref": "#/definitions/ConfigItem_Int32"
+        },
         "HidesHeaderAttributes": {
           "$ref": "#/definitions/ConfigProperty_Boolean"
         },
@@ -6776,6 +6782,12 @@
         "SourceType": {
           "type": "string",
           "readOnly": true
+        },
+        "FulfillmentLocation": {
+          "format": "uuid",
+          "type": "string",
+          "readOnly": true,
+          "example": "00000000-0000-0000-0000-000000000000"
         },
         "Rules": {
           "type": "array",
@@ -8085,6 +8097,12 @@
         "OrderDownloadGlobalErrorCount": {
           "$ref": "#/definitions/ConfigItem_Int32"
         },
+        "OrderDespatchErrorCount": {
+          "$ref": "#/definitions/ConfigItem_Int32"
+        },
+        "OrderDespatchGlobalErrorCount": {
+          "$ref": "#/definitions/ConfigItem_Int32"
+        },
         "HidesHeaderAttributes": {
           "$ref": "#/definitions/ConfigProperty_Boolean"
         },
@@ -8165,6 +8183,12 @@
         "SourceType": {
           "type": "string",
           "readOnly": true
+        },
+        "FulfillmentLocation": {
+          "format": "uuid",
+          "type": "string",
+          "readOnly": true,
+          "example": "00000000-0000-0000-0000-000000000000"
         },
         "Rules": {
           "type": "array",
@@ -10350,12 +10374,6 @@
       "description": "Simple stock item image record",
       "type": "object",
       "properties": {
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "pkRowId": {
           "format": "uuid",
           "description": "Unique id of image",
@@ -10378,6 +10396,12 @@
         "RawChecksum": {
           "description": "Raw file checksum (Used for UI to determine if the image file is the same before submitting for upload)",
           "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
