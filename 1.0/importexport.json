@@ -508,7 +508,8 @@
             "eBayCompatibilityKtypesCulture",
             "eBayCompatibilityePIDCulture",
             "MultipleListingTitlesAndPrices",
-            "StockSupplierDetail"
+            "StockSupplierDetail",
+            "StockLevelBatchBySupplierCode"
           ],
           "type": "string"
         },
@@ -1262,7 +1263,8 @@
             "eBayCompatibilityKtypesCulture",
             "eBayCompatibilityePIDCulture",
             "MultipleListingTitlesAndPrices",
-            "StockSupplierDetail"
+            "StockSupplierDetail",
+            "StockLevelBatchBySupplierCode"
           ],
           "type": "string"
         },
