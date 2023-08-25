@@ -1905,11 +1905,6 @@
           "description": "Identified whether the PO is locked. This is for external application use only.",
           "type": "boolean"
         },
-        "UnitAmountTaxIncludedType": {
-          "format": "int32",
-          "description": "Unit amount includes,exclud or no tax. 0 - Tax Exclusive cost, 1 - Cost Inclusive of tax, 2 - No Tax",
-          "type": "integer"
-        },
         "LineCount": {
           "format": "int32",
           "description": "Number of items in the purchase order",
@@ -1918,6 +1913,11 @@
         "DeliveredLinesCount": {
           "format": "int32",
           "description": "Count of all purchase order lines which are delivered \r\n(lines where some but not all of the stock has been received are counted as undelivered)",
+          "type": "integer"
+        },
+        "UnitAmountTaxIncludedType": {
+          "format": "int32",
+          "description": "Unit amount includes,exclud or no tax. 0 - Tax Exclusive cost, 1 - Cost Inclusive of tax, 2 - No Tax",
           "type": "integer"
         },
         "DateOfPurchase": {
@@ -2495,6 +2495,11 @@
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
+        "StockItemIntId": {
+          "format": "int32",
+          "description": "Unique system stock integer identifier. Use this id to query linnworks api for product information, stock levels etc",
+          "type": "integer"
+        },
         "Quantity": {
           "format": "int32",
           "description": "Quantity of unique stock items ordered",
@@ -2562,13 +2567,22 @@
           "description": "Item Width",
           "type": "number"
         },
+        "BarcodeNumber": {
+          "description": "Barcode",
+          "type": "string"
+        },
         "DimDepth": {
           "format": "double",
           "description": "Item Depth",
           "type": "number"
         },
-        "BarcodeNumber": {
-          "description": "Barcode",
+        "BoundToOpenOrdersItems": {
+          "format": "int32",
+          "description": "Number of open order items this item is bound",
+          "type": "integer"
+        },
+        "BinRack": {
+          "description": "Bin rack",
           "type": "string"
         },
         "QuantityBoundToOpenOrdersItems": {
@@ -2580,22 +2594,8 @@
           "description": "Supplier Code",
           "type": "string"
         },
-        "BinRack": {
-          "description": "Bin rack",
-          "type": "string"
-        },
         "SupplierBarcode": {
           "type": "string"
-        },
-        "StockItemIntId": {
-          "format": "int32",
-          "description": "Unique system stock integer identifier. Use this id to query linnworks api for product information, stock levels etc",
-          "type": "integer"
-        },
-        "BoundToOpenOrdersItems": {
-          "format": "int32",
-          "description": "Number of open order items this item is bound",
-          "type": "integer"
         },
         "SkuGroupIds": {
           "description": "Sku group id assocaited with purchase item. Used for containerisation.",

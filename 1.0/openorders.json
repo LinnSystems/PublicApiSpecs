@@ -1148,17 +1148,9 @@
           "description": "Is invoice printed",
           "type": "boolean"
         },
-        "InvoicePrintError": {
-          "description": "Is there invoice print error",
-          "type": "string"
-        },
         "PickListPrinted": {
           "description": "Is pick list printed",
           "type": "boolean"
-        },
-        "PickListPrintError": {
-          "description": "Is there pick list print error",
-          "type": "string"
         },
         "IsRuleRun": {
           "description": "If rules engine rule ran on an order",
