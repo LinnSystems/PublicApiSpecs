@@ -5655,12 +5655,6 @@
     "StockItemLabel": {
       "type": "object",
       "properties": {
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "ItemNumber": {
           "description": "Product SKU",
           "type": "string"
@@ -5688,6 +5682,12 @@
         },
         "LocationId": {
           "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
@@ -9733,6 +9733,12 @@
     "StockItemChannelSKUWithLocation": {
       "type": "object",
       "properties": {
+        "fkRowId": {
+          "format": "uuid",
+          "description": "Record row ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
         "LocationId": {
           "format": "int32",
           "description": "Location ID",
@@ -9779,12 +9785,6 @@
           "format": "int32",
           "description": "Currently listed quantity",
           "type": "integer"
-        },
-        "fkRowId": {
-          "format": "uuid",
-          "description": "Record row ID",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
         },
         "RetryCount": {
           "format": "int32",
