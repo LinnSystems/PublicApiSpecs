@@ -6822,13 +6822,13 @@
     "ConfigItem_String": {
       "type": "object",
       "properties": {
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6847,13 +6847,13 @@
     "ConfigItem_Boolean": {
       "type": "object",
       "properties": {
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6943,13 +6943,13 @@
         "OnGetSelectionList": {
           "$ref": "#/definitions/GetSelectionList_SelectStringValueOption"
         },
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6968,13 +6968,13 @@
     "ConfigItem_Int32": {
       "type": "object",
       "properties": {
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6994,13 +6994,13 @@
     "ConfigProperty_Boolean": {
       "type": "object",
       "properties": {
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -10679,6 +10679,16 @@
       "description": "Stock Location",
       "type": "object",
       "properties": {
+        "StockLocationId": {
+          "format": "uuid",
+          "description": "Location ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LocationName": {
+          "description": "Location name",
+          "type": "string"
+        },
         "Address1": {
           "description": "1st line of address",
           "type": "string"
@@ -10711,6 +10721,10 @@
           "description": "Location tag",
           "type": "string"
         },
+        "IsFulfillmentCenter": {
+          "description": "If location is a fulfilment center",
+          "type": "boolean"
+        },
         "CountInOrderUntilAcknowledgement": {
           "description": "Count in order",
           "type": "boolean"
@@ -10721,20 +10735,6 @@
         },
         "IsWarehouseManaged": {
           "description": "Indicates if the location is warehouse managed.",
-          "type": "boolean"
-        },
-        "StockLocationId": {
-          "format": "uuid",
-          "description": "Location ID",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "LocationName": {
-          "description": "Location name",
-          "type": "string"
-        },
-        "IsFulfillmentCenter": {
-          "description": "If location is a fulfilment center",
           "type": "boolean"
         },
         "StockLocationIntId": {
