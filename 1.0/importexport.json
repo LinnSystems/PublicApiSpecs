@@ -1215,6 +1215,23 @@
     "ImportRegisterPublicSchedules": {
       "type": "object",
       "properties": {
+        "Schedules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Schedule"
+          }
+        },
+        "LastFileChecksum": {
+          "type": "string"
+        },
+        "ImportStatus": {
+          "description": "Current import status",
+          "type": "string"
+        },
+        "ImportSkipped": {
+          "description": "If import was skipped",
+          "type": "boolean"
+        },
         "Id": {
           "format": "int32",
           "description": "Import/Export ID (index)",
@@ -1272,6 +1289,14 @@
           "description": "Import/Export Name",
           "type": "string"
         },
+        "Executing": {
+          "description": "Is Import/Export currently running",
+          "type": "boolean"
+        },
+        "justOnce": {
+          "description": "Import/Export execution type (eg. once or scheduled)",
+          "type": "boolean"
+        },
         "Started": {
           "format": "date-time",
           "type": "string"
@@ -1284,33 +1309,8 @@
           "description": "Import/Export currently in a queue",
           "type": "boolean"
         },
-        "LastFileChecksum": {
-          "type": "string"
-        },
-        "justOnce": {
-          "description": "Import/Export execution type (eg. once or scheduled)",
-          "type": "boolean"
-        },
         "Enabled": {
           "description": "Import/Export currently enabled",
-          "type": "boolean"
-        },
-        "Executing": {
-          "description": "Is Import/Export currently running",
-          "type": "boolean"
-        },
-        "Schedules": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Schedule"
-          }
-        },
-        "ImportStatus": {
-          "description": "Current import status",
-          "type": "string"
-        },
-        "ImportSkipped": {
-          "description": "If import was skipped",
           "type": "boolean"
         },
         "IsNew": {
