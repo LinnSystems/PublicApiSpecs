@@ -707,19 +707,15 @@
       "type": "object",
       "properties": {
         "PrinterName": {
-          "description": "Name used to identify the printer in linnworks",
           "type": "string"
         },
         "PrinterLocationName": {
-          "description": "Name used to identify the instance of the virtual printer client",
           "type": "string"
         },
         "PrinterLocalName": {
-          "description": "Printer name as seen in windows OS (e.g. Microsoft Print to PDF)",
           "type": "string"
         },
         "Status": {
-          "description": "Whether the printer is online or offline",
           "enum": [
             "UNKNOWN",
             "OFFLINE",
@@ -752,6 +748,10 @@
         },
         "TotpAuthenticationEnabled": {
           "type": "boolean"
+        },
+        "PasswordProblems": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },

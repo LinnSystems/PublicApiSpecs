@@ -822,66 +822,53 @@
       }
     },
     "PickingWave": {
-      "description": "Pickwave",
       "type": "object",
       "properties": {
         "LocationId": {
           "format": "uuid",
-          "description": "Location Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "UserId": {
           "format": "int32",
-          "description": "Allocated user id",
           "type": "integer"
         },
         "EmailAddress": {
-          "description": "Allocated user EmailAddress",
           "type": "string"
         },
         "CreatedDate": {
           "format": "date-time",
-          "description": "Creation date",
           "type": "string"
         },
         "OrderCount": {
           "format": "int32",
-          "description": "Order Count - Number of orders in pickwave.",
           "type": "integer"
         },
         "ItemCount": {
           "format": "int32",
-          "description": "Item Count - Number of items in pickwave.",
           "type": "integer"
         },
         "ItemsPicked": {
           "format": "int32",
-          "description": "Items Picked - Number of items picked in pickwave.",
           "type": "integer"
         },
         "OrdersPicked": {
           "format": "int32",
-          "description": "Orders Picked - Number of orders picked in pickwave.",
           "type": "integer"
         },
         "AccumulatedInProgressSeconds": {
           "format": "int32",
-          "description": "Time taken in pickwave",
           "type": "integer"
         },
         "StartTime": {
           "format": "date-time",
-          "description": "Start date time of pickwave",
           "type": "string"
         },
         "EndTime": {
           "format": "date-time",
-          "description": "End date time of pickwave",
           "type": "string"
         },
         "GroupType": {
-          "description": "Pickwave group type",
           "enum": [
             "Items",
             "Orders"
@@ -889,7 +876,6 @@
           "type": "string"
         },
         "Orders": {
-          "description": "Orders in pickwave. This data is not returned if just headers are requested.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/PickingWaveOrder"
@@ -900,11 +886,9 @@
         },
         "PickingWaveId": {
           "format": "int32",
-          "description": "Pickwave id",
           "type": "integer"
         },
         "State": {
-          "description": "Current state of pickwave",
           "enum": [
             "Unallocated",
             "Allocated",
@@ -920,26 +904,21 @@
       }
     },
     "PickingWaveOrder": {
-      "description": "Pickwave order",
       "type": "object",
       "properties": {
         "PickingWaveOrdersRowId": {
           "format": "int32",
-          "description": "Pickwave order id",
           "type": "integer"
         },
         "PickingWaveId": {
           "format": "int32",
-          "description": "Pickwave id",
           "type": "integer"
         },
         "OrderId": {
           "format": "int32",
-          "description": "Order Id",
           "type": "integer"
         },
         "PickState": {
-          "description": "Pick state",
           "enum": [
             "Unpicked",
             "PartialPicked",
@@ -953,21 +932,17 @@
         },
         "SortOrder": {
           "format": "int32",
-          "description": "Sort order",
           "type": "integer"
         },
         "ItemCount": {
           "format": "int32",
-          "description": "Items count",
           "type": "integer"
         },
         "PickedItemsCount": {
           "format": "int32",
-          "description": "Picked items count",
           "type": "integer"
         },
         "Items": {
-          "description": "Pickwave order items.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/PickingWaveItem"
@@ -979,7 +954,6 @@
       "type": "object",
       "properties": {
         "ItemScanType": {
-          "description": "Item scan type, dictates if the user must scan all items or can provide aggregate count",
           "enum": [
             "Any",
             "IndividualItem",
@@ -988,63 +962,50 @@
           "type": "string"
         },
         "TrayScanRequired": {
-          "description": "If the user must scan the tray the item went into.",
           "type": "boolean"
         },
         "TotScanRequired": {
-          "description": "If the user must scan the tot before scanning items.",
           "type": "boolean"
         },
         "BinRackScanRequired": {
-          "description": "If the user must scan the binrack before picking an item.",
           "type": "boolean"
         }
       }
     },
     "PickingWaveItem": {
-      "description": "Pickwave order item",
       "type": "object",
       "properties": {
         "PickingWaveItemsRowId": {
           "format": "int32",
-          "description": "Pickwave item row id",
           "type": "integer"
         },
         "PickingWaveId": {
           "format": "int32",
-          "description": "Pickwave id",
           "type": "integer"
         },
         "PickedQuantity": {
           "format": "int32",
-          "description": "Quatity picked",
           "type": "integer"
         },
         "TotBarcode": {
-          "description": "Tote Barcode",
           "type": "string"
         },
         "SortOrder": {
           "format": "int32",
-          "description": "Sort order",
           "type": "integer"
         },
         "ToPickQuantity": {
           "format": "int32",
-          "description": "Quantity to pick",
           "type": "integer"
         },
         "TOTId": {
           "format": "int32",
-          "description": "ToT Id",
           "type": "integer"
         },
         "TrayTag": {
-          "description": "Tray tag",
           "type": "string"
         },
         "PickingTag": {
-          "description": "Picking tag",
           "type": "string"
         },
         "ItemState": {
@@ -1058,23 +1019,19 @@
         },
         "BatchInventoryId": {
           "format": "int32",
-          "description": "Batch Inventory Id",
           "type": "integer"
         },
         "OrderId": {
           "format": "int32",
-          "description": "Linnworks Order Id",
           "type": "integer"
         },
         "OrderItemRowId": {
           "format": "uuid",
-          "description": "Unique order item row identifier",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "StockItemId",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }
@@ -1184,11 +1141,9 @@
         },
         "PickingWaveId": {
           "format": "int32",
-          "description": "Pickwave id",
           "type": "integer"
         },
         "State": {
-          "description": "Current state of pickwave",
           "enum": [
             "Unallocated",
             "Allocated",
@@ -1511,23 +1466,19 @@
         },
         "BatchInventoryId": {
           "format": "int32",
-          "description": "Batch Inventory Id",
           "type": "integer"
         },
         "OrderId": {
           "format": "int32",
-          "description": "Linnworks Order Id",
           "type": "integer"
         },
         "OrderItemRowId": {
           "format": "uuid",
-          "description": "Unique order item row identifier",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "StockItemId",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }
@@ -1624,29 +1575,23 @@
       "properties": {
         "PickingWaveItemsRowId": {
           "format": "int32",
-          "description": "Pickwave item row id",
           "type": "integer"
         },
         "TOTId": {
           "format": "int32",
-          "description": "ToT Id",
           "type": "integer"
         },
         "TrayTag": {
-          "description": "Tray tag",
           "type": "string"
         },
         "PickingTag": {
-          "description": "Picking tag",
           "type": "string"
         },
         "PickedQuantity": {
           "format": "int32",
-          "description": "Picked quantity",
           "type": "integer"
         },
         "OrderState": {
-          "description": "Order State",
           "enum": [
             "Unpicked",
             "PartialPicked",
@@ -1659,7 +1604,6 @@
           "type": "string"
         },
         "ItemState": {
-          "description": "Item State",
           "enum": [
             "Normal",
             "OrderStateInvalid",
@@ -1670,7 +1614,6 @@
         },
         "ToPickQuantity": {
           "format": "int32",
-          "description": "To Pick Quantity",
           "type": "integer"
         }
       }
@@ -1849,29 +1792,24 @@
       }
     },
     "PickWaveAllocateCheckResult": {
-      "description": "Pickwave allocated check result.",
       "type": "object",
       "properties": {
         "OrderId": {
           "format": "int32",
-          "description": "Order Id interger",
           "type": "integer"
         },
         "OrderId_Guid": {
           "format": "uuid",
-          "description": "Order Id uniqueidentifier",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Errors": {
-          "description": "Errors",
           "type": "array",
           "items": {
             "$ref": "#/definitions/PickWaveAllocateCheckResultError"
           }
         },
         "HasErrors": {
-          "description": "Has Errors",
           "type": "boolean",
           "readOnly": true
         },
@@ -1887,11 +1825,9 @@
       "type": "object",
       "properties": {
         "Error": {
-          "description": "Error message",
           "type": "string"
         },
         "ErrorType": {
-          "description": "Error type enum.",
           "enum": [
             "Unknown",
             "NeedsStockAllocation",
@@ -1912,63 +1848,51 @@
         },
         "OrderItemRowId": {
           "format": "uuid",
-          "description": "Order item row id, if null or guid empty then top level order error.",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }
       }
     },
     "PickWaveAllocateCheckResultOrderDetails": {
-      "description": "Order details return, flat data for order lines that can be used to create pickwaves",
       "type": "object",
       "properties": {
         "LocationId": {
           "format": "uuid",
-          "description": "Location the order resides in",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "OrderItemRowId": {
           "format": "uuid",
-          "description": "Order item row id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "BatchInventoryId": {
           "format": "int32",
-          "description": "Batch inventory id, if the order item contains batches.",
           "type": "integer"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock item id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "SKU": {
-          "description": "SKU",
           "type": "string"
         },
         "ItemTitle": {
-          "description": "Item title",
           "type": "string"
         },
         "Binrack": {
-          "description": "Binrack",
           "type": "string"
         },
         "BatchNumber": {
-          "description": "Batch number",
           "type": "string"
         },
         "Quantity": {
           "format": "int32",
-          "description": "Quantity on either order item row or allocated batch row.",
           "type": "integer"
         },
         "RoutingSequence": {
           "format": "int32",
-          "description": "(WMS only) Routing sequence of the binrack.",
           "type": "integer"
         }
       }
@@ -2119,47 +2043,38 @@
       "properties": {
         "BatchId": {
           "format": "int32",
-          "description": "Batch ID",
           "type": "integer"
         },
         "SKU": {
-          "description": "Product SKU",
           "type": "string"
         },
         "InventoryTrackingType": {
           "format": "int32",
-          "description": "0 - None, 1 - Order by sell by date, 2 - Ordered by priority sequence",
           "type": "integer"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Product ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "BatchNumber": {
-          "description": "Batch number",
           "type": "string"
         },
         "ExpiresOn": {
           "format": "date-time",
-          "description": "Batch expiry date",
           "type": "string"
         },
         "SellBy": {
           "format": "date-time",
-          "description": "Batch sell by date",
           "type": "string"
         },
         "Inventory": {
-          "description": "Batch records",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemBatchInventory"
           }
         },
         "IsDeleted": {
-          "description": "Is the batch deleted",
           "type": "boolean"
         }
       }
@@ -2169,80 +2084,64 @@
       "properties": {
         "BatchInventoryId": {
           "format": "int32",
-          "description": "Stock item batch record ID",
           "type": "integer"
         },
         "BatchId": {
           "format": "int32",
-          "description": "Batch ID",
           "type": "integer"
         },
         "StockLocationId": {
           "format": "uuid",
-          "description": "Location ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "BinRack": {
-          "description": "BinRack",
           "type": "string"
         },
         "PrioritySequence": {
           "format": "int32",
-          "description": "Pick order",
           "type": "integer"
         },
         "Quantity": {
           "format": "int32",
-          "description": "Quantity",
           "type": "integer"
         },
         "StockValue": {
           "format": "double",
-          "description": "Current stock value",
           "type": "number"
         },
         "StartQuantity": {
           "format": "int32",
-          "description": "Quantity originally booked in",
           "type": "integer",
           "readOnly": true
         },
         "PickedQuantity": {
           "format": "int32",
-          "description": "Indicate how many units are now allocated in open orders",
           "type": "integer"
         },
         "BatchStatus": {
-          "description": "Batch Status",
           "type": "string"
         },
         "IsDeleted": {
-          "description": "Is BatchInventory deleted",
           "type": "boolean"
         },
         "WarehouseBinrackStandardType": {
           "format": "int32",
-          "description": "Warehouse binrack standard type",
           "type": "integer"
         },
         "WarehouseBinrackTypeName": {
-          "description": "Warehouse binrack type friendly name",
           "type": "string"
         },
         "InTransfer": {
           "format": "int32",
-          "description": "Number of items in Transfer phase.",
           "type": "integer"
         },
         "BinRackId": {
           "format": "int32",
-          "description": "Binrack Id (Use for WMS)",
           "type": "integer"
         },
         "WarehouseBinrackTypeId": {
           "format": "int32",
-          "description": "Warehouse binrack type unique id.",
           "type": "integer"
         }
       }

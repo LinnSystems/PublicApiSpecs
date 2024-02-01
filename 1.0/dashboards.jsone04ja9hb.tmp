@@ -1,0 +1,277 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "dashboards",
+    "title": "Dashboards API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/Dashboards/GetLowStockLevel": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "summary": "GetLowStockLevel",
+        "description": "Use this call to retrieve report about \"Low stock in location\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "GetLowStockLevel",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "locationId",
+            "in": "query",
+            "description": "Used to specify report location id or null for combined",
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "numRows",
+            "in": "query",
+            "description": "Used to specify number of returned rows",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LowStockLevel"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Dashboards/GetPerformanceTableData": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "summary": "GetPerformanceTableData",
+        "description": "Use this call to retrieve report about \"Performance table\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "GetPerformanceTableData",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "period",
+            "in": "query",
+            "description": "Used to specify report number of months",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PerfomanceData"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Dashboards/GetPerformanceDetail": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "summary": "GetPerformanceDetail",
+        "description": "Use this call to retrieve report about \"Performance through time chart\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "GetPerformanceDetail",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "period",
+            "in": "query",
+            "description": "Used to specify report number of months",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "timeScale",
+            "in": "query",
+            "description": "time scale",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/PerfomanceDetail"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Dashboards/GetTopProducts": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "summary": "GetTopProducts",
+        "description": "Use this call to retrieve report about \"Top ordered products\" for top \"10\" products\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "GetTopProducts",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Used to specify type of report: 1 - group result by quantity, 2 - group result by turnover",
+            "type": "string",
+            "enum": [
+              "GroupedByQuantity",
+              "GroupedByTurnover"
+            ]
+          },
+          {
+            "name": "period",
+            "in": "query",
+            "description": "Used to specify report number of months",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "numRows",
+            "in": "query",
+            "description": "Number of rows required",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "orderStatus",
+            "in": "query",
+            "description": "Order status",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TopProductData"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Dashboards/GetInventoryLocationData": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "summary": "GetInventoryLocationData",
+        "description": "Use this call to retrieve report about \"Stock info for locations\"\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "GetInventoryLocationData",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "description": "Used to specify report date or null for current period",
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StatsStockItemLocation"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Dashboards/GetInventoryLocationCategoriesData": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],

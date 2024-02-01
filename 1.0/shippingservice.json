@@ -9,6 +9,41 @@
     "https"
   ],
   "paths": {
+    "/api/ShippingService/GetIntegrations": {
+      "get": {
+        "tags": [
+          "ShippingService"
+        ],
+        "summary": "GetIntegrations",
+        "description": "Gets all configured vendor integrations\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>1</b></span> / minute",
+        "operationId": "GetIntegrations",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/System_ShippingAPI_Config"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/ShippingService/PostShipmentUpload": {
       "post": {
         "tags": [
@@ -33,6 +68,147 @@
         "responses": {
           "204": {
             "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ShippingService/GetConsignmentsByManifest": {
+      "get": {
+        "tags": [
+          "ShippingService"
+        ],
+        "summary": "GetConsignmentsByManifest",
+        "description": "Get paged list of consignments for a specific vendor, account id and manifest id. Use /ShippingService/GetFiledManifestsByVendor for input arguments.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>10</b></span> / minute",
+        "operationId": "GetConsignmentsByManifest",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "vendor",
+            "in": "query",
+            "description": "Vendor name",
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "query",
+            "description": "Account id",
+            "type": "string"
+          },
+          {
+            "name": "pkManifestId",
+            "in": "query",
+            "description": "Manifest id",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "externalManifestId",
+            "in": "query",
+            "description": "External manifest id. If is null, all consignments for this account will be returned",
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "manifestDate",
+            "in": "query",
+            "description": "The date at which the manifest was filed. Leave empty.",
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GenericPagedResult_Consignment"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ShippingService/GetFiledManifestsByVendor": {
+      "get": {
+        "tags": [
+          "ShippingService"
+        ],
+        "summary": "GetFiledManifestsByVendor",
+        "description": "Gets a paged list of filed manifest by vendor between two dates. Use /ShippingService/GetIntegrations to get all vendors and friendly names\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>10</b></span> / minute",
+        "operationId": "GetFiledManifestsByVendor",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "vendor",
+            "in": "query",
+            "description": "Vendor name",
+            "type": "string"
+          },
+          {
+            "name": "vendorFriendlyName",
+            "in": "query",
+            "description": "Vendor friendly name",
+            "type": "string"
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "From date",
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "To date",
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Page number",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "entriesPerPage",
+            "in": "query",
+            "description": "Entries per page",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GenericPagedResult_FiledManifest"
+            }
           }
         },
         "security": [
@@ -90,6 +266,141 @@
     }
   },
   "definitions": {
+    "System_ShippingAPI_Config": {
+      "type": "object",
+      "properties": {
+        "pkShippingAPIConfigId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Vendor": {
+          "type": "string"
+        },
+        "VendorFriendlyName": {
+          "type": "string"
+        },
+        "VendorIcon": {
+          "type": "string"
+        },
+        "AccountId": {
+          "type": "string"
+        },
+        "LabelFormat": {
+          "type": "string"
+        },
+        "Services": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ManifestPending": {
+          "type": "boolean"
+        },
+        "LastManifestWithErrorId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReadOnly": {
+          "type": "boolean"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "PrinterConfig": {
+          "$ref": "#/definitions/PrinterConfig"
+        },
+        "QuoteEnabled": {
+          "type": "boolean"
+        },
+        "QuoteOnlyIncludedServices": {
+          "type": "boolean"
+        }
+      }
+    },
+    "PrinterConfig": {
+      "type": "object",
+      "properties": {
+        "PrinterName": {
+          "type": "string"
+        },
+        "TemplateId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LabelFormat": {
+          "type": "string"
+        },
+        "MarginLeft": {
+          "format": "double",
+          "type": "number"
+        },
+        "MarginTop": {
+          "format": "double",
+          "type": "number"
+        },
+        "Duplex": {
+          "type": "boolean"
+        },
+        "UserConfig": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PrinterUserConfig"
+          }
+        },
+        "PrintZoneConfig": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PrintZoneConfig"
+          }
+        }
+      }
+    },
+    "PrinterUserConfig": {
+      "type": "object",
+      "properties": {
+        "UserId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PrinterName": {
+          "type": "string"
+        },
+        "MarginLeft": {
+          "format": "double",
+          "type": "number"
+        },
+        "MarginTop": {
+          "format": "double",
+          "type": "number"
+        },
+        "TemplateId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LabelFormat": {
+          "type": "string"
+        },
+        "Duplex": {
+          "type": "boolean"
+        }
+      }
+    },
+    "PrintZoneConfig": {
+      "type": "object",
+      "properties": {
+        "PrintZoneCode": {
+          "type": "string"
+        },
+        "PrinterDestination": {
+          "type": "string"
+        },
+        "PrinterName": {
+          "type": "string"
+        }
+      }
+    },
     "PostShipmentUploadRequest": {
       "type": "object",
       "properties": {
@@ -127,6 +438,239 @@
         },
         "Vendor": {
           "type": "string"
+        }
+      }
+    },
+    "GenericPagedResult_Consignment": {
+      "type": "object",
+      "properties": {
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EntriesPerPage": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalEntries": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "TotalPages": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "Data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Consignment"
+          }
+        }
+      }
+    },
+    "Consignment": {
+      "type": "object",
+      "properties": {
+        "ConsignmentId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "OrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Customer": {
+          "type": "string"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "PostalCode": {
+          "type": "string"
+        },
+        "Country": {
+          "type": "string"
+        },
+        "Weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "TrackingNumbers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Packages": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ConsignmentPackages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ManifestPackage"
+          }
+        },
+        "Properties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ServiceProperty"
+          }
+        },
+        "Deferred": {
+          "type": "boolean"
+        },
+        "Service": {
+          "type": "string"
+        }
+      }
+    },
+    "ManifestPackage": {
+      "type": "object",
+      "properties": {
+        "OrderReference": {
+          "type": "string"
+        },
+        "PackageSeqNo": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "Depth": {
+          "format": "double",
+          "type": "number"
+        },
+        "Width": {
+          "format": "double",
+          "type": "number"
+        },
+        "Height": {
+          "format": "double",
+          "type": "number"
+        },
+        "PackageFormat": {
+          "type": "string"
+        },
+        "TrackingNumber": {
+          "type": "string"
+        },
+        "Value": {
+          "format": "double",
+          "type": "number"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SavedItem"
+          }
+        }
+      }
+    },
+    "ServiceProperty": {
+      "type": "object",
+      "properties": {
+        "PropertyName": {
+          "type": "string"
+        },
+        "PropertyValue": {
+          "type": "string"
+        },
+        "ServiceId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "SavedItem": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UnitValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "UnitValueCurrency": {
+          "type": "string"
+        }
+      }
+    },
+    "GenericPagedResult_FiledManifest": {
+      "type": "object",
+      "properties": {
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EntriesPerPage": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalEntries": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "TotalPages": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "Data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FiledManifest"
+          }
+        }
+      }
+    },
+    "FiledManifest": {
+      "type": "object",
+      "properties": {
+        "ManifestId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ExternalManifestId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "NumConsignments": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "IsError": {
+          "type": "boolean"
+        },
+        "IsComplete": {
+          "type": "boolean"
+        },
+        "Reference": {
+          "type": "string"
+        },
+        "Vendor": {
+          "type": "string"
+        },
+        "AccountId": {
+          "type": "string"
+        },
+        "fkShippingAPIConfigId": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },

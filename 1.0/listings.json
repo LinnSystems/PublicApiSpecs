@@ -312,6 +312,160 @@
         ]
       }
     },
+    "/api/Listings/CreateTemplatesFromViewInBulk": {
+      "post": {
+        "tags": [
+          "Listings"
+        ],
+        "summary": "CreateTemplatesFromViewInBulk",
+        "description": "Use this call to create wireup to create templates in bulk\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "CreateTemplatesFromViewInBulk",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Listings_CreateTemplatesFromViewInBulkRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Listings_CreateTemplatesFromViewInBulkRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Listings/GetEbayListingOperations": {
+      "get": {
+        "tags": [
+          "Listings"
+        ],
+        "summary": "GetEbayListingOperations",
+        "description": "Use this call to get ebay listing bulk creation operations\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "GetEbayListingOperations",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request.locationId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "request.pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "request.entriesPerPage",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "request.channelIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Listings/CancelListingBulkOperation": {
+      "post": {
+        "tags": [
+          "Listings"
+        ],
+        "summary": "CancelListingBulkOperation",
+        "description": "Use this call to cancel ebay listing bulk creation operations\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.GetListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "CancelListingBulkOperation",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Listings_CancelListingBulkOperationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Listings_CancelListingBulkOperationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/Listings/ProcesseBayListings": {
       "post": {
         "tags": [
@@ -1406,63 +1560,10 @@
         "ItemNumber": {
           "type": "string"
         },
-        "Title": {
-          "description": "Channel Title",
-          "type": "string"
-        },
-        "SKU": {
-          "type": "string"
-        },
         "MappedBy": {
           "type": "string"
         },
         "RelistPending": {
-          "type": "boolean"
-        },
-        "Quantity": {
-          "format": "int32",
-          "description": "Quantity known listed on the channel at the point of getting the listings from the channel.\r\nThis value is not updated when inventory levels are synchronized",
-          "type": "integer"
-        },
-        "IsSuggestedToLink": {
-          "description": "Identifies if the system found suitable match",
-          "type": "boolean"
-        },
-        "IsLinked": {
-          "description": "Identifies if the item is linked",
-          "type": "boolean"
-        },
-        "LinkedItemId": {
-          "format": "uuid",
-          "description": "Linked pkStockItemId",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "MaxListedQuantity": {
-          "format": "int32",
-          "description": "Maximum listed quantity",
-          "type": "integer"
-        },
-        "EndWhenStock": {
-          "format": "int32",
-          "description": "End when stock is certain value",
-          "type": "integer"
-        },
-        "StockPercentage": {
-          "format": "double",
-          "description": "Stock percentage allocated for the channel",
-          "type": "number"
-        },
-        "LinkedItemSku": {
-          "description": "Linked item SKU",
-          "type": "string"
-        },
-        "LinkedItemTitle": {
-          "description": "Linked item title",
-          "type": "string"
-        },
-        "IgnoreSync": {
-          "description": "Identifies if the inventory should be synced for this item",
           "type": "boolean"
         },
         "ChannelReferenceId": {
@@ -1527,17 +1628,56 @@
         },
         "ChannelSKURowId": {
           "format": "uuid",
-          "description": "Stock_ChannelSKU RowId",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
+        "LinkedItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "IgnoreSync": {
+          "type": "boolean"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "Title": {
+          "type": "string"
+        },
+        "LinkedItemSku": {
+          "type": "string"
+        },
+        "LinkedItemTitle": {
+          "type": "string"
+        },
+        "MaxListedQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EndWhenStock": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockPercentage": {
+          "format": "double",
+          "type": "number"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsLinked": {
+          "type": "boolean"
+        },
+        "IsSuggestedToLink": {
+          "type": "boolean"
+        },
         "IsMatchByTitle": {
-          "description": "Identifies if the mapping matched by title",
           "type": "boolean"
         },
         "TotalRows": {
           "format": "int64",
-          "description": "Total rows returned from result",
           "type": "integer"
         }
       }
@@ -1739,7 +1879,6 @@
           "type": "boolean"
         },
         "IsAutoMappingExtPropToSpecEnabled": {
-          "description": "When enabled, Linnworks will automatically map your product's extended property names to the names of specifications selected in \r\nyour Configurators. For example, if you haven't mapped eBay specification 'Size' to respectively named product's Extended Property \r\nin Configurators, Linnworks will still fetch an actual colour from product and send it to eBay.",
           "type": "boolean"
         },
         "IsVariationSpecificationLimitIncreased": {
@@ -2582,7 +2721,6 @@
       "properties": {
         "CollisionNumber": {
           "format": "int32",
-          "description": "If 0 or negative then variation without collisions",
           "type": "integer"
         },
         "IsLinked": {
@@ -2701,6 +2839,80 @@
             "Variation"
           ],
           "type": "string"
+        }
+      }
+    },
+    "Listings_CreateTemplatesFromViewInBulkRequest": {
+      "type": "object",
+      "properties": {
+        "parameters": {
+          "$ref": "#/definitions/CreateTemplatesInBulkParameters",
+          "description": "Object of TemplatesParameters"
+        }
+      }
+    },
+    "CreateTemplatesInBulkParameters": {
+      "type": "object",
+      "properties": {
+        "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ChannelsConfigurators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CreateTemplatesInBulkChannelParameters"
+          }
+        }
+      }
+    },
+    "CreateTemplatesInBulkChannelParameters": {
+      "type": "object",
+      "properties": {
+        "ChannelId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ConfiguratorId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "GetEbayListingOperationsRequest": {
+      "type": "object",
+      "properties": {
+        "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EntriesPerPage": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ChannelIds": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "Listings_CancelListingBulkOperationRequest": {
+      "type": "object",
+      "properties": {
+        "pkOperationId": {
+          "format": "int32",
+          "description": "",
+          "type": "integer"
         }
       }
     },
@@ -2857,7 +3069,6 @@
           "type": "boolean"
         },
         "IgnoreIncorrectVariationChildren": {
-          "description": "Automatically ignore incorrect variation children, when error code 8541",
           "type": "boolean"
         }
       }
@@ -3256,7 +3467,6 @@
           "type": "integer"
         },
         "IsReFeeded": {
-          "description": "True if feed contain ignored children, will be set automatically to prevent refeeding second time",
           "type": "boolean"
         }
       }
@@ -3279,7 +3489,6 @@
       "type": "object",
       "properties": {
         "IsIgnored": {
-          "description": "When true, listing will be not send to amazon in api request",
           "type": "boolean"
         },
         "IgnoredMsg": {
@@ -4648,12 +4857,10 @@
       "properties": {
         "IdV3": {
           "format": "int32",
-          "description": "Identifire is being used on V3",
           "type": "integer"
         },
         "Id": {
           "format": "int32",
-          "description": "Identifire has been used on V2",
           "type": "integer"
         },
         "Values": {

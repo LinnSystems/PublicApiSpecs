@@ -1585,16 +1585,13 @@
       "properties": {
         "pkRefundRowId": {
           "format": "uuid",
-          "description": "For updating refund amounts",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "IsManualRefund": {
-          "description": "Manual refunds will never be passed to the channel validation routines",
           "type": "boolean"
         },
         "Type": {
-          "description": "The type of refund item",
           "enum": [
             "Item",
             "Service",
@@ -1605,30 +1602,24 @@
         },
         "fkOrderItemId": {
           "format": "uuid",
-          "description": "The order item or service to refund",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "RefundQty": {
           "format": "int32",
-          "description": "In the case of item refunds, the number of items",
           "type": "integer"
         },
         "RefundAmount": {
           "format": "double",
-          "description": "The amount of money the refund is for.",
           "type": "number"
         },
         "Reason": {
-          "description": "The seller's text reason for the refund",
           "type": "string"
         },
         "ChannelReason": {
-          "description": "The primary channel reason",
           "type": "string"
         },
         "ChannelReasonSec": {
-          "description": "The secondary channel reason",
           "type": "string"
         }
       }
@@ -1638,51 +1629,40 @@
       "properties": {
         "pkRefundRowId": {
           "format": "uuid",
-          "description": "Refund record ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "SKU": {
-          "description": "Product SKU",
           "type": "string"
         },
         "ItemTitle": {
-          "description": "Product title",
           "type": "string"
         },
         "IsItem": {
-          "description": "If its an item that is refunded",
           "type": "boolean"
         },
         "IsService": {
-          "description": "If its a service that is refunded",
           "type": "boolean"
         },
         "Amount": {
           "format": "double",
-          "description": "Refund amount",
           "type": "number"
         },
         "Reason": {
-          "description": "Reason for a refund",
           "type": "string"
         },
         "Actioned": {
-          "description": "If refund has been actioned",
           "type": "boolean"
         },
         "ActionDate": {
           "format": "date-time",
-          "description": "When refund was actioned",
           "type": "string"
         },
         "ReturnReference": {
-          "description": "return reference number",
           "type": "string"
         },
         "Cost": {
           "format": "double",
-          "description": "Cost",
           "type": "number"
         },
         "RefundStatus": {
@@ -1696,12 +1676,10 @@
           "type": "string"
         },
         "IgnoredValidation": {
-          "description": "Status of refund",
           "type": "boolean"
         },
         "fkOrderItemRowId": {
           "format": "uuid",
-          "description": "Order item record ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
@@ -1710,7 +1688,6 @@
           "readOnly": true
         },
         "ChannelReason": {
-          "description": "Channel refund reason",
           "type": "string"
         },
         "ShouldSerializeChannelReasonSec": {
@@ -1718,7 +1695,6 @@
           "readOnly": true
         },
         "ChannelReasonSec": {
-          "description": "Secondary channel reason for a refund",
           "type": "string"
         },
         "IsNew": {
@@ -1781,7 +1757,6 @@
       "type": "object",
       "properties": {
         "Type": {
-          "description": "Validation result",
           "enum": [
             "Success",
             "Unknown",
@@ -1793,14 +1768,12 @@
           "type": "string"
         },
         "InvalidItems": {
-          "description": "List of affected items",
           "type": "array",
           "items": {
             "$ref": "#/definitions/RefundItem"
           }
         },
         "AdditionalInformation": {
-          "description": "Additional information",
           "type": "string"
         }
       }
@@ -1809,7 +1782,6 @@
       "type": "object",
       "properties": {
         "FreeTextOption": {
-          "description": "Information about channel refund functionality",
           "enum": [
             "OK",
             "ChannelRefundFunctionalityNotImplemented",
@@ -1819,23 +1791,18 @@
           "type": "string"
         },
         "CanRefundShipping": {
-          "description": "If shipping can be refunded",
           "type": "boolean"
         },
         "OrderHasServiceItems": {
-          "description": "If order got service items",
           "type": "boolean"
         },
         "IsShippingRefundAutomated": {
-          "description": "If order shipping cost refund automated",
           "type": "boolean"
         },
         "IsServiceRefundAutomated": {
-          "description": "AIf order service refund autoamted",
           "type": "boolean"
         },
         "SupportsAutomatedRefunds": {
-          "description": "If automated refund is supported",
           "type": "boolean"
         }
       }
@@ -1845,33 +1812,26 @@
       "properties": {
         "pkOrderItemRowId": {
           "format": "uuid",
-          "description": "Order item record row ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ServiceName": {
-          "description": "Service name",
           "type": "string"
         },
         "ServiceCost": {
           "format": "double",
-          "description": "Service cost",
           "type": "number"
         },
         "DefaultChannelReason": {
-          "$ref": "#/definitions/ChannelRefundReason",
-          "description": "Channel refund reason"
+          "$ref": "#/definitions/ChannelRefundReason"
         },
         "DefaultChannelSubReason": {
-          "$ref": "#/definitions/ChannelRefundSubReason",
-          "description": "Channel refund subreason"
+          "$ref": "#/definitions/ChannelRefundSubReason"
         },
         "ItemNumber": {
-          "description": "Item number",
           "type": "string"
         },
         "AllowsAutomatedRefund": {
-          "description": "If automatic refunds allowed",
           "type": "boolean"
         }
       }
@@ -1880,15 +1840,12 @@
       "type": "object",
       "properties": {
         "Tag": {
-          "description": "Refund reason tag",
           "type": "string"
         },
         "DisplayName": {
-          "description": "Order item record row ID",
           "type": "string"
         },
         "SubReasons": {
-          "description": "List of refund reasons",
           "type": "array",
           "items": {
             "$ref": "#/definitions/ChannelRefundSubReason"
@@ -1900,11 +1857,9 @@
       "type": "object",
       "properties": {
         "Tag": {
-          "description": "Tag",
           "type": "string"
         },
         "DisplayName": {
-          "description": "Display name",
           "type": "string"
         }
       }
@@ -1914,17 +1869,14 @@
       "properties": {
         "Amount": {
           "format": "double",
-          "description": "Amount refunded",
           "type": "number"
         },
         "TotalCharge": {
           "format": "double",
-          "description": "Total order charge",
           "type": "number"
         },
         "Refundable": {
           "format": "double",
-          "description": "Refundable amount",
           "type": "number",
           "readOnly": true
         }
@@ -1953,11 +1905,9 @@
       "properties": {
         "pkReturnId": {
           "format": "int32",
-          "description": "Return ID",
           "type": "integer"
         },
         "RowType": {
-          "description": "return type (e.g. EXCHANGE)",
           "enum": [
             "UNKNOWN",
             "RETURN",
@@ -1970,161 +1920,128 @@
           "type": "string"
         },
         "ReturnReference": {
-          "description": "Return reference",
           "type": "string"
         },
         "fkOrderId": {
           "format": "uuid",
-          "description": "Order ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "fkOrderItemRowId": {
           "format": "uuid",
-          "description": "Order item record row ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "OrderItemBatchId": {
           "format": "int32",
-          "description": "Order item batch id",
           "type": "integer"
         },
         "nOrderId": {
           "format": "int32",
-          "description": "Linnworks order number",
           "type": "integer"
         },
         "SKU": {
-          "description": "Product SKU",
           "type": "string"
         },
         "ItemTitle": {
-          "description": "Product title",
           "type": "string"
         },
         "BatchNumber": {
-          "description": "Batch number",
           "type": "string"
         },
         "Reason": {
-          "description": "Return reason",
           "type": "string"
         },
         "ChannelReason": {
-          "description": "Return reason set on a channel",
           "type": "string"
         },
         "ChannelReasonSec": {
-          "description": "Secondary return reason on a channel",
           "type": "string"
         },
         "Category": {
-          "description": "Category",
           "type": "string"
         },
         "ReturnQty": {
           "format": "int32",
-          "description": "Returned quantity",
           "type": "integer"
         },
         "fkReturnLocationId": {
           "format": "uuid",
-          "description": "Return location ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Scrapped": {
-          "description": "If returned item was scrapped",
           "type": "boolean"
         },
         "ScrapQty": {
           "format": "int32",
-          "description": "Scrapped quantity",
           "type": "integer"
         },
         "LastState": {
-          "description": "Last state",
           "type": "string"
         },
         "LastDate": {
           "format": "date-time",
-          "description": "Last date",
           "type": "string"
         },
         "Completed": {
-          "description": "If return is completed",
           "type": "boolean"
         },
         "fkNewOrderId": {
           "format": "uuid",
-          "description": "New order ID for return",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "fkNewOrderItemRowId": {
           "format": "uuid",
-          "description": "New order item record row ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "fkNewStockItemId": {
           "format": "uuid",
-          "description": "New stock item ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "NewQty": {
           "format": "int32",
-          "description": "New return quantity",
           "type": "integer"
         },
         "NewOrderId": {
           "format": "int32",
-          "description": "New order ID",
           "type": "integer"
         },
         "NewOrderCancelled": {
-          "description": "If new order were cancelled",
           "type": "boolean"
         },
         "NewSKU": {
-          "description": "new product SKU",
           "type": "string"
         },
         "NewItemTitle": {
-          "description": "New product title",
           "type": "string"
         },
         "NewOrderProcessedOn": {
           "format": "date-time",
-          "description": "When new order was processed",
           "type": "string"
         },
         "AdditionalCost": {
           "format": "double",
-          "description": "Additional costs involved",
           "type": "number"
         },
         "fkRefundRowId": {
           "format": "uuid",
-          "description": "Refund record row ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "RefundedAmount": {
           "format": "double",
-          "description": "Amount refunded",
           "type": "number"
         },
         "PendingRefund": {
           "format": "double",
-          "description": "Refund pending",
           "type": "number"
         },
         "ReturnDate": {
           "format": "date-time",
-          "description": "Return date",
           "type": "string"
         }
       }
@@ -2133,14 +2050,12 @@
       "type": "object",
       "properties": {
         "ChildItems": {
-          "description": "List of child items (populated if the return is a composite item)",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrderItemReturnInfo"
           }
         },
         "Batches": {
-          "description": "Order Item Batches",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrderItemReturnInfoBatched"
@@ -2148,71 +2063,57 @@
         },
         "OrderId": {
           "format": "uuid",
-          "description": "Order Id [Guid]",
           "type": "string",
           "readOnly": true,
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "fkOrderItemRowId": {
           "format": "uuid",
-          "description": "Order item record row ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ParentRowId": {
           "format": "uuid",
-          "description": "Parent record row ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnableQty": {
           "format": "int32",
-          "description": "Returnable quantity",
           "type": "integer",
           "readOnly": true
         },
         "OrderQty": {
           "format": "int32",
-          "description": "Order quantity",
           "type": "integer"
         },
         "ReturnedQty": {
           "format": "int32",
-          "description": "Returned quantity",
           "type": "integer"
         },
         "SKU": {
-          "description": "Product SKU",
           "type": "string"
         },
         "ItemTitle": {
-          "description": "Product title",
           "type": "string"
         },
         "UnitValue": {
           "format": "double",
-          "description": "Item value",
           "type": "number"
         },
         "TaxRate": {
           "format": "double",
-          "description": "Tax rate",
           "type": "number"
         },
         "TaxCostInclusive": {
-          "description": "Indicates whether the UnitValue specified includes or exludes tax.",
           "type": "boolean"
         },
         "Currency": {
-          "description": "Currency",
           "type": "string"
         },
         "IsCompositeParent": {
-          "description": "If item is composite parent",
           "type": "boolean"
         },
         "IsPartialCompositeReturn": {
-          "description": "If return is a part of composite item",
           "type": "boolean"
         },
         "ParentRatio": {
@@ -2221,18 +2122,15 @@
         },
         "pkStockItemId": {
           "format": "uuid",
-          "description": "Stock item ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ResentQty": {
           "format": "int32",
-          "description": "resend quantity",
           "type": "integer"
         },
         "fkRefundRowId": {
           "format": "uuid",
-          "description": "Refund Row Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }
@@ -2258,71 +2156,57 @@
         },
         "OrderId": {
           "format": "uuid",
-          "description": "Order Id [Guid]",
           "type": "string",
           "readOnly": true,
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "fkOrderItemRowId": {
           "format": "uuid",
-          "description": "Order item record row ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ParentRowId": {
           "format": "uuid",
-          "description": "Parent record row ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnableQty": {
           "format": "int32",
-          "description": "Returnable quantity",
           "type": "integer",
           "readOnly": true
         },
         "OrderQty": {
           "format": "int32",
-          "description": "Order quantity",
           "type": "integer"
         },
         "ReturnedQty": {
           "format": "int32",
-          "description": "Returned quantity",
           "type": "integer"
         },
         "SKU": {
-          "description": "Product SKU",
           "type": "string"
         },
         "ItemTitle": {
-          "description": "Product title",
           "type": "string"
         },
         "UnitValue": {
           "format": "double",
-          "description": "Item value",
           "type": "number"
         },
         "TaxRate": {
           "format": "double",
-          "description": "Tax rate",
           "type": "number"
         },
         "TaxCostInclusive": {
-          "description": "Indicates whether the UnitValue specified includes or exludes tax.",
           "type": "boolean"
         },
         "Currency": {
-          "description": "Currency",
           "type": "string"
         },
         "IsCompositeParent": {
-          "description": "If item is composite parent",
           "type": "boolean"
         },
         "IsPartialCompositeReturn": {
-          "description": "If return is a part of composite item",
           "type": "boolean"
         },
         "ParentRatio": {
@@ -2331,18 +2215,15 @@
         },
         "pkStockItemId": {
           "format": "uuid",
-          "description": "Stock item ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ResentQty": {
           "format": "int32",
-          "description": "resend quantity",
           "type": "integer"
         },
         "fkRefundRowId": {
           "format": "uuid",
-          "description": "Refund Row Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }
@@ -2353,52 +2234,41 @@
       "properties": {
         "pkOrderId": {
           "format": "uuid",
-          "description": "Order ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "nOrderId": {
           "format": "int32",
-          "description": "Linnworks order number",
           "type": "integer"
         },
         "Source": {
-          "description": "ChannelName/Source (e.g. EBAY)",
           "type": "string"
         },
         "SubSource": {
-          "description": "Subsource (e.g. EBAY1)",
           "type": "string"
         },
         "PostalServiceName": {
-          "description": "Postal service name (e.g. Next day delivery)",
           "type": "string"
         },
         "cShippingAddress": {
-          "description": "Shipping address",
           "type": "string"
         },
         "cCurrency": {
-          "description": "Currency",
           "type": "string"
         },
         "dReceivedDate": {
           "format": "date-time",
-          "description": "Order received date. When order was downloaded from the channel",
           "type": "string"
         },
         "dProcessedOn": {
           "format": "date-time",
-          "description": "When order was processed",
           "type": "string"
         },
         "fTotalCharge": {
           "format": "double",
-          "description": "OrdOrder total charge",
           "type": "number"
         },
         "RefundLink": {
-          "description": "Link to order refund",
           "type": "string"
         }
       }
@@ -2408,268 +2278,207 @@
       "properties": {
         "pkOrderID": {
           "format": "uuid",
-          "description": "Order ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "cShippingAddress": {
-          "description": "Customer's shipping address",
           "type": "string"
         },
         "dReceivedDate": {
           "format": "date-time",
-          "description": "Date when order was received on a channel",
           "type": "string"
         },
         "dProcessedOn": {
           "format": "date-time",
-          "description": "Date when order was processed",
           "type": "string"
         },
         "timeDiff": {
           "format": "double",
-          "description": "Days elapsed between order received and order processed",
           "type": "number"
         },
         "fPostageCost": {
           "format": "double",
-          "description": "Order postage cost",
           "type": "number"
         },
         "fTotalCharge": {
           "format": "double",
-          "description": "Order total charge",
           "type": "number"
         },
         "PostageCostExTax": {
           "format": "double",
-          "description": "Postage cost excluding tax",
           "type": "number"
         },
         "Subtotal": {
           "format": "double",
-          "description": "Order subtotal",
           "type": "number"
         },
         "fTax": {
           "format": "double",
-          "description": "Order tax",
           "type": "number"
         },
         "TotalDiscount": {
           "format": "double",
-          "description": "Total discount",
           "type": "number"
         },
         "ProfitMargin": {
           "format": "double",
-          "description": "Profit margin",
           "type": "number"
         },
         "CountryTaxRate": {
           "format": "double",
-          "description": "Country specific tax rate",
           "type": "number"
         },
         "nOrderId": {
           "format": "int32",
-          "description": "Linnworks order ID",
           "type": "integer"
         },
         "nStatus": {
           "format": "int32",
-          "description": "Order status",
           "type": "integer"
         },
         "cCurrency": {
-          "description": "Order currency",
           "type": "string"
         },
         "PostalTrackingNumber": {
-          "description": "Postal tracking number",
           "type": "string"
         },
         "cCountry": {
-          "description": "Country",
           "type": "string"
         },
         "Source": {
-          "description": "ChannelName/Source (e.g. EBAY)",
           "type": "string"
         },
         "PostalServiceName": {
-          "description": "Postal service name (e.g. Next day delivery)",
           "type": "string"
         },
         "PostalServiceCode": {
-          "description": "Postal service code",
           "type": "string"
         },
         "Vendor": {
-          "description": "Courier name (e.g. DPD)",
           "type": "string"
         },
         "BillingEmailAddress": {
           "type": "string"
         },
         "ReferenceNum": {
-          "description": "Order reference number",
           "type": "string"
         },
         "SecondaryReference": {
-          "description": "An additional reference number for the order",
           "type": "string"
         },
         "ExternalReference": {
-          "description": "This is an additional reference number from the sales channel, typically used by eBay",
           "type": "string"
         },
         "Address1": {
-          "description": "Order first line of address",
           "type": "string"
         },
         "Address2": {
-          "description": "Order second line of address",
           "type": "string"
         },
         "Address3": {
-          "description": "Order third line of address",
           "type": "string"
         },
         "Town": {
-          "description": "Town",
           "type": "string"
         },
         "Region": {
-          "description": "Region, county, area",
           "type": "string"
         },
         "BuyerPhoneNumber": {
-          "description": "Buyer phone number",
           "type": "string"
         },
         "Company": {
-          "description": "Company",
           "type": "string"
         },
         "SubSource": {
-          "description": "Order subsource (e.g. EBAY1)",
           "type": "string"
         },
         "ChannelBuyerName": {
-          "description": "Channel specific name used to identify the buyer, such as a username, normally used for eBay",
           "type": "string"
         },
         "AccountName": {
-          "description": "Customer channel account name",
           "type": "string"
         },
         "cFullName": {
-          "description": "Customer full name",
           "type": "string"
         },
         "cEmailAddress": {
-          "description": "Customer email address",
           "type": "string"
         },
         "cPostCode": {
-          "description": "Post Code",
           "type": "string"
         },
         "dPaidOn": {
           "format": "date-time",
-          "description": "When order was marked as PAID",
           "type": "string"
         },
         "dCancelledOn": {
           "format": "date-time",
-          "description": "When order was cancelled",
           "type": "string"
         },
         "PackageCategory": {
-          "description": "Package category",
           "type": "string"
         },
         "PackageTitle": {
-          "description": "Package name",
           "type": "string"
         },
         "ItemWeight": {
           "format": "double",
-          "description": "Items weight",
           "type": "number"
         },
         "TotalWeight": {
           "format": "double",
-          "description": "Total order weight",
           "type": "number"
         },
         "FolderCollection": {
-          "description": "Folder name of an order",
           "type": "string"
         },
         "cBillingAddress": {
-          "description": "Customer billing address",
           "type": "string"
         },
         "BillingName": {
-          "description": "Customer billing name",
           "type": "string"
         },
         "BillingCompany": {
-          "description": "Customer billing company",
           "type": "string"
         },
         "BillingAddress1": {
-          "description": "Billing address line one",
           "type": "string"
         },
         "BillingAddress2": {
-          "description": "Billing address line two",
           "type": "string"
         },
         "BillingAddress3": {
-          "description": "Billing address line three",
           "type": "string"
         },
         "BillingTown": {
-          "description": "Billing town",
           "type": "string"
         },
         "BillingRegion": {
-          "description": "Billing region, area, county",
           "type": "string"
         },
         "BillingPostCode": {
-          "description": "Billing postcode",
           "type": "string"
         },
         "BillingCountryName": {
-          "description": "Billing country",
           "type": "string"
         },
         "BillingPhoneNumber": {
-          "description": "Billing phone number",
           "type": "string"
         },
         "HoldOrCancel": {
-          "description": "If order on hold or cancelled.",
           "type": "boolean"
         },
         "IsResend": {
-          "description": "If order was created from a resend",
           "type": "boolean"
         },
         "IsExchange": {
-          "description": "If order was created from an exchange",
           "type": "boolean"
         },
         "TaxId": {
-          "description": "Order tax id",
           "type": "string"
         },
         "FulfilmentLocationName": {
-          "description": "Order fulfilment location",
           "type": "string"
         }
       }
@@ -2834,27 +2643,22 @@
       }
     },
     "GenericPagedResult_ProcessedOrderWeb": {
-      "description": "Order item object",
       "type": "object",
       "properties": {
         "PageNumber": {
           "format": "int32",
-          "description": "Result page number",
           "type": "integer"
         },
         "EntriesPerPage": {
           "format": "int32",
-          "description": "Result page size, quantity of records per page",
           "type": "integer"
         },
         "TotalEntries": {
           "format": "int64",
-          "description": "Total records",
           "type": "integer"
         },
         "TotalPages": {
           "format": "int32",
-          "description": "Total pages",
           "type": "integer",
           "readOnly": true
         },
@@ -2997,16 +2801,13 @@
       }
     },
     "OrderReturnCategory": {
-      "description": "Return category object",
       "type": "object",
       "properties": {
         "pkItemId": {
           "format": "int32",
-          "description": "Stock item ID",
           "type": "integer"
         },
         "CategoryName": {
-          "description": "Category name",
           "type": "string"
         }
       }
@@ -3040,28 +2841,23 @@
       "properties": {
         "ParentOrderPkOrderId": {
           "format": "uuid",
-          "description": "Parent order ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ChildOrderPkOrderId": {
           "format": "uuid",
-          "description": "Child order ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ParentOrderId": {
           "format": "int32",
-          "description": "Parent order number",
           "type": "integer"
         },
         "ChildOrderId": {
           "format": "int32",
-          "description": "Child order number",
           "type": "integer"
         },
         "RelationType": {
-          "description": "Relation type",
           "type": "string"
         }
       }
@@ -3069,48 +2865,39 @@
     "SplitPackaging": {
       "type": "object",
       "properties": {
-        "BinIndex": {
-          "format": "int32",
-          "description": "Bin split index",
-          "type": "integer"
-        },
-        "ItemTitle": {
-          "description": "Item Title",
-          "type": "string"
-        },
-        "PackageTitle": {
-          "description": "Package name",
-          "type": "string"
-        },
         "pkBinId": {
           "format": "uuid",
-          "description": "Split bin ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "fkOrderItemRowId": {
           "format": "uuid",
-          "description": "Order item row record ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
-        "Quantity": {
-          "format": "int32",
-          "description": "Quantity",
-          "type": "integer"
+        "PackageTitle": {
+          "type": "string"
         },
         "SKU": {
-          "description": "Product SKU",
           "type": "string"
         },
-        "TrackingNumber": {
-          "description": "Tracking number",
+        "ItemTitle": {
           "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
         },
         "Weight": {
           "format": "double",
-          "description": "Item weight",
           "type": "number"
+        },
+        "TrackingNumber": {
+          "type": "string"
+        },
+        "BinIndex": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },
@@ -3119,38 +2906,30 @@
       "properties": {
         "sid_history": {
           "format": "int32",
-          "description": "Audit record ID",
           "type": "integer"
         },
         "fkOrderId": {
           "format": "uuid",
-          "description": "Order ID (pkOrdeID)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "HistoryNote": {
-          "description": "Note text",
           "type": "string"
         },
         "fkOrderHistoryTypeId": {
-          "description": "Record type ID",
           "type": "string"
         },
         "DateStamp": {
           "format": "date-time",
-          "description": "Record time and date",
           "type": "string"
         },
         "Tag": {
-          "description": "Audit record tag",
           "type": "string"
         },
         "UpdatedBy": {
-          "description": "User who made audited change",
           "type": "string"
         },
         "TypeDescription": {
-          "description": "Audit trail record type",
           "type": "string"
         }
       }
@@ -3160,20 +2939,16 @@
       "properties": {
         "rowid": {
           "format": "uuid",
-          "description": "Extended property record row ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PropertyName": {
-          "description": "Property name",
           "type": "string"
         },
         "PropertyValue": {
-          "description": "Property value",
           "type": "string"
         },
         "PropertyType": {
-          "description": "Property type",
           "type": "string"
         }
       }
@@ -3202,7 +2977,6 @@
           "type": "string"
         },
         "Internal": {
-          "description": "Specifies if the note should be internal to the system, or should be displayed on the invoice.",
           "type": "boolean"
         },
         "NoteTypeId": {
@@ -3324,48 +3098,39 @@
       "properties": {
         "OrderItemRowId": {
           "format": "uuid",
-          "description": "Order item record row ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "OrderItemBatchId": {
           "format": "int32",
-          "description": "Batch inventory id",
           "type": "integer"
         },
         "Refund": {
           "format": "double",
-          "description": "Refund amount",
           "type": "number"
         },
         "Qty": {
           "format": "int32",
-          "description": "Affected quantity",
           "type": "integer"
         },
         "ScrapQty": {
           "format": "int32",
-          "description": "Scrapped quantity",
           "type": "integer"
         },
         "Batch": {
-          "$ref": "#/definitions/OrderItemBatch",
-          "description": "The batch related to the rowqty"
+          "$ref": "#/definitions/OrderItemBatch"
         },
         "AdditionalCost": {
           "format": "double",
-          "description": "Additional costs",
           "type": "number"
         },
         "NewStockItemId": {
           "format": "uuid",
-          "description": "New (returned) stock item ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "NewQty": {
           "format": "int32",
-          "description": "Returned qty",
           "type": "integer"
         }
       }
@@ -3412,47 +3177,38 @@
       "properties": {
         "BatchId": {
           "format": "int32",
-          "description": "Batch ID",
           "type": "integer"
         },
         "SKU": {
-          "description": "Product SKU",
           "type": "string"
         },
         "InventoryTrackingType": {
           "format": "int32",
-          "description": "0 - None, 1 - Order by sell by date, 2 - Ordered by priority sequence",
           "type": "integer"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Product ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "BatchNumber": {
-          "description": "Batch number",
           "type": "string"
         },
         "ExpiresOn": {
           "format": "date-time",
-          "description": "Batch expiry date",
           "type": "string"
         },
         "SellBy": {
           "format": "date-time",
-          "description": "Batch sell by date",
           "type": "string"
         },
         "Inventory": {
-          "description": "Batch records",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemBatchInventory"
           }
         },
         "IsDeleted": {
-          "description": "Is the batch deleted",
           "type": "boolean"
         }
       }
@@ -3462,80 +3218,64 @@
       "properties": {
         "BatchInventoryId": {
           "format": "int32",
-          "description": "Stock item batch record ID",
           "type": "integer"
         },
         "BatchId": {
           "format": "int32",
-          "description": "Batch ID",
           "type": "integer"
         },
         "StockLocationId": {
           "format": "uuid",
-          "description": "Location ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "BinRack": {
-          "description": "BinRack",
           "type": "string"
         },
         "PrioritySequence": {
           "format": "int32",
-          "description": "Pick order",
           "type": "integer"
         },
         "Quantity": {
           "format": "int32",
-          "description": "Quantity",
           "type": "integer"
         },
         "StockValue": {
           "format": "double",
-          "description": "Current stock value",
           "type": "number"
         },
         "StartQuantity": {
           "format": "int32",
-          "description": "Quantity originally booked in",
           "type": "integer",
           "readOnly": true
         },
         "PickedQuantity": {
           "format": "int32",
-          "description": "Indicate how many units are now allocated in open orders",
           "type": "integer"
         },
         "BatchStatus": {
-          "description": "Batch Status",
           "type": "string"
         },
         "IsDeleted": {
-          "description": "Is BatchInventory deleted",
           "type": "boolean"
         },
         "WarehouseBinrackStandardType": {
           "format": "int32",
-          "description": "Warehouse binrack standard type",
           "type": "integer"
         },
         "WarehouseBinrackTypeName": {
-          "description": "Warehouse binrack type friendly name",
           "type": "string"
         },
         "InTransfer": {
           "format": "int32",
-          "description": "Number of items in Transfer phase.",
           "type": "integer"
         },
         "BinRackId": {
           "format": "int32",
-          "description": "Binrack Id (Use for WMS)",
           "type": "integer"
         },
         "WarehouseBinrackTypeId": {
           "format": "int32",
-          "description": "Warehouse binrack type unique id.",
           "type": "integer"
         }
       }

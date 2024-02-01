@@ -175,7 +175,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PurchaseOrderHeader"
+              "$ref": "#/definitions/CommonPurchaseOrderHeader"
             }
           }
         },
@@ -351,7 +351,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PurchaseOrderHeader"
+              "$ref": "#/definitions/CommonPurchaseOrderHeader"
             }
           }
         },
@@ -444,7 +444,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Get_PurchaseOrderResponse"
+              "$ref": "#/definitions/PurchaseOrderResponse"
             }
           }
         },
@@ -668,7 +668,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/PurchaseOrderHeader"
+              "$ref": "#/definitions/CommonPurchaseOrderHeader"
             }
           }
         },
@@ -836,7 +836,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Update_PurchaseOrderItemResponse"
+              "$ref": "#/definitions/DeliverPurchaseOrderItemResponse"
             }
           }
         },
@@ -1344,7 +1344,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Modify_AdditionalCostResponse"
+              "$ref": "#/definitions/PurchaseOrderModify_AdditionalCostResponse"
             }
           }
         },
@@ -1476,7 +1476,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Modify_PaymentStatementResponse"
+              "$ref": "#/definitions/PurchaseOrderModify_PaymentStatementResponse"
             }
           }
         },
@@ -1832,7 +1832,7 @@
           "description": "List of purchase order headers",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/PurchaseOrderHeader"
+            "$ref": "#/definitions/CommonPurchaseOrderHeader"
           }
         },
         "TotalPages": {
@@ -1857,34 +1857,28 @@
         }
       }
     },
-    "PurchaseOrderHeader": {
-      "description": "Class represents purchase order header.",
+    "CommonPurchaseOrderHeader": {
       "type": "object",
       "properties": {
         "pkPurchaseID": {
           "format": "uuid",
-          "description": "Unique identifier for the purchase order. You have to use this ID for all updates to the PO",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "fkSupplierId": {
           "format": "uuid",
-          "description": "Unique identifier for the supplier. Empty Guid is default supplier. Otherwise use Supplier API to get the names and additional data for the supplier",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "fkLocationId": {
           "format": "uuid",
-          "description": "Unique idenfidier of the location where the PO is expected to be delivered to. Empty Guid is default location. Use Locations API methods to get the names and additional details for the locations",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ExternalInvoiceNumber": {
-          "description": "Purchase order reference number",
           "type": "string"
         },
         "Status": {
-          "description": "Purchase order status. \r\nPENDING - purchase order can be changed, not yet affecting stock levels\r\nOPEN - purchase order is created and stock levels Due are reflected\r\nPARTIAL - partially delivered \r\nDELIVERED - fully delivered",
           "enum": [
             "PENDING",
             "OPEN",
@@ -1894,95 +1888,76 @@
           "type": "string"
         },
         "Currency": {
-          "description": "Currency of the monetary values in the purchase order",
           "type": "string"
         },
         "SupplierReferenceNumber": {
-          "description": "Supplier reference number for the purchase order",
           "type": "string"
         },
         "Locked": {
-          "description": "Identified whether the PO is locked. This is for external application use only.",
           "type": "boolean"
-        },
-        "UnitAmountTaxIncludedType": {
-          "format": "int32",
-          "description": "Unit amount includes,exclud or no tax. 0 - Tax Exclusive cost, 1 - Cost Inclusive of tax, 2 - No Tax",
-          "type": "integer"
         },
         "LineCount": {
           "format": "int32",
-          "description": "Number of items in the purchase order",
           "type": "integer"
         },
         "DeliveredLinesCount": {
           "format": "int32",
-          "description": "Count of all purchase order lines which are delivered \r\n(lines where some but not all of the stock has been received are counted as undelivered)",
+          "type": "integer"
+        },
+        "UnitAmountTaxIncludedType": {
+          "format": "int32",
           "type": "integer"
         },
         "DateOfPurchase": {
           "format": "date-time",
-          "description": "DateTime of the purchase order UTC",
           "type": "string"
         },
         "DateOfDelivery": {
           "format": "date-time",
-          "description": "DateTime of the purchase order delivered, will be set to DateOfPurchase until the PO is fully delivered UTC",
           "type": "string"
         },
         "QuotedDeliveryDate": {
           "format": "date-time",
-          "description": "DateTime of the purchase order qouted/expected delivery date UTC",
           "type": "string"
         },
         "PostagePaid": {
           "format": "double",
-          "description": "**DEPRECIATED** \r\nUse additional costs with Shipping flag to record shipping costs. This field remains available in the API for backward compatibility and acts pretty much like an additional cost item with type id = 0",
           "type": "number"
         },
         "TotalCost": {
           "format": "double",
-          "description": "Total purchase price of the purchase order. Calculated from all purchase order items including tax and postage.",
           "type": "number"
         },
         "taxPaid": {
           "format": "double",
-          "description": "Total tax of the purchase order. Calculated from all purchase order items (excludes postage).",
           "type": "number"
         },
         "ShippingTaxRate": {
           "format": "double",
-          "description": "**DEPRECIATED** \r\nUse additional costs with Shipping flag to record shipping costs. This field remains available in the API for backward compatibility and acts pretty much like an additional cost item with type id = 0",
           "type": "number"
         },
         "ConversionRate": {
           "format": "double",
-          "description": "Conversion rate of the purchase order currency. When PO is delivered Stock Value will be multipled by this conversion rate. For example if your system currency is GBP and Purchase order is in EUR the conversion rate is 0.81.",
           "type": "number"
         },
         "ConvertedShippingCost": {
           "format": "double",
-          "description": "Total shipping cost of the purchase order, converted to system currency",
           "type": "number"
         },
         "ConvertedShippingTax": {
           "format": "double",
-          "description": "Total shipping cost tax of the purchase order, converted to system currency",
           "type": "number"
         },
         "ConvertedOtherCost": {
           "format": "double",
-          "description": "Total amount of additional costs of the purchase order, converted to system currency",
           "type": "number"
         },
         "ConvertedOtherTax": {
           "format": "double",
-          "description": "Total tax amount of additional costs of the purchase order, converted to system currency",
           "type": "number"
         },
         "ConvertedGrandTotal": {
           "format": "double",
-          "description": "Total amount of the purchase order, converted to system currency",
           "type": "number"
         }
       }
@@ -2344,7 +2319,7 @@
           }
         },
         "PurchaseOrderHeader": {
-          "$ref": "#/definitions/PurchaseOrderHeader",
+          "$ref": "#/definitions/CommonPurchaseOrderHeader",
           "description": "Recalculated purchase order header"
         }
       }
@@ -2465,11 +2440,11 @@
       "type": "object",
       "properties": {
         "NewPurchaseOrderItem": {
-          "$ref": "#/definitions/PurchaseOrderItem",
+          "$ref": "#/definitions/CommonPurchaseOrderItem",
           "description": "Newly added purchase order line"
         },
         "PurchaseOrderHeader": {
-          "$ref": "#/definitions/PurchaseOrderHeader",
+          "$ref": "#/definitions/CommonPurchaseOrderHeader",
           "description": "Recalculated purchase order header"
         },
         "BatchInventoryId": {
@@ -2479,126 +2454,101 @@
         }
       }
     },
-    "PurchaseOrderItem": {
-      "description": "Class represents purchase order item.",
+    "CommonPurchaseOrderItem": {
       "type": "object",
       "properties": {
         "pkPurchaseItemId": {
           "format": "uuid",
-          "description": "Unique record identifier. Use this id to update quantity, cost, deliver item etc",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "fkStockItemId": {
           "format": "uuid",
-          "description": "Unique system stock identifier. Use this id to query linnworks api for product information, stock levels etc",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        },
         "Quantity": {
           "format": "int32",
-          "description": "Quantity of unique stock items ordered",
           "type": "integer"
         },
         "Cost": {
           "format": "double",
-          "description": "Line Total cost of all the purchase order item inclusive of tax (unitcost * qty) + tax",
           "type": "number"
         },
         "Delivered": {
           "format": "int32",
-          "description": "Number of items delivered on the PO. If this number is more than 1, purchase order item cannot be deleted from the PO. Cannot be decreased.",
           "type": "integer"
         },
         "TaxRate": {
           "format": "double",
-          "description": "Tax rate as a whole number, for example 20 represents 20%",
           "type": "number"
         },
         "Tax": {
           "format": "double",
-          "description": "Tax calculated from Cost * (TaxRate/100)",
           "type": "number"
         },
         "PackQuantity": {
           "format": "int32",
-          "description": "Arbitary identifier of how many packs ordered. Number not used in any of the calculation and purely for visualization and minimum reorder quantity purposes only",
           "type": "integer"
         },
         "PackSize": {
           "format": "int32",
-          "description": "Arbitary identifier of how many items in each pack. Number not used in any of the calculation and purely for visualization and minimum reorder quantity purposes only",
           "type": "integer"
         },
         "SKU": {
-          "description": "Item SKU",
           "type": "string"
         },
         "ItemTitle": {
-          "description": "Item Title",
           "type": "string"
         },
         "InventoryTrackingType": {
           "format": "int32",
-          "description": "Stock item tracking type. 0 = none. 1 = Ordered by Sell by Date. 2 = Ordered by Priority Sequence",
           "type": "integer"
         },
         "IsDeleted": {
-          "description": "Whether or not the stock item for this purchase order item has been deleted in the system",
           "type": "boolean"
         },
         "SortOrder": {
           "format": "int32",
-          "description": "Order the item was added to PO. First item = 0",
           "type": "integer"
         },
         "DimHeight": {
           "format": "double",
-          "description": "Item height",
           "type": "number"
         },
         "DimWidth": {
           "format": "double",
-          "description": "Item Width",
-          "type": "number"
-        },
-        "DimDepth": {
-          "format": "double",
-          "description": "Item Depth",
           "type": "number"
         },
         "BarcodeNumber": {
-          "description": "Barcode",
+          "type": "string"
+        },
+        "DimDepth": {
+          "format": "double",
+          "type": "number"
+        },
+        "BoundToOpenOrdersItems": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BinRack": {
           "type": "string"
         },
         "QuantityBoundToOpenOrdersItems": {
           "format": "int32",
-          "description": "Sum of quantity of items bound to open order items",
           "type": "integer"
         },
         "SupplierCode": {
-          "description": "Supplier Code",
-          "type": "string"
-        },
-        "BinRack": {
-          "description": "Bin rack",
           "type": "string"
         },
         "SupplierBarcode": {
           "type": "string"
         },
-        "StockItemIntId": {
-          "format": "int32",
-          "description": "Unique system stock integer identifier. Use this id to query linnworks api for product information, stock levels etc",
-          "type": "integer"
-        },
-        "BoundToOpenOrdersItems": {
-          "format": "int32",
-          "description": "Number of open order items this item is bound",
-          "type": "integer"
-        },
         "SkuGroupIds": {
-          "description": "Sku group id assocaited with purchase item. Used for containerisation.",
           "type": "array",
           "items": {
             "format": "int32",
@@ -2727,125 +2677,309 @@
         }
       }
     },
-    "Get_PurchaseOrderResponse": {
-      "description": "Single purchase order class.",
+    "PurchaseOrderResponse": {
       "type": "object",
       "properties": {
+        "NoteCount": {
+          "format": "int32",
+          "type": "integer"
+        },
         "PurchaseOrderHeader": {
-          "$ref": "#/definitions/PurchaseOrderHeader",
-          "description": "Purchase order header"
+          "$ref": "#/definitions/PurchaseOrderHeader"
         },
         "PurchaseOrderItem": {
-          "description": "Purchase order items",
           "type": "array",
           "items": {
             "$ref": "#/definitions/PurchaseOrderItem"
           }
         },
         "AdditionalCosts": {
-          "description": "Count of notes on the purchase order",
           "type": "array",
           "items": {
             "$ref": "#/definitions/PurchaseOrderAdditionalCost"
           }
         },
-        "NoteCount": {
-          "format": "int32",
-          "type": "integer"
-        },
         "PaymentStatements": {
-          "description": "Purchase order payment statements",
           "type": "array",
           "items": {
             "$ref": "#/definitions/PurchaseOrderPaymentStatement"
           }
         },
         "DeliveredRecords": {
-          "description": "Purchase order delivered records",
           "type": "array",
           "items": {
             "$ref": "#/definitions/PurchaseOrderDeliveredRecord"
-          },
-          "readOnly": true
+          }
         }
       }
     },
-    "PurchaseOrderAdditionalCost": {
-      "description": "Purchase order additional cost item",
+    "PurchaseOrderHeader": {
       "type": "object",
       "properties": {
-        "PurchaseAdditionalCostItemId": {
-          "format": "int32",
-          "description": "Unique record id",
-          "type": "integer"
-        },
-        "AdditionalCostTypeId": {
-          "format": "int32",
-          "description": "Additional cost type Id",
-          "type": "integer"
-        },
-        "Reference": {
-          "description": "Additional cost reference",
+        "ExternalInvoiceNumber": {
           "type": "string"
         },
-        "SubTotalLineCost": {
+        "Status": {
+          "enum": [
+            "PENDING",
+            "OPEN",
+            "PARTIAL",
+            "DELIVERED"
+          ],
+          "type": "string"
+        },
+        "Currency": {
+          "type": "string"
+        },
+        "SupplierReferenceNumber": {
+          "type": "string"
+        },
+        "Locked": {
+          "type": "boolean"
+        },
+        "LineCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DeliveredLinesCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UnitAmountTaxIncludedType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "pkPurchaseID": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkSupplierId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "DateOfPurchase": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateOfDelivery": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "QuotedDeliveryDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "PostagePaid": {
           "format": "double",
-          "description": "Line Subtotal (Total less tax)",
           "type": "number"
+        },
+        "TotalCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "taxPaid": {
+          "format": "double",
+          "type": "number"
+        },
+        "ShippingTaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConvertedShippingCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConvertedShippingTax": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConvertedOtherCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConvertedOtherTax": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConvertedGrandTotal": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "PurchaseOrderItem": {
+      "type": "object",
+      "properties": {
+        "pkPurchaseItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkStockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Cost": {
+          "format": "double",
+          "type": "number"
+        },
+        "Delivered": {
+          "format": "int32",
+          "type": "integer"
         },
         "TaxRate": {
           "format": "double",
-          "description": "Tax rate",
           "type": "number"
         },
         "Tax": {
           "format": "double",
-          "description": "Tax amount",
+          "type": "number"
+        },
+        "PackQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PackSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsDeleted": {
+          "type": "boolean"
+        },
+        "SortOrder": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DimHeight": {
+          "format": "double",
+          "type": "number"
+        },
+        "DimWidth": {
+          "format": "double",
+          "type": "number"
+        },
+        "DimDepth": {
+          "format": "double",
+          "type": "number"
+        },
+        "BarcodeNumber": {
+          "type": "string"
+        },
+        "QuantityBoundToOpenOrdersItems": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SupplierCode": {
+          "type": "string"
+        },
+        "BinRack": {
+          "type": "string"
+        },
+        "SupplierBarcode": {
+          "type": "string"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BoundToOpenOrdersItems": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SkuGroupIds": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "PurchaseOrderAdditionalCost": {
+      "type": "object",
+      "properties": {
+        "AdditionalCostTypeIsShippingType": {
+          "type": "boolean"
+        },
+        "PurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "AdditionalCostTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Reference": {
+          "type": "string"
+        },
+        "SubTotalLineCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "Tax": {
+          "format": "double",
           "type": "number"
         },
         "Currency": {
-          "description": "Currency code",
           "type": "string"
         },
         "ConversionRate": {
           "format": "double",
-          "description": "Conversion rate from system currency, i.e. system currency rate to additional cost currency. For example if your system currency is GBP and additional cost is in USD the converted value is USD / Rate, example calculation, Rate 1.27, Additional cost total is 100, converted value = 100 USD / 1.27 = 78.98 GBP",
           "type": "number"
         },
         "TotalLineCost": {
           "format": "double",
-          "description": "Total cost, this is subtotal + tax (in system currency)",
           "type": "number"
         },
         "CostAllocation": {
-          "description": "List of cost allocations. The list defines which PO items the additional cost will be attributed to. If the specific value is not entered, it means the cost is equaly distributed\r\nThe List is populated as part of Get_PurchaseOrder method",
           "type": "array",
           "items": {
             "$ref": "#/definitions/PurchaseOrderAdditionalCostAllocation"
           }
         },
         "AllocationLocked": {
-          "description": "If this flag is set, new items added to PO will not be part of the allocation cost",
           "type": "boolean"
         },
         "AdditionalCostTypeName": {
-          "description": "Additional cost type name",
           "type": "string"
         },
-        "AdditionalCostTypeIsShippingType": {
-          "description": "Indicate if the additional cost type is Shipping type",
-          "type": "boolean"
-        },
         "AdditionalCostTypeIsPartialAllocation": {
-          "description": "Indicate if the additional cost type allow partial allocation",
           "type": "boolean"
         },
         "Print": {
-          "description": "Indicate if the additional cost has to be shown in prints and emails",
           "type": "boolean"
         },
         "AllocationMethod": {
-          "description": "Indicate the method to calculate the allocation %  for each item",
           "enum": [
             "ByValue",
             "ByCBM"
@@ -2855,120 +2989,101 @@
       }
     },
     "PurchaseOrderPaymentStatement": {
-      "description": "Purchase order payment statement",
       "type": "object",
       "properties": {
         "PurchasePaymentStatementId": {
           "format": "int32",
-          "description": "Unique record id",
           "type": "integer"
         },
         "LineCost": {
           "format": "double",
-          "description": "Cost of the purchase order the payment contributes to",
           "type": "number"
         },
         "ConversionRate": {
           "format": "double",
-          "description": "Conversion rate from system currency, i.e. system currency rate to additional cost currency.\r\nFor example if your system currency is GBP and payment statement cost is in USD the converted value is USD / Rate, example calculation, Rate 1.27, Additional cost total is 100, converted value = 100 USD / 1.27 = 78.98 GBP",
           "type": "number"
         },
         "Currency": {
-          "description": "Currency code",
           "type": "string"
         },
         "Reference": {
-          "description": "Payment Statement reference",
           "type": "string"
         },
         "CreationDate": {
           "format": "date-time",
-          "description": "Date when the payment statement was added",
           "type": "string"
         },
         "PaymentDate": {
           "format": "date-time",
-          "description": "Date when payment statement was marked as paid",
           "type": "string"
         },
         "fkPurchaseAdditionalCostItemId": {
           "format": "int32",
-          "description": "Relation to additional cost line. If no value is set then the payment statement relates to PO supplier",
           "type": "integer"
         }
       }
     },
     "PurchaseOrderDeliveredRecord": {
-      "description": "Purchase order delivery record",
       "type": "object",
       "properties": {
+        "fkDeliveryId": {
+          "format": "int32",
+          "type": "integer"
+        },
         "pkDeliveryRecordId": {
           "format": "int32",
-          "description": "Delivery record Id",
           "type": "integer"
         },
         "fkPurchaseItemId": {
           "format": "uuid",
-          "description": "Purchase item id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "fkStockLocationId": {
           "format": "uuid",
-          "description": "Purchase item location id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "UnitCost": {
           "format": "double",
-          "description": "Unit cost",
           "type": "number"
         },
         "DeliveredQuantity": {
           "format": "int32",
-          "description": "Quantity delivered",
           "type": "integer"
         },
         "CreatedDateTime": {
           "format": "date-time",
-          "description": "Record creation date",
           "type": "string"
         },
         "ModifiedDateTime": {
           "format": "date-time",
-          "description": "Record modification date",
           "type": "string"
         },
         "fkBatchInventoryId": {
           "format": "int32",
-          "description": "Purchase item batch Id (Optional)",
           "type": "integer"
         }
       }
     },
     "PurchaseOrderAdditionalCostAllocation": {
-      "description": "Additional cost allocation item. Absence of an item means the cost is auto allocated equaly. If the cost allocation is specified the percentage is allocated to a specific PO line. If the cost allocation is 0%, means the cost not contribuiting to PO line",
       "type": "object",
       "properties": {
         "CostAllocationId": {
           "format": "int32",
-          "description": "Allocation row id. Use this Id to update or delete specific record.",
           "type": "integer"
         },
         "PurchaseAdditionalCostItemId": {
           "format": "int32",
-          "description": "Relation to additional cost line",
           "type": "integer"
         },
         "PurchaseItemId": {
           "format": "uuid",
-          "description": "Specific purchase order line id the cost is attributed to",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "AllocationPercentage": {
           "format": "double",
-          "description": "Percentage of the cost that will be attributed to Purchase order item id",
           "type": "number"
         }
       }
@@ -2985,35 +3100,28 @@
       }
     },
     "PurchaseOrderNote": {
-      "description": "Purchase order note class",
       "type": "object",
       "properties": {
         "pkPurchaseOrderNoteId": {
           "format": "uuid",
-          "description": "Unique identifier for the purchase order note. Use this ID in Delete/Modify calls",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Note": {
-          "description": "Note text",
           "type": "string"
         },
         "NoteDateTime": {
           "format": "date-time",
-          "description": "Note added datetime UTC",
           "type": "string"
         },
         "UserName": {
-          "description": "Username of Note author",
           "type": "string"
         },
         "NoteDate": {
-          "description": "Format the Note Date",
           "type": "string",
           "readOnly": true
         },
         "NoteTime": {
-          "description": "Format the Note Time",
           "type": "string",
           "readOnly": true
         }
@@ -3200,11 +3308,11 @@
           "description": "Delivered items",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/PurchaseOrderItem"
+            "$ref": "#/definitions/CommonPurchaseOrderItem"
           }
         },
         "PurchaseOrderHeader": {
-          "$ref": "#/definitions/PurchaseOrderHeader",
+          "$ref": "#/definitions/CommonPurchaseOrderHeader",
           "description": "Recalculated purchase order header"
         }
       }
@@ -3213,11 +3321,11 @@
       "type": "object",
       "properties": {
         "request": {
-          "$ref": "#/definitions/Deliver_PurchaseItems_WithQuantityRequest"
+          "$ref": "#/definitions/DeliverAllPurchaseOrderItemsRequest"
         }
       }
     },
-    "Deliver_PurchaseItems_WithQuantityRequest": {
+    "DeliverAllPurchaseOrderItemsRequest": {
       "type": "object",
       "properties": {
         "pkPurchaseId": {
@@ -3225,15 +3333,19 @@
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
+        "DeliveryId": {
+          "format": "int32",
+          "type": "integer"
+        },
         "Items": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/PODeliveredItems"
+            "$ref": "#/definitions/PurchaseOrderDeliveredItem"
           }
         }
       }
     },
-    "PODeliveredItems": {
+    "PurchaseOrderDeliveredItem": {
       "type": "object",
       "properties": {
         "pkPurchaseItemId": {
@@ -3262,52 +3374,62 @@
       "type": "object",
       "properties": {
         "deliverItemParameter": {
-          "$ref": "#/definitions/Deliver_PurchaseItemParameter",
+          "$ref": "#/definitions/DeliverPurchaseOrderItemRequest",
           "description": "Class that represents parameters for Deliver Purchase Item"
         }
       }
     },
-    "Deliver_PurchaseItemParameter": {
-      "description": "Add/change delivered quantity on the purchase order item. The PO status will automatically be changed to PARTIAL or DELIVERED \r\nYou can use Delivered parameter to specify exact quantity of items delivered or \r\nAddToDelivered to add quantity to delivered",
+    "DeliverPurchaseOrderItemRequest": {
       "type": "object",
       "properties": {
         "BatchNumber": {
-          "description": "If defined, this value will be used to apply the delivery to a batch",
           "type": "string"
         },
         "BinRack": {
-          "description": "If defined, this value will be used to apply the delivery to a batch",
           "type": "string"
         },
         "PrioritySequence": {
           "format": "int32",
-          "description": "If defined, this value will be used to apply the delivery to a batch only when the batch in the provided binrack did not exist before.",
           "type": "integer"
         },
         "BatchStatus": {
-          "description": "If defined, this value will be used to apply the delivery to a batch",
           "type": "string"
         },
         "pkPurchaseId": {
           "format": "uuid",
-          "description": "Purchase order unique identifier",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "pkPurchaseItemId": {
           "format": "uuid",
-          "description": "Purchase order item unique record identifier",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Delivered": {
           "format": "int32",
-          "description": "Exact quantity of items delivered. If AddToDelivered is specified this value must be null",
           "type": "integer"
         },
         "AddToDelivered": {
           "format": "int32",
-          "description": "Add quantity to delivered. If Delivered is specified this value must be null",
+          "type": "integer"
+        },
+        "DeliveryId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "DeliverPurchaseOrderItemResponse": {
+      "type": "object",
+      "properties": {
+        "NewPurchaseOrderItem": {
+          "$ref": "#/definitions/PurchaseOrderItem"
+        },
+        "PurchaseOrderHeader": {
+          "$ref": "#/definitions/PurchaseOrderHeader"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
           "type": "integer"
         }
       }
@@ -3353,44 +3475,35 @@
       "properties": {
         "pkPurchaseAuditTrailId": {
           "format": "uuid",
-          "description": "Purchase audit trail ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "AuditTrailDateTimeStamp": {
           "format": "date-time",
-          "description": "When purchase order audit record was made",
           "type": "string"
         },
         "fkPurchaseId": {
           "format": "uuid",
-          "description": "Purchase order ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "AuditTrailType": {
-          "description": "Audit record type",
           "type": "string"
         },
         "AuditTrailTag": {
-          "description": "Audit record type",
           "type": "string"
         },
         "AuditTrailNote": {
-          "description": "Purchase audit record text",
           "type": "string"
         },
         "UserName": {
-          "description": "User whose actions are being audited",
           "type": "string"
         },
         "AuditTrailDate": {
-          "description": "Date when purchase order audit record was created",
           "type": "string",
           "readOnly": true
         },
         "AuditTrailTime": {
-          "description": "Time when purchase order audit record was created",
           "type": "string",
           "readOnly": true
         }
@@ -3429,35 +3542,28 @@
       }
     },
     "PurchaseOrderExtendedProperty": {
-      "description": "Purchase Order extended property item",
       "type": "object",
       "properties": {
         "RowId": {
           "format": "int32",
-          "description": "Extended Property item id",
           "type": "integer"
         },
         "PurchaseID": {
           "format": "uuid",
-          "description": "Purchase order id (unique identifier)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "AddedDateTime": {
           "format": "date-time",
-          "description": "UTC date when the extended property was added",
           "type": "string"
         },
         "UserName": {
-          "description": "User name which added the extended property, if the property is updated it will not be changed from original",
           "type": "string"
         },
         "PropertyName": {
-          "description": "Property name (max 255)",
           "type": "string"
         },
         "PropertyValue": {
-          "description": "Property value (max 600)",
           "type": "string"
         }
       }
@@ -3599,32 +3705,25 @@
       }
     },
     "PurchaseOrderAdditionalCostType": {
-      "description": "Purchase order additional cost type.",
       "type": "object",
       "properties": {
         "AdditionalCostTypeId": {
           "format": "int32",
-          "description": "Additional Cost type id",
           "type": "integer"
         },
         "TypeName": {
-          "description": "Additional cost name",
           "type": "string"
         },
         "IsShippingType": {
-          "description": "Type of additional cost is shipping cost",
           "type": "boolean"
         },
         "IsPartialAllocation": {
-          "description": "Type must be 100% allocated to PO items",
           "type": "boolean"
         },
         "Print": {
-          "description": "Indicate if the additional costs of this type has to be printed",
           "type": "boolean"
         },
         "AllocationMethod": {
-          "description": "Indicate the method to calculate the allocation %  for each item",
           "enum": [
             "ByValue",
             "ByCBM"
@@ -3900,23 +3999,23 @@
         }
       }
     },
-    "Modify_AdditionalCostResponse": {
+    "PurchaseOrderModify_AdditionalCostResponse": {
       "type": "object",
       "properties": {
         "ModifiedItems": {
           "description": "List of modified items, added or updated. Each item has Id which was provided in the request",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ModifiedAdditionalCostItem"
+            "$ref": "#/definitions/CommonModifiedAdditionalCostItem"
           }
         },
         "PurchaseOrderHeader": {
-          "$ref": "#/definitions/PurchaseOrderHeader",
+          "$ref": "#/definitions/CommonPurchaseOrderHeader",
           "description": "Purchase order header with recalculated total"
         }
       }
     },
-    "ModifiedAdditionalCostItem": {
+    "CommonModifiedAdditionalCostItem": {
       "description": "Newly added purchase additional cost item",
       "type": "object",
       "properties": {
@@ -3928,81 +4027,87 @@
         },
         "PurchaseAdditionalCostItemId": {
           "format": "int32",
-          "description": "Unique record id",
           "type": "integer"
         },
         "AdditionalCostTypeId": {
           "format": "int32",
-          "description": "Additional cost type Id",
           "type": "integer"
         },
         "Reference": {
-          "description": "Additional cost reference",
           "type": "string"
         },
         "SubTotalLineCost": {
           "format": "double",
-          "description": "Line Subtotal (Total less tax)",
           "type": "number"
         },
         "TaxRate": {
           "format": "double",
-          "description": "Tax rate",
           "type": "number"
         },
         "Tax": {
           "format": "double",
-          "description": "Tax amount",
           "type": "number"
         },
         "Currency": {
-          "description": "Currency code",
           "type": "string"
         },
         "ConversionRate": {
           "format": "double",
-          "description": "Conversion rate from system currency, i.e. system currency rate to additional cost currency. For example if your system currency is GBP and additional cost is in USD the converted value is USD / Rate, example calculation, Rate 1.27, Additional cost total is 100, converted value = 100 USD / 1.27 = 78.98 GBP",
           "type": "number"
         },
         "TotalLineCost": {
           "format": "double",
-          "description": "Total cost, this is subtotal + tax (in system currency)",
           "type": "number"
         },
         "CostAllocation": {
-          "description": "List of cost allocations. The list defines which PO items the additional cost will be attributed to. If the specific value is not entered, it means the cost is equaly distributed\r\nThe List is populated as part of Get_PurchaseOrder method",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/PurchaseOrderAdditionalCostAllocation"
+            "$ref": "#/definitions/CommonPurchaseOrderAdditionalCostAllocation"
           }
         },
         "AllocationLocked": {
-          "description": "If this flag is set, new items added to PO will not be part of the allocation cost",
           "type": "boolean"
         },
         "AdditionalCostTypeName": {
-          "description": "Additional cost type name",
           "type": "string"
         },
         "AdditionalCostTypeIsShippingType": {
-          "description": "Indicate if the additional cost type is Shipping type",
           "type": "boolean"
         },
         "AdditionalCostTypeIsPartialAllocation": {
-          "description": "Indicate if the additional cost type allow partial allocation",
           "type": "boolean"
         },
         "Print": {
-          "description": "Indicate if the additional cost has to be shown in prints and emails",
           "type": "boolean"
         },
         "AllocationMethod": {
-          "description": "Indicate the method to calculate the allocation %  for each item",
           "enum": [
             "ByValue",
             "ByCBM"
           ],
           "type": "string"
+        }
+      }
+    },
+    "CommonPurchaseOrderAdditionalCostAllocation": {
+      "type": "object",
+      "properties": {
+        "CostAllocationId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PurchaseItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "AllocationPercentage": {
+          "format": "double",
+          "type": "number"
         }
       }
     },
@@ -4034,8 +4139,75 @@
           "description": "List of additional cost items",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/PurchaseOrderAdditionalCost"
+            "$ref": "#/definitions/CommonPurchaseOrderAdditionalCost"
           }
+        }
+      }
+    },
+    "CommonPurchaseOrderAdditionalCost": {
+      "type": "object",
+      "properties": {
+        "PurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "AdditionalCostTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Reference": {
+          "type": "string"
+        },
+        "SubTotalLineCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "Tax": {
+          "format": "double",
+          "type": "number"
+        },
+        "Currency": {
+          "type": "string"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "TotalLineCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "CostAllocation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommonPurchaseOrderAdditionalCostAllocation"
+          }
+        },
+        "AllocationLocked": {
+          "type": "boolean"
+        },
+        "AdditionalCostTypeName": {
+          "type": "string"
+        },
+        "AdditionalCostTypeIsShippingType": {
+          "type": "boolean"
+        },
+        "AdditionalCostTypeIsPartialAllocation": {
+          "type": "boolean"
+        },
+        "Print": {
+          "type": "boolean"
+        },
+        "AllocationMethod": {
+          "enum": [
+            "ByValue",
+            "ByCBM"
+          ],
+          "type": "string"
         }
       }
     },
@@ -4158,23 +4330,19 @@
         },
         "CostAllocationId": {
           "format": "int32",
-          "description": "Allocation row id. Use this Id to update or delete specific record.",
           "type": "integer"
         },
         "PurchaseAdditionalCostItemId": {
           "format": "int32",
-          "description": "Relation to additional cost line",
           "type": "integer"
         },
         "PurchaseItemId": {
           "format": "uuid",
-          "description": "Specific purchase order line id the cost is attributed to",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "AllocationPercentage": {
           "format": "double",
-          "description": "Percentage of the cost that will be attributed to Purchase order item id",
           "type": "number"
         }
       }
@@ -4315,7 +4483,7 @@
         }
       }
     },
-    "Modify_PaymentStatementResponse": {
+    "PurchaseOrderModify_PaymentStatementResponse": {
       "type": "object",
       "properties": {
         "ModifiedItems": {
@@ -4339,40 +4507,32 @@
         },
         "PurchasePaymentStatementId": {
           "format": "int32",
-          "description": "Unique record id",
           "type": "integer"
         },
         "LineCost": {
           "format": "double",
-          "description": "Cost of the purchase order the payment contributes to",
           "type": "number"
         },
         "ConversionRate": {
           "format": "double",
-          "description": "Conversion rate from system currency, i.e. system currency rate to additional cost currency.\r\nFor example if your system currency is GBP and payment statement cost is in USD the converted value is USD / Rate, example calculation, Rate 1.27, Additional cost total is 100, converted value = 100 USD / 1.27 = 78.98 GBP",
           "type": "number"
         },
         "Currency": {
-          "description": "Currency code",
           "type": "string"
         },
         "Reference": {
-          "description": "Payment Statement reference",
           "type": "string"
         },
         "CreationDate": {
           "format": "date-time",
-          "description": "Date when the payment statement was added",
           "type": "string"
         },
         "PaymentDate": {
           "format": "date-time",
-          "description": "Date when payment statement was marked as paid",
           "type": "string"
         },
         "fkPurchaseAdditionalCostItemId": {
           "format": "int32",
-          "description": "Relation to additional cost line. If no value is set then the payment statement relates to PO supplier",
           "type": "integer"
         }
       }
@@ -4405,8 +4565,43 @@
           "description": "List of payment statements",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/PurchaseOrderPaymentStatement"
+            "$ref": "#/definitions/CommonPurchaseOrderPaymentStatement"
           }
+        }
+      }
+    },
+    "CommonPurchaseOrderPaymentStatement": {
+      "type": "object",
+      "properties": {
+        "PurchasePaymentStatementId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "LineCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "Currency": {
+          "type": "string"
+        },
+        "Reference": {
+          "type": "string"
+        },
+        "CreationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "PaymentDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "fkPurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },
@@ -4516,9 +4711,48 @@
         "Items": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/PurchaseOrderDeliveredRecord"
+            "$ref": "#/definitions/CommonPurchaseOrderDeliveredRecord"
           },
           "readOnly": true
+        }
+      }
+    },
+    "CommonPurchaseOrderDeliveredRecord": {
+      "type": "object",
+      "properties": {
+        "pkDeliveryRecordId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fkPurchaseItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkStockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "UnitCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "DeliveredQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CreatedDateTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ModifiedDateTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "fkBatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },
@@ -4638,21 +4872,17 @@
       }
     },
     "MyInventoryPOCreationItems": {
-      "description": "Object passed to the API to describe whether the item, on the base class, should be added to a new PO or an existing PO",
       "type": "object",
       "properties": {
         "IsNew": {
-          "description": "Denotes item should be added to a new PO",
           "type": "boolean"
         },
         "PurchaseOrderId": {
           "format": "uuid",
-          "description": "If this is populated with a valid PurchaseOrderId, the item will be added to that PO",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "OpenOrderItemsBound": {
-          "description": "List of open order items to be bound to the PO item",
           "type": "array",
           "items": {
             "format": "uuid",
@@ -4662,53 +4892,42 @@
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Linnworks stock item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "SupplierId": {
           "format": "uuid",
-          "description": "Linnworks supplier Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "SupplierName": {
-          "description": "Linnworks supplier name",
           "type": "string"
         },
         "OustandingPOQuantity": {
           "format": "int32",
-          "description": "The amount of stock that has been requested in POs, but not delivered",
           "type": "integer"
         },
         "SuggestedReorderAmount": {
           "format": "int32",
-          "description": "The amount that has been calculated to reorder, which can be based on reoder point functionality, the average of previous POs or up to minimum level",
           "type": "integer"
         },
         "QuantityInDraftPOs": {
           "format": "int32",
-          "description": "The amount of stock already in a PO in pending state",
           "type": "integer"
         },
         "ItemTitle": {
-          "description": "Stock item title",
           "type": "string"
         },
         "SKU": {
-          "description": "Stock item SKU",
           "type": "string"
         },
         "ImageURL": {
-          "description": "The main stock item image file name",
           "type": "string"
         },
         "SupplierAssigned": {
-          "description": "States whether an item has data for the requested supplier",
           "type": "boolean"
         },
         "CalculationMethod": {
-          "description": "This describes how the suggested order quantity was calculated",
           "enum": [
             "Error",
             "MinimumLevel",
@@ -4719,15 +4938,12 @@
           "type": "string"
         },
         "ErrorMessage": {
-          "description": "Description of any errors encountered while suggesting quantities",
           "type": "string"
         },
         "CanBeOrdered": {
-          "description": "Defines whether an item can be ordered if the item has an error associated with it",
           "type": "boolean"
         },
         "ErrorCode": {
-          "description": "Error code for the corresponding error message",
           "enum": [
             "NO_ERROR",
             "ABOVE_MIN_LEVEL",
@@ -4746,12 +4962,10 @@
         },
         "SupplierPackSize": {
           "format": "int32",
-          "description": "Pack size for the given item",
           "type": "integer"
         },
         "MinimumOrderQuantity": {
           "format": "int32",
-          "description": "Minimum Order Quantity for the given supplier",
           "type": "integer"
         },
         "RequestedSupplierId": {

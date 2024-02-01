@@ -292,12 +292,10 @@
       "type": "object",
       "properties": {
         "Currency": {
-          "description": "Currency code (e.g. GBP)",
           "type": "string"
         },
         "ConversionRate": {
           "format": "double",
-          "description": "Currency conversion rate to default currency",
           "type": "number"
         }
       }

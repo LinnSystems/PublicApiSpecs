@@ -2099,7 +2099,6 @@
   },
   "definitions": {
     "GenericEnumDescriptor": {
-      "description": "See spa_lw\\linnworks.spa.commondata\\Generic\\GenericEnumDescriptor.cs for example enum",
       "type": "object",
       "properties": {
         "Description": {
@@ -2114,27 +2113,22 @@
       }
     },
     "GenericPagedResult_VariationGroup": {
-      "description": "Order item object",
       "type": "object",
       "properties": {
         "PageNumber": {
           "format": "int32",
-          "description": "Result page number",
           "type": "integer"
         },
         "EntriesPerPage": {
           "format": "int32",
-          "description": "Result page size, quantity of records per page",
           "type": "integer"
         },
         "TotalEntries": {
           "format": "int64",
-          "description": "Total records",
           "type": "integer"
         },
         "TotalPages": {
           "format": "int32",
-          "description": "Total pages",
           "type": "integer",
           "readOnly": true
         },
@@ -2150,17 +2144,14 @@
       "type": "object",
       "properties": {
         "VariationSKU": {
-          "description": "Variation parent SKU",
           "type": "string"
         },
         "pkVariationItemId": {
           "format": "uuid",
-          "description": "Variation parent ID (unique identifier)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "VariationGroupName": {
-          "description": "Variation parent title",
           "type": "string"
         }
       }
@@ -2207,22 +2198,18 @@
       "properties": {
         "pkRowId": {
           "format": "uuid",
-          "description": "Variation item record ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "pkStockItemId": {
           "format": "uuid",
-          "description": "Stock item ID (unique identifier)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ItemNumber": {
-          "description": "Item SKU",
           "type": "string"
         },
         "ItemTitle": {
-          "description": "Item title",
           "type": "string"
         }
       }
@@ -2304,21 +2291,17 @@
       "type": "object",
       "properties": {
         "VariationGroupName": {
-          "description": "Variation parent title",
           "type": "string"
         },
         "ParentSKU": {
-          "description": "Variation parent SKU",
           "type": "string"
         },
         "ParentStockItemId": {
           "format": "uuid",
-          "description": "Variation parent stock item id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "VariationItemIds": {
-          "description": "List of variation children",
           "type": "array",
           "items": {
             "format": "uuid",
@@ -2333,59 +2316,48 @@
       "properties": {
         "Date": {
           "format": "date-time",
-          "description": "When stock was sold",
           "type": "string"
         },
         "StockQuantity": {
           "format": "int32",
-          "description": "Sold quantity",
           "type": "integer"
         },
         "StockValue": {
           "format": "double",
-          "description": "Current stock value",
           "type": "number"
         },
         "Shipped": {
           "format": "int32",
-          "description": "Shipped stock",
           "type": "integer"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
     },
     "GenericPagedResult_StockItemChangeHistory": {
-      "description": "Order item object",
       "type": "object",
       "properties": {
         "PageNumber": {
           "format": "int32",
-          "description": "Result page number",
           "type": "integer"
         },
         "EntriesPerPage": {
           "format": "int32",
-          "description": "Result page size, quantity of records per page",
           "type": "integer"
         },
         "TotalEntries": {
           "format": "int64",
-          "description": "Total records",
           "type": "integer"
         },
         "TotalPages": {
           "format": "int32",
-          "description": "Total pages",
           "type": "integer",
           "readOnly": true
         },
@@ -2402,42 +2374,34 @@
       "properties": {
         "Date": {
           "format": "date-time",
-          "description": "When changes were made",
           "type": "string"
         },
         "Level": {
           "format": "int32",
-          "description": "Change level",
           "type": "integer"
         },
         "StockValue": {
           "format": "double",
-          "description": "Stock value change",
           "type": "number"
         },
         "Note": {
-          "description": "Change note",
           "type": "string"
         },
         "ChangeQty": {
           "format": "int32",
-          "description": "Changed quantity",
           "type": "integer"
         },
         "ChangeValue": {
           "format": "double",
-          "description": "Changed value",
           "type": "number"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
@@ -2457,27 +2421,22 @@
       }
     },
     "GenericPagedResult_StockItem": {
-      "description": "Order item object",
       "type": "object",
       "properties": {
         "PageNumber": {
           "format": "int32",
-          "description": "Result page number",
           "type": "integer"
         },
         "EntriesPerPage": {
           "format": "int32",
-          "description": "Result page size, quantity of records per page",
           "type": "integer"
         },
         "TotalEntries": {
           "format": "int64",
-          "description": "Total records",
           "type": "integer"
         },
         "TotalPages": {
           "format": "int32",
-          "description": "Total pages",
           "type": "integer",
           "readOnly": true
         },
@@ -2490,163 +2449,130 @@
       }
     },
     "StockItem": {
-      "description": "Stock Item",
       "type": "object",
       "properties": {
         "ItemDescription": {
-          "description": "Item Description(Metadata)",
           "type": "string"
         },
         "Quantity": {
           "format": "int32",
-          "description": "Quantity in stock",
           "type": "integer"
         },
         "InOrder": {
           "format": "int32",
-          "description": "Quantity in order book",
           "type": "integer"
         },
         "Due": {
           "format": "int32",
-          "description": "Quantity due in purchase orders",
           "type": "integer"
         },
         "MinimumLevel": {
           "format": "int32",
-          "description": "Minimum level of stock item. -1 is not tracked",
           "type": "integer"
         },
         "Available": {
           "format": "int32",
-          "description": "Available level. Quantity - InOrder",
           "type": "integer",
           "readOnly": true
         },
         "IsCompositeParent": {
-          "description": "Item is a composite parent",
           "type": "boolean"
         },
         "ShippedSeparately": {
           "type": "boolean"
         },
         "ItemNumber": {
-          "description": "SKU",
           "type": "string"
         },
         "ItemTitle": {
-          "description": "Item title",
           "type": "string"
         },
         "BarcodeNumber": {
-          "description": "Barcode number",
           "type": "string"
         },
         "MetaData": {
-          "description": "Item description",
           "type": "string"
         },
         "IsVariationParent": {
-          "description": "Is Variation Parent",
           "type": "boolean"
         },
         "isBatchedStockType": {
-          "description": "Returns true is the stock item is tracked by batch",
           "type": "boolean",
           "readOnly": true
         },
         "PurchasePrice": {
           "format": "double",
-          "description": "Default item purchase price",
           "type": "number"
         },
         "RetailPrice": {
           "format": "double",
-          "description": "Default item retail price",
           "type": "number"
         },
         "TaxRate": {
           "format": "double",
-          "description": "Default item tax rate. Set -1 to use country tax rate",
           "type": "number"
         },
         "PostalServiceId": {
           "format": "uuid",
-          "description": "Default postal service id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PostalServiceName": {
-          "description": "Default postal service name",
           "type": "string"
         },
         "CategoryId": {
           "format": "uuid",
-          "description": "Default category id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "CategoryName": {
-          "description": "Default category name",
           "type": "string"
         },
         "PackageGroupId": {
           "format": "uuid",
-          "description": "Default package group id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PackageGroupName": {
-          "description": "Default package group name",
           "type": "string"
         },
         "Height": {
           "format": "double",
-          "description": "Item height",
           "type": "number"
         },
         "Width": {
           "format": "double",
-          "description": "Item width",
           "type": "number"
         },
         "Depth": {
           "format": "double",
-          "description": "Item depth",
           "type": "number"
         },
         "Weight": {
           "format": "double",
-          "description": "Item weight",
           "type": "number"
         },
         "CreationDate": {
           "format": "date-time",
-          "description": "Stock item creation date",
           "type": "string"
         },
         "InventoryTrackingType": {
           "format": "int32",
-          "description": "Stock item tracking type. 0 = none. 1 = Ordered by Sell by Date. 2 = Ordered by Priority Sequence",
           "type": "integer"
         },
         "BatchNumberScanRequired": {
-          "description": "User must scan batch number when procesing orders",
           "type": "boolean"
         },
         "SerialNumberScanRequired": {
-          "description": "User must scan item serial number when processing ordesr",
           "type": "boolean"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
@@ -2733,25 +2659,21 @@
       }
     },
     "StockItemFull": {
-      "description": "Stock item with full level and supplier information",
       "type": "object",
       "properties": {
         "Suppliers": {
-          "description": "Suppliers",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemSupplierStat"
           }
         },
         "StockLevels": {
-          "description": "Stock Levels",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemLevel"
           }
         },
         "ItemChannelDescriptions": {
-          "description": "List of item descriptions",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemDescription"
@@ -2759,7 +2681,6 @@
           "readOnly": true
         },
         "ItemExtendedProperties": {
-          "description": "List of extended properties",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemExtendedProperty"
@@ -2767,7 +2688,6 @@
           "readOnly": true
         },
         "ItemChannelTitles": {
-          "description": "List item titles",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemTitle"
@@ -2775,7 +2695,6 @@
           "readOnly": true
         },
         "ItemChannelPrices": {
-          "description": "List of item prices",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemPrice"
@@ -2783,129 +2702,103 @@
           "readOnly": true
         },
         "Images": {
-          "description": "Image urls",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemImage"
           }
         },
         "ItemNumber": {
-          "description": "SKU",
           "type": "string"
         },
         "ItemTitle": {
-          "description": "Item title",
           "type": "string"
         },
         "BarcodeNumber": {
-          "description": "Barcode number",
           "type": "string"
         },
         "MetaData": {
-          "description": "Item description",
           "type": "string"
         },
         "IsVariationParent": {
-          "description": "Is Variation Parent",
           "type": "boolean"
         },
         "isBatchedStockType": {
-          "description": "Returns true is the stock item is tracked by batch",
           "type": "boolean",
           "readOnly": true
         },
         "PurchasePrice": {
           "format": "double",
-          "description": "Default item purchase price",
           "type": "number"
         },
         "RetailPrice": {
           "format": "double",
-          "description": "Default item retail price",
           "type": "number"
         },
         "TaxRate": {
           "format": "double",
-          "description": "Default item tax rate. Set -1 to use country tax rate",
           "type": "number"
         },
         "PostalServiceId": {
           "format": "uuid",
-          "description": "Default postal service id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PostalServiceName": {
-          "description": "Default postal service name",
           "type": "string"
         },
         "CategoryId": {
           "format": "uuid",
-          "description": "Default category id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "CategoryName": {
-          "description": "Default category name",
           "type": "string"
         },
         "PackageGroupId": {
           "format": "uuid",
-          "description": "Default package group id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PackageGroupName": {
-          "description": "Default package group name",
           "type": "string"
         },
         "Height": {
           "format": "double",
-          "description": "Item height",
           "type": "number"
         },
         "Width": {
           "format": "double",
-          "description": "Item width",
           "type": "number"
         },
         "Depth": {
           "format": "double",
-          "description": "Item depth",
           "type": "number"
         },
         "Weight": {
           "format": "double",
-          "description": "Item weight",
           "type": "number"
         },
         "CreationDate": {
           "format": "date-time",
-          "description": "Stock item creation date",
           "type": "string"
         },
         "InventoryTrackingType": {
           "format": "int32",
-          "description": "Stock item tracking type. 0 = none. 1 = Ordered by Sell by Date. 2 = Ordered by Priority Sequence",
           "type": "integer"
         },
         "BatchNumberScanRequired": {
-          "description": "User must scan batch number when procesing orders",
           "type": "boolean"
         },
         "SerialNumberScanRequired": {
-          "description": "User must scan item serial number when processing ordesr",
           "type": "boolean"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
@@ -2914,80 +2807,64 @@
       "type": "object",
       "properties": {
         "IsDefault": {
-          "description": "If supplier information is default",
           "type": "boolean"
         },
         "Supplier": {
-          "description": "Supplier name",
           "type": "string"
         },
         "SupplierID": {
           "format": "uuid",
-          "description": "Supplier ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Code": {
-          "description": "Supplier code",
           "type": "string"
         },
         "SupplierBarcode": {
-          "description": "Supplier barcode",
           "type": "string"
         },
         "LeadTime": {
           "format": "int32",
-          "description": "Supplier lead time",
           "type": "integer"
         },
         "PurchasePrice": {
           "format": "double",
-          "description": "Supplier purchase price",
           "type": "number"
         },
         "MinPrice": {
           "format": "double",
-          "description": "Minimum price",
           "type": "number"
         },
         "MaxPrice": {
           "format": "double",
-          "description": "Maximum price",
           "type": "number"
         },
         "AveragePrice": {
           "format": "double",
-          "description": "Average price",
           "type": "number"
         },
         "AverageLeadTime": {
           "format": "double",
-          "description": "Average lead time",
           "type": "number"
         },
         "SupplierMinOrderQty": {
           "format": "int32",
-          "description": "Minimum order quantity from this supplier",
           "type": "integer"
         },
         "SupplierPackSize": {
           "format": "int32",
-          "description": "Supplier pack size",
           "type": "integer"
         },
         "SupplierCurrency": {
-          "description": "Supplier's default currency",
           "type": "string"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
@@ -2996,97 +2873,78 @@
       "type": "object",
       "properties": {
         "Location": {
-          "$ref": "#/definitions/InventoryStockLocation",
-          "description": "Location details\r\nBe careful! Not always all the fields are populated!"
+          "$ref": "#/definitions/InventoryStockLocation"
         },
         "StockLevel": {
           "format": "int32",
-          "description": "Stock level",
           "type": "integer"
         },
         "StockValue": {
           "format": "double",
-          "description": "Stock value",
           "type": "number"
         },
         "MinimumLevel": {
           "format": "int32",
-          "description": "Minimum level",
           "type": "integer"
         },
         "InOrderBook": {
           "format": "int32",
-          "description": "Currently in open orders",
           "type": "integer"
         },
         "Due": {
           "format": "int32",
-          "description": "Due to come in purchase orders",
           "type": "integer"
         },
         "JIT": {
-          "description": "Stock Item Just In Time (JIT) status",
           "type": "boolean"
         },
         "InOrders": {
           "format": "int32",
-          "description": "Currently in open orders",
           "type": "integer",
           "readOnly": true
         },
         "Available": {
           "format": "int32",
-          "description": "StockLevel - InOrders",
           "type": "integer",
           "readOnly": true
         },
         "UnitCost": {
           "format": "double",
-          "description": "if( Quantity == 0 )\r\n    dbo.StockItem.PurchasePrice\r\nElse\r\nCurrentStockValue / Quantity",
           "type": "number",
           "readOnly": true
         },
         "SKU": {
-          "description": "Product SKU",
           "type": "string"
         },
         "AutoAdjust": {
-          "description": "If level is auto adjusted",
           "type": "boolean"
         },
         "LastUpdateDate": {
           "format": "date-time",
-          "description": "Last time stock level was adjusted",
           "type": "string"
         },
         "LastUpdateOperation": {
-          "description": "Name of last update operation",
           "type": "string"
         },
         "rowid": {
           "format": "uuid",
-          "description": "dbo.StockLevel.rowid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PendingUpdate": {
-          "description": "dbo.StockLevel.PendingUpdate",
           "type": "boolean"
         },
         "StockItemPurchasePrice": {
           "format": "double",
-          "description": "Stock item purchase price. It's used to calculate UnitCost",
           "type": "number"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
@@ -3096,31 +2954,25 @@
       "properties": {
         "pkRowId": {
           "format": "uuid",
-          "description": "Record row ID (generate random GUID)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Source": {
-          "description": "ChannelName/Source (e.g. EBAY)",
           "type": "string"
         },
         "SubSource": {
-          "description": "Channel subsource (e.g EBAY1)",
           "type": "string"
         },
         "Description": {
-          "description": "Product description",
           "type": "string"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
@@ -3130,26 +2982,21 @@
       "properties": {
         "pkRowId": {
           "format": "uuid",
-          "description": "Record row ID (generate random)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "fkStockItemId": {
           "format": "uuid",
-          "description": "Stock Item ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ProperyName": {
-          "description": "Property name",
           "type": "string"
         },
         "PropertyValue": {
-          "description": "Property value",
           "type": "string"
         },
         "PropertyType": {
-          "description": "Property type",
           "type": "string"
         }
       }
@@ -3159,31 +3006,25 @@
       "properties": {
         "pkRowId": {
           "format": "uuid",
-          "description": "Record row id (generate random)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Source": {
-          "description": "ChannelName/Source (e.g. EBAY)",
           "type": "string"
         },
         "SubSource": {
-          "description": "SubSource (EBAY1)",
           "type": "string"
         },
         "Title": {
-          "description": "Item title",
           "type": "string"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
@@ -3192,7 +3033,6 @@
       "type": "object",
       "properties": {
         "Rules": {
-          "description": "Pricing rule",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemPricingRule"
@@ -3200,25 +3040,20 @@
         },
         "pkRowId": {
           "format": "uuid",
-          "description": "Record row ID (generate random)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Source": {
-          "description": "ChannelName/Source (e.g. EBAY)",
           "type": "string"
         },
         "SubSource": {
-          "description": "SubSource (e.g. EBAY1)",
           "type": "string"
         },
         "Price": {
           "format": "double",
-          "description": "Channel price",
           "type": "number"
         },
         "Tag": {
-          "description": "Product price tag",
           "type": "string"
         },
         "UpdateStatus": {
@@ -3233,65 +3068,52 @@
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
     },
     "StockItemImage": {
-      "description": "Full stock item image record",
       "type": "object",
       "properties": {
         "Source": {
-          "description": "URL to thumnail image",
           "type": "string"
         },
         "FullSource": {
-          "description": "Url to full size image",
           "type": "string"
         },
         "CheckSumValue": {
-          "description": "Image check sum",
           "type": "string"
         },
         "pkRowId": {
           "format": "uuid",
-          "description": "Unique id of image",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "IsMain": {
-          "description": "Is the image the main image",
           "type": "boolean"
         },
         "SortOrder": {
           "format": "int32",
-          "description": "Sort order for the image",
           "type": "integer"
         },
         "ChecksumValue": {
-          "description": "Internal checksum value",
           "type": "string"
         },
         "RawChecksum": {
-          "description": "Raw file checksum (Used for UI to determine if the image file is the same before submitting for upload)",
           "type": "string"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
@@ -3330,27 +3152,22 @@
       "properties": {
         "pkRowId": {
           "format": "int32",
-          "description": "Record row ID (optional)",
           "type": "integer"
         },
         "fkStockPricingId": {
           "format": "uuid",
-          "description": "Stock pricing ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Type": {
-          "description": "Type",
           "type": "string"
         },
         "LowerBound": {
           "format": "int32",
-          "description": "Lower level",
           "type": "integer"
         },
         "Value": {
           "format": "double",
-          "description": "Value/Price level",
           "type": "number"
         }
       }
@@ -3404,175 +3221,142 @@
       }
     },
     "StockItemFullExtended": {
-      "description": "Stock item with full extended details.",
       "type": "object",
       "properties": {
         "ItemChannelDescriptions": {
-          "description": "List of item descriptions",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemDescription"
           }
         },
         "ItemExtendedProperties": {
-          "description": "List of extended properties",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemExtendedProperty"
           }
         },
         "ItemChannelTitles": {
-          "description": "List item titles",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemTitle"
           }
         },
         "ItemChannelPrices": {
-          "description": "List of item prices",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemPrice"
           }
         },
         "Suppliers": {
-          "description": "Suppliers",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemSupplierStat"
           }
         },
         "StockLevels": {
-          "description": "Stock Levels",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemLevel"
           }
         },
         "Images": {
-          "description": "Image URLs",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemImage"
           }
         },
         "ItemNumber": {
-          "description": "SKU",
           "type": "string"
         },
         "ItemTitle": {
-          "description": "Item title",
           "type": "string"
         },
         "BarcodeNumber": {
-          "description": "Barcode number",
           "type": "string"
         },
         "MetaData": {
-          "description": "Item description",
           "type": "string"
         },
         "isBatchedStockType": {
-          "description": "Returns true is the stock item is tracked by batch",
           "type": "boolean",
           "readOnly": true
         },
         "PurchasePrice": {
           "format": "double",
-          "description": "Default item purchase price",
           "type": "number"
         },
         "RetailPrice": {
           "format": "double",
-          "description": "Default item retail price",
           "type": "number"
         },
         "TaxRate": {
           "format": "double",
-          "description": "Default item tax rate. Set -1 to use country tax rate",
           "type": "number"
         },
         "PostalServiceId": {
           "format": "uuid",
-          "description": "Default postal service id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PostalServiceName": {
-          "description": "Default postal service name",
           "type": "string"
         },
         "CategoryId": {
           "format": "uuid",
-          "description": "Default category id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "CategoryName": {
-          "description": "Default category name",
           "type": "string"
         },
         "PackageGroupId": {
           "format": "uuid",
-          "description": "Default package group id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PackageGroupName": {
-          "description": "Default package group name",
           "type": "string"
         },
         "Height": {
           "format": "double",
-          "description": "Item height",
           "type": "number"
         },
         "Width": {
           "format": "double",
-          "description": "Item width",
           "type": "number"
         },
         "Depth": {
           "format": "double",
-          "description": "Item depth",
           "type": "number"
         },
         "Weight": {
           "format": "double",
-          "description": "Item weight",
           "type": "number"
         },
         "CreationDate": {
           "format": "date-time",
-          "description": "Stock item creation date",
           "type": "string"
         },
         "IsCompositeParent": {
-          "description": "True if the stock item is a composition",
           "type": "boolean"
         },
         "InventoryTrackingType": {
           "format": "int32",
-          "description": "Stock item tracking type. 0 = none. 1 = Ordered by Sell by Date. 2 = Ordered by Priority Sequence",
           "type": "integer"
         },
         "BatchNumberScanRequired": {
-          "description": "User must scan batch number when procesing orders",
           "type": "boolean"
         },
         "SerialNumberScanRequired": {
-          "description": "User must scan item serial number when processing ordesr",
           "type": "boolean"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
@@ -3678,26 +3462,21 @@
       "properties": {
         "Quantity": {
           "format": "int32",
-          "description": "Sold quantity",
           "type": "integer"
         },
         "ItemNumber": {
-          "description": "Item SKU",
           "type": "string"
         },
         "ItemTitle": {
-          "description": "Item title",
           "type": "string"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
@@ -3706,53 +3485,43 @@
       "type": "object",
       "properties": {
         "SupplierName": {
-          "description": "Supplier name",
           "type": "string"
         },
         "Location": {
-          "$ref": "#/definitions/InventoryStockLocation",
-          "description": "Stock location to be delivered to"
+          "$ref": "#/definitions/InventoryStockLocation"
         },
         "SupplierId": {
           "format": "uuid",
-          "description": "Supplier ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "DateOfPurchase": {
           "format": "date-time",
-          "description": "Date of PO purchase",
           "type": "string"
         },
         "QuotedDeliveryDate": {
           "format": "date-time",
-          "description": "PO delivery date",
           "type": "string"
         },
         "Quantity": {
           "format": "int32",
-          "description": "Quantity to be delived",
           "type": "integer"
         },
         "Delivered": {
           "format": "int32",
-          "description": "Delivered quantity",
           "type": "integer"
         },
         "UnitCost": {
           "format": "double",
-          "description": "Unit cost",
           "type": "number"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
@@ -3762,32 +3531,26 @@
       "properties": {
         "Year": {
           "format": "int32",
-          "description": "What year it was returned",
           "type": "integer"
         },
         "Month": {
           "format": "int32",
-          "description": "what month item was returned",
           "type": "integer"
         },
         "Reason": {
-          "description": "Return reason",
           "type": "string"
         },
         "Quantity": {
           "format": "int32",
-          "description": "Quantity returned",
           "type": "integer"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
@@ -3797,37 +3560,30 @@
       "properties": {
         "Year": {
           "format": "int32",
-          "description": "Year item was scraped",
           "type": "integer"
         },
         "Month": {
           "format": "int32",
-          "description": "Month item was scraped",
           "type": "integer"
         },
         "Reason": {
-          "description": "Reason item was scrapped",
           "type": "string"
         },
         "Quantity": {
           "format": "int32",
-          "description": "Scraped quantity",
           "type": "integer"
         },
         "Cost": {
           "format": "double",
-          "description": "Cost of scraped item",
           "type": "number"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
@@ -3836,31 +3592,25 @@
       "type": "object",
       "properties": {
         "Source": {
-          "description": "ChannelName/Source (e.g. EBAY)",
           "type": "string"
         },
         "Quantity": {
           "format": "int32",
-          "description": "Sold quantity",
           "type": "integer"
         },
         "Total": {
           "format": "double",
-          "description": "Total price stock was sold for",
           "type": "number"
         },
         "Cost": {
           "format": "double",
-          "description": "Total cost of sold stock",
           "type": "number"
         },
         "ProfitMargin": {
           "format": "double",
-          "description": "Profit margin",
           "type": "number"
         },
         "Detail": {
-          "description": "Sold stat inforamtion",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemSoldStatDetail"
@@ -3868,13 +3618,11 @@
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
@@ -3883,31 +3631,25 @@
       "type": "object",
       "properties": {
         "Subsource": {
-          "description": "Subsource (e.g EBAY1)",
           "type": "string"
         },
         "Quantity": {
           "format": "int32",
-          "description": "Quantity",
           "type": "integer"
         },
         "Total": {
           "format": "double",
-          "description": "Total price stock was sold for",
           "type": "number"
         },
         "Cost": {
           "format": "double",
-          "description": "Total cost of sold stock",
           "type": "number"
         },
         "ProfitMargin": {
           "format": "double",
-          "description": "Profit margine",
           "type": "number"
         },
         "Detail": {
-          "description": "List of sold stock item information details",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemSoldStatFinalDetail"
@@ -3920,27 +3662,22 @@
       "properties": {
         "Date": {
           "format": "date-time",
-          "description": "When stock was sold",
           "type": "string"
         },
         "Quantity": {
           "format": "int32",
-          "description": "Quantity of sold stock",
           "type": "integer"
         },
         "Total": {
           "format": "double",
-          "description": "Total price stock was sold for",
           "type": "number"
         },
         "Cost": {
           "format": "double",
-          "description": "Total cost of sold stock",
           "type": "number"
         },
         "ProfitMargin": {
           "format": "double",
-          "description": "Profit margin",
           "type": "number"
         }
       }
@@ -4004,33 +3741,27 @@
       }
     },
     "BookInStockItem": {
-      "description": "Book in parameters used to update stock items",
       "type": "object",
       "properties": {
         "StockItemId": {
           "format": "uuid",
-          "description": "Id of the stock item",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "LocationId": {
           "format": "uuid",
-          "description": "Id of the location",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "QuantityReceived": {
           "format": "int32",
-          "description": "Quantity to be booked in",
           "type": "integer"
         },
         "CostPerUnit": {
           "format": "double",
-          "description": "Cost of the item for this order",
           "type": "number"
         },
         "BinRack": {
-          "description": "Binrack of the item to be booked in.",
           "type": "string"
         }
       }
@@ -4052,47 +3783,38 @@
       "properties": {
         "BatchId": {
           "format": "int32",
-          "description": "Batch ID",
           "type": "integer"
         },
         "SKU": {
-          "description": "Product SKU",
           "type": "string"
         },
         "InventoryTrackingType": {
           "format": "int32",
-          "description": "0 - None, 1 - Order by sell by date, 2 - Ordered by priority sequence",
           "type": "integer"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Product ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "BatchNumber": {
-          "description": "Batch number",
           "type": "string"
         },
         "ExpiresOn": {
           "format": "date-time",
-          "description": "Batch expiry date",
           "type": "string"
         },
         "SellBy": {
           "format": "date-time",
-          "description": "Batch sell by date",
           "type": "string"
         },
         "Inventory": {
-          "description": "Batch records",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemBatchInventory"
           }
         },
         "IsDeleted": {
-          "description": "Is the batch deleted",
           "type": "boolean"
         }
       }
@@ -4102,80 +3824,64 @@
       "properties": {
         "BatchInventoryId": {
           "format": "int32",
-          "description": "Stock item batch record ID",
           "type": "integer"
         },
         "BatchId": {
           "format": "int32",
-          "description": "Batch ID",
           "type": "integer"
         },
         "StockLocationId": {
           "format": "uuid",
-          "description": "Location ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "BinRack": {
-          "description": "BinRack",
           "type": "string"
         },
         "PrioritySequence": {
           "format": "int32",
-          "description": "Pick order",
           "type": "integer"
         },
         "Quantity": {
           "format": "int32",
-          "description": "Quantity",
           "type": "integer"
         },
         "StockValue": {
           "format": "double",
-          "description": "Current stock value",
           "type": "number"
         },
         "StartQuantity": {
           "format": "int32",
-          "description": "Quantity originally booked in",
           "type": "integer",
           "readOnly": true
         },
         "PickedQuantity": {
           "format": "int32",
-          "description": "Indicate how many units are now allocated in open orders",
           "type": "integer"
         },
         "BatchStatus": {
-          "description": "Batch Status",
           "type": "string"
         },
         "IsDeleted": {
-          "description": "Is BatchInventory deleted",
           "type": "boolean"
         },
         "WarehouseBinrackStandardType": {
           "format": "int32",
-          "description": "Warehouse binrack standard type",
           "type": "integer"
         },
         "WarehouseBinrackTypeName": {
-          "description": "Warehouse binrack type friendly name",
           "type": "string"
         },
         "InTransfer": {
           "format": "int32",
-          "description": "Number of items in Transfer phase.",
           "type": "integer"
         },
         "BinRackId": {
           "format": "int32",
-          "description": "Binrack Id (Use for WMS)",
           "type": "integer"
         },
         "WarehouseBinrackTypeId": {
           "format": "int32",
-          "description": "Warehouse binrack type unique id.",
           "type": "integer"
         }
       }
@@ -4193,35 +3899,28 @@
       "type": "object",
       "properties": {
         "SKU": {
-          "description": "Product SKU",
           "type": "string"
         },
         "BatchNumber": {
-          "description": "Batch number",
           "type": "string"
         },
         "LocationId": {
           "format": "uuid",
-          "description": "Location ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "BinRack": {
-          "description": "Bin rack",
           "type": "string"
         },
         "Quantity": {
           "format": "int32",
-          "description": "Quantity booked in",
           "type": "integer"
         },
         "StockValue": {
           "format": "double",
-          "description": "Stock value",
           "type": "number"
         },
         "BatchStatus": {
-          "description": "Batch status",
           "type": "string"
         },
         "PrioritySequence": {
@@ -4230,12 +3929,10 @@
         },
         "ExpiresOn": {
           "format": "date-time",
-          "description": "Batch expiry date",
           "type": "string"
         },
         "SellBy": {
           "format": "date-time",
-          "description": "Batch sell by date",
           "type": "string"
         }
       }
@@ -4301,104 +3998,82 @@
       }
     },
     "WarehouseBinRack": {
-      "description": "Warehouse binrack",
       "type": "object",
       "properties": {
         "BinRackId": {
           "format": "int32",
-          "description": "BinRack internal id",
           "type": "integer"
         },
         "BinRackTypeId": {
           "format": "int32",
-          "description": "BinRack type id",
           "type": "integer"
         },
         "BinRack": {
-          "description": "BinRack",
           "type": "string"
         },
         "GeoPosition": {
-          "$ref": "#/definitions/GeoPosition",
-          "description": "Geograpic position of the BinRack"
+          "$ref": "#/definitions/GeoPosition"
         },
         "Dimension": {
-          "$ref": "#/definitions/Dimension",
-          "description": "Dimention of the BinRack"
+          "$ref": "#/definitions/Dimension"
         },
         "RoutingSequence": {
           "format": "int32",
-          "description": "Sequence in which the picking or stock movement should be done. Routing.",
           "type": "integer"
         },
         "MaxCapacityVolumetric": {
           "format": "double",
-          "description": "Max capacity volume",
           "type": "number"
         },
         "CurrentFullPercentage": {
           "format": "double",
-          "description": "Maximum volumetric capacity of the location WxDxH = volumetric",
           "type": "number"
         },
         "MaxQuantityCapacity": {
           "format": "int32",
-          "description": "How full the bin rack is in percentage 0 to 100, based on the max quantity or max volumetric capacity. Updated everytime stock is moved in or out.",
           "type": "integer"
         },
         "CurrentQuantity": {
           "format": "int32",
-          "description": "Current total quantity of all items in the bin rack. Updated everytime stock is moved in or out.",
           "type": "integer"
         },
         "CurrentVolumetric": {
           "format": "double",
-          "description": "Current calculation of total volumetric total for all items in the binrack. Updated everytime stock is moved in or out.",
           "type": "number"
         },
         "OptimalReplenishFullPercentage": {
           "format": "double",
-          "description": "Based on the fill percentage, indicates the bin rack as needs replenishment. Auto recalculated based on the consumption.",
           "type": "number"
         },
         "CriticalReplenishFullPercentage": {
           "format": "double",
-          "description": "User fixed fill percentage. When it reaches this level the binrack is considered for replenishment.",
           "type": "number"
         },
         "ItemRestriction": {
-          "description": "Item Restriction",
           "type": "boolean"
         },
         "GroupRestriction": {
-          "description": "Group Restriction",
           "type": "boolean"
         },
         "LocationId": {
           "format": "uuid",
-          "description": "Location of the binrack.",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "TypeName": {
-          "description": "Readonly value of the TypeName loaded from BinRackTypeId",
           "type": "string"
         },
         "StandardType": {
           "format": "int32",
-          "description": "Readonly value of the Standard type loaded from BinRackTypeId",
           "type": "integer"
         },
         "IsVolumetric": {
-          "description": "Readonly value indicates if the Type is Volumumetric",
           "type": "boolean"
         },
         "AccessOrientation": {
-          "description": "Direction the item should be accessed from.",
           "type": "string"
         },
         "StorageGroups": {
-          "description": "List of storage groups either for the whole binrack or relevant to specific stock item.",
           "type": "array",
           "items": {
             "type": "string"
@@ -4406,60 +4081,49 @@
         },
         "UniqueSkus": {
           "format": "int32",
-          "description": "Unique skus in binrack.",
           "type": "integer"
         },
         "ItemsInfo": {
           "$ref": "#/definitions/WarehouseBinRackItemsInfo"
         },
         "BinrackType": {
-          "$ref": "#/definitions/WarehouseBinRackType",
-          "description": "Binrack type"
+          "$ref": "#/definitions/WarehouseBinRackType"
         },
         "IsValidForStockItem": {
-          "description": "Indicates if the binrack is valid for the supplied stockitem.",
           "type": "boolean"
         }
       }
     },
     "GeoPosition": {
-      "description": "Describes GeoPosition",
       "type": "object",
       "properties": {
         "X": {
           "format": "double",
-          "description": "X position",
           "type": "number"
         },
         "Y": {
           "format": "double",
-          "description": "Y position",
           "type": "number"
         },
         "Z": {
           "format": "double",
-          "description": "Z position",
           "type": "number"
         }
       }
     },
     "Dimension": {
-      "description": "Dimension",
       "type": "object",
       "properties": {
         "Width": {
           "format": "double",
-          "description": "Width",
           "type": "number"
         },
         "Depth": {
           "format": "double",
-          "description": "Depth",
           "type": "number"
         },
         "Height": {
           "format": "double",
-          "description": "Height",
           "type": "number"
         }
       }
@@ -4482,35 +4146,28 @@
       }
     },
     "WarehouseBinRackType": {
-      "description": "Bin Rack Type",
       "type": "object",
       "properties": {
         "BinRackTypeId": {
           "format": "int32",
-          "description": "Binrack type id - unique record identifier",
           "type": "integer"
         },
         "Name": {
-          "description": "Custom name for bin rack type",
           "type": "string"
         },
         "StandardType": {
           "format": "int32",
-          "description": "Binrack Standard Type  Id \r\n1 - Picking\r\n2 - Special Access Picking\r\n3 - Storage\r\n4 - Deep Storage\r\n5 - Putaway\r\n6 - Quality Assurance\r\n7 - Scrap / Quarantine\r\n8 - Returns\r\n0 - Flexible",
           "type": "integer"
         },
         "LocationBound": {
           "format": "uuid",
-          "description": "Identifies whether the bin rack type is bound to a specific location",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "IsVolumetric": {
-          "description": "Is type restricted to volumetric measurements only",
           "type": "boolean"
         },
         "DefaultBatchStatus": {
-          "description": "Sets the default status for batches in this binrack type",
           "enum": [
             "Unchanged",
             "Available",
@@ -4640,16 +4297,13 @@
       "type": "object",
       "properties": {
         "BinrackFrom": {
-          "$ref": "#/definitions/WarehouseBinRack",
-          "description": "Moving from bin rack"
+          "$ref": "#/definitions/WarehouseBinRack"
         },
         "BinrackDestination": {
-          "$ref": "#/definitions/WarehouseBinRack",
-          "description": "Destination if known, otherwise will be null"
+          "$ref": "#/definitions/WarehouseBinRack"
         },
         "Batch": {
-          "$ref": "#/definitions/StockItemBatch",
-          "description": "Detailed batch information, batch inventory is in Inventory class"
+          "$ref": "#/definitions/StockItemBatch"
         },
         "MoveId": {
           "format": "int32",
@@ -4696,18 +4350,15 @@
         },
         "BatchId": {
           "format": "int32",
-          "description": "Batch Id, more detailed information about the batch is in Batch class",
           "type": "integer"
         },
         "StockLocationId": {
           "format": "uuid",
-          "description": "Stock Location Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "TotId": {
           "format": "int32",
-          "description": "Tot Id",
           "type": "integer"
         }
       }
@@ -4870,42 +4521,34 @@
       "properties": {
         "PickingWaveItemsRowId": {
           "format": "int32",
-          "description": "Pickwave Row Id",
           "type": "integer"
         },
         "PickingWaveId": {
           "format": "int32",
-          "description": "Pickwave Id",
           "type": "integer"
         },
         "UserName": {
-          "description": "User name to whom the pickwave was/is allocated. If unallocated this will be null",
           "type": "string"
         },
         "ToPickQuantity": {
           "format": "int32",
-          "description": "Total Quantity to pick",
           "type": "integer"
         },
         "PickedQuantity": {
           "format": "int32",
-          "description": "Picked quantity",
           "type": "integer"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "OrderId": {
           "format": "int32",
-          "description": "Order Id",
           "type": "integer"
         },
         "UserId": {
           "format": "int32",
-          "description": "User Id to whom the pickwave was/is allocated. If unallocated this will be null",
           "type": "integer"
         }
       }
@@ -5135,126 +4778,100 @@
       }
     },
     "StockItemHeader": {
-      "description": "Stock Item header information",
       "type": "object",
       "properties": {
         "ItemNumber": {
-          "description": "SKU",
           "type": "string"
         },
         "ItemTitle": {
-          "description": "Item title",
           "type": "string"
         },
         "BarcodeNumber": {
-          "description": "Barcode number",
           "type": "string"
         },
         "MetaData": {
-          "description": "Item description",
           "type": "string"
         },
         "IsVariationParent": {
-          "description": "Is Variation Parent",
           "type": "boolean"
         },
         "isBatchedStockType": {
-          "description": "Returns true is the stock item is tracked by batch",
           "type": "boolean",
           "readOnly": true
         },
         "PurchasePrice": {
           "format": "double",
-          "description": "Default item purchase price",
           "type": "number"
         },
         "RetailPrice": {
           "format": "double",
-          "description": "Default item retail price",
           "type": "number"
         },
         "TaxRate": {
           "format": "double",
-          "description": "Default item tax rate. Set -1 to use country tax rate",
           "type": "number"
         },
         "PostalServiceId": {
           "format": "uuid",
-          "description": "Default postal service id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PostalServiceName": {
-          "description": "Default postal service name",
           "type": "string"
         },
         "CategoryId": {
           "format": "uuid",
-          "description": "Default category id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "CategoryName": {
-          "description": "Default category name",
           "type": "string"
         },
         "PackageGroupId": {
           "format": "uuid",
-          "description": "Default package group id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PackageGroupName": {
-          "description": "Default package group name",
           "type": "string"
         },
         "Height": {
           "format": "double",
-          "description": "Item height",
           "type": "number"
         },
         "Width": {
           "format": "double",
-          "description": "Item width",
           "type": "number"
         },
         "Depth": {
           "format": "double",
-          "description": "Item depth",
           "type": "number"
         },
         "Weight": {
           "format": "double",
-          "description": "Item weight",
           "type": "number"
         },
         "CreationDate": {
           "format": "date-time",
-          "description": "Stock item creation date",
           "type": "string"
         },
         "InventoryTrackingType": {
           "format": "int32",
-          "description": "Stock item tracking type. 0 = none. 1 = Ordered by Sell by Date. 2 = Ordered by Priority Sequence",
           "type": "integer"
         },
         "BatchNumberScanRequired": {
-          "description": "User must scan batch number when procesing orders",
           "type": "boolean"
         },
         "SerialNumberScanRequired": {
-          "description": "User must scan item serial number when processing ordesr",
           "type": "boolean"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
@@ -5389,13 +5006,11 @@
       "properties": {
         "StockItemId": {
           "format": "uuid",
-          "description": "StockItemId",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockLocationId": {
           "format": "uuid",
-          "description": "StockLocationId",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }
@@ -5417,27 +5032,22 @@
       "properties": {
         "StockLocationId": {
           "format": "uuid",
-          "description": "Stock location ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "LocationName": {
-          "description": "Location name",
           "type": "string"
         },
         "BinRack": {
-          "description": "BinRack",
           "type": "string"
         },
         "StockItemId": {
           "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
-          "description": "Stock Item interger Id",
           "type": "integer"
         }
       }
