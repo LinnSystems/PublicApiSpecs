@@ -29,7 +29,7 @@ pipelines:
                 - npx rdme@v8 openapi '1.0/email.json' --key=$key --id=645bae620b0c650ab6a09182
                 - npx rdme@v8 openapi '1.0/genericlistings.json' --key=$key --id=6464e9b6184fd9013a81af12
                 - npx rdme@v8 openapi '1.0/importexport.json' --key=$key --id=64634e380dccda005a740517
-                - npx rdme@v8 openapi '1.0/inventory.json' --key=$key --id=643e789a87fe590058dbb66c
+                - npx rdme@v8 openapi '1.0/inventory.json' --key=$key --id=6426bb7adc16ce004b5e379d
                 - npx rdme@v8 openapi '1.0/listings.json' --key=$key --id=646b2d18f8d2410013e02986
                 - npx rdme@v8 openapi '1.0/locations.json' --key=$key --id=645b76cc511cd111e76d6039
                 - npx rdme@v8 openapi '1.0/macro.json' --key=$key --id=6454fb0267be7d1325fdea68
