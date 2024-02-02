@@ -965,8 +965,8 @@
             "description": "The rule type.",
             "type": "string",
             "enum": [
-              "Test",
-              "Orders"
+              "Orders",
+              "Test"
             ]
           }
         ],
@@ -1718,19 +1718,19 @@
         "RuleName": {
           "type": "string"
         },
-        "Enabled": {
-          "type": "boolean"
-        },
-        "RunOrder": {
-          "format": "int32",
-          "type": "integer"
-        },
         "RuleType": {
           "enum": [
             "Test",
             "Orders"
           ],
           "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "RunOrder": {
+          "format": "int32",
+          "type": "integer"
         },
         "pkRuleId_Draft": {
           "format": "int32",

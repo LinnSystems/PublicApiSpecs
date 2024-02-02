@@ -4147,6 +4147,28 @@
     "CommonPurchaseOrderAdditionalCost": {
       "type": "object",
       "properties": {
+        "AllocationLocked": {
+          "type": "boolean"
+        },
+        "AdditionalCostTypeName": {
+          "type": "string"
+        },
+        "AdditionalCostTypeIsShippingType": {
+          "type": "boolean"
+        },
+        "AdditionalCostTypeIsPartialAllocation": {
+          "type": "boolean"
+        },
+        "Print": {
+          "type": "boolean"
+        },
+        "AllocationMethod": {
+          "enum": [
+            "ByValue",
+            "ByCBM"
+          ],
+          "type": "string"
+        },
         "PurchaseAdditionalCostItemId": {
           "format": "int32",
           "type": "integer"
@@ -4186,28 +4208,6 @@
           "items": {
             "$ref": "#/definitions/CommonPurchaseOrderAdditionalCostAllocation"
           }
-        },
-        "AllocationLocked": {
-          "type": "boolean"
-        },
-        "AdditionalCostTypeName": {
-          "type": "string"
-        },
-        "AdditionalCostTypeIsShippingType": {
-          "type": "boolean"
-        },
-        "AdditionalCostTypeIsPartialAllocation": {
-          "type": "boolean"
-        },
-        "Print": {
-          "type": "boolean"
-        },
-        "AllocationMethod": {
-          "enum": [
-            "ByValue",
-            "ByCBM"
-          ],
-          "type": "string"
         }
       }
     },
