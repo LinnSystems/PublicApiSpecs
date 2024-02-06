@@ -2737,15 +2737,15 @@
         "Locked": {
           "type": "boolean"
         },
-        "UnitAmountTaxIncludedType": {
-          "format": "int32",
-          "type": "integer"
-        },
         "LineCount": {
           "format": "int32",
           "type": "integer"
         },
         "DeliveredLinesCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UnitAmountTaxIncludedType": {
           "format": "int32",
           "type": "integer"
         },
@@ -4147,28 +4147,6 @@
     "CommonPurchaseOrderAdditionalCost": {
       "type": "object",
       "properties": {
-        "AllocationLocked": {
-          "type": "boolean"
-        },
-        "AdditionalCostTypeName": {
-          "type": "string"
-        },
-        "AdditionalCostTypeIsShippingType": {
-          "type": "boolean"
-        },
-        "AdditionalCostTypeIsPartialAllocation": {
-          "type": "boolean"
-        },
-        "Print": {
-          "type": "boolean"
-        },
-        "AllocationMethod": {
-          "enum": [
-            "ByValue",
-            "ByCBM"
-          ],
-          "type": "string"
-        },
         "PurchaseAdditionalCostItemId": {
           "format": "int32",
           "type": "integer"
@@ -4208,6 +4186,28 @@
           "items": {
             "$ref": "#/definitions/CommonPurchaseOrderAdditionalCostAllocation"
           }
+        },
+        "AllocationLocked": {
+          "type": "boolean"
+        },
+        "AdditionalCostTypeName": {
+          "type": "string"
+        },
+        "AdditionalCostTypeIsShippingType": {
+          "type": "boolean"
+        },
+        "AdditionalCostTypeIsPartialAllocation": {
+          "type": "boolean"
+        },
+        "Print": {
+          "type": "boolean"
+        },
+        "AllocationMethod": {
+          "enum": [
+            "ByValue",
+            "ByCBM"
+          ],
+          "type": "string"
         }
       }
     },
