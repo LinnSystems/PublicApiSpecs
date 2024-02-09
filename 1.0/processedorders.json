@@ -2276,9 +2276,13 @@
     "ProcessedOrderWeb": {
       "type": "object",
       "properties": {
-        "nOrderId": {
-          "format": "int32",
-          "type": "integer"
+        "pkOrderID": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "cShippingAddress": {
+          "type": "string"
         },
         "dReceivedDate": {
           "format": "date-time",
@@ -2288,59 +2292,21 @@
           "format": "date-time",
           "type": "string"
         },
-        "cEmailAddress": {
-          "type": "string"
-        },
-        "cFullName": {
-          "type": "string"
-        },
-        "cCountry": {
-          "type": "string"
-        },
-        "Source": {
-          "type": "string"
-        },
-        "SubSource": {
-          "type": "string"
-        },
-        "PostalServiceName": {
-          "type": "string"
-        },
-        "PostalTrackingNumber": {
-          "type": "string"
-        },
-        "fTotalCharge": {
-          "format": "double",
-          "type": "number"
-        },
-        "cCurrency": {
-          "type": "string"
-        },
         "timeDiff": {
           "format": "double",
           "type": "number"
-        },
-        "AccountName": {
-          "type": "string"
         },
         "fPostageCost": {
           "format": "double",
           "type": "number"
         },
-        "IsResend": {
-          "type": "boolean"
+        "fTotalCharge": {
+          "format": "double",
+          "type": "number"
         },
-        "IsExchange": {
-          "type": "boolean"
-        },
-        "ChannelBuyerName": {
-          "type": "string"
-        },
-        "BuyerPhoneNumber": {
-          "type": "string"
-        },
-        "Company": {
-          "type": "string"
+        "PostageCostExTax": {
+          "format": "double",
+          "type": "number"
         },
         "Subtotal": {
           "format": "double",
@@ -2350,13 +2316,58 @@
           "format": "double",
           "type": "number"
         },
-        "PostageCostExTax": {
+        "TotalDiscount": {
+          "format": "double",
+          "type": "number"
+        },
+        "ProfitMargin": {
           "format": "double",
           "type": "number"
         },
         "CountryTaxRate": {
           "format": "double",
           "type": "number"
+        },
+        "nOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nStatus": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "cCurrency": {
+          "type": "string"
+        },
+        "PostalTrackingNumber": {
+          "type": "string"
+        },
+        "cCountry": {
+          "type": "string"
+        },
+        "Source": {
+          "type": "string"
+        },
+        "PostalServiceName": {
+          "type": "string"
+        },
+        "PostalServiceCode": {
+          "type": "string"
+        },
+        "Vendor": {
+          "type": "string"
+        },
+        "BillingEmailAddress": {
+          "type": "string"
+        },
+        "ReferenceNum": {
+          "type": "string"
+        },
+        "SecondaryReference": {
+          "type": "string"
+        },
+        "ExternalReference": {
+          "type": "string"
         },
         "Address1": {
           "type": "string"
@@ -2373,59 +2384,36 @@
         "Region": {
           "type": "string"
         },
+        "BuyerPhoneNumber": {
+          "type": "string"
+        },
+        "Company": {
+          "type": "string"
+        },
+        "SubSource": {
+          "type": "string"
+        },
+        "ChannelBuyerName": {
+          "type": "string"
+        },
+        "AccountName": {
+          "type": "string"
+        },
+        "cFullName": {
+          "type": "string"
+        },
+        "cEmailAddress": {
+          "type": "string"
+        },
         "cPostCode": {
-          "type": "string"
-        },
-        "ReferenceNum": {
-          "type": "string"
-        },
-        "ExternalReference": {
-          "type": "string"
-        },
-        "SecondaryReference": {
-          "type": "string"
-        },
-        "PostalServiceCode": {
           "type": "string"
         },
         "dPaidOn": {
           "format": "date-time",
           "type": "string"
         },
-        "TaxId": {
-          "type": "string"
-        },
         "dCancelledOn": {
           "format": "date-time",
-          "type": "string"
-        },
-        "nStatus": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "FulfilmentLocationName": {
-          "type": "string"
-        },
-        "pkOrderID": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "cShippingAddress": {
-          "type": "string"
-        },
-        "TotalDiscount": {
-          "format": "double",
-          "type": "number"
-        },
-        "ProfitMargin": {
-          "format": "double",
-          "type": "number"
-        },
-        "Vendor": {
-          "type": "string"
-        },
-        "BillingEmailAddress": {
           "type": "string"
         },
         "PackageCategory": {
@@ -2480,6 +2468,18 @@
         },
         "HoldOrCancel": {
           "type": "boolean"
+        },
+        "IsResend": {
+          "type": "boolean"
+        },
+        "IsExchange": {
+          "type": "boolean"
+        },
+        "TaxId": {
+          "type": "string"
+        },
+        "FulfilmentLocationName": {
+          "type": "string"
         }
       }
     },
@@ -2839,9 +2839,10 @@
     "ProcessedOrderRelation": {
       "type": "object",
       "properties": {
-        "ChildOrderId": {
-          "format": "int32",
-          "type": "integer"
+        "ParentOrderPkOrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
         },
         "ChildOrderPkOrderId": {
           "format": "uuid",
@@ -2852,10 +2853,9 @@
           "format": "int32",
           "type": "integer"
         },
-        "ParentOrderPkOrderId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
+        "ChildOrderId": {
+          "format": "int32",
+          "type": "integer"
         },
         "RelationType": {
           "type": "string"
