@@ -119,8 +119,8 @@
             "description": "The rule type.",
             "type": "string",
             "enum": [
-              "Test",
-              "Orders"
+              "Orders",
+              "Test"
             ]
           },
           {
@@ -219,8 +219,8 @@
             "description": "The rule type",
             "type": "string",
             "enum": [
-              "Test",
-              "Orders"
+              "Orders",
+              "Test"
             ]
           },
           {
@@ -354,8 +354,8 @@
             "description": "The rule type.",
             "type": "string",
             "enum": [
-              "Test",
-              "Orders"
+              "Orders",
+              "Test"
             ]
           }
         ],
@@ -486,8 +486,8 @@
             "description": "The rule type.",
             "type": "string",
             "enum": [
-              "Test",
-              "Orders"
+              "Orders",
+              "Test"
             ]
           }
         ],
@@ -965,8 +965,8 @@
             "description": "The rule type.",
             "type": "string",
             "enum": [
-              "Test",
-              "Orders"
+              "Orders",
+              "Test"
             ]
           }
         ],
@@ -1612,8 +1612,8 @@
         "type": {
           "description": "The rule type.",
           "enum": [
-            "Test",
-            "Orders"
+            "Orders",
+            "Test"
           ],
           "type": "string"
         },
@@ -1680,8 +1680,8 @@
         "type": {
           "description": "The rule type.",
           "enum": [
-            "Test",
-            "Orders"
+            "Orders",
+            "Test"
           ],
           "type": "string"
         },
@@ -1718,19 +1718,19 @@
         "RuleName": {
           "type": "string"
         },
+        "RuleType": {
+          "enum": [
+            "Orders",
+            "Test"
+          ],
+          "type": "string"
+        },
         "Enabled": {
           "type": "boolean"
         },
         "RunOrder": {
           "format": "int32",
           "type": "integer"
-        },
-        "RuleType": {
-          "enum": [
-            "Test",
-            "Orders"
-          ],
-          "type": "string"
         },
         "pkRuleId_Draft": {
           "format": "int32",
@@ -2288,8 +2288,8 @@
         "type": {
           "description": "The rule type.",
           "enum": [
-            "Test",
-            "Orders"
+            "Orders",
+            "Test"
           ],
           "type": "string"
         }

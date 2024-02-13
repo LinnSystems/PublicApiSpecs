@@ -2831,10 +2831,6 @@
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
-        "StockItemIntId": {
-          "format": "int32",
-          "type": "integer"
-        },
         "Quantity": {
           "format": "int32",
           "type": "integer"
@@ -2888,18 +2884,11 @@
           "format": "double",
           "type": "number"
         },
-        "BarcodeNumber": {
-          "type": "string"
-        },
         "DimDepth": {
           "format": "double",
           "type": "number"
         },
-        "BoundToOpenOrdersItems": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "BinRack": {
+        "BarcodeNumber": {
           "type": "string"
         },
         "QuantityBoundToOpenOrdersItems": {
@@ -2909,8 +2898,19 @@
         "SupplierCode": {
           "type": "string"
         },
+        "BinRack": {
+          "type": "string"
+        },
         "SupplierBarcode": {
           "type": "string"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BoundToOpenOrdersItems": {
+          "format": "int32",
+          "type": "integer"
         },
         "SkuGroupIds": {
           "type": "array",
