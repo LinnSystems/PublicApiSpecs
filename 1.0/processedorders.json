@@ -2276,6 +2276,13 @@
     "ProcessedOrderWeb": {
       "type": "object",
       "properties": {
+        "ReferenceNum": {
+          "type": "string"
+        },
+        "nOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
         "pkOrderID": {
           "format": "uuid",
           "type": "string",
@@ -2328,10 +2335,6 @@
           "format": "double",
           "type": "number"
         },
-        "nOrderId": {
-          "format": "int32",
-          "type": "integer"
-        },
         "nStatus": {
           "format": "int32",
           "type": "integer"
@@ -2358,9 +2361,6 @@
           "type": "string"
         },
         "BillingEmailAddress": {
-          "type": "string"
-        },
-        "ReferenceNum": {
           "type": "string"
         },
         "SecondaryReference": {
