@@ -6765,13 +6765,13 @@
     "ConfigItem_String": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6790,13 +6790,13 @@
     "ConfigItem_Boolean": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
