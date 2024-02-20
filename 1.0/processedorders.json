@@ -2276,13 +2276,6 @@
     "ProcessedOrderWeb": {
       "type": "object",
       "properties": {
-        "ReferenceNum": {
-          "type": "string"
-        },
-        "nOrderId": {
-          "format": "int32",
-          "type": "integer"
-        },
         "pkOrderID": {
           "format": "uuid",
           "type": "string",
@@ -2335,6 +2328,10 @@
           "format": "double",
           "type": "number"
         },
+        "nOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
         "nStatus": {
           "format": "int32",
           "type": "integer"
@@ -2361,6 +2358,9 @@
           "type": "string"
         },
         "BillingEmailAddress": {
+          "type": "string"
+        },
+        "ReferenceNum": {
           "type": "string"
         },
         "SecondaryReference": {
@@ -2865,16 +2865,6 @@
     "SplitPackaging": {
       "type": "object",
       "properties": {
-        "BinIndex": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "ItemTitle": {
-          "type": "string"
-        },
-        "PackageTitle": {
-          "type": "string"
-        },
         "pkBinId": {
           "format": "uuid",
           "type": "string",
@@ -2885,19 +2875,29 @@
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
-        "Quantity": {
-          "format": "int32",
-          "type": "integer"
+        "PackageTitle": {
+          "type": "string"
         },
         "SKU": {
           "type": "string"
         },
-        "TrackingNumber": {
+        "ItemTitle": {
           "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
         },
         "Weight": {
           "format": "double",
           "type": "number"
+        },
+        "TrackingNumber": {
+          "type": "string"
+        },
+        "BinIndex": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },
