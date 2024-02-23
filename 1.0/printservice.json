@@ -404,7 +404,7 @@
           }
         },
         "printerName": {
-          "description": "printer name of the ivrtual printer to use. If null then the sepecified in the template",
+          "description": "printer name of the virtual printer to use. If null then the sepecified in the template",
           "type": "string"
         },
         "printZoneCode": {
@@ -413,15 +413,18 @@
         },
         "pageStartNumber": {
           "format": "int32",
+          "description": "The starting page of the document to generate from (optional, default to 0)",
           "type": "integer"
         },
         "operationId": {
           "format": "uuid",
+          "description": "The ID of the current operation, used in logging for tracing (optional, default to null)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "context": {
-          "$ref": "#/definitions/ClientContext"
+          "$ref": "#/definitions/ClientContext",
+          "description": "Information about where the call came from"
         }
       }
     },
@@ -585,16 +588,18 @@
         },
         "pageStartNumber": {
           "format": "int32",
-          "description": "First page number. Used for splitting prints into multiple requests.",
+          "description": "First page number. Used for splitting prints into multiple requests (optional, default to 0)",
           "type": "integer"
         },
         "operationId": {
           "format": "uuid",
+          "description": "The ID of the current operation, used in logging for tracing (optional, default to null)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "context": {
-          "$ref": "#/definitions/ClientContext"
+          "$ref": "#/definitions/ClientContext",
+          "description": "Information about where the call came from"
         }
       }
     },
