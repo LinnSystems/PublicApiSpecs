@@ -8218,11 +8218,6 @@
           "format": "double",
           "type": "number"
         },
-        "Rowguid": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "Width": {
           "format": "double",
           "type": "number"
@@ -8234,6 +8229,11 @@
         "Depth": {
           "format": "double",
           "type": "number"
+        },
+        "Rowguid": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
         }
       }
     },
