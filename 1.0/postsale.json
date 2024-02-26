@@ -135,6 +135,9 @@
           "$ref": "#/definitions/OrderDetails",
           "readOnly": true
         },
+        "CancellationHeader": {
+          "$ref": "#/definitions/OrderRefundHeader"
+        },
         "AllowRefundOnCancel": {
           "type": "boolean",
           "readOnly": true
@@ -164,7 +167,9 @@
             "ServiceRefund",
             "ItemReturn",
             "InsufficientRefund",
-            "AdditionalRefund"
+            "AdditionalRefund",
+            "RejectReturn",
+            "RejectRefund"
           ],
           "type": "string"
         },
@@ -247,6 +252,66 @@
           "type": "string"
         },
         "TaxId": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderRefundHeader": {
+      "type": "object",
+      "properties": {
+        "RefundHeaderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Currency": {
+          "type": "string"
+        },
+        "Amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "RefundLines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VerifiedRefund"
+          }
+        },
+        "RefundLink": {
+          "type": "string"
+        },
+        "OrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "NumOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus"
+        },
+        "OrderSource": {
+          "type": "string"
+        },
+        "OrderSubSource": {
+          "type": "string"
+        },
+        "ExternalReference": {
+          "type": "string"
+        },
+        "ChannelInitiated": {
+          "type": "boolean"
+        },
+        "CreatedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Actioned": {
+          "type": "boolean"
+        },
+        "LastActionDate": {
+          "format": "date-time",
           "type": "string"
         }
       }
@@ -764,6 +829,123 @@
         }
       }
     },
+    "VerifiedRefund": {
+      "type": "object",
+      "properties": {
+        "RefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "RefundHeaderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus"
+        },
+        "RefundedUnit": {
+          "enum": [
+            "Item",
+            "Shipping",
+            "Service",
+            "Additional"
+          ],
+          "type": "string"
+        },
+        "IsShippingRefund": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "IsAdditionalRefund": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "IsCancellation": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "RefundedItem": {
+          "$ref": "#/definitions/VerifiedRefundItem"
+        },
+        "ValidationError": {
+          "type": "string"
+        },
+        "Error": {
+          "type": "string"
+        },
+        "Errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RefundError"
+          }
+        },
+        "Actioned": {
+          "type": "boolean"
+        },
+        "ActionedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ChannelInitiated": {
+          "type": "boolean"
+        },
+        "Internal": {
+          "type": "boolean"
+        },
+        "Deleted": {
+          "type": "boolean"
+        },
+        "ExternalReference": {
+          "type": "string"
+        },
+        "IsFreeText": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "FreeTextOrNote": {
+          "type": "string"
+        },
+        "Amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReasonTag": {
+          "type": "string"
+        },
+        "SubReasonTag": {
+          "type": "string"
+        },
+        "InsufficientRefundTag": {
+          "type": "string"
+        },
+        "InsufficientRefundNote": {
+          "type": "string"
+        }
+      }
+    },
+    "PostSaleStatus": {
+      "type": "object",
+      "properties": {
+        "StatusHeader": {
+          "enum": [
+            "OPEN",
+            "PROCESSED",
+            "ERROR",
+            "ERROR_ACKED",
+            "PENDING"
+          ],
+          "type": "string"
+        },
+        "StatusDetail": {
+          "$ref": "#/definitions/PostSaleSubStatus"
+        }
+      }
+    },
     "Identifier": {
       "type": "object",
       "properties": {
@@ -981,6 +1163,80 @@
         }
       }
     },
+    "VerifiedRefundItem": {
+      "type": "object",
+      "properties": {
+        "OrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ReturnRowId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ItemSKU": {
+          "type": "string"
+        },
+        "ChannelSKU": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "Cost": {
+          "format": "double",
+          "type": "number"
+        },
+        "CancelledQuantity": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "RefundError": {
+      "type": "object",
+      "properties": {
+        "RefundRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ErrorMessage": {
+          "type": "string"
+        },
+        "DateStamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Acknowledged": {
+          "type": "boolean"
+        }
+      }
+    },
+    "PostSaleSubStatus": {
+      "type": "object",
+      "properties": {
+        "StatusTag": {
+          "type": "string"
+        },
+        "StatusDescription": {
+          "type": "string"
+        },
+        "Actionable": {
+          "type": "boolean"
+        },
+        "ActionDescription": {
+          "type": "string"
+        },
+        "EditableFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "PostSale_CreateCancellationRequest": {
       "type": "object",
       "properties": {
@@ -1127,6 +1383,9 @@
           "$ref": "#/definitions/OrderDetails",
           "readOnly": true
         },
+        "CancellationHeader": {
+          "$ref": "#/definitions/OrderRefundHeader"
+        },
         "AllowRefundOnCancel": {
           "type": "boolean",
           "readOnly": true
@@ -1134,29 +1393,6 @@
         "OrderIsLockedOnUnhandledError": {
           "type": "boolean",
           "readOnly": true
-        }
-      }
-    },
-    "PostSaleSubStatus": {
-      "type": "object",
-      "properties": {
-        "StatusTag": {
-          "type": "string"
-        },
-        "StatusDescription": {
-          "type": "string"
-        },
-        "Actionable": {
-          "type": "boolean"
-        },
-        "ActionDescription": {
-          "type": "string"
-        },
-        "EditableFields": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
         }
       }
     },

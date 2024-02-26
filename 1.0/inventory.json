@@ -6478,6 +6478,9 @@
           ],
           "type": "string"
         },
+        "Site": {
+          "type": "string"
+        },
         "Value": {
           "type": "string"
         },
@@ -6486,9 +6489,6 @@
           "type": "string"
         },
         "ModifiedUserName": {
-          "type": "string"
-        },
-        "Site": {
           "type": "string"
         }
       }
@@ -6605,29 +6605,44 @@
         "BopisSupported": {
           "$ref": "#/definitions/ConfigItem_Boolean"
         },
+        "ProcessPosOrders": {
+          "$ref": "#/definitions/ConfigProperty_Boolean"
+        },
         "DespatchNotes": {
           "$ref": "#/definitions/ConfigItem_Boolean"
         },
         "CancellationNotes": {
           "$ref": "#/definitions/ConfigItem_Boolean"
         },
+        "AutoRespondCancellationRequests": {
+          "$ref": "#/definitions/ConfigItem_Boolean"
+        },
+        "CancellationResponseType": {
+          "$ref": "#/definitions/ConfigPropertySelectionList_SelectStringValueOption_String"
+        },
         "RefundNotes": {
+          "$ref": "#/definitions/ConfigItem_Boolean"
+        },
+        "DownloadRefunds": {
           "$ref": "#/definitions/ConfigItem_Boolean"
         },
         "ReturnNotes": {
           "$ref": "#/definitions/ConfigItem_Boolean"
         },
-        "OrderSyncDate": {
-          "$ref": "#/definitions/ConfigItem_DateTime"
+        "DownloadReturns": {
+          "$ref": "#/definitions/ConfigItem_Boolean"
         },
         "OrderSaveLocation": {
           "$ref": "#/definitions/ConfigPropertySelectionList_SelectStringValueOption_Guid"
         },
+        "OrderSyncDate": {
+          "$ref": "#/definitions/ConfigItem_DateTime"
+        },
+        "OrderCancellationCheckDate": {
+          "$ref": "#/definitions/ConfigItem_DateTime"
+        },
         "ConfigDiscount": {
           "$ref": "#/definitions/ConfigPropertySelectionList_SelectStringValueOption_String"
-        },
-        "ProcessPosOrders": {
-          "$ref": "#/definitions/ConfigProperty_Boolean"
         },
         "OrderDownloadErrorCount": {
           "$ref": "#/definitions/ConfigItem_Int32"
@@ -6639,6 +6654,18 @@
           "$ref": "#/definitions/ConfigItem_Int32"
         },
         "OrderDespatchGlobalErrorCount": {
+          "$ref": "#/definitions/ConfigItem_Int32"
+        },
+        "OrderCancellationCheckErrorCount": {
+          "$ref": "#/definitions/ConfigItem_Int32"
+        },
+        "OrderCancellationCheckGlobalErrorCount": {
+          "$ref": "#/definitions/ConfigItem_Int32"
+        },
+        "RmaDownloadErrorCount": {
+          "$ref": "#/definitions/ConfigItem_Int32"
+        },
+        "RmaDownloadGlobalErrorCount": {
           "$ref": "#/definitions/ConfigItem_Int32"
         },
         "HidesHeaderAttributes": {
@@ -6824,7 +6851,7 @@
         }
       }
     },
-    "ConfigItem_DateTime": {
+    "ConfigProperty_Boolean": {
       "type": "object",
       "properties": {
         "Loaded": {
@@ -6841,7 +6868,34 @@
           "readOnly": true
         },
         "PropertyValue": {
-          "format": "date-time",
+          "type": "boolean"
+        },
+        "PropertyType": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "ConfigPropertySelectionList_SelectStringValueOption_String": {
+      "type": "object",
+      "properties": {
+        "OnGetSelectionList": {
+          "$ref": "#/definitions/GetSelectionList_SelectStringValueOption"
+        },
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "pkPropertyId": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "PropertyValue": {
           "type": "string"
         },
         "PropertyType": {
@@ -6880,12 +6934,9 @@
         }
       }
     },
-    "ConfigPropertySelectionList_SelectStringValueOption_String": {
+    "ConfigItem_DateTime": {
       "type": "object",
       "properties": {
-        "OnGetSelectionList": {
-          "$ref": "#/definitions/GetSelectionList_SelectStringValueOption"
-        },
         "Loaded": {
           "type": "boolean",
           "readOnly": true
@@ -6900,32 +6951,8 @@
           "readOnly": true
         },
         "PropertyValue": {
+          "format": "date-time",
           "type": "string"
-        },
-        "PropertyType": {
-          "type": "string",
-          "readOnly": true
-        }
-      }
-    },
-    "ConfigProperty_Boolean": {
-      "type": "object",
-      "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
-        "pkPropertyId": {
-          "format": "int32",
-          "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
-        "PropertyValue": {
-          "type": "boolean"
         },
         "PropertyType": {
           "type": "string",
@@ -8017,29 +8044,44 @@
         "BopisSupported": {
           "$ref": "#/definitions/ConfigItem_Boolean"
         },
+        "ProcessPosOrders": {
+          "$ref": "#/definitions/ConfigProperty_Boolean"
+        },
         "DespatchNotes": {
           "$ref": "#/definitions/ConfigItem_Boolean"
         },
         "CancellationNotes": {
           "$ref": "#/definitions/ConfigItem_Boolean"
         },
+        "AutoRespondCancellationRequests": {
+          "$ref": "#/definitions/ConfigItem_Boolean"
+        },
+        "CancellationResponseType": {
+          "$ref": "#/definitions/ConfigPropertySelectionList_SelectStringValueOption_String"
+        },
         "RefundNotes": {
+          "$ref": "#/definitions/ConfigItem_Boolean"
+        },
+        "DownloadRefunds": {
           "$ref": "#/definitions/ConfigItem_Boolean"
         },
         "ReturnNotes": {
           "$ref": "#/definitions/ConfigItem_Boolean"
         },
-        "OrderSyncDate": {
-          "$ref": "#/definitions/ConfigItem_DateTime"
+        "DownloadReturns": {
+          "$ref": "#/definitions/ConfigItem_Boolean"
         },
         "OrderSaveLocation": {
           "$ref": "#/definitions/ConfigPropertySelectionList_SelectStringValueOption_Guid"
         },
+        "OrderSyncDate": {
+          "$ref": "#/definitions/ConfigItem_DateTime"
+        },
+        "OrderCancellationCheckDate": {
+          "$ref": "#/definitions/ConfigItem_DateTime"
+        },
         "ConfigDiscount": {
           "$ref": "#/definitions/ConfigPropertySelectionList_SelectStringValueOption_String"
-        },
-        "ProcessPosOrders": {
-          "$ref": "#/definitions/ConfigProperty_Boolean"
         },
         "OrderDownloadErrorCount": {
           "$ref": "#/definitions/ConfigItem_Int32"
@@ -8051,6 +8093,18 @@
           "$ref": "#/definitions/ConfigItem_Int32"
         },
         "OrderDespatchGlobalErrorCount": {
+          "$ref": "#/definitions/ConfigItem_Int32"
+        },
+        "OrderCancellationCheckErrorCount": {
+          "$ref": "#/definitions/ConfigItem_Int32"
+        },
+        "OrderCancellationCheckGlobalErrorCount": {
+          "$ref": "#/definitions/ConfigItem_Int32"
+        },
+        "RmaDownloadErrorCount": {
+          "$ref": "#/definitions/ConfigItem_Int32"
+        },
+        "RmaDownloadGlobalErrorCount": {
           "$ref": "#/definitions/ConfigItem_Int32"
         },
         "HidesHeaderAttributes": {

@@ -1500,6 +1500,9 @@
     "RefundOptions": {
       "type": "object",
       "properties": {
+        "CanSendRejectionIfDeleted": {
+          "type": "boolean"
+        },
         "CanRefund": {
           "type": "boolean",
           "readOnly": true
@@ -1583,6 +1586,12 @@
           },
           "readOnly": true
         },
+        "RejectionReasons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChannelReason"
+          }
+        },
         "CannotRefundReason": {
           "enum": [
             "None",
@@ -1659,7 +1668,9 @@
             "ServiceRefund",
             "ItemReturn",
             "InsufficientRefund",
-            "AdditionalRefund"
+            "AdditionalRefund",
+            "RejectReturn",
+            "RejectRefund"
           ],
           "type": "string"
         },
@@ -1778,6 +1789,22 @@
           "format": "int32",
           "type": "integer"
         },
+        "Currency": {
+          "type": "string"
+        },
+        "Amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "RefundLines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VerifiedRefund"
+          }
+        },
+        "RefundLink": {
+          "type": "string"
+        },
         "OrderId": {
           "format": "uuid",
           "type": "string",
@@ -1787,29 +1814,8 @@
           "format": "int32",
           "type": "integer"
         },
-        "ExternalReference": {
-          "type": "string"
-        },
-        "CreatedDate": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "Currency": {
-          "type": "string"
-        },
-        "Amount": {
-          "format": "double",
-          "type": "number"
-        },
         "Status": {
           "$ref": "#/definitions/PostSaleStatus"
-        },
-        "Actioned": {
-          "type": "boolean"
-        },
-        "LastActionDate": {
-          "format": "date-time",
-          "type": "string"
         },
         "OrderSource": {
           "type": "string"
@@ -1817,16 +1823,21 @@
         "OrderSubSource": {
           "type": "string"
         },
+        "ExternalReference": {
+          "type": "string"
+        },
         "ChannelInitiated": {
           "type": "boolean"
         },
-        "RefundLines": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/VerifiedRefund"
-          }
+        "CreatedDate": {
+          "format": "date-time",
+          "type": "string"
         },
-        "RefundLink": {
+        "Actioned": {
+          "type": "boolean"
+        },
+        "LastActionDate": {
+          "format": "date-time",
           "type": "string"
         }
       }
@@ -1882,9 +1893,6 @@
             "$ref": "#/definitions/RefundError"
           }
         },
-        "ExternalReference": {
-          "type": "string"
-        },
         "Actioned": {
           "type": "boolean"
         },
@@ -1900,6 +1908,9 @@
         },
         "Deleted": {
           "type": "boolean"
+        },
+        "ExternalReference": {
+          "type": "string"
         },
         "IsFreeText": {
           "type": "boolean",
@@ -2931,6 +2942,12 @@
           "format": "int32",
           "type": "integer"
         },
+        "RMALines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VerifiedRMAItem"
+          }
+        },
         "OrderId": {
           "format": "uuid",
           "type": "string",
@@ -2939,6 +2956,9 @@
         "NumOrderId": {
           "format": "int32",
           "type": "integer"
+        },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus"
         },
         "OrderSource": {
           "type": "string"
@@ -2956,21 +2976,12 @@
           "format": "date-time",
           "type": "string"
         },
-        "Status": {
-          "$ref": "#/definitions/PostSaleStatus"
-        },
         "Actioned": {
           "type": "boolean"
         },
         "LastActionDate": {
           "format": "date-time",
           "type": "string"
-        },
-        "RMALines": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/VerifiedRMAItem"
-          }
         }
       }
     },
@@ -3271,6 +3282,9 @@
           "format": "int32",
           "type": "integer"
         },
+        "ExternalReference": {
+          "type": "string"
+        },
         "IsFreeText": {
           "type": "boolean",
           "readOnly": true
@@ -3394,6 +3408,9 @@
         },
         "RemoveFromRefund": {
           "type": "boolean"
+        },
+        "ExternalReference": {
+          "type": "string"
         },
         "IsFreeText": {
           "type": "boolean",
@@ -3768,6 +3785,14 @@
           "format": "int32",
           "description": "Identifies the refund header to be deleted",
           "type": "integer"
+        },
+        "ReasonTag": {
+          "description": "Reason for deleting the refund. Channel Dependant",
+          "type": "string"
+        },
+        "RejectOnChannel": {
+          "description": "Bool to say whether rejection note should be sent to the channel",
+          "type": "boolean"
         }
       }
     },
@@ -3791,6 +3816,14 @@
           "format": "int32",
           "description": "Identifies the RMA header to be deleted",
           "type": "integer"
+        },
+        "ReasonTag": {
+          "description": "Reason for deleting the RMA. Channel Dependant",
+          "type": "string"
+        },
+        "RejectOnChannel": {
+          "description": "Bool to say whether rejection note should be sent to the channel",
+          "type": "boolean"
         }
       }
     },
@@ -3832,6 +3865,9 @@
     "ReturnOptions": {
       "type": "object",
       "properties": {
+        "CanSendRejectionIfDeleted": {
+          "type": "boolean"
+        },
         "CanReturn": {
           "type": "boolean",
           "readOnly": true
@@ -3858,6 +3894,12 @@
             "$ref": "#/definitions/ChannelReason"
           },
           "readOnly": true
+        },
+        "RejectionReasons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChannelReason"
+          }
         },
         "SubStatuses": {
           "type": "array",
@@ -4121,6 +4163,9 @@
         "SubReasonTag": {
           "type": "string"
         },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus"
+        },
         "BinrackOverride": {
           "type": "string"
         }
@@ -4206,6 +4251,9 @@
         "SubReasonTag": {
           "type": "string"
         },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus"
+        },
         "BinrackOverride": {
           "type": "string"
         }
@@ -4279,6 +4327,9 @@
         },
         "SubReasonTag": {
           "type": "string"
+        },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus"
         },
         "BinrackOverride": {
           "type": "string"
@@ -4429,6 +4480,9 @@
         "SubReasonTag": {
           "type": "string"
         },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus"
+        },
         "BinrackOverride": {
           "type": "string"
         }
@@ -4521,6 +4575,9 @@
         "SubReasonTag": {
           "type": "string"
         },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus"
+        },
         "BinrackOverride": {
           "type": "string"
         }
@@ -4601,6 +4658,9 @@
         },
         "SubReasonTag": {
           "type": "string"
+        },
+        "Status": {
+          "$ref": "#/definitions/PostSaleStatus"
         },
         "BinrackOverride": {
           "type": "string"
