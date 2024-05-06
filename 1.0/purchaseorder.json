@@ -643,7 +643,7 @@
           "PurchaseOrder"
         ],
         "summary": "Change_PurchaseOrderStatus",
-        "description": "Change purchase order status. Can change from:\r\nPENDING to OPEN, which will populate Due (OnOrder) values in stock levels,\r\nOPEN to DELIVERED, which will consolidate Due values in stock levels \r\nPARTIAL to DELIVERED, which will consolidate Due values in stock levels\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "description": "Change purchase order status. Can change from:\r\nPENDING to OPEN, which will populate Due (OnOrder) values in stock levels,\r\nOPEN to DELIVERED, which will consolidate Due values in stock levels\r\nPARTIAL to DELIVERED, which will consolidate Due values in stock levels\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Change_PurchaseOrderStatus",
         "consumes": [
           "application/json"
@@ -811,7 +811,7 @@
           "PurchaseOrder"
         ],
         "summary": "Deliver_PurchaseItem",
-        "description": "Deliver purchase order item. This will affect current stock level according to the delivered quantity. \r\nYou can specify the total number of delivered items. If all items are delivered, the purchase order status will be changed to delivered\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.DeliverPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
+        "description": "Deliver purchase order item. This will affect current stock level according to the delivered quantity.\r\nYou can specify the total number of delivered items. If all items are delivered, the purchase order status will be changed to delivered\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.DeliverPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "Deliver_PurchaseItem",
         "consumes": [
           "application/json"
@@ -1319,7 +1319,7 @@
           "PurchaseOrder"
         ],
         "summary": "Modify_AdditionalCost",
-        "description": "Modify purchase order additional costs. You can add new lines, update and delete existing. The method will return modified list back to you with each record identified by unique identifier. \r\nPurchase Order header will also be returned with new total recalculated\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "description": "Modify purchase order additional costs. You can add new lines, update and delete existing. The method will return modified list back to you with each record identified by unique identifier.\r\nPurchase Order header will also be returned with new total recalculated\n<b>Permissions Required: </b> GlobalPermissions.Inventory.PurchaseOrder.EditPurchaseOrderNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "Modify_AdditionalCost",
         "consumes": [
           "application/json"
@@ -1896,15 +1896,15 @@
         "Locked": {
           "type": "boolean"
         },
+        "UnitAmountTaxIncludedType": {
+          "format": "int32",
+          "type": "integer"
+        },
         "LineCount": {
           "format": "int32",
           "type": "integer"
         },
         "DeliveredLinesCount": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "UnitAmountTaxIncludedType": {
           "format": "int32",
           "type": "integer"
         },

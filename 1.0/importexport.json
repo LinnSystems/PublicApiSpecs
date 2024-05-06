@@ -960,6 +960,9 @@
       }
     },
     "ExportGenericFeed": {
+      "required": [
+        "discriminator"
+      ],
       "type": "object",
       "properties": {
         "FeedType": {
@@ -990,8 +993,12 @@
             "Append"
           ],
           "type": "string"
+        },
+        "discriminator": {
+          "type": "string"
         }
-      }
+      },
+      "discriminator": "discriminator"
     },
     "ExportColumn": {
       "type": "object",
@@ -1346,6 +1353,167 @@
           "readOnly": true
         }
       }
+    },
+    "ExportFeedBucket": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ExportGenericFeed"
+        },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ],
+      "properties": {}
+    },
+    "ExportFeedHTTP": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ExportGenericFeed"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "URL": {
+              "type": "string"
+            }
+          }
+        }
+      ],
+      "properties": {}
+    },
+    "ExportFeedFTP": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ExportGenericFeed"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Server": {
+              "type": "string"
+            },
+            "Port": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "UserName": {
+              "type": "string"
+            },
+            "Password": {
+              "type": "string"
+            },
+            "SSL": {
+              "type": "boolean"
+            },
+            "PassiveMode": {
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "properties": {}
+    },
+    "ExportFeedDropbox": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ExportGenericFeed"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Account": {
+              "$ref": "#/definitions/DropboxAccount"
+            }
+          }
+        }
+      ],
+      "properties": {}
+    },
+    "DropboxAccount": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Token": {
+          "type": "string"
+        },
+        "Uid": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "APIVersion": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "ExportFeedSFTP": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ExportGenericFeed"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Server": {
+              "type": "string"
+            },
+            "Port": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "UserName": {
+              "type": "string"
+            },
+            "Password": {
+              "type": "string"
+            },
+            "Compression": {
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "properties": {}
+    },
+    "ExportFeedFTPS": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ExportGenericFeed"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Server": {
+              "type": "string"
+            },
+            "Port": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "UserName": {
+              "type": "string"
+            },
+            "Password": {
+              "type": "string"
+            },
+            "UseImplicitTLS": {
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "properties": {}
     }
   },
   "securityDefinitions": {

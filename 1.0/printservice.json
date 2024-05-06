@@ -431,7 +431,16 @@
     "PrintingKey": {
       "type": "object",
       "properties": {
+        "BatchInventoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
         "Key": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LocationId": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
@@ -439,15 +448,6 @@
         "Quantity": {
           "format": "int32",
           "type": "integer"
-        },
-        "BatchInventoryId": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "LocationId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
         }
       }
     },
