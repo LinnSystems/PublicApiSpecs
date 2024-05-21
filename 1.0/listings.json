@@ -1560,57 +1560,10 @@
         "ItemNumber": {
           "type": "string"
         },
-        "Title": {
-          "type": "string"
-        },
-        "SKU": {
-          "type": "string"
-        },
         "MappedBy": {
           "type": "string"
         },
         "RelistPending": {
-          "type": "boolean"
-        },
-        "Quantity": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "IsSuggestedToLink": {
-          "type": "boolean"
-        },
-        "IsLinked": {
-          "type": "boolean"
-        },
-        "ChannelSKURowId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "LinkedItemId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "MaxListedQuantity": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "EndWhenStock": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "StockPercentage": {
-          "format": "double",
-          "type": "number"
-        },
-        "LinkedItemSku": {
-          "type": "string"
-        },
-        "LinkedItemTitle": {
-          "type": "string"
-        },
-        "IgnoreSync": {
           "type": "boolean"
         },
         "ChannelReferenceId": {
@@ -1671,6 +1624,53 @@
           "type": "boolean"
         },
         "IsActive": {
+          "type": "boolean"
+        },
+        "ChannelSKURowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LinkedItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "IgnoreSync": {
+          "type": "boolean"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "Title": {
+          "type": "string"
+        },
+        "LinkedItemSku": {
+          "type": "string"
+        },
+        "LinkedItemTitle": {
+          "type": "string"
+        },
+        "MaxListedQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EndWhenStock": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockPercentage": {
+          "format": "double",
+          "type": "number"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsLinked": {
+          "type": "boolean"
+        },
+        "IsSuggestedToLink": {
           "type": "boolean"
         },
         "IsMatchByTitle": {
