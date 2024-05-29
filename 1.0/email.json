@@ -188,9 +188,6 @@
         "TemplateType": {
           "type": "string"
         },
-        "IsConditions": {
-          "type": "boolean"
-        },
         "Condition": {
           "type": "string"
         },
@@ -207,10 +204,13 @@
         "AttachPDF": {
           "type": "boolean"
         },
-        "IsAdhoc": {
+        "HTML": {
           "type": "boolean"
         },
-        "HTML": {
+        "IsConditions": {
+          "type": "boolean"
+        },
+        "IsAdhoc": {
           "type": "boolean"
         }
       }
@@ -225,15 +225,8 @@
         "Name": {
           "type": "string"
         },
-        "Enabled": {
-          "type": "boolean"
-        },
         "TemplateType": {
           "type": "string"
-        },
-        "TemplateTypeDefinition": {
-          "$ref": "#/definitions/EmailTemplateType",
-          "readOnly": true
         },
         "Subject": {
           "type": "string"
@@ -250,12 +243,19 @@
         "AttachPDF": {
           "type": "boolean"
         },
-        "Body": {
-          "type": "string"
+        "Enabled": {
+          "type": "boolean"
         },
         "fkEmailAccountRowId": {
           "format": "int32",
           "type": "integer"
+        },
+        "Body": {
+          "type": "string"
+        },
+        "TemplateTypeDefinition": {
+          "$ref": "#/definitions/EmailTemplateType",
+          "readOnly": true
         },
         "PromptPreviewReferenceNumber": {
           "type": "string",
