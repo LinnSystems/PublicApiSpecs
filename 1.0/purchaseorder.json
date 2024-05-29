@@ -1896,15 +1896,15 @@
         "Locked": {
           "type": "boolean"
         },
+        "UnitAmountTaxIncludedType": {
+          "format": "int32",
+          "type": "integer"
+        },
         "LineCount": {
           "format": "int32",
           "type": "integer"
         },
         "DeliveredLinesCount": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "UnitAmountTaxIncludedType": {
           "format": "int32",
           "type": "integer"
         },
@@ -4573,10 +4573,6 @@
     "CommonPurchaseOrderPaymentStatement": {
       "type": "object",
       "properties": {
-        "PurchasePaymentStatementId": {
-          "format": "int32",
-          "type": "integer"
-        },
         "LineCost": {
           "format": "double",
           "type": "number"
@@ -4600,6 +4596,10 @@
           "type": "string"
         },
         "fkPurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PurchasePaymentStatementId": {
           "format": "int32",
           "type": "integer"
         }
