@@ -4573,6 +4573,10 @@
     "CommonPurchaseOrderPaymentStatement": {
       "type": "object",
       "properties": {
+        "PurchasePaymentStatementId": {
+          "format": "int32",
+          "type": "integer"
+        },
         "LineCost": {
           "format": "double",
           "type": "number"
@@ -4596,10 +4600,6 @@
           "type": "string"
         },
         "fkPurchaseAdditionalCostItemId": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "PurchasePaymentStatementId": {
           "format": "int32",
           "type": "integer"
         }
