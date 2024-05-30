@@ -9,6 +9,47 @@
     "https"
   ],
   "paths": {
+    "/api/Orders/GetOrderDetailsByNumOrderId": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "GetOrderDetailsByNumOrderId",
+        "description": "Retrieves the order detail for a given order numeric id. If not found  empty class is returned.  \r\nFor working with open orders recommended to use OpenOrders/GetOpenOrdersDetails\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
+        "operationId": "GetOrderDetailsByNumOrderId",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "OrderId",
+            "in": "query",
+            "description": "Order Id (numeric)",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OrderDetails"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/Orders/GetOrderById": {
       "get": {
         "tags": [
@@ -4233,47 +4274,6 @@
           }
         ]
       }
-    },
-    "/api/Orders/GetOrderDetailsByNumOrderId": {
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "summary": "GetOrderDetailsByNumOrderId",
-        "description": "Retrieves the order detail for a given order numeric id. If not found  empty class is returned.  \r\nFor working with open orders recommended to use OpenOrders/GetOpenOrdersDetails\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
-        "operationId": "GetOrderDetailsByNumOrderId",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
-        ],
-        "parameters": [
-          {
-            "name": "OrderId",
-            "in": "query",
-            "description": "Order Id (numeric)",
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/OrderDetails"
-            }
-          }
-        },
-        "security": [
-          {
-            "token": [
-              "token"
-            ]
-          }
-        ]
-      }
     }
   },
   "definitions": {
@@ -8032,6 +8032,16 @@
           "description": "Location where to move orders",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fulfillmentStatusToApply": {
+          "description": "Optional fulfilment status to be applied to successfully moved orders",
+          "enum": [
+            "Unassigned",
+            "Assigned",
+            "Submitted",
+            "Accepted"
+          ],
+          "type": "string"
         }
       }
     },
