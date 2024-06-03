@@ -8768,6 +8768,16 @@
         "recalcPackaging": {
           "description": "Whether or not to recalculate the order packaging",
           "type": "boolean"
+        },
+        "fulfillmentStatus": {
+          "description": "Optional, if provided the fulfillment status for the newly created orders will be set to this",
+          "enum": [
+            "Unassigned",
+            "Assigned",
+            "Submitted",
+            "Accepted"
+          ],
+          "type": "string"
         }
       }
     },
