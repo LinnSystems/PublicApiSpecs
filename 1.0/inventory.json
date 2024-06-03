@@ -6478,6 +6478,9 @@
           ],
           "type": "string"
         },
+        "Site": {
+          "type": "string"
+        },
         "Value": {
           "type": "string"
         },
@@ -6486,9 +6489,6 @@
           "type": "string"
         },
         "ModifiedUserName": {
-          "type": "string"
-        },
-        "Site": {
           "type": "string"
         }
       }
@@ -9526,18 +9526,18 @@
     "StockItemChannelSKU": {
       "type": "object",
       "properties": {
-        "SKU": {
-          "type": "string"
-        },
-        "SubSource": {
-          "type": "string"
-        },
         "ChannelSKURowId": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
+        "SKU": {
+          "type": "string"
+        },
         "Source": {
+          "type": "string"
+        },
+        "SubSource": {
           "type": "string"
         },
         "UpdateStatus": {
