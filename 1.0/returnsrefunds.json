@@ -2547,12 +2547,6 @@
           "format": "int32",
           "type": "integer"
         },
-        "Name": {
-          "type": "string"
-        },
-        "Tag": {
-          "type": "string"
-        },
         "IsCustom": {
           "type": "boolean"
         },
@@ -2562,6 +2556,12 @@
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ImageUrl": {
+          "type": "string"
+        },
+        "Tag": {
+          "type": "string"
+        },
+        "Name": {
           "type": "string"
         }
       }
