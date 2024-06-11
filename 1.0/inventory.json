@@ -5636,11 +5636,6 @@
     "StockItemLabel": {
       "type": "object",
       "properties": {
-        "StockItemId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "ItemNumber": {
           "type": "string"
         },
@@ -5662,6 +5657,11 @@
           "type": "integer"
         },
         "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
@@ -8360,20 +8360,21 @@
           "enum": [
             "SKU",
             "Title",
-            "VariationGroupName",
+            "StockLevel",
+            "InOrder",
+            "Available",
+            "Due",
+            "AverageConsumption",
+            "Image",
+            "Barcode",
             "RetailPrice",
             "PurchasePrice",
-            "Tracked",
-            "Barcode",
-            "Available",
             "MinimumLevel",
-            "InOrder",
-            "StockLevel",
+            "Tracked",
+            "VariationGroupName",
             "StockValue",
-            "Due",
             "BinRack",
             "Category",
-            "Image",
             "Weight",
             "DimHeight",
             "DimWidth",
@@ -8386,7 +8387,6 @@
             "JIT",
             "ReorderAmount",
             "ReorderDate",
-            "AverageConsumption",
             "DefaultSupplier"
           ],
           "type": "string"
@@ -8421,20 +8421,21 @@
           "enum": [
             "SKU",
             "Title",
-            "VariationGroupName",
+            "StockLevel",
+            "InOrder",
+            "Available",
+            "Due",
+            "AverageConsumption",
+            "Image",
+            "Barcode",
             "RetailPrice",
             "PurchasePrice",
-            "Tracked",
-            "Barcode",
-            "Available",
             "MinimumLevel",
-            "InOrder",
-            "StockLevel",
+            "Tracked",
+            "VariationGroupName",
             "StockValue",
-            "Due",
             "BinRack",
             "Category",
-            "Image",
             "Weight",
             "DimHeight",
             "DimWidth",
@@ -8447,7 +8448,6 @@
             "JIT",
             "ReorderAmount",
             "ReorderDate",
-            "AverageConsumption",
             "DefaultSupplier"
           ],
           "type": "string"
@@ -8482,20 +8482,21 @@
           "enum": [
             "SKU",
             "Title",
-            "VariationGroupName",
+            "StockLevel",
+            "InOrder",
+            "Available",
+            "Due",
+            "AverageConsumption",
+            "Image",
+            "Barcode",
             "RetailPrice",
             "PurchasePrice",
-            "Tracked",
-            "Barcode",
-            "Available",
             "MinimumLevel",
-            "InOrder",
-            "StockLevel",
+            "Tracked",
+            "VariationGroupName",
             "StockValue",
-            "Due",
             "BinRack",
             "Category",
-            "Image",
             "Weight",
             "DimHeight",
             "DimWidth",
@@ -8508,7 +8509,6 @@
             "JIT",
             "ReorderAmount",
             "ReorderDate",
-            "AverageConsumption",
             "DefaultSupplier"
           ],
           "type": "string"
@@ -10507,14 +10507,6 @@
     "StockLocation": {
       "type": "object",
       "properties": {
-        "StockLocationId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "LocationName": {
-          "type": "string"
-        },
         "Address1": {
           "type": "string"
         },
@@ -10539,9 +10531,6 @@
         "LocationTag": {
           "type": "string"
         },
-        "IsFulfillmentCenter": {
-          "type": "boolean"
-        },
         "CountInOrderUntilAcknowledgement": {
           "type": "boolean"
         },
@@ -10549,6 +10538,17 @@
           "type": "boolean"
         },
         "IsWarehouseManaged": {
+          "type": "boolean"
+        },
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LocationName": {
+          "type": "string"
+        },
+        "IsFulfillmentCenter": {
           "type": "boolean"
         },
         "StockLocationIntId": {
