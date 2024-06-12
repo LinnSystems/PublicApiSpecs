@@ -7,15 +7,15 @@
     },
     "servers": [
         {
-            "url": "https://apim-eu.linnworks.net/gateway/warehousetransfer",
+            "url": "https://eu-api.linnworks.net/warehousetransfer",
             "description": "Production EU Server"
         },
         {
-            "url": "https://apim-us.linnworks.net/gateway/warehousetransfer",
+            "url": "https://us-api.linnworks.net/warehousetransfer",
             "description": "Production US Server"
         },
         {
-            "url": "https://apim-as.linnworks.net/gateway/warehousetransfer",
+            "url": "https://as-api.linnworks.net/warehousetransfer",
             "description": "Production AS Server"
         }
     ],
@@ -101,7 +101,7 @@
                         "OAuth2": [
                             "OAuth2"
                         ],
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -154,7 +154,7 @@
                         "nullable": true
                     }
                 },
-                "additionalProperties": {}
+                "additionalProperties": { }
             },
             "TransferStatus": {
                 "enum": [
