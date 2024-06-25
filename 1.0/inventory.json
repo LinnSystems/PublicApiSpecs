@@ -6277,25 +6277,25 @@
         "ItemTitle": {
           "type": "string"
         },
-        "ScrapReason": {
-          "type": "string"
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
         },
         "CategoryName": {
           "type": "string"
         },
-        "Quantity": {
-          "format": "int32",
-          "type": "integer"
+        "ScrapReason": {
+          "type": "string"
         },
         "TotalCost": {
           "format": "double",
           "type": "number"
         },
-        "CreatedDate": {
-          "format": "date-time",
+        "UserName": {
           "type": "string"
         },
-        "UserName": {
+        "CreatedDate": {
+          "format": "date-time",
           "type": "string"
         },
         "StockLocationId": {
@@ -8360,20 +8360,19 @@
           "enum": [
             "SKU",
             "Title",
-            "Barcode",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Tracked",
-            "DefaultSupplier",
-            "Category",
+            "InOrder",
+            "StockLevel",
             "StockValue",
             "Due",
             "BinRack",
-            "VariationGroupName",
+            "Category",
             "Image",
             "Weight",
             "DimHeight",
@@ -8387,7 +8386,8 @@
             "JIT",
             "ReorderAmount",
             "ReorderDate",
-            "AverageConsumption"
+            "AverageConsumption",
+            "DefaultSupplier"
           ],
           "type": "string"
         },
@@ -8421,20 +8421,19 @@
           "enum": [
             "SKU",
             "Title",
-            "Barcode",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Tracked",
-            "DefaultSupplier",
-            "Category",
+            "InOrder",
+            "StockLevel",
             "StockValue",
             "Due",
             "BinRack",
-            "VariationGroupName",
+            "Category",
             "Image",
             "Weight",
             "DimHeight",
@@ -8448,7 +8447,8 @@
             "JIT",
             "ReorderAmount",
             "ReorderDate",
-            "AverageConsumption"
+            "AverageConsumption",
+            "DefaultSupplier"
           ],
           "type": "string"
         },
@@ -8482,20 +8482,19 @@
           "enum": [
             "SKU",
             "Title",
-            "Barcode",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Tracked",
-            "DefaultSupplier",
-            "Category",
+            "InOrder",
+            "StockLevel",
             "StockValue",
             "Due",
             "BinRack",
-            "VariationGroupName",
+            "Category",
             "Image",
             "Weight",
             "DimHeight",
@@ -8509,7 +8508,8 @@
             "JIT",
             "ReorderAmount",
             "ReorderDate",
-            "AverageConsumption"
+            "AverageConsumption",
+            "DefaultSupplier"
           ],
           "type": "string"
         },
@@ -8850,20 +8850,19 @@
           "enum": [
             "SKU",
             "Title",
-            "Barcode",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Tracked",
-            "DefaultSupplier",
-            "Category",
+            "InOrder",
+            "StockLevel",
             "StockValue",
             "Due",
             "BinRack",
-            "VariationGroupName",
+            "Category",
             "Image",
             "Weight",
             "DimHeight",
@@ -8877,7 +8876,8 @@
             "JIT",
             "ReorderAmount",
             "ReorderDate",
-            "AverageConsumption"
+            "AverageConsumption",
+            "DefaultSupplier"
           ],
           "type": "string"
         },
@@ -10232,6 +10232,11 @@
     "StockItemImageSimple": {
       "type": "object",
       "properties": {
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
         "pkRowId": {
           "format": "uuid",
           "type": "string",
@@ -10249,11 +10254,6 @@
         },
         "RawChecksum": {
           "type": "string"
-        },
-        "StockItemId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
