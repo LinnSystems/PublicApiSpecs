@@ -875,13 +875,6 @@
           ],
           "type": "string"
         },
-        "SortType": {
-          "enum": [
-            "BinPriority",
-            "OrderView"
-          ],
-          "type": "string"
-        },
         "Orders": {
           "type": "array",
           "items": {
@@ -1041,10 +1034,6 @@
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "OrderSortOrder": {
-          "format": "int32",
-          "type": "integer"
         }
       }
     },
@@ -1137,13 +1126,6 @@
           "enum": [
             "Items",
             "Orders"
-          ],
-          "type": "string"
-        },
-        "SortingType": {
-          "enum": [
-            "BinPriority",
-            "OrderView"
           ],
           "type": "string"
         },
@@ -1499,10 +1481,6 @@
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "OrderSortOrder": {
-          "format": "int32",
-          "type": "integer"
         }
       }
     },
@@ -1693,13 +1671,6 @@
           "description": "Allocated user id",
           "type": "integer"
         },
-        "SortingType": {
-          "enum": [
-            "BinPriority",
-            "OrderView"
-          ],
-          "type": "string"
-        },
         "Orders": {
           "description": "Pickwave items",
           "type": "array",
@@ -1730,10 +1701,6 @@
         "OrderId": {
           "format": "int32",
           "description": "Order Id (Integer)",
-          "type": "integer"
-        },
-        "SortOrder": {
-          "format": "int32",
           "type": "integer"
         }
       }
@@ -1771,10 +1738,6 @@
         "OrderId": {
           "format": "int32",
           "description": "Order Id (Integer)",
-          "type": "integer"
-        },
-        "SortOrder": {
-          "format": "int32",
           "type": "integer"
         }
       }
@@ -1831,10 +1794,6 @@
     "PickWaveAllocateCheckResult": {
       "type": "object",
       "properties": {
-        "SortOrder": {
-          "format": "int32",
-          "type": "integer"
-        },
         "OrderId": {
           "format": "int32",
           "type": "integer"
