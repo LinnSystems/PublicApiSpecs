@@ -2451,8 +2451,47 @@
     "StockItem": {
       "type": "object",
       "properties": {
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ItemNumber": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
         "ItemDescription": {
           "type": "string"
+        },
+        "BarcodeNumber": {
+          "type": "string"
+        },
+        "PurchasePrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "RetailPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "IsCompositeParent": {
+          "type": "boolean"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchNumberScanRequired": {
+          "type": "boolean"
+        },
+        "SerialNumberScanRequired": {
+          "type": "boolean"
         },
         "Quantity": {
           "format": "int32",
@@ -2475,20 +2514,8 @@
           "type": "integer",
           "readOnly": true
         },
-        "IsCompositeParent": {
-          "type": "boolean"
-        },
         "ShippedSeparately": {
           "type": "boolean"
-        },
-        "ItemNumber": {
-          "type": "string"
-        },
-        "ItemTitle": {
-          "type": "string"
-        },
-        "BarcodeNumber": {
-          "type": "string"
         },
         "MetaData": {
           "type": "string"
@@ -2499,18 +2526,6 @@
         "isBatchedStockType": {
           "type": "boolean",
           "readOnly": true
-        },
-        "PurchasePrice": {
-          "format": "double",
-          "type": "number"
-        },
-        "RetailPrice": {
-          "format": "double",
-          "type": "number"
-        },
-        "TaxRate": {
-          "format": "double",
-          "type": "number"
         },
         "PostalServiceId": {
           "format": "uuid",
@@ -2555,21 +2570,6 @@
         "CreationDate": {
           "format": "date-time",
           "type": "string"
-        },
-        "InventoryTrackingType": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "BatchNumberScanRequired": {
-          "type": "boolean"
-        },
-        "SerialNumberScanRequired": {
-          "type": "boolean"
-        },
-        "StockItemId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
