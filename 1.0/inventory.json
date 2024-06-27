@@ -6478,9 +6478,6 @@
           ],
           "type": "string"
         },
-        "Site": {
-          "type": "string"
-        },
         "Value": {
           "type": "string"
         },
@@ -6489,6 +6486,9 @@
           "type": "string"
         },
         "ModifiedUserName": {
+          "type": "string"
+        },
+        "Site": {
           "type": "string"
         }
       }
@@ -8359,22 +8359,22 @@
           "description": "Name of field updated",
           "enum": [
             "SKU",
+            "BinRack",
+            "Weight",
             "Title",
-            "VariationGroupName",
+            "Barcode",
             "RetailPrice",
             "PurchasePrice",
-            "Tracked",
-            "Barcode",
+            "StockLevel",
+            "InOrder",
             "Available",
             "MinimumLevel",
-            "InOrder",
-            "StockLevel",
+            "Tracked",
+            "VariationGroupName",
             "StockValue",
             "Due",
-            "BinRack",
             "Category",
             "Image",
-            "Weight",
             "DimHeight",
             "DimWidth",
             "DimDepth",
@@ -8420,22 +8420,22 @@
           "description": "Name of field updated",
           "enum": [
             "SKU",
+            "BinRack",
+            "Weight",
             "Title",
-            "VariationGroupName",
+            "Barcode",
             "RetailPrice",
             "PurchasePrice",
-            "Tracked",
-            "Barcode",
+            "StockLevel",
+            "InOrder",
             "Available",
             "MinimumLevel",
-            "InOrder",
-            "StockLevel",
+            "Tracked",
+            "VariationGroupName",
             "StockValue",
             "Due",
-            "BinRack",
             "Category",
             "Image",
-            "Weight",
             "DimHeight",
             "DimWidth",
             "DimDepth",
@@ -8481,22 +8481,22 @@
           "description": "Name of field updated",
           "enum": [
             "SKU",
+            "BinRack",
+            "Weight",
             "Title",
-            "VariationGroupName",
+            "Barcode",
             "RetailPrice",
             "PurchasePrice",
-            "Tracked",
-            "Barcode",
+            "StockLevel",
+            "InOrder",
             "Available",
             "MinimumLevel",
-            "InOrder",
-            "StockLevel",
+            "Tracked",
+            "VariationGroupName",
             "StockValue",
             "Due",
-            "BinRack",
             "Category",
             "Image",
-            "Weight",
             "DimHeight",
             "DimWidth",
             "DimDepth",
@@ -8849,22 +8849,22 @@
         "ColumnName": {
           "enum": [
             "SKU",
+            "BinRack",
+            "Weight",
             "Title",
-            "VariationGroupName",
+            "Barcode",
             "RetailPrice",
             "PurchasePrice",
-            "Tracked",
-            "Barcode",
+            "StockLevel",
+            "InOrder",
             "Available",
             "MinimumLevel",
-            "InOrder",
-            "StockLevel",
+            "Tracked",
+            "VariationGroupName",
             "StockValue",
             "Due",
-            "BinRack",
             "Category",
             "Image",
-            "Weight",
             "DimHeight",
             "DimWidth",
             "DimDepth",
@@ -10507,6 +10507,14 @@
     "StockLocation": {
       "type": "object",
       "properties": {
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LocationName": {
+          "type": "string"
+        },
         "Address1": {
           "type": "string"
         },
@@ -10531,6 +10539,9 @@
         "LocationTag": {
           "type": "string"
         },
+        "IsFulfillmentCenter": {
+          "type": "boolean"
+        },
         "CountInOrderUntilAcknowledgement": {
           "type": "boolean"
         },
@@ -10538,17 +10549,6 @@
           "type": "boolean"
         },
         "IsWarehouseManaged": {
-          "type": "boolean"
-        },
-        "StockLocationId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "LocationName": {
-          "type": "string"
-        },
-        "IsFulfillmentCenter": {
           "type": "boolean"
         },
         "StockLocationIntId": {
