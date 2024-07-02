@@ -526,11 +526,11 @@
         "Executing": {
           "type": "boolean"
         },
-        "ImportSkipped": {
-          "type": "boolean"
-        },
         "ImportStatus": {
           "type": "string"
+        },
+        "ImportSkipped": {
+          "type": "boolean"
         },
         "IsNew": {
           "type": "boolean",
