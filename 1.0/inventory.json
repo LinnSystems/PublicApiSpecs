@@ -9,42 +9,6 @@
     "https"
   ],
   "paths": {
-    "/api/Inventory/UpdateInventoryItemPrices": {
-      "post": {
-        "tags": [
-          "Inventory"
-        ],
-        "summary": "UpdateInventoryItemPrices",
-        "description": "Use this call to update stock item prices\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
-        "operationId": "UpdateInventoryItemPrices",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "Inventory_UpdateInventoryItemPricesRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Inventory_UpdateInventoryItemPricesRequest"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        },
-        "security": [
-          {
-            "token": [
-              "token"
-            ]
-          }
-        ]
-      }
-    },
     "/api/Inventory/DeleteInventoryItemPrices": {
       "post": {
         "tags": [
@@ -5389,66 +5353,56 @@
           }
         ]
       }
+    },
+    "/api/Inventory/UpdateInventoryItemPrices": {
+      "post": {
+        "tags": [
+          "Inventory"
+        ],
+        "summary": "UpdateInventoryItemPrices",
+        "description": "Use this call to update stock item prices\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
+        "operationId": "UpdateInventoryItemPrices",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Inventory_UpdateInventoryItemPricesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Inventory_UpdateInventoryItemPricesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
     }
   },
   "definitions": {
-    "Inventory_UpdateInventoryItemPricesRequest": {
+    "Inventory_DeleteInventoryItemPricesRequest": {
       "type": "object",
       "properties": {
-        "inventoryItemPrices": {
-          "description": "List of stock item prices to update",
+        "inventoryItemPriceIds": {
+          "description": "List of stock item prices",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/StockItemPrice"
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
           }
-        }
-      }
-    },
-    "StockItemPrice": {
-      "type": "object",
-      "properties": {
-        "Rules": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/StockItemPricingRule"
-          }
-        },
-        "pkRowId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "Source": {
-          "type": "string"
-        },
-        "SubSource": {
-          "type": "string"
-        },
-        "Price": {
-          "format": "double",
-          "type": "number"
-        },
-        "Tag": {
-          "type": "string"
-        },
-        "UpdateStatus": {
-          "enum": [
-            "NoChange",
-            "Pending",
-            "SentNotConfirmed",
-            "Success",
-            "Error"
-          ],
-          "type": "string"
-        },
-        "StockItemId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "StockItemIntId": {
-          "format": "int32",
-          "type": "integer"
         }
       }
     },
@@ -5474,20 +5428,6 @@
         "Value": {
           "format": "double",
           "type": "number"
-        }
-      }
-    },
-    "Inventory_DeleteInventoryItemPricesRequest": {
-      "type": "object",
-      "properties": {
-        "inventoryItemPriceIds": {
-          "description": "List of stock item prices",
-          "type": "array",
-          "items": {
-            "format": "uuid",
-            "type": "string",
-            "example": "00000000-0000-0000-0000-000000000000"
-          }
         }
       }
     },
@@ -5636,11 +5576,6 @@
     "StockItemLabel": {
       "type": "object",
       "properties": {
-        "StockItemId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "ItemNumber": {
           "type": "string"
         },
@@ -5662,6 +5597,11 @@
           "type": "integer"
         },
         "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
@@ -6963,13 +6903,13 @@
     "ConfigItem_Int32": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -8360,29 +8300,29 @@
           "enum": [
             "SKU",
             "Title",
-            "Barcode",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Tracked",
-            "Image",
-            "Category",
-            "CreatedDate",
-            "BatchType",
-            "Weight",
-            "VariationGroupName",
+            "InOrder",
+            "StockLevel",
             "StockValue",
             "Due",
             "BinRack",
+            "Category",
+            "Image",
+            "Weight",
             "DimHeight",
             "DimWidth",
             "DimDepth",
+            "CreatedDate",
             "ModifiedDate",
             "SerialNumberScanRequired",
             "BatchNumberScanRequired",
+            "BatchType",
             "JIT",
             "ReorderAmount",
             "ReorderDate",
@@ -8421,29 +8361,29 @@
           "enum": [
             "SKU",
             "Title",
-            "Barcode",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Tracked",
-            "Image",
-            "Category",
-            "CreatedDate",
-            "BatchType",
-            "Weight",
-            "VariationGroupName",
+            "InOrder",
+            "StockLevel",
             "StockValue",
             "Due",
             "BinRack",
+            "Category",
+            "Image",
+            "Weight",
             "DimHeight",
             "DimWidth",
             "DimDepth",
+            "CreatedDate",
             "ModifiedDate",
             "SerialNumberScanRequired",
             "BatchNumberScanRequired",
+            "BatchType",
             "JIT",
             "ReorderAmount",
             "ReorderDate",
@@ -8482,29 +8422,29 @@
           "enum": [
             "SKU",
             "Title",
-            "Barcode",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Tracked",
-            "Image",
-            "Category",
-            "CreatedDate",
-            "BatchType",
-            "Weight",
-            "VariationGroupName",
+            "InOrder",
+            "StockLevel",
             "StockValue",
             "Due",
             "BinRack",
+            "Category",
+            "Image",
+            "Weight",
             "DimHeight",
             "DimWidth",
             "DimDepth",
+            "CreatedDate",
             "ModifiedDate",
             "SerialNumberScanRequired",
             "BatchNumberScanRequired",
+            "BatchType",
             "JIT",
             "ReorderAmount",
             "ReorderDate",
@@ -8850,29 +8790,29 @@
           "enum": [
             "SKU",
             "Title",
-            "Barcode",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Tracked",
-            "Image",
-            "Category",
-            "CreatedDate",
-            "BatchType",
-            "Weight",
-            "VariationGroupName",
+            "InOrder",
+            "StockLevel",
             "StockValue",
             "Due",
             "BinRack",
+            "Category",
+            "Image",
+            "Weight",
             "DimHeight",
             "DimWidth",
             "DimDepth",
+            "CreatedDate",
             "ModifiedDate",
             "SerialNumberScanRequired",
             "BatchNumberScanRequired",
+            "BatchType",
             "JIT",
             "ReorderAmount",
             "ReorderDate",
@@ -11149,11 +11089,71 @@
         }
       }
     },
+    "StockItemPrice": {
+      "type": "object",
+      "properties": {
+        "Rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemPricingRule"
+          }
+        },
+        "pkRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Source": {
+          "type": "string"
+        },
+        "SubSource": {
+          "type": "string"
+        },
+        "Price": {
+          "format": "double",
+          "type": "number"
+        },
+        "Tag": {
+          "type": "string"
+        },
+        "UpdateStatus": {
+          "enum": [
+            "NoChange",
+            "Pending",
+            "SentNotConfirmed",
+            "Success",
+            "Error"
+          ],
+          "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
     "Inventory_CreateInventoryItemPricesRequest": {
       "type": "object",
       "properties": {
         "inventoryItemPrices": {
           "description": "List of stock item prices to create",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemPrice"
+          }
+        }
+      }
+    },
+    "Inventory_UpdateInventoryItemPricesRequest": {
+      "type": "object",
+      "properties": {
+        "inventoryItemPrices": {
+          "description": "List of stock item prices to update",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemPrice"
