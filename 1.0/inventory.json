@@ -2715,78 +2715,6 @@
         ]
       }
     },
-    "/api/Inventory/AdjustEbayTemplatesInstantLMS": {
-      "post": {
-        "tags": [
-          "Inventory"
-        ],
-        "summary": "AdjustEbayTemplatesInstantLMS",
-        "description": "Use this call to create LMS Update (Only works for fixed price templates)\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
-        "operationId": "AdjustEbayTemplatesInstantLMS",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "Inventory_AdjustEbayTemplatesInstantLMSRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Inventory_AdjustEbayTemplatesInstantLMSRequest"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        },
-        "security": [
-          {
-            "token": [
-              "token"
-            ]
-          }
-        ]
-      }
-    },
-    "/api/Inventory/AdjustEbayTemplatesDispatchLMS": {
-      "post": {
-        "tags": [
-          "Inventory"
-        ],
-        "summary": "AdjustEbayTemplatesDispatchLMS",
-        "description": "Use this call to create LMS Update for dispatch time only (Mr Auto)\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
-        "operationId": "AdjustEbayTemplatesDispatchLMS",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "Inventory_AdjustEbayTemplatesDispatchLMSRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Inventory_AdjustEbayTemplatesDispatchLMSRequest"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        },
-        "security": [
-          {
-            "token": [
-              "token"
-            ]
-          }
-        ]
-      }
-    },
     "/api/Inventory/GetInventoryItemChannelSKUs": {
       "get": {
         "tags": [
@@ -6738,13 +6666,13 @@
     "ConfigItem_String": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6763,13 +6691,13 @@
     "ConfigItem_Boolean": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6800,13 +6728,13 @@
     "ConfigProperty_Boolean": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6828,13 +6756,13 @@
         "OnGetSelectionList": {
           "$ref": "#/definitions/GetSelectionList_SelectStringValueOption"
         },
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6883,13 +6811,13 @@
     "ConfigItem_DateTime": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6909,13 +6837,13 @@
     "ConfigItem_Int32": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6973,13 +6901,13 @@
     "ConfigProperty_String": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -9448,58 +9376,6 @@
         }
       }
     },
-    "Inventory_AdjustEbayTemplatesInstantLMSRequest": {
-      "type": "object",
-      "properties": {
-        "inventoryItemIds": {
-          "description": "Inventory item ids",
-          "type": "array",
-          "items": {
-            "format": "uuid",
-            "type": "string",
-            "example": "00000000-0000-0000-0000-000000000000"
-          }
-        },
-        "subSource": {
-          "description": "Channel Name",
-          "type": "string"
-        },
-        "siteId": {
-          "description": "Ebay Site to adjust N.B this is not currently used",
-          "type": "string"
-        },
-        "adjustmentOptions": {
-          "$ref": "#/definitions/AdjustmentOptions",
-          "description": "Fields which should be adjusted"
-        }
-      }
-    },
-    "Inventory_AdjustEbayTemplatesDispatchLMSRequest": {
-      "type": "object",
-      "properties": {
-        "inventoryItemIds": {
-          "description": "Inventory item ids",
-          "type": "array",
-          "items": {
-            "format": "uuid",
-            "type": "string",
-            "example": "00000000-0000-0000-0000-000000000000"
-          }
-        },
-        "subSource": {
-          "description": "Channel Name",
-          "type": "string"
-        },
-        "siteId": {
-          "description": "Ebay Site to adjust N.B this is not currently used",
-          "type": "string"
-        },
-        "adjustmentOptions": {
-          "$ref": "#/definitions/AdjustmentOptions",
-          "description": "Fields which should be adjusted"
-        }
-      }
-    },
     "StockItemChannelSKU": {
       "type": "object",
       "properties": {
@@ -10484,14 +10360,6 @@
     "StockLocation": {
       "type": "object",
       "properties": {
-        "StockLocationId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "LocationName": {
-          "type": "string"
-        },
         "Address1": {
           "type": "string"
         },
@@ -10516,9 +10384,6 @@
         "LocationTag": {
           "type": "string"
         },
-        "IsFulfillmentCenter": {
-          "type": "boolean"
-        },
         "CountInOrderUntilAcknowledgement": {
           "type": "boolean"
         },
@@ -10526,6 +10391,17 @@
           "type": "boolean"
         },
         "IsWarehouseManaged": {
+          "type": "boolean"
+        },
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LocationName": {
+          "type": "string"
+        },
+        "IsFulfillmentCenter": {
           "type": "boolean"
         },
         "StockLocationIntId": {
