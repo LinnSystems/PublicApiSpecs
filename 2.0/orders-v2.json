@@ -24,7 +24,8 @@
         "tags": [
           "Orders"
         ],
-        "summary": "Get orders",
+        "summary": "GetOrders",
+        "description": "Get orders",
         "operationId": "GetOrders",
         "parameters": [
           {
@@ -177,7 +178,8 @@
         "tags": [
           "Orders"
         ],
-        "summary": "Get fulfillment status for requested order ids",
+        "summary": "GetFulfillmentStatuses",
+        "description": "Get fulfillment status for requested order ids",
         "operationId": "GetFulfillmentStatuses",
         "parameters": [
           {
@@ -308,7 +310,8 @@
         "tags": [
           "Orders"
         ],
-        "summary": "Update fulfillment status for requested order ids",
+        "summary": "UpdateFulfillmentStatuses",
+        "description": "Update fulfillment status for requested order ids",
         "operationId": "UpdateFulfillmentStatuses",
         "requestBody": {
           "description": "List of order ids and fulfillment statuses to update",
@@ -435,7 +438,8 @@
         "tags": [
           "Orders"
         ],
-        "summary": "Get fulfillment status for requested order id",
+        "summary": "GetFulfillmentStatus",
+        "description": "Get fulfillment status for requested order id",
         "operationId": "GetFulfillmentStatus",
         "parameters": [
           {
@@ -525,7 +529,8 @@
         "tags": [
           "Orders"
         ],
-        "summary": "Update fulfillment status for requested order id",
+        "summary": "UpdateFulfillmentStatus",
+        "description": "Update fulfillment status for requested order id",
         "operationId": "UpdateFulfillmentStatus",
         "parameters": [
           {
