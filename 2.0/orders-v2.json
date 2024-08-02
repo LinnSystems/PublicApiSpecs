@@ -1,0 +1,2462 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Orders",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://eu-api.linnworks.net/v2/",
+      "description": "EU Server"
+    },
+    {
+      "url": "https://us-api.linnworks.net/v2/",
+      "description": "US Server"
+    },
+    {
+      "url": "https://as-api.linnworks.net/v2/",
+      "description": "AS Server"
+    }
+  ],
+  "paths": {
+    "/orders": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Get orders",
+        "operationId": "GetOrders",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "entriesPerPage",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "includeProcessed",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "onlyPaid",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "searchToken",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/500\",\"title\":\"Internal Server Error\",\"status\":500,\"detail\":\"some extra information about the error\",\"instance\":\"api/v1/orders\"}"
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/GetOrdersResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AnonymousGetOrdersResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/400\",\"title\":\"Bad Request\",\"status\":400,\"detail\":\"some extra information about the error\",\"instance\":\"api/v1/orders\"}"
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/404\",\"title\":\"Not Found\",\"status\":404,\"detail\":\"some extra information about the error\",\"instance\":\"api/v1/orders\"}"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/401\",\"title\":\"Unauthorized\",\"status\":401,\"instance\":\"api/v1/orders\"}"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
+      }
+    },
+    "/orders/fulfillment-status": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Get fulfillment status for requested order ids",
+        "operationId": "GetFulfillmentStatuses",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Order IDs to fetch.",
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "description": "Only return IDs of orders within this location",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "fulfillmentStatus",
+            "in": "query",
+            "description": "Only return IDs of orders with this fulfillment status",
+            "schema": {
+              "$ref": "#/components/schemas/FulfillmentStatus"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/500\",\"title\":\"Internal Server Error\",\"status\":500,\"detail\":\"some extra information about the error\",\"instance\":\"api/v1/orders/fulfillment-status\"}"
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderFulfillmentStatus"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/400\",\"title\":\"Bad Request\",\"status\":400,\"detail\":\"some extra information about the error\",\"instance\":\"api/v1/orders/fulfillment-status\"}"
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/404\",\"title\":\"Not Found\",\"status\":404,\"detail\":\"some extra information about the error\",\"instance\":\"api/v1/orders/fulfillment-status\"}"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/401\",\"title\":\"Unauthorized\",\"status\":401,\"instance\":\"api/v1/orders/fulfillment-status\"}"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Update fulfillment status for requested order ids",
+        "operationId": "UpdateFulfillmentStatuses",
+        "requestBody": {
+          "description": "List of order ids and fulfillment statuses to update",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/OrderFulfillmentStatus"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/OrderFulfillmentStatus"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/OrderFulfillmentStatus"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/500\",\"title\":\"Internal Server Error\",\"status\":500,\"detail\":\"some extra information about the error\",\"instance\":\"api/v1/orders/fulfillment-status\"}"
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateFulfillmentStatusesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/400\",\"title\":\"Bad Request\",\"status\":400,\"detail\":\"some extra information about the error\",\"instance\":\"api/v1/orders/fulfillment-status\"}"
+              }
+            }
+          },
+          "422": {
+            "description": "Client Error",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/422\",\"title\":\"Unprocessable Entity\",\"status\":422,\"detail\":\"some extra information about the error\",\"instance\":\"api/v1/orders/fulfillment-status\"}"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/401\",\"title\":\"Unauthorized\",\"status\":401,\"instance\":\"api/v1/orders/fulfillment-status\"}"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
+      }
+    },
+    "/orders/{orderId}/fulfillment-status": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Get fulfillment status for requested order id",
+        "operationId": "GetFulfillmentStatus",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "Order Id to request",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/500\",\"title\":\"Internal Server Error\",\"status\":500,\"detail\":\"some extra information about the error\",\"instance\":\"api/v1/orders/{orderId}/fulfillment-status\"}"
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderFulfillmentStatus"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/404\",\"title\":\"Not Found\",\"status\":404,\"detail\":\"some extra information about the error\",\"instance\":\"api/v1/orders/{orderId}/fulfillment-status\"}"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/401\",\"title\":\"Unauthorized\",\"status\":401,\"instance\":\"api/v1/orders/{orderId}/fulfillment-status\"}"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Update fulfillment status for requested order id",
+        "operationId": "UpdateFulfillmentStatus",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "Order id to update",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Fulfillment status to update",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FulfillmentStatusRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FulfillmentStatusRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FulfillmentStatusRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/500\",\"title\":\"Internal Server Error\",\"status\":500,\"detail\":\"some extra information about the error\",\"instance\":\"api/v1/orders/{orderId}/fulfillment-status\"}"
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderFulfillmentStatus"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Client Error",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/422\",\"title\":\"Unprocessable Entity\",\"status\":422,\"detail\":\"some extra information about the error\",\"instance\":\"api/v1/orders/{orderId}/fulfillment-status\"}"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                    }
+                  ]
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/401\",\"title\":\"Unauthorized\",\"status\":401,\"instance\":\"api/v1/orders/{orderId}/fulfillment-status\"}"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "APIResultResponse_OrderFulfillmentStatus": {
+        "type": "object",
+        "properties": {
+          "Result": {
+            "$ref": "#/components/schemas/OrderFulfillmentStatus"
+          },
+          "ResultStatus": {
+            "$ref": "#/components/schemas/APIResultStatus"
+          },
+          "Message": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "APIResultStatus": {
+        "enum": [
+          "NOTSET",
+          "SUCCESSFUL",
+          "PARTIALLY_SUCCESSFUL",
+          "FAILED"
+        ],
+        "type": "string"
+      },
+      "AccessGroup": {
+        "required": [
+          "GroupId",
+          "ViewId"
+        ],
+        "type": "object",
+        "properties": {
+          "GroupId": {
+            "maximum": 2147483647,
+            "minimum": 0,
+            "type": "integer",
+            "description": "GroupId",
+            "format": "int32"
+          },
+          "ViewId": {
+            "maximum": 2147483647,
+            "minimum": 0,
+            "type": "integer",
+            "description": "ViewId",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "AccessGroup"
+      },
+      "AccessUser": {
+        "required": [
+          "IsAdmin",
+          "UserId",
+          "ViewId"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "maximum": 2147483647,
+            "minimum": 0,
+            "type": "integer",
+            "description": "UserId",
+            "format": "int32"
+          },
+          "ViewId": {
+            "maximum": 2147483647,
+            "minimum": 0,
+            "type": "integer",
+            "description": "ViewId",
+            "format": "int32"
+          },
+          "IsAdmin": {
+            "type": "boolean",
+            "description": "IsAdmin"
+          }
+        },
+        "additionalProperties": false,
+        "description": "AccessUser"
+      },
+      "AnonymousGetOrdersResponse": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseGetOrdersResponse"
+          }
+        ],
+        "properties": {
+          "OpenOrders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AnonymousOrder"
+            },
+            "nullable": true
+          },
+          "ProcessedOrders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AnonymousProcessedOrder"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AnonymousOrder": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BasicOrder"
+          }
+        ],
+        "properties": {
+          "GeneralInfo": {
+            "$ref": "#/components/schemas/OrderGeneralInfo"
+          },
+          "Items": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/AnonymousOrderItemWithChildren"
+                },
+                {
+                  "$ref": "#/components/schemas/OrderItemWithChildren"
+                }
+              ],
+              "description": "AnonymousOrderItemWithChildren"
+            },
+            "description": "List of order items",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "AnonymousOrder"
+      },
+      "AnonymousOrderItemWithChildren": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/OrderItem"
+          }
+        ],
+        "properties": {
+          "CompositeSubItems": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/OrderItem"
+                },
+                {
+                  "$ref": "#/components/schemas/AnonymousOrderItemWithChildren"
+                },
+                {
+                  "$ref": "#/components/schemas/OrderItemWithChildren"
+                }
+              ],
+              "description": "OrderItem"
+            },
+            "description": "List of order children items",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "AnonymousOrderItemWithChildren"
+      },
+      "AnonymousProcessedOrder": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BasicOrder"
+          }
+        ],
+        "properties": {
+          "GeneralInfo": {
+            "$ref": "#/components/schemas/ProcessedOrderGeneralInfo"
+          },
+          "Items": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/AnonymousOrderItemWithChildren"
+                },
+                {
+                  "$ref": "#/components/schemas/OrderItemWithChildren"
+                }
+              ],
+              "description": "AnonymousOrderItemWithChildren"
+            },
+            "description": "List of order items",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "AnonymousProcessedOrder"
+      },
+      "BaseGetOrdersResponse": {
+        "type": "object",
+        "properties": {
+          "TotalOrders": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "NextSearchToken": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BasicIdentifier": {
+        "type": "object",
+        "properties": {
+          "Tag": {
+            "type": "string",
+            "description": "Internal tag for identification purposes",
+            "nullable": true
+          },
+          "Name": {
+            "type": "string",
+            "description": "Display name for the identifier",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "BasicIdentifier"
+      },
+      "BasicOrder": {
+        "type": "object",
+        "properties": {
+          "OrderId": {
+            "type": "string",
+            "description": "Order ID (pkOrderId)",
+            "format": "uuid"
+          },
+          "NumOrderId": {
+            "type": "integer",
+            "description": "Linnworks order number",
+            "format": "int32"
+          },
+          "Processed": {
+            "type": "boolean",
+            "description": "Is order is processed?"
+          },
+          "ProcessedOn": {
+            "type": "string",
+            "description": "DateTime of when an order was processed. Null if not processed.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "PaidOn": {
+            "type": "string",
+            "description": "DateTime of when an order was paid. Null if not paid.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "LastUpdated": {
+            "type": "string",
+            "description": "DateTime of when an order was last updated.",
+            "format": "date-time"
+          },
+          "FulfilmentLocationId": {
+            "type": "string",
+            "description": "Location ID",
+            "format": "uuid"
+          },
+          "ShippingInfo": {
+            "$ref": "#/components/schemas/OrderShippingInfo"
+          },
+          "TotalsInfo": {
+            "$ref": "#/components/schemas/OrderTotalsInfo"
+          },
+          "ExtendedProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderExtendedProperty"
+            },
+            "description": "Extended properties of an order",
+            "nullable": true
+          },
+          "Folders": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Folder names assigned to an order",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "BasicOrder"
+      },
+      "BasicOrderGeneralInfo": {
+        "type": "object",
+        "properties": {
+          "Status": {
+            "type": "integer",
+            "description": "Order Status (0 = UNPAID, 1 = PAID, 2 = RETURN, 3 = PENDING, 4 = RESEND)",
+            "format": "int32"
+          },
+          "StatusDescription": {
+            "type": "string",
+            "description": "Description of the order status",
+            "nullable": true,
+            "readOnly": true
+          },
+          "LabelPrinted": {
+            "type": "boolean",
+            "description": "Is label printed?"
+          },
+          "LabelError": {
+            "type": "string",
+            "description": "Is there a label error?",
+            "nullable": true
+          },
+          "InvoicePrinted": {
+            "type": "boolean",
+            "description": "Is invoice printed?"
+          },
+          "InvoicePrintError": {
+            "type": "string",
+            "description": "Is there a invoice print error?",
+            "nullable": true
+          },
+          "PickListPrinted": {
+            "type": "boolean",
+            "description": "Is pick list printed?"
+          },
+          "PickListPrintError": {
+            "type": "string",
+            "description": "Is there a pick list print error?",
+            "nullable": true
+          },
+          "NotesCount": {
+            "type": "integer",
+            "description": "Quantity of order notes",
+            "format": "int32"
+          },
+          "Marker": {
+            "type": "integer",
+            "description": "Order marker (0 = NOT TAG, 1 = Tag 1, 2 = Tag 2, 3 = Tag 3, 4 = Tag 4, 5 = Tag 5, 6 = Tag 6, 7 = Parked)",
+            "format": "int32"
+          },
+          "Identifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BasicIdentifier"
+            },
+            "description": "Order identifiers. [Prime | Scheduled]",
+            "nullable": true
+          },
+          "ReferenceNum": {
+            "type": "string",
+            "description": "Order reference number (Channel defined)",
+            "nullable": true
+          },
+          "SecondaryReference": {
+            "type": "string",
+            "description": "An additional reference number for the order (Used by some channels)",
+            "nullable": true
+          },
+          "ExternalReferenceNum": {
+            "type": "string",
+            "description": "This is an additional reference number from the sales channel, typically used by eBay",
+            "nullable": true
+          },
+          "ReceivedDate": {
+            "type": "string",
+            "description": "The date and time at which the order was placed on the sales channel",
+            "format": "date-time"
+          },
+          "Source": {
+            "type": "string",
+            "description": "Order ChannelName/Source (e.g. EBAY)",
+            "nullable": true
+          },
+          "SubSource": {
+            "type": "string",
+            "description": "Order SubSource (e.g. EBAY1)",
+            "nullable": true
+          },
+          "DespatchByDate": {
+            "type": "string",
+            "description": "Despatch by Date",
+            "format": "date-time"
+          },
+          "ScheduledDelivery": {
+            "$ref": "#/components/schemas/ScheduledDelivery"
+          },
+          "HasScheduledDelivery": {
+            "type": "boolean",
+            "description": "Does the order have scheduled delivery dates?",
+            "readOnly": true
+          },
+          "NumItems": {
+            "type": "integer",
+            "description": "Quantity of order items",
+            "format": "int32"
+          },
+          "StockAllocationType": {
+            "$ref": "#/components/schemas/StockAllocationType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "BasicOrderGeneralInfo"
+      },
+      "BasicOrderItem": {
+        "type": "object",
+        "properties": {
+          "RowId": {
+            "type": "string",
+            "description": "Record row ID",
+            "format": "uuid"
+          },
+          "StockItemId": {
+            "type": "string",
+            "description": "Stock Item ID",
+            "format": "uuid"
+          },
+          "IsService": {
+            "type": "boolean",
+            "description": "Is the item a service?"
+          },
+          "IsUnlinked": {
+            "type": "boolean",
+            "description": "Is the item unlinked?",
+            "readOnly": true
+          },
+          "Quantity": {
+            "type": "integer",
+            "description": "Quantity",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "OrderItemBasic"
+      },
+      "BillingAddress": {
+        "type": "object",
+        "properties": {
+          "Address1": {
+            "type": "string",
+            "description": "First line of customer address.",
+            "nullable": true
+          },
+          "Address2": {
+            "type": "string",
+            "description": "Second line of customer address.",
+            "nullable": true
+          },
+          "Address3": {
+            "type": "string",
+            "description": "Third line of customer address.",
+            "nullable": true
+          },
+          "Town": {
+            "type": "string",
+            "description": "Customer's town.",
+            "nullable": true
+          },
+          "Region": {
+            "type": "string",
+            "description": "Customer's region.",
+            "nullable": true
+          },
+          "PostCode": {
+            "type": "string",
+            "description": "Customer's postcode.",
+            "nullable": true
+          },
+          "Country": {
+            "type": "string",
+            "description": "Customer's country.",
+            "nullable": true
+          },
+          "CountryId": {
+            "type": "string",
+            "description": "Customer's country id.",
+            "format": "uuid"
+          },
+          "FullName": {
+            "type": "string",
+            "description": "Customer's first and second name.",
+            "nullable": true
+          },
+          "Company": {
+            "type": "string",
+            "description": "Customer's company name.",
+            "nullable": true
+          },
+          "PhoneNumber": {
+            "type": "string",
+            "description": "Customer's telephone number.",
+            "nullable": true
+          },
+          "EmailAddress": {
+            "type": "string",
+            "description": "Customer's email address.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "BillingAddress"
+      },
+      "BooleanFieldFilter": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldFilter"
+          }
+        ],
+        "properties": {
+          "Value": {
+            "type": "boolean",
+            "description": "Value"
+          }
+        },
+        "additionalProperties": false,
+        "description": "BooleanFieldFilter"
+      },
+      "ConditionType": {
+        "enum": [
+          "Is",
+          "Not"
+        ],
+        "type": "string"
+      },
+      "DateFieldFilter": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldFilter"
+          }
+        ],
+        "properties": {
+          "ConditionType": {
+            "$ref": "#/components/schemas/ConditionType"
+          },
+          "Value": {
+            "type": "integer",
+            "description": "Value",
+            "format": "int32"
+          },
+          "Type": {
+            "$ref": "#/components/schemas/DateTimeFieldFilterType"
+          },
+          "ValueOperatorType": {
+            "$ref": "#/components/schemas/DateIntegerOperators"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DateFieldFilter"
+      },
+      "DateIntegerOperators": {
+        "enum": [
+          "Minutes",
+          "Hours",
+          "Days"
+        ],
+        "type": "string"
+      },
+      "DateTimeFieldFilterType": {
+        "enum": [
+          "Range",
+          "OlderThan",
+          "LastDays",
+          "WithinPast",
+          "WithinNext",
+          "AfterNext"
+        ],
+        "type": "string"
+      },
+      "DecimalFieldFilter": {
+        "required": [
+          "ConditionType",
+          "Value"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldFilter"
+          }
+        ],
+        "properties": {
+          "ConditionType": {
+            "$ref": "#/components/schemas/ConditionType"
+          },
+          "Value": {
+            "type": "number",
+            "description": "Value",
+            "format": "double"
+          },
+          "Type": {
+            "$ref": "#/components/schemas/NumericFieldFilterType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DecimalFieldFilter"
+      },
+      "ExportSettings": {
+        "required": [
+          "Delimiter",
+          "Qualifier"
+        ],
+        "type": "object",
+        "properties": {
+          "Delimiter": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Delimiter"
+          },
+          "Qualifier": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Qualifier"
+          }
+        },
+        "additionalProperties": false,
+        "description": "OrderViewExportSettings"
+      },
+      "ExtendedProperty": {
+        "type": "object",
+        "properties": {
+          "RowId": {
+            "type": "string",
+            "description": "Record row ID",
+            "format": "uuid"
+          },
+          "Name": {
+            "type": "string",
+            "description": "Extended property name",
+            "nullable": true
+          },
+          "Value": {
+            "type": "string",
+            "description": "Extended property value",
+            "nullable": true
+          },
+          "Type": {
+            "type": "string",
+            "description": "Extended property type",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "ExtendedProperty"
+      },
+      "FieldFilter": {
+        "required": [
+          "FieldCode",
+          "FieldType"
+        ],
+        "type": "object",
+        "properties": {
+          "FieldType": {
+            "minLength": 1,
+            "type": "string",
+            "description": "FieldType"
+          },
+          "FieldCode": {
+            "minLength": 1,
+            "type": "string",
+            "description": "FieldCode"
+          }
+        },
+        "additionalProperties": false,
+        "description": "FieldFilter"
+      },
+      "FieldParameter": {
+        "required": [
+          "Key",
+          "Value"
+        ],
+        "type": "object",
+        "properties": {
+          "Key": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Key"
+          },
+          "Value": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Value"
+          }
+        },
+        "additionalProperties": false,
+        "description": "FieldParameter"
+      },
+      "FieldSorting": {
+        "required": [
+          "Direction",
+          "Order"
+        ],
+        "type": "object",
+        "properties": {
+          "Direction": {
+            "$ref": "#/components/schemas/SortDirection"
+          },
+          "Order": {
+            "maximum": 2147483647,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Order",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "FieldSorting"
+      },
+      "FieldType": {
+        "enum": [
+          "Text",
+          "Integer",
+          "Decimal",
+          "Boolean",
+          "Date",
+          "List",
+          "Guid",
+          "Aggregate"
+        ],
+        "type": "string"
+      },
+      "FulfillmentStatus": {
+        "enum": [
+          "Unassigned",
+          "Assigned",
+          "Submitted",
+          "Accepted"
+        ],
+        "type": "string"
+      },
+      "FulfillmentStatusRequest": {
+        "type": "object",
+        "properties": {
+          "FulfillmentStatus": {
+            "$ref": "#/components/schemas/FulfillmentStatus"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Request object for updating fulfillment status'"
+      },
+      "GetOrdersResponse": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseGetOrdersResponse"
+          }
+        ],
+        "properties": {
+          "OpenOrders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Order"
+            },
+            "nullable": true
+          },
+          "ProcessedOrders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProcessedOrder"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GridRowSize": {
+        "enum": [
+          "Short",
+          "Regular",
+          "Tall"
+        ],
+        "type": "string"
+      },
+      "HttpValidationProblemDetails": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ProblemDetails"
+          }
+        ],
+        "properties": {
+          "Errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "IntegerFieldFilter": {
+        "required": [
+          "ConditionType",
+          "Type",
+          "Value"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldFilter"
+          }
+        ],
+        "properties": {
+          "ConditionType": {
+            "$ref": "#/components/schemas/ConditionType"
+          },
+          "Value": {
+            "type": "integer",
+            "description": "Value",
+            "format": "int32"
+          },
+          "Type": {
+            "$ref": "#/components/schemas/NumericFieldFilterType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "IntegerFieldFilter"
+      },
+      "ListFieldFilter": {
+        "required": [
+          "ConditionType",
+          "Values"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldFilter"
+          }
+        ],
+        "properties": {
+          "ConditionType": {
+            "$ref": "#/components/schemas/ConditionType"
+          },
+          "Values": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Value"
+          }
+        },
+        "additionalProperties": false,
+        "description": "ListFieldFilter"
+      },
+      "NumericFieldFilterType": {
+        "enum": [
+          "Equal",
+          "Greater",
+          "Lower"
+        ],
+        "type": "string"
+      },
+      "Order": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BasicOrder"
+          }
+        ],
+        "properties": {
+          "GeneralInfo": {
+            "$ref": "#/components/schemas/OrderGeneralInfo"
+          },
+          "CustomerInfo": {
+            "$ref": "#/components/schemas/OrderCustomerInfo"
+          },
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderItemWithChildren"
+            },
+            "description": "List of order items",
+            "nullable": true
+          },
+          "Notes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderNote"
+            },
+            "description": "List of order notes",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Order"
+      },
+      "OrderCustomerInfo": {
+        "type": "object",
+        "properties": {
+          "ChannelBuyerName": {
+            "type": "string",
+            "description": "Username of customer (Comes from channel)",
+            "nullable": true
+          },
+          "Address": {
+            "$ref": "#/components/schemas/ShippingAddress"
+          },
+          "BillingAddress": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BillingAddress"
+              },
+              {
+                "$ref": "#/components/schemas/ShippingAddress"
+              }
+            ],
+            "description": "Customer billing address",
+            "nullable": true
+          },
+          "TaxId": {
+            "type": "string",
+            "description": "Buyer's tax number.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "OrderCustomerInfo"
+      },
+      "OrderExtendedProperty": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ExtendedProperty"
+          }
+        ],
+        "properties": {
+          "CreateDate": {
+            "type": "string",
+            "description": "Date added to the order",
+            "format": "date-time"
+          },
+          "LastUpdate": {
+            "type": "string",
+            "description": "Last modified date",
+            "format": "date-time"
+          },
+          "UpdatedBy": {
+            "type": "string",
+            "description": "Who made the last edit to the property?",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "OrderExtendedProperty"
+      },
+      "OrderFulfillmentStatus": {
+        "type": "object",
+        "properties": {
+          "OrderId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "FulfillmentStatus": {
+            "$ref": "#/components/schemas/FulfillmentStatus"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderGeneralInfo": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BasicOrderGeneralInfo"
+          }
+        ],
+        "properties": {
+          "IsParked": {
+            "type": "boolean",
+            "description": "Is the order parked?",
+            "readOnly": true
+          },
+          "IsMerged": {
+            "type": "boolean",
+            "description": "Is the order merged?"
+          },
+          "IsLocked": {
+            "type": "boolean",
+            "description": "Is the order locked?"
+          },
+          "IsRuleRun": {
+            "type": "boolean",
+            "description": "?\r\n            If rules engine rule ran on an order"
+          }
+        },
+        "additionalProperties": false,
+        "description": "OrderGeneralInfo"
+      },
+      "OrderItem": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BasicOrderItem"
+          }
+        ],
+        "properties": {
+          "ParentItemId": {
+            "type": "string",
+            "description": "Id of the composite parent row. Null if not a child item",
+            "format": "uuid",
+            "nullable": true
+          },
+          "StockItemIntId": {
+            "type": "integer",
+            "description": "Stock Item Int Id",
+            "format": "int32"
+          },
+          "ItemNumber": {
+            "type": "string",
+            "description": "Item number as on channel",
+            "nullable": true
+          },
+          "SKU": {
+            "type": "string",
+            "description": "Product SKU",
+            "nullable": true
+          },
+          "ItemSource": {
+            "type": "string",
+            "description": "Item source / channel name",
+            "nullable": true
+          },
+          "Title": {
+            "type": "string",
+            "description": "Item title",
+            "nullable": true
+          },
+          "CategoryId": {
+            "type": "string",
+            "description": "Product category Id",
+            "format": "uuid"
+          },
+          "CategoryName": {
+            "type": "string",
+            "description": "Product category",
+            "nullable": true
+          },
+          "PricePerUnit": {
+            "type": "number",
+            "description": "Unit price",
+            "format": "double"
+          },
+          "UnitCost": {
+            "type": "number",
+            "description": "Unit cost",
+            "format": "double"
+          },
+          "DespatchStockUnitCost": {
+            "type": "number",
+            "description": "Despatch stock unit cost",
+            "format": "double"
+          },
+          "Discount": {
+            "type": "number",
+            "description": "Percentage (0%, 10%, 20%, etc...)",
+            "format": "double"
+          },
+          "TaxRate": {
+            "type": "number",
+            "description": "Tax rate",
+            "format": "double"
+          },
+          "Cost": {
+            "type": "number",
+            "description": "Total item cost (excluding  tax)",
+            "format": "double"
+          },
+          "CostIncTax": {
+            "type": "number",
+            "description": "Total item cost (including tax)",
+            "format": "double"
+          },
+          "SalesTax": {
+            "type": "number",
+            "description": "Sales Tax",
+            "format": "double"
+          },
+          "TaxCostInclusive": {
+            "type": "boolean",
+            "description": "If tax is included in a cost"
+          },
+          "DiscountValue": {
+            "type": "number",
+            "description": "Item discount calculated from discount percentage",
+            "format": "double",
+            "readOnly": true
+          },
+          "Weight": {
+            "type": "number",
+            "description": "Order item weight",
+            "format": "double"
+          },
+          "BarcodeNumber": {
+            "type": "string",
+            "description": "Product barcode",
+            "nullable": true
+          },
+          "ChannelSKU": {
+            "type": "string",
+            "description": "Channel product SKU",
+            "nullable": true
+          },
+          "ChannelTitle": {
+            "type": "string",
+            "description": "Channel product title",
+            "nullable": true
+          },
+          "BatchNumberScanRequired": {
+            "type": "boolean",
+            "description": "If batch number scan required"
+          },
+          "SerialNumberScanRequired": {
+            "type": "boolean",
+            "description": "If serial number scan required"
+          },
+          "BinRacks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderItemBinRack"
+            },
+            "description": "List of BinRacks used for OrderItem",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "OrderItem"
+      },
+      "OrderItemBinRack": {
+        "type": "object",
+        "properties": {
+          "Location": {
+            "type": "string",
+            "description": "LocationId of the BinRack",
+            "format": "uuid"
+          },
+          "BinRack": {
+            "type": "string",
+            "description": "BinRack",
+            "nullable": true
+          },
+          "BatchId": {
+            "type": "integer",
+            "description": "If the item is batched, identifies the batch number",
+            "format": "int32",
+            "nullable": true
+          },
+          "OrderItemBatchId": {
+            "type": "integer",
+            "description": "If the item is batched, identifies the unique order item batch row",
+            "format": "int32",
+            "nullable": true
+          },
+          "Quantity": {
+            "type": "integer",
+            "description": "Quantity for BinRack per Location",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "OrderItemBinRack"
+      },
+      "OrderItemOption": {
+        "type": "object",
+        "properties": {
+          "OptionId": {
+            "type": "string",
+            "description": "Option ID",
+            "format": "uuid"
+          },
+          "Property": {
+            "type": "string",
+            "description": "Option property",
+            "nullable": true
+          },
+          "Value": {
+            "type": "string",
+            "description": "Value of the option",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "OrderItemOption"
+      },
+      "OrderItemWithChildren": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AnonymousOrderItemWithChildren"
+          }
+        ],
+        "properties": {
+          "AdditionalInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderItemOption"
+            },
+            "description": "List of order item options",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "OrderItemWithChildren"
+      },
+      "OrderNote": {
+        "type": "object",
+        "properties": {
+          "OrderNoteId": {
+            "type": "string",
+            "description": "Order note ID",
+            "format": "uuid"
+          },
+          "NoteDate": {
+            "type": "string",
+            "description": "Date and time when note was added",
+            "format": "date-time"
+          },
+          "Internal": {
+            "type": "boolean",
+            "description": "Order note type (Internal or External)"
+          },
+          "Note": {
+            "type": "string",
+            "description": "Note's text",
+            "nullable": true
+          },
+          "CreatedBy": {
+            "type": "string",
+            "description": "User that created note",
+            "nullable": true
+          },
+          "NoteTypeId": {
+            "type": "integer",
+            "description": "Type of note such as \"Processing Note\". Non specific note types can be set to null.",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "OrderNote"
+      },
+      "OrderShippingInfo": {
+        "type": "object",
+        "properties": {
+          "Vendor": {
+            "type": "string",
+            "description": "Courier name (e.g. Royal Mail)",
+            "nullable": true
+          },
+          "PostalServiceId": {
+            "type": "string",
+            "description": "Postal service ID",
+            "format": "uuid"
+          },
+          "PostalServiceName": {
+            "type": "string",
+            "description": "Postal service name (e.g. Next day delivery)",
+            "nullable": true
+          },
+          "TotalWeight": {
+            "type": "number",
+            "description": "Order total weight",
+            "format": "double"
+          },
+          "ItemWeight": {
+            "type": "number",
+            "description": "Order item weight",
+            "format": "double"
+          },
+          "PackageCategoryId": {
+            "type": "string",
+            "description": "Package category ID",
+            "format": "uuid"
+          },
+          "PackageCategory": {
+            "type": "string",
+            "description": "Package category name",
+            "nullable": true
+          },
+          "PackageTypeId": {
+            "type": "string",
+            "description": "Package type ID",
+            "format": "uuid",
+            "nullable": true
+          },
+          "PackageType": {
+            "type": "string",
+            "description": "Package type name",
+            "nullable": true
+          },
+          "TrackingNumber": {
+            "type": "string",
+            "description": "Order tracking number provided by courier",
+            "nullable": true
+          },
+          "ManualAdjust": {
+            "type": "boolean",
+            "description": "If there is an adjustment to shipping cost was made"
+          }
+        },
+        "additionalProperties": false,
+        "description": "OrderShippingInfo"
+      },
+      "OrderTotalsInfo": {
+        "type": "object",
+        "properties": {
+          "Subtotal": {
+            "type": "number",
+            "description": "Order subtotal",
+            "format": "double"
+          },
+          "PostageCost": {
+            "type": "number",
+            "description": "Order postage cost",
+            "format": "double"
+          },
+          "PostageCostExTax": {
+            "type": "number",
+            "description": "Order postage cost ex. tax",
+            "format": "double"
+          },
+          "Tax": {
+            "type": "number",
+            "description": "Tax",
+            "format": "double"
+          },
+          "TotalCharge": {
+            "type": "number",
+            "description": "Total charge",
+            "format": "double"
+          },
+          "PaymentMethod": {
+            "type": "string",
+            "description": "Payment method",
+            "nullable": true
+          },
+          "PaymentMethodId": {
+            "type": "string",
+            "description": "Payment method ID",
+            "format": "uuid"
+          },
+          "TotalDiscount": {
+            "type": "number",
+            "description": "Total discount applied to the order",
+            "format": "double"
+          },
+          "Currency": {
+            "type": "string",
+            "description": "Order currency",
+            "nullable": true
+          },
+          "CountryTaxRate": {
+            "type": "number",
+            "description": "Country tax rate",
+            "format": "double"
+          },
+          "ConversionRate": {
+            "type": "number",
+            "description": "Currency conversion rate. Set at point of save by the currency",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "OrderTotalsInfo"
+      },
+      "OrderViewButton": {
+        "required": [
+          "Key",
+          "Name",
+          "SortOrder",
+          "Style"
+        ],
+        "type": "object",
+        "properties": {
+          "Icon": {
+            "type": "string",
+            "description": "Icon",
+            "nullable": true
+          },
+          "Key": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Key"
+          },
+          "Value": {
+            "description": "Value",
+            "nullable": true
+          },
+          "Name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Name"
+          },
+          "SortOrder": {
+            "maximum": 2147483647,
+            "minimum": 0,
+            "type": "integer",
+            "description": "SortOrder",
+            "format": "int32"
+          },
+          "Style": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Style"
+          },
+          "PrimaryAction": {
+            "type": "string",
+            "description": "PrimaryAction",
+            "nullable": true,
+            "deprecated": true
+          },
+          "SecondaryAction": {
+            "type": "string",
+            "description": "SecondaryAction",
+            "nullable": true,
+            "deprecated": true
+          },
+          "PrimaryValue": {
+            "type": "string",
+            "description": "PrimaryValue",
+            "nullable": true,
+            "deprecated": true
+          },
+          "SecondaryValue": {
+            "type": "string",
+            "description": "SecondaryValue",
+            "nullable": true,
+            "deprecated": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "OrderViewButton"
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "ProcessedOrder": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BasicOrder"
+          }
+        ],
+        "properties": {
+          "GeneralInfo": {
+            "$ref": "#/components/schemas/ProcessedOrderGeneralInfo"
+          },
+          "CustomerInfo": {
+            "$ref": "#/components/schemas/OrderCustomerInfo"
+          },
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderItemWithChildren"
+            },
+            "description": "List of order items",
+            "nullable": true
+          },
+          "Notes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderNote"
+            },
+            "description": "List of order notes",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "ProcessedOrder"
+      },
+      "ProcessedOrderGeneralInfo": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BasicOrderGeneralInfo"
+          }
+        ],
+        "properties": {
+          "IsCancelled": {
+            "type": "boolean",
+            "description": "Is the order cancelled?"
+          }
+        },
+        "additionalProperties": false,
+        "description": "ProcessedOrderGeneralInfo"
+      },
+      "ScheduledDelivery": {
+        "type": "object",
+        "properties": {
+          "From": {
+            "type": "string",
+            "description": "The start of requested delivery",
+            "format": "date-time",
+            "nullable": true
+          },
+          "To": {
+            "type": "string",
+            "description": "The end of requested delivery",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "ScheduledDelivery"
+      },
+      "ShippingAddress": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BillingAddress"
+          }
+        ],
+        "properties": {
+          "Continent": {
+            "type": "string",
+            "description": "Customer's continent",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "ShippingAddress"
+      },
+      "SortDirection": {
+        "enum": [
+          "Ascending",
+          "Descending"
+        ],
+        "type": "string"
+      },
+      "StockAllocationType": {
+        "enum": [
+          "NotAllocated",
+          "Insuffient",
+          "Partial",
+          "Full",
+          "OverAllocated"
+        ],
+        "type": "string",
+        "description": "StockAllocationType"
+      },
+      "TextFieldFilter": {
+        "required": [
+          "ConditionType",
+          "Text",
+          "Type",
+          "Value"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldFilter"
+          }
+        ],
+        "properties": {
+          "ConditionType": {
+            "$ref": "#/components/schemas/ConditionType"
+          },
+          "Value": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Value"
+          },
+          "Type": {
+            "$ref": "#/components/schemas/TextFieldFilterType"
+          },
+          "Text": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Text"
+          }
+        },
+        "additionalProperties": false,
+        "description": "TextFieldFilter"
+      },
+      "TextFieldFilterType": {
+        "enum": [
+          "Equal",
+          "Contains",
+          "StartWith",
+          "EndsWith",
+          "Empty"
+        ],
+        "type": "string"
+      },
+      "UpdateFulfillmentStatusesResponse": {
+        "type": "object",
+        "properties": {
+          "Results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/APIResultResponse_OrderFulfillmentStatus"
+            },
+            "nullable": true
+          },
+          "TotalResults": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "ResultStatus": {
+            "$ref": "#/components/schemas/APIResultStatus"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A batched API response for OrderFulfillmentStatuses"
+      },
+      "ViewCalculationState": {
+        "enum": [
+          "Calculated",
+          "Calculating",
+          "NotCalculated"
+        ],
+        "type": "string"
+      },
+      "ViewType": {
+        "enum": [
+          "Compact",
+          "Complex"
+        ],
+        "type": "string"
+      },
+      "VisibleField": {
+        "required": [
+          "FieldType",
+          "Filters",
+          "Sorting"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/VisibleFieldBase"
+          }
+        ],
+        "properties": {
+          "CanFilter": {
+            "type": "boolean",
+            "description": "CanFilter",
+            "nullable": true
+          },
+          "CanSort": {
+            "type": "boolean",
+            "description": "CanSort",
+            "nullable": true
+          },
+          "FieldParameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldParameter"
+            },
+            "description": "FieldParameters",
+            "nullable": true
+          },
+          "FieldType": {
+            "$ref": "#/components/schemas/FieldType"
+          },
+          "Filters": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/FieldFilter"
+                },
+                {
+                  "$ref": "#/components/schemas/BooleanFieldFilter"
+                },
+                {
+                  "$ref": "#/components/schemas/DateFieldFilter"
+                },
+                {
+                  "$ref": "#/components/schemas/DecimalFieldFilter"
+                },
+                {
+                  "$ref": "#/components/schemas/IntegerFieldFilter"
+                },
+                {
+                  "$ref": "#/components/schemas/ListFieldFilter"
+                },
+                {
+                  "$ref": "#/components/schemas/TextFieldFilter"
+                }
+              ],
+              "description": "FieldFilter"
+            },
+            "description": "Filters"
+          },
+          "HasFilters": {
+            "type": "boolean",
+            "description": "HasFilters"
+          },
+          "HasSorting": {
+            "type": "boolean",
+            "description": "HasSorting"
+          },
+          "IsDisplay": {
+            "type": "boolean",
+            "description": "IsDisplay",
+            "nullable": true
+          },
+          "IsSubGridField": {
+            "type": "boolean",
+            "description": "IsSubGridField",
+            "nullable": true
+          },
+          "Sorting": {
+            "$ref": "#/components/schemas/FieldSorting"
+          }
+        },
+        "additionalProperties": false,
+        "description": "VisibleField"
+      },
+      "VisibleFieldBase": {
+        "required": [
+          "Code",
+          "IsVisible",
+          "Sequence",
+          "Width"
+        ],
+        "type": "object",
+        "properties": {
+          "Code": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Code"
+          },
+          "Name": {
+            "type": "string",
+            "description": "Name",
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "description": "Description",
+            "nullable": true
+          },
+          "IsVisible": {
+            "type": "boolean",
+            "description": "IsVisible"
+          },
+          "Width": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Pixel value (eg. 200) for the width\r\nProvide \"*\" to let it sort itself out"
+          },
+          "Sequence": {
+            "maximum": 2147483647,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The ordering of the field",
+            "format": "int32"
+          },
+          "Pinned": {
+            "type": "string",
+            "description": "Sets a pinned status on the field - Null is no pinning",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "VisibleFieldBase"
+      },
+      "VisibleFieldGroup": {
+        "required": [
+          "SubFields"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/VisibleFieldBase"
+          }
+        ],
+        "properties": {
+          "SubFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VisibleField"
+            },
+            "description": "SubFields"
+          }
+        },
+        "additionalProperties": false,
+        "description": "VisibleFieldGroup"
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
