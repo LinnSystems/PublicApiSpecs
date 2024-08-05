@@ -50,3 +50,4 @@ pipelines:
                 - npx rdme@v8 openapi '1.0/warehousetransfer-new.json' --key=$key --id=64ae7846fccefe0056422c8d
                 - npx rdme@v8 openapi '1.0/wms.json' --key=$key --id=64663af3ed0b0308d428071a
                 - npx rdme@v8 openapi '2.0/warehousetransfer-v2.json' --key=$key --id=64ae78db3ff6b10051714af9
+                - npx rdme@v8 openapi '2.0/orders-v2.json' --key=$key --id=66acbb6f87ab2600692a235f
