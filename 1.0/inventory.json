@@ -6670,13 +6670,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6695,13 +6695,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6732,13 +6732,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6760,13 +6760,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6788,13 +6788,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6815,13 +6815,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6841,13 +6841,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6905,13 +6905,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7210,11 +7210,11 @@
     "ChannelPostalService": {
       "type": "object",
       "properties": {
-        "pkRowId": {
+        "fkChannelId": {
           "format": "int32",
           "type": "integer"
         },
-        "fkChannelId": {
+        "pkRowId": {
           "format": "int32",
           "type": "integer"
         },
