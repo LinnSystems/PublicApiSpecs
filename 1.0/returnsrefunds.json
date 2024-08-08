@@ -1938,6 +1938,9 @@
         },
         "InsufficientRefundNote": {
           "type": "string"
+        },
+        "ReasonCategory": {
+          "type": "string"
         }
       }
     },
@@ -3311,6 +3314,9 @@
         },
         "InsufficientRefundNote": {
           "type": "string"
+        },
+        "ReasonCategory": {
+          "type": "string"
         }
       }
     },
@@ -3437,6 +3443,9 @@
           "type": "string"
         },
         "InsufficientRefundNote": {
+          "type": "string"
+        },
+        "ReasonCategory": {
           "type": "string"
         }
       }

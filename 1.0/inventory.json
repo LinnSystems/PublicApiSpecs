@@ -5504,11 +5504,6 @@
     "StockItemLabel": {
       "type": "object",
       "properties": {
-        "StockItemId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "ItemNumber": {
           "type": "string"
         },
@@ -5530,6 +5525,11 @@
           "type": "integer"
         },
         "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
@@ -6145,25 +6145,25 @@
         "ItemTitle": {
           "type": "string"
         },
-        "ScrapReason": {
-          "type": "string"
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
         },
         "CategoryName": {
           "type": "string"
         },
-        "Quantity": {
-          "format": "int32",
-          "type": "integer"
+        "ScrapReason": {
+          "type": "string"
         },
         "TotalCost": {
           "format": "double",
           "type": "number"
         },
-        "CreatedDate": {
-          "format": "date-time",
+        "UserName": {
           "type": "string"
         },
-        "UserName": {
+        "CreatedDate": {
+          "format": "date-time",
           "type": "string"
         },
         "StockLocationId": {
@@ -6346,6 +6346,9 @@
           ],
           "type": "string"
         },
+        "Site": {
+          "type": "string"
+        },
         "Value": {
           "type": "string"
         },
@@ -6354,9 +6357,6 @@
           "type": "string"
         },
         "ModifiedUserName": {
-          "type": "string"
-        },
-        "Site": {
           "type": "string"
         }
       }
@@ -6670,13 +6670,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6695,13 +6695,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6732,13 +6732,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6760,13 +6760,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6788,13 +6788,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6815,13 +6815,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6841,13 +6841,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -6905,13 +6905,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7210,11 +7210,11 @@
     "ChannelPostalService": {
       "type": "object",
       "properties": {
-        "fkChannelId": {
+        "pkRowId": {
           "format": "int32",
           "type": "integer"
         },
-        "pkRowId": {
+        "fkChannelId": {
           "format": "int32",
           "type": "integer"
         },

@@ -925,6 +925,9 @@
         },
         "InsufficientRefundNote": {
           "type": "string"
+        },
+        "ReasonCategory": {
+          "type": "string"
         }
       }
     },
