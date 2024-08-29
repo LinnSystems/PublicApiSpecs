@@ -188,11 +188,11 @@
         "TemplateType": {
           "type": "string"
         },
-        "IsConditions": {
+        "HTML": {
           "type": "boolean"
         },
-        "Condition": {
-          "type": "string"
+        "IsConditions": {
+          "type": "boolean"
         },
         "Enabled": {
           "type": "boolean"
@@ -207,10 +207,10 @@
         "AttachPDF": {
           "type": "boolean"
         },
-        "IsAdhoc": {
-          "type": "boolean"
+        "Condition": {
+          "type": "string"
         },
-        "HTML": {
+        "IsAdhoc": {
           "type": "boolean"
         }
       }
