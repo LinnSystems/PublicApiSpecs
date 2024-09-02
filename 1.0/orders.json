@@ -2671,9 +2671,8 @@
         ],
         "parameters": [
           {
-            "name": "Orders_AddOrderServiceRequest",
+            "name": "request",
             "in": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/Orders_AddOrderServiceRequest"
             }
@@ -8568,31 +8567,41 @@
     "Orders_AddOrderServiceRequest": {
       "type": "object",
       "properties": {
-        "orderId": {
+        "OrderId": {
           "format": "uuid",
           "description": "Order id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
-        "service": {
+        "Service": {
           "description": "Service",
           "type": "string"
         },
-        "cost": {
+        "Cost": {
           "format": "double",
-          "description": "Cost",
+          "description": "Price Per Unit of each service item",
           "type": "number"
         },
-        "taxRate": {
+        "TaxRate": {
           "format": "double",
-          "description": "Tax rate",
+          "description": "Tax rate. Optional, defaults to 0.",
           "type": "number"
         },
-        "fulfilmentCenter": {
+        "FulfilmentCenter": {
           "format": "uuid",
           "description": "Current fulfilment center",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Quantity": {
+          "format": "int32",
+          "description": "Quantity of the service item. Optional, defaults to 1.",
+          "type": "integer"
+        },
+        "DiscountPercentage": {
+          "format": "double",
+          "description": "Discount percentage applied to the service item. Optional, defaults to 0.",
+          "type": "number"
         }
       }
     },

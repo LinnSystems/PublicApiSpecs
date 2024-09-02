@@ -2451,69 +2451,10 @@
     "StockItem": {
       "type": "object",
       "properties": {
-        "StockItemId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "ItemTitle": {
-          "type": "string"
-        },
-        "ItemNumber": {
-          "type": "string"
-        },
         "ItemDescription": {
           "type": "string"
         },
-        "CreationDate": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "RetailPrice": {
-          "format": "double",
-          "type": "number"
-        },
-        "CategoryId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "Weight": {
-          "format": "double",
-          "type": "number"
-        },
         "Quantity": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "MinimumLevel": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "CategoryName": {
-          "type": "string"
-        },
-        "PurchasePrice": {
-          "format": "double",
-          "type": "number"
-        },
-        "BarcodeNumber": {
-          "type": "string"
-        },
-        "ShippedSeparately": {
-          "type": "boolean"
-        },
-        "TaxRate": {
-          "format": "double",
-          "type": "number"
-        },
-        "BatchNumberScanRequired": {
-          "type": "boolean"
-        },
-        "SerialNumberScanRequired": {
-          "type": "boolean"
-        },
-        "InventoryTrackingType": {
           "format": "int32",
           "type": "integer"
         },
@@ -2525,6 +2466,10 @@
           "format": "int32",
           "type": "integer"
         },
+        "MinimumLevel": {
+          "format": "int32",
+          "type": "integer"
+        },
         "Available": {
           "format": "int32",
           "type": "integer",
@@ -2532,6 +2477,18 @@
         },
         "IsCompositeParent": {
           "type": "boolean"
+        },
+        "ShippedSeparately": {
+          "type": "boolean"
+        },
+        "ItemNumber": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "BarcodeNumber": {
+          "type": "string"
         },
         "MetaData": {
           "type": "string"
@@ -2543,12 +2500,32 @@
           "type": "boolean",
           "readOnly": true
         },
+        "PurchasePrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "RetailPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
         "PostalServiceId": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PostalServiceName": {
+          "type": "string"
+        },
+        "CategoryId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "CategoryName": {
           "type": "string"
         },
         "PackageGroupId": {
@@ -2570,6 +2547,29 @@
         "Depth": {
           "format": "double",
           "type": "number"
+        },
+        "Weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "CreationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchNumberScanRequired": {
+          "type": "boolean"
+        },
+        "SerialNumberScanRequired": {
+          "type": "boolean"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
