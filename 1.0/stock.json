@@ -1713,6 +1713,130 @@
         ]
       }
     },
+    "/api/Stock/DeleteMove": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "DeleteMove",
+        "description": "Use this call to delete a stock move\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "DeleteMove",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DeleteMoveRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetWarehouseMovesByBinrack": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetWarehouseMovesByBinrack",
+        "description": "Use this call to get details for stock moves within a specific binrack. Returns both incoming and outgoing stock.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "GetWarehouseMovesByBinrack",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Stock_GetWarehouseMovesByBinrackRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock_GetWarehouseMovesByBinrackRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetWarehouseMovesByBinrackResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/GetWarehouseMove": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "GetWarehouseMove",
+        "description": "Use this call to get details for a stock move.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "GetWarehouseMove",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/GetWarehouseMoveRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetWarehouseMoveResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/Stock/CompleteWarehouseMove": {
       "post": {
         "tags": [
@@ -1738,6 +1862,50 @@
         "responses": {
           "204": {
             "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Stock/UpdateWarehouseMove": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "summary": "UpdateWarehouseMove",
+        "description": "Use this call to update a stock move\n<b>Permissions Required: </b> GlobalPermissions.Inventory.WarehouseManagement.StockMoveNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "UpdateWarehouseMove",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateWarehouseMoveRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetWarehouseMoveResponse"
+            }
           }
         },
         "security": [
@@ -4220,76 +4388,58 @@
         }
       }
     },
-    "Stock_CompleteWarehouseMoveRequest": {
-      "type": "object",
-      "properties": {
-        "request": {
-          "$ref": "#/definitions/WarehouseMoveCompleteRequest"
-        }
-      }
-    },
-    "WarehouseMoveCompleteRequest": {
+    "DeleteMoveRequest": {
       "type": "object",
       "properties": {
         "MoveId": {
           "format": "int32",
-          "type": "integer"
-        },
-        "FinalBinrackId": {
-          "format": "int32",
+          "description": "Id of the stock move to delete",
           "type": "integer"
         }
       }
     },
-    "CreateWarehouseMoveRequest": {
+    "Stock_GetWarehouseMovesByBinrackRequest": {
       "type": "object",
       "properties": {
-        "BatchInventoryId": {
-          "format": "int32",
-          "description": "Batch Inventory Id of the stock item you are moving",
-          "type": "integer"
-        },
-        "Quantity": {
-          "format": "int32",
-          "description": "Quantity of items being moved",
-          "type": "integer"
-        },
-        "BinrackIdDestination": {
-          "format": "int32",
-          "description": "Destination if known, can be null",
-          "type": "integer"
-        },
-        "JobId": {
-          "format": "int32",
-          "description": "If the move is part of a specific job, specify job id so it can be marked off from the job",
-          "type": "integer"
-        },
-        "TotId": {
-          "format": "int32",
-          "description": "(Optional) Move to TOT id, create or retrive tot scan barcode first. To unassign from Tot send 0",
-          "type": "integer"
-        },
-        "TxType": {
-          "description": "Type of the move. Open means its an instruction to move, In Transit actually marks the item as unavilable and physically being moved",
-          "enum": [
-            "Open",
-            "InTransit"
-          ],
-          "type": "string"
-        },
-        "UserId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
+        "request": {
+          "$ref": "#/definitions/GetWarehouseMovesByBinrackRequest",
+          "description": ""
         }
       }
     },
-    "GetWarehouseMoveResponse": {
+    "GetWarehouseMovesByBinrackRequest": {
       "type": "object",
       "properties": {
-        "WarehouseMove": {
-          "$ref": "#/definitions/WarehouseMoveDetailed",
-          "description": "Move details"
+        "BinrackId": {
+          "format": "int32",
+          "description": "The Id of the binrack to get stock moves for",
+          "type": "integer"
+        }
+      }
+    },
+    "GetWarehouseMovesByBinrackResponse": {
+      "type": "object",
+      "properties": {
+        "WarehouseMoves": {
+          "$ref": "#/definitions/WarehouseMoveCollection",
+          "description": "A list of warehouse moves for a binrack; both incoming and outgoing"
+        }
+      }
+    },
+    "WarehouseMoveCollection": {
+      "type": "object",
+      "properties": {
+        "Incoming": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseMoveDetailed"
+          }
+        },
+        "Outgoing": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarehouseMoveDetailed"
+          }
         }
       }
     },
@@ -4360,6 +4510,137 @@
         "TotId": {
           "format": "int32",
           "type": "integer"
+        }
+      }
+    },
+    "GetWarehouseMoveRequest": {
+      "type": "object",
+      "properties": {
+        "MoveId": {
+          "format": "int32",
+          "description": "Id of the stock move",
+          "type": "integer"
+        }
+      }
+    },
+    "GetWarehouseMoveResponse": {
+      "type": "object",
+      "properties": {
+        "WarehouseMove": {
+          "$ref": "#/definitions/WarehouseMoveDetailed",
+          "description": "Move details"
+        }
+      }
+    },
+    "Stock_CompleteWarehouseMoveRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/WarehouseMoveCompleteRequest"
+        }
+      }
+    },
+    "WarehouseMoveCompleteRequest": {
+      "type": "object",
+      "properties": {
+        "MoveId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "FinalBinrackId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "UpdateWarehouseMoveRequest": {
+      "type": "object",
+      "properties": {
+        "MoveId": {
+          "format": "int32",
+          "description": "The Id of the stock move to update",
+          "type": "integer"
+        },
+        "BatchInventoryId": {
+          "format": "int32",
+          "description": "Batch Inventory Id of the stock item you are moving",
+          "type": "integer"
+        },
+        "Quantity": {
+          "format": "int32",
+          "description": "Quantity of items being moved",
+          "type": "integer"
+        },
+        "BinrackIdDestination": {
+          "format": "int32",
+          "description": "Destination if known, can be null",
+          "type": "integer"
+        },
+        "JobId": {
+          "format": "int32",
+          "description": "If the move is part of a specific job, specify job id so it can be marked off from the job",
+          "type": "integer"
+        },
+        "TotId": {
+          "format": "int32",
+          "description": "(Optional) Move to TOT id, create or retrive tot scan barcode first. To unassign from Tot send 0",
+          "type": "integer"
+        },
+        "TxType": {
+          "description": "Type of the move. Open means its an instruction to move, In Transit actually marks the item as unavilable and physically being moved",
+          "enum": [
+            "Open",
+            "InTransit"
+          ],
+          "type": "string"
+        },
+        "UserId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "CreateWarehouseMoveRequest": {
+      "type": "object",
+      "properties": {
+        "BatchInventoryId": {
+          "format": "int32",
+          "description": "Batch Inventory Id of the stock item you are moving",
+          "type": "integer"
+        },
+        "Quantity": {
+          "format": "int32",
+          "description": "Quantity of items being moved",
+          "type": "integer"
+        },
+        "BinrackIdDestination": {
+          "format": "int32",
+          "description": "Destination if known, can be null",
+          "type": "integer"
+        },
+        "JobId": {
+          "format": "int32",
+          "description": "If the move is part of a specific job, specify job id so it can be marked off from the job",
+          "type": "integer"
+        },
+        "TotId": {
+          "format": "int32",
+          "description": "(Optional) Move to TOT id, create or retrive tot scan barcode first. To unassign from Tot send 0",
+          "type": "integer"
+        },
+        "TxType": {
+          "description": "Type of the move. Open means its an instruction to move, In Transit actually marks the item as unavilable and physically being moved",
+          "enum": [
+            "Open",
+            "InTransit"
+          ],
+          "type": "string"
+        },
+        "UserId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
         }
       }
     },
