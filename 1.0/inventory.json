@@ -947,6 +947,49 @@
         ]
       }
     },
+    "/api/Inventory/UpdateBatchDates": {
+      "post": {
+        "tags": [
+          "Inventory"
+        ],
+        "summary": "UpdateBatchDates",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "UpdateBatchDates",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateBatchDatesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UpdateBatchDatesResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/Inventory/GetEbayCompatibilityList": {
       "get": {
         "tags": [
@@ -5504,6 +5547,11 @@
     "StockItemLabel": {
       "type": "object",
       "properties": {
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
         "ItemNumber": {
           "type": "string"
         },
@@ -5525,11 +5573,6 @@
           "type": "integer"
         },
         "LocationId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "StockItemId": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
@@ -5869,6 +5912,84 @@
           "format": "int32",
           "description": "Stock tracked status",
           "type": "integer"
+        }
+      }
+    },
+    "UpdateBatchDatesRequest": {
+      "type": "object",
+      "properties": {
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BatchDatesUpdateItem"
+          }
+        }
+      }
+    },
+    "BatchDatesUpdateItem": {
+      "type": "object",
+      "properties": {
+        "RowIndex": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchNumber": {
+          "type": "string"
+        },
+        "SellBy": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Expiry": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "SKU": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdateBatchDatesResponse": {
+      "type": "object",
+      "properties": {
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BatchDatesUpdateItemResult"
+          }
+        }
+      }
+    },
+    "BatchDatesUpdateItemResult": {
+      "type": "object",
+      "properties": {
+        "Errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "HasError": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "RowIndex": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchNumber": {
+          "type": "string"
+        },
+        "SellBy": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Expiry": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "SKU": {
+          "type": "string"
         }
       }
     },
@@ -6666,13 +6787,13 @@
     "ConfigItem_String": {
       "type": "object",
       "properties": {
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6691,13 +6812,13 @@
     "ConfigItem_Boolean": {
       "type": "object",
       "properties": {
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6728,13 +6849,13 @@
     "ConfigProperty_Boolean": {
       "type": "object",
       "properties": {
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6756,13 +6877,13 @@
         "OnGetSelectionList": {
           "$ref": "#/definitions/GetSelectionList_SelectStringValueOption"
         },
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6811,13 +6932,13 @@
     "ConfigItem_DateTime": {
       "type": "object",
       "properties": {
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6837,13 +6958,13 @@
     "ConfigItem_Int32": {
       "type": "object",
       "properties": {
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6901,13 +7022,13 @@
     "ConfigProperty_String": {
       "type": "object",
       "properties": {
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -9379,18 +9500,18 @@
     "StockItemChannelSKU": {
       "type": "object",
       "properties": {
+        "SKU": {
+          "type": "string"
+        },
+        "SubSource": {
+          "type": "string"
+        },
         "ChannelSKURowId": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
-        "SKU": {
-          "type": "string"
-        },
         "Source": {
-          "type": "string"
-        },
-        "SubSource": {
           "type": "string"
         },
         "UpdateStatus": {
@@ -10360,14 +10481,6 @@
     "StockLocation": {
       "type": "object",
       "properties": {
-        "StockLocationId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "LocationName": {
-          "type": "string"
-        },
         "Address1": {
           "type": "string"
         },
@@ -10392,9 +10505,6 @@
         "LocationTag": {
           "type": "string"
         },
-        "IsFulfillmentCenter": {
-          "type": "boolean"
-        },
         "CountInOrderUntilAcknowledgement": {
           "type": "boolean"
         },
@@ -10402,6 +10512,17 @@
           "type": "boolean"
         },
         "IsWarehouseManaged": {
+          "type": "boolean"
+        },
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LocationName": {
+          "type": "string"
+        },
+        "IsFulfillmentCenter": {
           "type": "boolean"
         },
         "StockLocationIntId": {
