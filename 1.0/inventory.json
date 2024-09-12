@@ -8384,22 +8384,22 @@
         "fieldName": {
           "description": "Name of field updated",
           "enum": [
+            "Image",
             "SKU",
             "Title",
-            "VariationGroupName",
+            "Barcode",
             "RetailPrice",
             "PurchasePrice",
-            "Tracked",
-            "Barcode",
+            "StockLevel",
+            "InOrder",
             "Available",
             "MinimumLevel",
-            "InOrder",
-            "StockLevel",
+            "Tracked",
+            "VariationGroupName",
             "StockValue",
             "Due",
             "BinRack",
             "Category",
-            "Image",
             "Weight",
             "DimHeight",
             "DimWidth",
@@ -8445,22 +8445,22 @@
         "fieldName": {
           "description": "Name of field updated",
           "enum": [
+            "Image",
             "SKU",
             "Title",
-            "VariationGroupName",
+            "Barcode",
             "RetailPrice",
             "PurchasePrice",
-            "Tracked",
-            "Barcode",
+            "StockLevel",
+            "InOrder",
             "Available",
             "MinimumLevel",
-            "InOrder",
-            "StockLevel",
+            "Tracked",
+            "VariationGroupName",
             "StockValue",
             "Due",
             "BinRack",
             "Category",
-            "Image",
             "Weight",
             "DimHeight",
             "DimWidth",
@@ -8506,22 +8506,22 @@
         "fieldName": {
           "description": "Name of field updated",
           "enum": [
+            "Image",
             "SKU",
             "Title",
-            "VariationGroupName",
+            "Barcode",
             "RetailPrice",
             "PurchasePrice",
-            "Tracked",
-            "Barcode",
+            "StockLevel",
+            "InOrder",
             "Available",
             "MinimumLevel",
-            "InOrder",
-            "StockLevel",
+            "Tracked",
+            "VariationGroupName",
             "StockValue",
             "Due",
             "BinRack",
             "Category",
-            "Image",
             "Weight",
             "DimHeight",
             "DimWidth",
@@ -9500,18 +9500,18 @@
     "StockItemChannelSKU": {
       "type": "object",
       "properties": {
-        "SKU": {
-          "type": "string"
-        },
-        "SubSource": {
-          "type": "string"
-        },
         "ChannelSKURowId": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
+        "SKU": {
+          "type": "string"
+        },
         "Source": {
+          "type": "string"
+        },
+        "SubSource": {
           "type": "string"
         },
         "UpdateStatus": {

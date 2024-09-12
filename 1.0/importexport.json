@@ -1166,21 +1166,6 @@
     "ImportRegisterPublicSchedules": {
       "type": "object",
       "properties": {
-        "Schedules": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Schedule"
-          }
-        },
-        "LastFileChecksum": {
-          "type": "string"
-        },
-        "ImportStatus": {
-          "type": "string"
-        },
-        "ImportSkipped": {
-          "type": "boolean"
-        },
         "Id": {
           "format": "int32",
           "type": "integer"
@@ -1235,12 +1220,6 @@
         "FriendlyName": {
           "type": "string"
         },
-        "Executing": {
-          "type": "boolean"
-        },
-        "justOnce": {
-          "type": "boolean"
-        },
         "Started": {
           "format": "date-time",
           "type": "string"
@@ -1252,7 +1231,28 @@
         "IsQueued": {
           "type": "boolean"
         },
+        "LastFileChecksum": {
+          "type": "string"
+        },
+        "justOnce": {
+          "type": "boolean"
+        },
         "Enabled": {
+          "type": "boolean"
+        },
+        "Executing": {
+          "type": "boolean"
+        },
+        "Schedules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Schedule"
+          }
+        },
+        "ImportStatus": {
+          "type": "string"
+        },
+        "ImportSkipped": {
           "type": "boolean"
         },
         "IsNew": {
