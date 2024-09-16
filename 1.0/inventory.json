@@ -6266,25 +6266,25 @@
         "ItemTitle": {
           "type": "string"
         },
-        "Quantity": {
-          "format": "int32",
-          "type": "integer"
+        "ScrapReason": {
+          "type": "string"
         },
         "CategoryName": {
           "type": "string"
         },
-        "ScrapReason": {
-          "type": "string"
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
         },
         "TotalCost": {
           "format": "double",
           "type": "number"
         },
-        "UserName": {
-          "type": "string"
-        },
         "CreatedDate": {
           "format": "date-time",
+          "type": "string"
+        },
+        "UserName": {
           "type": "string"
         },
         "StockLocationId": {
@@ -8384,22 +8384,22 @@
         "fieldName": {
           "description": "Name of field updated",
           "enum": [
-            "Image",
             "SKU",
             "Title",
-            "Barcode",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Tracked",
-            "VariationGroupName",
+            "InOrder",
+            "StockLevel",
             "StockValue",
             "Due",
             "BinRack",
             "Category",
+            "Image",
             "Weight",
             "DimHeight",
             "DimWidth",
@@ -8445,22 +8445,22 @@
         "fieldName": {
           "description": "Name of field updated",
           "enum": [
-            "Image",
             "SKU",
             "Title",
-            "Barcode",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Tracked",
-            "VariationGroupName",
+            "InOrder",
+            "StockLevel",
             "StockValue",
             "Due",
             "BinRack",
             "Category",
+            "Image",
             "Weight",
             "DimHeight",
             "DimWidth",
@@ -8506,22 +8506,22 @@
         "fieldName": {
           "description": "Name of field updated",
           "enum": [
-            "Image",
             "SKU",
             "Title",
-            "Barcode",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Tracked",
-            "VariationGroupName",
+            "InOrder",
+            "StockLevel",
             "StockValue",
             "Due",
             "BinRack",
             "Category",
+            "Image",
             "Weight",
             "DimHeight",
             "DimWidth",
@@ -9500,18 +9500,18 @@
     "StockItemChannelSKU": {
       "type": "object",
       "properties": {
+        "SKU": {
+          "type": "string"
+        },
+        "SubSource": {
+          "type": "string"
+        },
         "ChannelSKURowId": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
-        "SKU": {
-          "type": "string"
-        },
         "Source": {
-          "type": "string"
-        },
-        "SubSource": {
           "type": "string"
         },
         "UpdateStatus": {
@@ -10754,6 +10754,10 @@
         "propertyParams": {
           "$ref": "#/definitions/GetExtendedPropertyFilter",
           "description": "Optional parameters to look for specific PropertyName and PropertyType"
+        },
+        "itemNumber": {
+          "description": "This can be used as an alternative to stockitemid",
+          "type": "string"
         }
       }
     },
@@ -10839,8 +10843,36 @@
           "description": "list of stockitem Extended Properties",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/StockItemExtendedProperty"
+            "$ref": "#/definitions/StockItemExtendedPropertyWithSku"
           }
+        }
+      }
+    },
+    "StockItemExtendedPropertyWithSku": {
+      "type": "object",
+      "properties": {
+        "ItemNumber": {
+          "description": "The ItemNumber (SKU) of the item\r\nThis is used to calculate the StockItemId if it has been omitted",
+          "type": "string"
+        },
+        "pkRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fkStockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ProperyName": {
+          "type": "string"
+        },
+        "PropertyValue": {
+          "type": "string"
+        },
+        "PropertyType": {
+          "type": "string"
         }
       }
     },
@@ -10861,6 +10893,10 @@
             "type": "string",
             "example": "00000000-0000-0000-0000-000000000000"
           }
+        },
+        "itemNumber": {
+          "description": "The stock item SKU, only used if inventoryItemId is not supplied",
+          "type": "string"
         }
       }
     },
