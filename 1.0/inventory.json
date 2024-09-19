@@ -1658,6 +1658,38 @@
         ]
       }
     },
+    "/api/Inventory/GetProductIdentifierExtendedTypes": {
+      "get": {
+        "tags": [
+          "Inventory"
+        ],
+        "summary": "GetProductIdentifierExtendedTypes",
+        "description": "Use this call to get available Product Identifier types with extended information, eg related sources, scanned at dispatch\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "GetProductIdentifierExtendedTypes",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetProductIdentifierExtendedResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/Inventory/GetProductIdentifiersBulkByStockItemId": {
       "post": {
         "tags": [
@@ -6620,7 +6652,10 @@
             "CustomID",
             "PZN",
             "GCID",
-            "ePID"
+            "ePID",
+            "AMZNTRANS",
+            "SERIAL",
+            "IMEI"
           ],
           "type": "string"
         },
@@ -6706,6 +6741,53 @@
         "Types": {
           "type": "object",
           "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetProductIdentifierExtendedResponse": {
+      "type": "object",
+      "properties": {
+        "Types": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductIdentifierInformation"
+          }
+        }
+      }
+    },
+    "ProductIdentifierInformation": {
+      "type": "object",
+      "properties": {
+        "Type": {
+          "enum": [
+            "EAN",
+            "MPN",
+            "GTIN",
+            "UPC",
+            "ASIN",
+            "ISBN",
+            "Google",
+            "CustomID",
+            "PZN",
+            "GCID",
+            "ePID",
+            "AMZNTRANS",
+            "SERIAL",
+            "IMEI"
+          ],
+          "type": "string"
+        },
+        "DisplayName": {
+          "type": "string"
+        },
+        "ScannedAtDispatch": {
+          "type": "boolean"
+        },
+        "Sources": {
+          "type": "array",
+          "items": {
             "type": "string"
           }
         }
@@ -6944,13 +7026,13 @@
     "ConfigItem_String": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -6969,13 +7051,13 @@
     "ConfigItem_Boolean": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7006,13 +7088,13 @@
     "ConfigProperty_Boolean": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7034,13 +7116,13 @@
         "OnGetSelectionList": {
           "$ref": "#/definitions/GetSelectionList_SelectStringValueOption"
         },
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7089,13 +7171,13 @@
     "ConfigItem_DateTime": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7115,13 +7197,13 @@
     "ConfigItem_Int32": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7179,13 +7261,13 @@
     "ConfigProperty_String": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {

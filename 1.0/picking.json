@@ -1414,7 +1414,10 @@
             "CustomID",
             "PZN",
             "GCID",
-            "ePID"
+            "ePID",
+            "AMZNTRANS",
+            "SERIAL",
+            "IMEI"
           ],
           "type": "string"
         },
