@@ -9,6 +9,42 @@
     "https"
   ],
   "paths": {
+    "/api/Inventory/UpdateInventoryItemPrices": {
+      "post": {
+        "tags": [
+          "Inventory"
+        ],
+        "summary": "UpdateInventoryItemPrices",
+        "description": "Use this call to update stock item prices\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
+        "operationId": "UpdateInventoryItemPrices",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Inventory_UpdateInventoryItemPricesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Inventory_UpdateInventoryItemPricesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/Inventory/DeleteInventoryItemPrices": {
       "post": {
         "tags": [
@@ -2656,7 +2692,7 @@
           "Inventory"
         ],
         "summary": "UpdateInventoryItem",
-        "description": "Use this call to update stock item with images\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
+        "description": "Use this call to update stock items. This acts as a set endpoint, all data for the stock item will be replaced, even if not provided in the request.\r\nThe only exception is StockItemId. If left empty, the item to update will be identified by ItemNumber.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "UpdateInventoryItem",
         "consumes": [
           "application/json"
@@ -2711,6 +2747,50 @@
         "responses": {
           "204": {
             "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Inventory/DeleteInventoryItemBulk": {
+      "post": {
+        "tags": [
+          "Inventory"
+        ],
+        "summary": "DeleteInventoryItemBulk",
+        "description": "Use this call to delete inventory items.\r\nAll associated information will be unlinked/removed from this stock item.\n<b>Permissions Required: </b> GlobalPermissions.Inventory.DeleteMyInventoryItems.DeleteItemsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "DeleteInventoryItemBulk",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DeleteInventoryItemBulkRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BatchedAPIResponse_DeleteInventoryItemBulkResponse"
+            }
           }
         },
         "security": [
@@ -3390,7 +3470,7 @@
           "Inventory"
         ],
         "summary": "GetInventoryItemImages",
-        "description": "Use this call to Get inventory item images\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
+        "description": "Use this call to get inventory item images\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
         "operationId": "GetInventoryItemImages",
         "consumes": [],
         "produces": [
@@ -3403,9 +3483,17 @@
           {
             "name": "inventoryItemId",
             "in": "query",
-            "description": "Id of StockItem",
+            "description": "Conditional. If not provided, you must provide ItemNumber",
+            "required": false,
             "type": "string",
             "format": "uuid"
+          },
+          {
+            "name": "itemNumber",
+            "in": "query",
+            "description": "Conditional. if InventoryItemId is provided, ItemNumber will be ignored",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3660,6 +3748,51 @@
         "responses": {
           "204": {
             "description": "No Content"
+          }
+        },
+        "deprecated": true,
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Inventory/DeleteInventoryItemImageBulk": {
+      "post": {
+        "tags": [
+          "Inventory"
+        ],
+        "summary": "DeleteInventoryItemImageBulk",
+        "description": "Use this call to delete images from inventory items\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "DeleteInventoryItemImageBulk",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Inventory_DeleteInventoryItemImageBulkRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Inventory_DeleteInventoryItemImageBulkRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BatchedAPIResponse_DeleteInventoryItemImagesResponse"
+            }
           }
         },
         "security": [
@@ -5324,56 +5457,66 @@
           }
         ]
       }
-    },
-    "/api/Inventory/UpdateInventoryItemPrices": {
-      "post": {
-        "tags": [
-          "Inventory"
-        ],
-        "summary": "UpdateInventoryItemPrices",
-        "description": "Use this call to update stock item prices\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
-        "operationId": "UpdateInventoryItemPrices",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "Inventory_UpdateInventoryItemPricesRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Inventory_UpdateInventoryItemPricesRequest"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        },
-        "security": [
-          {
-            "token": [
-              "token"
-            ]
-          }
-        ]
-      }
     }
   },
   "definitions": {
-    "Inventory_DeleteInventoryItemPricesRequest": {
+    "Inventory_UpdateInventoryItemPricesRequest": {
       "type": "object",
       "properties": {
-        "inventoryItemPriceIds": {
-          "description": "List of stock item prices",
+        "inventoryItemPrices": {
+          "description": "List of stock item prices to update",
           "type": "array",
           "items": {
-            "format": "uuid",
-            "type": "string",
-            "example": "00000000-0000-0000-0000-000000000000"
+            "$ref": "#/definitions/StockItemPrice"
           }
+        }
+      }
+    },
+    "StockItemPrice": {
+      "type": "object",
+      "properties": {
+        "Rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemPricingRule"
+          }
+        },
+        "pkRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Source": {
+          "type": "string"
+        },
+        "SubSource": {
+          "type": "string"
+        },
+        "Price": {
+          "format": "double",
+          "type": "number"
+        },
+        "Tag": {
+          "type": "string"
+        },
+        "UpdateStatus": {
+          "enum": [
+            "NoChange",
+            "Pending",
+            "SentNotConfirmed",
+            "Success",
+            "Error"
+          ],
+          "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },
@@ -5399,6 +5542,20 @@
         "Value": {
           "format": "double",
           "type": "number"
+        }
+      }
+    },
+    "Inventory_DeleteInventoryItemPricesRequest": {
+      "type": "object",
+      "properties": {
+        "inventoryItemPriceIds": {
+          "description": "List of stock item prices",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
         }
       }
     },
@@ -6467,6 +6624,9 @@
           ],
           "type": "string"
         },
+        "Site": {
+          "type": "string"
+        },
         "Value": {
           "type": "string"
         },
@@ -6475,9 +6635,6 @@
           "type": "string"
         },
         "ModifiedUserName": {
-          "type": "string"
-        },
-        "Site": {
           "type": "string"
         }
       }
@@ -9383,8 +9540,141 @@
       "type": "object",
       "properties": {
         "inventoryItem": {
-          "$ref": "#/definitions/StockItemInv",
+          "$ref": "#/definitions/UpdateInventoryItemRequest",
           "description": "Inventory item object"
+        }
+      }
+    },
+    "UpdateInventoryItemRequest": {
+      "type": "object",
+      "properties": {
+        "VariationGroupName": {
+          "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id. If not provided, it will be retrieved using the Item Number",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ItemDescription": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "InOrder": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Due": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "MinimumLevel": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Available": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "IsCompositeParent": {
+          "type": "boolean"
+        },
+        "ShippedSeparately": {
+          "type": "boolean"
+        },
+        "ItemNumber": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "BarcodeNumber": {
+          "type": "string"
+        },
+        "MetaData": {
+          "type": "string"
+        },
+        "IsVariationParent": {
+          "type": "boolean"
+        },
+        "isBatchedStockType": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "PurchasePrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "RetailPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "PostalServiceId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PostalServiceName": {
+          "type": "string"
+        },
+        "CategoryId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "CategoryName": {
+          "type": "string"
+        },
+        "PackageGroupId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "PackageGroupName": {
+          "type": "string"
+        },
+        "Height": {
+          "format": "double",
+          "type": "number"
+        },
+        "Width": {
+          "format": "double",
+          "type": "number"
+        },
+        "Depth": {
+          "format": "double",
+          "type": "number"
+        },
+        "Weight": {
+          "format": "double",
+          "type": "number"
+        },
+        "CreationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchNumberScanRequired": {
+          "type": "boolean"
+        },
+        "SerialNumberScanRequired": {
+          "type": "boolean"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },
@@ -9425,6 +9715,88 @@
         },
         "Token": {
           "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "DeleteInventoryItemBulkRequest": {
+      "type": "object",
+      "properties": {
+        "InventoryItemIds": {
+          "description": "List of items by ids to delete. If not provided, you must provide ItemNumbers",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "ItemNumbers": {
+          "description": "List of items by item number to delete. If InventoryItemIds is provided, ItemNumbers will be ignored",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "BatchedAPIResponse_DeleteInventoryItemBulkResponse": {
+      "type": "object",
+      "properties": {
+        "Results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/APIResultResponse_DeleteInventoryItemBulkResponse"
+          }
+        },
+        "TotalResults": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "ResultStatus": {
+          "enum": [
+            "NOTSET",
+            "SUCCESSFUL",
+            "PARTIALLY_SUCCESSFUL",
+            "FAILED"
+          ],
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "APIResultResponse_DeleteInventoryItemBulkResponse": {
+      "type": "object",
+      "properties": {
+        "Result": {
+          "$ref": "#/definitions/DeleteInventoryItemBulkResponse"
+        },
+        "ResultStatus": {
+          "enum": [
+            "NOTSET",
+            "SUCCESSFUL",
+            "PARTIALLY_SUCCESSFUL",
+            "FAILED"
+          ],
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        }
+      }
+    },
+    "DeleteInventoryItemBulkResponse": {
+      "type": "object",
+      "properties": {
+        "ItemNumber": {
+          "description": "The ItemNumber (SKU) for the stock item. Only provided if passed in the request",
+          "type": "string"
+        },
+        "InventoryItemId": {
+          "format": "uuid",
+          "description": "The Id for the stock item. Always provided unless not found",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }
@@ -9957,6 +10329,21 @@
         }
       }
     },
+    "GetInventoryItemImagesRequest": {
+      "type": "object",
+      "properties": {
+        "InventoryItemId": {
+          "format": "uuid",
+          "description": "Conditional. If not provided, you must provide ItemNumber",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ItemNumber": {
+          "description": "Conditional. if InventoryItemId is provided, ItemNumber will be ignored",
+          "type": "string"
+        }
+      }
+    },
     "StockItemImage": {
       "type": "object",
       "properties": {
@@ -10247,6 +10634,109 @@
               "type": "string"
             }
           }
+        }
+      }
+    },
+    "Inventory_DeleteInventoryItemImageBulkRequest": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DeleteInventoryItemImagesRequest"
+          }
+        }
+      }
+    },
+    "DeleteInventoryItemImagesRequest": {
+      "type": "object",
+      "properties": {
+        "InventoryItemId": {
+          "format": "uuid",
+          "description": "The id of the item. If not provided, you must provide ItemNumber",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ItemNumber": {
+          "description": "The item number (SKU) for the item. If InventoryItemId is provided, this will be ignored.",
+          "type": "string"
+        },
+        "ImageIds": {
+          "description": "A list of images by image ids to delete for the item",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "BatchedAPIResponse_DeleteInventoryItemImagesResponse": {
+      "type": "object",
+      "properties": {
+        "Results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/APIResultResponse_DeleteInventoryItemImagesResponse"
+          }
+        },
+        "TotalResults": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "ResultStatus": {
+          "enum": [
+            "NOTSET",
+            "SUCCESSFUL",
+            "PARTIALLY_SUCCESSFUL",
+            "FAILED"
+          ],
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "APIResultResponse_DeleteInventoryItemImagesResponse": {
+      "type": "object",
+      "properties": {
+        "Result": {
+          "$ref": "#/definitions/DeleteInventoryItemImagesResponse"
+        },
+        "ResultStatus": {
+          "enum": [
+            "NOTSET",
+            "SUCCESSFUL",
+            "PARTIALLY_SUCCESSFUL",
+            "FAILED"
+          ],
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        }
+      }
+    },
+    "DeleteInventoryItemImagesResponse": {
+      "type": "object",
+      "properties": {
+        "InventoryItemId": {
+          "format": "uuid",
+          "description": "InventoryItemId/StockItemId",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ItemNumber": {
+          "description": "The Item Number (SKU). Only provided if passed in the request",
+          "type": "string"
+        },
+        "ImageId": {
+          "format": "uuid",
+          "description": "Image Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
         }
       }
     },
@@ -11159,71 +11649,11 @@
         }
       }
     },
-    "StockItemPrice": {
-      "type": "object",
-      "properties": {
-        "Rules": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/StockItemPricingRule"
-          }
-        },
-        "pkRowId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "Source": {
-          "type": "string"
-        },
-        "SubSource": {
-          "type": "string"
-        },
-        "Price": {
-          "format": "double",
-          "type": "number"
-        },
-        "Tag": {
-          "type": "string"
-        },
-        "UpdateStatus": {
-          "enum": [
-            "NoChange",
-            "Pending",
-            "SentNotConfirmed",
-            "Success",
-            "Error"
-          ],
-          "type": "string"
-        },
-        "StockItemId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "StockItemIntId": {
-          "format": "int32",
-          "type": "integer"
-        }
-      }
-    },
     "Inventory_CreateInventoryItemPricesRequest": {
       "type": "object",
       "properties": {
         "inventoryItemPrices": {
           "description": "List of stock item prices to create",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/StockItemPrice"
-          }
-        }
-      }
-    },
-    "Inventory_UpdateInventoryItemPricesRequest": {
-      "type": "object",
-      "properties": {
-        "inventoryItemPrices": {
-          "description": "List of stock item prices to update",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemPrice"
