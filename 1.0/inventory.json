@@ -7026,13 +7026,13 @@
     "ConfigItem_String": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7051,13 +7051,13 @@
     "ConfigItem_Boolean": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7088,13 +7088,13 @@
     "ConfigProperty_Boolean": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7116,13 +7116,13 @@
         "OnGetSelectionList": {
           "$ref": "#/definitions/GetSelectionList_SelectStringValueOption"
         },
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7171,13 +7171,13 @@
     "ConfigItem_DateTime": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7197,13 +7197,13 @@
     "ConfigItem_Int32": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7261,13 +7261,13 @@
     "ConfigProperty_String": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -8624,23 +8624,21 @@
           "description": "Name of field updated",
           "enum": [
             "SKU",
-            "Barcode",
             "Title",
-            "Image",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Due",
-            "Tracked",
-            "Category",
-            "DefaultSupplier",
-            "AverageConsumption",
-            "VariationGroupName",
+            "InOrder",
+            "StockLevel",
             "StockValue",
+            "Due",
             "BinRack",
+            "Category",
+            "Image",
             "Weight",
             "DimHeight",
             "DimWidth",
@@ -8652,7 +8650,9 @@
             "BatchType",
             "JIT",
             "ReorderAmount",
-            "ReorderDate"
+            "ReorderDate",
+            "AverageConsumption",
+            "DefaultSupplier"
           ],
           "type": "string"
         },
@@ -8685,23 +8685,21 @@
           "description": "Name of field updated",
           "enum": [
             "SKU",
-            "Barcode",
             "Title",
-            "Image",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Due",
-            "Tracked",
-            "Category",
-            "DefaultSupplier",
-            "AverageConsumption",
-            "VariationGroupName",
+            "InOrder",
+            "StockLevel",
             "StockValue",
+            "Due",
             "BinRack",
+            "Category",
+            "Image",
             "Weight",
             "DimHeight",
             "DimWidth",
@@ -8713,7 +8711,9 @@
             "BatchType",
             "JIT",
             "ReorderAmount",
-            "ReorderDate"
+            "ReorderDate",
+            "AverageConsumption",
+            "DefaultSupplier"
           ],
           "type": "string"
         },
@@ -8746,23 +8746,21 @@
           "description": "Name of field updated",
           "enum": [
             "SKU",
-            "Barcode",
             "Title",
-            "Image",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Due",
-            "Tracked",
-            "Category",
-            "DefaultSupplier",
-            "AverageConsumption",
-            "VariationGroupName",
+            "InOrder",
+            "StockLevel",
             "StockValue",
+            "Due",
             "BinRack",
+            "Category",
+            "Image",
             "Weight",
             "DimHeight",
             "DimWidth",
@@ -8774,7 +8772,9 @@
             "BatchType",
             "JIT",
             "ReorderAmount",
-            "ReorderDate"
+            "ReorderDate",
+            "AverageConsumption",
+            "DefaultSupplier"
           ],
           "type": "string"
         },
@@ -9114,23 +9114,21 @@
         "ColumnName": {
           "enum": [
             "SKU",
-            "Barcode",
             "Title",
-            "Image",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Due",
-            "Tracked",
-            "Category",
-            "DefaultSupplier",
-            "AverageConsumption",
-            "VariationGroupName",
+            "InOrder",
+            "StockLevel",
             "StockValue",
+            "Due",
             "BinRack",
+            "Category",
+            "Image",
             "Weight",
             "DimHeight",
             "DimWidth",
@@ -9142,7 +9140,9 @@
             "BatchType",
             "JIT",
             "ReorderAmount",
-            "ReorderDate"
+            "ReorderDate",
+            "AverageConsumption",
+            "DefaultSupplier"
           ],
           "type": "string"
         },
@@ -9261,8 +9261,47 @@
     "StockItem": {
       "type": "object",
       "properties": {
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ItemNumber": {
+          "type": "string"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
         "ItemDescription": {
           "type": "string"
+        },
+        "BarcodeNumber": {
+          "type": "string"
+        },
+        "PurchasePrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "RetailPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "IsCompositeParent": {
+          "type": "boolean"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BatchNumberScanRequired": {
+          "type": "boolean"
+        },
+        "SerialNumberScanRequired": {
+          "type": "boolean"
         },
         "Quantity": {
           "format": "int32",
@@ -9285,20 +9324,8 @@
           "type": "integer",
           "readOnly": true
         },
-        "IsCompositeParent": {
-          "type": "boolean"
-        },
         "ShippedSeparately": {
           "type": "boolean"
-        },
-        "ItemNumber": {
-          "type": "string"
-        },
-        "ItemTitle": {
-          "type": "string"
-        },
-        "BarcodeNumber": {
-          "type": "string"
         },
         "MetaData": {
           "type": "string"
@@ -9309,18 +9336,6 @@
         "isBatchedStockType": {
           "type": "boolean",
           "readOnly": true
-        },
-        "PurchasePrice": {
-          "format": "double",
-          "type": "number"
-        },
-        "RetailPrice": {
-          "format": "double",
-          "type": "number"
-        },
-        "TaxRate": {
-          "format": "double",
-          "type": "number"
         },
         "PostalServiceId": {
           "format": "uuid",
@@ -9365,21 +9380,6 @@
         "CreationDate": {
           "format": "date-time",
           "type": "string"
-        },
-        "InventoryTrackingType": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "BatchNumberScanRequired": {
-          "type": "boolean"
-        },
-        "SerialNumberScanRequired": {
-          "type": "boolean"
-        },
-        "StockItemId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
@@ -9954,18 +9954,18 @@
     "StockItemChannelSKU": {
       "type": "object",
       "properties": {
+        "SKU": {
+          "type": "string"
+        },
+        "SubSource": {
+          "type": "string"
+        },
         "ChannelSKURowId": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
-        "SKU": {
-          "type": "string"
-        },
         "Source": {
-          "type": "string"
-        },
-        "SubSource": {
           "type": "string"
         },
         "UpdateStatus": {
