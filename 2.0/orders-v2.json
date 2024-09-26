@@ -29,8 +29,22 @@
         "operationId": "GetOrders",
         "parameters": [
           {
+            "name": "id",
+            "in": "query",
+            "description": "Order IDs to fetch. If included, all other request parameters will be disregarded.",
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          },
+          {
             "name": "fromDate",
             "in": "query",
+            "description": "The datetime to start retrieving orders from, based on when the orders were last updated",
             "schema": {
               "type": "string",
               "format": "date-time"
@@ -39,6 +53,7 @@
           {
             "name": "entriesPerPage",
             "in": "query",
+            "description": "The maximum number of orders to be returned in the response",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -47,6 +62,7 @@
           {
             "name": "includeProcessed",
             "in": "query",
+            "description": "If true the response will also include orders that have been processed; else the response will only contain open orders",
             "schema": {
               "type": "boolean"
             }
@@ -54,6 +70,7 @@
           {
             "name": "onlyPaid",
             "in": "query",
+            "description": "If true the response will only contain paid orders; else the response will also include unpaid orders",
             "schema": {
               "type": "boolean"
             }
@@ -61,6 +78,7 @@
           {
             "name": "locationId",
             "in": "query",
+            "description": "The ID of location if the response should only contain orders that are specific to that location",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -69,6 +87,7 @@
           {
             "name": "searchToken",
             "in": "query",
+            "description": "The search token for the previous page of results. Can be found on the response object of the call to GetOrder prior to this one.",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -929,6 +948,11 @@
               "type": "string"
             },
             "description": "Folder names assigned to an order",
+            "nullable": true
+          },
+          "TaxId": {
+            "type": "string",
+            "description": "Buyer tax ID",
             "nullable": true
           }
         },
