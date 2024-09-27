@@ -548,6 +548,86 @@
         ]
       }
     },
+    "/api/Orders/CreateSerialisedValuesForOrderItems": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "CreateSerialisedValuesForOrderItems",
+        "description": "Create serial data for the given orderItemRowIds\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "CreateSerialisedValuesForOrderItems",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "Request with list of OrderItemSerialModel as property. Each entry represents an OrderItemRowId and a list of collections of serial data. Seperated by correlation (quantity for this row) \r\n            Note there can be one collection of serial data for each physical item being shipped - e.g. an order item with quantity of 2 can have 2 collections of serial data",
+            "schema": {
+              "$ref": "#/definitions/CreateSerialisedValuesForOrderItemsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Orders/GetOrderItemRowSerialValuesByOrderIds": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "GetOrderItemRowSerialValuesByOrderIds",
+        "description": "Get order item row serial information by requested order ids. Maximum requested orderIds is 25.\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "GetOrderItemRowSerialValuesByOrderIds",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "Request with collection of order ids as properties",
+            "schema": {
+              "$ref": "#/definitions/GetOrderItemRowSerialValuesByOrderIdsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetSerialisedValuesForOrdersResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/Orders/GetAssignedOrderItemBatches": {
       "post": {
         "tags": [
@@ -4854,6 +4934,12 @@
           "format": "int32",
           "type": "integer"
         },
+        "Name": {
+          "type": "string"
+        },
+        "Tag": {
+          "type": "string"
+        },
         "IsCustom": {
           "type": "boolean"
         },
@@ -4863,12 +4949,6 @@
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ImageUrl": {
-          "type": "string"
-        },
-        "Tag": {
-          "type": "string"
-        },
-        "Name": {
           "type": "string"
         }
       }
@@ -6352,6 +6432,74 @@
           "type": "array",
           "items": {
             "type": "string"
+          }
+        }
+      }
+    },
+    "CreateSerialisedValuesForOrderItemsRequest": {
+      "type": "object",
+      "properties": {
+        "OrderItemSerialData": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItemSerialModel"
+          }
+        }
+      }
+    },
+    "OrderItemSerialModel": {
+      "type": "object",
+      "properties": {
+        "OrderItemRowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "CorrelationSerials": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/SerialModel"
+            }
+          }
+        }
+      }
+    },
+    "SerialModel": {
+      "type": "object",
+      "properties": {
+        "Type": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        }
+      }
+    },
+    "GetOrderItemRowSerialValuesByOrderIdsRequest": {
+      "type": "object",
+      "properties": {
+        "OrderIds": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "GetSerialisedValuesForOrdersResponse": {
+      "type": "object",
+      "properties": {
+        "OrderItemRowSerialValuesByOrderIds": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/OrderItemSerialModel"
+            }
           }
         }
       }
