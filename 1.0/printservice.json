@@ -520,15 +520,15 @@
     "PrintError": {
       "type": "object",
       "properties": {
-        "TemplateType": {
-          "type": "string"
-        },
         "Id": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Error": {
+          "type": "string"
+        },
+        "TemplateType": {
           "type": "string"
         },
         "Tags": {
@@ -737,13 +737,13 @@
           "format": "int32",
           "type": "integer"
         },
+        "SuperAdmin": {
+          "type": "boolean"
+        },
         "fkUserId": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "SuperAdmin": {
-          "type": "boolean"
         },
         "EmailAddress": {
           "type": "string"
