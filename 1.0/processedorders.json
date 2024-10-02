@@ -2276,31 +2276,43 @@
     "ProcessedOrderWeb": {
       "type": "object",
       "properties": {
-        "pkOrderID": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "cShippingAddress": {
-          "type": "string"
-        },
         "dReceivedDate": {
           "format": "date-time",
+          "type": "string"
+        },
+        "Source": {
+          "type": "string"
+        },
+        "PostalServiceName": {
+          "type": "string"
+        },
+        "SecondaryReference": {
+          "type": "string"
+        },
+        "cFullName": {
+          "type": "string"
+        },
+        "cPostCode": {
           "type": "string"
         },
         "dProcessedOn": {
           "format": "date-time",
           "type": "string"
         },
-        "timeDiff": {
-          "format": "double",
-          "type": "number"
+        "PostalTrackingNumber": {
+          "type": "string"
         },
-        "fPostageCost": {
-          "format": "double",
-          "type": "number"
+        "nStatus": {
+          "format": "int32",
+          "type": "integer"
         },
-        "fTotalCharge": {
+        "ChannelBuyerName": {
+          "type": "string"
+        },
+        "cEmailAddress": {
+          "type": "string"
+        },
+        "CountryTaxRate": {
           "format": "double",
           "type": "number"
         },
@@ -2308,13 +2320,99 @@
           "format": "double",
           "type": "number"
         },
-        "Subtotal": {
-          "format": "double",
-          "type": "number"
+        "IsExchange": {
+          "type": "boolean"
         },
         "fTax": {
           "format": "double",
           "type": "number"
+        },
+        "Subtotal": {
+          "format": "double",
+          "type": "number"
+        },
+        "FulfilmentLocationName": {
+          "type": "string"
+        },
+        "SubSource": {
+          "type": "string"
+        },
+        "cCountry": {
+          "type": "string"
+        },
+        "Company": {
+          "type": "string"
+        },
+        "BuyerPhoneNumber": {
+          "type": "string"
+        },
+        "cCurrency": {
+          "type": "string"
+        },
+        "fTotalCharge": {
+          "format": "double",
+          "type": "number"
+        },
+        "nOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fPostageCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "ExternalReference": {
+          "type": "string"
+        },
+        "Address1": {
+          "type": "string"
+        },
+        "dCancelledOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "timeDiff": {
+          "format": "double",
+          "type": "number"
+        },
+        "dPaidOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "PostalServiceCode": {
+          "type": "string"
+        },
+        "AccountName": {
+          "type": "string"
+        },
+        "ReferenceNum": {
+          "type": "string"
+        },
+        "Region": {
+          "type": "string"
+        },
+        "Town": {
+          "type": "string"
+        },
+        "Address3": {
+          "type": "string"
+        },
+        "Address2": {
+          "type": "string"
+        },
+        "IsResend": {
+          "type": "boolean"
+        },
+        "TaxId": {
+          "type": "string"
+        },
+        "pkOrderID": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "cShippingAddress": {
+          "type": "string"
         },
         "TotalDiscount": {
           "format": "double",
@@ -2324,96 +2422,10 @@
           "format": "double",
           "type": "number"
         },
-        "CountryTaxRate": {
-          "format": "double",
-          "type": "number"
-        },
-        "nOrderId": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "nStatus": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "cCurrency": {
-          "type": "string"
-        },
-        "PostalTrackingNumber": {
-          "type": "string"
-        },
-        "cCountry": {
-          "type": "string"
-        },
-        "Source": {
-          "type": "string"
-        },
-        "PostalServiceName": {
-          "type": "string"
-        },
-        "PostalServiceCode": {
-          "type": "string"
-        },
         "Vendor": {
           "type": "string"
         },
         "BillingEmailAddress": {
-          "type": "string"
-        },
-        "ReferenceNum": {
-          "type": "string"
-        },
-        "SecondaryReference": {
-          "type": "string"
-        },
-        "ExternalReference": {
-          "type": "string"
-        },
-        "Address1": {
-          "type": "string"
-        },
-        "Address2": {
-          "type": "string"
-        },
-        "Address3": {
-          "type": "string"
-        },
-        "Town": {
-          "type": "string"
-        },
-        "Region": {
-          "type": "string"
-        },
-        "BuyerPhoneNumber": {
-          "type": "string"
-        },
-        "Company": {
-          "type": "string"
-        },
-        "SubSource": {
-          "type": "string"
-        },
-        "ChannelBuyerName": {
-          "type": "string"
-        },
-        "AccountName": {
-          "type": "string"
-        },
-        "cFullName": {
-          "type": "string"
-        },
-        "cEmailAddress": {
-          "type": "string"
-        },
-        "cPostCode": {
-          "type": "string"
-        },
-        "dPaidOn": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "dCancelledOn": {
-          "format": "date-time",
           "type": "string"
         },
         "PackageCategory": {
@@ -2468,18 +2480,6 @@
         },
         "HoldOrCancel": {
           "type": "boolean"
-        },
-        "IsResend": {
-          "type": "boolean"
-        },
-        "IsExchange": {
-          "type": "boolean"
-        },
-        "TaxId": {
-          "type": "string"
-        },
-        "FulfilmentLocationName": {
-          "type": "string"
         }
       }
     },
