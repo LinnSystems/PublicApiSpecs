@@ -4573,21 +4573,6 @@
     "CommonPurchaseOrderPaymentStatement": {
       "type": "object",
       "properties": {
-        "PurchasePaymentStatementId": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "LineCost": {
-          "format": "double",
-          "type": "number"
-        },
-        "ConversionRate": {
-          "format": "double",
-          "type": "number"
-        },
-        "Currency": {
-          "type": "string"
-        },
         "Reference": {
           "type": "string"
         },
@@ -4602,6 +4587,21 @@
         "fkPurchaseAdditionalCostItemId": {
           "format": "int32",
           "type": "integer"
+        },
+        "PurchasePaymentStatementId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "LineCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "ConversionRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "Currency": {
+          "type": "string"
         }
       }
     },
