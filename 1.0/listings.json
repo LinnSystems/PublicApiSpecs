@@ -1557,11 +1557,6 @@
     "eBayItem": {
       "type": "object",
       "properties": {
-        "ListId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "ItemNumber": {
           "type": "string"
         },
@@ -1571,14 +1566,58 @@
         "SKU": {
           "type": "string"
         },
+        "MappedBy": {
+          "type": "string"
+        },
+        "RelistPending": {
+          "type": "boolean"
+        },
         "Quantity": {
           "format": "int32",
           "type": "integer"
         },
-        "MappedBy": {
+        "IsSuggestedToLink": {
+          "type": "boolean"
+        },
+        "IsLinked": {
+          "type": "boolean"
+        },
+        "ChannelSKURowId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LinkedItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "MaxListedQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EndWhenStock": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StockPercentage": {
+          "format": "double",
+          "type": "number"
+        },
+        "LinkedItemSku": {
           "type": "string"
         },
-        "FixedPrice": {
+        "LinkedItemTitle": {
+          "type": "string"
+        },
+        "IgnoreSync": {
+          "type": "boolean"
+        },
+        "ChannelReferenceId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "StrickenOff": {
           "type": "boolean"
         },
         "StockItemId": {
@@ -1594,26 +1633,6 @@
           "format": "date-time",
           "type": "string"
         },
-        "ReslistedFrom": {
-          "type": "string"
-        },
-        "StrickenOff": {
-          "type": "boolean"
-        },
-        "IsGTC": {
-          "type": "boolean"
-        },
-        "TotalRows": {
-          "format": "int64",
-          "type": "integer"
-        },
-        "RelistPending": {
-          "type": "boolean"
-        },
-        "ChannelReferenceId": {
-          "type": "string",
-          "readOnly": true
-        },
         "StrikeOffDate": {
           "format": "date-time",
           "type": "string"
@@ -1627,6 +1646,17 @@
         "IsVariation": {
           "type": "boolean"
         },
+        "FixedPrice": {
+          "type": "boolean"
+        },
+        "ReslistedFrom": {
+          "type": "string"
+        },
+        "ListId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
         "ListingPrice": {
           "format": "double",
           "type": "number"
@@ -1637,48 +1667,18 @@
             "$ref": "#/definitions/eBayItem"
           }
         },
+        "IsGTC": {
+          "type": "boolean"
+        },
         "IsActive": {
-          "type": "boolean"
-        },
-        "ChannelSKURowId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "LinkedItemId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "IgnoreSync": {
-          "type": "boolean"
-        },
-        "LinkedItemSku": {
-          "type": "string"
-        },
-        "LinkedItemTitle": {
-          "type": "string"
-        },
-        "MaxListedQuantity": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "EndWhenStock": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "StockPercentage": {
-          "format": "double",
-          "type": "number"
-        },
-        "IsLinked": {
-          "type": "boolean"
-        },
-        "IsSuggestedToLink": {
           "type": "boolean"
         },
         "IsMatchByTitle": {
           "type": "boolean"
+        },
+        "TotalRows": {
+          "format": "int64",
+          "type": "integer"
         }
       }
     },
