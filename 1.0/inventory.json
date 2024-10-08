@@ -6702,9 +6702,6 @@
           ],
           "type": "string"
         },
-        "Site": {
-          "type": "string"
-        },
         "Value": {
           "type": "string"
         },
@@ -6713,6 +6710,9 @@
           "type": "string"
         },
         "ModifiedUserName": {
+          "type": "string"
+        },
+        "Site": {
           "type": "string"
         }
       }

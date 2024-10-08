@@ -1896,15 +1896,15 @@
         "Locked": {
           "type": "boolean"
         },
-        "UnitAmountTaxIncludedType": {
-          "format": "int32",
-          "type": "integer"
-        },
         "LineCount": {
           "format": "int32",
           "type": "integer"
         },
         "DeliveredLinesCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UnitAmountTaxIncludedType": {
           "format": "int32",
           "type": "integer"
         },
@@ -2737,15 +2737,15 @@
         "Locked": {
           "type": "boolean"
         },
-        "UnitAmountTaxIncludedType": {
-          "format": "int32",
-          "type": "integer"
-        },
         "LineCount": {
           "format": "int32",
           "type": "integer"
         },
         "DeliveredLinesCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UnitAmountTaxIncludedType": {
           "format": "int32",
           "type": "integer"
         },
@@ -4573,21 +4573,6 @@
     "CommonPurchaseOrderPaymentStatement": {
       "type": "object",
       "properties": {
-        "Reference": {
-          "type": "string"
-        },
-        "CreationDate": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "PaymentDate": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "fkPurchaseAdditionalCostItemId": {
-          "format": "int32",
-          "type": "integer"
-        },
         "PurchasePaymentStatementId": {
           "format": "int32",
           "type": "integer"
@@ -4602,6 +4587,21 @@
         },
         "Currency": {
           "type": "string"
+        },
+        "Reference": {
+          "type": "string"
+        },
+        "CreationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "PaymentDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "fkPurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },
