@@ -5779,11 +5779,6 @@
     "StockItemLabel": {
       "type": "object",
       "properties": {
-        "StockItemId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "ItemNumber": {
           "type": "string"
         },
@@ -5805,6 +5800,11 @@
           "type": "integer"
         },
         "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
@@ -7099,13 +7099,13 @@
     "ConfigItem_String": {
       "type": "object",
       "properties": {
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7124,13 +7124,13 @@
     "ConfigItem_Boolean": {
       "type": "object",
       "properties": {
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7161,13 +7161,13 @@
     "ConfigProperty_Boolean": {
       "type": "object",
       "properties": {
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7189,13 +7189,13 @@
         "OnGetSelectionList": {
           "$ref": "#/definitions/GetSelectionList_SelectStringValueOption"
         },
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7244,13 +7244,13 @@
     "ConfigItem_DateTime": {
       "type": "object",
       "properties": {
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7270,13 +7270,13 @@
     "ConfigItem_Int32": {
       "type": "object",
       "properties": {
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7334,13 +7334,13 @@
     "ConfigProperty_String": {
       "type": "object",
       "properties": {
+        "Loaded": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "Loaded": {
-          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -10027,18 +10027,18 @@
     "StockItemChannelSKU": {
       "type": "object",
       "properties": {
-        "SKU": {
-          "type": "string"
-        },
-        "SubSource": {
-          "type": "string"
-        },
         "ChannelSKURowId": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
+        "SKU": {
+          "type": "string"
+        },
         "Source": {
+          "type": "string"
+        },
+        "SubSource": {
           "type": "string"
         },
         "UpdateStatus": {
