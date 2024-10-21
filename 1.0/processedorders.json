@@ -2839,10 +2839,9 @@
     "ProcessedOrderRelation": {
       "type": "object",
       "properties": {
-        "ParentOrderPkOrderId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
+        "ChildOrderId": {
+          "format": "int32",
+          "type": "integer"
         },
         "ChildOrderPkOrderId": {
           "format": "uuid",
@@ -2853,9 +2852,10 @@
           "format": "int32",
           "type": "integer"
         },
-        "ChildOrderId": {
-          "format": "int32",
-          "type": "integer"
+        "ParentOrderPkOrderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
         },
         "RelationType": {
           "type": "string"
@@ -2865,6 +2865,16 @@
     "SplitPackaging": {
       "type": "object",
       "properties": {
+        "BinIndex": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ItemTitle": {
+          "type": "string"
+        },
+        "PackageTitle": {
+          "type": "string"
+        },
         "pkBinId": {
           "format": "uuid",
           "type": "string",
@@ -2875,29 +2885,19 @@
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
-        "PackageTitle": {
-          "type": "string"
-        },
-        "SKU": {
-          "type": "string"
-        },
-        "ItemTitle": {
-          "type": "string"
-        },
         "Quantity": {
           "format": "int32",
           "type": "integer"
         },
-        "Weight": {
-          "format": "double",
-          "type": "number"
+        "SKU": {
+          "type": "string"
         },
         "TrackingNumber": {
           "type": "string"
         },
-        "BinIndex": {
-          "format": "int32",
-          "type": "integer"
+        "Weight": {
+          "format": "double",
+          "type": "number"
         }
       }
     },
