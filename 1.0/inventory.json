@@ -5779,11 +5779,6 @@
     "StockItemLabel": {
       "type": "object",
       "properties": {
-        "StockItemId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "ItemNumber": {
           "type": "string"
         },
@@ -5805,6 +5800,11 @@
           "type": "integer"
         },
         "LocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
