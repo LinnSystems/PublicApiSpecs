@@ -2276,39 +2276,43 @@
     "ProcessedOrderWeb": {
       "type": "object",
       "properties": {
-        "pkOrderID": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "cShippingAddress": {
-          "type": "string"
+        "nOrderId": {
+          "format": "int32",
+          "type": "integer"
         },
         "dReceivedDate": {
           "format": "date-time",
           "type": "string"
         },
-        "dProcessedOn": {
-          "format": "date-time",
+        "Source": {
           "type": "string"
         },
-        "timeDiff": {
-          "format": "double",
-          "type": "number"
+        "SubSource": {
+          "type": "string"
         },
-        "fPostageCost": {
-          "format": "double",
-          "type": "number"
+        "SecondaryReference": {
+          "type": "string"
+        },
+        "cCountry": {
+          "type": "string"
+        },
+        "cFullName": {
+          "type": "string"
+        },
+        "PostalServiceName": {
+          "type": "string"
         },
         "fTotalCharge": {
           "format": "double",
           "type": "number"
         },
-        "PostageCostExTax": {
-          "format": "double",
-          "type": "number"
+        "PostalTrackingNumber": {
+          "type": "string"
         },
-        "Subtotal": {
+        "FulfilmentLocationName": {
+          "type": "string"
+        },
+        "CountryTaxRate": {
           "format": "double",
           "type": "number"
         },
@@ -2316,63 +2320,47 @@
           "format": "double",
           "type": "number"
         },
-        "TotalDiscount": {
+        "cEmailAddress": {
+          "type": "string"
+        },
+        "dProcessedOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ChannelBuyerName": {
+          "type": "string"
+        },
+        "BuyerPhoneNumber": {
+          "type": "string"
+        },
+        "Company": {
+          "type": "string"
+        },
+        "Subtotal": {
           "format": "double",
           "type": "number"
         },
-        "ProfitMargin": {
+        "Address2": {
+          "type": "string"
+        },
+        "PostageCostExTax": {
           "format": "double",
           "type": "number"
-        },
-        "CountryTaxRate": {
-          "format": "double",
-          "type": "number"
-        },
-        "nOrderId": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "nStatus": {
-          "format": "int32",
-          "type": "integer"
         },
         "cCurrency": {
           "type": "string"
         },
-        "PostalTrackingNumber": {
-          "type": "string"
+        "timeDiff": {
+          "format": "double",
+          "type": "number"
         },
-        "cCountry": {
-          "type": "string"
-        },
-        "Source": {
-          "type": "string"
-        },
-        "PostalServiceName": {
-          "type": "string"
-        },
-        "PostalServiceCode": {
-          "type": "string"
-        },
-        "Vendor": {
-          "type": "string"
-        },
-        "BillingEmailAddress": {
-          "type": "string"
-        },
-        "ReferenceNum": {
-          "type": "string"
-        },
-        "SecondaryReference": {
-          "type": "string"
-        },
-        "ExternalReference": {
+        "AccountName": {
           "type": "string"
         },
         "Address1": {
           "type": "string"
         },
-        "Address2": {
+        "ExternalReference": {
           "type": "string"
         },
         "Address3": {
@@ -2384,36 +2372,60 @@
         "Region": {
           "type": "string"
         },
-        "BuyerPhoneNumber": {
-          "type": "string"
-        },
-        "Company": {
-          "type": "string"
-        },
-        "SubSource": {
-          "type": "string"
-        },
-        "ChannelBuyerName": {
-          "type": "string"
-        },
-        "AccountName": {
-          "type": "string"
-        },
-        "cFullName": {
-          "type": "string"
-        },
-        "cEmailAddress": {
-          "type": "string"
-        },
         "cPostCode": {
+          "type": "string"
+        },
+        "ReferenceNum": {
+          "type": "string"
+        },
+        "IsExchange": {
+          "type": "boolean"
+        },
+        "PostalServiceCode": {
           "type": "string"
         },
         "dPaidOn": {
           "format": "date-time",
           "type": "string"
         },
+        "TaxId": {
+          "type": "string"
+        },
         "dCancelledOn": {
           "format": "date-time",
+          "type": "string"
+        },
+        "nStatus": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fPostageCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "IsResend": {
+          "type": "boolean"
+        },
+        "pkOrderID": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "cShippingAddress": {
+          "type": "string"
+        },
+        "TotalDiscount": {
+          "format": "double",
+          "type": "number"
+        },
+        "ProfitMargin": {
+          "format": "double",
+          "type": "number"
+        },
+        "Vendor": {
+          "type": "string"
+        },
+        "BillingEmailAddress": {
           "type": "string"
         },
         "PackageCategory": {
@@ -2468,18 +2480,6 @@
         },
         "HoldOrCancel": {
           "type": "boolean"
-        },
-        "IsResend": {
-          "type": "boolean"
-        },
-        "IsExchange": {
-          "type": "boolean"
-        },
-        "TaxId": {
-          "type": "string"
-        },
-        "FulfilmentLocationName": {
-          "type": "string"
         }
       }
     },
