@@ -2425,6 +2425,10 @@
             "$ref": "#/definitions/StockItemBoxConfiguration"
           }
         },
+        "AddedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
         "RowId": {
           "format": "uuid",
           "type": "string",

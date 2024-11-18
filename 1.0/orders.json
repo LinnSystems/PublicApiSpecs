@@ -4878,6 +4878,10 @@
             "$ref": "#/definitions/StockItemBoxConfiguration"
           }
         },
+        "AddedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
         "RowId": {
           "format": "uuid",
           "type": "string",
@@ -8666,6 +8670,11 @@
         "linePricing": {
           "$ref": "#/definitions/LinePricingRequest",
           "description": "Item pricing data"
+        },
+        "createdDate": {
+          "format": "date-time",
+          "description": "The datetime that the item was added to the order",
+          "type": "string"
         }
       }
     },
@@ -8750,6 +8759,11 @@
           "format": "double",
           "description": "Discount percentage applied to the service item. Optional, defaults to 0.",
           "type": "number"
+        },
+        "AddedDate": {
+          "format": "date-time",
+          "description": "Holds the datetime that the service was added to the order",
+          "type": "string"
         }
       }
     },
