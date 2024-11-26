@@ -157,7 +157,10 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/GetPackingGroupsResponse"
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/GetPackingGroupModel"
+                                    }
                                 }
                             }
                         }
@@ -839,7 +842,10 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/AddShipmentBoxesResponse"
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ShipmentBoxModel"
+                                    }
                                 }
                             }
                         }
@@ -960,7 +966,10 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UpdateShipmentBoxesResponse"
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ShipmentBoxModel"
+                                    }
                                 }
                             }
                         }
@@ -1044,7 +1053,10 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/GetShipmentBoxesResponse"
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ShipmentBoxModel"
+                                    }
                                 }
                             }
                         }
@@ -1135,15 +1147,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "integer",
-                                    "format": "int32"
-                                }
-                            }
-                        }
+                        "description": "Success"
                     },
                     "404": {
                         "description": "Not Found",
@@ -1175,6 +1179,9 @@
                                 }
                             }
                         }
+                    },
+                    "204": {
+                        "description": "Success"
                     },
                     "401": {
                         "description": "Unauthorized",
@@ -1264,7 +1271,10 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/AddShipmentBoxItemsResponse"
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ShipmentBoxItemModel"
+                                    }
                                 }
                             }
                         }
@@ -1385,7 +1395,10 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UpdateShipmentBoxItemsResponse"
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ShipmentBoxItemModel"
+                                    }
                                 }
                             }
                         }
@@ -1477,15 +1490,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "integer",
-                                    "format": "int32"
-                                }
-                            }
-                        }
+                        "description": "Success"
                     },
                     "404": {
                         "description": "Not Found",
@@ -1517,6 +1522,9 @@
                                 }
                             }
                         }
+                    },
+                    "204": {
+                        "description": "Success"
                     },
                     "401": {
                         "description": "Unauthorized",
@@ -1674,7 +1682,10 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ListDeliveryWindowOptionsResponse"
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ListDeliveryWindowOptionResponse"
+                                    }
                                 }
                             }
                         }
@@ -1766,7 +1777,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/GenerateDeliveryWindowOptionsResponse"
+                                    "$ref": "#/components/schemas/OperationModel"
                                 }
                             }
                         }
@@ -1866,7 +1877,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ConfirmDeliveryWindowOptionsResponse"
+                                    "$ref": "#/components/schemas/OperationModel"
                                 }
                             }
                         }
@@ -2103,6 +2114,9 @@
                             }
                         }
                     },
+                    "204": {
+                        "description": "Success"
+                    },
                     "401": {
                         "description": "Unauthorized",
                         "content": {
@@ -2306,6 +2320,9 @@
                             }
                         }
                     },
+                    "204": {
+                        "description": "Success"
+                    },
                     "401": {
                         "description": "Unauthorized",
                         "content": {
@@ -2334,12 +2351,12 @@
                 ]
             }
         },
-        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/items/update-shipping-plan-prep-instruction": {
-            "put": {
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/items/{shipmentItemId}/quantity": {
+            "patch": {
                 "tags": [
                     "ShipmentItem"
                 ],
-                "summary": "UpdateShippingPlanPrepInstructionsByShippingPlanId",
+                "summary": "UpdateQuantity",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -2349,11 +2366,55 @@
                             "type": "integer",
                             "format": "int32"
                         }
+                    },
+                    {
+                        "name": "shipmentItemId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
                     }
                 ],
+                "requestBody": {
+                    "content": {
+                        "application/json-patch+json; x-api-version=2.0": {
+                            "schema": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        },
+                        "application/json; x-api-version=2.0": {
+                            "schema": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        },
+                        "text/json; x-api-version=2.0": {
+                            "schema": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        },
+                        "application/*+json; x-api-version=2.0": {
+                            "schema": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShipmentItemResponse"
+                                }
+                            }
+                        }
                     },
                     "201": {
                         "description": "Success"
@@ -2406,7 +2467,7 @@
                 ]
             }
         },
-        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/items/update-shipment-item-prep-instruction": {
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/items/prep-instructions": {
             "put": {
                 "tags": [
                     "ShipmentItem"
@@ -2449,7 +2510,17 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ShipmentItemPrepInstructionModel"
+                                    }
+                                }
+                            }
+                        }
                     },
                     "201": {
                         "description": "Success"
@@ -2502,7 +2573,7 @@
                 ]
             }
         },
-        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/items/update-shipment-item-prep-instruction-owner": {
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/items/prep-instructions/prep-owner": {
             "put": {
                 "tags": [
                     "ShipmentItem"
@@ -2601,7 +2672,7 @@
                 ]
             }
         },
-        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/items/label-owner": {
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/items/prep-instructions/label-owner": {
             "put": {
                 "tags": [
                     "ShipmentItem"
@@ -2644,7 +2715,14 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShipmentItemResponse"
+                                }
+                            }
+                        }
                     },
                     "201": {
                         "description": "Success"
@@ -2707,291 +2785,7 @@
                 ]
             }
         },
-        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/items/prep-instruction": {
-            "get": {
-                "tags": [
-                    "ShipmentItem"
-                ],
-                "summary": "GetPrepInstructionsByShippingPlanId",
-                "parameters": [
-                    {
-                        "name": "shippingPlanId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int32"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/GetPrepInstructionsByShippingPlanIdResponse"
-                                }
-                            }
-                        }
-                    },
-                    "201": {
-                        "description": "Success"
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    },
-                    "405": {
-                        "description": "Method Not Allowed",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    },
-                    "403": {
-                        "description": "Forbidden",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "Linnworks": []
-                    }
-                ]
-            }
-        },
-        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/items/{shipmentItemId}/quantity": {
-            "patch": {
-                "tags": [
-                    "ShipmentItem"
-                ],
-                "summary": "UpdateQuantity",
-                "parameters": [
-                    {
-                        "name": "shippingPlanId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int32"
-                        }
-                    },
-                    {
-                        "name": "shipmentItemId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int32"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json-patch+json; x-api-version=2.0": {
-                            "schema": {
-                                "type": "integer",
-                                "format": "int32"
-                            }
-                        },
-                        "application/json; x-api-version=2.0": {
-                            "schema": {
-                                "type": "integer",
-                                "format": "int32"
-                            }
-                        },
-                        "text/json; x-api-version=2.0": {
-                            "schema": {
-                                "type": "integer",
-                                "format": "int32"
-                            }
-                        },
-                        "application/*+json; x-api-version=2.0": {
-                            "schema": {
-                                "type": "integer",
-                                "format": "int32"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Success"
-                    },
-                    "201": {
-                        "description": "Success"
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    },
-                    "405": {
-                        "description": "Method Not Allowed",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    },
-                    "403": {
-                        "description": "Forbidden",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "Linnworks": []
-                    }
-                ]
-            }
-        },
-        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/items/import": {
-            "post": {
-                "tags": [
-                    "ShipmentItem"
-                ],
-                "summary": "ImportItems",
-                "parameters": [
-                    {
-                        "name": "shippingPlanId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int32"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json-patch+json; x-api-version=2.0": {
-                            "schema": {
-                                "$ref": "#/components/schemas/ImportShipmentItemsRequest"
-                            }
-                        },
-                        "application/json; x-api-version=2.0": {
-                            "schema": {
-                                "$ref": "#/components/schemas/ImportShipmentItemsRequest"
-                            }
-                        },
-                        "text/json; x-api-version=2.0": {
-                            "schema": {
-                                "$ref": "#/components/schemas/ImportShipmentItemsRequest"
-                            }
-                        },
-                        "application/*+json; x-api-version=2.0": {
-                            "schema": {
-                                "$ref": "#/components/schemas/ImportShipmentItemsRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Success"
-                    },
-                    "201": {
-                        "description": "Success"
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    },
-                    "405": {
-                        "description": "Method Not Allowed",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    },
-                    "403": {
-                        "description": "Forbidden",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "Linnworks": []
-                    }
-                ]
-            }
-        },
-        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/shipment-items/batches": {
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/items/batches": {
             "post": {
                 "tags": [
                     "ShipmentItemBatch"
@@ -3126,7 +2920,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/GetShipmentByIdResponse"
+                                    "$ref": "#/components/schemas/ShipmentModel"
                                 }
                             }
                         }
@@ -3608,15 +3402,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "integer",
-                                    "format": "int32"
-                                }
-                            }
-                        }
+                        "description": "Success"
                     },
                     "201": {
                         "description": "Success"
@@ -3640,6 +3426,9 @@
                                 }
                             }
                         }
+                    },
+                    "204": {
+                        "description": "Success"
                     },
                     "401": {
                         "description": "Unauthorized",
@@ -4046,7 +3835,10 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/GetBatchesByShippingPlanIdResponse"
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/StockItemBatchResponse"
+                                    }
                                 }
                             }
                         }
@@ -4321,8 +4113,8 @@
                 ]
             }
         },
-        "/warehousetransfer/fba-inbound/transfer-cards/requestUpdates": {
-            "put": {
+        "/warehousetransfer/fba-inbound/transfer-cards/refresh": {
+            "post": {
                 "tags": [
                     "TransferCards"
                 ],
@@ -4490,19 +4282,6 @@
                 },
                 "additionalProperties": false
             },
-            "AddShipmentBoxesResponse": {
-                "type": "object",
-                "properties": {
-                    "shipmentBoxes": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/ShipmentBoxModel"
-                        },
-                        "nullable": true
-                    }
-                },
-                "additionalProperties": false
-            },
             "AddShipmentBoxItemModel": {
                 "type": "object",
                 "properties": {
@@ -4531,19 +4310,6 @@
                     "quantity": {
                         "type": "integer",
                         "format": "int32"
-                    }
-                },
-                "additionalProperties": false
-            },
-            "AddShipmentBoxItemsResponse": {
-                "type": "object",
-                "properties": {
-                    "shipmentBoxItems": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/ShipmentBoxItemModel"
-                        },
-                        "nullable": true
                     }
                 },
                 "additionalProperties": false
@@ -4714,15 +4480,6 @@
                 },
                 "additionalProperties": false
             },
-            "ConfirmDeliveryWindowOptionsResponse": {
-                "type": "object",
-                "properties": {
-                    "operation": {
-                        "$ref": "#/components/schemas/OperationModel"
-                    }
-                },
-                "additionalProperties": false
-            },
             "CreateShipmentItemInBulkRequest": {
                 "required": [
                     "items"
@@ -4772,13 +4529,6 @@
                 },
                 "additionalProperties": false
             },
-            "CsvSeparatorType": {
-                "enum": [
-                    "Comma"
-                ],
-                "type": "string",
-                "format": ""
-            },
             "CurrencyModel": {
                 "type": "object",
                 "properties": {
@@ -4811,28 +4561,6 @@
                             "type": "integer",
                             "format": "int32"
                         }
-                    }
-                },
-                "additionalProperties": false
-            },
-            "GenerateDeliveryWindowOptionsResponse": {
-                "type": "object",
-                "properties": {
-                    "operation": {
-                        "$ref": "#/components/schemas/OperationModel"
-                    }
-                },
-                "additionalProperties": false
-            },
-            "GetBatchesByShippingPlanIdResponse": {
-                "type": "object",
-                "properties": {
-                    "batches": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/StockItemBatchResponse"
-                        },
-                        "nullable": true
                     }
                 },
                 "additionalProperties": false
@@ -4875,49 +4603,6 @@
                 },
                 "additionalProperties": false
             },
-            "GetPackingGroupsResponse": {
-                "type": "object",
-                "properties": {
-                    "packingGroups": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/GetPackingGroupModel"
-                        },
-                        "nullable": true
-                    }
-                },
-                "additionalProperties": false
-            },
-            "GetPrepInstructionsByShippingPlanIdResponse": {
-                "type": "object",
-                "properties": {
-                    "skuPrepInstructionsList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/SkuPrepInstructionItem"
-                        },
-                        "nullable": true
-                    },
-                    "shippingPlanId": {
-                        "type": "integer",
-                        "format": "int32"
-                    }
-                },
-                "additionalProperties": false
-            },
-            "GetShipmentBoxesResponse": {
-                "type": "object",
-                "properties": {
-                    "shipmentBoxes": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/ShipmentBoxModel"
-                        },
-                        "nullable": true
-                    }
-                },
-                "additionalProperties": false
-            },
             "GetShipmentBoxItemsResponse": {
                 "type": "object",
                 "properties": {
@@ -4933,15 +4618,6 @@
                     },
                     "dimensionUnit": {
                         "$ref": "#/components/schemas/UnitOfMeasurement"
-                    }
-                },
-                "additionalProperties": false
-            },
-            "GetShipmentByIdResponse": {
-                "type": "object",
-                "properties": {
-                    "shipment": {
-                        "$ref": "#/components/schemas/ShipmentModel"
                     }
                 },
                 "additionalProperties": false
@@ -5018,9 +4694,6 @@
                     "placementOptionId": {
                         "type": "string",
                         "nullable": true
-                    },
-                    "internalStatus": {
-                        "$ref": "#/components/schemas/ShippingPlanInternalStatus"
                     }
                 },
                 "additionalProperties": false
@@ -5102,9 +4775,6 @@
                     "placementOptionId": {
                         "type": "string",
                         "nullable": true
-                    },
-                    "internalStatus": {
-                        "$ref": "#/components/schemas/ShippingPlanInternalStatus"
                     }
                 },
                 "additionalProperties": false
@@ -5125,66 +4795,6 @@
                             "$ref": "#/components/schemas/Int32StringKeyValuePair"
                         },
                         "nullable": true
-                    }
-                },
-                "additionalProperties": false
-            },
-            "ImportColumnMappingModel": {
-                "type": "object",
-                "properties": {
-                    "systemColumnType": {
-                        "$ref": "#/components/schemas/ImportShipmentItemColumn"
-                    },
-                    "userDefinedColumn": {
-                        "type": "string",
-                        "nullable": true
-                    }
-                },
-                "additionalProperties": false
-            },
-            "ImportSettingModel": {
-                "type": "object",
-                "properties": {
-                    "separatorType": {
-                        "$ref": "#/components/schemas/CsvSeparatorType"
-                    },
-                    "containsColumns": {
-                        "type": "boolean"
-                    },
-                    "columnMappings": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/ImportColumnMappingModel"
-                        },
-                        "nullable": true
-                    }
-                },
-                "additionalProperties": false
-            },
-            "ImportShipmentItemColumn": {
-                "enum": [
-                    "SKU",
-                    "SellerSKU",
-                    "ASIN",
-                    "QuantityToShip",
-                    "BatchNumber"
-                ],
-                "type": "string",
-                "format": ""
-            },
-            "ImportShipmentItemsRequest": {
-                "required": [
-                    "fileId",
-                    "settings"
-                ],
-                "type": "object",
-                "properties": {
-                    "fileId": {
-                        "type": "string",
-                        "format": "uuid"
-                    },
-                    "settings": {
-                        "$ref": "#/components/schemas/ImportSettingModel"
                     }
                 },
                 "additionalProperties": false
@@ -5327,19 +4937,6 @@
                     "validUntil": {
                         "type": "string",
                         "format": "date-time"
-                    }
-                },
-                "additionalProperties": false
-            },
-            "ListDeliveryWindowOptionsResponse": {
-                "type": "object",
-                "properties": {
-                    "options": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/ListDeliveryWindowOptionResponse"
-                        },
-                        "nullable": true
                     }
                 },
                 "additionalProperties": false
@@ -6015,6 +5612,45 @@
                 },
                 "additionalProperties": false
             },
+            "ShipmentItemPrepInstructionModel": {
+                "type": "object",
+                "properties": {
+                    "shipmentItemId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "barcodeInstruction": {
+                        "$ref": "#/components/schemas/SkuPrepBarcodeInstruction"
+                    },
+                    "prepGuidance": {
+                        "$ref": "#/components/schemas/SkuPrepGuidance"
+                    },
+                    "prepInstructionList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AmazonPrepInstructionItem"
+                        },
+                        "nullable": true
+                    },
+                    "feeAmountPerUnit": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "number",
+                            "format": "double"
+                        },
+                        "nullable": true
+                    },
+                    "totalFeeAmount": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "number",
+                            "format": "double"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
             "ShipmentItemResponse": {
                 "type": "object",
                 "properties": {
@@ -6310,30 +5946,6 @@
                 "type": "string",
                 "format": ""
             },
-            "ShippingPlanInternalStatus": {
-                "enum": [
-                    "Step1",
-                    "Step2",
-                    "Step3_CreateInboundPlan",
-                    "Step3_CreateInboundPlanInProgress",
-                    "Step3_CreateInboundPlanSuccess",
-                    "Step3_CreateInboundPlanFailed",
-                    "Step4_GeneratePackingOptions",
-                    "Step4_GeneratePackingOptionsInProgress",
-                    "Step4_GeneratePackingOptionsSuccess",
-                    "Step4_GeneratePackingOptionsFailed",
-                    "Step4_ConfirmPackingOptions",
-                    "Step4_ConfirmPackingOptionsInProgress",
-                    "Step4_ConfirmPackingOptionsSuccess",
-                    "Step4_ConfirmPackingOptionsFailed",
-                    "Step5_SetPackingInformation",
-                    "Step5_SetPackingInformationInProgress",
-                    "Step5_SetPackingInformationSuccess",
-                    "Step5_SetPackingInformationFailed"
-                ],
-                "type": "string",
-                "format": ""
-            },
             "ShippingPlanStatus": {
                 "enum": [
                     "DRAFT",
@@ -6393,80 +6005,6 @@
                 ],
                 "type": "string",
                 "format": ""
-            },
-            "SkuPrepInstructionItem": {
-                "type": "object",
-                "properties": {
-                    "shipmentItemId": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "itemTitle": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "quantityToSend": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "labelType": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "labelOwner": {
-                        "$ref": "#/components/schemas/LabelOwner"
-                    },
-                    "sellerSKU": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "sku": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "asin": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "thumbnailSource": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "stockItemIdGuid": {
-                        "type": "string",
-                        "format": "uuid"
-                    },
-                    "barcodeInstruction": {
-                        "$ref": "#/components/schemas/SkuPrepBarcodeInstruction"
-                    },
-                    "prepGuidance": {
-                        "$ref": "#/components/schemas/SkuPrepGuidance"
-                    },
-                    "prepInstructionList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/AmazonPrepInstructionItem"
-                        },
-                        "nullable": true
-                    },
-                    "feeAmountPerUnit": {
-                        "type": "object",
-                        "additionalProperties": {
-                            "type": "number",
-                            "format": "double"
-                        },
-                        "nullable": true
-                    },
-                    "totalFeeAmount": {
-                        "type": "object",
-                        "additionalProperties": {
-                            "type": "number",
-                            "format": "double"
-                        },
-                        "nullable": true
-                    }
-                },
-                "additionalProperties": false
             },
             "StockItemBatchResponse": {
                 "type": "object",
@@ -6612,19 +6150,6 @@
                 "type": "string",
                 "format": ""
             },
-            "UpdateShipmentBoxesResponse": {
-                "type": "object",
-                "properties": {
-                    "shipmentBoxes": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/ShipmentBoxModel"
-                        },
-                        "nullable": true
-                    }
-                },
-                "additionalProperties": false
-            },
             "UpdateShipmentBoxItemModel": {
                 "type": "object",
                 "properties": {
@@ -6635,19 +6160,6 @@
                     "quantity": {
                         "type": "integer",
                         "format": "int32"
-                    }
-                },
-                "additionalProperties": false
-            },
-            "UpdateShipmentBoxItemsResponse": {
-                "type": "object",
-                "properties": {
-                    "shipmentBoxItems": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/ShipmentBoxItemModel"
-                        },
-                        "nullable": true
                     }
                 },
                 "additionalProperties": false
@@ -6859,9 +6371,6 @@
                     "toLocation": {
                         "type": "string",
                         "format": "uuid"
-                    },
-                    "internalStatus": {
-                        "$ref": "#/components/schemas/ShippingPlanInternalStatus"
                     }
                 },
                 "additionalProperties": false
