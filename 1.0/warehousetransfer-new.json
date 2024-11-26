@@ -26,7 +26,7 @@
                     "FbaShipment"
                 ],
                 "summary": "GetShipmentById",
-                "description": "Used to get shipment by id",
+                "description": "Used to get shipment by id<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "operationId": "GetShipmentById",
                 "parameters": [
                     {
@@ -118,7 +118,7 @@
                     "FbaShipment"
                 ],
                 "summary": "UpdateShipment",
-                "description": "Used to update shipment",
+                "description": "Used to update shipment<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -231,10 +231,12 @@
                     "FbaShipment"
                 ],
                 "summary": "UpdateInboundShipment",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -244,6 +246,7 @@
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -316,7 +319,7 @@
                     "FbaShipment"
                 ],
                 "summary": "ApproveShipment",
-                "description": "Used to approve shipment",
+                "description": "Used to approve shipment<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -410,7 +413,7 @@
                     "FbaShipment"
                 ],
                 "summary": "ShipShipment",
-                "description": "Used to mark as shipped",
+                "description": "Used to mark as shipped<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -496,7 +499,7 @@
                     "FbaShipment"
                 ],
                 "summary": "ApproveAllShipments",
-                "description": "Approves all shipments",
+                "description": "Approves all shipments<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -583,7 +586,7 @@
                     "FbaShipment"
                 ],
                 "summary": "VoidShipment",
-                "description": "Used to void shipment",
+                "description": "Used to void shipment<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
@@ -668,7 +671,7 @@
                     "FbaShipment"
                 ],
                 "summary": "GetShipmentsWithItemsByShippingPlanId",
-                "description": "this method is used to get shipments for a specific shipping plan",
+                "description": "this method is used to get shipments for a specific shipping plan<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -756,10 +759,12 @@
                     "FbaShipment"
                 ],
                 "summary": "GetShipmentsByShippingPlanId",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -842,10 +847,12 @@
                     "FbaShipment"
                 ],
                 "summary": "UpdateShipmentName",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -855,6 +862,7 @@
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -863,6 +871,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=1.0": {
                             "schema": {
@@ -951,7 +960,7 @@
                     "FbaShipment"
                 ],
                 "summary": "DeleteAmazonShipmentItem",
-                "description": "Used to delete shipment items in batch on amazon and in db",
+                "description": "Used to delete shipment items in batch on amazon and in db<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentItemId",
@@ -1049,10 +1058,12 @@
                     "FbaShipmentBox"
                 ],
                 "summary": "Add",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1062,6 +1073,7 @@
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1070,6 +1082,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=1.0": {
                             "schema": {
@@ -1166,10 +1179,12 @@
                     "FbaShipmentBox"
                 ],
                 "summary": "Update",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1179,6 +1194,7 @@
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1187,6 +1203,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=1.0": {
                             "schema": {
@@ -1280,10 +1297,12 @@
                     "FbaShipmentBox"
                 ],
                 "summary": "Get",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1371,10 +1390,12 @@
                     "FbaShipmentBox"
                 ],
                 "summary": "Delete",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1384,6 +1405,7 @@
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1393,6 +1415,7 @@
                     {
                         "name": "shipmentBoxId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1473,6 +1496,7 @@
                     "FbaShipmentBox"
                 ],
                 "summary": "UpdateShipmentBoxPallets",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -1492,6 +1516,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=1.0": {
                             "schema": {
@@ -1588,10 +1613,12 @@
                     "FbaShipmentBoxItem"
                 ],
                 "summary": "AddUpdateShipmentBoxItems",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1601,6 +1628,7 @@
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1609,6 +1637,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=1.0": {
                             "schema": {
@@ -1714,10 +1743,12 @@
                     "FbaShipmentBoxItem"
                 ],
                 "summary": "Delete",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1727,6 +1758,7 @@
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1736,6 +1768,7 @@
                     {
                         "name": "shipmentBoxItemIds",
                         "in": "query",
+                        "description": "",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -1818,10 +1851,12 @@
                     "FbaShipmentBoxItem"
                 ],
                 "summary": "GetShipmentItemsWithBoxAndPallet",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1831,6 +1866,7 @@
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1910,10 +1946,12 @@
                     "FbaShipmentFeed"
                 ],
                 "summary": "SubmitCartonInformationFeed",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1923,6 +1961,7 @@
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1995,10 +2034,12 @@
                     "FbaShipmentFeed"
                 ],
                 "summary": "GetCartonInformationFeedError",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -2086,7 +2127,7 @@
                     "FbaShipmentItem"
                 ],
                 "summary": "CreateShipmentItemBatch",
-                "description": "Used to create shipment items in batch",
+                "description": "Used to create shipment items in batch<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -2197,7 +2238,7 @@
                     "FbaShipmentItem"
                 ],
                 "summary": "DeleteShipmentItem",
-                "description": "Used to delete shipment items in batch",
+                "description": "Used to delete shipment items in batch<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -2296,7 +2337,7 @@
                     "FbaShipmentItem"
                 ],
                 "summary": "GetShipmentItems",
-                "description": "Used to get shipment items by shipping plan id",
+                "description": "Used to get shipment items by shipping plan id<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -2384,10 +2425,12 @@
                     "FbaShipmentItem"
                 ],
                 "summary": "GetShipmentItemsByIds",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -2397,6 +2440,7 @@
                     {
                         "name": "shippingItemId",
                         "in": "query",
+                        "description": "",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -2481,7 +2525,7 @@
                     "FbaShipmentItem"
                 ],
                 "summary": "UpdateQuantity",
-                "description": "Used to update quantity to ship in shipment item",
+                "description": "Used to update quantity to ship in shipment item<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -2590,10 +2634,12 @@
                     "FbaShipmentItem"
                 ],
                 "summary": "UpdatePackSize",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -2603,6 +2649,7 @@
                     {
                         "name": "shipmentItemId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -2611,6 +2658,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=1.0": {
                             "schema": {
@@ -2706,10 +2754,12 @@
                     "FbaShipmentItem"
                 ],
                 "summary": "UpdatePackQuantity",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -2719,6 +2769,7 @@
                     {
                         "name": "shipmentItemId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -2727,6 +2778,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=1.0": {
                             "schema": {
@@ -2822,7 +2874,7 @@
                     "FbaShipmentItem"
                 ],
                 "summary": "UpdateShipmentItem",
-                "description": "Used to update shipment item",
+                "description": "Used to update shipment item<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentItemId",
@@ -2933,7 +2985,7 @@
                     "FbaShipmentItem"
                 ],
                 "summary": "UpdateShipmentItemPrepInstruction",
-                "description": "update all prep instructions for shipment item",
+                "description": "update all prep instructions for shipment item<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -3034,7 +3086,7 @@
                     "FbaShipmentItem"
                 ],
                 "summary": "UpdateShippingPlanPrepInstructionsByShippingPlanId",
-                "description": "Used to retrieve prepare instructions for sku list from Amazon and saves to db",
+                "description": "Used to retrieve prepare instructions for sku list from Amazon and saves to db<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -3111,7 +3163,7 @@
                     "FbaShipmentItem"
                 ],
                 "summary": "GetPrepInstructionsByShippingPlanId",
-                "description": "Used to retrieve prepare instructions for sku list",
+                "description": "Used to retrieve prepare instructions for sku list<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -3195,7 +3247,7 @@
                     "FbaShipmentItem"
                 ],
                 "summary": "GetPrepInstructionsByShipmentItemIds",
-                "description": "Used to retrieve prepare instructions for sku list",
+                "description": "Used to retrieve prepare instructions for sku list<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -3290,7 +3342,7 @@
                     "FbaShipmentItem"
                 ],
                 "summary": "UpdateShippingItemWhoLabelPrep",
-                "description": "update prep owner for shipment item",
+                "description": "update prep owner for shipment item<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -3391,7 +3443,7 @@
                     "FbaShipmentItem"
                 ],
                 "summary": "UpdateAmazonShipmentItemQuantity",
-                "description": "Used to update quantity to ship in shipment item and on amazon",
+                "description": "Used to update quantity to ship in shipment item and on amazon<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -3502,10 +3554,12 @@
                     "FbaShipmentItem"
                 ],
                 "summary": "UpdateAmazonShipmentItemPackQuantity",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3515,6 +3569,7 @@
                     {
                         "name": "shipmentItemId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3523,6 +3578,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=1.0": {
                             "schema": {
@@ -3611,10 +3667,12 @@
                     "FbaShipmentItemBatch"
                 ],
                 "summary": "AddItemBatch",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3623,6 +3681,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=1.0": {
                             "schema": {
@@ -3718,10 +3777,12 @@
                     "FbaShipmentPallet"
                 ],
                 "summary": "Add",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3731,6 +3792,7 @@
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3739,6 +3801,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=1.0": {
                             "schema": {
@@ -3835,10 +3898,12 @@
                     "FbaShipmentPallet"
                 ],
                 "summary": "Update",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3848,6 +3913,7 @@
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3856,6 +3922,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=1.0": {
                             "schema": {
@@ -3949,10 +4016,12 @@
                     "FbaShipmentPallet"
                 ],
                 "summary": "Get",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4040,10 +4109,12 @@
                     "FbaShipmentPallet"
                 ],
                 "summary": "DeleteShipmentPallet",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4053,6 +4124,7 @@
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4062,6 +4134,7 @@
                     {
                         "name": "shipmentPalletId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4142,10 +4215,12 @@
                     "FbaShipmentTransport"
                 ],
                 "summary": "SubmitTransportContent",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4162,6 +4237,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=1.0": {
                             "schema": {
@@ -4250,10 +4326,12 @@
                     "FbaShipmentTransport"
                 ],
                 "summary": "EstimateTransportContent",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4334,10 +4412,12 @@
                     "FbaShipmentTransport"
                 ],
                 "summary": "ConfirmTransportRequest",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4418,10 +4498,12 @@
                     "FbaShipmentTransport"
                 ],
                 "summary": "GetUniquePackageLabels",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4431,6 +4513,7 @@
                     {
                         "name": "pageType",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "$ref": "#/components/schemas/AmazonPageType"
@@ -4517,10 +4600,12 @@
                     "FbaShipmentTransport"
                 ],
                 "summary": "GetBillOfLading",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4608,10 +4693,12 @@
                     "FbaShipmentTransport"
                 ],
                 "summary": "GetPalletLabelsRequest",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4621,6 +4708,7 @@
                     {
                         "name": "pageType",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "$ref": "#/components/schemas/AmazonPageType"
@@ -4707,10 +4795,12 @@
                     "FbaShipmentTransport"
                 ],
                 "summary": "VoidTransportRequest",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4791,10 +4881,12 @@
                     "FbaShipmentTransportDetail"
                 ],
                 "summary": "GetTransportDetail",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4804,6 +4896,7 @@
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4881,10 +4974,12 @@
                     "FbaShipmentTransportDetail"
                 ],
                 "summary": "UpdateTransportDetail",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4894,6 +4989,7 @@
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4966,7 +5062,7 @@
                     "FbaShippingLocation"
                 ],
                 "summary": "GetCountries",
-                "description": "Used to get list of contries",
+                "description": "Used to get list of contries<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -5016,7 +5112,7 @@
                     "FbaShippingLocation"
                 ],
                 "summary": "GetShippingLocationContactDetails",
-                "description": "Used to get shipping location address",
+                "description": "Used to get shipping location address<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "stockLocationId",
@@ -5075,7 +5171,7 @@
                     "FbaShippingLocation"
                 ],
                 "summary": "UpdateShippingLocationContact",
-                "description": "Used to update shipping location address",
+                "description": "Used to update shipping location address<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "requestBody": {
                     "description": "",
                     "content": {
@@ -5140,7 +5236,7 @@
                     "FbaShippingPlan"
                 ],
                 "summary": "CreateShippingPlan",
-                "description": "Used to create shipping plan with default shipment",
+                "description": "Used to create shipping plan with default shipment<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "requestBody": {
                     "description": "",
                     "content": {
@@ -5231,7 +5327,7 @@
                     "FbaShippingPlan"
                 ],
                 "summary": "DeleteShippingPlan",
-                "description": "Used to delete just shipping plan without related info",
+                "description": "Used to delete just shipping plan without related info<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "id",
@@ -5307,7 +5403,7 @@
                     "FbaShippingPlan"
                 ],
                 "summary": "GetShippingPlanById",
-                "description": "Used to get shipping plan with shipments and shipping items",
+                "description": "Used to get shipping plan with shipments and shipping items<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "operationId": "GetShippingPlanById",
                 "parameters": [
                     {
@@ -5391,7 +5487,7 @@
                     "FbaShippingPlan"
                 ],
                 "summary": "UpdateShippingPlan",
-                "description": "Used to update shipping plan",
+                "description": "Used to update shipping plan<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "id",
@@ -5494,7 +5590,7 @@
                     "FbaShippingPlan"
                 ],
                 "summary": "SubmitShippingPlan",
-                "description": "Used to update shipping plan items (sellerSku and quantity)",
+                "description": "Used to update shipping plan items (sellerSku and quantity)<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -5578,7 +5674,7 @@
                     "FbaShippingPlan"
                 ],
                 "summary": "GetAmazonTopLevelDomain",
-                "description": "Used to get amazon top level domain from shipping plan",
+                "description": "Used to get amazon top level domain from shipping plan<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -5663,7 +5759,7 @@
                     "FbaShippingPlan"
                 ],
                 "summary": "GetSellerCentralUrl",
-                "description": "Used to get seller central url from shipping plan",
+                "description": "Used to get seller central url from shipping plan<br>Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -5748,10 +5844,12 @@
                     "FbaShippingPlan"
                 ],
                 "summary": "UpdatePackingType",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -5760,6 +5858,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=1.0": {
                             "schema": {
@@ -5848,10 +5947,12 @@
                     "FbaShippingPlan"
                 ],
                 "summary": "UpdateToLocation",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -5860,6 +5961,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=1.0": {
                             "schema": {
@@ -5955,10 +6057,12 @@
                     "FbaShippingPlan"
                 ],
                 "summary": "UpdateFromLocation",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -5967,6 +6071,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=1.0": {
                             "schema": {
@@ -6055,10 +6160,12 @@
                     "FbaStockItemBatch"
                 ],
                 "summary": "GetBatchesByShippingPlanId",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -6068,6 +6175,7 @@
                     {
                         "name": "stockItemIds",
                         "in": "query",
+                        "description": "",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -6149,6 +6257,7 @@
                     "FbaTransferCards"
                 ],
                 "summary": "GetShippingPlanCards",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -6224,6 +6333,7 @@
                     "FbaTransferCards"
                 ],
                 "summary": "GetShipmentCards",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "responses": {
                     "200": {
                         "description": "Success"
@@ -6289,6 +6399,7 @@
                     "FbaTransferCards"
                 ],
                 "summary": "GetMetaData",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -6351,6 +6462,7 @@
                     "FbaTransferCards"
                 ],
                 "summary": "RequestShipmentCardsUpdate",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "responses": {
                     "200": {
                         "description": "Success"
@@ -6416,7 +6528,9 @@
                     "FbaTransferCards"
                 ],
                 "summary": "ArchiveClosedShipments",
+                "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=1.0": {
                             "schema": {
@@ -10846,7 +10960,7 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "description": "shipmentId + palletId + boxId + stockItemId\r\nwe need this id in UI for ngrx store",
+                        "description": "shipmentId + palletId + boxId + stockItemId<br>we need this id in UI for ngrx store",
                         "nullable": true,
                         "readOnly": true
                     },
@@ -11523,7 +11637,7 @@
                     },
                     "available": {
                         "type": "integer",
-                        "description": "Available level. Quantity - InOrder,\r\nIts used in Stock Finder UI",
+                        "description": "Available level. Quantity - InOrder,<br>Its used in Stock Finder UI",
                         "format": "int32",
                         "readOnly": true
                     }
@@ -12656,4 +12770,3 @@
         }
     }
 }
-  
