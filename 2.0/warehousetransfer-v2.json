@@ -20,12 +20,314 @@
         }
     ],
     "paths": {
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/{shipmentId}/content-update-previews": {
+            "get": {
+                "tags": [
+                    "ContentUpdatePreview"
+                ],
+                "summary": "Get",
+                "description": "Used to retrieve generated content update previews for given shipment",
+                "parameters": [
+                    {
+                        "name": "shippingPlanId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "shipmentId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContentUpdatePreviewModel"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Linnworks": [ ]
+                    }
+                ]
+            }
+        },
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/{shipmentId}/content-update-previews/{contentUpdatePreviewId}/confirm": {
+            "post": {
+                "tags": [
+                    "ContentUpdatePreview"
+                ],
+                "summary": "Confirm",
+                "description": "Used to confirm content update preview for given shipment",
+                "parameters": [
+                    {
+                        "name": "shippingPlanId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "shipmentId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "contentUpdatePreviewId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OperationModel"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Linnworks": [ ]
+                    }
+                ]
+            }
+        },
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/{shipmentId}/content-update-previews/generate": {
+            "post": {
+                "tags": [
+                    "ContentUpdatePreview"
+                ],
+                "summary": "Generate",
+                "description": "Used to generate content update previews for given shipment",
+                "parameters": [
+                    {
+                        "name": "shippingPlanId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "shipmentId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ContentUpdatePreviewRequestModel"
+                            }
+                        },
+                        "application/json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ContentUpdatePreviewRequestModel"
+                            }
+                        },
+                        "text/json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ContentUpdatePreviewRequestModel"
+                            }
+                        },
+                        "application/*+json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ContentUpdatePreviewRequestModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OperationModel"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Linnworks": [ ]
+                    }
+                ]
+            }
+        },
         "/warehousetransfer/fba-inbound/metadata": {
             "get": {
                 "tags": [
                     "Metadata"
                 ],
                 "summary": "GetMetaData",
+                "description": "Used to get metadata",
                 "responses": {
                     "500": {
                         "description": "Server Error"
@@ -53,7 +355,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -64,10 +366,12 @@
                     "Operation"
                 ],
                 "summary": "GetOperationById",
+                "description": "Used to retrieve operation by given id",
                 "parameters": [
                     {
                         "name": "operationId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -129,7 +433,212 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
+                    }
+                ]
+            }
+        },
+        "/warehousetransfer/fba-inbound/operations": {
+            "get": {
+                "tags": [
+                    "Operation"
+                ],
+                "summary": "GetOperationByEntityIdType",
+                "description": "Used to retrieve operation by given type and id",
+                "parameters": [
+                    {
+                        "name": "entityId",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "operationType",
+                        "in": "query",
+                        "schema": {
+                            "enum": [
+                                "None",
+                                "CreatingShippingPlan",
+                                "GeneratingPackingOptions",
+                                "ConfirmingPackingOptions",
+                                "GeneratingPlacementOptions",
+                                "ConfirmingPlacementOptions",
+                                "GeneratingTransportOptions",
+                                "ConfirmingTransportOptions",
+                                "GeneratingDeliveryWindows",
+                                "ConfirmingDeliveryWindows",
+                                "SettingPackingInfo",
+                                "UpdateShipmentTrackingDetails",
+                                "GeneratingContentUpdatePreview",
+                                "ConfirmingContentUpdatePreview"
+                            ],
+                            "type": "string",
+                            "description": "OperationType specific to WarehouseTransfer",
+                            "format": ""
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OperationModel"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Linnworks": [ ]
+                    }
+                ]
+            }
+        },
+        "/warehousetransfer/fba-inbound/operations/latest": {
+            "get": {
+                "tags": [
+                    "Operation"
+                ],
+                "summary": "GetOperationLatestByEntityIdTypes",
+                "description": "Used to retrieve latest operation by given type and id",
+                "parameters": [
+                    {
+                        "name": "entityId",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "operationTypes",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "enum": [
+                                    "None",
+                                    "CreatingShippingPlan",
+                                    "GeneratingPackingOptions",
+                                    "ConfirmingPackingOptions",
+                                    "GeneratingPlacementOptions",
+                                    "ConfirmingPlacementOptions",
+                                    "GeneratingTransportOptions",
+                                    "ConfirmingTransportOptions",
+                                    "GeneratingDeliveryWindows",
+                                    "ConfirmingDeliveryWindows",
+                                    "SettingPackingInfo",
+                                    "UpdateShipmentTrackingDetails",
+                                    "GeneratingContentUpdatePreview",
+                                    "ConfirmingContentUpdatePreview"
+                                ],
+                                "type": "string",
+                                "description": "OperationType specific to WarehouseTransfer",
+                                "format": ""
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OperationModel"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -140,10 +649,12 @@
                     "PackingGroup"
                 ],
                 "summary": "Get",
+                "description": "Used to retrieve packing group for given shipping plan",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -221,7 +732,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -232,10 +743,12 @@
                     "PackingOption"
                 ],
                 "summary": "Get",
+                "description": "Used to retrieve generated packing options for given shipping plan",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -313,7 +826,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -324,10 +837,12 @@
                     "PackingOption"
                 ],
                 "summary": "Confirm",
+                "description": "Used to confirm packing options for given shipping plan",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -337,6 +852,7 @@
                     {
                         "name": "optionId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "string"
@@ -410,7 +926,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -421,10 +937,12 @@
                     "PackingOption"
                 ],
                 "summary": "Generate",
+                "description": "Used to generate packing options for given shipping plan",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -499,7 +1017,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -510,10 +1028,12 @@
                     "PlacementOption"
                 ],
                 "summary": "Get",
+                "description": "Used to retrieve generated placement options for given shipping plan",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -591,7 +1111,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -602,10 +1122,12 @@
                     "PlacementOption"
                 ],
                 "summary": "Confirm",
+                "description": "Used to confirm placement option for given shipping plan",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -615,6 +1137,7 @@
                     {
                         "name": "optionId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "string"
@@ -688,7 +1211,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -699,10 +1222,12 @@
                     "PlacementOption"
                 ],
                 "summary": "Generate",
+                "description": "Used to generate placement options for given shipping plan",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -777,7 +1302,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -788,10 +1313,12 @@
                     "ShipmentBox"
                 ],
                 "summary": "AddShipmentBoxes",
+                "description": "Used to add boxes to shipping plan",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -800,6 +1327,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=2.0": {
                             "schema": {
@@ -903,7 +1431,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             },
@@ -912,10 +1440,12 @@
                     "ShipmentBox"
                 ],
                 "summary": "UpdateShipmentBoxes",
+                "description": "Used to update boxes",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -924,6 +1454,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=2.0": {
                             "schema": {
@@ -1027,7 +1558,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             },
@@ -1036,10 +1567,12 @@
                     "ShipmentBox"
                 ],
                 "summary": "GetShipmentBoxes",
+                "description": "Used to retrieve boxes for given shipping plan",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1114,7 +1647,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -1125,10 +1658,12 @@
                     "ShipmentBox"
                 ],
                 "summary": "DeleteShipmentBoxes",
+                "description": "Used to remove box from shipping plan",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1138,6 +1673,7 @@
                     {
                         "name": "shipmentBoxId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1206,7 +1742,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -1217,10 +1753,12 @@
                     "ShipmentBox"
                 ],
                 "summary": "UpdateShipmentBoxTrackingDetail",
+                "description": "Used to update tracking details for given box",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1230,6 +1768,7 @@
                     {
                         "name": "shipmentBoxId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1238,6 +1777,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=2.0": {
                             "schema": {
@@ -1319,7 +1859,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -1330,10 +1870,12 @@
                     "ShipmentBox"
                 ],
                 "summary": "GetShipmentBoxesByShipmentId",
+                "description": "Used to retrieve shipment boxes",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1343,6 +1885,7 @@
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1417,7 +1960,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -1428,10 +1971,12 @@
                     "ShipmentBoxItem"
                 ],
                 "summary": "AddShipmentBoxItems",
+                "description": "Used to add box to shipment",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1440,6 +1985,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=2.0": {
                             "schema": {
@@ -1543,7 +2089,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             },
@@ -1552,10 +2098,12 @@
                     "ShipmentBoxItem"
                 ],
                 "summary": "UpdateShipmentBoxItems",
+                "description": "Used to specify number of items in shipment boxes",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1564,6 +2112,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=2.0": {
                             "schema": {
@@ -1667,7 +2216,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             },
@@ -1676,10 +2225,12 @@
                     "ShipmentBoxItem"
                 ],
                 "summary": "DeleteShipmentBoxItems",
+                "description": "Used to remove items from shipment",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1689,6 +2240,7 @@
                     {
                         "name": "shipmentBoxItemIds",
                         "in": "query",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "array",
@@ -1760,7 +2312,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             },
@@ -1769,10 +2321,12 @@
                     "ShipmentBoxItem"
                 ],
                 "summary": "GetShipmentBoxItems",
+                "description": "Used to retrieve box items for given shipping plan",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -1847,7 +2401,105 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
+                    }
+                ]
+            }
+        },
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/box-items/packing-groups/{packingGroupId}": {
+            "get": {
+                "tags": [
+                    "ShipmentBoxItem"
+                ],
+                "summary": "GetShipmentBoxItems",
+                "description": "Used to retrieve box items for given packing group",
+                "parameters": [
+                    {
+                        "name": "shippingPlanId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "packingGroupId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetShipmentBoxItemsByPackingGroupIdResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Method Not Allowed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -1858,7 +2510,7 @@
                     "ShipmentDeliveryWindowOptions"
                 ],
                 "summary": "ListDeliveryWindowOptions",
-                "description": "Retrieves all delivery window options for a shipment",
+                "description": "Retrieves generated shipment delivery window options from Amazon",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -1942,7 +2594,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -2034,7 +2686,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -2045,7 +2697,7 @@
                     "ShipmentDeliveryWindowOptions"
                 ],
                 "summary": "ConfirmDeliveryWindowOptions",
-                "description": "Confirms the delivery window option for chosen shipment within an inbound plan",
+                "description": "Confirms the delivery window option for given shipment",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -2134,7 +2786,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -2145,7 +2797,7 @@
                     "ShipmentItem"
                 ],
                 "summary": "CreateShipmentItemBatch",
-                "description": "Used to create shipment items in batch",
+                "description": "Used to create shipment items",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -2244,7 +2896,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             },
@@ -2253,7 +2905,7 @@
                     "ShipmentItem"
                 ],
                 "summary": "DeleteShipmentItem",
-                "description": "Used to delete shipment items in batch",
+                "description": "Used to delete specific shipment items",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -2343,7 +2995,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             },
@@ -2352,7 +3004,7 @@
                     "ShipmentItem"
                 ],
                 "summary": "GetShipmentItems",
-                "description": "Used to get shipment items by shipping plan id",
+                "description": "Used to retrieve shipping plan items",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -2437,7 +3089,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -2448,7 +3100,7 @@
                     "ShipmentItem"
                 ],
                 "summary": "UpdateShipmentItem",
-                "description": "Used to update shipment item",
+                "description": "Used to update shipping plan item",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -2549,7 +3201,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -2560,10 +3212,12 @@
                     "ShipmentItem"
                 ],
                 "summary": "UpdateQuantity",
+                "description": "Used to update item quantity",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -2573,6 +3227,7 @@
                     {
                         "name": "shipmentItemId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -2581,6 +3236,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=2.0": {
                             "schema": {
@@ -2665,7 +3321,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -2676,6 +3332,7 @@
                     "ShipmentItem"
                 ],
                 "summary": "UpdateShipmentItemPrepInstruction",
+                "description": "Used to generate item prep instructions",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -2687,6 +3344,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=2.0": {
                             "schema": {
@@ -2771,7 +3429,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -2782,6 +3440,7 @@
                     "ShipmentItem"
                 ],
                 "summary": "UpdateShippingItemWhoLabelPrep",
+                "description": "Used to specify who will prepare item",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -2793,6 +3452,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=2.0": {
                             "schema": {
@@ -2870,7 +3530,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -2881,10 +3541,12 @@
                     "ShipmentItem"
                 ],
                 "summary": "UpdateShippingItemLabelOwner",
+                "description": "Used to specify who will label item",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -2893,6 +3555,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=2.0": {
                             "schema": {
@@ -2983,7 +3646,113 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
+                    }
+                ]
+            }
+        },
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/items/import": {
+            "post": {
+                "tags": [
+                    "ShipmentItem"
+                ],
+                "summary": "ImportItems",
+                "description": "Used to import items",
+                "parameters": [
+                    {
+                        "name": "shippingPlanId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ImportShipmentItemsRequest"
+                            }
+                        },
+                        "application/json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ImportShipmentItemsRequest"
+                            }
+                        },
+                        "text/json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ImportShipmentItemsRequest"
+                            }
+                        },
+                        "application/*+json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ImportShipmentItemsRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ImportShipmentItemsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Method Not Allowed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -2994,10 +3763,12 @@
                     "ShipmentItemBatch"
                 ],
                 "summary": "AddFbaItemBatch",
+                "description": "Used to update item batch quantity",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3006,6 +3777,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=2.0": {
                             "schema": {
@@ -3087,7 +3859,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -3098,10 +3870,12 @@
                     "ShipmentPallet"
                 ],
                 "summary": "AddShipmentPallets",
+                "description": "Used to add pallets to shipment",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3118,6 +3892,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=2.0": {
                             "schema": {
@@ -3221,7 +3996,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             },
@@ -3230,10 +4005,12 @@
                     "ShipmentPallet"
                 ],
                 "summary": "GetShipmentPallets",
+                "description": "Used to retrieve shipment pallets",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3316,7 +4093,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -3327,10 +4104,12 @@
                     "ShipmentPallet"
                 ],
                 "summary": "DeleteShipmentPallet",
+                "description": "Used to remove pallet from shipment",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3340,6 +4119,7 @@
                     {
                         "name": "shipmentPalletId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3416,7 +4196,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -3427,10 +4207,12 @@
                     "ShipmentPallet"
                 ],
                 "summary": "UpdateShipmentPallets",
+                "description": "Used to update pallet",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3440,6 +4222,7 @@
                     {
                         "name": "palletId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3456,6 +4239,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "",
                     "content": {
                         "application/json-patch+json; x-api-version=2.0": {
                             "schema": {
@@ -3555,7 +4339,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             },
@@ -3564,10 +4348,12 @@
                     "ShipmentPallet"
                 ],
                 "summary": "GetShipmentPalletsById",
+                "description": "Used to retrieve specific shipment pallets",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3577,6 +4363,7 @@
                     {
                         "name": "palletId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3659,7 +4446,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -3670,10 +4457,12 @@
                     "Shipments"
                 ],
                 "summary": "GetShipmentById",
+                "description": "Used to retrive specific shipment by id",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3756,7 +4545,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -3767,10 +4556,12 @@
                     "Shipments"
                 ],
                 "summary": "GetLabelByShipmentId",
+                "description": "Used to retrieve package/pallet labels url for specific shipment",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3780,6 +4571,7 @@
                     {
                         "name": "pageType",
                         "in": "query",
+                        "description": "",
                         "schema": {
                             "$ref": "#/components/schemas/AmazonPageType"
                         }
@@ -3787,8 +4579,21 @@
                     {
                         "name": "labelType",
                         "in": "query",
+                        "description": "",
                         "schema": {
                             "$ref": "#/components/schemas/AmazonLabelType"
+                        }
+                    },
+                    {
+                        "name": "shipmentBoxIds",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
                         }
                     },
                     {
@@ -3867,7 +4672,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -3878,10 +4683,12 @@
                     "Shipments"
                 ],
                 "summary": "GetBillOfLading",
+                "description": "Used to retrieve PDF document data for printing shipment bill of lading",
                 "parameters": [
                     {
                         "name": "shipmentId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -3964,7 +4771,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -3975,10 +4782,12 @@
                     "Shipments"
                 ],
                 "summary": "GetShipmentsByShippingPlanId",
+                "description": "Used to retrieve shipments for specific shipping plan",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4056,7 +4865,308 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
+                    }
+                ]
+            }
+        },
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/{shipmentId}/tracking-details": {
+            "post": {
+                "tags": [
+                    "Shipments"
+                ],
+                "summary": "SendShipmentTrackingDetails",
+                "description": "Used to apply tracking information for shipment",
+                "parameters": [
+                    {
+                        "name": "shippingPlanId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "shipmentId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OperationModel"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Method Not Allowed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Linnworks": [ ]
+                    }
+                ]
+            }
+        },
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/{shipmentId}/transport-details": {
+            "get": {
+                "tags": [
+                    "Shipments"
+                ],
+                "summary": "GetTransportDetails",
+                "description": "Used to retrieve transportation details",
+                "parameters": [
+                    {
+                        "name": "shipmentId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "shippingPlanId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShipmentTransportationDetailModel"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Method Not Allowed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Linnworks": [ ]
+                    }
+                ]
+            }
+        },
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/{shipmentId}/box-items": {
+            "get": {
+                "tags": [
+                    "Shipments"
+                ],
+                "summary": "GetShipmentBoxItemsByShipment",
+                "description": "Used to retrieve shipment boxes",
+                "parameters": [
+                    {
+                        "name": "shippingPlanId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "shipmentId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetShipmentBoxItemsByShipmentIdResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Method Not Allowed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -4151,7 +5261,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -4162,7 +5272,7 @@
                     "ShippingPlan"
                 ],
                 "summary": "DeleteShippingPlan",
-                "description": "Used to delete just shipping plan without related info",
+                "description": "Used to delete shipping plan with related info and return reserved stock into inventory",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -4228,7 +5338,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             },
@@ -4236,9 +5346,8 @@
                 "tags": [
                     "ShippingPlan"
                 ],
-                "summary": "GetFbaShippingPlanById",
-                "description": "Used to get shipping plan with shipments and shipping items",
-                "operationId": "GetFbaShippingPlanById",
+                "summary": "GetShippingPlanById",
+                "description": "Used to retrieve shipping plan with shipments and shipping items",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
@@ -4308,7 +5417,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             },
@@ -4413,7 +5522,113 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
+                    }
+                ]
+            }
+        },
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/internal-status": {
+            "put": {
+                "tags": [
+                    "ShippingPlan"
+                ],
+                "summary": "UpdateShippingPlanInternalStatusById",
+                "description": "Used to update shipping plan internal status",
+                "parameters": [
+                    {
+                        "name": "shippingPlanId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json-patch+json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateShippingPlanInternalStatusByIdRequestInput"
+                            }
+                        },
+                        "application/json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateShippingPlanInternalStatusByIdRequestInput"
+                            }
+                        },
+                        "text/json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateShippingPlanInternalStatusByIdRequestInput"
+                            }
+                        },
+                        "application/*+json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateShippingPlanInternalStatusByIdRequestInput"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetShippingPlanCardsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Method Not Allowed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -4424,10 +5639,12 @@
                     "ShippingPlan"
                 ],
                 "summary": "SubmitShippingPlan",
+                "description": "Used to submit shipping plan details",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4492,7 +5709,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -4503,10 +5720,12 @@
                     "ShippingPlan"
                 ],
                 "summary": "SetPackingInformation",
+                "description": "Used to apply packing information",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4571,7 +5790,244 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
+                    }
+                ]
+            }
+        },
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/prep-instructions": {
+            "post": {
+                "tags": [
+                    "ShippingPlan"
+                ],
+                "summary": "UpdateShippingPlanPrepInstructionsByShippingPlanId",
+                "description": "Used to generate prep instructions",
+                "parameters": [
+                    {
+                        "name": "shippingPlanId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Method Not Allowed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Linnworks": [ ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "ShippingPlan"
+                ],
+                "summary": "GetPrepInstructionsByShippingPlanId",
+                "description": "Used to retrieve generated prep instructions",
+                "parameters": [
+                    {
+                        "name": "shippingPlanId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetPrepInstructionsByShippingPlanIdResponse"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Method Not Allowed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Linnworks": [ ]
+                    }
+                ]
+            }
+        },
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/delivery-information": {
+            "get": {
+                "tags": [
+                    "ShippingPlan"
+                ],
+                "summary": "GetDeliveryInformation",
+                "description": "Used to get deliveries information for specific shipping plan",
+                "parameters": [
+                    {
+                        "name": "shippingPlanId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/GetDeliveryInformationResponse"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Method Not Allowed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -4582,10 +6038,12 @@
                     "StockItem"
                 ],
                 "summary": "GetStockItemBatchesByShippingPlanId",
+                "description": "Used to retrieve item batches for specific items",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4595,6 +6053,7 @@
                     {
                         "name": "stockItemIds",
                         "in": "query",
+                        "description": "",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -4674,7 +6133,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -4757,7 +6216,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -4825,7 +6284,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -4836,10 +6295,12 @@
                     "TransferCards"
                 ],
                 "summary": "GetShippingPlanCardById",
+                "description": "Used to retrieve shipping plans",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -4901,7 +6362,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -4912,6 +6373,7 @@
                     "TransferCards"
                 ],
                 "summary": "GetShipmentCards",
+                "description": "Used to retrieve shipments",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -4966,7 +6428,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -4976,10 +6438,25 @@
                 "tags": [
                     "TransferCards"
                 ],
-                "summary": "RequestShipmentCardsUpdate",
+                "summary": "RefreshShipmentCards",
+                "description": "Used to start refreshing process for shipment cards",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Void"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/RefreshShipmentCardsResponse"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "Bad Request",
@@ -5024,7 +6501,7 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -5107,30 +6584,23 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
                     }
                 ]
             }
         },
-        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/box-items/packing-groups/{packingGroupId}": {
-            "get": {
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/transport-options/estimate": {
+            "post": {
                 "tags": [
-                    "ShipmentBoxItem"
+                    "TransportationOption"
                 ],
-                "summary": "GetShipmentBoxItems",
+                "summary": "Generate",
+                "description": "Used to generate transportation options",
                 "parameters": [
                     {
                         "name": "shippingPlanId",
                         "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int32"
-                        }
-                    },
-                    {
-                        "name": "packingGroupId",
-                        "in": "path",
+                        "description": "",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -5138,19 +6608,45 @@
                         }
                     }
                 ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GenerateTransportationOptionsRequestInput"
+                            }
+                        },
+                        "application/json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GenerateTransportationOptionsRequestInput"
+                            }
+                        },
+                        "text/json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GenerateTransportationOptionsRequestInput"
+                            }
+                        },
+                        "application/*+json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GenerateTransportationOptionsRequestInput"
+                            }
+                        }
+                    },
+                    "required": true
+                },
                 "responses": {
                     "200": {
                         "description": "Success",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/GetShipmentBoxItemsResponse"
+                                    "$ref": "#/components/schemas/OperationModel"
                                 }
                             }
                         }
                     },
-                    "404": {
-                        "description": "Not Found",
+                    "400": {
+                        "description": "Bad Request",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -5159,8 +6655,8 @@
                             }
                         }
                     },
-                    "400": {
-                        "description": "Bad Request",
+                    "404": {
+                        "description": "Not Found",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -5178,6 +6674,9 @@
                                 }
                             }
                         }
+                    },
+                    "500": {
+                        "description": "Server Error"
                     },
                     "401": {
                         "description": "Unauthorized",
@@ -5202,7 +6701,246 @@
                 },
                 "security": [
                     {
-                        "Linnworks": []
+                        "Linnworks": [ ]
+                    }
+                ]
+            }
+        },
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/{shipmentId}/transport-options": {
+            "get": {
+                "tags": [
+                    "TransportationOption"
+                ],
+                "summary": "Get",
+                "description": "Used to retrieve generated transportation options",
+                "parameters": [
+                    {
+                        "name": "shippingPlanId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "shipmentId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TransportationOptionModel"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Method Not Allowed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Linnworks": [ ]
+                    }
+                ]
+            }
+        },
+        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/{shipmentId}/transport-options/{transportationOptionId}/confirm": {
+            "post": {
+                "tags": [
+                    "TransportationOption"
+                ],
+                "summary": "Confirm",
+                "description": "Used to confirm transportation options",
+                "parameters": [
+                    {
+                        "name": "shippingPlanId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "shipmentId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "transportationOptionId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TransportationContactModel"
+                            }
+                        },
+                        "application/json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TransportationContactModel"
+                            }
+                        },
+                        "text/json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TransportationContactModel"
+                            }
+                        },
+                        "application/*+json; x-api-version=2.0": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TransportationContactModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OperationModel"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Method Not Allowed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Linnworks": [ ]
                     }
                 ]
             }
@@ -5500,6 +7238,169 @@
                 },
                 "additionalProperties": false
             },
+            "CarrierAppointmentModel": {
+                "type": "object",
+                "properties": {
+                    "startTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "endTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CarrierModel": {
+                "type": "object",
+                "properties": {
+                    "alphaCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ContentUpdatePreviewModel": {
+                "type": "object",
+                "properties": {
+                    "contentUpdatePreviewId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "expiration": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "requestedUpdates": {
+                        "$ref": "#/components/schemas/ContentUpdatePreviewRequestModel"
+                    },
+                    "transportationOption": {
+                        "$ref": "#/components/schemas/TransportationOptionModel"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ContentUpdatePreviewRequestModel": {
+                "required": [
+                    "boxes",
+                    "items"
+                ],
+                "type": "object",
+                "properties": {
+                    "boxes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ContentUpdateShipmentBoxModel"
+                        }
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ContentUpdateShipmentItemModel"
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ContentUpdateShipmentBoxItemModel": {
+                "required": [
+                    "quantity",
+                    "stockItemId"
+                ],
+                "type": "object",
+                "properties": {
+                    "stockItemId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "quantity": {
+                        "maximum": 2147483647,
+                        "minimum": 1,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ContentUpdateShipmentBoxModel": {
+                "required": [
+                    "items",
+                    "quantity"
+                ],
+                "type": "object",
+                "properties": {
+                    "shipmentBoxId": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "height": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "length": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "width": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "weight": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "weightUnit": {
+                        "$ref": "#/components/schemas/UnitOfWeight"
+                    },
+                    "measurementUnit": {
+                        "$ref": "#/components/schemas/UnitOfMeasurement"
+                    },
+                    "quantity": {
+                        "maximum": 2147483647,
+                        "minimum": 1,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ContentUpdateShipmentBoxItemModel"
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ContentUpdateShipmentItemModel": {
+                "required": [
+                    "quantity",
+                    "shipmentItemId"
+                ],
+                "type": "object",
+                "properties": {
+                    "shipmentItemId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "quantity": {
+                        "maximum": 2147483647,
+                        "minimum": 1,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
             "CreateShipmentItemInBulkRequest": {
                 "required": [
                     "items"
@@ -5549,6 +7450,13 @@
                 },
                 "additionalProperties": false
             },
+            "CsvSeparatorType": {
+                "enum": [
+                    "Comma"
+                ],
+                "type": "string",
+                "format": ""
+            },
             "CurrencyModel": {
                 "type": "object",
                 "properties": {
@@ -5585,11 +7493,131 @@
                 },
                 "additionalProperties": false
             },
+            "FailedShippingItem": {
+                "type": "object",
+                "properties": {
+                    "sku": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "stockItemId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "batchNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "batchInventoryId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "failMessage": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "FreightClass": {
+                "enum": [
+                    "NONE",
+                    "FC_50",
+                    "FC_55",
+                    "FC_60",
+                    "FC_65",
+                    "FC_70",
+                    "FC_77_5",
+                    "FC_85",
+                    "FC_92_5",
+                    "FC_100",
+                    "FC_110",
+                    "FC_125",
+                    "FC_150",
+                    "FC_175",
+                    "FC_200",
+                    "FC_250",
+                    "FC_300",
+                    "FC_400",
+                    "FC_500"
+                ],
+                "type": "string",
+                "format": ""
+            },
+            "FreightInformationModel": {
+                "required": [
+                    "declaredValue",
+                    "freightClass"
+                ],
+                "type": "object",
+                "properties": {
+                    "declaredValue": {
+                        "$ref": "#/components/schemas/CurrencyModel"
+                    },
+                    "freightClass": {
+                        "$ref": "#/components/schemas/FreightClass"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GenerateTransportationOptionsRequestInput": {
+                "required": [
+                    "placementOptionId",
+                    "shipmentTransportationConfiguration"
+                ],
+                "type": "object",
+                "properties": {
+                    "placementOptionId": {
+                        "type": "string"
+                    },
+                    "shipmentTransportationConfiguration": {
+                        "$ref": "#/components/schemas/ShipmentTransportationConfigurationModel"
+                    }
+                },
+                "additionalProperties": false
+            },
             "GetBillOfLadingByShipmentIdResponse": {
                 "type": "object",
                 "properties": {
                     "billOfLadingUrl": {
                         "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetDeliveryInformationResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "shippingPlanId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "shipmentId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "deliveryWindowOptionId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "startDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "validUntil": {
+                        "type": "string",
+                        "format": "date-time",
                         "nullable": true
                     }
                 },
@@ -5619,6 +7647,61 @@
                     "amazonPackingGroupId": {
                         "type": "string",
                         "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetPrepInstructionsByShippingPlanIdResponse": {
+                "type": "object",
+                "properties": {
+                    "skuPrepInstructionsList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SkuPrepInstructionItem"
+                        },
+                        "nullable": true
+                    },
+                    "shippingPlanId": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetShipmentBoxItemsByPackingGroupIdResponse": {
+                "type": "object",
+                "properties": {
+                    "boxItems": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ShipmentBoxItemExtendedModel"
+                        },
+                        "nullable": true
+                    },
+                    "weightUnit": {
+                        "$ref": "#/components/schemas/UnitOfWeight"
+                    },
+                    "dimensionUnit": {
+                        "$ref": "#/components/schemas/UnitOfMeasurement"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetShipmentBoxItemsByShipmentIdResponse": {
+                "type": "object",
+                "properties": {
+                    "boxItems": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ShipmentBoxItemExtendedModel"
+                        },
+                        "nullable": true
+                    },
+                    "weightUnit": {
+                        "$ref": "#/components/schemas/UnitOfWeight"
+                    },
+                    "dimensionUnit": {
+                        "$ref": "#/components/schemas/UnitOfMeasurement"
                     }
                 },
                 "additionalProperties": false
@@ -5811,6 +7894,95 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/ShipmentPackageLabelTypeModel"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ImportColumnMappingModel": {
+                "type": "object",
+                "properties": {
+                    "systemColumnType": {
+                        "$ref": "#/components/schemas/ImportShipmentItemColumn"
+                    },
+                    "userDefinedColumn": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ImportSettingModel": {
+                "type": "object",
+                "properties": {
+                    "separatorType": {
+                        "$ref": "#/components/schemas/CsvSeparatorType"
+                    },
+                    "containsColumns": {
+                        "type": "boolean"
+                    },
+                    "columnMappings": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ImportColumnMappingModel"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ImportShipmentItemColumn": {
+                "enum": [
+                    "SKU",
+                    "SellerSKU",
+                    "ASIN",
+                    "QuantityToShip",
+                    "BatchNumber"
+                ],
+                "type": "string",
+                "format": ""
+            },
+            "ImportShipmentItemsRequest": {
+                "required": [
+                    "fileId",
+                    "settings"
+                ],
+                "type": "object",
+                "properties": {
+                    "fileId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "settings": {
+                        "$ref": "#/components/schemas/ImportSettingModel"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ImportShipmentItemsResponse": {
+                "type": "object",
+                "properties": {
+                    "insertedIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int32"
+                        },
+                        "nullable": true
+                    },
+                    "updatedIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int32"
+                        },
+                        "nullable": true
+                    },
+                    "notImportedItems": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/FailedShippingItem"
                         },
                         "nullable": true
                     }
@@ -6274,7 +8446,26 @@
                         "nullable": true
                     }
                 },
-                "additionalProperties": {}
+                "additionalProperties": { }
+            },
+            "QuoteModel": {
+                "type": "object",
+                "properties": {
+                    "cost": {
+                        "$ref": "#/components/schemas/CurrencyModel"
+                    },
+                    "expiration": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "voidableUntil": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
             },
             "RefreshShipmentCardsResponse": {
                 "type": "object",
@@ -6332,6 +8523,101 @@
                         "nullable": true
                     },
                     "status": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ShipmentBoxItemExtendedModel": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "shippingPlanId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "shipmentId": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "packingGroupId": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "stockItemIntId": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "stockItemId": {
+                        "type": "string",
+                        "format": "uuid",
+                        "nullable": true
+                    },
+                    "sellerSku": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sku": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "weight": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "length": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "height": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "width": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "quantityToShip": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "thumbnailSource": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/ShipmentBoxRecordType"
+                    },
+                    "dataPath": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    },
+                    "shipmentBoxId": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "shipmentBoxItemId": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "shipmentBoxName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "title": {
                         "type": "string",
                         "nullable": true
                     }
@@ -6431,6 +8717,15 @@
                     }
                 },
                 "additionalProperties": false
+            },
+            "ShipmentBoxRecordType": {
+                "enum": [
+                    "Pallet",
+                    "Box",
+                    "Sku"
+                ],
+                "type": "string",
+                "format": ""
             },
             "ShipmentCardModel": {
                 "type": "object",
@@ -6989,6 +9284,61 @@
                 "type": "string",
                 "format": ""
             },
+            "ShipmentTransportationConfigurationModel": {
+                "type": "object",
+                "properties": {
+                    "shipmentId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "readyToShipWindow": {
+                        "$ref": "#/components/schemas/TransportationWindowInputModel"
+                    },
+                    "contactInformation": {
+                        "$ref": "#/components/schemas/TransportationContactModel"
+                    },
+                    "freightInformation": {
+                        "$ref": "#/components/schemas/FreightInformationModel"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ShipmentTransportationDetailModel": {
+                "type": "object",
+                "properties": {
+                    "transportationOptionId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "shipmentId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "carrier": {
+                        "$ref": "#/components/schemas/CarrierModel"
+                    },
+                    "preconditions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    },
+                    "shippingMode": {
+                        "$ref": "#/components/schemas/ShippingMode"
+                    },
+                    "shippingSolution": {
+                        "$ref": "#/components/schemas/ShippingSolution"
+                    },
+                    "carrierAppointment": {
+                        "$ref": "#/components/schemas/CarrierAppointmentModel"
+                    },
+                    "quote": {
+                        "$ref": "#/components/schemas/QuoteModel"
+                    }
+                },
+                "additionalProperties": false
+            },
             "ShipmentWeightUnitModel": {
                 "type": "object",
                 "properties": {
@@ -7067,6 +9417,35 @@
                 "type": "string",
                 "format": ""
             },
+            "ShippingPlanInternalStatus": {
+                "enum": [
+                    "Step1",
+                    "Step2",
+                    "Step3_CreateInboundPlan",
+                    "Step3_CreateInboundPlanInProgress",
+                    "Step3_CreateInboundPlanSuccess",
+                    "Step3_CreateInboundPlanFailed",
+                    "Step4_GeneratePackingOptions",
+                    "Step4_GeneratePackingOptionsInProgress",
+                    "Step4_GeneratePackingOptionsSuccess",
+                    "Step4_GeneratePackingOptionsFailed",
+                    "Step4_ConfirmPackingOptions",
+                    "Step4_ConfirmPackingOptionsInProgress",
+                    "Step4_ConfirmPackingOptionsSuccess",
+                    "Step4_ConfirmPackingOptionsFailed",
+                    "Step5_SetPackingInformation",
+                    "Step5_SetPackingInformationInProgress",
+                    "Step5_SetPackingInformationSuccess",
+                    "Step5_SetPackingInformationFailed",
+                    "ReviewShipmentOptions",
+                    "ReviewShipmentOptionsConfirmInProgress",
+                    "ReviewShipmentOptionsConfirmSuccess",
+                    "ReviewShipmentOptionsConfirmFailed",
+                    "TransportationOptions"
+                ],
+                "type": "string",
+                "format": ""
+            },
             "ShippingPlanStatus": {
                 "enum": [
                     "DRAFT",
@@ -7126,6 +9505,80 @@
                 ],
                 "type": "string",
                 "format": ""
+            },
+            "SkuPrepInstructionItem": {
+                "type": "object",
+                "properties": {
+                    "shipmentItemId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "itemTitle": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "quantityToSend": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "labelType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "labelOwner": {
+                        "$ref": "#/components/schemas/LabelOwner"
+                    },
+                    "sellerSKU": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sku": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "asin": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "thumbnailSource": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "stockItemIdGuid": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "barcodeInstruction": {
+                        "$ref": "#/components/schemas/SkuPrepBarcodeInstruction"
+                    },
+                    "prepGuidance": {
+                        "$ref": "#/components/schemas/SkuPrepGuidance"
+                    },
+                    "prepInstructionList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AmazonPrepInstructionItem"
+                        },
+                        "nullable": true
+                    },
+                    "feeAmountPerUnit": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "number",
+                            "format": "double"
+                        },
+                        "nullable": true
+                    },
+                    "totalFeeAmount": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "number",
+                            "format": "double"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
             },
             "StockItemBatchResponse": {
                 "type": "object",
@@ -7254,6 +9707,79 @@
                 "type": "string",
                 "description": "Type of transfer",
                 "format": ""
+            },
+            "TransportationContactModel": {
+                "required": [
+                    "name",
+                    "phoneNumber"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "maxLength": 50,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "phoneNumber": {
+                        "maxLength": 20,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "email": {
+                        "maxLength": 1024,
+                        "minLength": 1,
+                        "type": "string",
+                        "format": "email",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "TransportationOptionModel": {
+                "type": "object",
+                "properties": {
+                    "transportationOptionId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "shipmentId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "carrier": {
+                        "$ref": "#/components/schemas/CarrierModel"
+                    },
+                    "preconditions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    },
+                    "shippingMode": {
+                        "$ref": "#/components/schemas/ShippingMode"
+                    },
+                    "shippingSolution": {
+                        "$ref": "#/components/schemas/ShippingSolution"
+                    },
+                    "carrierAppointment": {
+                        "$ref": "#/components/schemas/CarrierAppointmentModel"
+                    },
+                    "quote": {
+                        "$ref": "#/components/schemas/QuoteModel"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "TransportationWindowInputModel": {
+                "type": "object",
+                "properties": {
+                    "start": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
             },
             "UnitOfMeasurement": {
                 "enum": [
@@ -7457,6 +9983,15 @@
                     "shippedQty": {
                         "type": "integer",
                         "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "UpdateShippingPlanInternalStatusByIdRequestInput": {
+                "type": "object",
+                "properties": {
+                    "internalStatus": {
+                        "$ref": "#/components/schemas/ShippingPlanInternalStatus"
                     }
                 },
                 "additionalProperties": false
