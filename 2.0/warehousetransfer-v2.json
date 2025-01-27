@@ -5527,112 +5527,6 @@
                 ]
             }
         },
-        "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/internal-status": {
-            "put": {
-                "tags": [
-                    "ShippingPlan"
-                ],
-                "summary": "UpdateShippingPlanInternalStatusById",
-                "description": "Used to update shipping plan internal status",
-                "parameters": [
-                    {
-                        "name": "shippingPlanId",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int32"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json-patch+json; x-api-version=2.0": {
-                            "schema": {
-                                "$ref": "#/components/schemas/UpdateShippingPlanInternalStatusByIdRequestInput"
-                            }
-                        },
-                        "application/json; x-api-version=2.0": {
-                            "schema": {
-                                "$ref": "#/components/schemas/UpdateShippingPlanInternalStatusByIdRequestInput"
-                            }
-                        },
-                        "text/json; x-api-version=2.0": {
-                            "schema": {
-                                "$ref": "#/components/schemas/UpdateShippingPlanInternalStatusByIdRequestInput"
-                            }
-                        },
-                        "application/*+json; x-api-version=2.0": {
-                            "schema": {
-                                "$ref": "#/components/schemas/UpdateShippingPlanInternalStatusByIdRequestInput"
-                            }
-                        }
-                    },
-                    "required": true
-                },
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/GetShippingPlanCardsResponse"
-                                }
-                            }
-                        }
-                    },
-                    "201": {
-                        "description": "Success"
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    },
-                    "405": {
-                        "description": "Method Not Allowed",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    },
-                    "403": {
-                        "description": "Forbidden",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "Linnworks": [ ]
-                    }
-                ]
-            }
-        },
         "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/submit": {
             "put": {
                 "tags": [
@@ -9983,15 +9877,6 @@
                     "shippedQty": {
                         "type": "integer",
                         "format": "int32"
-                    }
-                },
-                "additionalProperties": false
-            },
-            "UpdateShippingPlanInternalStatusByIdRequestInput": {
-                "type": "object",
-                "properties": {
-                    "internalStatus": {
-                        "$ref": "#/components/schemas/ShippingPlanInternalStatus"
                     }
                 },
                 "additionalProperties": false
