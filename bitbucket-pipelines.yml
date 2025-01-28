@@ -39,6 +39,7 @@ pipelines:
                 - npx rdme@v8 openapi '1.0/postsale.json' --key=$key --id=645386bd51ae010e341ce68a
                 - npx rdme@v8 openapi '1.0/postalservices.json' --key=$key --id=645cf4ca59e7a81c99ee340a
                 - npx rdme@v8 openapi '1.0/printservice.json' --key=$key --id=64673a39dbf096000a92e442
+                - npx rdme@v8 openapi '1.0/printzone.json' --key=$key --id=6798d8af809901001de71196
                 - npx rdme@v8 openapi '1.0/processedorders.json' --key=$key --id=64550ce5846bfe155ebe97e6
                 - npx rdme@v8 openapi '1.0/purchaseorder.json' --key=$key --id=6453a39d8fb51c001f98ea1f
                 - npx rdme@v8 openapi '1.0/returnsrefunds.json' --key=$key --id=6451177fc1d61d0295ff3e6f
