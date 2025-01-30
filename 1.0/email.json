@@ -176,41 +176,53 @@
   },
   "definitions": {
     "EmailTemplateHeader": {
+      "description": "Represent a simple version of EmailTemplate, with genering information",
       "type": "object",
       "properties": {
         "pkEmailTemplateRowId": {
           "format": "int32",
+          "description": "Row Id",
           "type": "integer"
         },
         "Name": {
+          "description": "Template friendly name",
           "type": "string"
         },
         "TemplateType": {
+          "description": "Template type",
           "type": "string"
         },
         "IsConditions": {
+          "description": "Indicate if the template has conditions defined",
           "type": "boolean"
         },
         "Condition": {
+          "description": "Template condition defined",
           "type": "string"
         },
         "Enabled": {
+          "description": "Indicate if the template is enabled or not",
           "type": "boolean"
         },
         "fkEmailAccountRowId": {
           "format": "int32",
+          "description": "Row Id of the email account used to send the email",
           "type": "integer"
         },
         "AccountName": {
+          "description": "Name of the email account used to send the email",
           "type": "string"
         },
         "AttachPDF": {
+          "description": "Indicate if this template has attachments enabled",
           "type": "boolean"
         },
         "IsAdhoc": {
+          "description": "Indicates if the email type is adhoc",
           "type": "boolean"
         },
         "HTML": {
+          "description": "Indicates whether the email is a HTML email",
           "type": "boolean"
         }
       }
@@ -220,44 +232,57 @@
       "properties": {
         "pkEmailTemplateRowId": {
           "format": "int32",
+          "description": "Row id",
           "type": "integer"
         },
         "Name": {
+          "description": "Tempalte friendly name",
           "type": "string"
         },
         "Enabled": {
+          "description": "Template enabled or not",
           "type": "boolean"
         },
         "TemplateType": {
+          "description": "Template type. Used to map database field",
           "type": "string"
         },
         "TemplateTypeDefinition": {
           "$ref": "#/definitions/EmailTemplateType",
+          "description": "Template type definition. It's part of this entity because we always need the definition when we get the EmailTemplate entity. To change it, set the \"TemplateType\" property",
           "readOnly": true
         },
         "Subject": {
+          "description": "Subject of the email",
           "type": "string"
         },
         "Condition": {
+          "description": "Condition to evaluate what template to use",
           "type": "string"
         },
         "PreviewBeforeGenerating": {
+          "description": "Preview email before send it",
           "type": "boolean"
         },
         "HTML": {
+          "description": "Indicate if the email is HTML",
           "type": "boolean"
         },
         "AttachPDF": {
+          "description": "Indicate if the email will have an invoice attached",
           "type": "boolean"
         },
         "Body": {
+          "description": "Email body content",
           "type": "string"
         },
         "fkEmailAccountRowId": {
           "format": "int32",
+          "description": "Row Id of the email account used to send the email",
           "type": "integer"
         },
         "PromptPreviewReferenceNumber": {
+          "description": "Text to be shown to the customer when he want to preview an order",
           "type": "string",
           "readOnly": true
         }
@@ -304,22 +329,28 @@
       }
     },
     "EmailParsableCreator": {
+      "description": "Abstract class to implement a factory pattern in the creation of IEmailParsable objects",
       "type": "object",
       "properties": {}
     },
     "TemplateTag": {
+      "description": "Objects that define an entity field or property mapping",
       "type": "object",
       "properties": {
         "Tag": {
+          "description": "Tag which is inserted into the template as [{Tag}]",
           "type": "string"
         },
         "Name": {
+          "description": "Human readable name of the tag",
           "type": "string"
         },
         "SelectionPath": {
+          "description": "Defines how the tag will be rendered in the menu",
           "type": "string"
         },
         "IsList": {
+          "description": "Identifies whether the item is a list (FOREACH loop)",
           "type": "boolean"
         }
       }
@@ -368,20 +399,25 @@
       }
     },
     "EmailStubCustomTag": {
+      "description": "An email stub may have custom tag created either by manual entry by the user or automatically added by the stub generation routine.",
       "type": "object",
       "properties": {
         "pkEmailStubTagId": {
           "format": "int32",
+          "description": "Row id",
           "type": "integer"
         },
         "fkEmailStubId": {
           "format": "int32",
+          "description": "Relation to email_stub",
           "type": "integer"
         },
         "TagName": {
+          "description": "Name of the tag",
           "type": "string"
         },
         "TagValue": {
+          "description": "Value which will be inserted into the template",
           "type": "string"
         }
       }
@@ -390,9 +426,11 @@
       "type": "object",
       "properties": {
         "isComplete": {
+          "description": "Send custom emails completed",
           "type": "boolean"
         },
         "FailedRecipients": {
+          "description": "List of failed recipients",
           "type": "array",
           "items": {
             "type": "string"
@@ -438,9 +476,11 @@
       "type": "object",
       "properties": {
         "isComplete": {
+          "description": "Send custom emails completed",
           "type": "boolean"
         },
         "FailedRecipients": {
+          "description": "List of failed recipients",
           "type": "array",
           "items": {
             "type": "string"

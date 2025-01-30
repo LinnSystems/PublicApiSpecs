@@ -625,25 +625,31 @@
       "properties": {
         "ZoneId": {
           "format": "int32",
+          "description": "Unique zone id",
           "type": "integer"
         },
         "ZoneTypeId": {
           "format": "int32",
+          "description": "Zone type Id",
           "type": "integer"
         },
         "Name": {
+          "description": "Zone name, unique to location",
           "type": "string"
         },
         "ParentZoneId": {
           "format": "int32",
+          "description": "Parent zone id (immediate parent in hierarchy)",
           "type": "integer"
         },
         "HierarchyLevel": {
           "format": "int32",
+          "description": "Hierarchy level from top most parent.",
           "type": "integer"
         },
         "StockLocationIntId": {
           "format": "int32",
+          "description": "Stock location interger id",
           "type": "integer"
         }
       }

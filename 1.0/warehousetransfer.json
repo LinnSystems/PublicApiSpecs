@@ -2154,26 +2154,32 @@
       "properties": {
         "PkTransferId": {
           "format": "uuid",
+          "description": "Transfer ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "FromLocationId": {
           "format": "uuid",
+          "description": "Location from which transfer is made (unique identifier)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ToLocationId": {
           "format": "uuid",
+          "description": "Location to which transfer is made (unique identifier)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "FromLocation": {
+          "description": "Name of location from which transfer is made",
           "type": "string"
         },
         "ToLocation": {
+          "description": "Name of location to which transfer is made",
           "type": "string"
         },
         "Status": {
+          "description": "Current transfer status",
           "enum": [
             "Draft",
             "Request",
@@ -2187,64 +2193,78 @@
         },
         "nStatus": {
           "format": "int32",
+          "description": "Status ID",
           "type": "integer"
         },
         "ReferenceNumber": {
+          "description": "Transfer reference number",
           "type": "string"
         },
         "OrderDate": {
           "format": "date-time",
+          "description": "When transer was ordered",
           "type": "string"
         },
         "NumberOfItems": {
           "format": "int32",
+          "description": "Number of items transfered",
           "type": "integer"
         },
         "NumberOfNotes": {
           "format": "int32",
+          "description": "Number of transfer notes",
           "type": "integer"
         },
         "fkOriginalTransferId": {
           "format": "uuid",
+          "description": "Original transfer ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "OriginalTransferReference": {
+          "description": "Original transfer reference number",
           "type": "string"
         },
         "IsDiscrepancyTransfer": {
+          "description": "If its a discrepency transfer",
           "type": "boolean",
           "readOnly": true
         },
         "BLogicalDelete": {
+          "description": "If transfer is deleted",
           "type": "boolean"
         },
         "Bins": {
+          "description": "List of transfer bins",
           "type": "array",
           "items": {
             "$ref": "#/definitions/WarehouseTransferBin"
           }
         },
         "Notes": {
+          "description": "List of transfer notes",
           "type": "array",
           "items": {
             "$ref": "#/definitions/WarehouseTransferNote"
           }
         },
         "AuditTrail": {
+          "description": "List of transfer audits",
           "type": "array",
           "items": {
             "$ref": "#/definitions/WarehouseTransferAudit"
           }
         },
         "TransferProperties": {
+          "description": "List of transfer properties",
           "type": "array",
           "items": {
             "$ref": "#/definitions/WarehouseTransferProperty"
           }
         },
         "UpdateStatus": {
-          "$ref": "#/definitions/UpdateStatus"
+          "$ref": "#/definitions/UpdateStatus",
+          "description": "Which status is updated"
         }
       }
     },
@@ -2253,25 +2273,31 @@
       "properties": {
         "PkBinId": {
           "format": "uuid",
+          "description": "Bin ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "BinName": {
+          "description": "Transfer bin name",
           "type": "string"
         },
         "BinReference": {
+          "description": "Bin reference",
           "type": "string"
         },
         "BinBarcode": {
+          "description": "Bin barcode",
           "type": "string"
         },
         "BinNotes": {
+          "description": "List of transfer bin notes",
           "type": "array",
           "items": {
             "$ref": "#/definitions/WarehouseTransferBinNote"
           }
         },
         "BinItems": {
+          "description": "List of transfer items",
           "type": "array",
           "items": {
             "$ref": "#/definitions/WarehouseTransferItem"
@@ -2377,24 +2403,30 @@
       "properties": {
         "PkTransferBinNoteId": {
           "format": "uuid",
+          "description": "Transfer bin note ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "NoteUser": {
+          "description": "User who created note",
           "type": "string"
         },
         "Note": {
+          "description": "Note text",
           "type": "string"
         },
         "NoteDateTime": {
           "format": "date-time",
+          "description": "When bin note was added",
           "type": "string"
         },
         "NoteRead": {
+          "description": "If bin note is readable",
           "type": "boolean"
         },
         "PkBinId": {
           "format": "uuid",
+          "description": "Bin ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }
@@ -2405,60 +2437,75 @@
       "properties": {
         "PkTransferItemId": {
           "format": "uuid",
+          "description": "Transfer ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "FkStockItemId": {
           "format": "uuid",
+          "description": "Stock item ID (unique identifier)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "SKU": {
+          "description": "Product SKU",
           "type": "string"
         },
         "Barcode": {
+          "description": "Product barcode",
           "type": "string"
         },
         "ItemTitle": {
+          "description": "Product title",
           "type": "string"
         },
         "RequestedQuantity": {
           "format": "int32",
+          "description": "Quantity requested for transfer",
           "type": "integer"
         },
         "SentQuantity": {
           "format": "int32",
+          "description": "Quantity transferred",
           "type": "integer"
         },
         "ReceivedQuantity": {
           "format": "int32",
+          "description": "Quantity received",
           "type": "integer"
         },
         "InFromLocationQuantity": {
           "format": "int32",
+          "description": "Quantity from location",
           "type": "integer"
         },
         "DueFromLocationQuantity": {
           "format": "int32",
+          "description": "Due from location quantity",
           "type": "integer"
         },
         "InToLocationQuantity": {
           "format": "int32",
+          "description": "Currently in location quantity",
           "type": "integer"
         },
         "ItemNoteCount": {
           "format": "int32",
+          "description": "Items notes count",
           "type": "integer"
         },
         "BinRackNumber": {
+          "description": "Stock item binrack",
           "type": "string"
         },
         "PkBinId": {
           "format": "uuid",
+          "description": "Transfer bin ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ItemNotes": {
+          "description": "List of transfer notes",
           "type": "array",
           "items": {
             "$ref": "#/definitions/WarehouseTransferItemNote"
@@ -2471,29 +2518,36 @@
       "properties": {
         "PkTransferItemNoteId": {
           "format": "uuid",
+          "description": "Stock item ID (unique identifier)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "NoteUser": {
+          "description": "User who added note",
           "type": "string"
         },
         "Note": {
+          "description": "Note text",
           "type": "string"
         },
         "NoteDateTime": {
           "format": "date-time",
+          "description": "When note was added",
           "type": "string"
         },
         "NoteRead": {
+          "description": "If note is readable",
           "type": "boolean"
         },
         "FkBinId": {
           "format": "uuid",
+          "description": "Bin ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PkTransferItemId": {
           "format": "uuid",
+          "description": "Transfer ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }
@@ -2657,15 +2711,18 @@
       "properties": {
         "fkStockItemId": {
           "format": "uuid",
+          "description": "Stock item ID (unique identifier)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Quantity": {
           "format": "int32",
+          "description": "Item request quantity",
           "type": "integer"
         },
         "pkTransferItemId": {
           "format": "uuid",
+          "description": "Transfer item ID (unique identifier)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }
@@ -2911,22 +2968,27 @@
       }
     },
     "GenericPagedResult_WarehouseTransfer": {
+      "description": "Order item object",
       "type": "object",
       "properties": {
         "PageNumber": {
           "format": "int32",
+          "description": "Result page number",
           "type": "integer"
         },
         "EntriesPerPage": {
           "format": "int32",
+          "description": "Result page size, quantity of records per page",
           "type": "integer"
         },
         "TotalEntries": {
           "format": "int64",
+          "description": "Total records",
           "type": "integer"
         },
         "TotalPages": {
           "format": "int32",
+          "description": "Total pages",
           "type": "integer",
           "readOnly": true
         },

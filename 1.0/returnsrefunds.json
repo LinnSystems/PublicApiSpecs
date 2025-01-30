@@ -1637,18 +1637,23 @@
       "type": "object",
       "properties": {
         "StatusTag": {
+          "description": "For an individual refund line, this identifies the line's state on the channel. For the header, if all its lines have the same StatusTag, it will also have the same StatusTag. If not,\r\nit will determine an appropriate StatusTag based on those of its lines",
           "type": "string"
         },
         "StatusDescription": {
+          "description": "A user-friendly descriptor of the StatusTag",
           "type": "string"
         },
         "Actionable": {
+          "description": "Determines whether the refund is in a state where it requires action from the user",
           "type": "boolean"
         },
         "ActionDescription": {
+          "description": "A user-friendly descriptor of what \"actioning\" the refund will do on the channel",
           "type": "string"
         },
         "EditableFields": {
+          "description": "Where certain fields need to be modified for the refund to be successfully actioned, this list is populated with a list of the field names, allowing them to be edited as necessary",
           "type": "array",
           "items": {
             "type": "string"
@@ -1718,56 +1723,69 @@
       "properties": {
         "OrderId": {
           "format": "uuid",
+          "description": "Order ID (pkOrderId)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "NumOrderId": {
           "format": "int32",
+          "description": "Linnworks order number",
           "type": "integer"
         },
         "Processed": {
+          "description": "If order is processed",
           "type": "boolean"
         },
         "ProcessedDateTime": {
           "format": "date-time",
+          "description": "Date and time when order was processed",
           "type": "string"
         },
         "FulfilmentLocationId": {
           "format": "uuid",
+          "description": "Location ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "GeneralInfo": {
-          "$ref": "#/definitions/OrderGeneralInfo"
+          "$ref": "#/definitions/OrderGeneralInfo",
+          "description": "General information about order"
         },
         "ShippingInfo": {
-          "$ref": "#/definitions/OrderShippingInfo"
+          "$ref": "#/definitions/OrderShippingInfo",
+          "description": "Order shipping information"
         },
         "CustomerInfo": {
-          "$ref": "#/definitions/OrderCustomerInfo"
+          "$ref": "#/definitions/OrderCustomerInfo",
+          "description": "Order Customer information (Name, email etc)"
         },
         "TotalsInfo": {
-          "$ref": "#/definitions/OrderTotalsInfo"
+          "$ref": "#/definitions/OrderTotalsInfo",
+          "description": "Order totals information"
         },
         "ExtendedProperties": {
+          "description": "Extended properties of an order",
           "type": "array",
           "items": {
             "$ref": "#/definitions/ExtendedProperty"
           }
         },
         "FolderName": {
+          "description": "Folder names assigned to an order",
           "type": "array",
           "items": {
             "type": "string"
           }
         },
         "Items": {
+          "description": "List of order items",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrderItem"
           }
         },
         "Notes": {
+          "description": "List of order notes",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrderNote"
@@ -1775,9 +1793,11 @@
         },
         "PaidDateTime": {
           "format": "date-time",
+          "description": "Date and time when the order was marked as paid",
           "type": "string"
         },
         "TaxId": {
+          "description": "Buyer's tax number.",
           "type": "string"
         }
       }
@@ -1847,17 +1867,21 @@
       "properties": {
         "RefundRowId": {
           "format": "uuid",
+          "description": "A unique identifier for the refund line",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "RefundHeaderId": {
           "format": "int32",
+          "description": "A unique identifier for the refund header this line belongs to",
           "type": "integer"
         },
         "Status": {
-          "$ref": "#/definitions/PostSaleStatus"
+          "$ref": "#/definitions/PostSaleStatus",
+          "description": "A detailed description of this refund line's status"
         },
         "RefundedUnit": {
+          "description": "Identifies the type of refund for this line",
           "enum": [
             "Item",
             "Shipping",
@@ -1867,21 +1891,26 @@
           "type": "string"
         },
         "IsShippingRefund": {
+          "description": "Identifies whether the refund is a shipping refund",
           "type": "boolean",
           "readOnly": true
         },
         "IsAdditionalRefund": {
+          "description": "Identifies whether the refund is an additional refund",
           "type": "boolean",
           "readOnly": true
         },
         "IsCancellation": {
+          "description": "Identifies whether the refund row is a cancellation",
           "type": "boolean",
           "readOnly": true
         },
         "RefundedItem": {
-          "$ref": "#/definitions/VerifiedRefundItem"
+          "$ref": "#/definitions/VerifiedRefundItem",
+          "description": "Used mainly to associate an item with an error, this identifies the order item to which the refund line applies"
         },
         "ValidationError": {
+          "description": "If validation has failed for this item, the field will be populated with the appropriate error message",
           "type": "string"
         },
         "Error": {
@@ -1894,52 +1923,67 @@
           }
         },
         "Actioned": {
+          "description": "Line-level indicator of whether the refund has been actioned",
           "type": "boolean"
         },
         "ActionedDate": {
           "format": "date-time",
+          "description": "If a refund has been actioned, this denotes the date it was actioned. For not actioned lines, this value is null",
           "type": "string"
         },
         "ChannelInitiated": {
+          "description": "Identifies whether the refund was created manually in Linnworks, or downloaded from the channel automatically",
           "type": "boolean"
         },
         "Internal": {
+          "description": "Identifies whether the line is processed only internally or also on a third-party channel",
           "type": "boolean"
         },
         "Deleted": {
+          "description": "Identifies whether the line has been removed from the refund, and is pending an update to the database to reflect this",
           "type": "boolean"
         },
         "ExternalReference": {
+          "description": "The channel reference number for this refund",
           "type": "string"
         },
         "IsFreeText": {
+          "description": "Identifies whether the refund reason is provided in freetext, or as one of a predefined set of options",
           "type": "boolean",
           "readOnly": true
         },
         "FreeTextOrNote": {
+          "description": "For freetext refund reasons, this is the reason that will be sent to the channel. Otherwise, it is considered an internal note",
           "type": "string"
         },
         "Amount": {
           "format": "double",
+          "description": "The amount to be refunded for this line",
           "type": "number"
         },
         "Quantity": {
           "format": "int32",
+          "description": "Used when the refund is part of a return",
           "type": "integer"
         },
         "ReasonTag": {
+          "description": "For channels that support predefined refund reasons, this is the tag that identifies a predefined reason",
           "type": "string"
         },
         "SubReasonTag": {
+          "description": "For channels that support a secondary predefined refund reason, this is the tag that identifies a predefined secondary reason",
           "type": "string"
         },
         "InsufficientRefundTag": {
+          "description": "For channels that require a reason when the refund is lower than the full line amount, this is the tag that identifies a predefined insufficient refund reason",
           "type": "string"
         },
         "InsufficientRefundNote": {
+          "description": "For channels that require a reason when the refund is lower than the full line amount, and support a freetext note, this field populates that note",
           "type": "string"
         },
         "ReasonCategory": {
+          "description": "Internal reason category",
           "type": "string"
         }
       }
@@ -1973,84 +2017,108 @@
       }
     },
     "OrderGeneralInfo": {
+      "description": "Order General Info class",
       "type": "object",
       "properties": {
         "Status": {
           "format": "int32",
+          "description": "Order Status (0 = UNPAID, 1 = PAID,2 = RETURN,3 = PENDING,4 = RESEND)",
           "type": "integer"
         },
         "LabelPrinted": {
+          "description": "Is label printed",
           "type": "boolean"
         },
         "LabelError": {
+          "description": "Is there a label error",
           "type": "string"
         },
         "InvoicePrinted": {
+          "description": "Is invoice printed",
           "type": "boolean"
         },
         "InvoicePrintError": {
+          "description": "Is there invoice print error",
           "type": "string"
         },
         "PickListPrinted": {
+          "description": "Is pick list printed",
           "type": "boolean"
         },
         "PickListPrintError": {
+          "description": "Is there pick list print error",
           "type": "string"
         },
         "IsRuleRun": {
+          "description": "If rules engine rule ran on an order",
           "type": "boolean"
         },
         "Notes": {
           "format": "int32",
+          "description": "Quantity of order notes",
           "type": "integer"
         },
         "PartShipped": {
+          "description": "If order partly shipped",
           "type": "boolean"
         },
         "Marker": {
           "format": "int32",
+          "description": "Order marker (0 = NOT TAG,1 = Tag 1,2 = Tag 2,3 = Tag 3,4 = Tag 4,5 = Tag 5,6 = Tag 6,7 = Parked)",
           "type": "integer"
         },
         "IsParked": {
+          "description": "Is the order parked?",
           "type": "boolean"
         },
         "Identifiers": {
+          "description": "Order identifiers. [Prime | Scheduled]",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Identifier"
           }
         },
         "ReferenceNum": {
+          "description": "Order reference number (Channel defined)",
           "type": "string"
         },
         "SecondaryReference": {
+          "description": "An additional reference number for the orderr (Used by some channels)",
           "type": "string"
         },
         "ExternalReferenceNum": {
+          "description": "This is an additional reference number from the sales channel, typically used by eBay",
           "type": "string"
         },
         "ReceivedDate": {
           "format": "date-time",
+          "description": "The date and time at which the order was placed on the sales channel",
           "type": "string"
         },
         "Source": {
+          "description": "Order ChannelName/Source (e.g. EBAY)",
           "type": "string"
         },
         "SubSource": {
+          "description": "Order Subsource (e.g. EBAY1)",
           "type": "string"
         },
         "SiteCode": {
+          "description": "SiteCode used to differentiate between different sites from a single channel (eg. Amazon UK, Amazon US, Amazon FR...)",
           "type": "string"
         },
         "HoldOrCancel": {
+          "description": "This shows whether the order has been marked as on hold, for processed orders if the order has been cancelled OnHold = 1",
           "type": "boolean"
         },
         "DespatchByDate": {
           "format": "date-time",
+          "description": "Despatch by Date",
           "type": "string"
         },
         "ScheduledDelivery": {
-          "$ref": "#/definitions/ScheduledDelivery"
+          "$ref": "#/definitions/ScheduledDelivery",
+          "description": "Scheduled delivery dates. Take priority over despatch by date"
         },
         "HasScheduledDelivery": {
           "type": "boolean",
@@ -2058,14 +2126,17 @@
         },
         "Location": {
           "format": "uuid",
+          "description": "Order location ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "NumItems": {
           "format": "int32",
+          "description": "Quantity of order items",
           "type": "integer"
         },
         "PickwaveIds": {
+          "description": "All related Pickwave Ids",
           "type": "array",
           "items": {
             "format": "int32",
@@ -2088,52 +2159,65 @@
       "type": "object",
       "properties": {
         "Vendor": {
+          "description": "Courier name (e.g. Royal Mail)",
           "type": "string"
         },
         "PostalServiceId": {
           "format": "uuid",
+          "description": "Postal service ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PostalServiceName": {
+          "description": "Postal service name (e.g. Next day delivery)",
           "type": "string"
         },
         "TotalWeight": {
           "format": "double",
+          "description": "Order total weight",
           "type": "number"
         },
         "ItemWeight": {
           "format": "double",
+          "description": "If order is processed",
           "type": "number"
         },
         "PackageCategoryId": {
           "format": "uuid",
+          "description": "Package category ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PackageCategory": {
+          "description": "Package category name",
           "type": "string"
         },
         "PackageTypeId": {
           "format": "uuid",
+          "description": "Package type ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PackageType": {
+          "description": "Package type name",
           "type": "string"
         },
         "PostageCost": {
           "format": "double",
+          "description": "Order postage cost",
           "type": "number"
         },
         "PostageCostExTax": {
           "format": "double",
+          "description": "Order postage cost excluding tax",
           "type": "number"
         },
         "TrackingNumber": {
+          "description": "Order tracking number provided by courier",
           "type": "string"
         },
         "ManualAdjust": {
+          "description": "If there is an adjustment to shipping cost was made",
           "type": "boolean"
         }
       }
@@ -2142,13 +2226,16 @@
       "type": "object",
       "properties": {
         "ChannelBuyerName": {
+          "description": "Username of customer (Comes from channel)",
           "type": "string"
         },
         "Address": {
-          "$ref": "#/definitions/CustomerAddress"
+          "$ref": "#/definitions/CustomerAddress",
+          "description": "Customer address"
         },
         "BillingAddress": {
-          "$ref": "#/definitions/CustomerAddress"
+          "$ref": "#/definitions/CustomerAddress",
+          "description": "Customer billing address"
         }
       }
     },
@@ -2157,50 +2244,62 @@
       "properties": {
         "Subtotal": {
           "format": "double",
+          "description": "Order subtotal",
           "type": "number"
         },
         "PostageCost": {
           "format": "double",
+          "description": "Order postage cost",
           "type": "number"
         },
         "PostageCostExTax": {
           "format": "double",
+          "description": "Order postage cost ex. tax",
           "type": "number"
         },
         "Tax": {
           "format": "double",
+          "description": "Tax",
           "type": "number"
         },
         "TotalCharge": {
           "format": "double",
+          "description": "Total charge",
           "type": "number"
         },
         "PaymentMethod": {
+          "description": "Payment method",
           "type": "string"
         },
         "PaymentMethodId": {
           "format": "uuid",
+          "description": "Payment method ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ProfitMargin": {
           "format": "double",
+          "description": "Profit margin",
           "type": "number",
           "readOnly": true
         },
         "TotalDiscount": {
           "format": "double",
+          "description": "Total discount applied to the order",
           "type": "number"
         },
         "Currency": {
+          "description": "Order currency",
           "type": "string"
         },
         "CountryTaxRate": {
           "format": "double",
+          "description": "Country tax rate",
           "type": "number"
         },
         "ConversionRate": {
           "format": "double",
+          "description": "Currency conversion rate. Set at point of save by the currency",
           "type": "number"
         }
       }
@@ -2210,144 +2309,182 @@
       "properties": {
         "RowId": {
           "format": "uuid",
+          "description": "Record row ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Name": {
+          "description": "Extended property name",
           "type": "string"
         },
         "Value": {
+          "description": "Extended property value",
           "type": "string"
         },
         "Type": {
+          "description": "Extended property type",
           "type": "string"
         }
       }
     },
     "OrderItem": {
+      "description": "Order item object",
       "type": "object",
       "properties": {
         "ItemId": {
           "format": "uuid",
+          "description": "Stock Item ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ItemNumber": {
+          "description": "Item number as on channel",
           "type": "string"
         },
         "SKU": {
+          "description": "Product SKU",
           "type": "string"
         },
         "ItemSource": {
+          "description": "Item source / channel name",
           "type": "string"
         },
         "Title": {
+          "description": "Item title",
           "type": "string"
         },
         "Quantity": {
           "format": "int32",
+          "description": "Quantity",
           "type": "integer"
         },
         "CategoryName": {
+          "description": "Product category",
           "type": "string"
         },
         "CompositeAvailablity": {
           "format": "int32",
+          "description": "Composite availability",
           "type": "integer"
         },
         "StockLevelsSpecified": {
+          "description": "If stock level specified",
           "type": "boolean"
         },
         "OnOrder": {
           "format": "int32",
+          "description": "Level due in purchase orders",
           "type": "integer"
         },
         "OnPurchaseOrder": {
-          "$ref": "#/definitions/OrderItemOnOrder"
+          "$ref": "#/definitions/OrderItemOnOrder",
+          "description": "Purchase order bound to this item"
         },
         "InOrderBook": {
           "format": "int32",
+          "description": "Quantity currently in open orders",
           "type": "integer"
         },
         "Level": {
           "format": "int32",
+          "description": "Current stock level",
           "type": "integer"
         },
         "MinimumLevel": {
           "format": "int32",
+          "description": "Minimum level",
           "type": "integer"
         },
         "AvailableStock": {
           "format": "int32",
+          "description": "Currently available stock level (Level-InOrderBook)",
           "type": "integer"
         },
         "PricePerUnit": {
           "format": "double",
+          "description": "Unit price",
           "type": "number"
         },
         "UnitCost": {
           "format": "double",
+          "description": "Unit cost",
           "type": "number"
         },
         "DespatchStockUnitCost": {
           "format": "double",
+          "description": "Despatch stock unit cost",
           "type": "number"
         },
         "Discount": {
           "format": "double",
+          "description": "Percentage (0%, 10%, 20%, etc...)",
           "type": "number"
         },
         "Tax": {
           "format": "double",
+          "description": "Actual tax value on an item",
           "type": "number",
           "readOnly": true
         },
         "TaxRate": {
           "format": "double",
+          "description": "Tax rate",
           "type": "number"
         },
         "Cost": {
           "format": "double",
+          "description": "Total item cost (exc tax)",
           "type": "number"
         },
         "CostIncTax": {
           "format": "double",
+          "description": "Total item cost (inc tax)",
           "type": "number"
         },
         "CompositeSubItems": {
+          "description": "List of order items",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrderItem"
           }
         },
         "IsService": {
+          "description": "if item is a service",
           "type": "boolean"
         },
         "SalesTax": {
           "format": "double",
+          "description": "Sales Tax",
           "type": "number"
         },
         "TaxCostInclusive": {
+          "description": "If tax is included in a cost",
           "type": "boolean"
         },
         "PartShipped": {
+          "description": "If order is partly shipped",
           "type": "boolean"
         },
         "Weight": {
           "format": "double",
+          "description": "Order weight",
           "type": "number"
         },
         "BarcodeNumber": {
+          "description": "Product barcode",
           "type": "string"
         },
         "Market": {
           "format": "int32",
+          "description": "Market",
           "type": "integer"
         },
         "ChannelSKU": {
+          "description": "Channel product SKU",
           "type": "string"
         },
         "ChannelTitle": {
+          "description": "Channel product title",
           "type": "string"
         },
         "DiscountValue": {
@@ -2356,15 +2493,18 @@
           "readOnly": true
         },
         "HasImage": {
+          "description": "If item got an image",
           "type": "boolean",
           "readOnly": true
         },
         "ImageId": {
           "format": "uuid",
+          "description": "Image ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "AdditionalInfo": {
+          "description": "List of order item options",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrderItemOption"
@@ -2372,29 +2512,37 @@
         },
         "StockLevelIndicator": {
           "format": "int32",
+          "description": "Stock level indicator",
           "type": "integer"
         },
         "ShippingCost": {
           "format": "double",
+          "description": "If batch number scan required",
           "type": "number"
         },
         "PartShippedQty": {
           "format": "int32",
+          "description": "ShippingCost",
           "type": "integer"
         },
         "ItemName": {
+          "description": "PartShippedQty",
           "type": "string"
         },
         "BatchNumberScanRequired": {
+          "description": "ItemName",
           "type": "boolean"
         },
         "SerialNumberScanRequired": {
+          "description": "If serial number scan required",
           "type": "boolean"
         },
         "BinRack": {
+          "description": "Binrack location",
           "type": "string"
         },
         "BinRacks": {
+          "description": "List of BinRacks used for OrderItem",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrderItemBinRack"
@@ -2402,9 +2550,11 @@
         },
         "InventoryTrackingType": {
           "format": "int32",
+          "description": "Identifies whether the item has a sell by date or other defined order in which inventory is to be sold",
           "type": "integer"
         },
         "isBatchedStockItem": {
+          "description": "If item has batches",
           "type": "boolean",
           "readOnly": true
         },
@@ -2431,16 +2581,19 @@
         },
         "RowId": {
           "format": "uuid",
+          "description": "Record row ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "OrderId": {
           "format": "uuid",
+          "description": "Order ID (pkOrderID)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemId": {
           "format": "uuid",
+          "description": "Stock Item ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }
@@ -2451,25 +2604,31 @@
       "properties": {
         "OrderNoteId": {
           "format": "uuid",
+          "description": "Order note ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "OrderId": {
           "format": "uuid",
+          "description": "Order Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "NoteDate": {
           "format": "date-time",
+          "description": "Date and time when note was added",
           "type": "string"
         },
         "Internal": {
+          "description": "order note type (Internal or External)",
           "type": "boolean"
         },
         "Note": {
+          "description": "Note's text",
           "type": "string"
         },
         "CreatedBy": {
+          "description": "User that created note",
           "type": "string"
         },
         "NoteTypeId": {
@@ -2482,6 +2641,7 @@
       "type": "object",
       "properties": {
         "StatusHeader": {
+          "description": "Identifies whether the refund is open, processed, or in an erroneous state",
           "enum": [
             "OPEN",
             "PROCESSED",
@@ -2492,7 +2652,8 @@
           "type": "string"
         },
         "StatusDetail": {
-          "$ref": "#/definitions/PostSaleSubStatus"
+          "$ref": "#/definitions/PostSaleSubStatus",
+          "description": "Further identifies the state the refund is in, along with whether it can be actioned"
         }
       }
     },
@@ -2501,28 +2662,35 @@
       "properties": {
         "OrderItemRowId": {
           "format": "uuid",
+          "description": "The unique order item identifier",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnRowId": {
           "format": "int32",
+          "description": "A unique identifier for the return line this refund relates to. If null, it is an independent refund",
           "type": "integer"
         },
         "ItemSKU": {
+          "description": "The Linnworks SKU for the item, assuming it is linked. If it is not, this matches the channel SKU",
           "type": "string"
         },
         "ChannelSKU": {
+          "description": "The channel's SKU for the item",
           "type": "string"
         },
         "ItemTitle": {
+          "description": "For a linked item, the Linnworks item title for this channel (or the default item title where a specific channel title does not exist). For an unlinked item, this is the title\r\nprovided by the channel",
           "type": "string"
         },
         "Cost": {
           "format": "double",
+          "description": "The tax-inclusive cost for this line",
           "type": "number"
         },
         "CancelledQuantity": {
           "format": "int32",
+          "description": "If a refund is linked to a cancellation request, this field denotes the amount of the item cancelled",
           "type": "integer"
         }
       }
@@ -2552,9 +2720,11 @@
       "properties": {
         "IdentifierId": {
           "format": "int32",
+          "description": "Internal identifier id. Use to update image and name.",
           "type": "integer"
         },
         "IsCustom": {
+          "description": "Is the tag user or system defined?",
           "type": "boolean"
         },
         "ImageId": {
@@ -2566,9 +2736,11 @@
           "type": "string"
         },
         "Tag": {
+          "description": "Internal tag for identification purposes",
           "type": "string"
         },
         "Name": {
+          "description": "Name displayed where the tag is used",
           "type": "string"
         }
       }
@@ -2590,39 +2762,51 @@
       "type": "object",
       "properties": {
         "EmailAddress": {
+          "description": "Customer's email address.",
           "type": "string"
         },
         "Address1": {
+          "description": "First line of customer address.",
           "type": "string"
         },
         "Address2": {
+          "description": "Second line of customer address.",
           "type": "string"
         },
         "Address3": {
+          "description": "Third line of customer address.",
           "type": "string"
         },
         "Town": {
+          "description": "Customer's town.",
           "type": "string"
         },
         "Region": {
+          "description": "Customer's region.",
           "type": "string"
         },
         "PostCode": {
+          "description": "Customer's postcode.",
           "type": "string"
         },
         "Country": {
+          "description": "Customer's country.",
           "type": "string"
         },
         "Continent": {
+          "description": "Customer's continent",
           "type": "string"
         },
         "FullName": {
+          "description": "Customer's first and second name.",
           "type": "string"
         },
         "Company": {
+          "description": "Customer's company name.",
           "type": "string"
         },
         "PhoneNumber": {
+          "description": "Customer's telephone number.",
           "type": "string"
         },
         "CountryId": {
@@ -2637,6 +2821,7 @@
       "properties": {
         "pkPurchaseItemId": {
           "format": "uuid",
+          "description": "Primary key of the bound",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
@@ -2681,85 +2866,106 @@
       "properties": {
         "pkOptionId": {
           "format": "uuid",
+          "description": "Option ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Property": {
+          "description": "Option property",
           "type": "string"
         },
         "Value": {
+          "description": "Value of the option",
           "type": "string"
         }
       }
     },
     "OrderItemBinRack": {
+      "description": "OrderItem BinRack",
       "type": "object",
       "properties": {
         "Quantity": {
           "format": "int32",
+          "description": "Quantity for BinRack per Location",
           "type": "integer"
         },
         "BinRack": {
+          "description": "BinRack",
           "type": "string"
         },
         "Location": {
           "format": "uuid",
+          "description": "LocationId of the BinRack",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "BatchId": {
           "format": "int32",
+          "description": "If the item is batched, identifies the batch number",
           "type": "integer"
         },
         "OrderItemBatchId": {
           "format": "int32",
+          "description": "If the item is batched, identifies the unique order item batch row",
           "type": "integer"
         }
       }
     },
     "StockItemBoxConfiguration": {
+      "description": "Stock item box configuration, dimennsions",
       "type": "object",
       "properties": {
         "BoxId": {
           "format": "int32",
+          "description": "Unique box id.",
           "type": "integer"
         },
         "StockItemIntId": {
           "format": "int32",
+          "description": "",
           "type": "integer"
         },
         "BoxName": {
+          "description": "Box name max 16 characters",
           "type": "string"
         },
         "Width": {
           "format": "double",
+          "description": "Width of the box",
           "type": "number"
         },
         "Height": {
           "format": "double",
+          "description": "Height of the box",
           "type": "number"
         },
         "Length": {
           "format": "double",
+          "description": "Depth of the box",
           "type": "number"
         },
         "Weight": {
           "format": "double",
+          "description": "Total weight of the box.",
           "type": "number"
         },
         "ValuePercentage": {
           "format": "double",
+          "description": "Value break down percentage",
           "type": "number"
         },
         "Barcode": {
+          "description": "Box barcode, max 64 characters.",
           "type": "string"
         },
         "PackagingTypeId": {
           "format": "uuid",
+          "description": "Packaging type id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "LogicalDelete": {
+          "description": "IsDeleted flag.",
           "type": "boolean"
         }
       }
@@ -2997,13 +3203,16 @@
       "properties": {
         "RMARowId": {
           "format": "int32",
+          "description": "A unique identifier for the RMA line",
           "type": "integer"
         },
         "RMAHeaderId": {
           "format": "int32",
+          "description": "A unique identifier for the header this RMA line belongs to",
           "type": "integer"
         },
         "Type": {
+          "description": "Identifies the type of RMA for this line",
           "enum": [
             "Return",
             "Exchange",
@@ -3012,23 +3221,29 @@
           "type": "string"
         },
         "Status": {
-          "$ref": "#/definitions/PostSaleStatus"
+          "$ref": "#/definitions/PostSaleStatus",
+          "description": "A detailed description of this RMA line's status"
         },
         "ExternalReference": {
+          "description": "The channel reference number for this RMA",
           "type": "string"
         },
         "CreatedDate": {
           "format": "date-time",
+          "description": "The timestamp for when the RMA was created",
           "type": "string"
         },
         "Actioned": {
+          "description": "Line-level indicator of whether the refund has been actioned",
           "type": "boolean"
         },
         "ActionedDate": {
           "format": "date-time",
+          "description": "If an RMA has been actioned, this denotes the date it was actioned. For not actioned lines, this value is null",
           "type": "string"
         },
         "Deleted": {
+          "description": "Identifies whether the line has been removed from the RMA, and is pending an update to the database to reflect this",
           "type": "boolean"
         },
         "ResendQuantity": {
@@ -3038,10 +3253,12 @@
         },
         "NewOrderId": {
           "format": "uuid",
+          "description": "In the case of an exchange or resend line, this is the identifier for the created order",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ValidationError": {
+          "description": "Identifies any validation or submission errors for this RMA item",
           "type": "string"
         },
         "Error": {
@@ -3054,86 +3271,108 @@
           }
         },
         "Info": {
+          "description": "Identifies any validation or submission information for this RMA item",
           "type": "string"
         },
         "ExchangeStockItemId": {
           "format": "uuid",
+          "description": "The stock item ID for the item that will replace the returned item",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ExchangeSKU": {
+          "description": "Identifies the SKU of the item that will replace the returned item",
           "type": "string"
         },
         "ExchangeTitle": {
+          "description": "Identifies the title of the item that will replace the returned item",
           "type": "string"
         },
         "ExchangeQuantity": {
           "format": "int32",
+          "description": "The number of this item to send as part of the exchange",
           "type": "integer"
         },
         "DespatchLocationId": {
           "format": "uuid",
+          "description": "The identifier for the location to create the exchange order in. This is where the item will have its stock deducted from",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "AdditionalCost": {
           "format": "double",
+          "description": "This field denotes the additional cost that will be incurred to the customer for this exchange",
           "type": "number"
         },
         "OrderItemRowId": {
           "format": "uuid",
+          "description": "The unique ID of the order item to be returned. Note: This field is ignored when part of an Update call",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnItemSKU": {
+          "description": "The SKU of the order item to be returned. Read-only",
           "type": "string"
         },
         "ReturnItemTitle": {
+          "description": "The title of the order item to be returned. Read-only",
           "type": "string"
         },
         "BatchInventoryId": {
           "format": "int32",
+          "description": "If the item is batched, this identifies the batch inventory row the item will be returned to",
           "type": "integer"
         },
         "ReturnLocation": {
           "format": "uuid",
+          "description": "The unique identifier for the Linnworks location to return the item to",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnQuantity": {
           "format": "int32",
+          "description": "The amount of the item to be returned",
           "type": "integer"
         },
         "RefundAmount": {
           "format": "double",
+          "description": "Where applicable, the amount to refund the customer as part of this RMA",
           "type": "number"
         },
         "RefundRowId": {
           "format": "uuid",
+          "description": "Where applicable, the row id for the created refund line associated with this RMA",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ScrapQuantity": {
           "format": "int32",
+          "description": "Where applicable, the amount of returned items to be scrapped",
           "type": "integer"
         },
         "ReasonCategory": {
+          "description": "The category for the return/exchange reason (e.g. Faulty Item)",
           "type": "string"
         },
         "IsFreeText": {
+          "description": "Defines whether the channel RMA reason is being sent as freetext (where supported). Automatically set",
           "type": "boolean",
           "readOnly": true
         },
         "Reason": {
+          "description": "A freetext internal reason for the return/exchange",
           "type": "string"
         },
         "ReasonTag": {
+          "description": "For channels that support predefined RMA reasons, this is the tag that identifies a predefined reason",
           "type": "string"
         },
         "SubReasonTag": {
+          "description": "For channels that support a secondary predefined RMA reason, this is the tag that identifies a predefined secondary reason",
           "type": "string"
         },
         "BinrackOverride": {
+          "description": "Used specifically with batch composite parents, this will ensure that all children are returned to the binrack of choice (acts the same as batchinventoryid for single items)",
           "type": "string"
         }
       }
@@ -3269,14 +3508,17 @@
       "properties": {
         "ReturnRowId": {
           "format": "int32",
+          "description": "If the refund line pertains to an existing order return, this field should be populated with the unique identifier for the relevant return line",
           "type": "integer"
         },
         "OrderItemRowId": {
           "format": "uuid",
+          "description": "If the refund line pertains to an order item, this field should be populated with the unique identifier of that order item. Can be left null for shipping/additional refunds",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "RefundedUnit": {
+          "description": "Identifies the type of refund for this line",
           "enum": [
             "Item",
             "Shipping",
@@ -3287,39 +3529,50 @@
         },
         "CancelledQuantity": {
           "format": "int32",
+          "description": "If the refund is being created as part of a cancellation request, this field denotes the number of the item that were cancelled",
           "type": "integer"
         },
         "ExternalReference": {
+          "description": "The channel reference number for this refund",
           "type": "string"
         },
         "IsFreeText": {
+          "description": "Identifies whether the refund reason is provided in freetext, or as one of a predefined set of options",
           "type": "boolean",
           "readOnly": true
         },
         "FreeTextOrNote": {
+          "description": "For freetext refund reasons, this is the reason that will be sent to the channel. Otherwise, it is considered an internal note",
           "type": "string"
         },
         "Amount": {
           "format": "double",
+          "description": "The amount to be refunded for this line",
           "type": "number"
         },
         "Quantity": {
           "format": "int32",
+          "description": "Used when the refund is part of a return",
           "type": "integer"
         },
         "ReasonTag": {
+          "description": "For channels that support predefined refund reasons, this is the tag that identifies a predefined reason",
           "type": "string"
         },
         "SubReasonTag": {
+          "description": "For channels that support a secondary predefined refund reason, this is the tag that identifies a predefined secondary reason",
           "type": "string"
         },
         "InsufficientRefundTag": {
+          "description": "For channels that require a reason when the refund is lower than the full line amount, this is the tag that identifies a predefined insufficient refund reason",
           "type": "string"
         },
         "InsufficientRefundNote": {
+          "description": "For channels that require a reason when the refund is lower than the full line amount, and support a freetext note, this field populates that note",
           "type": "string"
         },
         "ReasonCategory": {
+          "description": "Internal reason category",
           "type": "string"
         }
       }
@@ -3413,43 +3666,55 @@
       "properties": {
         "RefundRowId": {
           "format": "uuid",
+          "description": "Identifies the refund line",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "RemoveFromRefund": {
+          "description": "Determines whether to remove the line from the refund",
           "type": "boolean"
         },
         "ExternalReference": {
+          "description": "The channel reference number for this refund",
           "type": "string"
         },
         "IsFreeText": {
+          "description": "Identifies whether the refund reason is provided in freetext, or as one of a predefined set of options",
           "type": "boolean",
           "readOnly": true
         },
         "FreeTextOrNote": {
+          "description": "For freetext refund reasons, this is the reason that will be sent to the channel. Otherwise, it is considered an internal note",
           "type": "string"
         },
         "Amount": {
           "format": "double",
+          "description": "The amount to be refunded for this line",
           "type": "number"
         },
         "Quantity": {
           "format": "int32",
+          "description": "Used when the refund is part of a return",
           "type": "integer"
         },
         "ReasonTag": {
+          "description": "For channels that support predefined refund reasons, this is the tag that identifies a predefined reason",
           "type": "string"
         },
         "SubReasonTag": {
+          "description": "For channels that support a secondary predefined refund reason, this is the tag that identifies a predefined secondary reason",
           "type": "string"
         },
         "InsufficientRefundTag": {
+          "description": "For channels that require a reason when the refund is lower than the full line amount, this is the tag that identifies a predefined insufficient refund reason",
           "type": "string"
         },
         "InsufficientRefundNote": {
+          "description": "For channels that require a reason when the refund is lower than the full line amount, and support a freetext note, this field populates that note",
           "type": "string"
         },
         "ReasonCategory": {
+          "description": "Internal reason category",
           "type": "string"
         }
       }
@@ -4125,61 +4390,77 @@
       "properties": {
         "OrderItemRowId": {
           "format": "uuid",
+          "description": "The unique ID of the order item to be returned. Note: This field is ignored when part of an Update call",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnItemSKU": {
+          "description": "The SKU of the order item to be returned. Read-only",
           "type": "string"
         },
         "ReturnItemTitle": {
+          "description": "The title of the order item to be returned. Read-only",
           "type": "string"
         },
         "BatchInventoryId": {
           "format": "int32",
+          "description": "If the item is batched, this identifies the batch inventory row the item will be returned to",
           "type": "integer"
         },
         "ReturnLocation": {
           "format": "uuid",
+          "description": "The unique identifier for the Linnworks location to return the item to",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnQuantity": {
           "format": "int32",
+          "description": "The amount of the item to be returned",
           "type": "integer"
         },
         "RefundAmount": {
           "format": "double",
+          "description": "Where applicable, the amount to refund the customer as part of this RMA",
           "type": "number"
         },
         "RefundRowId": {
           "format": "uuid",
+          "description": "Where applicable, the row id for the created refund line associated with this RMA",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ScrapQuantity": {
           "format": "int32",
+          "description": "Where applicable, the amount of returned items to be scrapped",
           "type": "integer"
         },
         "ReasonCategory": {
+          "description": "The category for the return/exchange reason (e.g. Faulty Item)",
           "type": "string"
         },
         "IsFreeText": {
+          "description": "Defines whether the channel RMA reason is being sent as freetext (where supported). Automatically set",
           "type": "boolean",
           "readOnly": true
         },
         "Reason": {
+          "description": "A freetext internal reason for the return/exchange",
           "type": "string"
         },
         "ReasonTag": {
+          "description": "For channels that support predefined RMA reasons, this is the tag that identifies a predefined reason",
           "type": "string"
         },
         "SubReasonTag": {
+          "description": "For channels that support a secondary predefined RMA reason, this is the tag that identifies a predefined secondary reason",
           "type": "string"
         },
         "Status": {
-          "$ref": "#/definitions/PostSaleStatus"
+          "$ref": "#/definitions/PostSaleStatus",
+          "description": "A detailed description of this RMA line's status"
         },
         "BinrackOverride": {
+          "description": "Used specifically with batch composite parents, this will ensure that all children are returned to the binrack of choice (acts the same as batchinventoryid for single items)",
           "type": "string"
         }
       }
@@ -4189,85 +4470,107 @@
       "properties": {
         "ExchangeStockItemId": {
           "format": "uuid",
+          "description": "The stock item ID for the item that will replace the returned item",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ExchangeSKU": {
+          "description": "Identifies the SKU of the item that will replace the returned item",
           "type": "string"
         },
         "ExchangeTitle": {
+          "description": "Identifies the title of the item that will replace the returned item",
           "type": "string"
         },
         "ExchangeQuantity": {
           "format": "int32",
+          "description": "The number of this item to send as part of the exchange",
           "type": "integer"
         },
         "DespatchLocationId": {
           "format": "uuid",
+          "description": "The identifier for the location to create the exchange order in. This is where the item will have its stock deducted from",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "AdditionalCost": {
           "format": "double",
+          "description": "This field denotes the additional cost that will be incurred to the customer for this exchange",
           "type": "number"
         },
         "OrderItemRowId": {
           "format": "uuid",
+          "description": "The unique ID of the order item to be returned. Note: This field is ignored when part of an Update call",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnItemSKU": {
+          "description": "The SKU of the order item to be returned. Read-only",
           "type": "string"
         },
         "ReturnItemTitle": {
+          "description": "The title of the order item to be returned. Read-only",
           "type": "string"
         },
         "BatchInventoryId": {
           "format": "int32",
+          "description": "If the item is batched, this identifies the batch inventory row the item will be returned to",
           "type": "integer"
         },
         "ReturnLocation": {
           "format": "uuid",
+          "description": "The unique identifier for the Linnworks location to return the item to",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnQuantity": {
           "format": "int32",
+          "description": "The amount of the item to be returned",
           "type": "integer"
         },
         "RefundAmount": {
           "format": "double",
+          "description": "Where applicable, the amount to refund the customer as part of this RMA",
           "type": "number"
         },
         "RefundRowId": {
           "format": "uuid",
+          "description": "Where applicable, the row id for the created refund line associated with this RMA",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ScrapQuantity": {
           "format": "int32",
+          "description": "Where applicable, the amount of returned items to be scrapped",
           "type": "integer"
         },
         "ReasonCategory": {
+          "description": "The category for the return/exchange reason (e.g. Faulty Item)",
           "type": "string"
         },
         "IsFreeText": {
+          "description": "Defines whether the channel RMA reason is being sent as freetext (where supported). Automatically set",
           "type": "boolean",
           "readOnly": true
         },
         "Reason": {
+          "description": "A freetext internal reason for the return/exchange",
           "type": "string"
         },
         "ReasonTag": {
+          "description": "For channels that support predefined RMA reasons, this is the tag that identifies a predefined reason",
           "type": "string"
         },
         "SubReasonTag": {
+          "description": "For channels that support a secondary predefined RMA reason, this is the tag that identifies a predefined secondary reason",
           "type": "string"
         },
         "Status": {
-          "$ref": "#/definitions/PostSaleStatus"
+          "$ref": "#/definitions/PostSaleStatus",
+          "description": "A detailed description of this RMA line's status"
         },
         "BinrackOverride": {
+          "description": "Used specifically with batch composite parents, this will ensure that all children are returned to the binrack of choice (acts the same as batchinventoryid for single items)",
           "type": "string"
         }
       }
@@ -4277,74 +4580,93 @@
       "properties": {
         "ResendQuantity": {
           "format": "int32",
+          "description": "The quantity of the selected item to resend",
           "type": "integer"
         },
         "DespatchLocationId": {
           "format": "uuid",
+          "description": "The identifier for the location to create the resend order in. This is where the item will have its stock deducted from",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "AdditionalCost": {
           "format": "double",
+          "description": "This field denotes the additional cost that will be incurred to the customer for this resend",
           "type": "number"
         },
         "OrderItemRowId": {
           "format": "uuid",
+          "description": "The unique ID of the order item to be returned. Note: This field is ignored when part of an Update call",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnItemSKU": {
+          "description": "The SKU of the order item to be returned. Read-only",
           "type": "string"
         },
         "ReturnItemTitle": {
+          "description": "The title of the order item to be returned. Read-only",
           "type": "string"
         },
         "BatchInventoryId": {
           "format": "int32",
+          "description": "If the item is batched, this identifies the batch inventory row the item will be returned to",
           "type": "integer"
         },
         "ReturnLocation": {
           "format": "uuid",
+          "description": "The unique identifier for the Linnworks location to return the item to",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnQuantity": {
           "format": "int32",
+          "description": "The amount of the item to be returned",
           "type": "integer"
         },
         "RefundAmount": {
           "format": "double",
+          "description": "Where applicable, the amount to refund the customer as part of this RMA",
           "type": "number"
         },
         "RefundRowId": {
           "format": "uuid",
+          "description": "Where applicable, the row id for the created refund line associated with this RMA",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ScrapQuantity": {
           "format": "int32",
+          "description": "Where applicable, the amount of returned items to be scrapped",
           "type": "integer"
         },
         "ReasonCategory": {
+          "description": "The category for the return/exchange reason (e.g. Faulty Item)",
           "type": "string"
         },
         "IsFreeText": {
+          "description": "Defines whether the channel RMA reason is being sent as freetext (where supported). Automatically set",
           "type": "boolean",
           "readOnly": true
         },
         "Reason": {
+          "description": "A freetext internal reason for the return/exchange",
           "type": "string"
         },
         "ReasonTag": {
+          "description": "For channels that support predefined RMA reasons, this is the tag that identifies a predefined reason",
           "type": "string"
         },
         "SubReasonTag": {
+          "description": "For channels that support a secondary predefined RMA reason, this is the tag that identifies a predefined secondary reason",
           "type": "string"
         },
         "Status": {
-          "$ref": "#/definitions/PostSaleStatus"
+          "$ref": "#/definitions/PostSaleStatus",
+          "description": "A detailed description of this RMA line's status"
         },
         "BinrackOverride": {
+          "description": "Used specifically with batch composite parents, this will ensure that all children are returned to the binrack of choice (acts the same as batchinventoryid for single items)",
           "type": "string"
         }
       }
@@ -4435,68 +4757,86 @@
       "properties": {
         "RMARowId": {
           "format": "int32",
+          "description": "The RMA row identifier for this line",
           "type": "integer"
         },
         "RemoveFromBooking": {
+          "description": "If set to true, will remove the line from the booking",
           "type": "boolean"
         },
         "OrderItemRowId": {
           "format": "uuid",
+          "description": "The unique ID of the order item to be returned. Note: This field is ignored when part of an Update call",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnItemSKU": {
+          "description": "The SKU of the order item to be returned. Read-only",
           "type": "string"
         },
         "ReturnItemTitle": {
+          "description": "The title of the order item to be returned. Read-only",
           "type": "string"
         },
         "BatchInventoryId": {
           "format": "int32",
+          "description": "If the item is batched, this identifies the batch inventory row the item will be returned to",
           "type": "integer"
         },
         "ReturnLocation": {
           "format": "uuid",
+          "description": "The unique identifier for the Linnworks location to return the item to",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnQuantity": {
           "format": "int32",
+          "description": "The amount of the item to be returned",
           "type": "integer"
         },
         "RefundAmount": {
           "format": "double",
+          "description": "Where applicable, the amount to refund the customer as part of this RMA",
           "type": "number"
         },
         "RefundRowId": {
           "format": "uuid",
+          "description": "Where applicable, the row id for the created refund line associated with this RMA",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ScrapQuantity": {
           "format": "int32",
+          "description": "Where applicable, the amount of returned items to be scrapped",
           "type": "integer"
         },
         "ReasonCategory": {
+          "description": "The category for the return/exchange reason (e.g. Faulty Item)",
           "type": "string"
         },
         "IsFreeText": {
+          "description": "Defines whether the channel RMA reason is being sent as freetext (where supported). Automatically set",
           "type": "boolean",
           "readOnly": true
         },
         "Reason": {
+          "description": "A freetext internal reason for the return/exchange",
           "type": "string"
         },
         "ReasonTag": {
+          "description": "For channels that support predefined RMA reasons, this is the tag that identifies a predefined reason",
           "type": "string"
         },
         "SubReasonTag": {
+          "description": "For channels that support a secondary predefined RMA reason, this is the tag that identifies a predefined secondary reason",
           "type": "string"
         },
         "Status": {
-          "$ref": "#/definitions/PostSaleStatus"
+          "$ref": "#/definitions/PostSaleStatus",
+          "description": "A detailed description of this RMA line's status"
         },
         "BinrackOverride": {
+          "description": "Used specifically with batch composite parents, this will ensure that all children are returned to the binrack of choice (acts the same as batchinventoryid for single items)",
           "type": "string"
         }
       }
@@ -4506,92 +4846,116 @@
       "properties": {
         "RMARowId": {
           "format": "int32",
+          "description": "The RMA row identifier for this line",
           "type": "integer"
         },
         "RemoveFromBooking": {
+          "description": "If set to true, will remove the line from the booking",
           "type": "boolean"
         },
         "ExchangeStockItemId": {
           "format": "uuid",
+          "description": "The stock item ID for the item that will replace the returned item",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ExchangeSKU": {
+          "description": "Identifies the SKU of the item that will replace the returned item",
           "type": "string"
         },
         "ExchangeTitle": {
+          "description": "Identifies the title of the item that will replace the returned item",
           "type": "string"
         },
         "ExchangeQuantity": {
           "format": "int32",
+          "description": "The number of this item to send as part of the exchange",
           "type": "integer"
         },
         "DespatchLocationId": {
           "format": "uuid",
+          "description": "The identifier for the location to create the exchange order in. This is where the item will have its stock deducted from",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "AdditionalCost": {
           "format": "double",
+          "description": "This field denotes the additional cost that will be incurred to the customer for this exchange",
           "type": "number"
         },
         "OrderItemRowId": {
           "format": "uuid",
+          "description": "The unique ID of the order item to be returned. Note: This field is ignored when part of an Update call",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnItemSKU": {
+          "description": "The SKU of the order item to be returned. Read-only",
           "type": "string"
         },
         "ReturnItemTitle": {
+          "description": "The title of the order item to be returned. Read-only",
           "type": "string"
         },
         "BatchInventoryId": {
           "format": "int32",
+          "description": "If the item is batched, this identifies the batch inventory row the item will be returned to",
           "type": "integer"
         },
         "ReturnLocation": {
           "format": "uuid",
+          "description": "The unique identifier for the Linnworks location to return the item to",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnQuantity": {
           "format": "int32",
+          "description": "The amount of the item to be returned",
           "type": "integer"
         },
         "RefundAmount": {
           "format": "double",
+          "description": "Where applicable, the amount to refund the customer as part of this RMA",
           "type": "number"
         },
         "RefundRowId": {
           "format": "uuid",
+          "description": "Where applicable, the row id for the created refund line associated with this RMA",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ScrapQuantity": {
           "format": "int32",
+          "description": "Where applicable, the amount of returned items to be scrapped",
           "type": "integer"
         },
         "ReasonCategory": {
+          "description": "The category for the return/exchange reason (e.g. Faulty Item)",
           "type": "string"
         },
         "IsFreeText": {
+          "description": "Defines whether the channel RMA reason is being sent as freetext (where supported). Automatically set",
           "type": "boolean",
           "readOnly": true
         },
         "Reason": {
+          "description": "A freetext internal reason for the return/exchange",
           "type": "string"
         },
         "ReasonTag": {
+          "description": "For channels that support predefined RMA reasons, this is the tag that identifies a predefined reason",
           "type": "string"
         },
         "SubReasonTag": {
+          "description": "For channels that support a secondary predefined RMA reason, this is the tag that identifies a predefined secondary reason",
           "type": "string"
         },
         "Status": {
-          "$ref": "#/definitions/PostSaleStatus"
+          "$ref": "#/definitions/PostSaleStatus",
+          "description": "A detailed description of this RMA line's status"
         },
         "BinrackOverride": {
+          "description": "Used specifically with batch composite parents, this will ensure that all children are returned to the binrack of choice (acts the same as batchinventoryid for single items)",
           "type": "string"
         }
       }
@@ -4601,81 +4965,102 @@
       "properties": {
         "RMARowId": {
           "format": "int32",
+          "description": "The RMA row identifier for this line",
           "type": "integer"
         },
         "RemoveFromBooking": {
+          "description": "If set to true, will remove the line from the booking",
           "type": "boolean"
         },
         "ResendQuantity": {
           "format": "int32",
+          "description": "The quantity of the selected item to resend",
           "type": "integer"
         },
         "DespatchLocationId": {
           "format": "uuid",
+          "description": "The identifier for the location to create the resend order in. This is where the item will have its stock deducted from",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "AdditionalCost": {
           "format": "double",
+          "description": "This field denotes the additional cost that will be incurred to the customer for this resend",
           "type": "number"
         },
         "OrderItemRowId": {
           "format": "uuid",
+          "description": "The unique ID of the order item to be returned. Note: This field is ignored when part of an Update call",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnItemSKU": {
+          "description": "The SKU of the order item to be returned. Read-only",
           "type": "string"
         },
         "ReturnItemTitle": {
+          "description": "The title of the order item to be returned. Read-only",
           "type": "string"
         },
         "BatchInventoryId": {
           "format": "int32",
+          "description": "If the item is batched, this identifies the batch inventory row the item will be returned to",
           "type": "integer"
         },
         "ReturnLocation": {
           "format": "uuid",
+          "description": "The unique identifier for the Linnworks location to return the item to",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnQuantity": {
           "format": "int32",
+          "description": "The amount of the item to be returned",
           "type": "integer"
         },
         "RefundAmount": {
           "format": "double",
+          "description": "Where applicable, the amount to refund the customer as part of this RMA",
           "type": "number"
         },
         "RefundRowId": {
           "format": "uuid",
+          "description": "Where applicable, the row id for the created refund line associated with this RMA",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ScrapQuantity": {
           "format": "int32",
+          "description": "Where applicable, the amount of returned items to be scrapped",
           "type": "integer"
         },
         "ReasonCategory": {
+          "description": "The category for the return/exchange reason (e.g. Faulty Item)",
           "type": "string"
         },
         "IsFreeText": {
+          "description": "Defines whether the channel RMA reason is being sent as freetext (where supported). Automatically set",
           "type": "boolean",
           "readOnly": true
         },
         "Reason": {
+          "description": "A freetext internal reason for the return/exchange",
           "type": "string"
         },
         "ReasonTag": {
+          "description": "For channels that support predefined RMA reasons, this is the tag that identifies a predefined reason",
           "type": "string"
         },
         "SubReasonTag": {
+          "description": "For channels that support a secondary predefined RMA reason, this is the tag that identifies a predefined secondary reason",
           "type": "string"
         },
         "Status": {
-          "$ref": "#/definitions/PostSaleStatus"
+          "$ref": "#/definitions/PostSaleStatus",
+          "description": "A detailed description of this RMA line's status"
         },
         "BinrackOverride": {
+          "description": "Used specifically with batch composite parents, this will ensure that all children are returned to the binrack of choice (acts the same as batchinventoryid for single items)",
           "type": "string"
         }
       }
@@ -4789,17 +5174,21 @@
       "properties": {
         "pkOrderID": {
           "format": "uuid",
+          "description": "Order ID (unique order identifier)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "nOrderId": {
           "format": "int32",
+          "description": "Linnworks order ID",
           "type": "integer"
         },
         "cFullName": {
+          "description": "Customer name",
           "type": "string"
         },
         "Source": {
+          "description": "ChannelName/Source (e.g. AMAZON)",
           "type": "string"
         },
         "SubSource": {
@@ -4807,25 +5196,32 @@
         },
         "Amount": {
           "format": "double",
+          "description": "Refund amount",
           "type": "number"
         },
         "IssueRefundUrl": {
+          "description": "Refund URL",
           "type": "string"
         },
         "cCurrency": {
+          "description": "Refund currency",
           "type": "string"
         },
         "ReferenceNum": {
+          "description": "Order reference number",
           "type": "string"
         },
         "SecondaryReference": {
+          "description": "Order secondary reference number",
           "type": "string"
         },
         "RefundReference": {
+          "description": "Refund reference number",
           "type": "string"
         },
         "RefundDate": {
           "format": "date-time",
+          "description": "Date when refund were made",
           "type": "string"
         },
         "SubTotal": {
@@ -4847,24 +5243,30 @@
       "properties": {
         "pkOrderID": {
           "format": "uuid",
+          "description": "Order ID (unique order identifier)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "nOrderId": {
           "format": "int32",
+          "description": "Linnworks order number",
           "type": "integer"
         },
         "ReferenceNum": {
+          "description": "Order reference number",
           "type": "string"
         },
         "SecondaryReference": {
+          "description": "Order seconary reference (Comes from the channel)",
           "type": "string"
         },
         "cFullName": {
+          "description": "Customer full name",
           "type": "string"
         },
         "ReturnDate": {
           "format": "date-time",
+          "description": "Return date time",
           "type": "string"
         }
       }
@@ -4903,114 +5305,144 @@
       "properties": {
         "fkOrderItemRowId": {
           "format": "uuid",
+          "description": "Order item record row ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "OrderItemBatchId": {
           "format": "int32",
+          "description": "Order item batch id",
           "type": "integer"
         },
         "StockItemId": {
           "format": "uuid",
+          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "BatchInventoryId": {
           "format": "int32",
+          "description": "Batch Inventory Id",
           "type": "integer"
         },
         "BatchNumber": {
+          "description": "Batch number",
           "type": "string"
         },
         "RowType": {
+          "description": "Record type",
           "type": "string"
         },
         "SKU": {
+          "description": "Product SKU",
           "type": "string"
         },
         "ItemTitle": {
+          "description": "Product title",
           "type": "string"
         },
         "ReturnQty": {
           "format": "int32",
+          "description": "Return quantity",
           "type": "integer"
         },
         "MaxReturnQty": {
           "format": "int32",
+          "description": "Maximum returned quantity",
           "type": "integer"
         },
         "NewQty": {
           "format": "int32",
+          "description": "New quantity after return",
           "type": "integer"
         },
         "NewSKU": {
+          "description": "New product SKU after return",
           "type": "string"
         },
         "NewTitle": {
+          "description": "New product title after return",
           "type": "string"
         },
         "fkNewStockItemId": {
           "format": "uuid",
+          "description": "New returned stock item ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Category": {
+          "description": "Product category",
           "type": "string"
         },
         "Reason": {
+          "description": "Return result",
           "type": "string"
         },
         "fkReturnLocationId": {
           "format": "uuid",
+          "description": "In which location item was returned (Location ID)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ReturnLocation": {
+          "description": "In which location item was returned (Location name)",
           "type": "string"
         },
         "PendingRefundAmount": {
           "format": "double",
+          "description": "Refund amount still pending",
           "type": "number"
         },
         "Scrapped": {
+          "description": "If return scraped",
           "type": "boolean"
         },
         "ScrapQty": {
           "format": "int32",
+          "description": "Scraped quantity",
           "type": "integer"
         },
         "ParentOrderItemRowId": {
           "format": "uuid",
+          "description": "Parent prder item record row ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "AdditionalCost": {
           "format": "double",
+          "description": "Additional cost value",
           "type": "number"
         },
         "cCurrency": {
+          "description": "Currency",
           "type": "string"
         },
         "pkReturnId": {
           "format": "int32",
+          "description": "Return ID",
           "type": "integer"
         },
         "ChannelReason": {
+          "description": "Channel return ID",
           "type": "string"
         },
         "ChannelReasonSec": {
+          "description": "Channel secondary reason ID",
           "type": "string"
         },
         "ReturnDate": {
           "format": "date-time",
+          "description": "When return was made",
           "type": "string"
         },
         "DespatchUnitValue": {
           "format": "double",
+          "description": "Unit value of item at time of despatch",
           "type": "number"
         },
         "BatchInventory": {
-          "$ref": "#/definitions/StockItemBatchInventory"
+          "$ref": "#/definitions/StockItemBatchInventory",
+          "description": "The batch inventory selected"
         }
       }
     },
@@ -5019,64 +5451,80 @@
       "properties": {
         "BatchInventoryId": {
           "format": "int32",
+          "description": "Stock item batch record ID",
           "type": "integer"
         },
         "BatchId": {
           "format": "int32",
+          "description": "Batch ID",
           "type": "integer"
         },
         "StockLocationId": {
           "format": "uuid",
+          "description": "Location ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "BinRack": {
+          "description": "BinRack",
           "type": "string"
         },
         "PrioritySequence": {
           "format": "int32",
+          "description": "Pick order",
           "type": "integer"
         },
         "Quantity": {
           "format": "int32",
+          "description": "Quantity",
           "type": "integer"
         },
         "StockValue": {
           "format": "double",
+          "description": "Current stock value",
           "type": "number"
         },
         "StartQuantity": {
           "format": "int32",
+          "description": "Quantity originally booked in",
           "type": "integer",
           "readOnly": true
         },
         "PickedQuantity": {
           "format": "int32",
+          "description": "Indicate how many units are now allocated in open orders",
           "type": "integer"
         },
         "BatchStatus": {
+          "description": "Batch Status",
           "type": "string"
         },
         "IsDeleted": {
+          "description": "Is BatchInventory deleted",
           "type": "boolean"
         },
         "WarehouseBinrackStandardType": {
           "format": "int32",
+          "description": "Warehouse binrack standard type",
           "type": "integer"
         },
         "WarehouseBinrackTypeName": {
+          "description": "Warehouse binrack type friendly name",
           "type": "string"
         },
         "InTransfer": {
           "format": "int32",
+          "description": "Number of items in Transfer phase.",
           "type": "integer"
         },
         "BinRackId": {
           "format": "int32",
+          "description": "Binrack Id (Use for WMS)",
           "type": "integer"
         },
         "WarehouseBinrackTypeId": {
           "format": "int32",
+          "description": "Warehouse binrack type unique id.",
           "type": "integer"
         }
       }
@@ -5116,10 +5564,12 @@
       "type": "object",
       "properties": {
         "LocationName": {
+          "description": "Location name",
           "type": "string"
         },
         "pkStockLocationId": {
           "format": "uuid",
+          "description": "Stock location ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }
@@ -5158,22 +5608,27 @@
       }
     },
     "GenericPagedResult_ReturnsRefundsWeb": {
+      "description": "Order item object",
       "type": "object",
       "properties": {
         "PageNumber": {
           "format": "int32",
+          "description": "Result page number",
           "type": "integer"
         },
         "EntriesPerPage": {
           "format": "int32",
+          "description": "Result page size, quantity of records per page",
           "type": "integer"
         },
         "TotalEntries": {
           "format": "int64",
+          "description": "Total records",
           "type": "integer"
         },
         "TotalPages": {
           "format": "int32",
+          "description": "Total pages",
           "type": "integer",
           "readOnly": true
         },
@@ -5453,18 +5908,23 @@
       }
     },
     "SearchField": {
+      "description": "Class represents the list of fields to be included it the where clause for searching",
       "type": "object",
       "properties": {
         "Field": {
+          "description": "Search field",
           "type": "string"
         },
         "Name": {
+          "description": "Name",
           "type": "string"
         },
         "AllowForAllDates": {
+          "description": "If search for all dates",
           "type": "boolean"
         },
         "ExactSearchOptional": {
+          "description": "If search is exact",
           "type": "boolean"
         }
       }

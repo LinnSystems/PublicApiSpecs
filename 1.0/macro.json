@@ -241,6 +241,7 @@
         },
         "Migrated": {
           "format": "int32",
+          "description": "DST migration flag.\r\n<remarks>\r\n 0 - not migrated;\r\n 1 - migrated;\r\n 2 - migration failed;\r\n</remarks>",
           "type": "integer"
         }
       }
@@ -264,9 +265,11 @@
       }
     },
     "NamedScheduleConfiguration": {
+      "description": "ScheduleConfiguration is shared between schduled macros and imports (I expect there is also a variety for exports)\r\nWithin imports there is a Schedule class which contains a Name property but it is an import specfic class and reuse would require changes to the underlying macro data structure\r\nHence NamedScheduleConfiguration - written for use by Macros but hopefully we'll be able to move all scheduling into the namespace eventually",
       "type": "object",
       "properties": {
         "Name": {
+          "description": "User visible name for a schedule configuration",
           "type": "string"
         },
         "RepetitionType": {

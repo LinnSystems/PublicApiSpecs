@@ -400,7 +400,7 @@
           "description": "",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/KeyValue_String_String"
+            "$ref": "#/definitions/KeyValueRequest"
           }
         },
         "printerName": {
@@ -451,7 +451,7 @@
         }
       }
     },
-    "KeyValue_String_String": {
+    "KeyValueRequest": {
       "description": "This class imitates a KeyValuePair, but with setters",
       "type": "object",
       "properties": {
@@ -575,7 +575,7 @@
           "description": "",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/KeyValue_String_String"
+            "$ref": "#/definitions/KeyValueRequest"
           }
         },
         "printerName": {
@@ -614,7 +614,7 @@
           "description": "Stock Id and quantity of stock",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/KeyValue_Guid_Int32"
+            "$ref": "#/definitions/KeyValueRequest_Guid_Int32"
           }
         },
         "templateID": {
@@ -626,7 +626,7 @@
           "description": "",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/KeyValue_String_String"
+            "$ref": "#/definitions/KeyValueRequest"
           }
         },
         "printerName": {
@@ -639,7 +639,7 @@
         }
       }
     },
-    "KeyValue_Guid_Int32": {
+    "KeyValueRequest_Guid_Int32": {
       "description": "This class imitates a KeyValuePair, but with setters",
       "type": "object",
       "properties": {
@@ -712,15 +712,19 @@
       "type": "object",
       "properties": {
         "PrinterName": {
+          "description": "Name used to identify the printer in linnworks",
           "type": "string"
         },
         "PrinterLocationName": {
+          "description": "Name used to identify the instance of the virtual printer client",
           "type": "string"
         },
         "PrinterLocalName": {
+          "description": "Printer name as seen in windows OS (e.g. Microsoft Print to PDF)",
           "type": "string"
         },
         "Status": {
+          "description": "Whether the printer is online or offline",
           "enum": [
             "UNKNOWN",
             "OFFLINE",
@@ -771,7 +775,7 @@
           "description": "A list of the SKUs and quantities to include. If empty then same as the outbound shipment",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/KeyValue_String_Int32"
+            "$ref": "#/definitions/KeyValueRequest_String_Int32"
           }
         },
         "returnPostalServiceName": {
@@ -780,7 +784,7 @@
         }
       }
     },
-    "KeyValue_String_Int32": {
+    "KeyValueRequest_String_Int32": {
       "description": "This class imitates a KeyValuePair, but with setters",
       "type": "object",
       "properties": {
@@ -809,7 +813,7 @@
           "description": "A list of the order item IDs and quantities to include. If empty then same as the outbound shipment",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/KeyValue_Guid_Int32"
+            "$ref": "#/definitions/KeyValueRequest_Guid_Int32"
           }
         },
         "returnPostalServiceName": {

@@ -361,17 +361,21 @@
       }
     },
     "WarehouseTOTE": {
+      "description": "Represents Warehouse TOT",
       "type": "object",
       "properties": {
         "ToteId": {
           "format": "int32",
+          "description": "Tote Id",
           "type": "integer"
         },
         "ToteBarcode": {
+          "description": "TOTE Barcode",
           "type": "string"
         },
         "LocationId": {
           "format": "uuid",
+          "description": "Location Id of a warehouse to which TOT belongs",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }

@@ -1627,6 +1627,7 @@
       }
     },
     "FieldKeys": {
+      "description": "",
       "type": "object",
       "properties": {
         "FieldName": {
@@ -1641,15 +1642,19 @@
       }
     },
     "MultiOptionResponse": {
+      "description": "",
       "type": "object",
       "properties": {
         "Field": {
+          "description": "Evaluation field",
           "type": "string"
         },
         "Key": {
+          "description": "Evaluation key",
           "type": "string"
         },
         "Options": {
+          "description": "Evaluation options",
           "type": "array",
           "items": {
             "type": "string"
@@ -1698,9 +1703,11 @@
       "type": "object",
       "properties": {
         "Field": {
+          "description": "Option field",
           "type": "string"
         },
         "Options": {
+          "description": "List of options",
           "type": "array",
           "items": {
             "type": "string"

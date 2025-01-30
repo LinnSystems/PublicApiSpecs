@@ -215,18 +215,23 @@
       "properties": {
         "ConfigV": {
           "format": "int32",
+          "description": "Config version (for legacy purposes)",
           "type": "integer"
         },
         "ConfigId": {
+          "description": "A unique identifier for the config within Linnworks",
           "type": "string"
         },
         "Name": {
+          "description": "An identifier for the config within Linnworks",
           "type": "string"
         },
         "Enabled": {
+          "description": "Defines whether the config is enabled",
           "type": "boolean"
         },
         "ExportLocations": {
+          "description": "The order locations to look for orders in",
           "type": "array",
           "items": {
             "format": "uuid",
@@ -236,45 +241,55 @@
         },
         "ExportFolder": {
           "format": "uuid",
+          "description": "The order folder to export orders from",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "LastSync": {
           "format": "date-time",
+          "description": "The last sync date with ShipStation",
           "type": "string"
         },
         "AutoProcessOrdersLocation": {
           "format": "uuid",
+          "description": "The location to process orders from",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ExportChildItems": {
+          "description": "Toggles whether or not to export child items",
           "type": "boolean"
         },
         "ImportedOrderTag": {
           "format": "int32",
+          "description": "The order tag to assign ShipStation imported orders",
           "type": "integer"
         },
         "DefaultShipServiceShipStation": {
           "format": "uuid",
+          "description": "The default ShipStation shipping service",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "DefaultShipServiceLinnworks": {
           "format": "uuid",
+          "description": "The default Linnworks shipping service",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "UseChannelData": {
+          "description": "Toggles between sending channel SKU/Title or linnworks SKU/Title to ShipStation",
           "type": "boolean"
         },
         "ShipServices": {
+          "description": "A list of assigned shipping services",
           "type": "array",
           "items": {
             "$ref": "#/definitions/ShipService"
           }
         },
         "WeightUnit": {
+          "description": "The weight unit for order items",
           "enum": [
             "none",
             "oz",
@@ -285,26 +300,32 @@
           "type": "string"
         },
         "CustomOrderField1": {
+          "description": "A custom field allowing user to pass custom information about the order",
           "type": "string"
         },
         "CustomOrderField2": {
+          "description": "A custom field allowing user to pass custom information about the order",
           "type": "string"
         },
         "CustomOrderField3": {
+          "description": "A custom field allowing user to pass custom information about the order",
           "type": "string"
         }
       }
     },
     "ShipService": {
+      "description": "Shipping service mapping between ShipStation and linnworks",
       "type": "object",
       "properties": {
         "ShipStationServiceId": {
           "format": "uuid",
+          "description": "The unique identifier for the ShipStation service",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "LinnworksServiceId": {
           "format": "uuid",
+          "description": "The unique identifier for the linnworks service",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }

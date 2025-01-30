@@ -564,7 +564,7 @@
           {
             "name": "request",
             "in": "body",
-            "description": "Request with list of OrderItemSerialModel as property. Each entry represents an OrderItemRowId and a list of collections of serial data. Seperated by correlation (quantity for this row) \r\n            Note there can be one collection of serial data for each physical item being shipped - e.g. an order item with quantity of 2 can have 2 collections of serial data",
+            "description": "Request with list of OrderItemSerialModel as property. Each entry represents an OrderItemRowId and a list of collections of serial data. Seperated by correlation (quantity for this row) \r\n            Note there can be one collection of serial data for each physical item being shipped - e.g. an order item with quantity of 2 can have 2 collections of serial data.\r\n            Note that values assigned to each OrderItemRowId will overwrite any existing data.",
             "schema": {
               "$ref": "#/definitions/CreateSerialisedValuesForOrderItemsRequest"
             }
@@ -4361,56 +4361,69 @@
       "properties": {
         "OrderId": {
           "format": "uuid",
+          "description": "Order ID (pkOrderId)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "NumOrderId": {
           "format": "int32",
+          "description": "Linnworks order number",
           "type": "integer"
         },
         "Processed": {
+          "description": "If order is processed",
           "type": "boolean"
         },
         "ProcessedDateTime": {
           "format": "date-time",
+          "description": "Date and time when order was processed",
           "type": "string"
         },
         "FulfilmentLocationId": {
           "format": "uuid",
+          "description": "Location ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "GeneralInfo": {
-          "$ref": "#/definitions/OrderGeneralInfo"
+          "$ref": "#/definitions/OrderGeneralInfo",
+          "description": "General information about order"
         },
         "ShippingInfo": {
-          "$ref": "#/definitions/OrderShippingInfo"
+          "$ref": "#/definitions/OrderShippingInfo",
+          "description": "Order shipping information"
         },
         "CustomerInfo": {
-          "$ref": "#/definitions/OrderCustomerInfo"
+          "$ref": "#/definitions/OrderCustomerInfo",
+          "description": "Order Customer information (Name, email etc)"
         },
         "TotalsInfo": {
-          "$ref": "#/definitions/OrderTotalsInfo"
+          "$ref": "#/definitions/OrderTotalsInfo",
+          "description": "Order totals information"
         },
         "ExtendedProperties": {
+          "description": "Extended properties of an order",
           "type": "array",
           "items": {
             "$ref": "#/definitions/ExtendedProperty"
           }
         },
         "FolderName": {
+          "description": "Folder names assigned to an order",
           "type": "array",
           "items": {
             "type": "string"
           }
         },
         "Items": {
+          "description": "List of order items",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrderItem"
           }
         },
         "Notes": {
+          "description": "List of order notes",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrderNote"
@@ -4418,92 +4431,118 @@
         },
         "PaidDateTime": {
           "format": "date-time",
+          "description": "Date and time when the order was marked as paid",
           "type": "string"
         },
         "TaxId": {
+          "description": "Buyer's tax number.",
           "type": "string"
         }
       }
     },
     "OrderGeneralInfo": {
+      "description": "Order General Info class",
       "type": "object",
       "properties": {
         "Status": {
           "format": "int32",
+          "description": "Order Status (0 = UNPAID, 1 = PAID,2 = RETURN,3 = PENDING,4 = RESEND)",
           "type": "integer"
         },
         "LabelPrinted": {
+          "description": "Is label printed",
           "type": "boolean"
         },
         "LabelError": {
+          "description": "Is there a label error",
           "type": "string"
         },
         "InvoicePrinted": {
+          "description": "Is invoice printed",
           "type": "boolean"
         },
         "InvoicePrintError": {
+          "description": "Is there invoice print error",
           "type": "string"
         },
         "PickListPrinted": {
+          "description": "Is pick list printed",
           "type": "boolean"
         },
         "PickListPrintError": {
+          "description": "Is there pick list print error",
           "type": "string"
         },
         "IsRuleRun": {
+          "description": "If rules engine rule ran on an order",
           "type": "boolean"
         },
         "Notes": {
           "format": "int32",
+          "description": "Quantity of order notes",
           "type": "integer"
         },
         "PartShipped": {
+          "description": "If order partly shipped",
           "type": "boolean"
         },
         "Marker": {
           "format": "int32",
+          "description": "Order marker (0 = NOT TAG,1 = Tag 1,2 = Tag 2,3 = Tag 3,4 = Tag 4,5 = Tag 5,6 = Tag 6,7 = Parked)",
           "type": "integer"
         },
         "IsParked": {
+          "description": "Is the order parked?",
           "type": "boolean"
         },
         "Identifiers": {
+          "description": "Order identifiers. [Prime | Scheduled]",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Identifier"
           }
         },
         "ReferenceNum": {
+          "description": "Order reference number (Channel defined)",
           "type": "string"
         },
         "SecondaryReference": {
+          "description": "An additional reference number for the orderr (Used by some channels)",
           "type": "string"
         },
         "ExternalReferenceNum": {
+          "description": "This is an additional reference number from the sales channel, typically used by eBay",
           "type": "string"
         },
         "ReceivedDate": {
           "format": "date-time",
+          "description": "The date and time at which the order was placed on the sales channel",
           "type": "string"
         },
         "Source": {
+          "description": "Order ChannelName/Source (e.g. EBAY)",
           "type": "string"
         },
         "SubSource": {
+          "description": "Order Subsource (e.g. EBAY1)",
           "type": "string"
         },
         "SiteCode": {
+          "description": "SiteCode used to differentiate between different sites from a single channel (eg. Amazon UK, Amazon US, Amazon FR...)",
           "type": "string"
         },
         "HoldOrCancel": {
+          "description": "This shows whether the order has been marked as on hold, for processed orders if the order has been cancelled OnHold = 1",
           "type": "boolean"
         },
         "DespatchByDate": {
           "format": "date-time",
+          "description": "Despatch by Date",
           "type": "string"
         },
         "ScheduledDelivery": {
-          "$ref": "#/definitions/ScheduledDelivery"
+          "$ref": "#/definitions/ScheduledDelivery",
+          "description": "Scheduled delivery dates. Take priority over despatch by date"
         },
         "HasScheduledDelivery": {
           "type": "boolean",
@@ -4511,14 +4550,17 @@
         },
         "Location": {
           "format": "uuid",
+          "description": "Order location ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "NumItems": {
           "format": "int32",
+          "description": "Quantity of order items",
           "type": "integer"
         },
         "PickwaveIds": {
+          "description": "All related Pickwave Ids",
           "type": "array",
           "items": {
             "format": "int32",
@@ -4541,52 +4583,65 @@
       "type": "object",
       "properties": {
         "Vendor": {
+          "description": "Courier name (e.g. Royal Mail)",
           "type": "string"
         },
         "PostalServiceId": {
           "format": "uuid",
+          "description": "Postal service ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PostalServiceName": {
+          "description": "Postal service name (e.g. Next day delivery)",
           "type": "string"
         },
         "TotalWeight": {
           "format": "double",
+          "description": "Order total weight",
           "type": "number"
         },
         "ItemWeight": {
           "format": "double",
+          "description": "If order is processed",
           "type": "number"
         },
         "PackageCategoryId": {
           "format": "uuid",
+          "description": "Package category ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PackageCategory": {
+          "description": "Package category name",
           "type": "string"
         },
         "PackageTypeId": {
           "format": "uuid",
+          "description": "Package type ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PackageType": {
+          "description": "Package type name",
           "type": "string"
         },
         "PostageCost": {
           "format": "double",
+          "description": "Order postage cost",
           "type": "number"
         },
         "PostageCostExTax": {
           "format": "double",
+          "description": "Order postage cost excluding tax",
           "type": "number"
         },
         "TrackingNumber": {
+          "description": "Order tracking number provided by courier",
           "type": "string"
         },
         "ManualAdjust": {
+          "description": "If there is an adjustment to shipping cost was made",
           "type": "boolean"
         }
       }
@@ -4595,13 +4650,16 @@
       "type": "object",
       "properties": {
         "ChannelBuyerName": {
+          "description": "Username of customer (Comes from channel)",
           "type": "string"
         },
         "Address": {
-          "$ref": "#/definitions/CustomerAddress"
+          "$ref": "#/definitions/CustomerAddress",
+          "description": "Customer address"
         },
         "BillingAddress": {
-          "$ref": "#/definitions/CustomerAddress"
+          "$ref": "#/definitions/CustomerAddress",
+          "description": "Customer billing address"
         }
       }
     },
@@ -4610,50 +4668,62 @@
       "properties": {
         "Subtotal": {
           "format": "double",
+          "description": "Order subtotal",
           "type": "number"
         },
         "PostageCost": {
           "format": "double",
+          "description": "Order postage cost",
           "type": "number"
         },
         "PostageCostExTax": {
           "format": "double",
+          "description": "Order postage cost ex. tax",
           "type": "number"
         },
         "Tax": {
           "format": "double",
+          "description": "Tax",
           "type": "number"
         },
         "TotalCharge": {
           "format": "double",
+          "description": "Total charge",
           "type": "number"
         },
         "PaymentMethod": {
+          "description": "Payment method",
           "type": "string"
         },
         "PaymentMethodId": {
           "format": "uuid",
+          "description": "Payment method ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ProfitMargin": {
           "format": "double",
+          "description": "Profit margin",
           "type": "number",
           "readOnly": true
         },
         "TotalDiscount": {
           "format": "double",
+          "description": "Total discount applied to the order",
           "type": "number"
         },
         "Currency": {
+          "description": "Order currency",
           "type": "string"
         },
         "CountryTaxRate": {
           "format": "double",
+          "description": "Country tax rate",
           "type": "number"
         },
         "ConversionRate": {
           "format": "double",
+          "description": "Currency conversion rate. Set at point of save by the currency",
           "type": "number"
         }
       }
@@ -4663,144 +4733,182 @@
       "properties": {
         "RowId": {
           "format": "uuid",
+          "description": "Record row ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Name": {
+          "description": "Extended property name",
           "type": "string"
         },
         "Value": {
+          "description": "Extended property value",
           "type": "string"
         },
         "Type": {
+          "description": "Extended property type",
           "type": "string"
         }
       }
     },
     "OrderItem": {
+      "description": "Order item object",
       "type": "object",
       "properties": {
         "ItemId": {
           "format": "uuid",
+          "description": "Stock Item ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ItemNumber": {
+          "description": "Item number as on channel",
           "type": "string"
         },
         "SKU": {
+          "description": "Product SKU",
           "type": "string"
         },
         "ItemSource": {
+          "description": "Item source / channel name",
           "type": "string"
         },
         "Title": {
+          "description": "Item title",
           "type": "string"
         },
         "Quantity": {
           "format": "int32",
+          "description": "Quantity",
           "type": "integer"
         },
         "CategoryName": {
+          "description": "Product category",
           "type": "string"
         },
         "CompositeAvailablity": {
           "format": "int32",
+          "description": "Composite availability",
           "type": "integer"
         },
         "StockLevelsSpecified": {
+          "description": "If stock level specified",
           "type": "boolean"
         },
         "OnOrder": {
           "format": "int32",
+          "description": "Level due in purchase orders",
           "type": "integer"
         },
         "OnPurchaseOrder": {
-          "$ref": "#/definitions/OrderItemOnOrder"
+          "$ref": "#/definitions/OrderItemOnOrder",
+          "description": "Purchase order bound to this item"
         },
         "InOrderBook": {
           "format": "int32",
+          "description": "Quantity currently in open orders",
           "type": "integer"
         },
         "Level": {
           "format": "int32",
+          "description": "Current stock level",
           "type": "integer"
         },
         "MinimumLevel": {
           "format": "int32",
+          "description": "Minimum level",
           "type": "integer"
         },
         "AvailableStock": {
           "format": "int32",
+          "description": "Currently available stock level (Level-InOrderBook)",
           "type": "integer"
         },
         "PricePerUnit": {
           "format": "double",
+          "description": "Unit price",
           "type": "number"
         },
         "UnitCost": {
           "format": "double",
+          "description": "Unit cost",
           "type": "number"
         },
         "DespatchStockUnitCost": {
           "format": "double",
+          "description": "Despatch stock unit cost",
           "type": "number"
         },
         "Discount": {
           "format": "double",
+          "description": "Percentage (0%, 10%, 20%, etc...)",
           "type": "number"
         },
         "Tax": {
           "format": "double",
+          "description": "Actual tax value on an item",
           "type": "number",
           "readOnly": true
         },
         "TaxRate": {
           "format": "double",
+          "description": "Tax rate",
           "type": "number"
         },
         "Cost": {
           "format": "double",
+          "description": "Total item cost (exc tax)",
           "type": "number"
         },
         "CostIncTax": {
           "format": "double",
+          "description": "Total item cost (inc tax)",
           "type": "number"
         },
         "CompositeSubItems": {
+          "description": "List of order items",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrderItem"
           }
         },
         "IsService": {
+          "description": "if item is a service",
           "type": "boolean"
         },
         "SalesTax": {
           "format": "double",
+          "description": "Sales Tax",
           "type": "number"
         },
         "TaxCostInclusive": {
+          "description": "If tax is included in a cost",
           "type": "boolean"
         },
         "PartShipped": {
+          "description": "If order is partly shipped",
           "type": "boolean"
         },
         "Weight": {
           "format": "double",
+          "description": "Order weight",
           "type": "number"
         },
         "BarcodeNumber": {
+          "description": "Product barcode",
           "type": "string"
         },
         "Market": {
           "format": "int32",
+          "description": "Market",
           "type": "integer"
         },
         "ChannelSKU": {
+          "description": "Channel product SKU",
           "type": "string"
         },
         "ChannelTitle": {
+          "description": "Channel product title",
           "type": "string"
         },
         "DiscountValue": {
@@ -4809,15 +4917,18 @@
           "readOnly": true
         },
         "HasImage": {
+          "description": "If item got an image",
           "type": "boolean",
           "readOnly": true
         },
         "ImageId": {
           "format": "uuid",
+          "description": "Image ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "AdditionalInfo": {
+          "description": "List of order item options",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrderItemOption"
@@ -4825,29 +4936,37 @@
         },
         "StockLevelIndicator": {
           "format": "int32",
+          "description": "Stock level indicator",
           "type": "integer"
         },
         "ShippingCost": {
           "format": "double",
+          "description": "If batch number scan required",
           "type": "number"
         },
         "PartShippedQty": {
           "format": "int32",
+          "description": "ShippingCost",
           "type": "integer"
         },
         "ItemName": {
+          "description": "PartShippedQty",
           "type": "string"
         },
         "BatchNumberScanRequired": {
+          "description": "ItemName",
           "type": "boolean"
         },
         "SerialNumberScanRequired": {
+          "description": "If serial number scan required",
           "type": "boolean"
         },
         "BinRack": {
+          "description": "Binrack location",
           "type": "string"
         },
         "BinRacks": {
+          "description": "List of BinRacks used for OrderItem",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrderItemBinRack"
@@ -4855,9 +4974,11 @@
         },
         "InventoryTrackingType": {
           "format": "int32",
+          "description": "Identifies whether the item has a sell by date or other defined order in which inventory is to be sold",
           "type": "integer"
         },
         "isBatchedStockItem": {
+          "description": "If item has batches",
           "type": "boolean",
           "readOnly": true
         },
@@ -4884,16 +5005,19 @@
         },
         "RowId": {
           "format": "uuid",
+          "description": "Record row ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "OrderId": {
           "format": "uuid",
+          "description": "Order ID (pkOrderID)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemId": {
           "format": "uuid",
+          "description": "Stock Item ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }
@@ -4904,25 +5028,31 @@
       "properties": {
         "OrderNoteId": {
           "format": "uuid",
+          "description": "Order note ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "OrderId": {
           "format": "uuid",
+          "description": "Order Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "NoteDate": {
           "format": "date-time",
+          "description": "Date and time when note was added",
           "type": "string"
         },
         "Internal": {
+          "description": "order note type (Internal or External)",
           "type": "boolean"
         },
         "Note": {
+          "description": "Note's text",
           "type": "string"
         },
         "CreatedBy": {
+          "description": "User that created note",
           "type": "string"
         },
         "NoteTypeId": {
@@ -4936,15 +5066,11 @@
       "properties": {
         "IdentifierId": {
           "format": "int32",
+          "description": "Internal identifier id. Use to update image and name.",
           "type": "integer"
         },
-        "Name": {
-          "type": "string"
-        },
-        "Tag": {
-          "type": "string"
-        },
         "IsCustom": {
+          "description": "Is the tag user or system defined?",
           "type": "boolean"
         },
         "ImageId": {
@@ -4953,6 +5079,14 @@
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ImageUrl": {
+          "type": "string"
+        },
+        "Tag": {
+          "description": "Internal tag for identification purposes",
+          "type": "string"
+        },
+        "Name": {
+          "description": "Name displayed where the tag is used",
           "type": "string"
         }
       }
@@ -4974,39 +5108,51 @@
       "type": "object",
       "properties": {
         "EmailAddress": {
+          "description": "Customer's email address.",
           "type": "string"
         },
         "Address1": {
+          "description": "First line of customer address.",
           "type": "string"
         },
         "Address2": {
+          "description": "Second line of customer address.",
           "type": "string"
         },
         "Address3": {
+          "description": "Third line of customer address.",
           "type": "string"
         },
         "Town": {
+          "description": "Customer's town.",
           "type": "string"
         },
         "Region": {
+          "description": "Customer's region.",
           "type": "string"
         },
         "PostCode": {
+          "description": "Customer's postcode.",
           "type": "string"
         },
         "Country": {
+          "description": "Customer's country.",
           "type": "string"
         },
         "Continent": {
+          "description": "Customer's continent",
           "type": "string"
         },
         "FullName": {
+          "description": "Customer's first and second name.",
           "type": "string"
         },
         "Company": {
+          "description": "Customer's company name.",
           "type": "string"
         },
         "PhoneNumber": {
+          "description": "Customer's telephone number.",
           "type": "string"
         },
         "CountryId": {
@@ -5021,6 +5167,7 @@
       "properties": {
         "pkPurchaseItemId": {
           "format": "uuid",
+          "description": "Primary key of the bound",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
@@ -5065,85 +5212,106 @@
       "properties": {
         "pkOptionId": {
           "format": "uuid",
+          "description": "Option ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Property": {
+          "description": "Option property",
           "type": "string"
         },
         "Value": {
+          "description": "Value of the option",
           "type": "string"
         }
       }
     },
     "OrderItemBinRack": {
+      "description": "OrderItem BinRack",
       "type": "object",
       "properties": {
         "Quantity": {
           "format": "int32",
+          "description": "Quantity for BinRack per Location",
           "type": "integer"
         },
         "BinRack": {
+          "description": "BinRack",
           "type": "string"
         },
         "Location": {
           "format": "uuid",
+          "description": "LocationId of the BinRack",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "BatchId": {
           "format": "int32",
+          "description": "If the item is batched, identifies the batch number",
           "type": "integer"
         },
         "OrderItemBatchId": {
           "format": "int32",
+          "description": "If the item is batched, identifies the unique order item batch row",
           "type": "integer"
         }
       }
     },
     "StockItemBoxConfiguration": {
+      "description": "Stock item box configuration, dimennsions",
       "type": "object",
       "properties": {
         "BoxId": {
           "format": "int32",
+          "description": "Unique box id.",
           "type": "integer"
         },
         "StockItemIntId": {
           "format": "int32",
+          "description": "",
           "type": "integer"
         },
         "BoxName": {
+          "description": "Box name max 16 characters",
           "type": "string"
         },
         "Width": {
           "format": "double",
+          "description": "Width of the box",
           "type": "number"
         },
         "Height": {
           "format": "double",
+          "description": "Height of the box",
           "type": "number"
         },
         "Length": {
           "format": "double",
+          "description": "Depth of the box",
           "type": "number"
         },
         "Weight": {
           "format": "double",
+          "description": "Total weight of the box.",
           "type": "number"
         },
         "ValuePercentage": {
           "format": "double",
+          "description": "Value break down percentage",
           "type": "number"
         },
         "Barcode": {
+          "description": "Box barcode, max 64 characters.",
           "type": "string"
         },
         "PackagingTypeId": {
           "format": "uuid",
+          "description": "Packaging type id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "LogicalDelete": {
+          "description": "IsDeleted flag.",
           "type": "boolean"
         }
       }
@@ -5186,69 +5354,85 @@
       }
     },
     "CalcOrderHeader": {
+      "description": "Class represents a single instance of an order and its header packaging information. Note that if the order contains split packaging fkPackagingTypeId will be Empty Guid",
       "type": "object",
       "properties": {
         "pkOrderID": {
           "format": "uuid",
+          "description": "Order id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "nOrderId": {
           "format": "int32",
+          "description": "Numeric order id",
           "type": "integer"
         },
         "fkPostalServiceId": {
           "format": "uuid",
+          "description": "Shipping service id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "fkCountryId": {
           "format": "uuid",
+          "description": "Country Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "cCountry": {
+          "description": "Country Name",
           "type": "string"
         },
         "ItemWeight": {
           "format": "double",
+          "description": "Total Item weight in the order",
           "type": "number"
         },
         "fkPackagingGroupId": {
           "format": "uuid",
+          "description": "Packaging Group Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "fkPackagingTypeId": {
           "format": "uuid",
+          "description": "Calculated packaging type for the order",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "IsSplitPackaging": {
+          "description": "Is the packaging split?",
           "type": "boolean",
           "readOnly": true
         },
         "PackagingWeight": {
           "format": "double",
+          "description": "Packaging weight",
           "type": "number"
         },
         "TotalWeight": {
           "format": "double",
+          "description": "Total weight, items + packaging weight",
           "type": "number"
         },
         "TotalWidth": {
           "format": "double",
+          "description": "Total width of the order packaging. If null the recalculation was not performed yet. See documentation about how the dimensions of the order calculated.",
           "type": "number"
         },
         "TotalHeight": {
           "format": "double",
+          "description": "Total Height of the order packaging. If null the recalculation was not performed yet. See documentation about how the dimensions of the order calculated.",
           "type": "number"
         },
         "TotalDepth": {
           "format": "double",
+          "description": "Total Depth of the order packaging. If null the recalculation was not performed yet. See documentation about how the dimensions of the order calculated.",
           "type": "number"
         },
         "ManualAdjust": {
+          "description": "Inidicates that order weights, packaging dimensions has been manually adjusted by the user and therefore automatic recalculation should not be performed for this order",
           "type": "boolean"
         },
         "CanAutoSplit": {
@@ -5256,37 +5440,45 @@
           "readOnly": true
         },
         "IsAutoSplit": {
+          "description": "Was the packaging automatically split? Usually by the 3D Packaging method.",
           "type": "boolean"
         },
         "SplitPackageCount": {
           "format": "int32",
+          "description": "Indicates the number of split packaging bins. If null, or 0 - no split packaging",
           "type": "integer"
         },
         "LabelPrinted": {
+          "description": "Is Label Printed",
           "type": "boolean"
         },
         "CalculationHints": {
+          "description": "Calculation comments. The recalculation routine will output some basic comments about how the calculation was performed in English.",
           "type": "array",
           "items": {
             "type": "string"
           }
         },
         "Items": {
+          "description": "List of order items (excluding composite parents)",
           "type": "array",
           "items": {
             "$ref": "#/definitions/CalcOrderItem"
           }
         },
         "Bins": {
+          "description": "List of bins (split packaging)",
           "type": "array",
           "items": {
             "$ref": "#/definitions/CalcBin"
           }
         },
         "ThreeDimPackaging": {
-          "$ref": "#/definitions/PackingResult"
+          "$ref": "#/definitions/PackingResult",
+          "description": "Result for volumetric packaging"
         },
         "DimMethod": {
+          "description": "Dimension Calculation method",
           "enum": [
             "LEGACY",
             "MAX",
@@ -5300,15 +5492,18 @@
       }
     },
     "CalcOrderItem": {
+      "description": "Class represents order item for package calculation purposes only",
       "type": "object",
       "properties": {
         "fkStockItemId": {
           "format": "uuid",
+          "description": "Unique stock item identifier",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "fkOrderItemId": {
           "format": "uuid",
+          "description": "Unique row identifier of the order item",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
@@ -5317,35 +5512,43 @@
           "type": "integer"
         },
         "SKU": {
+          "description": "SKU",
           "type": "string"
         },
         "nQty": {
           "format": "int32",
+          "description": "Quantity of items",
           "type": "integer"
         },
         "ItemWeight": {
           "format": "double",
+          "description": "Item weight",
           "type": "number"
         },
         "DimHeight": {
           "format": "double",
+          "description": "Item height",
           "type": "number"
         },
         "DimWidth": {
           "format": "double",
+          "description": "Item width",
           "type": "number"
         },
         "DimDepth": {
           "format": "double",
+          "description": "item depth",
           "type": "number"
         },
         "PackageGroup": {
           "format": "uuid",
+          "description": "Prefered Packaging group",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "fkCompositeParentRowId": {
           "format": "uuid",
+          "description": "Indicates whether the item is a child of a composite, if EmptyGuid or Null not a child",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
@@ -5362,60 +5565,75 @@
       }
     },
     "CalcBin": {
+      "description": "Class represents split packaging bin",
       "type": "object",
       "properties": {
         "pkBinId": {
           "format": "uuid",
+          "description": "Bin Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "TrackingNumber": {
+          "description": "Bin Tracking number",
           "type": "string"
         },
         "LabelId": {
+          "description": "Bin Label Id",
           "type": "string"
         },
         "Weight": {
           "format": "double",
+          "description": "Bin total weight. If null, recalculation was not performed",
           "type": "number"
         },
         "PrintDate": {
           "format": "date-time",
+          "description": "Label Print date",
           "type": "string"
         },
         "Cost": {
           "format": "double",
+          "description": "Label cost if available",
           "type": "number"
         },
         "fkPackagingTypeId": {
           "format": "uuid",
+          "description": "Bin allocated packaging type",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Width": {
           "format": "double",
+          "description": "Bin width. If null, recalculation was not performed",
           "type": "number"
         },
         "Height": {
           "format": "double",
+          "description": "Bin height. If null, recalculation was not performed",
           "type": "number"
         },
         "Depth": {
           "format": "double",
+          "description": "Bin depth. If null, recalculation was not performed",
           "type": "number"
         },
         "PackagingWeight": {
           "format": "double",
+          "description": "Bin packaging weight. If null, recalculation was not performed",
           "type": "number"
         },
         "ItemWeight": {
           "format": "double",
+          "description": "Bin ItemWeight. If null, recalculation was not performed",
           "type": "number"
         },
         "ManualAdjust": {
+          "description": "Indicates that the bin weights and dimensions have been manually adjusted by the user",
           "type": "boolean"
         },
         "Items": {
+          "description": "List of order item ids in the bin and their quantities",
           "type": "array",
           "items": {
             "$ref": "#/definitions/CalcBinItem"
@@ -5447,24 +5665,29 @@
       }
     },
     "CalcBinItem": {
+      "description": "Class represents order item in the bin",
       "type": "object",
       "properties": {
         "ShippingOrderItemId": {
           "format": "int32",
+          "description": "Bin Item Id",
           "type": "integer"
         },
         "BinId": {
           "format": "uuid",
+          "description": "Package Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "fkOrderItemId": {
           "format": "uuid",
+          "description": "Order Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "BoxId": {
           "format": "int32",
+          "description": "Item Part Id",
           "type": "integer"
         },
         "Quantity": {
@@ -5750,38 +5973,47 @@
       "properties": {
         "BatchId": {
           "format": "int32",
+          "description": "Batch ID",
           "type": "integer"
         },
         "SKU": {
+          "description": "Product SKU",
           "type": "string"
         },
         "InventoryTrackingType": {
           "format": "int32",
+          "description": "0 - None, 1 - Order by sell by date, 2 - Ordered by priority sequence",
           "type": "integer"
         },
         "StockItemId": {
           "format": "uuid",
+          "description": "Product ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "BatchNumber": {
+          "description": "Batch number",
           "type": "string"
         },
         "ExpiresOn": {
           "format": "date-time",
+          "description": "Batch expiry date",
           "type": "string"
         },
         "SellBy": {
           "format": "date-time",
+          "description": "Batch sell by date",
           "type": "string"
         },
         "Inventory": {
+          "description": "Batch records",
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemBatchInventory"
           }
         },
         "IsDeleted": {
+          "description": "Is the batch deleted",
           "type": "boolean"
         }
       }
@@ -5791,64 +6023,80 @@
       "properties": {
         "BatchInventoryId": {
           "format": "int32",
+          "description": "Stock item batch record ID",
           "type": "integer"
         },
         "BatchId": {
           "format": "int32",
+          "description": "Batch ID",
           "type": "integer"
         },
         "StockLocationId": {
           "format": "uuid",
+          "description": "Location ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "BinRack": {
+          "description": "BinRack",
           "type": "string"
         },
         "PrioritySequence": {
           "format": "int32",
+          "description": "Pick order",
           "type": "integer"
         },
         "Quantity": {
           "format": "int32",
+          "description": "Quantity",
           "type": "integer"
         },
         "StockValue": {
           "format": "double",
+          "description": "Current stock value",
           "type": "number"
         },
         "StartQuantity": {
           "format": "int32",
+          "description": "Quantity originally booked in",
           "type": "integer",
           "readOnly": true
         },
         "PickedQuantity": {
           "format": "int32",
+          "description": "Indicate how many units are now allocated in open orders",
           "type": "integer"
         },
         "BatchStatus": {
+          "description": "Batch Status",
           "type": "string"
         },
         "IsDeleted": {
+          "description": "Is BatchInventory deleted",
           "type": "boolean"
         },
         "WarehouseBinrackStandardType": {
           "format": "int32",
+          "description": "Warehouse binrack standard type",
           "type": "integer"
         },
         "WarehouseBinrackTypeName": {
+          "description": "Warehouse binrack type friendly name",
           "type": "string"
         },
         "InTransfer": {
           "format": "int32",
+          "description": "Number of items in Transfer phase.",
           "type": "integer"
         },
         "BinRackId": {
           "format": "int32",
+          "description": "Binrack Id (Use for WMS)",
           "type": "integer"
         },
         "WarehouseBinrackTypeId": {
           "format": "int32",
+          "description": "Warehouse binrack type unique id.",
           "type": "integer"
         }
       }
@@ -5939,48 +6187,62 @@
       "type": "object",
       "properties": {
         "UseChannelTax": {
+          "description": "Validate if the tax should be overwritten on the order.",
           "type": "boolean"
         },
         "pkOrderId": {
           "format": "uuid",
+          "description": "Used when IsNew is false to update the order",
           "type": "string",
           "readOnly": true,
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "AutomaticallyLinkBySKU": {
+          "description": "When the order is saved it will try and link by SKU after trying by channel sku mapping.",
           "type": "boolean"
         },
         "AutomaticallyLinkByBarcode": {
+          "description": "When the order is saved it will try and link by Barcode after trying by channel sku mapping.",
           "type": "boolean"
         },
         "AutomaticallyLinkByASIN": {
+          "description": "When the order is saved it will try and link by ASIN after trying by channel sku mapping.",
           "type": "boolean"
         },
         "Site": {
+          "description": "Used to determine the site of the order.",
           "type": "string"
         },
         "MatchPostalServiceTag": {
+          "description": "Match postal service method by name",
           "type": "string"
         },
         "PostalServiceName": {
+          "description": "Postal service name used for saving new postal services",
           "type": "string"
         },
         "SavePostalServiceIfNotExist": {
+          "description": "Determines wither or not to save postal service if it does not exist",
           "type": "boolean"
         },
         "MatchPaymentMethodTag": {
+          "description": "Match payment method by name",
           "type": "string"
         },
         "PaymentMethodName": {
+          "description": "Payment method name used for saving new payment methods",
           "type": "string"
         },
         "SavePaymentMethodIfNotExist": {
+          "description": "Determines wither or not to save payment methods if it does not exist",
           "type": "boolean"
         },
         "MappingSource": {
+          "description": "Overrides the mapping source for the channel for example if the Source is 'AMAZON FBA' MappingSource can be used to override to 'AMAZON'",
           "type": "string"
         },
         "OrderState": {
+          "description": "State the order should be saved e.g. hold, parked, none",
           "enum": [
             "None",
             "Hold",
@@ -5989,6 +6251,7 @@
           "type": "string"
         },
         "OrderFulfilmentType": {
+          "description": "Defines type of fulfilment required for order",
           "enum": [
             "Manual",
             "POS",
@@ -5998,6 +6261,7 @@
           "type": "string"
         },
         "OrderStatusType": {
+          "description": "The status of the order on the channel",
           "enum": [
             "Unknown",
             "Pending",
@@ -6012,9 +6276,11 @@
           "type": "string"
         },
         "OrderStatus": {
+          "description": "The raw status text of the order on the channel",
           "type": "string"
         },
         "PaymentStatus": {
+          "description": "Payment status of the order, eg Paid\r\nIf Unpaid ChannelOrderAdapter.Save() will ensure order is PARKED",
           "enum": [
             "Unpaid",
             "Paid",
@@ -6023,99 +6289,123 @@
           "type": "string"
         },
         "OrderItems": {
+          "description": "List of order items",
           "type": "array",
           "items": {
             "$ref": "#/definitions/ChannelOrderItem"
           }
         },
         "Locations": {
+          "description": "The order location(s) on the channel",
           "type": "array",
           "items": {
             "$ref": "#/definitions/ChannelOrderLocation"
           }
         },
         "ExtendedProperties": {
+          "description": "List of extended properties for the order",
           "type": "array",
           "items": {
             "$ref": "#/definitions/ChannelOrderExtendedProperty"
           }
         },
         "Notes": {
+          "description": "List of notes for the order",
           "type": "array",
           "items": {
             "$ref": "#/definitions/ChannelOrderNote"
           }
         },
         "Source": {
+          "description": "Source",
           "type": "string"
         },
         "SubSource": {
+          "description": "SubSource",
           "type": "string"
         },
         "ChannelBuyerName": {
+          "description": "Channel buyer username / name",
           "type": "string"
         },
         "ReferenceNumber": {
+          "description": "Reference number, should be the same as the one used for despatches",
           "type": "string"
         },
         "ExternalReference": {
+          "description": "External Reference",
           "type": "string"
         },
         "SecondaryReferenceNumber": {
+          "description": "Secondary reference number",
           "type": "string"
         },
         "Currency": {
+          "description": "Currency of the order, if value is null, empty or white space it will default to UNK",
           "type": "string"
         },
         "ConversionRate": {
           "format": "double",
+          "description": "The currency conversion rate Sale/Base",
           "type": "number"
         },
         "ReceivedDate": {
           "format": "date-time",
+          "description": "UTC received date/time of the order",
           "type": "string"
         },
         "UpdatedDate": {
           "format": "date-time",
+          "description": "UTC date/time the order was last updated at",
           "type": "string"
         },
         "DispatchBy": {
           "format": "date-time",
+          "description": "UTC date/time the order should be despatched by",
           "type": "string"
         },
         "PaidOn": {
           "format": "date-time",
+          "description": "Date the order was paid for",
           "type": "string"
         },
         "PostalServiceCost": {
           "format": "double",
+          "description": "Postal service cost inclusive of tax after discount",
           "type": "number"
         },
         "PostalServiceTaxRate": {
           "format": "double",
+          "description": "Tax percent for the postal service cost, eg 20",
           "type": "number"
         },
         "PostalServiceDiscount": {
           "format": "double",
+          "description": "Discount percent for the postal service cost, this will not calculate down the postal service cost",
           "type": "number"
         },
         "Discount": {
           "format": "double",
+          "description": "This represents the final discount applied to the order, as a value (not a percentage), after all item-level discounts are applied. It will be split evenly across all order items",
           "type": "number"
         },
         "ItemsRefund": {
           "format": "double",
+          "description": "The refund amount applied across all items",
           "type": "number"
         },
         "ShippingRefund": {
           "format": "double",
+          "description": "The amount refunded for shipping (if known)",
           "type": "number"
         },
         "TotalRefund": {
           "format": "double",
+          "description": "The total refund amount applied to the order across all items, services and order-level refunds",
           "type": "number"
         },
         "LineRefundAllocation": {
+          "description": "The known refund allocation for the order lines",
           "enum": [
             "Unknown",
             "OrderLevel",
@@ -6125,6 +6415,7 @@
           "type": "string"
         },
         "ShippingRefundAllocation": {
+          "description": "The known refund allocation for the order shipping",
           "enum": [
             "Unknown",
             "OrderLevel",
@@ -6134,9 +6425,11 @@
           "type": "string"
         },
         "BuyerTaxNumber": {
+          "description": "The tax number of the buyer",
           "type": "string"
         },
         "DiscountType": {
+          "description": "This represents how the discount will be split between items and postage. For an expsanation of each opiton, see the enum documentation",
           "enum": [
             "AllEvenly",
             "ItemsThenPostage",
@@ -6145,6 +6438,7 @@
           "type": "string"
         },
         "DiscountTaxType": {
+          "description": "This represents if the discount is applied before or after tax",
           "enum": [
             "DeductAfterTax",
             "DeductBeforeTax"
@@ -6152,91 +6446,114 @@
           "type": "string"
         },
         "BillingAddress": {
-          "$ref": "#/definitions/ChannelAddress"
+          "$ref": "#/definitions/ChannelAddress",
+          "description": "The orders billing address"
         },
         "DeliveryAddress": {
-          "$ref": "#/definitions/ChannelAddress"
+          "$ref": "#/definitions/ChannelAddress",
+          "description": "The order delivery address"
         },
         "DeliveryStartDate": {
           "format": "date-time",
+          "description": "Channel specified delivery start date (do not set where is not provided)",
           "type": "string"
         },
         "DeliveryEndDate": {
           "format": "date-time",
+          "description": "Channel specified delivery end date (do not set where is not provided)",
           "type": "string"
         },
         "OrderIdentifierTags": {
+          "description": "Order identifier tags",
           "type": "array",
           "items": {
             "type": "string"
           }
         },
         "ForceReSaveFulfilledOrder": {
+          "description": "Bool to re-save order",
           "type": "boolean"
         }
       }
     },
     "ChannelOrderItem": {
+      "description": "Channel order item",
       "type": "object",
       "properties": {
         "TaxCostInclusive": {
           "type": "boolean"
         },
         "UseChannelTax": {
+          "description": "Validate if the tax should be overwritten on the order item.",
           "type": "boolean"
         },
         "PricePerUnit": {
           "format": "double",
+          "description": "Individual price of the item",
           "type": "number"
         },
         "PostalServiceCost": {
           "format": "double",
+          "description": "Postal service cost after discount",
           "type": "number"
         },
         "Qty": {
           "format": "int32",
+          "description": "Quantity customer ordered",
           "type": "integer"
         },
         "TaxRate": {
           "format": "double",
+          "description": "Tax Rate as a whole number eg. 20",
           "type": "number"
         },
         "LineDiscount": {
           "format": "double",
+          "description": "Discount percentage on the line as a whole number eg. 10",
           "type": "number"
         },
         "LineRefund": {
           "format": "double",
+          "description": "The refund amount applied on the line, excluding shipping charges",
           "type": "number"
         },
         "RefundQuantity": {
           "format": "double",
+          "description": "The quantity of items refunded (can be decimalised)",
           "type": "number"
         },
         "ShippingRefund": {
           "format": "double",
+          "description": "The shipping refund for this line (if known)",
           "type": "number"
         },
         "TotalRefund": {
           "format": "double",
+          "description": "The total refund amount applied on the line-level, including any shipping charges",
           "type": "number"
         },
         "ItemNumber": {
+          "description": "Unique line number",
           "type": "string"
         },
         "ChannelReferenceId": {
+          "description": "The item reference id on the channel",
           "type": "string"
         },
         "ChannelSKU": {
+          "description": "SKU of the item ordered on the channel",
           "type": "string"
         },
         "IsService": {
+          "description": "Indicates the item is a service and not a physical item",
           "type": "boolean"
         },
         "ItemTitle": {
+          "description": "Title of the item ordered, or service name",
           "type": "string"
         },
         "Options": {
+          "description": "Options on the item ordered",
           "type": "array",
           "items": {
             "$ref": "#/definitions/ChannelOrderItemOption"
@@ -6254,9 +6571,11 @@
       "type": "object",
       "properties": {
         "ExternalReference": {
+          "description": "The order location id on the channel.",
           "type": "string"
         },
         "ItemAllocations": {
+          "description": "The item and quantity allocation.\r\nOnly required if order is multi-location.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/ChannelOrderItemLocationAllocation"
@@ -6268,12 +6587,15 @@
       "type": "object",
       "properties": {
         "Name": {
+          "description": "Extended property name",
           "type": "string"
         },
         "Value": {
+          "description": "Extended property value",
           "type": "string"
         },
         "Type": {
+          "description": "Extended property type",
           "type": "string"
         }
       }
@@ -6282,16 +6604,20 @@
       "type": "object",
       "properties": {
         "Note": {
+          "description": "Order Note",
           "type": "string"
         },
         "NoteEntryDate": {
           "format": "date-time",
+          "description": "Creation Date of the note",
           "type": "string"
         },
         "NoteUserName": {
+          "description": "User who added the note",
           "type": "string"
         },
         "Internal": {
+          "description": "Declares if the note is an internal note",
           "type": "boolean"
         }
       }
@@ -6306,39 +6632,51 @@
           "type": "string"
         },
         "FullName": {
+          "description": "Customer name",
           "type": "string"
         },
         "Company": {
+          "description": "Customer's company name",
           "type": "string"
         },
         "Address1": {
+          "description": "1st line of address",
           "type": "string"
         },
         "Address2": {
+          "description": "2nd line of address",
           "type": "string"
         },
         "Address3": {
+          "description": "3rd line of address",
           "type": "string"
         },
         "Town": {
+          "description": "Town",
           "type": "string"
         },
         "Region": {
+          "description": "Region, County, Area",
           "type": "string"
         },
         "PostCode": {
+          "description": "Postcode",
           "type": "string"
         },
         "Country": {
+          "description": "Country",
           "type": "string"
         },
         "PhoneNumber": {
+          "description": "Customer's phone number",
           "type": "string"
         },
         "EmailAddress": {
+          "description": "Customer's email address",
           "type": "string"
         },
         "isEmpty": {
+          "description": "Check if the address is empty.",
           "type": "boolean",
           "readOnly": true
         }
@@ -6413,12 +6751,15 @@
       "type": "object",
       "properties": {
         "Name": {
+          "description": "Extended property name",
           "type": "string"
         },
         "Value": {
+          "description": "Extended property value",
           "type": "string"
         },
         "Type": {
+          "description": "Extended property type",
           "type": "string"
         }
       }
@@ -6625,33 +6966,39 @@
       }
     },
     "FieldsFilter": {
+      "description": "Fields filter",
       "type": "object",
       "properties": {
         "TextFields": {
+          "description": "Text type field filters",
           "type": "array",
           "items": {
             "$ref": "#/definitions/TextFieldFilter"
           }
         },
         "BooleanFields": {
+          "description": "Boolean type field filters",
           "type": "array",
           "items": {
             "$ref": "#/definitions/BooleanFieldFilter"
           }
         },
         "NumericFields": {
+          "description": "Numerical type field filters",
           "type": "array",
           "items": {
             "$ref": "#/definitions/NumericFieldFilter"
           }
         },
         "DateFields": {
+          "description": "Date type field filters",
           "type": "array",
           "items": {
             "$ref": "#/definitions/DateFieldFilter"
           }
         },
         "ListFields": {
+          "description": "List type field filters",
           "type": "array",
           "items": {
             "$ref": "#/definitions/ListFieldFilter"
@@ -6669,6 +7016,7 @@
       "type": "object",
       "properties": {
         "FieldCode": {
+          "description": "Field code to sort by",
           "enum": [
             "NONE",
             "GENERAL_INFO",
@@ -6798,6 +7146,7 @@
           "type": "string"
         },
         "Direction": {
+          "description": "Sorting direction (Ascending:0, descending:1)",
           "enum": [
             "Ascending",
             "Descending"
@@ -6806,6 +7155,7 @@
         },
         "Order": {
           "format": "int32",
+          "description": "Priority of sorting (e.g. sort by date first, then by status)",
           "type": "integer"
         }
       }
@@ -6814,6 +7164,7 @@
       "type": "object",
       "properties": {
         "Type": {
+          "description": "Filter type",
           "enum": [
             "Equal",
             "Contains",
@@ -6823,6 +7174,7 @@
           "type": "string"
         },
         "Text": {
+          "description": "Filtering input",
           "type": "string"
         },
         "FieldCode": {
@@ -7097,6 +7449,7 @@
       "type": "object",
       "properties": {
         "Type": {
+          "description": "Filter type",
           "enum": [
             "Equal",
             "Greater",
@@ -7106,6 +7459,7 @@
         },
         "Value": {
           "format": "double",
+          "description": "Filtering input",
           "type": "number"
         },
         "FieldCode": {
@@ -7244,13 +7598,16 @@
       "properties": {
         "DateFrom": {
           "format": "date-time",
+          "description": "Date from",
           "type": "string"
         },
         "DateTo": {
           "format": "date-time",
+          "description": "Date to",
           "type": "string"
         },
         "Type": {
+          "description": "Filter type",
           "enum": [
             "Range",
             "OlderThan",
@@ -7260,6 +7617,7 @@
         },
         "Value": {
           "format": "int32",
+          "description": "Filtering input",
           "type": "integer"
         },
         "FieldCode": {
@@ -7397,9 +7755,11 @@
       "type": "object",
       "properties": {
         "Value": {
+          "description": "Filtering input",
           "type": "string"
         },
         "Type": {
+          "description": "Filter type",
           "enum": [
             "Is",
             "Not"
@@ -7702,6 +8062,7 @@
           }
         },
         "IsFilterOnly": {
+          "description": "Defines if the field can only be used as a filter",
           "type": "boolean"
         },
         "HotButtonIcon": {
@@ -7713,22 +8074,27 @@
       }
     },
     "GenericPagedResult_OpenOrder": {
+      "description": "Order item object",
       "type": "object",
       "properties": {
         "PageNumber": {
           "format": "int32",
+          "description": "Result page number",
           "type": "integer"
         },
         "EntriesPerPage": {
           "format": "int32",
+          "description": "Result page size, quantity of records per page",
           "type": "integer"
         },
         "TotalEntries": {
           "format": "int64",
+          "description": "Total records",
           "type": "integer"
         },
         "TotalPages": {
           "format": "int32",
+          "description": "Total pages",
           "type": "integer",
           "readOnly": true
         },
@@ -7741,28 +8107,35 @@
       }
     },
     "OpenOrder": {
+      "description": "comment class",
       "type": "object",
       "properties": {
         "NumOrderId": {
           "format": "int32",
+          "description": "Linnworks order number",
           "type": "integer"
         },
         "GeneralInfo": {
-          "$ref": "#/definitions/OrderGeneralInfo"
+          "$ref": "#/definitions/OrderGeneralInfo",
+          "description": "General information about an order"
         },
         "ShippingInfo": {
-          "$ref": "#/definitions/OrderShippingInfo"
+          "$ref": "#/definitions/OrderShippingInfo",
+          "description": "Order shipping information"
         },
         "CustomerInfo": {
-          "$ref": "#/definitions/OrderCustomerInfo"
+          "$ref": "#/definitions/OrderCustomerInfo",
+          "description": "Order customer information"
         },
         "TotalsInfo": {
-          "$ref": "#/definitions/OrderTotalsInfo"
+          "$ref": "#/definitions/OrderTotalsInfo",
+          "description": "Linnworks order totals information"
         },
         "TaxInfo": {
           "$ref": "#/definitions/OrderTaxInfo"
         },
         "FolderName": {
+          "description": "Folder name of an order if any assigned",
           "type": "array",
           "items": {
             "type": "string"
@@ -7794,6 +8167,7 @@
         },
         "OrderId": {
           "format": "uuid",
+          "description": "Order ID (pkOrderID)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }
@@ -7803,6 +8177,7 @@
       "type": "object",
       "properties": {
         "TaxNumber": {
+          "description": "Customer Tax Number",
           "type": "string"
         }
       }
@@ -7997,10 +8372,12 @@
       "properties": {
         "pkFolderId": {
           "format": "uuid",
+          "description": "Folder ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "FolderName": {
+          "description": "Folder name",
           "type": "string"
         }
       }
@@ -8289,9 +8666,11 @@
       "type": "object",
       "properties": {
         "Vendor": {
+          "description": "Courier name",
           "type": "string"
         },
         "PostalServices": {
+          "description": "List of postal services",
           "type": "array",
           "items": {
             "$ref": "#/definitions/PostageService"
@@ -8304,13 +8683,16 @@
       "properties": {
         "pkPostalServiceId": {
           "format": "uuid",
+          "description": "Postal service ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PostalServiceName": {
+          "description": "Postal service name",
           "type": "string"
         },
         "TrackingNumberRequired": {
+          "description": "If tracking number is required for this service",
           "type": "boolean"
         },
         "Vendor": {
@@ -8328,18 +8710,22 @@
       "properties": {
         "PackageCategoryID": {
           "format": "uuid",
+          "description": "Package category ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PackageCategory": {
+          "description": "Package category name",
           "type": "string"
         },
         "rowguid": {
           "format": "uuid",
+          "description": "Record row ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PackageTypes": {
+          "description": "List of packaging types",
           "type": "array",
           "items": {
             "$ref": "#/definitions/PackageType"
@@ -8379,11 +8765,6 @@
           "format": "double",
           "type": "number"
         },
-        "Rowguid": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "Width": {
           "format": "double",
           "type": "number"
@@ -8395,6 +8776,11 @@
         "Depth": {
           "format": "double",
           "type": "number"
+        },
+        "Rowguid": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
         }
       }
     },
@@ -8474,24 +8860,31 @@
       "properties": {
         "Date": {
           "format": "date-time",
+          "description": "Date and time when audit record was added",
           "type": "string"
         },
         "Type": {
+          "description": "Note type",
           "type": "string"
         },
         "Note": {
+          "description": "Actual audit trail note",
           "type": "string"
         },
         "User": {
+          "description": "User who left an audit trail record",
           "type": "string"
         },
         "fkOrderHistoryTypeId": {
+          "description": "Note type ID",
           "type": "string"
         },
         "Tag": {
+          "description": "Audit trail record tag",
           "type": "string"
         },
         "TypeDescription": {
+          "description": "Note type description",
           "type": "string"
         }
       }
@@ -8526,10 +8919,12 @@
       "properties": {
         "pkOrderId": {
           "format": "uuid",
+          "description": "Order id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "AuditTrail": {
+          "description": "List of OrderAuditTrail entities",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrderAuditTrail"
@@ -8585,23 +8980,28 @@
       "properties": {
         "ParentOrderId": {
           "format": "uuid",
+          "description": "Parent order GUID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ChildOrderId": {
           "format": "uuid",
+          "description": "Child order GUID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Parent": {
           "format": "int32",
+          "description": "Parent order ID",
           "type": "integer"
         },
         "Child": {
           "format": "int32",
+          "description": "Child order ID",
           "type": "integer"
         },
         "Type": {
+          "description": "Relation type",
           "type": "string"
         }
       }
@@ -8683,17 +9083,21 @@
       "properties": {
         "PricePerUnit": {
           "format": "double",
+          "description": "Price per unit (default from stock item)",
           "type": "number"
         },
         "DiscountPercentage": {
           "format": "double",
+          "description": "Discount percentage (default 0)",
           "type": "number"
         },
         "TaxRatePercentage": {
           "format": "double",
+          "description": "Tax rate percentage",
           "type": "number"
         },
         "TaxInclusive": {
+          "description": "Tax inclusive (default true)",
           "type": "boolean"
         }
       }
@@ -8824,23 +9228,29 @@
       "properties": {
         "CountryId": {
           "format": "uuid",
+          "description": "Country ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "CountryName": {
+          "description": "Country name",
           "type": "string"
         },
         "CountryCode": {
+          "description": "Country code",
           "type": "string"
         },
         "Continent": {
+          "description": "Country continent",
           "type": "string"
         },
         "CustomsRequired": {
+          "description": "If customs required",
           "type": "boolean"
         },
         "TaxRate": {
           "format": "double",
+          "description": "Country tax rate",
           "type": "number"
         }
       }
@@ -8849,13 +9259,16 @@
       "type": "object",
       "properties": {
         "Name": {
+          "description": "Payment method name",
           "type": "string"
         },
         "CanDelete": {
+          "description": "If it can be deleted",
           "type": "boolean"
         },
         "PaymentMethodId": {
           "format": "uuid",
+          "description": "Payment method ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }
@@ -8953,9 +9366,11 @@
       }
     },
     "OrderSplit": {
+      "description": "Split Order",
       "type": "object",
       "properties": {
         "Items": {
+          "description": "Items",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrderSplitOutItem"
@@ -8963,6 +9378,7 @@
         },
         "PostalServiceId": {
           "format": "uuid",
+          "description": "Postal Service",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
@@ -9057,13 +9473,16 @@
       "properties": {
         "OrderId": {
           "format": "uuid",
+          "description": "Order ID (pkOrderId)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Processed": {
+          "description": "Order was processed",
           "type": "boolean"
         },
         "Error": {
+          "description": "There was ab error during processing",
           "type": "string"
         }
       }
@@ -9082,10 +9501,12 @@
       "properties": {
         "orderId": {
           "format": "uuid",
+          "description": "Identifies the order to be updated",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "batchToItemMapping": {
+          "description": "Maps order items to batches",
           "type": "array",
           "items": {
             "$ref": "#/definitions/batchAssignment"
@@ -9098,15 +9519,18 @@
       "properties": {
         "orderItemRowId": {
           "format": "uuid",
+          "description": "Identifies the order item row to assign to the batch",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "batchInventoryId": {
           "format": "int32",
+          "description": "Identifies the batch for the order",
           "type": "integer"
         },
         "quantity": {
           "format": "int32",
+          "description": "The number of items to be assigned to the selected batch",
           "type": "integer"
         }
       }
@@ -9278,24 +9702,31 @@
       "type": "object",
       "properties": {
         "ValidationText": {
+          "description": "Validation note",
           "type": "string"
         },
         "DeductVisible": {
+          "description": "If deduction is visible",
           "type": "boolean"
         },
         "DeductText": {
+          "description": "Deduction note",
           "type": "string"
         },
         "BalanceVisible": {
+          "description": "If balance is visible",
           "type": "boolean"
         },
         "BalanceText": {
+          "description": "Balance record",
           "type": "string"
         },
         "ValueText": {
+          "description": "Value",
           "type": "string"
         },
         "DiscountType": {
+          "description": "Discount type",
           "type": "string"
         }
       }
@@ -9405,13 +9836,16 @@
         },
         "pkOptionId": {
           "format": "uuid",
+          "description": "Option ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Property": {
+          "description": "Option property",
           "type": "string"
         },
         "Value": {
+          "description": "Value of the option",
           "type": "string"
         }
       }
@@ -9421,15 +9855,19 @@
       "properties": {
         "pkViewId": {
           "format": "int32",
+          "description": "View ID",
           "type": "integer"
         },
         "ViewName": {
+          "description": "View name",
           "type": "string"
         },
         "OwnerName": {
+          "description": "View owner name",
           "type": "string"
         },
         "AllowModify": {
+          "description": "Can be modified",
           "type": "boolean"
         },
         "JSONDetail": {
@@ -9460,13 +9898,16 @@
       "properties": {
         "pkStockId": {
           "format": "uuid",
+          "description": "Country ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ItemNumber": {
+          "description": "Product SKU",
           "type": "string"
         },
         "ItemName": {
+          "description": "Product title",
           "type": "string"
         }
       }
@@ -9543,24 +9984,29 @@
       "properties": {
         "pkBinId": {
           "format": "uuid",
+          "description": "Bin ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "pkPostalServiceId": {
           "format": "uuid",
+          "description": "Postal service ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "PackagingWeight": {
           "format": "double",
+          "description": "Order packaging weight",
           "type": "number"
         },
         "fkPackagingTypeId": {
           "format": "uuid",
+          "description": "Order packaging type",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "Items": {
+          "description": "List of items",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrderPackagingSplitItem"
@@ -9568,21 +10014,26 @@
         },
         "TotalWeight": {
           "format": "double",
+          "description": "Total weight",
           "type": "number"
         },
         "Width": {
           "format": "double",
+          "description": "Width",
           "type": "number"
         },
         "Height": {
           "format": "double",
+          "description": "Height",
           "type": "number"
         },
         "Depth": {
           "format": "double",
+          "description": "Depth",
           "type": "number"
         },
         "TrackingNumbers": {
+          "description": "Tracking number",
           "type": "string",
           "readOnly": true
         }
@@ -9592,6 +10043,7 @@
       "type": "object",
       "properties": {
         "AssignedBatches": {
+          "description": "The batches that make up this row",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrderItemShippingBatchWithRow"
@@ -9625,6 +10077,7 @@
           "type": "string"
         },
         "IsBatched": {
+          "description": "Is the order item batched",
           "type": "boolean",
           "readOnly": true
         }
@@ -9652,6 +10105,7 @@
         },
         "Quantity": {
           "format": "int32",
+          "description": "The quantity taken from the batch to fulfil this item",
           "type": "integer"
         }
       }
@@ -9785,33 +10239,41 @@
       "properties": {
         "OrderId": {
           "format": "uuid",
+          "description": "Order ID (pkOrderId)",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "NumOrderId": {
           "format": "int32",
+          "description": "Linnworks order number",
           "type": "integer"
         },
         "ReceivedDate": {
           "format": "date-time",
+          "description": "Date when order was received on a channel",
           "type": "string"
         },
         "ProcessDate": {
           "format": "date-time",
+          "description": "Date when order was processed",
           "type": "string"
         },
         "Source": {
+          "description": "Channel name / source (e.g. EBAY)",
           "type": "string"
         },
         "CustomerName": {
+          "description": "Customer name",
           "type": "string"
         },
         "NumProducts": {
           "format": "int32",
+          "description": "Quantity of products on an Order",
           "type": "integer"
         },
         "FulfillmentLocationId": {
           "format": "uuid",
+          "description": "Order location ID",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         }

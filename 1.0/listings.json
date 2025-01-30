@@ -645,6 +645,42 @@
         ]
       }
     },
+    "/api/Listings/MigrateAmazonConfigurators": {
+      "post": {
+        "tags": [
+          "Listings"
+        ],
+        "summary": "MigrateAmazonConfigurators",
+        "description": "Use this call to migrate legacy Amazon configurators to GLT.\n<b>Permissions Required: </b> GlobalPermissions.Settings.ListingConfigurators.EditListingConfiguratorsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "MigrateAmazonConfigurators",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Listings_MigrateAmazonConfiguratorsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Listings_MigrateAmazonConfiguratorsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/Listings/DeleteAmazonConfigurators": {
       "post": {
         "tags": [
@@ -1561,9 +1597,11 @@
           "type": "string"
         },
         "Title": {
+          "description": "Channel Title",
           "type": "string"
         },
         "SKU": {
+          "description": "SKU for the item.",
           "type": "string"
         },
         "MappedBy": {
@@ -1574,43 +1612,54 @@
         },
         "Quantity": {
           "format": "int32",
+          "description": "Quantity known listed on the channel at the point of getting the listings from the channel.\r\nThis value is not updated when inventory levels are synchronized",
           "type": "integer"
         },
         "IsSuggestedToLink": {
+          "description": "Identifies if the system found suitable match",
           "type": "boolean"
         },
         "IsLinked": {
+          "description": "Identifies if the item is linked",
           "type": "boolean"
         },
         "ChannelSKURowId": {
           "format": "uuid",
+          "description": "Stock_ChannelSKU RowId",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "LinkedItemId": {
           "format": "uuid",
+          "description": "Linked pkStockItemId",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "MaxListedQuantity": {
           "format": "int32",
+          "description": "Maximum listed quantity",
           "type": "integer"
         },
         "EndWhenStock": {
           "format": "int32",
+          "description": "End when stock is certain value",
           "type": "integer"
         },
         "StockPercentage": {
           "format": "double",
+          "description": "Stock percentage allocated for the channel",
           "type": "number"
         },
         "LinkedItemSku": {
+          "description": "Linked item SKU",
           "type": "string"
         },
         "LinkedItemTitle": {
+          "description": "Linked item title",
           "type": "string"
         },
         "IgnoreSync": {
+          "description": "Identifies if the inventory should be synced for this item",
           "type": "boolean"
         },
         "ChannelReferenceId": {
@@ -1674,10 +1723,12 @@
           "type": "boolean"
         },
         "IsMatchByTitle": {
+          "description": "Identifies if the mapping matched by title",
           "type": "boolean"
         },
         "TotalRows": {
           "format": "int64",
+          "description": "Total rows returned from result",
           "type": "integer"
         }
       }
@@ -3073,6 +3124,18 @@
         },
         "IgnoreIncorrectVariationChildren": {
           "type": "boolean"
+        },
+        "MigrationStatus": {
+          "enum": [
+            "NONE",
+            "MIGRATING",
+            "MIGRATED",
+            "ERROR"
+          ],
+          "type": "string"
+        },
+        "MigrationStats_Message": {
+          "type": "string"
         }
       }
     },
@@ -3241,6 +3304,20 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/AmazonConfig"
+          }
+        }
+      }
+    },
+    "Listings_MigrateAmazonConfiguratorsRequest": {
+      "type": "object",
+      "properties": {
+        "configs": {
+          "description": "Configs guid",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
           }
         }
       }
@@ -4679,6 +4756,13 @@
         },
         "TypeLabel": {
           "type": "string"
+        },
+        "OptionSortOrder": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ValueSortOrderExtendedProperty": {
+          "type": "string"
         }
       }
     },
@@ -4770,6 +4854,10 @@
           "items": {
             "$ref": "#/definitions/ChildOption"
           }
+        },
+        "CostPrice": {
+          "format": "double",
+          "type": "number"
         },
         "SalePrice": {
           "format": "double",
@@ -4878,6 +4966,10 @@
         },
         "Label": {
           "type": "string"
+        },
+        "SortOrder": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },
@@ -4913,6 +5005,10 @@
         },
         "Type": {
           "type": "string"
+        },
+        "SortOrder": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },
