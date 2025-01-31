@@ -1,84 +1,84 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "version": "printzone",
-        "title": "Print Zone API"
-    },
-    "host": "eu-ext.linnworks.net",
-    "schemes": [
-        "https"
-    ],
-    "paths": {
-        "/api/PrintZone/GetAllPrintZones": {
-            "get": {
-                "tags": [
-                    "PrintZone"
-                ],
-                "summary": "GetAllPrintZones",
-                "description": "Gets a list of all print zones\n<b>Permissions Required: </b> GlobalPermissions.Settings.ApplicationSettings.Printing.PrintZoneNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
-                "operationId": "GetAllPrintZones",
-                "consumes": [],
-                "produces": [
-                    "application/json",
-                    "text/json",
-                    "application/xml",
-                    "text/xml"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/GetAllPrintZonesResponse"
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "token": [
-                            "token"
-                        ]
-                    }
-                ]
+  "swagger": "2.0",
+  "info": {
+    "version": "printzone",
+    "title": "Print Zone API"
+  },
+  "host": "eu-ext.linnworks.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/PrintZone/GetAllPrintZones": {
+      "get": {
+        "tags": [
+          "PrintZone"
+        ],
+        "summary": "GetAllPrintZones",
+        "description": "Gets a list of all print zones\n<b>Permissions Required: </b> GlobalPermissions.Settings.ApplicationSettings.Printing.PrintZoneNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "GetAllPrintZones",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetAllPrintZonesResponse"
             }
-        }
-    },
-    "definitions": {
-        "GetAllPrintZonesResponse": {
-            "type": "object",
-            "properties": {
-                "PrintZones": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PrintZone"
-                    }
-                }
-            }
+          }
         },
-        "PrintZone": {
-            "type": "object",
-            "properties": {
-                "PrintZoneId": {
-                    "format": "int32",
-                    "description": "The unique identifier for the print zone",
-                    "type": "integer"
-                },
-                "PrintZoneCode": {
-                    "description": "Unique code for the print zone",
-                    "type": "string"
-                },
-                "PrintZoneName": {
-                    "description": "Name for the print zone",
-                    "type": "string"
-                }
-            }
-        }
-    },
-    "securityDefinitions": {
-        "token": {
-            "type": "apiKey",
-            "description": "Authorization Header",
-            "name": "Authorization",
-            "in": "header"
-        }
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
     }
+  },
+  "definitions": {
+    "GetAllPrintZonesResponse": {
+      "type": "object",
+      "properties": {
+        "PrintZones": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PrintZone"
+          }
+        }
+      }
+    },
+    "PrintZone": {
+      "type": "object",
+      "properties": {
+        "PrintZoneId": {
+          "format": "int32",
+          "description": "The unique identifier for the print zone",
+          "type": "integer"
+        },
+        "PrintZoneCode": {
+          "description": "Unique code for the print zone",
+          "type": "string"
+        },
+        "PrintZoneName": {
+          "description": "Name for the print zone",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "token": {
+      "type": "apiKey",
+      "description": "Authorization Header",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
 }
