@@ -7,15 +7,15 @@
   },
   "servers": [
     {
-      "url": "https://eu-api.dev.linnworks.net/v2/",
+      "url": "https://eu-api.linnworks.net/v2/",
       "description": "EU Server"
     },
     {
-      "url": "https://eu-api.dev.linnworks.net/v2/",
+      "url": "https://eu-api.linnworks.net/v2/",
       "description": "US Server"
     },
     {
-      "url": "https://eu-api.dev.linnworks.net/v2/",
+      "url": "https://eu-api.linnworks.net/v2/",
       "description": "AS Server"
     }
   ],
@@ -459,24 +459,24 @@
             "in": "query",
             "schema": {
               "enum": [
-                "None",
-                "CreatingShippingPlan",
-                "GeneratingPackingOptions",
-                "ConfirmingPackingOptions",
-                "GeneratingPlacementOptions",
-                "ConfirmingPlacementOptions",
-                "GeneratingTransportOptions",
-                "ConfirmingTransportOptions",
-                "GeneratingDeliveryWindows",
-                "ConfirmingDeliveryWindows",
-                "SettingPackingInfo",
-                "UpdateShipmentTrackingDetails",
-                "GeneratingContentUpdatePreview",
-                "ConfirmingContentUpdatePreview"
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
               ],
-              "type": "string",
-              "description": "OperationType specific to WarehouseTransfer",
-              "format": ""
+              "type": "integer",
+              "description": "Possible values are:  None=0; CreatingShippingPlan=1; GeneratingPackingOptions=2; ConfirmingPackingOptions=3; GeneratingPlacementOptions=4; ConfirmingPlacementOptions=5; GeneratingTransportOptions=6; ConfirmingTransportOptions=7; GeneratingDeliveryWindows=8; ConfirmingDeliveryWindows=9; SettingPackingInfo=10; UpdateShipmentTrackingDetails=11; GeneratingContentUpdatePreview=12; ConfirmingContentUpdatePreview=13;",
+              "format": "int32"
             }
           }
         ],
@@ -562,24 +562,24 @@
               "type": "array",
               "items": {
                 "enum": [
-                  "None",
-                  "CreatingShippingPlan",
-                  "GeneratingPackingOptions",
-                  "ConfirmingPackingOptions",
-                  "GeneratingPlacementOptions",
-                  "ConfirmingPlacementOptions",
-                  "GeneratingTransportOptions",
-                  "ConfirmingTransportOptions",
-                  "GeneratingDeliveryWindows",
-                  "ConfirmingDeliveryWindows",
-                  "SettingPackingInfo",
-                  "UpdateShipmentTrackingDetails",
-                  "GeneratingContentUpdatePreview",
-                  "ConfirmingContentUpdatePreview"
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13
                 ],
-                "type": "string",
-                "description": "OperationType specific to WarehouseTransfer",
-                "format": ""
+                "type": "integer",
+                "description": "Possible values are:  None=0; CreatingShippingPlan=1; GeneratingPackingOptions=2; ConfirmingPackingOptions=3; GeneratingPlacementOptions=4; ConfirmingPlacementOptions=5; GeneratingTransportOptions=6; ConfirmingTransportOptions=7; GeneratingDeliveryWindows=8; ConfirmingDeliveryWindows=9; SettingPackingInfo=10; UpdateShipmentTrackingDetails=11; GeneratingContentUpdatePreview=12; ConfirmingContentUpdatePreview=13;",
+                "format": "int32"
               }
             }
           }
@@ -3326,20 +3326,21 @@
         ]
       }
     },
-    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/items/prep-instructions": {
+    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/items/prep-instructions/prep-owner": {
       "put": {
         "tags": [
           "ShipmentItem"
         ],
-        "summary": "UpdateShipmentItemPrepInstruction",
-        "description": "Used to generate item prep instructions",
+        "summary": "UpdateShipmentItemPrepOwner",
+        "description": "Used to specify who will prepare item",
         "parameters": [
           {
             "name": "shippingPlanId",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -3348,22 +3349,22 @@
           "content": {
             "application/json-patch+json; x-api-version=2.0": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateShipmentItemPrepInstructionRequest"
+                "$ref": "#/components/schemas/UpdateShipmentItemPrepOwnerRequest"
               }
             },
             "application/json; x-api-version=2.0": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateShipmentItemPrepInstructionRequest"
+                "$ref": "#/components/schemas/UpdateShipmentItemPrepOwnerRequest"
               }
             },
             "text/json; x-api-version=2.0": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateShipmentItemPrepInstructionRequest"
+                "$ref": "#/components/schemas/UpdateShipmentItemPrepOwnerRequest"
               }
             },
             "application/*+json; x-api-version=2.0": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateShipmentItemPrepInstructionRequest"
+                "$ref": "#/components/schemas/UpdateShipmentItemPrepOwnerRequest"
               }
             }
           },
@@ -3377,7 +3378,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ShipmentItemPrepInstructionModel"
+                    "$ref": "#/components/schemas/ShipmentItemResponse"
                   }
                 }
               }
@@ -3434,113 +3435,12 @@
         ]
       }
     },
-    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/items/prep-instructions/prep-owner": {
-      "put": {
-        "tags": [
-          "ShipmentItem"
-        ],
-        "summary": "UpdateShippingItemWhoLabelPrep",
-        "description": "Used to specify who will prepare item",
-        "parameters": [
-          {
-            "name": "shippingPlanId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json-patch+json; x-api-version=2.0": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateShipmentItemPrepInstructionOwnerRequest"
-              }
-            },
-            "application/json; x-api-version=2.0": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateShipmentItemPrepInstructionOwnerRequest"
-              }
-            },
-            "text/json; x-api-version=2.0": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateShipmentItemPrepInstructionOwnerRequest"
-              }
-            },
-            "application/*+json; x-api-version=2.0": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateShipmentItemPrepInstructionOwnerRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "201": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method Not Allowed",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "204": {
-            "description": "Success"
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "Linnworks": []
-          }
-        ]
-      }
-    },
     "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/items/prep-instructions/label-owner": {
       "put": {
         "tags": [
           "ShipmentItem"
         ],
-        "summary": "UpdateShippingItemLabelOwner",
+        "summary": "UpdateShipmentItemLabelOwner",
         "description": "Used to specify who will label item",
         "parameters": [
           {
@@ -4870,107 +4770,6 @@
         ]
       }
     },
-    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/{shipmentId}/tracking-details": {
-      "post": {
-        "tags": [
-          "Shipments"
-        ],
-        "summary": "SendShipmentTrackingDetails",
-        "description": "Used to apply tracking information for shipment",
-        "parameters": [
-          {
-            "name": "shippingPlanId",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "shipmentId",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OperationModel"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method Not Allowed",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Server Error"
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "Linnworks": []
-          }
-        ]
-      }
-    },
     "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/{shipmentId}/transport-details": {
       "get": {
         "tags": [
@@ -5348,6 +5147,7 @@
         ],
         "summary": "GetShippingPlanById",
         "description": "Used to retrieve shipping plan with shipments and shipping items",
+        "operationId": "GetShippingPlanById",
         "parameters": [
           {
             "name": "shippingPlanId",
@@ -5710,7 +5510,17 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShipmentItemPrepInstructionModel"
+                  }
+                }
+              }
+            }
           },
           "201": {
             "description": "Success"
@@ -7003,30 +6813,32 @@
       },
       "AmazonLabelType": {
         "enum": [
-          "BARCODE_2D",
-          "UNIQUE",
-          "PALLET"
+          0,
+          1,
+          2
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  BARCODE_2D=0; UNIQUE=1; PALLET=2;",
+        "format": "int32"
       },
       "AmazonPageType": {
         "enum": [
-          "PackageLabel_Letter_2",
-          "PackageLabel_Letter_4",
-          "PackageLabel_Letter_6",
-          "PackageLabel_Letter_6_CarrierLeft",
-          "PackageLabel_A4_2",
-          "PackageLabel_A4_4",
-          "PackageLabel_Plain_Paper",
-          "PackageLabel_Plain_Paper_CarrierBottom",
-          "PackageLabel_Thermal",
-          "PackageLabel_Thermal_Unified",
-          "PackageLabel_Thermal_NonPCP",
-          "PackageLabel_Thermal_No_Carrier_Rotation"
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  PackageLabel_Letter_2=0; PackageLabel_Letter_4=1; PackageLabel_Letter_6=2; PackageLabel_Letter_6_CarrierLeft=3; PackageLabel_A4_2=4; PackageLabel_A4_4=5; PackageLabel_Plain_Paper=6; PackageLabel_Plain_Paper_CarrierBottom=7; PackageLabel_Thermal=8; PackageLabel_Thermal_Unified=9; PackageLabel_Thermal_NonPCP=10; PackageLabel_Thermal_No_Carrier_Rotation=11;",
+        "format": "int32"
       },
       "AmazonPrepInstructionItem": {
         "type": "object",
@@ -7042,20 +6854,18 @@
             "type": "number",
             "format": "double",
             "nullable": true
-          },
-          "prepOwner": {
-            "$ref": "#/components/schemas/PrepOwner"
           }
         },
         "additionalProperties": false
       },
       "AmazonShipmentCarrierType": {
         "enum": [
-          "Partnered",
-          "NonPartnered"
+          0,
+          1
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  Partnered=0; NonPartnered=1;",
+        "format": "int32"
       },
       "ArchiveShipmentsRequest": {
         "type": "object",
@@ -7073,11 +6883,12 @@
       },
       "AvailabilityType": {
         "enum": [
-          "AVAILABLE",
-          "CONGESTED"
+          1,
+          2
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  AVAILABLE=1; CONGESTED=2;",
+        "format": "int32"
       },
       "BaseNotFoundModel": {
         "type": "object",
@@ -7339,10 +7150,11 @@
       },
       "CsvSeparatorType": {
         "enum": [
-          "Comma"
+          0
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  Comma=0;",
+        "format": "int32"
       },
       "CurrencyModel": {
         "type": "object",
@@ -7408,28 +7220,29 @@
       },
       "FreightClass": {
         "enum": [
-          "NONE",
-          "FC_50",
-          "FC_55",
-          "FC_60",
-          "FC_65",
-          "FC_70",
-          "FC_77_5",
-          "FC_85",
-          "FC_92_5",
-          "FC_100",
-          "FC_110",
-          "FC_125",
-          "FC_150",
-          "FC_175",
-          "FC_200",
-          "FC_250",
-          "FC_300",
-          "FC_400",
-          "FC_500"
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  NONE=0; FC_50=1; FC_55=2; FC_60=3; FC_65=4; FC_70=5; FC_77_5=6; FC_85=7; FC_92_5=8; FC_100=9; FC_110=10; FC_125=11; FC_150=12; FC_175=13; FC_200=14; FC_250=15; FC_300=16; FC_400=17; FC_500=18;",
+        "format": "int32"
       },
       "FreightInformationModel": {
         "required": [
@@ -7821,14 +7634,15 @@
       },
       "ImportShipmentItemColumn": {
         "enum": [
-          "SKU",
-          "SellerSKU",
-          "ASIN",
-          "QuantityToShip",
-          "BatchNumber"
+          0,
+          1,
+          2,
+          3,
+          4
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  SKU=0; SellerSKU=1; ASIN=2; QuantityToShip=3; BatchNumber=4;",
+        "format": "int32"
       },
       "ImportShipmentItemsRequest": {
         "required": [
@@ -7990,12 +7804,13 @@
       },
       "LabelOwner": {
         "enum": [
-          "None",
-          "Amazon",
-          "Seller"
+          0,
+          1,
+          2
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  None=0; Amazon=1; Seller=2;",
+        "format": "int32"
       },
       "ListDeliveryWindowOptionResponse": {
         "type": "object",
@@ -8027,17 +7842,17 @@
         "properties": {
           "operationType": {
             "enum": [
-              "Add",
-              "Remove",
-              "Replace",
-              "Move",
-              "Copy",
-              "Test",
-              "Invalid"
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
             ],
-            "type": "string",
-            "description": "OperationType specific to JsonPatch",
-            "format": "",
+            "type": "integer",
+            "description": "Possible values are:  Add=0; Remove=1; Replace=2; Move=3; Copy=4; Test=5; Invalid=6;",
+            "format": "int32",
             "readOnly": true
           },
           "path": {
@@ -8074,24 +7889,24 @@
           },
           "type": {
             "enum": [
-              "None",
-              "CreatingShippingPlan",
-              "GeneratingPackingOptions",
-              "ConfirmingPackingOptions",
-              "GeneratingPlacementOptions",
-              "ConfirmingPlacementOptions",
-              "GeneratingTransportOptions",
-              "ConfirmingTransportOptions",
-              "GeneratingDeliveryWindows",
-              "ConfirmingDeliveryWindows",
-              "SettingPackingInfo",
-              "UpdateShipmentTrackingDetails",
-              "GeneratingContentUpdatePreview",
-              "ConfirmingContentUpdatePreview"
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
             ],
-            "type": "string",
-            "description": "OperationType specific to WarehouseTransfer",
-            "format": ""
+            "type": "integer",
+            "description": "Possible values are:  None=0; CreatingShippingPlan=1; GeneratingPackingOptions=2; ConfirmingPackingOptions=3; GeneratingPlacementOptions=4; ConfirmingPlacementOptions=5; GeneratingTransportOptions=6; ConfirmingTransportOptions=7; GeneratingDeliveryWindows=8; ConfirmingDeliveryWindows=9; SettingPackingInfo=10; UpdateShipmentTrackingDetails=11; GeneratingContentUpdatePreview=12; ConfirmingContentUpdatePreview=13;",
+            "format": "int32"
           },
           "createdDate": {
             "type": "string",
@@ -8130,22 +7945,24 @@
       },
       "OperationStatus": {
         "enum": [
-          "InProgress",
-          "Success",
-          "Failed"
+          0,
+          1,
+          2
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  InProgress=0; Success=1; Failed=2;",
+        "format": "int32"
       },
       "OptionStatus": {
         "enum": [
-          "None",
-          "Offered",
-          "Accepted",
-          "Expired"
+          0,
+          1,
+          2,
+          3
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  None=0; Offered=1; Accepted=2; Expired=3;",
+        "format": "int32"
       },
       "PackingGroupModel": {
         "type": "object",
@@ -8266,47 +8083,49 @@
       },
       "PrepOwner": {
         "enum": [
-          "None",
-          "Amazon",
-          "Seller"
+          0,
+          1,
+          2
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  None=0; Amazon=1; Seller=2;",
+        "format": "int32"
       },
       "PrepType": {
         "enum": [
-          "None",
-          "ItemLabeling",
-          "ItemBubblewrap",
-          "ItemPolybagging",
-          "ItemTaping",
-          "ItemBlackShrinkwrap",
-          "ItemHangGarment",
-          "ItemBoxing",
-          "ItemSetcreat",
-          "ItemRmovhang",
-          "ItemSuffostk",
-          "ItemCapSealing",
-          "ItemDebundle",
-          "ItemSetstk",
-          "ItemSioc",
-          "ItemNoPrep",
-          "Adult",
-          "Baby",
-          "Textile",
-          "Hanger",
-          "Fragile",
-          "Liquid",
-          "Sharp",
-          "Small",
-          "Perforated",
-          "Granular",
-          "Set",
-          "FcProvided",
-          "Unknown"
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  None=0; ItemLabeling=1; ItemBubblewrap=2; ItemPolybagging=3; ItemTaping=4; ItemBlackShrinkwrap=5; ItemHangGarment=6; ItemBoxing=7; ItemSetcreat=8; ItemRmovhang=9; ItemSuffostk=10; ItemCapSealing=11; ItemDebundle=12; ItemSetstk=13; ItemSioc=14; ItemNoPrep=15; Adult=16; Baby=17; Textile=18; Hanger=19; Fragile=20; Liquid=21; Sharp=22; Small=23; Perforated=24; Granular=25; Set=26; FcProvided=27; Unknown=28;",
+        "format": "int32"
       },
       "ProblemDetails": {
         "type": "object",
@@ -8333,7 +8152,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": {}
+        "additionalProperties": { }
       },
       "QuoteModel": {
         "type": "object",
@@ -8369,11 +8188,12 @@
       },
       "SeverityProblem": {
         "enum": [
-          "Warning",
-          "Error"
+          0,
+          1
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  Warning=0; Error=1;",
+        "format": "int32"
       },
       "ShipmentAmazonModel": {
         "type": "object",
@@ -8607,12 +8427,13 @@
       },
       "ShipmentBoxRecordType": {
         "enum": [
-          "Pallet",
-          "Box",
-          "Sku"
+          0,
+          1,
+          2
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  Pallet=0; Box=1; Sku=2;",
+        "format": "int32"
       },
       "ShipmentCardModel": {
         "type": "object",
@@ -8902,6 +8723,9 @@
           "labelOwner": {
             "$ref": "#/components/schemas/LabelOwner"
           },
+          "prepOwner": {
+            "$ref": "#/components/schemas/PrepOwner"
+          },
           "prepInstructions": {
             "type": "array",
             "items": {
@@ -9145,6 +8969,10 @@
             "type": "string",
             "nullable": true
           },
+          "shipmentConfirmationId": {
+            "type": "string",
+            "nullable": true
+          },
           "name": {
             "type": "string",
             "nullable": true
@@ -9154,22 +8982,23 @@
       },
       "ShipmentStatus": {
         "enum": [
-          "DEFAULT",
-          "ABANDONED",
-          "CANCELLED",
-          "CHECKED_IN",
-          "CLOSED",
-          "DELETED",
-          "DELIVERED",
-          "IN_TRANSIT",
-          "MIXED",
-          "READY_TO_SHIP",
-          "RECEIVING",
-          "SHIPPED",
-          "WORKING"
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  DEFAULT=1; ABANDONED=2; CANCELLED=3; CHECKED_IN=4; CLOSED=5; DELETED=6; DELIVERED=7; IN_TRANSIT=8; MIXED=9; READY_TO_SHIP=10; RECEIVING=11; SHIPPED=12; WORKING=13;",
+        "format": "int32"
       },
       "ShipmentTransportationConfigurationModel": {
         "type": "object",
@@ -9291,78 +9120,84 @@
       },
       "ShippingMode": {
         "enum": [
-          "None",
-          "GroundSmallParcel",
-          "FreightLtl",
-          "FreightFtlPallet",
-          "FreightFtlNonPallet",
-          "OceanLcl",
-          "OceanFcl",
-          "AirSmallParcel",
-          "AirSmallParcelExpress"
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  None=0; GroundSmallParcel=1; FreightLtl=2; FreightFtlPallet=3; FreightFtlNonPallet=4; OceanLcl=5; OceanFcl=6; AirSmallParcel=7; AirSmallParcelExpress=8;",
+        "format": "int32"
       },
       "ShippingPlanStatus": {
         "enum": [
-          "DRAFT",
-          "WORKING",
-          "ACTIVE",
-          "VOIDED",
-          "ERRORED",
-          "SHIPPED"
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  DRAFT=1; WORKING=2; ACTIVE=3; VOIDED=4; ERRORED=5; SHIPPED=6;",
+        "format": "int32"
       },
       "ShippingSolution": {
         "enum": [
-          "None",
-          "AmazonPartneredCarrier",
-          "UseYourOwnCarrier"
+          0,
+          1,
+          2
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  None=0; AmazonPartneredCarrier=1; UseYourOwnCarrier=2;",
+        "format": "int32"
       },
       "SkuPrepBarcodeInstruction": {
         "enum": [
-          "RequiresFNSKULabel",
-          "CanUseOriginalBarcode",
-          "MustProvideSellerSKU"
+          1,
+          2,
+          3
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  RequiresFNSKULabel=1; CanUseOriginalBarcode=2; MustProvideSellerSKU=3;",
+        "format": "int32"
       },
       "SkuPrepGuidance": {
         "enum": [
-          "ConsultHelpDocuments",
-          "NoAdditionalPrepRequired",
-          "SeePrepInstructionsList"
+          1,
+          2,
+          3
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  ConsultHelpDocuments=1; NoAdditionalPrepRequired=2; SeePrepInstructionsList=3;",
+        "format": "int32"
       },
       "SkuPrepInstruction": {
         "enum": [
-          "Polybagging",
-          "BubbleWrapping",
-          "Taping",
-          "BlackShrinkWrapping",
-          "Labeling",
-          "HangGarment",
-          "SuffocationStickering",
-          "Boxing",
-          "SetCreation",
-          "RemoveFromHanger",
-          "CapSealing",
-          "Debundle",
-          "SetStickering",
-          "BlankStickering",
-          "NoPrep"
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  Polybagging=1; BubbleWrapping=2; Taping=3; BlackShrinkWrapping=4; Labeling=5; HangGarment=6; SuffocationStickering=7; Boxing=8; SetCreation=9; RemoveFromHanger=10; CapSealing=11; Debundle=12; SetStickering=13; BlankStickering=14; NoPrep=15;",
+        "format": "int32"
       },
       "SkuPrepInstructionItem": {
         "type": "object",
@@ -9385,6 +9220,9 @@
           },
           "labelOwner": {
             "$ref": "#/components/schemas/LabelOwner"
+          },
+          "prepOwner": {
+            "$ref": "#/components/schemas/PrepOwner"
           },
           "sellerSKU": {
             "type": "string",
@@ -9536,35 +9374,36 @@
       },
       "TransferCard": {
         "enum": [
-          "SHIPPING_PLAN",
-          "SHIPMENT"
+          1,
+          2
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  SHIPPING_PLAN=1; SHIPMENT=2;",
+        "format": "int32"
       },
       "TransferStatus": {
         "enum": [
-          "Draft",
-          "Request",
-          "Accepted",
-          "Packing",
-          "InTransit",
-          "CheckingIn",
-          "Delivered",
-          "Rejected"
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
         ],
-        "type": "string",
+        "type": "integer",
         "description": "Transfer current status",
-        "format": ""
+        "format": "int32"
       },
       "TransferType": {
         "enum": [
-          "StockRequest",
-          "StockTransfer"
+          1,
+          2
         ],
-        "type": "string",
+        "type": "integer",
         "description": "Type of transfer",
-        "format": ""
+        "format": "int32"
       },
       "TransportationContactModel": {
         "required": [
@@ -9641,19 +9480,21 @@
       },
       "UnitOfMeasurement": {
         "enum": [
-          "In",
-          "Cm"
+          1,
+          2
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  In=1; Cm=2;",
+        "format": "int32"
       },
       "UnitOfWeight": {
         "enum": [
-          "Lb",
-          "Kg"
+          1,
+          2
         ],
-        "type": "string",
-        "format": ""
+        "type": "integer",
+        "description": "Possible values are:  Lb=1; Kg=2;",
+        "format": "int32"
       },
       "UpdateShipmentBoxItemModel": {
         "type": "object",
@@ -9730,84 +9571,28 @@
         },
         "additionalProperties": false
       },
-      "UpdateShipmentItemPrepInstructionOwnerModel": {
+      "UpdateShipmentItemPrepOwnerRequest": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateShipmentItemPrepOwnerRequestItem"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateShipmentItemPrepOwnerRequestItem": {
         "type": "object",
         "properties": {
           "shipmentItemId": {
             "type": "integer",
             "format": "int32"
           },
-          "prepInstructionList": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AmazonPrepInstructionItem"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateShipmentItemPrepInstructionOwnerRequest": {
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UpdateShipmentItemPrepInstructionOwnerModel"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateShipmentItemPrepInstructionRequest": {
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UpdateShipmentItemPrepInstructionRequestItem"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateShipmentItemPrepInstructionRequestItem": {
-        "type": "object",
-        "properties": {
-          "shipmentItemId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "barcodeInstruction": {
-            "$ref": "#/components/schemas/SkuPrepBarcodeInstruction"
-          },
-          "prepGuidance": {
-            "$ref": "#/components/schemas/SkuPrepGuidance"
-          },
-          "prepInstructionList": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AmazonPrepInstructionItem"
-            },
-            "nullable": true
-          },
-          "feeAmountPerUnit": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "number",
-              "format": "double"
-            },
-            "nullable": true
-          },
-          "totalFeeAmount": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "number",
-              "format": "double"
-            },
-            "nullable": true
+          "prepOwner": {
+            "$ref": "#/components/schemas/PrepOwner"
           }
         },
         "additionalProperties": false
