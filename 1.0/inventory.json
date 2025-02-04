@@ -1822,49 +1822,6 @@
       }
     },
     "/api/Inventory/ItemsHaveScannableIdentifiers": {
-      "get": {
-        "tags": [
-          "Inventory"
-        ],
-        "summary": "ItemsHaveScannableIdentifiers",
-        "description": "\n<b>Permissions Required: </b> GlobalPermissions.Inventory.MyInventoryNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
-        "operationId": "ItemsHaveScannableIdentifiers",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
-        ],
-        "parameters": [
-          {
-            "name": "stockItemIds",
-            "in": "query",
-            "required": false,
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "collectionFormat": "multi"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/ItemsHaveScannableIdentifiersResponse"
-            }
-          }
-        },
-        "security": [
-          {
-            "token": [
-              "token"
-            ]
-          }
-        ]
-      },
       "post": {
         "tags": [
           "Inventory"
@@ -5953,12 +5910,6 @@
     "StockItemLabel": {
       "type": "object",
       "properties": {
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "ItemNumber": {
           "description": "Product SKU",
           "type": "string"
@@ -5986,6 +5937,12 @@
         },
         "LocationId": {
           "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
@@ -6928,6 +6885,9 @@
           ],
           "type": "string"
         },
+        "Site": {
+          "type": "string"
+        },
         "Value": {
           "type": "string"
         },
@@ -6936,9 +6896,6 @@
           "type": "string"
         },
         "ModifiedUserName": {
-          "type": "string"
-        },
-        "Site": {
           "type": "string"
         }
       }
