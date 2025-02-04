@@ -5069,14 +5069,6 @@
           "description": "Internal identifier id. Use to update image and name.",
           "type": "integer"
         },
-        "Name": {
-          "description": "Name displayed where the tag is used",
-          "type": "string"
-        },
-        "Tag": {
-          "description": "Internal tag for identification purposes",
-          "type": "string"
-        },
         "IsCustom": {
           "description": "Is the tag user or system defined?",
           "type": "boolean"
@@ -5087,6 +5079,14 @@
           "example": "00000000-0000-0000-0000-000000000000"
         },
         "ImageUrl": {
+          "type": "string"
+        },
+        "Tag": {
+          "description": "Internal tag for identification purposes",
+          "type": "string"
+        },
+        "Name": {
+          "description": "Name displayed where the tag is used",
           "type": "string"
         }
       }
@@ -9232,6 +9232,10 @@
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
+        "CustomsRequired": {
+          "description": "If customs required",
+          "type": "boolean"
+        },
         "CountryName": {
           "description": "Country name",
           "type": "string"
@@ -9243,10 +9247,6 @@
         "Continent": {
           "description": "Country continent",
           "type": "string"
-        },
-        "CustomsRequired": {
-          "description": "If customs required",
-          "type": "boolean"
         },
         "TaxRate": {
           "format": "double",
