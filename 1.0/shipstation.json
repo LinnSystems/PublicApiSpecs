@@ -250,6 +250,12 @@
           "description": "The last sync date with ShipStation",
           "type": "string"
         },
+        "SearchToken": {
+          "format": "uuid",
+          "description": "The search token for the previous page of results",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
         "AutoProcessOrdersLocation": {
           "format": "uuid",
           "description": "The location to process orders from",
