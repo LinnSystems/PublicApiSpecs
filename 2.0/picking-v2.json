@@ -1,0 +1,362 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Picking",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://eu-api.linnworks.net/v2/",
+      "description": "EU Server"
+    },
+    {
+      "url": "https://us-api.linnworks.net/v2/",
+      "description": "US Server"
+    },
+    {
+      "url": "https://as-api.linnworks.net/v2/",
+      "description": "AS Server"
+    }
+  ],
+  "paths": {
+    "/picking/orderpickwave/identifiers": {
+      "post": {
+        "tags": [
+          "OrderPickwave"
+        ],
+        "description": "Assigns the provided identifiers to all provided pickwaves",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "$ref": "#/components/schemas/AssignPickwaveIdentifierRequest"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/401\",\"title\":\"Unauthorized\",\"status\":401,\"instance\":\"api/orderpickwave/identifiers\"}"
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/403\",\"title\":\"Feature Not Granted\",\"status\":403,\"detail\":\"Feature \\u003CEXAMPLE_FEATURE\\u003E is required to perform this action\",\"instance\":\"api/orderpickwave/identifiers\"}"
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error"
+          },
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "Linnworks": [ ]
+          }
+        ]
+      }
+    },
+    "/picking/pickwaveidentifier": {
+      "get": {
+        "tags": [
+          "PickwaveIdentifier"
+        ],
+        "description": "Retrieves all pickwave identifiers",
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/401\",\"title\":\"Unauthorized\",\"status\":401,\"instance\":\"api/pickwaveidentifier\"}"
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/403\",\"title\":\"Feature Not Granted\",\"status\":403,\"detail\":\"Feature \\u003CEXAMPLE_FEATURE\\u003E is required to perform this action\",\"instance\":\"api/pickwaveidentifier\"}"
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error"
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PickwaveIdentifier"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Linnworks": [ ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "PickwaveIdentifier"
+        ],
+        "description": "Creates the requested pickwave identifiers",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePickwaveIdentifierRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePickwaveIdentifierRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePickwaveIdentifierRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/401\",\"title\":\"Unauthorized\",\"status\":401,\"instance\":\"api/pickwaveidentifier\"}"
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/403\",\"title\":\"Feature Not Granted\",\"status\":403,\"detail\":\"Feature \\u003CEXAMPLE_FEATURE\\u003E is required to perform this action\",\"instance\":\"api/pickwaveidentifier\"}"
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error"
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PickwaveIdentifier"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Linnworks": [ ]
+          }
+        ]
+      }
+    },
+    "/picking/pickwaveidentifier/{identifierId}": {
+      "delete": {
+        "tags": [
+          "PickwaveIdentifier"
+        ],
+        "description": "Deletes the requested pickwave identifier by it's identifierId",
+        "parameters": [
+          {
+            "name": "identifierId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/401\",\"title\":\"Unauthorized\",\"status\":401,\"instance\":\"api/pickwaveidentifier/{identifierId}\"}"
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                },
+                "example": "{\"type\":\"https://httpstatuses.io/403\",\"title\":\"Feature Not Granted\",\"status\":403,\"detail\":\"Feature \\u003CEXAMPLE_FEATURE\\u003E is required to perform this action\",\"instance\":\"api/pickwaveidentifier/{identifierId}\"}"
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error"
+          },
+          "204": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "Linnworks": [ ]
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AssignPickwaveIdentifierRequest": {
+        "type": "object",
+        "properties": {
+          "identifierIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "pickingWaveIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreatePickwaveIdentifierRequest": {
+        "type": "object",
+        "properties": {
+          "pickwaveIdentifier": {
+            "$ref": "#/components/schemas/PickwaveIdentifier"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PickwaveIdentifier": {
+        "required": [
+          "Name",
+          "Tag"
+        ],
+        "type": "object",
+        "properties": {
+          "ImageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "IdentifierId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ImageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Tag": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      }
+    },
+    "securitySchemes": {
+      "Linnworks": {
+        "type": "apiKey",
+        "description": "Please enter into field the token",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  }
+}
