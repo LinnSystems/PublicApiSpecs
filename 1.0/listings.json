@@ -1510,11 +1510,26 @@
         "ItemNumber": {
           "type": "string"
         },
+        "SKU": {
+          "type": "string"
+        },
+        "ActionDateTime": {
+          "format": "date-time",
+          "type": "string"
+        },
         "ActionType": {
           "type": "string"
         },
         "ActionText": {
           "type": "string"
+        },
+        "SetQuantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SetPrice": {
+          "format": "double",
+          "type": "number"
         },
         "AffectivefkStockItemId": {
           "format": "uuid",
@@ -1526,23 +1541,8 @@
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
-        "ActionDateTime": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "SetQuantity": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "SetPrice": {
-          "format": "double",
-          "type": "number"
-        },
         "IsError": {
           "type": "boolean"
-        },
-        "SKU": {
-          "type": "string"
         }
       }
     },
