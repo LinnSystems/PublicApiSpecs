@@ -220,6 +220,9 @@
         "CurrentState": {
           "type": "string"
         },
+        "MacroType": {
+          "type": "string"
+        },
         "Parameters": {
           "type": "array",
           "items": {
@@ -235,9 +238,6 @@
         "TimeZoneOffset": {
           "format": "double",
           "type": "number"
-        },
-        "MacroType": {
-          "type": "string"
         },
         "Migrated": {
           "format": "int32",
