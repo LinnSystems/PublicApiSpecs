@@ -5910,6 +5910,12 @@
     "StockItemLabel": {
       "type": "object",
       "properties": {
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
         "ItemNumber": {
           "description": "Product SKU",
           "type": "string"
@@ -5937,12 +5943,6 @@
         },
         "LocationId": {
           "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
@@ -6674,25 +6674,25 @@
         "ItemTitle": {
           "type": "string"
         },
-        "Quantity": {
-          "format": "int32",
-          "type": "integer"
+        "ScrapReason": {
+          "type": "string"
         },
         "CategoryName": {
           "type": "string"
         },
-        "ScrapReason": {
-          "type": "string"
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
         },
         "TotalCost": {
           "format": "double",
           "type": "number"
         },
-        "UserName": {
-          "type": "string"
-        },
         "CreatedDate": {
           "format": "date-time",
+          "type": "string"
+        },
+        "UserName": {
           "type": "string"
         },
         "StockLocationId": {
@@ -10447,22 +10447,22 @@
     "StockItemChannelSKU": {
       "type": "object",
       "properties": {
-        "SKU": {
-          "description": "Product SKU number",
-          "type": "string"
-        },
-        "SubSource": {
-          "description": "Region code",
-          "type": "string"
-        },
         "ChannelSKURowId": {
           "format": "uuid",
           "description": "RowId of channel SKU",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
+        "SKU": {
+          "description": "Product SKU number",
+          "type": "string"
+        },
         "Source": {
           "description": "ChannelName/Source (e.g. EBAY)",
+          "type": "string"
+        },
+        "SubSource": {
+          "description": "Region code",
           "type": "string"
         },
         "UpdateStatus": {
