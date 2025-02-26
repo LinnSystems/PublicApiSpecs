@@ -2929,22 +2929,22 @@
           "content": {
             "application/json-patch+json; x-api-version=2.0": {
               "schema": {
-                "$ref": "#/components/schemas/DeleteShipmentItemRequest"
+                "$ref": "#/components/schemas/DeleteShipmentItemRequestInput"
               }
             },
             "application/json; x-api-version=2.0": {
               "schema": {
-                "$ref": "#/components/schemas/DeleteShipmentItemRequest"
+                "$ref": "#/components/schemas/DeleteShipmentItemRequestInput"
               }
             },
             "text/json; x-api-version=2.0": {
               "schema": {
-                "$ref": "#/components/schemas/DeleteShipmentItemRequest"
+                "$ref": "#/components/schemas/DeleteShipmentItemRequestInput"
               }
             },
             "application/*+json; x-api-version=2.0": {
               "schema": {
-                "$ref": "#/components/schemas/DeleteShipmentItemRequest"
+                "$ref": "#/components/schemas/DeleteShipmentItemRequestInput"
               }
             }
           },
@@ -7406,15 +7406,10 @@
       },
       "DeleteShipmentItemRequest": {
         "required": [
-          "shipmentItemIds",
-          "shippingPlanId"
+          "shipmentItemIds"
         ],
         "type": "object",
         "properties": {
-          "shippingPlanId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "shipmentItemIds": {
             "maxItems": 200,
             "type": "array",
