@@ -7404,7 +7404,7 @@
         },
         "additionalProperties": false
       },
-      "DeleteShipmentItemRequest": {
+      "DeleteShipmentItemRequestInput": {
         "required": [
           "shipmentItemIds"
         ],
