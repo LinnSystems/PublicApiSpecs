@@ -2568,6 +2568,11 @@
     "StockItemChangeHistory": {
       "type": "object",
       "properties": {
+        "StockItemId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
         "Date": {
           "format": "date-time",
           "description": "When changes were made",
@@ -2596,17 +2601,6 @@
           "format": "double",
           "description": "Changed value",
           "type": "number"
-        },
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "StockItemIntId": {
-          "format": "int32",
-          "description": "Stock Item interger Id",
-          "type": "integer"
         }
       }
     },
