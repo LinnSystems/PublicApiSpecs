@@ -8604,6 +8604,10 @@
             "type": "string",
             "nullable": true
           },
+          "amazonReferenceId": {
+            "type": "string",
+            "nullable": true
+          },
           "status": {
             "type": "string",
             "nullable": true
@@ -9048,6 +9052,10 @@
             "type": "string",
             "nullable": true
           },
+          "amazonReferenceId": {
+            "type": "string",
+            "nullable": true
+          },
           "warehouseAddress": {
             "type": "string",
             "nullable": true
@@ -9194,6 +9202,10 @@
             "nullable": true
           },
           "amazonShipmentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "amazonReferenceId": {
             "type": "string",
             "nullable": true
           },
