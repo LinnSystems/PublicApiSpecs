@@ -2407,10 +2407,6 @@
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
-        "NoteUser": {
-          "description": "User who created note",
-          "type": "string"
-        },
         "Note": {
           "description": "Note text",
           "type": "string"
@@ -2423,6 +2419,10 @@
         "NoteRead": {
           "description": "If bin note is readable",
           "type": "boolean"
+        },
+        "NoteUser": {
+          "description": "User who created note",
+          "type": "string"
         },
         "PkBinId": {
           "format": "uuid",
