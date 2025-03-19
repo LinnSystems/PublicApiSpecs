@@ -6674,25 +6674,25 @@
         "ItemTitle": {
           "type": "string"
         },
-        "ScrapReason": {
-          "type": "string"
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
         },
         "CategoryName": {
           "type": "string"
         },
-        "Quantity": {
-          "format": "int32",
-          "type": "integer"
+        "ScrapReason": {
+          "type": "string"
         },
         "TotalCost": {
           "format": "double",
           "type": "number"
         },
-        "CreatedDate": {
-          "format": "date-time",
+        "UserName": {
           "type": "string"
         },
-        "UserName": {
+        "CreatedDate": {
+          "format": "date-time",
           "type": "string"
         },
         "StockLocationId": {
@@ -6885,9 +6885,6 @@
           ],
           "type": "string"
         },
-        "Site": {
-          "type": "string"
-        },
         "Value": {
           "type": "string"
         },
@@ -6896,6 +6893,9 @@
           "type": "string"
         },
         "ModifiedUserName": {
+          "type": "string"
+        },
+        "Site": {
           "type": "string"
         }
       }
