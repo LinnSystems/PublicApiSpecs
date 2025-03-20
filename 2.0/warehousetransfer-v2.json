@@ -2511,25 +2511,15 @@
         ]
       }
     },
-    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/box-items/{shipmentBoxId}/assigned-items/{shipmentBoxItemId}": {
+    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/box-items/{shipmentBoxItemId}/assigned": {
       "post": {
         "tags": [
           "ShipmentBoxItem"
         ],
-        "summary": "Used to assign item from given box to destination box with given qty",
+        "summary": "Used to assign item from source box to destination box with given qty",
         "parameters": [
           {
             "name": "shippingPlanId",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "shipmentBoxId",
             "in": "path",
             "description": "",
             "required": true,
@@ -2638,7 +2628,6 @@
         },
         "security": [
           {
- 
             "Linnworks": [ ]
           }
         ]
