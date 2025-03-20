@@ -2511,7 +2511,7 @@
         ]
       }
     },
-    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/box-items/{shipmentBoxItemId}/assigned": {
+    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/box-items/{shipmentBoxItemId}/assigned-item": {
       "post": {
         "tags": [
           "ShipmentBoxItem"
@@ -7468,11 +7468,17 @@
         "type": "object",
         "properties": {
           "destinationBoxId": {
+            "maximum": 2147483647,
+            "minimum": 1,
             "type": "integer",
+            "description": "ID of the destination box to which item will be moved.",
             "format": "int32"
           },
           "quantity": {
+            "maximum": 2147483647,
+            "minimum": 1,
             "type": "integer",
+            "description": "Quantity of item to be moved from the source box to the destination box",
             "format": "int32"
           }
         },
@@ -7486,6 +7492,7 @@
             "items": {
               "$ref": "#/components/schemas/ShipmentBoxItemExtendedModel"
             },
+            "description": "List of items that were added to the destination box",
             "nullable": true
           },
           "updated": {
@@ -7493,6 +7500,7 @@
             "items": {
               "$ref": "#/components/schemas/ShipmentBoxItemExtendedModel"
             },
+            "description": "List of items that were updated in source and destination boxes",
             "nullable": true
           },
           "deleted": {
@@ -7501,6 +7509,7 @@
               "type": "integer",
               "format": "int32"
             },
+            "description": "List of items IDs were deleted from the source box",
             "nullable": true
           }
         },
