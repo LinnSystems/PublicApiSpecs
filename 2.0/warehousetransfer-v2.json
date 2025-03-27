@@ -20,6 +20,87 @@
     }
   ],
   "paths": {
+    "/warehousetransfer/fba-inbound/channels/{channelId}": {
+      "get": {
+        "tags": [
+          "Channel"
+        ],
+        "summary": "GetChannelByIdAsync",
+        "description": "Used to retrieve channel details",
+        "operationId": "GetChannelByIdAsync",
+        "parameters": [
+          {
+            "name": "channelId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChannelDetailModel"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Linnworks": []
+          }
+        ]
+      }
+    },
     "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/{shipmentId}/content-update-previews": {
       "get": {
         "tags": [
@@ -106,7 +187,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -203,7 +284,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -316,7 +397,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -355,7 +436,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -433,7 +514,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -473,10 +554,12 @@
                 11,
                 12,
                 13,
-                14
+                14,
+                15,
+                16
               ],
               "type": "integer",
-              "description": "Possible values are:  None=0; CreatingShippingPlan=1; GeneratingPackingOptions=2; ConfirmingPackingOptions=3; GeneratingPlacementOptions=4; ConfirmingPlacementOptions=5; GeneratingTransportOptions=6; ConfirmingTransportOptions=7; GeneratingDeliveryWindows=8; ConfirmingDeliveryWindows=9; SettingPackingInfo=10; UpdateShipmentTrackingDetails=11; GeneratingContentUpdatePreview=12; ConfirmingContentUpdatePreview=13; SetPrepDetails=14;",
+              "description": "Possible values are:  None=0; CreatingShippingPlan=1; GeneratingPackingOptions=2; ConfirmingPackingOptions=3; GeneratingPlacementOptions=4; ConfirmingPlacementOptions=5; GeneratingTransportOptions=6; ConfirmingTransportOptions=7; GeneratingDeliveryWindows=8; ConfirmingDeliveryWindows=9; SettingPackingInfo=10; UpdateShipmentTrackingDetails=11; GeneratingContentUpdatePreview=12; ConfirmingContentUpdatePreview=13; SetPrepDetails=14; GeneratingTransportOptionsByShippingPlan=15; ConfirmingTransportOptionsByShippingPlan=16;",
               "format": "int32"
             }
           }
@@ -535,7 +618,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -551,6 +634,7 @@
           {
             "name": "entityId",
             "in": "query",
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -559,6 +643,7 @@
           {
             "name": "operationTypes",
             "in": "query",
+            "required": true,
             "schema": {
               "type": "array",
               "items": {
@@ -577,10 +662,12 @@
                   11,
                   12,
                   13,
-                  14
+                  14,
+                  15,
+                  16
                 ],
                 "type": "integer",
-                "description": "Possible values are:  None=0; CreatingShippingPlan=1; GeneratingPackingOptions=2; ConfirmingPackingOptions=3; GeneratingPlacementOptions=4; ConfirmingPlacementOptions=5; GeneratingTransportOptions=6; ConfirmingTransportOptions=7; GeneratingDeliveryWindows=8; ConfirmingDeliveryWindows=9; SettingPackingInfo=10; UpdateShipmentTrackingDetails=11; GeneratingContentUpdatePreview=12; ConfirmingContentUpdatePreview=13; SetPrepDetails=14;",
+                "description": "Possible values are:  None=0; CreatingShippingPlan=1; GeneratingPackingOptions=2; ConfirmingPackingOptions=3; GeneratingPlacementOptions=4; ConfirmingPlacementOptions=5; GeneratingTransportOptions=6; ConfirmingTransportOptions=7; GeneratingDeliveryWindows=8; ConfirmingDeliveryWindows=9; SettingPackingInfo=10; UpdateShipmentTrackingDetails=11; GeneratingContentUpdatePreview=12; ConfirmingContentUpdatePreview=13; SetPrepDetails=14; GeneratingTransportOptionsByShippingPlan=15; ConfirmingTransportOptionsByShippingPlan=16;",
                 "format": "int32"
               }
             }
@@ -640,7 +727,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -734,7 +821,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -838,7 +925,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -932,7 +1019,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -1032,7 +1119,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -1123,7 +1210,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -1217,7 +1304,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -1317,7 +1404,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -1408,7 +1495,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -1537,7 +1624,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       },
@@ -1664,7 +1751,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       },
@@ -1753,7 +1840,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -1848,7 +1935,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -1965,7 +2052,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -2066,7 +2153,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -2195,7 +2282,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       },
@@ -2322,7 +2409,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       },
@@ -2418,7 +2505,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       },
@@ -2507,7 +2594,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -2602,7 +2689,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -2694,7 +2781,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -2794,7 +2881,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -2904,7 +2991,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       },
@@ -3004,7 +3091,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       },
@@ -3098,7 +3185,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -3210,7 +3297,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -3330,7 +3417,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -3439,7 +3526,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -3555,7 +3642,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -3661,7 +3748,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -3767,7 +3854,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -3876,7 +3963,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -3983,7 +4070,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -4120,7 +4207,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       },
@@ -4217,7 +4304,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -4320,7 +4407,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -4463,7 +4550,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       },
@@ -4570,7 +4657,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -4670,7 +4757,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -4798,7 +4885,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -4918,7 +5005,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -5018,7 +5105,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -5112,7 +5199,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -5211,7 +5298,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -5315,7 +5402,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -5410,7 +5497,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -5487,7 +5574,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       },
@@ -5567,7 +5654,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       },
@@ -5672,7 +5759,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -5753,7 +5840,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -5834,7 +5921,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -5915,7 +6002,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       },
@@ -5994,7 +6081,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -6078,7 +6165,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -6184,7 +6271,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -6267,7 +6354,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -6335,7 +6422,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -6413,7 +6500,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -6479,7 +6566,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -6545,7 +6632,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -6628,7 +6715,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -6745,7 +6832,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -6849,12 +6936,12 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
     },
-    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/{shipmentId}/transport-options/{transportationOptionId}/confirm": {
+    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/transport-options/confirm": {
       "post": {
         "tags": [
           "TransportationOption"
@@ -6871,48 +6958,40 @@
               "type": "integer",
               "format": "int32"
             }
-          },
-          {
-            "name": "shipmentId",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "transportationOptionId",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "requestBody": {
-          "description": "",
           "content": {
             "application/json-patch+json; x-api-version=2.0": {
               "schema": {
-                "$ref": "#/components/schemas/TransportationContactModel"
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ConfirmTransportationOptionsRequestInput"
+                }
               }
             },
             "application/json; x-api-version=2.0": {
               "schema": {
-                "$ref": "#/components/schemas/TransportationContactModel"
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ConfirmTransportationOptionsRequestInput"
+                }
               }
             },
             "text/json; x-api-version=2.0": {
               "schema": {
-                "$ref": "#/components/schemas/TransportationContactModel"
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ConfirmTransportationOptionsRequestInput"
+                }
               }
             },
             "application/*+json; x-api-version=2.0": {
               "schema": {
-                "$ref": "#/components/schemas/TransportationContactModel"
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ConfirmTransportationOptionsRequestInput"
+                }
               }
             }
           }
@@ -6984,13 +7063,13 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
     },
-    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/{shipmentId}/transport-options/{transportationOptionId}/save": {
-      "post": {
+    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/transport-options": {
+      "put": {
         "tags": [
           "TransportationOption"
         ],
@@ -7006,27 +7085,44 @@
               "type": "integer",
               "format": "int32"
             }
-          },
-          {
-            "name": "shipmentId",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "transportationOptionId",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json; x-api-version=2.0": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SaveShipmentTransportationOptionsRequestInput"
+                }
+              }
+            },
+            "application/json; x-api-version=2.0": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SaveShipmentTransportationOptionsRequestInput"
+                }
+              }
+            },
+            "text/json; x-api-version=2.0": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SaveShipmentTransportationOptionsRequestInput"
+                }
+              }
+            },
+            "application/*+json; x-api-version=2.0": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SaveShipmentTransportationOptionsRequestInput"
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Success"
@@ -7087,7 +7183,7 @@
         },
         "security": [
           {
-            "Linnworks": [ ]
+            "Linnworks": []
           }
         ]
       }
@@ -7325,6 +7421,38 @@
         "description": "Possible values are:  Partnered=0; NonPartnered=1;",
         "format": "int32"
       },
+      "AmazonSiteLocale": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "type": "integer",
+        "description": "Possible values are:  CA=0; MX=1; US=2; DE=3; ES=4; FR=5; GB=6; IT=7; UK=8; PL=9; CZ=10; AU=11; BR=12; IE=13; BE=14; NL=15; SE=16; ZA=17; EG=18; TR=19; SA=20; AE=21; IN=22; SG=23; JP=24;",
+        "format": "int32"
+      },
       "ArchiveShipmentsRequest": {
         "type": "object",
         "properties": {
@@ -7437,6 +7565,39 @@
           "name": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChannelDetailModel": {
+        "type": "object",
+        "properties": {
+          "channelId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "channelSiteCode": {
+            "$ref": "#/components/schemas/AmazonSiteLocale"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfirmTransportationOptionsRequestInput": {
+        "required": [
+          "shipmentId",
+          "transportationOptionId"
+        ],
+        "type": "object",
+        "properties": {
+          "transportationOptionId": {
+            "type": "string"
+          },
+          "shipmentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "transportationContactModel": {
+            "$ref": "#/components/schemas/TransportationContactModel"
           }
         },
         "additionalProperties": false
@@ -7738,15 +7899,18 @@
       "GenerateTransportationOptionsRequestInput": {
         "required": [
           "placementOptionId",
-          "shipmentTransportationConfiguration"
+          "shipmentTransportationConfigurations"
         ],
         "type": "object",
         "properties": {
           "placementOptionId": {
             "type": "string"
           },
-          "shipmentTransportationConfiguration": {
-            "$ref": "#/components/schemas/ShipmentTransportationConfigurationModel"
+          "shipmentTransportationConfigurations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShipmentTransportationConfigurationModel"
+            }
           }
         },
         "additionalProperties": false
@@ -8390,10 +8554,12 @@
               11,
               12,
               13,
-              14
+              14,
+              15,
+              16
             ],
             "type": "integer",
-            "description": "Possible values are:  None=0; CreatingShippingPlan=1; GeneratingPackingOptions=2; ConfirmingPackingOptions=3; GeneratingPlacementOptions=4; ConfirmingPlacementOptions=5; GeneratingTransportOptions=6; ConfirmingTransportOptions=7; GeneratingDeliveryWindows=8; ConfirmingDeliveryWindows=9; SettingPackingInfo=10; UpdateShipmentTrackingDetails=11; GeneratingContentUpdatePreview=12; ConfirmingContentUpdatePreview=13; SetPrepDetails=14;",
+            "description": "Possible values are:  None=0; CreatingShippingPlan=1; GeneratingPackingOptions=2; ConfirmingPackingOptions=3; GeneratingPlacementOptions=4; ConfirmingPlacementOptions=5; GeneratingTransportOptions=6; ConfirmingTransportOptions=7; GeneratingDeliveryWindows=8; ConfirmingDeliveryWindows=9; SettingPackingInfo=10; UpdateShipmentTrackingDetails=11; GeneratingContentUpdatePreview=12; ConfirmingContentUpdatePreview=13; SetPrepDetails=14; GeneratingTransportOptionsByShippingPlan=15; ConfirmingTransportOptionsByShippingPlan=16;",
             "format": "int32"
           },
           "createdDate": {
@@ -8405,6 +8571,11 @@
             "items": {
               "$ref": "#/components/schemas/OperationProblemModel"
             },
+            "nullable": true
+          },
+          "amazonOperationId": {
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           }
         },
@@ -8718,7 +8889,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": { }
+        "additionalProperties": {}
       },
       "QuoteModel": {
         "type": "object",
@@ -8748,6 +8919,25 @@
               "$ref": "#/components/schemas/AmazonConfigErrors"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SaveShipmentTransportationOptionsRequestInput": {
+        "required": [
+          "shipmentId",
+          "transportationOptionId"
+        ],
+        "type": "object",
+        "properties": {
+          "shipmentId": {
+            "type": "integer",
+            "description": "Shipment id",
+            "format": "int32"
+          },
+          "transportationOptionId": {
+            "type": "string",
+            "description": "Transportation option id"
           }
         },
         "additionalProperties": false
