@@ -2076,8 +2076,7 @@
         "tags": [
           "ShipmentBoxItem"
         ],
-        "summary": "AddShipmentBoxItems",
-        "description": "Used to add box to shipment",
+        "summary": "Used to add items to shipment boxes",
         "parameters": [
           {
             "name": "shippingPlanId",
@@ -2193,6 +2192,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Linnworks": [ ]
@@ -2203,8 +2203,7 @@
         "tags": [
           "ShipmentBoxItem"
         ],
-        "summary": "UpdateShipmentBoxItems",
-        "description": "Used to specify number of items in shipment boxes",
+        "summary": "Used to specify items in shipment boxes",
         "parameters": [
           {
             "name": "shippingPlanId",
@@ -2320,6 +2319,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Linnworks": [ ]
@@ -2330,8 +2330,7 @@
         "tags": [
           "ShipmentBoxItem"
         ],
-        "summary": "DeleteShipmentBoxItems",
-        "description": "Used to remove items from shipment",
+        "summary": "Used to remove items from shipment boxes",
         "parameters": [
           {
             "name": "shippingPlanId",
@@ -2416,6 +2415,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Linnworks": [ ]
@@ -2426,8 +2426,7 @@
         "tags": [
           "ShipmentBoxItem"
         ],
-        "summary": "GetShipmentBoxItems",
-        "description": "Used to retrieve box items for given shipping plan",
+        "summary": "Used to retrieve items for given shipping plan",
         "parameters": [
           {
             "name": "shippingPlanId",
@@ -2450,6 +2449,128 @@
                   "items": {
                     "$ref": "#/components/schemas/ShipmentBoxItemExtendedModel"
                   }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Linnworks": [ ]
+          }
+        ]
+      }
+    },
+    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/box-items/{shipmentBoxItemId}/assigned-item": {
+      "post": {
+        "tags": [
+          "ShipmentBoxItem"
+        ],
+        "summary": "Used to assign item from source box to destination box with given qty",
+        "parameters": [
+          {
+            "name": "shippingPlanId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "shipmentBoxItemId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json; x-api-version=2.0": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignItemToBoxRequest"
+              }
+            },
+            "application/json; x-api-version=2.0": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignItemToBoxRequest"
+              }
+            },
+            "text/json; x-api-version=2.0": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignItemToBoxRequest"
+              }
+            },
+            "application/*+json; x-api-version=2.0": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignItemToBoxRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssignItemToBoxResponse"
                 }
               }
             }
@@ -7334,6 +7455,61 @@
               "type": "integer",
               "format": "int32"
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AssignItemToBoxRequest": {
+        "required": [
+          "destinationBoxId",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "destinationBoxId": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "description": "ID of the destination box to which item will be moved.",
+            "format": "int32"
+          },
+          "quantity": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Quantity of item to be moved from the source box to the destination box",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AssignItemToBoxResponse": {
+        "type": "object",
+        "properties": {
+          "added": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShipmentBoxItemExtendedModel"
+            },
+            "description": "List of items that were added to the destination box",
+            "nullable": true
+          },
+          "updated": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShipmentBoxItemExtendedModel"
+            },
+            "description": "List of items that were updated in source and destination boxes",
+            "nullable": true
+          },
+          "deleted": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "description": "List of items IDs were deleted from the source box",
             "nullable": true
           }
         },
