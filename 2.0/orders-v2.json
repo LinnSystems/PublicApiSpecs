@@ -187,7 +187,7 @@
         },
         "security": [
           {
-            "Bearer": [ ]
+            "Linnworks": [ ]
           }
         ]
       }
@@ -228,7 +228,11 @@
             "in": "query",
             "description": "Only return IDs of orders with this fulfillment status",
             "schema": {
-              "$ref": "#/components/schemas/FulfillmentStatus"
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/FulfillmentStatus"
+                }
+              ]
             }
           }
         ],
@@ -321,7 +325,7 @@
         },
         "security": [
           {
-            "Bearer": [ ]
+            "Linnworks": [ ]
           }
         ]
       },
@@ -447,7 +451,7 @@
         },
         "security": [
           {
-            "Bearer": [ ]
+            "Linnworks": [ ]
           }
         ]
       }
@@ -464,7 +468,7 @@
           {
             "name": "orderId",
             "in": "path",
-            "description": "Order Id to request",
+            "description": "Order id to request",
             "required": true,
             "schema": {
               "type": "string",
@@ -540,7 +544,7 @@
         },
         "security": [
           {
-            "Bearer": [ ]
+            "Linnworks": [ ]
           }
         ]
       },
@@ -568,17 +572,32 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/FulfillmentStatusRequest"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/FulfillmentStatusRequest"
+                  }
+                ],
+                "description": "Request object for updating fulfillment status'"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/FulfillmentStatusRequest"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/FulfillmentStatusRequest"
+                  }
+                ],
+                "description": "Request object for updating fulfillment status'"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/FulfillmentStatusRequest"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/FulfillmentStatusRequest"
+                  }
+                ],
+                "description": "Request object for updating fulfillment status'"
               }
             }
           }
@@ -651,7 +670,7 @@
         },
         "security": [
           {
-            "Bearer": [ ]
+            "Linnworks": [ ]
           }
         ]
       }
@@ -663,10 +682,19 @@
         "type": "object",
         "properties": {
           "Result": {
-            "$ref": "#/components/schemas/OrderFulfillmentStatus"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrderFulfillmentStatus"
+              }
+            ],
+            "nullable": true
           },
           "ResultStatus": {
-            "$ref": "#/components/schemas/APIResultStatus"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/APIResultStatus"
+              }
+            ]
           },
           "Message": {
             "type": "string",
@@ -683,61 +711,6 @@
           "FAILED"
         ],
         "type": "string"
-      },
-      "AccessGroup": {
-        "required": [
-          "GroupId",
-          "ViewId"
-        ],
-        "type": "object",
-        "properties": {
-          "GroupId": {
-            "maximum": 2147483647,
-            "minimum": 0,
-            "type": "integer",
-            "description": "GroupId",
-            "format": "int32"
-          },
-          "ViewId": {
-            "maximum": 2147483647,
-            "minimum": 0,
-            "type": "integer",
-            "description": "ViewId",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false,
-        "description": "AccessGroup"
-      },
-      "AccessUser": {
-        "required": [
-          "IsAdmin",
-          "UserId",
-          "ViewId"
-        ],
-        "type": "object",
-        "properties": {
-          "UserId": {
-            "maximum": 2147483647,
-            "minimum": 0,
-            "type": "integer",
-            "description": "UserId",
-            "format": "int32"
-          },
-          "ViewId": {
-            "maximum": 2147483647,
-            "minimum": 0,
-            "type": "integer",
-            "description": "ViewId",
-            "format": "int32"
-          },
-          "IsAdmin": {
-            "type": "boolean",
-            "description": "IsAdmin"
-          }
-        },
-        "additionalProperties": false,
-        "description": "AccessUser"
       },
       "AnonymousGetOrdersResponse": {
         "type": "object",
@@ -773,7 +746,13 @@
         ],
         "properties": {
           "GeneralInfo": {
-            "$ref": "#/components/schemas/OrderGeneralInfo"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrderGeneralInfo"
+              }
+            ],
+            "description": "General information about order",
+            "nullable": true
           },
           "Items": {
             "type": "array",
@@ -835,7 +814,13 @@
         ],
         "properties": {
           "GeneralInfo": {
-            "$ref": "#/components/schemas/ProcessedOrderGeneralInfo"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProcessedOrderGeneralInfo"
+              }
+            ],
+            "description": "General information about order",
+            "nullable": true
           },
           "Items": {
             "type": "array",
@@ -929,10 +914,22 @@
             "format": "uuid"
           },
           "ShippingInfo": {
-            "$ref": "#/components/schemas/OrderShippingInfo"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrderShippingInfo"
+              }
+            ],
+            "description": "Order shipping information",
+            "nullable": true
           },
           "TotalsInfo": {
-            "$ref": "#/components/schemas/OrderTotalsInfo"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrderTotalsInfo"
+              }
+            ],
+            "description": "Order totals information",
+            "nullable": true
           },
           "ExtendedProperties": {
             "type": "array",
@@ -1054,7 +1051,13 @@
             "format": "date-time"
           },
           "ScheduledDelivery": {
-            "$ref": "#/components/schemas/ScheduledDelivery"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ScheduledDelivery"
+              }
+            ],
+            "description": "Scheduled delivery dates. Take priority over despatch by date",
+            "nullable": true
           },
           "HasScheduledDelivery": {
             "type": "boolean",
@@ -1067,7 +1070,12 @@
             "format": "int32"
           },
           "StockAllocationType": {
-            "$ref": "#/components/schemas/StockAllocationType"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/StockAllocationType"
+              }
+            ],
+            "description": "Stock allocation type status"
           }
         },
         "additionalProperties": false,
@@ -1171,122 +1179,6 @@
         "additionalProperties": false,
         "description": "BillingAddress"
       },
-      "BooleanFieldFilter": {
-        "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldFilter"
-          }
-        ],
-        "properties": {
-          "Value": {
-            "type": "boolean",
-            "description": "Value"
-          }
-        },
-        "additionalProperties": false,
-        "description": "BooleanFieldFilter"
-      },
-      "ConditionType": {
-        "enum": [
-          "Is",
-          "Not"
-        ],
-        "type": "string"
-      },
-      "DateFieldFilter": {
-        "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldFilter"
-          }
-        ],
-        "properties": {
-          "ConditionType": {
-            "$ref": "#/components/schemas/ConditionType"
-          },
-          "Value": {
-            "type": "integer",
-            "description": "Value",
-            "format": "int32"
-          },
-          "Type": {
-            "$ref": "#/components/schemas/DateTimeFieldFilterType"
-          },
-          "ValueOperatorType": {
-            "$ref": "#/components/schemas/DateIntegerOperators"
-          }
-        },
-        "additionalProperties": false,
-        "description": "DateFieldFilter"
-      },
-      "DateIntegerOperators": {
-        "enum": [
-          "Minutes",
-          "Hours",
-          "Days"
-        ],
-        "type": "string"
-      },
-      "DateTimeFieldFilterType": {
-        "enum": [
-          "Range",
-          "OlderThan",
-          "LastDays",
-          "WithinPast",
-          "WithinNext",
-          "AfterNext"
-        ],
-        "type": "string"
-      },
-      "DecimalFieldFilter": {
-        "required": [
-          "ConditionType",
-          "Value"
-        ],
-        "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldFilter"
-          }
-        ],
-        "properties": {
-          "ConditionType": {
-            "$ref": "#/components/schemas/ConditionType"
-          },
-          "Value": {
-            "type": "number",
-            "description": "Value",
-            "format": "double"
-          },
-          "Type": {
-            "$ref": "#/components/schemas/NumericFieldFilterType"
-          }
-        },
-        "additionalProperties": false,
-        "description": "DecimalFieldFilter"
-      },
-      "ExportSettings": {
-        "required": [
-          "Delimiter",
-          "Qualifier"
-        ],
-        "type": "object",
-        "properties": {
-          "Delimiter": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Delimiter"
-          },
-          "Qualifier": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Qualifier"
-          }
-        },
-        "additionalProperties": false,
-        "description": "OrderViewExportSettings"
-      },
       "ExtendedProperty": {
         "type": "object",
         "properties": {
@@ -1314,82 +1206,6 @@
         "additionalProperties": false,
         "description": "ExtendedProperty"
       },
-      "FieldFilter": {
-        "required": [
-          "FieldCode",
-          "FieldType"
-        ],
-        "type": "object",
-        "properties": {
-          "FieldType": {
-            "minLength": 1,
-            "type": "string",
-            "description": "FieldType"
-          },
-          "FieldCode": {
-            "minLength": 1,
-            "type": "string",
-            "description": "FieldCode"
-          }
-        },
-        "additionalProperties": false,
-        "description": "FieldFilter"
-      },
-      "FieldParameter": {
-        "required": [
-          "Key",
-          "Value"
-        ],
-        "type": "object",
-        "properties": {
-          "Key": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Key"
-          },
-          "Value": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Value"
-          }
-        },
-        "additionalProperties": false,
-        "description": "FieldParameter"
-      },
-      "FieldSorting": {
-        "required": [
-          "Direction",
-          "Order"
-        ],
-        "type": "object",
-        "properties": {
-          "Direction": {
-            "$ref": "#/components/schemas/SortDirection"
-          },
-          "Order": {
-            "maximum": 2147483647,
-            "minimum": 0,
-            "type": "integer",
-            "description": "Order",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false,
-        "description": "FieldSorting"
-      },
-      "FieldType": {
-        "enum": [
-          "Text",
-          "Integer",
-          "Decimal",
-          "Boolean",
-          "Date",
-          "List",
-          "Guid",
-          "Aggregate"
-        ],
-        "type": "string"
-      },
       "FulfillmentStatus": {
         "enum": [
           "Unassigned",
@@ -1403,7 +1219,12 @@
         "type": "object",
         "properties": {
           "FulfillmentStatus": {
-            "$ref": "#/components/schemas/FulfillmentStatus"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FulfillmentStatus"
+              }
+            ],
+            "description": "Requested fulfillment status"
           }
         },
         "additionalProperties": false,
@@ -1434,14 +1255,6 @@
         },
         "additionalProperties": false
       },
-      "GridRowSize": {
-        "enum": [
-          "Short",
-          "Regular",
-          "Tall"
-        ],
-        "type": "string"
-      },
       "HttpValidationProblemDetails": {
         "type": "object",
         "allOf": [
@@ -1464,69 +1277,6 @@
         },
         "additionalProperties": { }
       },
-      "IntegerFieldFilter": {
-        "required": [
-          "ConditionType",
-          "Type",
-          "Value"
-        ],
-        "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldFilter"
-          }
-        ],
-        "properties": {
-          "ConditionType": {
-            "$ref": "#/components/schemas/ConditionType"
-          },
-          "Value": {
-            "type": "integer",
-            "description": "Value",
-            "format": "int32"
-          },
-          "Type": {
-            "$ref": "#/components/schemas/NumericFieldFilterType"
-          }
-        },
-        "additionalProperties": false,
-        "description": "IntegerFieldFilter"
-      },
-      "ListFieldFilter": {
-        "required": [
-          "ConditionType",
-          "Values"
-        ],
-        "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldFilter"
-          }
-        ],
-        "properties": {
-          "ConditionType": {
-            "$ref": "#/components/schemas/ConditionType"
-          },
-          "Values": {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Value"
-          }
-        },
-        "additionalProperties": false,
-        "description": "ListFieldFilter"
-      },
-      "NumericFieldFilterType": {
-        "enum": [
-          "Equal",
-          "Greater",
-          "Lower"
-        ],
-        "type": "string"
-      },
       "Order": {
         "type": "object",
         "allOf": [
@@ -1536,10 +1286,22 @@
         ],
         "properties": {
           "GeneralInfo": {
-            "$ref": "#/components/schemas/OrderGeneralInfo"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrderGeneralInfo"
+              }
+            ],
+            "description": "General information about order",
+            "nullable": true
           },
           "CustomerInfo": {
-            "$ref": "#/components/schemas/OrderCustomerInfo"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrderCustomerInfo"
+              }
+            ],
+            "description": "Order Customer information (Name, email etc.)",
+            "nullable": true
           },
           "Items": {
             "type": "array",
@@ -1570,7 +1332,13 @@
             "nullable": true
           },
           "Address": {
-            "$ref": "#/components/schemas/ShippingAddress"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ShippingAddress"
+              }
+            ],
+            "description": "Customer address",
+            "nullable": true
           },
           "BillingAddress": {
             "oneOf": [
@@ -1628,7 +1396,11 @@
             "format": "uuid"
           },
           "FulfillmentStatus": {
-            "$ref": "#/components/schemas/FulfillmentStatus"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FulfillmentStatus"
+              }
+            ]
           }
         },
         "additionalProperties": false
@@ -1796,6 +1568,11 @@
             },
             "description": "List of BinRacks used for OrderItem",
             "nullable": true
+          },
+          "AddedDate": {
+            "type": "string",
+            "description": "The date and time at which the item was placed on the order",
+            "format": "date-time"
           }
         },
         "additionalProperties": false,
@@ -2038,74 +1815,6 @@
         "additionalProperties": false,
         "description": "OrderTotalsInfo"
       },
-      "OrderViewButton": {
-        "required": [
-          "Key",
-          "Name",
-          "SortOrder",
-          "Style"
-        ],
-        "type": "object",
-        "properties": {
-          "Icon": {
-            "type": "string",
-            "description": "Icon",
-            "nullable": true
-          },
-          "Key": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Key"
-          },
-          "Value": {
-            "description": "Value",
-            "nullable": true
-          },
-          "Name": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Name"
-          },
-          "SortOrder": {
-            "maximum": 2147483647,
-            "minimum": 0,
-            "type": "integer",
-            "description": "SortOrder",
-            "format": "int32"
-          },
-          "Style": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Style"
-          },
-          "PrimaryAction": {
-            "type": "string",
-            "description": "PrimaryAction",
-            "nullable": true,
-            "deprecated": true
-          },
-          "SecondaryAction": {
-            "type": "string",
-            "description": "SecondaryAction",
-            "nullable": true,
-            "deprecated": true
-          },
-          "PrimaryValue": {
-            "type": "string",
-            "description": "PrimaryValue",
-            "nullable": true,
-            "deprecated": true
-          },
-          "SecondaryValue": {
-            "type": "string",
-            "description": "SecondaryValue",
-            "nullable": true,
-            "deprecated": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "OrderViewButton"
-      },
       "ProblemDetails": {
         "type": "object",
         "properties": {
@@ -2142,10 +1851,22 @@
         ],
         "properties": {
           "GeneralInfo": {
-            "$ref": "#/components/schemas/ProcessedOrderGeneralInfo"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProcessedOrderGeneralInfo"
+              }
+            ],
+            "description": "General information about order",
+            "nullable": true
           },
           "CustomerInfo": {
-            "$ref": "#/components/schemas/OrderCustomerInfo"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrderCustomerInfo"
+              }
+            ],
+            "description": "Order Customer information (Name, email etc.)",
+            "nullable": true
           },
           "Items": {
             "type": "array",
@@ -2219,13 +1940,6 @@
         "additionalProperties": false,
         "description": "ShippingAddress"
       },
-      "SortDirection": {
-        "enum": [
-          "Ascending",
-          "Descending"
-        ],
-        "type": "string"
-      },
       "StockAllocationType": {
         "enum": [
           "NotAllocated",
@@ -2236,50 +1950,6 @@
         ],
         "type": "string",
         "description": "StockAllocationType"
-      },
-      "TextFieldFilter": {
-        "required": [
-          "ConditionType",
-          "Text",
-          "Type",
-          "Value"
-        ],
-        "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldFilter"
-          }
-        ],
-        "properties": {
-          "ConditionType": {
-            "$ref": "#/components/schemas/ConditionType"
-          },
-          "Value": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Value"
-          },
-          "Type": {
-            "$ref": "#/components/schemas/TextFieldFilterType"
-          },
-          "Text": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Text"
-          }
-        },
-        "additionalProperties": false,
-        "description": "TextFieldFilter"
-      },
-      "TextFieldFilterType": {
-        "enum": [
-          "Equal",
-          "Contains",
-          "StartWith",
-          "EndsWith",
-          "Empty"
-        ],
-        "type": "string"
       },
       "UpdateFulfillmentStatusesResponse": {
         "type": "object",
@@ -2297,194 +1967,24 @@
             "readOnly": true
           },
           "ResultStatus": {
-            "$ref": "#/components/schemas/APIResultStatus"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/APIResultStatus"
+              }
+            ],
+            "readOnly": true
           }
         },
         "additionalProperties": false,
         "description": "A batched API response for OrderFulfillmentStatuses"
-      },
-      "ViewCalculationState": {
-        "enum": [
-          "Calculated",
-          "Calculating",
-          "NotCalculated"
-        ],
-        "type": "string"
-      },
-      "ViewType": {
-        "enum": [
-          "Compact",
-          "Complex"
-        ],
-        "type": "string"
-      },
-      "VisibleField": {
-        "required": [
-          "FieldType",
-          "Filters",
-          "Sorting"
-        ],
-        "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/VisibleFieldBase"
-          }
-        ],
-        "properties": {
-          "CanFilter": {
-            "type": "boolean",
-            "description": "CanFilter",
-            "nullable": true
-          },
-          "CanSort": {
-            "type": "boolean",
-            "description": "CanSort",
-            "nullable": true
-          },
-          "FieldParameters": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FieldParameter"
-            },
-            "description": "FieldParameters",
-            "nullable": true
-          },
-          "FieldType": {
-            "$ref": "#/components/schemas/FieldType"
-          },
-          "Filters": {
-            "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/FieldFilter"
-                },
-                {
-                  "$ref": "#/components/schemas/BooleanFieldFilter"
-                },
-                {
-                  "$ref": "#/components/schemas/DateFieldFilter"
-                },
-                {
-                  "$ref": "#/components/schemas/DecimalFieldFilter"
-                },
-                {
-                  "$ref": "#/components/schemas/IntegerFieldFilter"
-                },
-                {
-                  "$ref": "#/components/schemas/ListFieldFilter"
-                },
-                {
-                  "$ref": "#/components/schemas/TextFieldFilter"
-                }
-              ],
-              "description": "FieldFilter"
-            },
-            "description": "Filters"
-          },
-          "HasFilters": {
-            "type": "boolean",
-            "description": "HasFilters"
-          },
-          "HasSorting": {
-            "type": "boolean",
-            "description": "HasSorting"
-          },
-          "IsDisplay": {
-            "type": "boolean",
-            "description": "IsDisplay",
-            "nullable": true
-          },
-          "IsSubGridField": {
-            "type": "boolean",
-            "description": "IsSubGridField",
-            "nullable": true
-          },
-          "Sorting": {
-            "$ref": "#/components/schemas/FieldSorting"
-          }
-        },
-        "additionalProperties": false,
-        "description": "VisibleField"
-      },
-      "VisibleFieldBase": {
-        "required": [
-          "Code",
-          "IsVisible",
-          "Sequence",
-          "Width"
-        ],
-        "type": "object",
-        "properties": {
-          "Code": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Code"
-          },
-          "Name": {
-            "type": "string",
-            "description": "Name",
-            "nullable": true
-          },
-          "Description": {
-            "type": "string",
-            "description": "Description",
-            "nullable": true
-          },
-          "IsVisible": {
-            "type": "boolean",
-            "description": "IsVisible"
-          },
-          "Width": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Pixel value (eg. 200) for the width\r\nProvide \"*\" to let it sort itself out"
-          },
-          "Sequence": {
-            "maximum": 2147483647,
-            "minimum": 0,
-            "type": "integer",
-            "description": "The ordering of the field",
-            "format": "int32"
-          },
-          "Pinned": {
-            "type": "string",
-            "description": "Sets a pinned status on the field - Null is no pinning",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "VisibleFieldBase"
-      },
-      "VisibleFieldGroup": {
-        "required": [
-          "SubFields"
-        ],
-        "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/VisibleFieldBase"
-          }
-        ],
-        "properties": {
-          "SubFields": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/VisibleField"
-            },
-            "description": "SubFields"
-          }
-        },
-        "additionalProperties": false,
-        "description": "VisibleFieldGroup"
       }
     },
     "securitySchemes": {
-      "Bearer": {
-        "type": "http",
-        "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
+      "Linnworks": {
+        "type": "apiKey",
+        "description": "Please enter into field the token",
+        "name": "Authorization",
+        "in": "header"
       }
     }
   }
