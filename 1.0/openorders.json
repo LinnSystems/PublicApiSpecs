@@ -55,6 +55,51 @@
         ]
       }
     },
+    "/api/OpenOrders/FilterNotProcessedOpenOrders": {
+      "get": {
+        "tags": [
+          "OpenOrders"
+        ],
+        "summary": "FilterNotProcessedOpenOrders",
+        "description": "\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "FilterNotProcessedOpenOrders",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "orderIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FilterNotProcessedOpenOrdersResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/OpenOrders/SearchOrders": {
       "post": {
         "tags": [
@@ -880,6 +925,30 @@
         },
         "Name": {
           "type": "string"
+        }
+      }
+    },
+    "FilterNotProcessedOpenOrdersRequest": {
+      "type": "object",
+      "properties": {
+        "OrderIds": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "FilterNotProcessedOpenOrdersResponse": {
+      "type": "object",
+      "properties": {
+        "OrderIds": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
         }
       }
     },
