@@ -5910,12 +5910,6 @@
     "StockItemLabel": {
       "type": "object",
       "properties": {
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "ItemNumber": {
           "description": "Product SKU",
           "type": "string"
@@ -5943,6 +5937,12 @@
         },
         "LocationId": {
           "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
@@ -6674,25 +6674,25 @@
         "ItemTitle": {
           "type": "string"
         },
-        "ScrapReason": {
-          "type": "string"
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
         },
         "CategoryName": {
           "type": "string"
         },
-        "Quantity": {
-          "format": "int32",
-          "type": "integer"
+        "ScrapReason": {
+          "type": "string"
         },
         "TotalCost": {
           "format": "double",
           "type": "number"
         },
-        "CreatedDate": {
-          "format": "date-time",
+        "UserName": {
           "type": "string"
         },
-        "UserName": {
+        "CreatedDate": {
+          "format": "date-time",
           "type": "string"
         },
         "StockLocationId": {
@@ -7363,13 +7363,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7388,13 +7388,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7425,13 +7425,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7453,13 +7453,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7481,13 +7481,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7508,13 +7508,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7534,13 +7534,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7598,13 +7598,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7903,11 +7903,11 @@
     "ChannelPostalService": {
       "type": "object",
       "properties": {
-        "pkRowId": {
+        "fkChannelId": {
           "format": "int32",
           "type": "integer"
         },
-        "fkChannelId": {
+        "pkRowId": {
           "format": "int32",
           "type": "integer"
         },
@@ -10453,22 +10453,22 @@
     "StockItemChannelSKU": {
       "type": "object",
       "properties": {
-        "SKU": {
-          "description": "Product SKU number",
-          "type": "string"
-        },
-        "SubSource": {
-          "description": "Region code",
-          "type": "string"
-        },
         "ChannelSKURowId": {
           "format": "uuid",
           "description": "RowId of channel SKU",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
+        "SKU": {
+          "description": "Product SKU number",
+          "type": "string"
+        },
         "Source": {
           "description": "ChannelName/Source (e.g. EBAY)",
+          "type": "string"
+        },
+        "SubSource": {
+          "description": "Region code",
           "type": "string"
         },
         "UpdateStatus": {
