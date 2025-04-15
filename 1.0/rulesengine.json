@@ -652,6 +652,47 @@
         ]
       }
     },
+    "/api/RulesEngine/GetAction": {
+      "get": {
+        "tags": [
+          "RulesEngine"
+        ],
+        "summary": "GetAction",
+        "description": "Use this call to return details of an action\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "GetAction",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "pkActionId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RuleActionResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/RulesEngine/GetActionOptions": {
       "get": {
         "tags": [
@@ -728,11 +769,11 @@
         "produces": [],
         "parameters": [
           {
-            "name": "RulesEngine_UpdateActionRequest",
+            "name": "action",
             "in": "body",
-            "required": true,
+            "description": "The details of the updated action. pkActionId and fkConditionId must be unchanged original.",
             "schema": {
-              "$ref": "#/definitions/RulesEngine_UpdateActionRequest"
+              "$ref": "#/definitions/UpdateActionRequest"
             }
           }
         ],
@@ -769,11 +810,11 @@
         ],
         "parameters": [
           {
-            "name": "RulesEngine_AddActionRequest",
+            "name": "action",
             "in": "body",
-            "required": true,
+            "description": "An object describing the action to add.",
             "schema": {
-              "$ref": "#/definitions/RulesEngine_AddActionRequest"
+              "$ref": "#/definitions/CreateActionRequest"
             }
           }
         ],
@@ -781,7 +822,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ActionWeb"
+              "$ref": "#/definitions/RuleActionResponse"
             }
           }
         },
@@ -808,11 +849,11 @@
         "produces": [],
         "parameters": [
           {
-            "name": "RulesEngine_DeleteActionRequest",
+            "name": "action",
             "in": "body",
-            "required": true,
+            "description": "The object holding id of the action to delete",
             "schema": {
-              "$ref": "#/definitions/RulesEngine_DeleteActionRequest"
+              "$ref": "#/definitions/DeleteActionRequest"
             }
           }
         ],
@@ -1464,7 +1505,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/RuleAction"
+              "$ref": "#/definitions/RuleActionResponse"
             }
           }
         },
@@ -1763,19 +1804,19 @@
           "format": "int32",
           "type": "integer"
         },
+        "ConditionName": {
+          "type": "string"
+        },
         "RunOrder": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fkParentConditionId": {
           "format": "int32",
           "type": "integer"
         },
         "Enabled": {
           "type": "boolean"
-        },
-        "ConditionName": {
-          "type": "string"
-        },
-        "fkParentConditionId": {
-          "format": "int32",
-          "type": "integer"
         },
         "Conditions": {
           "type": "array",
@@ -1805,6 +1846,10 @@
           "format": "int32",
           "type": "integer"
         },
+        "fkConditionId": {
+          "format": "int32",
+          "type": "integer"
+        },
         "ActionName": {
           "type": "string"
         },
@@ -1829,10 +1874,6 @@
         },
         "ActionValue": {
           "type": "string"
-        },
-        "fkConditionId": {
-          "format": "int32",
-          "type": "integer"
         },
         "RuleVersion": {
           "format": "int32",
@@ -1872,15 +1913,11 @@
     "ConditionHeaderBasic": {
       "type": "object",
       "properties": {
-        "pkConditionId": {
-          "format": "int32",
-          "type": "integer"
-        },
         "fkParentConditionId": {
           "format": "int32",
           "type": "integer"
         },
-        "fkRuleId": {
+        "pkConditionId": {
           "format": "int32",
           "type": "integer"
         },
@@ -1889,6 +1926,10 @@
         },
         "Enabled": {
           "type": "boolean"
+        },
+        "fkRuleId": {
+          "format": "int32",
+          "type": "integer"
         },
         "Conditions": {
           "type": "array",
@@ -1944,14 +1985,14 @@
           ],
           "type": "string"
         },
+        "KeyValue": {
+          "type": "string"
+        },
         "Values": {
           "type": "array",
           "items": {
             "type": "string"
           }
-        },
-        "KeyValue": {
-          "type": "string"
         }
       }
     },
@@ -2058,30 +2099,16 @@
         }
       }
     },
-    "ActionOption": {
+    "GetActionRequest": {
       "type": "object",
       "properties": {
-        "Icon": {
-          "type": "string"
-        },
-        "Text": {
-          "type": "string"
-        },
-        "Value": {
-          "type": "string"
+        "pkActionId": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },
-    "RulesEngine_UpdateActionRequest": {
-      "type": "object",
-      "properties": {
-        "action": {
-          "$ref": "#/definitions/ActionWeb",
-          "description": "The details of the updated action. pkActionId and fkConditionId must be unchanged original."
-        }
-      }
-    },
-    "ActionWeb": {
+    "RuleActionResponse": {
       "type": "object",
       "properties": {
         "pkActionId": {
@@ -2090,12 +2117,15 @@
         },
         "fkConditionId": {
           "format": "int32",
+          "description": "The condition the action runs on.",
           "type": "integer"
         },
         "ActionName": {
+          "description": "The name of the action",
           "type": "string"
         },
         "ActionType": {
+          "description": "The type of the action",
           "enum": [
             "AssignShippingService",
             "AssignToFolder",
@@ -2115,21 +2145,44 @@
           "type": "string"
         },
         "Properties": {
+          "description": "Data the action needs to run.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ActionWebProperty"
+            "$ref": "#/definitions/ActionPropertyResponse"
           }
         }
       }
     },
-    "ActionWebProperty": {
+    "ActionPropertyResponse": {
       "type": "object",
       "properties": {
         "ActionPropertyId": {
           "format": "int32",
+          "description": "identifier for this action property",
           "type": "integer"
         },
         "DisplayName": {
+          "description": "The name of the property",
+          "type": "string"
+        },
+        "Value": {
+          "description": "The actual data input for the property",
+          "type": "string"
+        },
+        "PropertyGroupId": {
+          "format": "int32",
+          "description": "Property grouping key. Used if there are multiple properties with the same name under one action.",
+          "type": "integer"
+        }
+      }
+    },
+    "ActionOption": {
+      "type": "object",
+      "properties": {
+        "Icon": {
+          "type": "string"
+        },
+        "Text": {
           "type": "string"
         },
         "Value": {
@@ -2137,21 +2190,122 @@
         }
       }
     },
-    "RulesEngine_AddActionRequest": {
-      "type": "object",
-      "properties": {
-        "action": {
-          "$ref": "#/definitions/ActionWeb",
-          "description": "An object describing the action to add."
-        }
-      }
-    },
-    "RulesEngine_DeleteActionRequest": {
+    "UpdateActionRequest": {
       "type": "object",
       "properties": {
         "pkActionId": {
           "format": "int32",
-          "description": "The id of the action to delete",
+          "type": "integer"
+        },
+        "fkConditionId": {
+          "format": "int32",
+          "description": "The condition the action runs on.",
+          "type": "integer"
+        },
+        "ActionName": {
+          "description": "The name of the action",
+          "type": "string"
+        },
+        "ActionType": {
+          "description": "The type of the action",
+          "enum": [
+            "Unknown",
+            "AssignShippingService",
+            "AssignToFolder",
+            "AssignToLocation",
+            "SplitOrderByWeight",
+            "SplitOrderByValue",
+            "SplitOrderSingle",
+            "AssignOrderExtendedProperty",
+            "ChangeOrderLockStatus",
+            "ChangeOrderParkStatus",
+            "AssignTagToOrder",
+            "ExecuteMacro",
+            "AssignIdentifierToOrder",
+            "BlockOrderFromMerging",
+            "SendToFulfillmentNetwork"
+          ],
+          "type": "string"
+        },
+        "Properties": {
+          "description": "Data the action needs to run.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ActionPropertyRequest"
+          }
+        }
+      }
+    },
+    "ActionPropertyRequest": {
+      "type": "object",
+      "properties": {
+        "DisplayName": {
+          "description": "The name of the property",
+          "type": "string"
+        },
+        "Value": {
+          "description": "The actual data input for the property",
+          "type": "string"
+        },
+        "ActionPropertyId": {
+          "format": "int32",
+          "description": "The unique identifier for this action property. If not provided the property will be created as new property.",
+          "type": "integer"
+        },
+        "PropertyGroupId": {
+          "format": "int32",
+          "description": "Property grouping key. Used if there are multiple properties with the same name under one action. Defaults to 1.",
+          "type": "integer"
+        }
+      }
+    },
+    "CreateActionRequest": {
+      "type": "object",
+      "properties": {
+        "fkConditionId": {
+          "format": "int32",
+          "description": "The condition the action runs on.",
+          "type": "integer"
+        },
+        "ActionName": {
+          "description": "The name of the action",
+          "type": "string"
+        },
+        "ActionType": {
+          "description": "The type of the action",
+          "enum": [
+            "Unknown",
+            "AssignShippingService",
+            "AssignToFolder",
+            "AssignToLocation",
+            "SplitOrderByWeight",
+            "SplitOrderByValue",
+            "SplitOrderSingle",
+            "AssignOrderExtendedProperty",
+            "ChangeOrderLockStatus",
+            "ChangeOrderParkStatus",
+            "AssignTagToOrder",
+            "ExecuteMacro",
+            "AssignIdentifierToOrder",
+            "BlockOrderFromMerging",
+            "SendToFulfillmentNetwork"
+          ],
+          "type": "string"
+        },
+        "Properties": {
+          "description": "Data the action needs to run.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ActionPropertyRequest"
+          }
+        }
+      }
+    },
+    "DeleteActionRequest": {
+      "type": "object",
+      "properties": {
+        "pkActionId": {
+          "format": "int32",
           "type": "integer"
         }
       }
@@ -2400,11 +2554,6 @@
     "RulesEngine_CopyActionRequest": {
       "type": "object",
       "properties": {
-        "pkRuleId": {
-          "format": "int32",
-          "description": "The rule which the action belongs to.",
-          "type": "integer"
-        },
         "targetParentConditionId": {
           "format": "int32",
           "description": "The condition to add the action to.",
