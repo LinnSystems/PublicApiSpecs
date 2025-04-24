@@ -9358,6 +9358,9 @@
         "additionalProperties": false
       },
       "SetPrepCategoryRequestInput": {
+        "required": [
+          "items"
+        ],
         "type": "object",
         "properties": {
           "items": {
@@ -9365,12 +9368,16 @@
             "items": {
               "$ref": "#/components/schemas/SetPrepCategoryRequestItem"
             },
-            "nullable": true
           }
         },
         "additionalProperties": false
       },
       "SetPrepCategoryRequestItem": {
+        "required": [
+          "prepCategory",
+          "prepTypes",
+          "shipmentItemId"
+        ],
         "type": "object",
         "properties": {
           "shipmentItemId": {
@@ -9385,7 +9392,6 @@
             "items": {
               "$ref": "#/components/schemas/PreparationType"
             },
-            "nullable": true
           }
         },
         "additionalProperties": false
