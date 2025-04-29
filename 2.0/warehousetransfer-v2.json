@@ -9367,7 +9367,7 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SetPrepCategoryRequestItem"
-            },
+            }
           }
         },
         "additionalProperties": false
@@ -9391,7 +9391,7 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PreparationType"
-            },
+            }
           }
         },
         "additionalProperties": false
