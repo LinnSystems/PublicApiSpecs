@@ -2827,7 +2827,7 @@
         ]
       }
     },
-    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/{shipmentId}/box-trackings/{shipmentBoxTrackingId}/tracking-number": {
+    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/{shipmentId}/box-trackings/{shipmentBoxTrackingId}": {
       "patch": {
         "tags": [
           "ShipmentBoxTracking"
@@ -9579,6 +9579,22 @@
       "ShipmentBoxTrackingExtendedModel": {
         "type": "object",
         "properties": {
+          "shipmentBoxTrackings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShipmentBoxTrackingModel"
+            },
+            "nullable": true
+          },
+          "shipmentBox": {
+            "$ref": "#/components/schemas/ShipmentBoxModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShipmentBoxTrackingModel": {
+        "type": "object",
+        "properties": {
           "shipmentBoxTrackingId": {
             "type": "integer",
             "format": "int32"
@@ -9612,32 +9628,6 @@
           "packageId": {
             "type": "string",
             "nullable": true
-          },
-          "boxName": {
-            "type": "string",
-            "nullable": true
-          },
-          "boxHeight": {
-            "type": "number",
-            "format": "double"
-          },
-          "boxLength": {
-            "type": "number",
-            "format": "double"
-          },
-          "boxWidth": {
-            "type": "number",
-            "format": "double"
-          },
-          "boxWeight": {
-            "type": "number",
-            "format": "double"
-          },
-          "boxMeasurementUnit": {
-            "$ref": "#/components/schemas/UnitOfMeasurement"
-          },
-          "boxWeightUnit": {
-            "$ref": "#/components/schemas/UnitOfWeight"
           }
         },
         "additionalProperties": false
