@@ -220,6 +220,57 @@
         ]
       }
     },
+    "/api/ShippingService/GetShippingQuote": {
+      "get": {
+        "tags": [
+          "ShippingService"
+        ],
+        "summary": "GetShippingQuote",
+        "description": "Get shipping quote for a single order. The request specifies the order id and list of integrated services for which the shipping quote should be run. You can get the list of all integrated services in ShippingService/GetIntegrations \r\nOnce a list of services obtained you can use ShippingService/SetShippingMethodFromQuote call to set the selected shipping service for an order\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.ShippingQuoteNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>5</b></span> / minute",
+        "operationId": "GetShippingQuote",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request.pkOrderId",
+            "in": "query",
+            "description": "Unique Order Identifier for which the shipping quote will be run",
+            "required": false,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "request.accounts",
+            "in": "query",
+            "description": "List of Integrated accounts to include in the shipping quote. Only shipping integrations that support shipping quotes will be used.",
+            "required": false,
+            "type": "array",
+            "items": {},
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetShippingQuoteResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/ShippingService/CancelOrderShippingLabel": {
       "post": {
         "tags": [
@@ -650,27 +701,20 @@
           "format": "int32",
           "type": "integer"
         },
+        "Date": {
+          "format": "date-time",
+          "type": "string"
+        },
         "ExternalManifestId": {
           "format": "uuid",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
-        "NumConsignments": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "Date": {
-          "format": "date-time",
+        "Reference": {
           "type": "string"
         },
         "IsError": {
           "type": "boolean"
-        },
-        "IsComplete": {
-          "type": "boolean"
-        },
-        "Reference": {
-          "type": "string"
         },
         "Vendor": {
           "type": "string"
@@ -678,9 +722,214 @@
         "AccountId": {
           "type": "string"
         },
+        "NumConsignments": {
+          "format": "int32",
+          "type": "integer"
+        },
         "fkShippingAPIConfigId": {
           "format": "int32",
           "type": "integer"
+        },
+        "IsComplete": {
+          "type": "boolean"
+        }
+      }
+    },
+    "GetShippingQuoteRequest": {
+      "description": "Request class for GetShippingQuote",
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "description": "Unique Order Identifier for which the shipping quote will be run",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Accounts": {
+          "description": "List of Integrated accounts to include in the shipping quote. Only shipping integrations that support shipping quotes will be used.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShippingQuoteAccounts"
+          }
+        }
+      }
+    },
+    "ShippingQuoteAccounts": {
+      "description": "Integration account for shipping quote request",
+      "type": "object",
+      "properties": {
+        "Vendor": {
+          "description": "Vendor name",
+          "type": "string"
+        },
+        "AccountId": {
+          "description": "Account Id",
+          "type": "string"
+        },
+        "VendorFriendlyName": {
+          "description": "VendorFriendlyName",
+          "type": "string"
+        }
+      }
+    },
+    "GetShippingQuoteResponse": {
+      "description": "Shipping quote response",
+      "type": "object",
+      "properties": {
+        "pkOrderId": {
+          "format": "uuid",
+          "description": "Unique order identifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Quotes": {
+          "description": "List of quotes",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShippingQuoteVendor"
+          }
+        },
+        "Errors": {
+          "description": "List of errors",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShippingQuoteVendorError"
+          }
+        }
+      }
+    },
+    "ShippingQuoteVendor": {
+      "description": "Single shipping quote",
+      "type": "object",
+      "properties": {
+        "Vendor": {
+          "description": "Vendor identifier",
+          "type": "string"
+        },
+        "FriendlyName": {
+          "description": "Vendor friendly name",
+          "type": "string"
+        },
+        "ServiceVendor": {
+          "description": "Service vendor name",
+          "type": "string"
+        },
+        "IconURL": {
+          "description": "Vendor icon",
+          "type": "string"
+        },
+        "AccountId": {
+          "description": "Integration Account Id",
+          "type": "string"
+        },
+        "ServiceName": {
+          "description": "Service Name",
+          "type": "string"
+        },
+        "ServiceCode": {
+          "description": "Service Code",
+          "type": "string"
+        },
+        "ServiceId": {
+          "format": "uuid",
+          "description": "Service Id - must be unique from the shipping integration",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ServiceTag": {
+          "description": "Service tag, normally this will match the ServiceCode",
+          "type": "string"
+        },
+        "CollectionDate": {
+          "format": "date-time",
+          "description": "Earliest available collection date. If the courier doesn't support collection, this will be returned as current UTC time",
+          "type": "string"
+        },
+        "EstimatedDeliveryDate": {
+          "format": "date-time",
+          "description": "Estimated delivery date",
+          "type": "string"
+        },
+        "Currency": {
+          "description": "Shipping quote currency",
+          "type": "string"
+        },
+        "Cost": {
+          "format": "double",
+          "description": "Shipping quote cost  (excluding tax)",
+          "type": "number"
+        },
+        "Tax": {
+          "format": "double",
+          "description": "Shipping quote tax",
+          "type": "number"
+        },
+        "TotalCost": {
+          "format": "double",
+          "description": "Total shipping cost  (including tax)",
+          "type": "number"
+        },
+        "PropertyItem": {
+          "description": "List of shipping quote properties",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QuoteProperty"
+          }
+        },
+        "Options": {
+          "description": "List of shipping quote options",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QuoteServieOption"
+          }
+        }
+      }
+    },
+    "ShippingQuoteVendorError": {
+      "type": "object",
+      "properties": {
+        "Vendor": {
+          "type": "string"
+        },
+        "FriendlyName": {
+          "type": "string"
+        },
+        "IconURL": {
+          "type": "string"
+        },
+        "AccountId": {
+          "type": "string"
+        },
+        "ErrorMessage": {
+          "type": "string"
+        }
+      }
+    },
+    "QuoteProperty": {
+      "description": "Shipping quote property",
+      "type": "object",
+      "properties": {
+        "Title": {
+          "description": "Property title",
+          "type": "string"
+        },
+        "Value": {
+          "description": "Property value",
+          "type": "string"
+        }
+      }
+    },
+    "QuoteServieOption": {
+      "description": "Shipping quote service options",
+      "type": "object",
+      "properties": {
+        "OptionName": {
+          "description": "Options name",
+          "type": "string"
+        },
+        "OptionValue": {
+          "description": "Options value",
+          "type": "string"
         }
       }
     },
