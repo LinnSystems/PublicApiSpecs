@@ -6473,11 +6473,6 @@
         "ForceReSaveFulfilledOrder": {
           "description": "Bool to re-save order",
           "type": "boolean"
-        },
-        "PIIRedactionDays": {
-          "format": "int32",
-          "description": "Days after order is processed when PII data will get redacted - NULL/Not Supplied will never redact",
-          "type": "integer"
         }
       }
     },
@@ -8770,6 +8765,11 @@
           "format": "double",
           "type": "number"
         },
+        "Rowguid": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
         "Width": {
           "format": "double",
           "type": "number"
@@ -8781,11 +8781,6 @@
         "Depth": {
           "format": "double",
           "type": "number"
-        },
-        "Rowguid": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
         }
       }
     },
