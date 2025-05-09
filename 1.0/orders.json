@@ -6473,6 +6473,11 @@
         "ForceReSaveFulfilledOrder": {
           "description": "Bool to re-save order",
           "type": "boolean"
+        },
+        "PIIRedactionDays": {
+          "format": "int32",
+          "description": "Days after order is processed when PII data will get redacted - NULL/Not Supplied will never redact",
+          "type": "integer"
         }
       }
     },
