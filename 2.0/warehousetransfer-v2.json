@@ -5,20 +5,20 @@
     "description": "Warehouse Transfer v2",
     "version": "v2"
   },
-  "servers": [
-    {
-      "url": "https://eu-api.linnworks.net/v2/",
-      "description": "EU Server"
-    },
-    {
-      "url": "https://eu-api.linnworks.net/v2/",
-      "description": "US Server"
-    },
-    {
-      "url": "https://eu-api.linnworks.net/v2/",
-      "description": "AS Server"
-    }
-  ],
+    "servers": [
+        {
+            "url": "https://eu-api.linnworks.net/v2/",
+            "description": "EU Server"
+        },
+        {
+            "url": "https://us-api.linnworks.net/v2/",
+            "description": "US Server"
+        },
+        {
+            "url": "https://as-api.linnworks.net/v2/",
+            "description": "AS Server"
+        }
+    ],
   "paths": {
     "/warehousetransfer/fba-inbound/channels/{channelId}": {
       "get": {
