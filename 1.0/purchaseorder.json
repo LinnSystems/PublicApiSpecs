@@ -4249,6 +4249,35 @@
       "description": "Purchase order additional cost item",
       "type": "object",
       "properties": {
+        "PurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "description": "Unique record id",
+          "type": "integer"
+        },
+        "AdditionalCostTypeId": {
+          "format": "int32",
+          "description": "Additional cost type Id",
+          "type": "integer"
+        },
+        "Reference": {
+          "description": "Additional cost reference",
+          "type": "string"
+        },
+        "SubTotalLineCost": {
+          "format": "double",
+          "description": "Line Subtotal (Total less tax)",
+          "type": "number"
+        },
+        "TaxRate": {
+          "format": "double",
+          "description": "Tax rate",
+          "type": "number"
+        },
+        "Tax": {
+          "format": "double",
+          "description": "Tax amount",
+          "type": "number"
+        },
         "Currency": {
           "description": "Currency code",
           "type": "string"
@@ -4297,35 +4326,6 @@
             "ByCBM"
           ],
           "type": "string"
-        },
-        "PurchaseAdditionalCostItemId": {
-          "format": "int32",
-          "description": "Unique record id",
-          "type": "integer"
-        },
-        "AdditionalCostTypeId": {
-          "format": "int32",
-          "description": "Additional cost type Id",
-          "type": "integer"
-        },
-        "Reference": {
-          "description": "Additional cost reference",
-          "type": "string"
-        },
-        "SubTotalLineCost": {
-          "format": "double",
-          "description": "Line Subtotal (Total less tax)",
-          "type": "number"
-        },
-        "TaxRate": {
-          "format": "double",
-          "description": "Tax rate",
-          "type": "number"
-        },
-        "Tax": {
-          "format": "double",
-          "description": "Tax amount",
-          "type": "number"
         }
       }
     },
