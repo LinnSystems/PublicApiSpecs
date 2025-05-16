@@ -20,6 +20,80 @@
         }
     ],
   "paths": {
+    "/api/v1/fbainbound/fbatransfercards/metadata": {
+      "get": {
+        "tags": [
+          "FbaTransferCards"
+        ],
+        "summary": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
+        "parameters": [
+          {
+            "name": "x-api-version",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetViewMetaDataResponse"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Success"
+          },
+          "204": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true,
+        "security": [
+          {
+            "OAuth2": [
+              "OAuth2"
+            ],
+            "Linnworks": [ ]
+          }
+        ]
+      }
+    },
     "/api/v1/Import/upload/{importType}": {
       "post": {
         "tags": [
@@ -2686,6 +2760,23 @@
         },
         "additionalProperties": false
       },
+      "CsvSeparator": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/CsvSeparatorType"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CsvSeparatorType": {
         "enum": [
           0
@@ -2734,6 +2825,23 @@
         },
         "additionalProperties": false
       },
+      "GetViewMetaDataResponse": {
+        "type": "object",
+        "properties": {
+          "importMetaFields": {
+            "$ref": "#/components/schemas/ShipmentItemsImportMetaFields"
+          },
+          "amazonPartneredCarrierSupportedCountries": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "This model contains metadata which used by fba and warehouse transfers views"
+      },
       "ImportColumnStockRequestMappingModel": {
         "type": "object",
         "properties": {
@@ -2759,6 +2867,20 @@
           }
         },
         "additionalProperties": false
+      },
+      "ImportProductColumn": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "ImportProductsToStockRequestRequest": {
         "type": "object",
@@ -3120,6 +3242,61 @@
         },
         "additionalProperties": false
       },
+      "ShipmentItemImportRow": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ImportProductColumn"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "sample": {
+            "type": "string",
+            "nullable": true
+          },
+          "group": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShipmentItemsImportMetaFields": {
+        "type": "object",
+        "properties": {
+          "csvSeparatorMappings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CsvSeparator"
+            },
+            "nullable": true
+          },
+          "shipmentItemRows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShipmentItemImportRow"
+            },
+            "nullable": true
+          },
+          "stockRequestItemRows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StockRequestItemImportRow"
+            },
+            "nullable": true
+          },
+          "stockTransferItemRows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StockTransferItemImportRow"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "StockItemBatchResponse": {
         "type": "object",
         "properties": {
@@ -3286,6 +3463,48 @@
         },
         "additionalProperties": false,
         "description": "Order item object"
+      },
+      "StockRequestItemImportRow": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ImportStockRequestColumn"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "sample": {
+            "type": "string",
+            "nullable": true
+          },
+          "group": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StockTransferItemImportRow": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ImportStockTransferColumn"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "sample": {
+            "type": "string",
+            "nullable": true
+          },
+          "group": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
       },
       "TransferItemBatchViewModel": {
         "type": "object",
@@ -3704,18 +3923,6 @@
       }
     },
     "securitySchemes": {
-      "OAuth2": {
-        "type": "oauth2",
-        "flows": {
-          "authorizationCode": {
-            "authorizationUrl": "https://dev-login.linnworks.net/connect/authorize",
-            "tokenUrl": "https://dev-login.linnworks.net/connect/token",
-            "scopes": {
-              "ms_warehousetransfer": "WarehouseTransfer Microservice"
-            }
-          }
-        }
-      },
       "Linnworks": {
         "type": "apiKey",
         "description": "Please enter into field the token",
