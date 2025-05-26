@@ -2395,6 +2395,53 @@
         },
         "UseNewApi": {
           "type": "boolean"
+        },
+        "TemplateValidationErrors": {
+          "type": "object",
+          "properties": {
+            "ValidationError": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "StockError": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "PricingError": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "AttributesError": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "ApiError": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "SystemError": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "SerializableTemplateValidationErrors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TemplateError"
+          }
         }
       }
     },
@@ -2534,6 +2581,28 @@
           "type": "string"
         },
         "Values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "TemplateError": {
+      "type": "object",
+      "properties": {
+        "Category": {
+          "enum": [
+            "ValidationError",
+            "StockError",
+            "PricingError",
+            "AttributesError",
+            "ApiError",
+            "SystemError"
+          ],
+          "type": "string"
+        },
+        "Errors": {
           "type": "array",
           "items": {
             "type": "string"
