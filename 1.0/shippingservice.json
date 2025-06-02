@@ -226,7 +226,7 @@
           "ShippingService"
         ],
         "summary": "GetShippingQuote",
-        "description": "Get shipping quote for a single order. The request specifies the order id and list of integrated services for which the shipping quote should be run. You can get the list of all integrated services in ShippingService/GetIntegrations \r\nOnce a list of services obtained you can use ShippingService/SetShippingMethodFromQuote call to set the selected shipping service for an order\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.ShippingQuoteNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>5</b></span> / minute",
+        "description": "Get shipping quote for a single order. The request specifies the order id and list of integrated services for which the shipping quote should be run. You can get the list of all integrated services in ShippingService/GetIntegrations \r\nOnce a list of services obtained you can use ShippingService/SetShippingMethodFromQuote call to set the selected shipping service for an order\n<b>Permissions Required: </b> GlobalPermissions.ShippingService.ShippingQuoteNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>100</b></span> / minute",
         "operationId": "GetShippingQuote",
         "consumes": [],
         "produces": [
