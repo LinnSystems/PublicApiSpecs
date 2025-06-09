@@ -729,7 +729,8 @@
               "AssignIdentifierToOrder",
               "BlockOrderFromMerging",
               "SendToFulfillmentNetwork",
-              "SetDispatchDate"
+              "SetDispatchDate",
+              "AddItemToOrder"
             ]
           }
         ],
@@ -1868,7 +1869,8 @@
             "AssignIdentifierToOrder",
             "BlockOrderFromMerging",
             "SendToFulfillmentNetwork",
-            "SetDispatchDate"
+            "SetDispatchDate",
+            "AddItemToOrder"
           ],
           "type": "string"
         },
@@ -1989,14 +1991,14 @@
           ],
           "type": "string"
         },
-        "KeyValue": {
-          "type": "string"
-        },
         "Values": {
           "type": "array",
           "items": {
             "type": "string"
           }
+        },
+        "KeyValue": {
+          "type": "string"
         }
       }
     },
@@ -2019,7 +2021,8 @@
             "AssignIdentifierToOrder",
             "BlockOrderFromMerging",
             "SendToFulfillmentNetwork",
-            "SetDispatchDate"
+            "SetDispatchDate",
+            "AddItemToOrder"
           ],
           "type": "string"
         },
@@ -2153,7 +2156,8 @@
             "AssignIdentifierToOrder",
             "BlockOrderFromMerging",
             "SendToFulfillmentNetwork",
-            "SetDispatchDate"
+            "SetDispatchDate",
+            "AddItemToOrder"
           ],
           "type": "string"
         },
@@ -2237,7 +2241,8 @@
             "AssignIdentifierToOrder",
             "BlockOrderFromMerging",
             "SendToFulfillmentNetwork",
-            "SetDispatchDate"
+            "SetDispatchDate",
+            "AddItemToOrder"
           ],
           "type": "string"
         },
@@ -2303,7 +2308,8 @@
             "AssignIdentifierToOrder",
             "BlockOrderFromMerging",
             "SendToFulfillmentNetwork",
-            "SetDispatchDate"
+            "SetDispatchDate",
+            "AddItemToOrder"
           ],
           "type": "string"
         },
