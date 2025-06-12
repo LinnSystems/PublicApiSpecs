@@ -1,40 +1,32 @@
 {
-    "openapi": "3.0.1",
-    "info": {
-        "title": "Warehouse Transfer",
-        "description": "Warehouse Transfer v1",
-        "version": "v1"
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Warehouse Transfer",
+    "description": "Warehouse Transfer v1",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://eu-api.linnworks.net/v1/",
+      "description": "EU Server"
     },
-    "servers": [
-        {
-            "url": "https://eu-api.linnworks.net/v1/",
-            "description": "EU Server"
-        },
-        {
-            "url": "https://us-api.linnworks.net/v1/",
-            "description": "US Server"
-        },
-        {
-            "url": "https://as-api.linnworks.net/v1/",
-            "description": "AS Server"
-        }
-    ],
+    {
+      "url": "https://us-api.linnworks.net/v1/",
+      "description": "US Server"
+    },
+    {
+      "url": "https://as-api.linnworks.net/v1/",
+      "description": "AS Server"
+    }
+  ],
   "paths": {
-    "/api/v1/fbainbound/fbatransfercards/metadata": {
+    "/warehousetransfer/fbainbound/fbatransfercards/metadata": {
       "get": {
         "tags": [
           "FbaTransferCards"
         ],
-        "summary": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "summary": "GetMetaData",
+        "description": "Deprecated - please use v2 - [API Docs v2](https://apidocs.linnworks.net/v2/)",
         "responses": {
           "200": {
             "description": "Success",
@@ -86,19 +78,17 @@
         "deprecated": true,
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/v1/Import/upload/{importType}": {
+    "/warehousetransfer/Import/upload/{importType}": {
       "post": {
         "tags": [
           "Import"
         ],
+        "summary": "UploadCsv",
         "parameters": [
           {
             "name": "importType",
@@ -106,13 +96,6 @@
             "required": true,
             "schema": {
               "$ref": "#/components/schemas/ImportType"
-            }
-          },
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
             }
           }
         ],
@@ -176,31 +159,22 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/v1/Import/importstockrequestitems/{transferId}": {
+    "/warehousetransfer/Import/importstockrequestitems/{transferId}": {
       "post": {
         "tags": [
           "Import"
         ],
+        "summary": "ImportCsv",
         "parameters": [
           {
             "name": "transferId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-api-version",
-            "in": "header",
             "schema": {
               "type": "string"
             }
@@ -290,31 +264,22 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/v1/Import/importstocktransferitems/{transferId}": {
+    "/warehousetransfer/Import/importstocktransferitems/{transferId}": {
       "post": {
         "tags": [
           "Import"
         ],
+        "summary": "ImportCsv",
         "parameters": [
           {
             "name": "transferId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-api-version",
-            "in": "header",
             "schema": {
               "type": "string"
             }
@@ -404,20 +369,18 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/v1/stock": {
+    "/warehousetransfer/stock": {
       "get": {
         "tags": [
           "StockItem"
         ],
-        "summary": "Used to get stock items by channelId",
+        "summary": "FindStockItem",
+        "description": "Used to get stock items by channelId",
         "parameters": [
           {
             "name": "keyword",
@@ -476,13 +439,6 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32"
-            }
-          },
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
             }
           }
         ],
@@ -546,20 +502,18 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/v1/stock/FindWarehouseTransferStockItems": {
+    "/warehousetransfer/stock/FindWarehouseTransferStockItems": {
       "get": {
         "tags": [
           "StockItem"
         ],
-        "summary": "Used to get stock items for warehouse transfer",
+        "summary": "FindWarehouseTransferStockItems",
+        "description": "Used to get stock items for warehouse transfer",
         "parameters": [
           {
             "name": "keyword",
@@ -614,13 +568,6 @@
           {
             "name": "sortDirection",
             "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-api-version",
-            "in": "header",
             "schema": {
               "type": "string"
             }
@@ -686,29 +633,17 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/AddItem": {
+    "/warehousetransfer/transfers/AddItem": {
       "put": {
         "tags": [
           "WarehouseTransfer"
         ],
-        "summary": "Use this call to add an item to the stock transfer (only works for transfers in draft/request states)",
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "description": "Use this call to add an item to the stock transfer (only works for transfers in draft/request states)",
         "requestBody": {
           "content": {
             "application/json-patch+json; x-api-version=1.0": {
@@ -777,27 +712,15 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/AddItemBatches": {
+    "/warehousetransfer/transfers/AddItemBatches": {
       "post": {
         "tags": [
           "WarehouseTransfer"
-        ],
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "requestBody": {
           "content": {
@@ -867,27 +790,15 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/AddItemsInBulk": {
+    "/warehousetransfer/transfers/AddItemsInBulk": {
       "post": {
         "tags": [
           "WarehouseTransfer"
-        ],
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "requestBody": {
           "content": {
@@ -957,29 +868,17 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/CheckForDraftTransfer": {
+    "/warehousetransfer/transfers/CheckForDraftTransfer": {
       "put": {
         "tags": [
           "WarehouseTransfer"
         ],
-        "summary": "Use this call to see if a draft transfer already exists for the two locations",
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "description": "Use this call to see if a draft transfer already exists for the two locations",
         "requestBody": {
           "content": {
             "application/json-patch+json; x-api-version=1.0": {
@@ -1049,29 +948,17 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/CreateTransfer": {
+    "/warehousetransfer/transfers/CreateTransfer": {
       "post": {
         "tags": [
           "WarehouseTransfer"
         ],
-        "summary": "Use this call to create a new transfer request with default reference number",
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "description": "Use this call to create a new transfer request with default reference number",
         "requestBody": {
           "content": {
             "application/json-patch+json; x-api-version=1.0": {
@@ -1140,29 +1027,17 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/DeleteItems": {
+    "/warehousetransfer/transfers/DeleteItems": {
       "delete": {
         "tags": [
           "WarehouseTransfer"
         ],
-        "summary": "Use this call to remove items from a stock transfer.",
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "description": "Use this call to remove items from a stock transfer.",
         "requestBody": {
           "content": {
             "application/json-patch+json; x-api-version=1.0": {
@@ -1232,29 +1107,17 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/DeleteWarehouseTransfer": {
+    "/warehousetransfer/transfers/DeleteWarehouseTransfer": {
       "delete": {
         "tags": [
           "WarehouseTransfer"
         ],
-        "summary": "Use this call to delete a stock transfer",
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "description": "Use this call to delete a stock transfer",
         "requestBody": {
           "content": {
             "application/json-patch+json; x-api-version=1.0": {
@@ -1324,28 +1187,16 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/ArchiveWarehouseTransfer": {
+    "/warehousetransfer/transfers/ArchiveWarehouseTransfer": {
       "put": {
         "tags": [
           "WarehouseTransfer"
         ],
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "requestBody": {
           "content": {
             "application/json-patch+json; x-api-version=1.0": {
@@ -1415,20 +1266,17 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/GetListTransfers": {
+    "/warehousetransfer/transfers/GetListTransfers": {
       "get": {
         "tags": [
           "WarehouseTransfer"
         ],
-        "summary": "Use this call to retrieve a list of items on  the order and request/sent/received levels. This method will return multiple entries for a single item if the item exists in multiple bins.",
+        "description": "Use this call to retrieve a list of items on  the order and request/sent/received levels. This method will return multiple entries for a single item if the item exists in multiple bins.",
         "parameters": [
           {
             "name": "ids",
@@ -1441,13 +1289,6 @@
                 "format": "int32"
               }
             }
-          },
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -1494,29 +1335,17 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/GetTransferCards": {
+    "/warehousetransfer/transfers/GetTransferCards": {
       "get": {
         "tags": [
           "WarehouseTransfer"
         ],
-        "summary": "Getting all warehouse transfers with stock item details for searching",
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "description": "Getting all warehouse transfers with stock item details for searching",
         "responses": {
           "200": {
             "description": "Success",
@@ -1571,15 +1400,12 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/GetTransferCardsByLocation": {
+    "/warehousetransfer/transfers/GetTransferCardsByLocation": {
       "get": {
         "tags": [
           "WarehouseTransfer"
@@ -1592,13 +1418,6 @@
               "type": "string",
               "format": "uuid"
             }
-          },
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -1655,15 +1474,12 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/GetTransferItemBatches/{transferId}": {
+    "/warehousetransfer/transfers/GetTransferItemBatches/{transferId}": {
       "get": {
         "tags": [
           "WarehouseTransfer"
@@ -1694,13 +1510,6 @@
             "in": "query",
             "schema": {
               "$ref": "#/components/schemas/TransferLocationType"
-            }
-          },
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
             }
           }
         ],
@@ -1758,20 +1567,17 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/GetTransferItems": {
+    "/warehousetransfer/transfers/GetTransferItems": {
       "put": {
         "tags": [
           "WarehouseTransfer"
         ],
-        "summary": "Getting warehouse transfers for appropriate location with stock item details for searching",
+        "description": "Getting warehouse transfers for appropriate location with stock item details for searching",
         "parameters": [
           {
             "name": "pkTransferId",
@@ -1780,13 +1586,6 @@
             "schema": {
               "type": "integer",
               "format": "int32"
-            }
-          },
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
             }
           }
         ],
@@ -1834,29 +1633,17 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/UpdateFromLocation": {
+    "/warehousetransfer/transfers/UpdateFromLocation": {
       "put": {
         "tags": [
           "WarehouseTransfer"
         ],
-        "summary": "Use this call to update the from location of a transfer.",
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "description": "Use this call to update the from location of a transfer.",
         "requestBody": {
           "content": {
             "application/json-patch+json; x-api-version=1.0": {
@@ -1926,29 +1713,17 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/UpdateItemReceivedQuantity": {
+    "/warehousetransfer/transfers/UpdateItemReceivedQuantity": {
       "put": {
         "tags": [
           "WarehouseTransfer"
         ],
-        "summary": "Use this call to change the received quantity of a stock transfer item, adjusting stock levels.",
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "description": "Use this call to change the received quantity of a stock transfer item, adjusting stock levels.",
         "requestBody": {
           "content": {
             "application/json-patch+json; x-api-version=1.0": {
@@ -2018,29 +1793,17 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/UpdateItemRequestedQuantity": {
+    "/warehousetransfer/transfers/UpdateItemRequestedQuantity": {
       "put": {
         "tags": [
           "WarehouseTransfer"
         ],
-        "summary": "Use this call to change the received quantity of a stock transfer item, adjusting stock levels.",
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "description": "Use this call to change the received quantity of a stock transfer item, adjusting stock levels.",
         "requestBody": {
           "content": {
             "application/json-patch+json; x-api-version=1.0": {
@@ -2110,29 +1873,17 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/UpdateItemSentQuantity": {
+    "/warehousetransfer/transfers/UpdateItemSentQuantity": {
       "put": {
         "tags": [
           "WarehouseTransfer"
         ],
-        "summary": "Use this call to change the sent quantity of a stock transfer item, adjusting stock levels.",
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "description": "Use this call to change the sent quantity of a stock transfer item, adjusting stock levels.",
         "requestBody": {
           "content": {
             "application/json-patch+json; x-api-version=1.0": {
@@ -2201,29 +1952,17 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/UpdateStatus": {
+    "/warehousetransfer/transfers/UpdateStatus": {
       "put": {
         "tags": [
           "WarehouseTransfer"
         ],
-        "summary": "Use this call to change a transfers status",
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "description": "Use this call to change a transfers status",
         "requestBody": {
           "content": {
             "application/json-patch+json; x-api-version=1.0": {
@@ -2293,29 +2032,17 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/UpdateToLocation": {
+    "/warehousetransfer/transfers/UpdateToLocation": {
       "put": {
         "tags": [
           "WarehouseTransfer"
         ],
-        "summary": "Use this call to update the to location of a transfer.",
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "description": "Use this call to update the to location of a transfer.",
         "requestBody": {
           "content": {
             "application/json-patch+json; x-api-version=1.0": {
@@ -2385,27 +2112,15 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/AddItemReceivedBatches": {
+    "/warehousetransfer/transfers/AddItemReceivedBatches": {
       "post": {
         "tags": [
           "WarehouseTransfer"
-        ],
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "requestBody": {
           "content": {
@@ -2475,29 +2190,17 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
       }
     },
-    "/api/WarehouseTransfer/ReceiveSelectedTransferItemsForWMS": {
+    "/warehousetransfer/transfers/ReceiveSelectedTransferItemsForWMS": {
       "post": {
         "tags": [
           "WarehouseTransfer"
         ],
-        "summary": "Use this call to update transfer item receive quantity with the sent quantity for WMS location",
-        "parameters": [
-          {
-            "name": "x-api-version",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "description": "Use this call to update transfer item receive quantity with the sent quantity for WMS location",
         "requestBody": {
           "description": "",
           "content": {
@@ -2576,9 +2279,6 @@
         },
         "security": [
           {
-            "OAuth2": [
-              "OAuth2"
-            ],
             "Linnworks": [ ]
           }
         ]
@@ -2695,6 +2395,7 @@
           3
         ],
         "type": "integer",
+        "description": "Possible values are:  Available=0; Damaged=1; Expired=2; Restricted=3;",
         "format": "int32"
       },
       "BinRackResponse": {
@@ -2783,6 +2484,7 @@
           0
         ],
         "type": "integer",
+        "description": "Possible values are:  Comma=0;",
         "format": "int32"
       },
       "DeleteItemsRequest": {
@@ -2881,6 +2583,7 @@
           7
         ],
         "type": "integer",
+        "description": "Possible values are:  SKU=0; SellerSKU=1; ASIN=2; QuantityToShip=3; BatchNumber=4; LabelOwner=5; PrepOwner=6; ExpirationDate=7;",
         "format": "int32"
       },
       "ImportProductsToStockRequestRequest": {
@@ -2967,6 +2670,7 @@
           1
         ],
         "type": "integer",
+        "description": "Possible values are:  SKU=0; QuantityToRequest=1;",
         "format": "int32"
       },
       "ImportStockRequestSettingModel": {
@@ -2995,6 +2699,7 @@
           2
         ],
         "type": "integer",
+        "description": "Possible values are:  SKU=0; QuantityToSend=1; BatchNumber=2;",
         "format": "int32"
       },
       "ImportStockTransferSettingModel": {
@@ -3024,6 +2729,7 @@
           3
         ],
         "type": "integer",
+        "description": "Possible values are:  ShippingPlan=0; StockRequest=1; StockTransfer=2; FbaInboundShippingPlan=3;",
         "format": "int32"
       },
       "ItemBatchModel": {
@@ -3635,6 +3341,7 @@
           1
         ],
         "type": "integer",
+        "description": "Possible values are:  ShipFrom=0; Destination=1;",
         "format": "int32"
       },
       "TransferStatus": {
