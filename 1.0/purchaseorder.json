@@ -1905,11 +1905,6 @@
           "description": "Identified whether the PO is locked. This is for external application use only.",
           "type": "boolean"
         },
-        "UnitAmountTaxIncludedType": {
-          "format": "int32",
-          "description": "Unit amount includes,exclud or no tax. 0 - Tax Exclusive cost, 1 - Cost Inclusive of tax, 2 - No Tax",
-          "type": "integer"
-        },
         "LineCount": {
           "format": "int32",
           "description": "Number of items in the purchase order",
@@ -1918,6 +1913,11 @@
         "DeliveredLinesCount": {
           "format": "int32",
           "description": "Count of all purchase order lines which are delivered \r\n(lines where some but not all of the stock has been received are counted as undelivered)",
+          "type": "integer"
+        },
+        "UnitAmountTaxIncludedType": {
+          "format": "int32",
+          "description": "Unit amount includes,exclud or no tax. 0 - Tax Exclusive cost, 1 - Cost Inclusive of tax, 2 - No Tax",
           "type": "integer"
         },
         "DateOfPurchase": {
@@ -4704,6 +4704,11 @@
       "description": "Purchase order payment statement",
       "type": "object",
       "properties": {
+        "fkPurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "description": "Relation to additional cost line. If no value is set then the payment statement relates to PO supplier",
+          "type": "integer"
+        },
         "PurchasePaymentStatementId": {
           "format": "int32",
           "description": "Unique record id",
@@ -4736,11 +4741,6 @@
           "format": "date-time",
           "description": "Date when payment statement was marked as paid",
           "type": "string"
-        },
-        "fkPurchaseAdditionalCostItemId": {
-          "format": "int32",
-          "description": "Relation to additional cost line. If no value is set then the payment statement relates to PO supplier",
-          "type": "integer"
         }
       }
     },
