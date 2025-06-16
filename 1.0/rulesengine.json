@@ -483,7 +483,7 @@
           {
             "name": "type",
             "in": "query",
-            "description": "The rule type.",
+            "description": "The rule type. Optional, defaults to orders as this is the only supported type.",
             "type": "string",
             "enum": [
               "Test",
@@ -1642,7 +1642,8 @@
             "AutoComplete",
             "Dropdown",
             "Time",
-            "NumberOfDays"
+            "NumberOfDays",
+            "Timezone"
           ],
           "type": "string"
         },
@@ -1850,6 +1851,10 @@
           "format": "int32",
           "type": "integer"
         },
+        "fkConditionId": {
+          "format": "int32",
+          "type": "integer"
+        },
         "ActionName": {
           "type": "string"
         },
@@ -1876,10 +1881,6 @@
         },
         "ActionValue": {
           "type": "string"
-        },
-        "fkConditionId": {
-          "format": "int32",
-          "type": "integer"
         },
         "RuleVersion": {
           "format": "int32",
@@ -2042,7 +2043,8 @@
             "AutoComplete",
             "Dropdown",
             "Time",
-            "NumberOfDays"
+            "NumberOfDays",
+            "Timezone"
           ],
           "type": "string",
           "readOnly": true
@@ -2078,7 +2080,8 @@
             "AutoComplete",
             "Dropdown",
             "Time",
-            "NumberOfDays"
+            "NumberOfDays",
+            "Timezone"
           ],
           "type": "string"
         },
@@ -2142,6 +2145,7 @@
         "ActionType": {
           "description": "The type of the action",
           "enum": [
+            "Unknown",
             "AssignShippingService",
             "AssignToFolder",
             "AssignToLocation",
@@ -2165,12 +2169,12 @@
           "description": "Data the action needs to run.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ActionPropertyResponse"
+            "$ref": "#/definitions/RuleActionPropertyResponse"
           }
         }
       }
     },
-    "ActionPropertyResponse": {
+    "RuleActionPropertyResponse": {
       "type": "object",
       "properties": {
         "ActionPropertyId": {
