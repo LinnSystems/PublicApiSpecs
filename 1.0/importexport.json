@@ -527,13 +527,13 @@
         "Executing": {
           "type": "boolean"
         },
-        "ImportStatus": {
-          "description": "Current import status",
-          "type": "string"
-        },
         "ImportSkipped": {
           "description": "If import was skipped",
           "type": "boolean"
+        },
+        "ImportStatus": {
+          "description": "Current import status",
+          "type": "string"
         },
         "IsNew": {
           "type": "boolean",
@@ -608,8 +608,16 @@
           "format": "int32",
           "type": "integer"
         },
+        "Order": {
+          "format": "int32",
+          "type": "integer"
+        },
         "Name": {
           "type": "string"
+        },
+        "OwnerId": {
+          "format": "int32",
+          "type": "integer"
         },
         "Migrated": {
           "format": "int32",
@@ -617,14 +625,6 @@
         },
         "ScheduleXML": {
           "type": "string"
-        },
-        "Order": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "OwnerId": {
-          "format": "int32",
-          "type": "integer"
         },
         "Configuration": {
           "$ref": "#/definitions/ScheduleConfiguration"
