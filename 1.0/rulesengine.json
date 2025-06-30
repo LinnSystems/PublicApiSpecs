@@ -470,7 +470,7 @@
           "RulesEngine"
         ],
         "summary": "GetActionTypes",
-        "description": "Use this call to retrieve a list of valid action types for the rule type\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "description": "Use this call to retrieve a list of valid action types for rules engine\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.RulesEngineNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "GetActionTypes",
         "consumes": [],
         "produces": [
@@ -497,7 +497,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ActionTypeDescriptor"
+                "$ref": "#/definitions/RuleActionInformation"
               }
             }
           }
@@ -1643,7 +1643,9 @@
             "Dropdown",
             "Time",
             "NumberOfDays",
-            "Timezone"
+            "Timezone",
+            "Currency",
+            "Percentage"
           ],
           "type": "string"
         },
@@ -1771,19 +1773,19 @@
         "RuleName": {
           "type": "string"
         },
-        "Enabled": {
-          "type": "boolean"
-        },
-        "RunOrder": {
-          "format": "int32",
-          "type": "integer"
-        },
         "RuleType": {
           "enum": [
             "Test",
             "Orders"
           ],
           "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "RunOrder": {
+          "format": "int32",
+          "type": "integer"
         },
         "pkRuleId_Draft": {
           "format": "int32",
@@ -2003,11 +2005,18 @@
         }
       }
     },
-    "ActionTypeDescriptor": {
+    "RuleActionInformation": {
+      "description": "The information needed for an action",
       "type": "object",
       "properties": {
+        "DisplayName": {
+          "description": "The display name for the action",
+          "type": "string"
+        },
         "Value": {
+          "description": "The action type",
           "enum": [
+            "Unknown",
             "AssignShippingService",
             "AssignToFolder",
             "AssignToLocation",
@@ -2027,65 +2036,45 @@
           ],
           "type": "string"
         },
-        "DisplayName": {
-          "type": "string"
-        },
         "Properties": {
+          "description": "A list of properties needed as inputs to run the action",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ActionTypeDescriptorProperties"
+            "$ref": "#/definitions/RuleActionPropertyInformation"
           }
         },
-        "DisplayType": {
-          "enum": [
-            "None",
-            "FreeText",
-            "AutoComplete",
-            "Dropdown",
-            "Time",
-            "NumberOfDays",
-            "Timezone"
-          ],
-          "type": "string",
-          "readOnly": true
-        },
-        "FieldType": {
-          "enum": [
-            "Default",
-            "String",
-            "Int",
-            "Bool",
-            "Guid",
-            "Float",
-            "Double"
-          ],
-          "type": "string",
-          "readOnly": true
+        "GridInformation": {
+          "$ref": "#/definitions/RuleActionGridInformation",
+          "description": "Data used to setup a grid if a grid of properties is used."
         }
       }
     },
-    "ActionTypeDescriptorProperties": {
+    "RuleActionPropertyInformation": {
+      "description": "Information about an action property.",
       "type": "object",
       "properties": {
         "DisplayName": {
+          "description": "The display name for the action property",
           "type": "string"
         },
-        "Description": {
+        "Key": {
+          "description": "An identifier used for the property",
           "type": "string"
         },
         "DisplayType": {
-          "enum": [
-            "None",
-            "FreeText",
-            "AutoComplete",
-            "Dropdown",
-            "Time",
-            "NumberOfDays",
-            "Timezone"
-          ],
+          "description": "How the frontend allows inputting for this property",
           "type": "string"
         },
+        "Description": {
+          "description": "A description for the property, visible to the user",
+          "type": "string"
+        },
+        "Editable": {
+          "description": "Can the user edit this property?",
+          "type": "boolean"
+        },
         "FieldType": {
+          "description": "The datatype for the property; frontend for validation purposes",
           "enum": [
             "Default",
             "String",
@@ -2096,6 +2085,31 @@
             "Double"
           ],
           "type": "string"
+        }
+      }
+    },
+    "RuleActionGridInformation": {
+      "description": "Information required to setup a grid used to populate data for the action",
+      "type": "object",
+      "properties": {
+        "RowAddTrigger": {
+          "description": "How are new rows added to the grid.",
+          "enum": [
+            "SimpleButton",
+            "SkuSearch"
+          ],
+          "type": "string"
+        },
+        "RowAddText": {
+          "description": "Text to backup RowAddTrigger if required.",
+          "type": "string"
+        },
+        "RuleActionPropertyInformation": {
+          "description": "Represents the columns in the grid.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RuleActionPropertyInformation"
+          }
         }
       }
     },
@@ -2127,6 +2141,7 @@
       }
     },
     "RuleActionResponse": {
+      "description": "The actual action saved in the rule.",
       "type": "object",
       "properties": {
         "pkActionId": {
@@ -2175,6 +2190,7 @@
       }
     },
     "RuleActionPropertyResponse": {
+      "description": "The actual property data saved for this action",
       "type": "object",
       "properties": {
         "ActionPropertyId": {
