@@ -9,6 +9,49 @@
     "https"
   ],
   "paths": {
+    "/api/Orders/GetOrderDetailsByReferenceId": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "GetOrderDetailsByReferenceId",
+        "description": "Retrieves a list of order details for a given order reference number, returns maximum of 50 orders.\r\nFor eBay orders, if Sellling Manager Pro sales number is available the order can be retrived by this number\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
+        "operationId": "GetOrderDetailsByReferenceId",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ReferenceId",
+            "in": "query",
+            "description": "Order reference id, or SecondaryReferenceNumber",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OrderDetails"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/Orders/GetOrderDetailsByNumOrderId": {
       "get": {
         "tags": [
@@ -2499,6 +2542,50 @@
         ]
       }
     },
+    "/api/Orders/AddOrdersNote": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "AddOrdersNote",
+        "description": "Use this call to add a new note to orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "AddOrdersNote",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "request with a list of order ids as property",
+            "schema": {
+              "$ref": "#/definitions/AddOrdersNoteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AddOrdersNoteResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/Orders/GetOrderRelations": {
       "get": {
         "tags": [
@@ -4299,49 +4386,6 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/KeyValuePair_List_OrderSummary_String"
-            }
-          }
-        },
-        "security": [
-          {
-            "token": [
-              "token"
-            ]
-          }
-        ]
-      }
-    },
-    "/api/Orders/GetOrderDetailsByReferenceId": {
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "summary": "GetOrderDetailsByReferenceId",
-        "description": "Retrieves a list of order details for a given order reference number, returns maximum of 50 orders.\r\nFor eBay orders, if Sellling Manager Pro sales number is available the order can be retrived by this number\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.ViewOrderDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
-        "operationId": "GetOrderDetailsByReferenceId",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
-        ],
-        "parameters": [
-          {
-            "name": "ReferenceId",
-            "in": "query",
-            "description": "Order reference id, or SecondaryReferenceNumber",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/OrderDetails"
-              }
             }
           }
         },
@@ -8977,6 +9021,81 @@
           "items": {
             "$ref": "#/definitions/OrderNote"
           }
+        }
+      }
+    },
+    "AddOrdersNoteRequest": {
+      "type": "object",
+      "properties": {
+        "OrderIds": {
+          "description": "List of order Ids",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "NoteText": {
+          "description": "Note text",
+          "type": "string"
+        },
+        "IsInternal": {
+          "description": "Specifies if the note should be internal to the system, or should be displayed on the invoice",
+          "type": "boolean"
+        },
+        "IsProcessingNote": {
+          "description": "Specifies if the note should pop up during order processing or not",
+          "type": "boolean"
+        }
+      }
+    },
+    "AddOrdersNoteResponse": {
+      "type": "object",
+      "properties": {
+        "OrderNotes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderNoteDto"
+          }
+        }
+      }
+    },
+    "OrderNoteDto": {
+      "type": "object",
+      "properties": {
+        "OrderNoteId": {
+          "format": "uuid",
+          "description": "Order note ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "OrderId": {
+          "format": "uuid",
+          "description": "Order Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "NoteDate": {
+          "format": "date-time",
+          "description": "Date and time when note was added",
+          "type": "string"
+        },
+        "Internal": {
+          "description": "order note type (Internal or External)",
+          "type": "boolean"
+        },
+        "Note": {
+          "description": "Note's text",
+          "type": "string"
+        },
+        "CreatedBy": {
+          "description": "User that created note",
+          "type": "string"
+        },
+        "NoteTypeId": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },
