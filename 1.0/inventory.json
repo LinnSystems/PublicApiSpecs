@@ -9,6 +9,78 @@
     "https"
   ],
   "paths": {
+    "/api/Inventory/UpdateStockSupplierStat": {
+      "post": {
+        "tags": [
+          "Inventory"
+        ],
+        "summary": "UpdateStockSupplierStat",
+        "description": "Use this call to update item supplier stat\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "UpdateStockSupplierStat",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Inventory_UpdateStockSupplierStatRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Inventory_UpdateStockSupplierStatRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Inventory/DeleteStockSupplierStat": {
+      "post": {
+        "tags": [
+          "Inventory"
+        ],
+        "summary": "DeleteStockSupplierStat",
+        "description": "Use this call to delete item supplier stat\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "DeleteStockSupplierStat",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Inventory_DeleteStockSupplierStatRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Inventory_DeleteStockSupplierStatRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/Inventory/GetInventoryItemPrices": {
       "get": {
         "tags": [
@@ -3228,31 +3300,38 @@
         ]
       }
     },
-    "/api/Inventory/UpdateInventoryItemChannelSKUs": {
+    "/api/Inventory/UpdateChannelMapping": {
       "post": {
         "tags": [
           "Inventory"
         ],
-        "summary": "UpdateInventoryItemChannelSKUs",
-        "description": "Update inventory Channel SKU's properties, such as Max Listed Quantity\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>250</b></span> / minute",
-        "operationId": "UpdateInventoryItemChannelSKUs",
+        "summary": "UpdateChannelMapping",
+        "description": "Use this call to update mappings between Linnworks items and channel items, such as Max Listed Quantity\n<b>Permissions Required: </b> GlobalPermissions.Inventory.Stock.StockWrite.ChangeStockItemDetailsNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "UpdateChannelMapping",
         "consumes": [
           "application/json"
         ],
-        "produces": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
         "parameters": [
           {
-            "name": "Inventory_UpdateInventoryItemChannelSKUsRequest",
+            "name": "request",
             "in": "body",
-            "required": true,
             "schema": {
-              "$ref": "#/definitions/Inventory_UpdateInventoryItemChannelSKUsRequest"
+              "$ref": "#/definitions/UpdateChannelMappingRequest"
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BatchedAPIResponse_ChannelMappingUpdateInfo"
+            }
           }
         },
         "security": [
@@ -3300,31 +3379,38 @@
         ]
       }
     },
-    "/api/Inventory/CreateInventoryItemChannelSKUs": {
+    "/api/Inventory/CreateChannelMapping": {
       "post": {
         "tags": [
           "Inventory"
         ],
-        "summary": "CreateInventoryItemChannelSKUs",
-        "description": "Use this call to create stockitem channel skus\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
-        "operationId": "CreateInventoryItemChannelSKUs",
+        "summary": "CreateChannelMapping",
+        "description": "Use this call to create mappings between Linnworks items and channel items\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "CreateChannelMapping",
         "consumes": [
           "application/json"
         ],
-        "produces": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
         "parameters": [
           {
-            "name": "Inventory_CreateInventoryItemChannelSKUsRequest",
+            "name": "request",
             "in": "body",
-            "required": true,
             "schema": {
-              "$ref": "#/definitions/Inventory_CreateInventoryItemChannelSKUsRequest"
+              "$ref": "#/definitions/CreateChannelMappingRequest"
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BatchedAPIResponse_ChannelMappingCreateInfo"
+            }
           }
         },
         "security": [
@@ -5560,81 +5646,123 @@
           }
         ]
       }
-    },
-    "/api/Inventory/UpdateStockSupplierStat": {
-      "post": {
-        "tags": [
-          "Inventory"
-        ],
-        "summary": "UpdateStockSupplierStat",
-        "description": "Use this call to update item supplier stat\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
-        "operationId": "UpdateStockSupplierStat",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "Inventory_UpdateStockSupplierStatRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Inventory_UpdateStockSupplierStatRequest"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        },
-        "security": [
-          {
-            "token": [
-              "token"
-            ]
-          }
-        ]
-      }
-    },
-    "/api/Inventory/DeleteStockSupplierStat": {
-      "post": {
-        "tags": [
-          "Inventory"
-        ],
-        "summary": "DeleteStockSupplierStat",
-        "description": "Use this call to delete item supplier stat\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
-        "operationId": "DeleteStockSupplierStat",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "Inventory_DeleteStockSupplierStatRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Inventory_DeleteStockSupplierStatRequest"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        },
-        "security": [
-          {
-            "token": [
-              "token"
-            ]
-          }
-        ]
-      }
     }
   },
   "definitions": {
+    "Inventory_UpdateStockSupplierStatRequest": {
+      "type": "object",
+      "properties": {
+        "itemSuppliers": {
+          "description": "List of StockItemSupplierStat",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemSupplierStat"
+          }
+        }
+      }
+    },
+    "StockItemSupplierStat": {
+      "type": "object",
+      "properties": {
+        "IsDefault": {
+          "description": "If supplier information is default",
+          "type": "boolean"
+        },
+        "Supplier": {
+          "description": "Supplier name",
+          "type": "string"
+        },
+        "SupplierID": {
+          "format": "uuid",
+          "description": "Supplier ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Code": {
+          "description": "Supplier code",
+          "type": "string"
+        },
+        "SupplierBarcode": {
+          "description": "Supplier barcode",
+          "type": "string"
+        },
+        "LeadTime": {
+          "format": "int32",
+          "description": "Supplier lead time",
+          "type": "integer"
+        },
+        "PurchasePrice": {
+          "format": "double",
+          "description": "Supplier purchase price",
+          "type": "number"
+        },
+        "MinPrice": {
+          "format": "double",
+          "description": "Minimum price",
+          "type": "number"
+        },
+        "MaxPrice": {
+          "format": "double",
+          "description": "Maximum price",
+          "type": "number"
+        },
+        "AveragePrice": {
+          "format": "double",
+          "description": "Average price",
+          "type": "number"
+        },
+        "AverageLeadTime": {
+          "format": "double",
+          "description": "Average lead time",
+          "type": "number"
+        },
+        "SupplierMinOrderQty": {
+          "format": "int32",
+          "description": "Minimum order quantity from this supplier",
+          "type": "integer"
+        },
+        "SupplierPackSize": {
+          "format": "int32",
+          "description": "Supplier pack size",
+          "type": "integer"
+        },
+        "SupplierCurrency": {
+          "description": "Supplier's default currency",
+          "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemIntId": {
+          "format": "int32",
+          "description": "Stock Item interger Id",
+          "type": "integer"
+        }
+      }
+    },
+    "Inventory_DeleteStockSupplierStatRequest": {
+      "type": "object",
+      "properties": {
+        "stockItemId": {
+          "format": "uuid",
+          "description": "Id of StockItem",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "itemSupplierIds": {
+          "description": "List of StockItemSupplierStat",
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
     "StockItemPrice": {
       "type": "object",
       "properties": {
@@ -7362,13 +7490,13 @@
     "ConfigItem_String": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7387,13 +7515,13 @@
     "ConfigItem_Boolean": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7424,13 +7552,13 @@
     "ConfigProperty_Boolean": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7452,13 +7580,13 @@
         "OnGetSelectionList": {
           "$ref": "#/definitions/GetSelectionList_SelectStringValueOption"
         },
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7507,13 +7635,13 @@
     "ConfigItem_DateTime": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7533,13 +7661,13 @@
     "ConfigItem_Int32": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -7597,13 +7725,13 @@
     "ConfigProperty_String": {
       "type": "object",
       "properties": {
-        "Loaded": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "Loaded": {
+          "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
@@ -9677,13 +9805,87 @@
       "description": "Stock Item",
       "type": "object",
       "properties": {
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ItemTitle": {
+          "description": "Item title",
+          "type": "string"
+        },
+        "ItemNumber": {
+          "description": "SKU",
+          "type": "string"
+        },
         "ItemDescription": {
           "description": "Item Description(Metadata)",
           "type": "string"
         },
+        "CreationDate": {
+          "format": "date-time",
+          "description": "Stock item creation date",
+          "type": "string"
+        },
+        "RetailPrice": {
+          "format": "double",
+          "description": "Default item retail price",
+          "type": "number"
+        },
+        "CategoryId": {
+          "format": "uuid",
+          "description": "Default category id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Weight": {
+          "format": "double",
+          "description": "Item weight",
+          "type": "number"
+        },
         "Quantity": {
           "format": "int32",
           "description": "Quantity in stock",
+          "type": "integer"
+        },
+        "MinimumLevel": {
+          "format": "int32",
+          "description": "Minimum level of stock item. -1 is not tracked. Null value when adding will use user default minimum level",
+          "type": "integer"
+        },
+        "CategoryName": {
+          "description": "Default category name",
+          "type": "string"
+        },
+        "PurchasePrice": {
+          "format": "double",
+          "description": "Default item purchase price",
+          "type": "number"
+        },
+        "BarcodeNumber": {
+          "description": "Barcode number",
+          "type": "string"
+        },
+        "ShippedSeparately": {
+          "type": "boolean"
+        },
+        "TaxRate": {
+          "format": "double",
+          "description": "Default item tax rate. Set -1 to use country tax rate",
+          "type": "number"
+        },
+        "BatchNumberScanRequired": {
+          "description": "User must scan batch number when procesing orders",
+          "type": "boolean"
+        },
+        "SerialNumberScanRequired": {
+          "description": "User must scan item serial number when processing ordesr",
+          "type": "boolean"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "description": "Stock item tracking type. 0 = none. 1 = Ordered by Sell by Date. 2 = Ordered by Priority Sequence",
           "type": "integer"
         },
         "InOrder": {
@@ -9696,11 +9898,6 @@
           "description": "Quantity due in purchase orders",
           "type": "integer"
         },
-        "MinimumLevel": {
-          "format": "int32",
-          "description": "Minimum level of stock item. -1 is not tracked. Null value when adding will use user default minimum level",
-          "type": "integer"
-        },
         "Available": {
           "format": "int32",
           "description": "Available level. Quantity - InOrder",
@@ -9710,21 +9907,6 @@
         "IsCompositeParent": {
           "description": "Item is a composite parent",
           "type": "boolean"
-        },
-        "ShippedSeparately": {
-          "type": "boolean"
-        },
-        "ItemNumber": {
-          "description": "SKU",
-          "type": "string"
-        },
-        "ItemTitle": {
-          "description": "Item title",
-          "type": "string"
-        },
-        "BarcodeNumber": {
-          "description": "Barcode number",
-          "type": "string"
         },
         "MetaData": {
           "description": "Item description",
@@ -9739,21 +9921,6 @@
           "type": "boolean",
           "readOnly": true
         },
-        "PurchasePrice": {
-          "format": "double",
-          "description": "Default item purchase price",
-          "type": "number"
-        },
-        "RetailPrice": {
-          "format": "double",
-          "description": "Default item retail price",
-          "type": "number"
-        },
-        "TaxRate": {
-          "format": "double",
-          "description": "Default item tax rate. Set -1 to use country tax rate",
-          "type": "number"
-        },
         "PostalServiceId": {
           "format": "uuid",
           "description": "Default postal service id",
@@ -9762,16 +9929,6 @@
         },
         "PostalServiceName": {
           "description": "Default postal service name",
-          "type": "string"
-        },
-        "CategoryId": {
-          "format": "uuid",
-          "description": "Default category id",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "CategoryName": {
-          "description": "Default category name",
           "type": "string"
         },
         "PackageGroupId": {
@@ -9798,35 +9955,6 @@
           "format": "double",
           "description": "Item depth",
           "type": "number"
-        },
-        "Weight": {
-          "format": "double",
-          "description": "Item weight",
-          "type": "number"
-        },
-        "CreationDate": {
-          "format": "date-time",
-          "description": "Stock item creation date",
-          "type": "string"
-        },
-        "InventoryTrackingType": {
-          "format": "int32",
-          "description": "Stock item tracking type. 0 = none. 1 = Ordered by Sell by Date. 2 = Ordered by Priority Sequence",
-          "type": "integer"
-        },
-        "BatchNumberScanRequired": {
-          "description": "User must scan batch number when procesing orders",
-          "type": "boolean"
-        },
-        "SerialNumberScanRequired": {
-          "description": "User must scan item serial number when processing ordesr",
-          "type": "boolean"
-        },
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
@@ -10645,15 +10773,97 @@
         }
       }
     },
-    "Inventory_UpdateInventoryItemChannelSKUsRequest": {
+    "UpdateChannelMappingRequest": {
       "type": "object",
       "properties": {
-        "inventoryItemChannelSKUs": {
-          "description": "stockitem channel skus",
+        "Mappings": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/StockItemChannelSKU"
+            "$ref": "#/definitions/ChannelMappingUpdateInfo"
           }
+        }
+      }
+    },
+    "ChannelMappingUpdateInfo": {
+      "required": [
+        "Id"
+      ],
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "uuid",
+          "description": "The unique id to identify the channel mapping",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ChannelReferenceId": {
+          "description": "Channel reference id. Not updated if not provided.",
+          "type": "string"
+        },
+        "MaxListedQuantity": {
+          "format": "int32",
+          "description": "Maximum listed quantity. Always updated to the value from the request.",
+          "type": "integer"
+        },
+        "EndWhenStock": {
+          "format": "int32",
+          "description": "End listing when stock level. Always updated to the value from the request.",
+          "type": "integer"
+        },
+        "StockPercentage": {
+          "format": "double",
+          "description": "Stock percentage. Always updated to the value from the request.",
+          "type": "number"
+        },
+        "IgnoreSync": {
+          "description": "Ignore sync. Always updated to the value from the request.",
+          "type": "boolean"
+        }
+      }
+    },
+    "BatchedAPIResponse_ChannelMappingUpdateInfo": {
+      "type": "object",
+      "properties": {
+        "Results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/APIResultResponse_ChannelMappingUpdateInfo"
+          }
+        },
+        "TotalResults": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "ResultStatus": {
+          "enum": [
+            "NOTSET",
+            "SUCCESSFUL",
+            "PARTIALLY_SUCCESSFUL",
+            "FAILED"
+          ],
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "APIResultResponse_ChannelMappingUpdateInfo": {
+      "type": "object",
+      "properties": {
+        "Result": {
+          "$ref": "#/definitions/ChannelMappingUpdateInfo"
+        },
+        "ResultStatus": {
+          "enum": [
+            "NOTSET",
+            "SUCCESSFUL",
+            "PARTIALLY_SUCCESSFUL",
+            "FAILED"
+          ],
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
         }
       }
     },
@@ -10669,15 +10879,118 @@
         }
       }
     },
-    "Inventory_CreateInventoryItemChannelSKUsRequest": {
+    "CreateChannelMappingRequest": {
       "type": "object",
       "properties": {
-        "inventoryItemChannelSKUs": {
-          "description": "stockitem channel skus",
+        "Mappings": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/StockItemChannelSKU"
+            "$ref": "#/definitions/ChannelMappingCreateInfo"
           }
+        }
+      }
+    },
+    "ChannelMappingCreateInfo": {
+      "required": [
+        "StockItemId",
+        "ChannelSKU",
+        "Source",
+        "SubSource"
+      ],
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "uuid",
+          "description": "RowId of channel SKU, will be created if not in the request",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "The stock item id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "ChannelSKU": {
+          "description": "The SKU as exists on the channel",
+          "type": "string"
+        },
+        "Source": {
+          "description": "ChannelName/Source (e.g. EBAY)",
+          "type": "string"
+        },
+        "SubSource": {
+          "description": "Region code",
+          "type": "string"
+        },
+        "ChannelReferenceId": {
+          "description": "Channel reference ID",
+          "type": "string"
+        },
+        "MaxListedQuantity": {
+          "format": "int32",
+          "description": "Maximum listed quantity",
+          "type": "integer"
+        },
+        "EndWhenStock": {
+          "format": "int32",
+          "description": "End listing when stock level",
+          "type": "integer"
+        },
+        "StockPercentage": {
+          "format": "double",
+          "description": "Stock percentage",
+          "type": "number"
+        },
+        "IgnoreSync": {
+          "description": "Ignore sync, defaults to false",
+          "type": "boolean"
+        }
+      }
+    },
+    "BatchedAPIResponse_ChannelMappingCreateInfo": {
+      "type": "object",
+      "properties": {
+        "Results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/APIResultResponse_ChannelMappingCreateInfo"
+          }
+        },
+        "TotalResults": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "ResultStatus": {
+          "enum": [
+            "NOTSET",
+            "SUCCESSFUL",
+            "PARTIALLY_SUCCESSFUL",
+            "FAILED"
+          ],
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "APIResultResponse_ChannelMappingCreateInfo": {
+      "type": "object",
+      "properties": {
+        "Result": {
+          "$ref": "#/definitions/ChannelMappingCreateInfo"
+        },
+        "ResultStatus": {
+          "enum": [
+            "NOTSET",
+            "SUCCESSFUL",
+            "PARTIALLY_SUCCESSFUL",
+            "FAILED"
+          ],
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
         }
       }
     },
@@ -12247,88 +12560,6 @@
         }
       }
     },
-    "StockItemSupplierStat": {
-      "type": "object",
-      "properties": {
-        "IsDefault": {
-          "description": "If supplier information is default",
-          "type": "boolean"
-        },
-        "Supplier": {
-          "description": "Supplier name",
-          "type": "string"
-        },
-        "SupplierID": {
-          "format": "uuid",
-          "description": "Supplier ID",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "Code": {
-          "description": "Supplier code",
-          "type": "string"
-        },
-        "SupplierBarcode": {
-          "description": "Supplier barcode",
-          "type": "string"
-        },
-        "LeadTime": {
-          "format": "int32",
-          "description": "Supplier lead time",
-          "type": "integer"
-        },
-        "PurchasePrice": {
-          "format": "double",
-          "description": "Supplier purchase price",
-          "type": "number"
-        },
-        "MinPrice": {
-          "format": "double",
-          "description": "Minimum price",
-          "type": "number"
-        },
-        "MaxPrice": {
-          "format": "double",
-          "description": "Maximum price",
-          "type": "number"
-        },
-        "AveragePrice": {
-          "format": "double",
-          "description": "Average price",
-          "type": "number"
-        },
-        "AverageLeadTime": {
-          "format": "double",
-          "description": "Average lead time",
-          "type": "number"
-        },
-        "SupplierMinOrderQty": {
-          "format": "int32",
-          "description": "Minimum order quantity from this supplier",
-          "type": "integer"
-        },
-        "SupplierPackSize": {
-          "format": "int32",
-          "description": "Supplier pack size",
-          "type": "integer"
-        },
-        "SupplierCurrency": {
-          "description": "Supplier's default currency",
-          "type": "string"
-        },
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "StockItemIntId": {
-          "format": "int32",
-          "description": "Stock Item interger Id",
-          "type": "integer"
-        }
-      }
-    },
     "Inventory_CreateStockSupplierStatRequest": {
       "type": "object",
       "properties": {
@@ -12337,38 +12568,6 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/StockItemSupplierStat"
-          }
-        }
-      }
-    },
-    "Inventory_UpdateStockSupplierStatRequest": {
-      "type": "object",
-      "properties": {
-        "itemSuppliers": {
-          "description": "List of StockItemSupplierStat",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/StockItemSupplierStat"
-          }
-        }
-      }
-    },
-    "Inventory_DeleteStockSupplierStatRequest": {
-      "type": "object",
-      "properties": {
-        "stockItemId": {
-          "format": "uuid",
-          "description": "Id of StockItem",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "itemSupplierIds": {
-          "description": "List of StockItemSupplierStat",
-          "type": "array",
-          "items": {
-            "format": "uuid",
-            "type": "string",
-            "example": "00000000-0000-0000-0000-000000000000"
           }
         }
       }
