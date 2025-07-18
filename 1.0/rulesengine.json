@@ -730,7 +730,8 @@
               "BlockOrderFromMerging",
               "SendToFulfillmentNetwork",
               "SetDispatchDate",
-              "AddItemToOrder"
+              "AddItemToOrder",
+              "AddServiceToOrder"
             ]
           }
         ],
@@ -1773,19 +1774,19 @@
         "RuleName": {
           "type": "string"
         },
-        "RuleType": {
-          "enum": [
-            "Test",
-            "Orders"
-          ],
-          "type": "string"
-        },
         "Enabled": {
           "type": "boolean"
         },
         "RunOrder": {
           "format": "int32",
           "type": "integer"
+        },
+        "RuleType": {
+          "enum": [
+            "Test",
+            "Orders"
+          ],
+          "type": "string"
         },
         "pkRuleId_Draft": {
           "format": "int32",
@@ -1853,10 +1854,6 @@
           "format": "int32",
           "type": "integer"
         },
-        "fkConditionId": {
-          "format": "int32",
-          "type": "integer"
-        },
         "ActionName": {
           "type": "string"
         },
@@ -1877,12 +1874,17 @@
             "BlockOrderFromMerging",
             "SendToFulfillmentNetwork",
             "SetDispatchDate",
-            "AddItemToOrder"
+            "AddItemToOrder",
+            "AddServiceToOrder"
           ],
           "type": "string"
         },
         "ActionValue": {
           "type": "string"
+        },
+        "fkConditionId": {
+          "format": "int32",
+          "type": "integer"
         },
         "RuleVersion": {
           "format": "int32",
@@ -1994,14 +1996,14 @@
           ],
           "type": "string"
         },
-        "KeyValue": {
-          "type": "string"
-        },
         "Values": {
           "type": "array",
           "items": {
             "type": "string"
           }
+        },
+        "KeyValue": {
+          "type": "string"
         }
       }
     },
@@ -2032,7 +2034,8 @@
             "BlockOrderFromMerging",
             "SendToFulfillmentNetwork",
             "SetDispatchDate",
-            "AddItemToOrder"
+            "AddItemToOrder",
+            "AddServiceToOrder"
           ],
           "type": "string"
         },
@@ -2084,6 +2087,10 @@
             "Float",
             "Double"
           ],
+          "type": "string"
+        },
+        "SubHeading": {
+          "description": "A subheading used within grid header",
           "type": "string"
         }
       }
@@ -2176,7 +2183,8 @@
             "BlockOrderFromMerging",
             "SendToFulfillmentNetwork",
             "SetDispatchDate",
-            "AddItemToOrder"
+            "AddItemToOrder",
+            "AddServiceToOrder"
           ],
           "type": "string"
         },
@@ -2262,7 +2270,8 @@
             "BlockOrderFromMerging",
             "SendToFulfillmentNetwork",
             "SetDispatchDate",
-            "AddItemToOrder"
+            "AddItemToOrder",
+            "AddServiceToOrder"
           ],
           "type": "string"
         },
@@ -2329,7 +2338,8 @@
             "BlockOrderFromMerging",
             "SendToFulfillmentNetwork",
             "SetDispatchDate",
-            "AddItemToOrder"
+            "AddItemToOrder",
+            "AddServiceToOrder"
           ],
           "type": "string"
         },
