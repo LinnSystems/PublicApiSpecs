@@ -1774,19 +1774,19 @@
         "RuleName": {
           "type": "string"
         },
-        "Enabled": {
-          "type": "boolean"
-        },
-        "RunOrder": {
-          "format": "int32",
-          "type": "integer"
-        },
         "RuleType": {
           "enum": [
             "Test",
             "Orders"
           ],
           "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "RunOrder": {
+          "format": "int32",
+          "type": "integer"
         },
         "pkRuleId_Draft": {
           "format": "int32",
@@ -1854,6 +1854,10 @@
           "format": "int32",
           "type": "integer"
         },
+        "fkConditionId": {
+          "format": "int32",
+          "type": "integer"
+        },
         "ActionName": {
           "type": "string"
         },
@@ -1881,10 +1885,6 @@
         },
         "ActionValue": {
           "type": "string"
-        },
-        "fkConditionId": {
-          "format": "int32",
-          "type": "integer"
         },
         "RuleVersion": {
           "format": "int32",
