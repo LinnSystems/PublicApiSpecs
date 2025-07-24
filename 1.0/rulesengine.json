@@ -1924,11 +1924,15 @@
     "ConditionHeaderBasic": {
       "type": "object",
       "properties": {
+        "pkConditionId": {
+          "format": "int32",
+          "type": "integer"
+        },
         "fkParentConditionId": {
           "format": "int32",
           "type": "integer"
         },
-        "pkConditionId": {
+        "fkRuleId": {
           "format": "int32",
           "type": "integer"
         },
@@ -1937,10 +1941,6 @@
         },
         "Enabled": {
           "type": "boolean"
-        },
-        "fkRuleId": {
-          "format": "int32",
-          "type": "integer"
         },
         "Conditions": {
           "type": "array",
@@ -1996,14 +1996,14 @@
           ],
           "type": "string"
         },
-        "KeyValue": {
-          "type": "string"
-        },
         "Values": {
           "type": "array",
           "items": {
             "type": "string"
           }
+        },
+        "KeyValue": {
+          "type": "string"
         }
       }
     },
