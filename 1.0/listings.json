@@ -2543,6 +2543,12 @@
               "items": {
                 "type": "string"
               }
+            },
+            "UncategorizedError": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           }
         }
@@ -2701,7 +2707,8 @@
             "PricingError",
             "AttributesError",
             "ApiError",
-            "SystemError"
+            "SystemError",
+            "UncategorizedError"
           ],
           "type": "string"
         },
