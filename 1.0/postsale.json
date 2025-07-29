@@ -469,6 +469,11 @@
             "type": "integer"
           }
         },
+        "PIIRedactionDays": {
+          "format": "int32",
+          "description": "Number of days after which an order is processed its pii will be redacted/obfuscate",
+          "type": "integer"
+        },
         "StockAllocationType": {
           "enum": [
             "NotAllocated",
