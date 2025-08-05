@@ -2823,6 +2823,10 @@
         "force": {
           "description": "force",
           "type": "boolean"
+        },
+        "action": {
+          "description": "action trigger for logging purposes E.g: \"Update\", \"Create\", \"Process\"",
+          "type": "string"
         }
       }
     },

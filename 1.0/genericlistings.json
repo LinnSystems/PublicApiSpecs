@@ -615,6 +615,9 @@
           "items": {
             "$ref": "#/definitions/TemplateToProcess"
           }
+        },
+        "ClientContext": {
+          "$ref": "#/definitions/ListingsClientContext"
         }
       }
     },
@@ -635,6 +638,17 @@
             "Delete",
             "Revise"
           ],
+          "type": "string"
+        }
+      }
+    },
+    "ListingsClientContext": {
+      "type": "object",
+      "properties": {
+        "Activity": {
+          "type": "string"
+        },
+        "Source": {
           "type": "string"
         }
       }
