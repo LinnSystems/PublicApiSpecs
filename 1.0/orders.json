@@ -6290,6 +6290,10 @@
           "description": "Overrides the mapping source for the channel for example if the Source is 'AMAZON FBA' MappingSource can be used to override to 'AMAZON'",
           "type": "string"
         },
+        "SourceOverride": {
+          "description": "Overrides the mapping source for the channel in the instance that the order may have originally been downloaded with an alternative source value.",
+          "type": "string"
+        },
         "OrderState": {
           "description": "State the order should be saved e.g. hold, parked, none",
           "enum": [
