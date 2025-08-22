@@ -6379,7 +6379,7 @@
         ]
       }
     },
-    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/save-delivery-window-options": {
+    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/delivery-window-options": {
       "put": {
         "tags": [
           "ShippingPlan"
