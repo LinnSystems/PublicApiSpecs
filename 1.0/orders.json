@@ -1535,7 +1535,7 @@
           "Orders"
         ],
         "summary": "ChangeShippingMethod",
-        "description": "Change the shipping method to a list of orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "description": "Change the shipping service (provided by a shipping courier) to a list of orders\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
         "operationId": "ChangeShippingMethod",
         "consumes": [
           "application/json"
@@ -8513,7 +8513,7 @@
       "type": "object",
       "properties": {
         "orderIds": {
-          "description": "Order id's",
+          "description": "Order ids",
           "type": "array",
           "items": {
             "format": "uuid",
@@ -8522,7 +8522,7 @@
           }
         },
         "shippingMethod": {
-          "description": "New shipping method",
+          "description": "New shipping service name",
           "type": "string"
         }
       }
