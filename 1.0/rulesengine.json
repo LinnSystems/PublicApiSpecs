@@ -119,8 +119,8 @@
             "description": "The rule type.",
             "type": "string",
             "enum": [
-              "Test",
-              "Orders"
+              "Orders",
+              "Test"
             ]
           },
           {
@@ -219,8 +219,8 @@
             "description": "The rule type",
             "type": "string",
             "enum": [
-              "Test",
-              "Orders"
+              "Orders",
+              "Test"
             ]
           },
           {
@@ -354,8 +354,8 @@
             "description": "The rule type.",
             "type": "string",
             "enum": [
-              "Test",
-              "Orders"
+              "Orders",
+              "Test"
             ]
           }
         ],
@@ -486,8 +486,8 @@
             "description": "The rule type. Optional, defaults to orders as this is the only supported type.",
             "type": "string",
             "enum": [
-              "Test",
-              "Orders"
+              "Orders",
+              "Test"
             ]
           }
         ],
@@ -1010,8 +1010,8 @@
             "description": "The rule type.",
             "type": "string",
             "enum": [
-              "Test",
-              "Orders"
+              "Orders",
+              "Test"
             ]
           }
         ],
@@ -1664,8 +1664,8 @@
         "type": {
           "description": "The rule type.",
           "enum": [
-            "Test",
-            "Orders"
+            "Orders",
+            "Test"
           ],
           "type": "string"
         },
@@ -1737,8 +1737,8 @@
         "type": {
           "description": "The rule type.",
           "enum": [
-            "Test",
-            "Orders"
+            "Orders",
+            "Test"
           ],
           "type": "string"
         },
@@ -1779,8 +1779,8 @@
         },
         "RuleType": {
           "enum": [
-            "Test",
-            "Orders"
+            "Orders",
+            "Test"
           ],
           "type": "string"
         },
@@ -1815,19 +1815,19 @@
           "format": "int32",
           "type": "integer"
         },
-        "ConditionName": {
-          "type": "string"
-        },
         "RunOrder": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "fkParentConditionId": {
           "format": "int32",
           "type": "integer"
         },
         "Enabled": {
           "type": "boolean"
+        },
+        "ConditionName": {
+          "type": "string"
+        },
+        "fkParentConditionId": {
+          "format": "int32",
+          "type": "integer"
         },
         "Conditions": {
           "type": "array",
