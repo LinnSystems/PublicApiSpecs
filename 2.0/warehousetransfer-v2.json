@@ -2686,12 +2686,12 @@
         ]
       }
     },
-    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/{shipmentId}/delivery-window-options/selected": {
+    "/warehousetransfer/fba-inbound/shipping-plans/{shippingPlanId}/shipments/{shipmentId}/delivery-window-option": {
       "get": {
         "tags": [
           "ShipmentDeliveryWindowOptions"
         ],
-        "summary": "GetSelectedDeliveryWindowOption",
+        "summary": "GetShipmentDeliveryWindowOption",
         "description": "Retrieves saved/selected shipment delivery window option",
         "parameters": [
           {
