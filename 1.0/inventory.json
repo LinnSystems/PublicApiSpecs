@@ -6802,25 +6802,25 @@
         "ItemTitle": {
           "type": "string"
         },
-        "ScrapReason": {
-          "type": "string"
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
         },
         "CategoryName": {
           "type": "string"
         },
-        "Quantity": {
-          "format": "int32",
-          "type": "integer"
+        "ScrapReason": {
+          "type": "string"
         },
         "TotalCost": {
           "format": "double",
           "type": "number"
         },
-        "CreatedDate": {
-          "format": "date-time",
+        "UserName": {
           "type": "string"
         },
-        "UserName": {
+        "CreatedDate": {
+          "format": "date-time",
           "type": "string"
         },
         "StockLocationId": {
@@ -9103,15 +9103,15 @@
           "enum": [
             "SKU",
             "Title",
-            "Barcode",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Tracked",
-            "VariationGroupName",
+            "InOrder",
+            "StockLevel",
             "StockValue",
             "Due",
             "BinRack",
@@ -9164,15 +9164,15 @@
           "enum": [
             "SKU",
             "Title",
-            "Barcode",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Tracked",
-            "VariationGroupName",
+            "InOrder",
+            "StockLevel",
             "StockValue",
             "Due",
             "BinRack",
@@ -9225,15 +9225,15 @@
           "enum": [
             "SKU",
             "Title",
-            "Barcode",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Tracked",
-            "VariationGroupName",
+            "InOrder",
+            "StockLevel",
             "StockValue",
             "Due",
             "BinRack",
