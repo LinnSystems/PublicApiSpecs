@@ -6802,25 +6802,25 @@
         "ItemTitle": {
           "type": "string"
         },
-        "ScrapReason": {
-          "type": "string"
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
         },
         "CategoryName": {
           "type": "string"
         },
-        "Quantity": {
-          "format": "int32",
-          "type": "integer"
+        "ScrapReason": {
+          "type": "string"
         },
         "TotalCost": {
           "format": "double",
           "type": "number"
         },
-        "CreatedDate": {
-          "format": "date-time",
+        "UserName": {
           "type": "string"
         },
-        "UserName": {
+        "CreatedDate": {
+          "format": "date-time",
           "type": "string"
         },
         "StockLocationId": {
@@ -10709,12 +10709,6 @@
     "StockItemChannelSKUWithLocation": {
       "type": "object",
       "properties": {
-        "fkRowId": {
-          "format": "uuid",
-          "description": "Record row ID",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "LocationId": {
           "format": "int32",
           "description": "Location ID",
@@ -10761,6 +10755,12 @@
           "format": "int32",
           "description": "Currently listed quantity",
           "type": "integer"
+        },
+        "fkRowId": {
+          "format": "uuid",
+          "description": "Record row ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
         },
         "RetryCount": {
           "format": "int32",
