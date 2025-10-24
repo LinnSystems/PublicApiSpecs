@@ -182,22 +182,22 @@
         ],
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/ImportProductsToStockRequestRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ImportProductsToStockRequestRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/ImportProductsToStockRequestRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/ImportProductsToStockRequestRequest"
               }
@@ -287,22 +287,22 @@
         ],
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/ImportProductsToStockTransferRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ImportProductsToStockTransferRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/ImportProductsToStockTransferRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/ImportProductsToStockTransferRequest"
               }
@@ -646,22 +646,22 @@
         "description": "Use this call to add an item to the stock transfer (only works for transfers in draft/request states)",
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/AddItemRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/AddItemRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/AddItemRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/AddItemRequest"
               }
@@ -724,22 +724,22 @@
         ],
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/AddItemBatchesRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/AddItemBatchesRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/AddItemBatchesRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/AddItemBatchesRequest"
               }
@@ -802,22 +802,22 @@
         ],
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/AddItemsInBulkRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/AddItemsInBulkRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/AddItemsInBulkRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/AddItemsInBulkRequest"
               }
@@ -881,22 +881,22 @@
         "description": "Use this call to see if a draft transfer already exists for the two locations",
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/CheckForDraftTransferRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CheckForDraftTransferRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/CheckForDraftTransferRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/CheckForDraftTransferRequest"
               }
@@ -961,22 +961,22 @@
         "description": "Use this call to create a new transfer request with default reference number",
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateTransferRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateTransferRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateTransferRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateTransferRequest"
               }
@@ -1040,22 +1040,22 @@
         "description": "Use this call to remove items from a stock transfer.",
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteItemsRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteItemsRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteItemsRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteItemsRequest"
               }
@@ -1120,22 +1120,22 @@
         "description": "Use this call to delete a stock transfer",
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteTransferRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteTransferRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteTransferRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteTransferRequest"
               }
@@ -1199,22 +1199,22 @@
         ],
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/ArchiveTransferRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ArchiveTransferRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/ArchiveTransferRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/ArchiveTransferRequest"
               }
@@ -1646,22 +1646,22 @@
         "description": "Use this call to update the from location of a transfer.",
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateFromLocationRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateFromLocationRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateFromLocationRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateFromLocationRequest"
               }
@@ -1726,22 +1726,22 @@
         "description": "Use this call to change the received quantity of a stock transfer item, adjusting stock levels.",
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateItemReceivedQuantityRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateItemReceivedQuantityRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateItemReceivedQuantityRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateItemReceivedQuantityRequest"
               }
@@ -1791,6 +1791,97 @@
             }
           }
         },
+        "deprecated": true,
+        "security": [
+          {
+            "Linnworks": [ ]
+          }
+        ]
+      }
+    },
+    "/warehousetransfer/transfers/UpdateItemsReceivedQuantities": {
+      "put": {
+        "tags": [
+          "WarehouseTransfer"
+        ],
+        "description": "Use this call to change the received quantity of a stock transfer items, adjusting stock levels.\r\nBatched items will be received into the same batches they were originally sent with",
+        "requestBody": {
+          "description": "Request containing transfer id and items with their new received quantities.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateItemsReceivedQuantitiesRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateItemsReceivedQuantitiesRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateItemsReceivedQuantitiesRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateItemsReceivedQuantitiesRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateItemsReceivedQuantitiesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
         "security": [
           {
             "Linnworks": [ ]
@@ -1806,22 +1897,22 @@
         "description": "Use this call to change the received quantity of a stock transfer item, adjusting stock levels.",
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateItemRequestedQuantityRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateItemRequestedQuantityRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateItemRequestedQuantityRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateItemRequestedQuantityRequest"
               }
@@ -1886,22 +1977,22 @@
         "description": "Use this call to change the sent quantity of a stock transfer item, adjusting stock levels.",
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateItemSentQuantityRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateItemSentQuantityRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateItemSentQuantityRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateItemSentQuantityRequest"
               }
@@ -1965,22 +2056,22 @@
         "description": "Use this call to change a transfers status",
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateStatusRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateStatusRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateStatusRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateStatusRequest"
               }
@@ -2045,22 +2136,22 @@
         "description": "Use this call to update the to location of a transfer.",
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateToLocationRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateToLocationRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateToLocationRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateToLocationRequest"
               }
@@ -2124,22 +2215,22 @@
         ],
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/AddItemReceivedBatchesRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/AddItemReceivedBatchesRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/AddItemReceivedBatchesRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/AddItemReceivedBatchesRequest"
               }
@@ -2204,22 +2295,22 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=1.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/ReceiveSelectedTransferItemsForWmsRequest"
               }
             },
-            "application/json; x-api-version=1.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ReceiveSelectedTransferItemsForWmsRequest"
               }
             },
-            "text/json; x-api-version=1.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/ReceiveSelectedTransferItemsForWmsRequest"
               }
             },
-            "application/*+json; x-api-version=1.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/ReceiveSelectedTransferItemsForWmsRequest"
               }
@@ -2234,8 +2325,7 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "type": "integer",
-                      "format": "int32"
+                      "$ref": "#/components/schemas/Int32"
                     },
                     {
                       "$ref": "#/components/schemas/ReceiveSelectedTransferItemsForWmsResponse"
@@ -2587,6 +2677,11 @@
         "format": "int32"
       },
       "ImportProductsToStockRequestRequest": {
+        "required": [
+          "fileId",
+          "settings",
+          "transferId"
+        ],
         "type": "object",
         "properties": {
           "transferId": {
@@ -2626,6 +2721,11 @@
         "additionalProperties": false
       },
       "ImportProductsToStockTransferRequest": {
+        "required": [
+          "fileId",
+          "settings",
+          "transferId"
+        ],
         "type": "object",
         "properties": {
           "transferId": {
@@ -2865,6 +2965,43 @@
         },
         "additionalProperties": false
       },
+      "ItemsReceivedQuantities": {
+        "required": [
+          "transferItemId"
+        ],
+        "type": "object",
+        "properties": {
+          "transferItemId": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "receivedQuantity": {
+            "maximum": 2147483647,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the received quantity for a specific transfer item."
+      },
+      "ItemsReceivedQuantitiesResponse": {
+        "type": "object",
+        "properties": {
+          "transferItemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "receivedQuantity": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the received quantity for a specific transfer item."
+      },
       "ItemUpdatedReceivedBatchModel": {
         "type": "object",
         "properties": {
@@ -2920,6 +3057,10 @@
           "binrackId": {
             "type": "integer",
             "format": "int32"
+          },
+          "binrackName": {
+            "type": "string",
+            "nullable": true
           },
           "transferId": {
             "type": "integer",
@@ -3270,6 +3411,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "fkTransferId": {
+            "type": "integer",
+            "format": "int32"
+          },
           "fkStockItemIntId": {
             "type": "integer",
             "format": "int32"
@@ -3317,6 +3462,10 @@
           "batchType": {
             "type": "integer",
             "format": "int32"
+          },
+          "unitCost": {
+            "type": "number",
+            "format": "double"
           },
           "fromLocationBatches": {
             "type": "array",
@@ -3438,6 +3587,48 @@
             "minimum": 0,
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateItemsReceivedQuantitiesRequest": {
+        "required": [
+          "items",
+          "transferId"
+        ],
+        "type": "object",
+        "properties": {
+          "transferId": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "maxItems": 200,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ItemsReceivedQuantities"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "description": "Request to update received quantities for items in a transfer."
+      },
+      "UpdateItemsReceivedQuantitiesResponse": {
+        "type": "object",
+        "properties": {
+          "transferId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ItemsReceivedQuantitiesResponse"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
