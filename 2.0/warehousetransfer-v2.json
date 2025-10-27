@@ -96,7 +96,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -187,7 +187,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -284,7 +284,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -321,22 +321,22 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/ContentUpdatePreviewRequestModel"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ContentUpdatePreviewRequestModel"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/ContentUpdatePreviewRequestModel"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/ContentUpdatePreviewRequestModel"
               }
@@ -397,7 +397,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -436,7 +436,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -514,7 +514,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -621,7 +621,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -733,7 +733,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -827,7 +827,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -931,7 +931,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -1025,7 +1025,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -1125,7 +1125,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -1216,7 +1216,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -1310,7 +1310,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -1410,7 +1410,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -1510,7 +1510,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -1601,7 +1601,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -1628,7 +1628,7 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -1636,7 +1636,7 @@
                 }
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -1644,7 +1644,7 @@
                 }
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -1652,7 +1652,7 @@
                 }
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -1730,7 +1730,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       },
@@ -1755,7 +1755,7 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -1763,7 +1763,7 @@
                 }
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -1771,7 +1771,7 @@
                 }
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -1779,7 +1779,7 @@
                 }
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -1857,7 +1857,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       },
@@ -1946,7 +1946,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -2041,7 +2041,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -2142,7 +2142,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -2233,7 +2233,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -2269,22 +2269,22 @@
         ],
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/AssignItemToBoxRequest"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/AssignItemToBoxRequest"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/AssignItemToBoxRequest"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/AssignItemToBoxRequest"
               }
@@ -2356,7 +2356,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -2457,7 +2457,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -2499,22 +2499,22 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "type": "string"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "type": "string"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "type": "string"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "type": "string"
               }
@@ -2586,7 +2586,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -2681,7 +2681,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -2773,7 +2773,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -2865,7 +2865,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -2965,7 +2965,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -2992,22 +2992,22 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateShipmentItemInBulkRequest"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateShipmentItemInBulkRequest"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateShipmentItemInBulkRequest"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateShipmentItemInBulkRequest"
               }
@@ -3075,7 +3075,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       },
@@ -3099,22 +3099,22 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteShipmentItemRequestInput"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteShipmentItemRequestInput"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteShipmentItemRequestInput"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/DeleteShipmentItemRequestInput"
               }
@@ -3175,7 +3175,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       },
@@ -3269,7 +3269,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -3305,22 +3305,22 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShipmentItemRequestInput"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShipmentItemRequestInput"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShipmentItemRequestInput"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShipmentItemRequestInput"
               }
@@ -3381,7 +3381,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -3418,25 +3418,25 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "type": "integer",
                 "format": "int32"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "type": "integer",
                 "format": "int32"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "type": "integer",
                 "format": "int32"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "type": "integer",
                 "format": "int32"
@@ -3501,7 +3501,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -3527,22 +3527,22 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShipmentItemPrepOwnerRequestInput"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShipmentItemPrepOwnerRequestInput"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShipmentItemPrepOwnerRequestInput"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShipmentItemPrepOwnerRequestInput"
               }
@@ -3610,7 +3610,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -3637,22 +3637,22 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShipmentItemLabelOwnerRequestInput"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShipmentItemLabelOwnerRequestInput"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShipmentItemLabelOwnerRequestInput"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShipmentItemLabelOwnerRequestInput"
               }
@@ -3726,7 +3726,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -3753,22 +3753,22 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/ImportShipmentItemsRequest"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ImportShipmentItemsRequest"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/ImportShipmentItemsRequest"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/ImportShipmentItemsRequest"
               }
@@ -3832,7 +3832,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -3859,22 +3859,22 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/SetPrepCategoryRequestInput"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SetPrepCategoryRequestInput"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/SetPrepCategoryRequestInput"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/SetPrepCategoryRequestInput"
               }
@@ -3938,7 +3938,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -3964,22 +3964,22 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShipmentItemExpirationDateRequest"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShipmentItemExpirationDateRequest"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShipmentItemExpirationDateRequest"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShipmentItemExpirationDateRequest"
               }
@@ -4047,7 +4047,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -4074,22 +4074,22 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/AddFbaItemBatchRequestInput"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/AddFbaItemBatchRequestInput"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/AddFbaItemBatchRequestInput"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/AddFbaItemBatchRequestInput"
               }
@@ -4154,7 +4154,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -4189,7 +4189,7 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -4197,7 +4197,7 @@
                 }
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -4205,7 +4205,7 @@
                 }
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -4213,7 +4213,7 @@
                 }
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -4291,7 +4291,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       },
@@ -4388,7 +4388,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -4491,7 +4491,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -4536,7 +4536,7 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -4544,7 +4544,7 @@
                 }
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -4552,7 +4552,7 @@
                 }
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -4560,7 +4560,7 @@
                 }
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -4634,7 +4634,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       },
@@ -4741,7 +4741,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -4841,7 +4841,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -4969,7 +4969,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -5089,7 +5089,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -5189,7 +5189,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -5283,7 +5283,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -5319,22 +5319,22 @@
         ],
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/ShipmentTrackingDetailRequest"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ShipmentTrackingDetailRequest"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/ShipmentTrackingDetailRequest"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/ShipmentTrackingDetailRequest"
               }
@@ -5408,7 +5408,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -5507,7 +5507,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -5611,7 +5611,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -5626,22 +5626,22 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateShipppingPlanRequest"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateShipppingPlanRequest"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateShipppingPlanRequest"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateShipppingPlanRequest"
               }
@@ -5706,7 +5706,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -5783,7 +5783,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       },
@@ -5863,7 +5863,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       },
@@ -5888,22 +5888,22 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShippingPlanRequestInput"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShippingPlanRequestInput"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShippingPlanRequestInput"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateShippingPlanRequestInput"
               }
@@ -5968,7 +5968,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -6049,7 +6049,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -6130,7 +6130,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -6211,7 +6211,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       },
@@ -6290,7 +6290,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -6374,7 +6374,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -6400,7 +6400,7 @@
         ],
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -6408,7 +6408,7 @@
                 }
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -6416,7 +6416,7 @@
                 }
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -6424,7 +6424,7 @@
                 }
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -6492,7 +6492,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -6598,7 +6598,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -6612,22 +6612,22 @@
         "description": "Facilitates the archiving of a closed or delivered shipment",
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/ArchiveShipmentsRequest"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ArchiveShipmentsRequest"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/ArchiveShipmentsRequest"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/ArchiveShipmentsRequest"
               }
@@ -6681,7 +6681,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -6749,7 +6749,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -6827,7 +6827,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -6893,7 +6893,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -6959,7 +6959,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -7042,7 +7042,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -7069,22 +7069,22 @@
         "requestBody": {
           "description": "",
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "$ref": "#/components/schemas/GenerateTransportationOptionsRequestInput"
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/GenerateTransportationOptionsRequestInput"
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/GenerateTransportationOptionsRequestInput"
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/GenerateTransportationOptionsRequestInput"
               }
@@ -7159,7 +7159,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -7263,7 +7263,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -7289,7 +7289,7 @@
         ],
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -7297,7 +7297,7 @@
                 }
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -7305,7 +7305,7 @@
                 }
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -7313,7 +7313,7 @@
                 }
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -7390,7 +7390,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -7416,7 +7416,7 @@
         ],
         "requestBody": {
           "content": {
-            "application/json-patch+json; x-api-version=2.0": {
+            "application/json-patch+json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -7424,7 +7424,7 @@
                 }
               }
             },
-            "application/json; x-api-version=2.0": {
+            "application/json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -7432,7 +7432,7 @@
                 }
               }
             },
-            "text/json; x-api-version=2.0": {
+            "text/json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -7440,7 +7440,7 @@
                 }
               }
             },
-            "application/*+json; x-api-version=2.0": {
+            "application/*+json": {
               "schema": {
                 "type": "array",
                 "items": {
@@ -7510,7 +7510,7 @@
         },
         "security": [
           {
-            "Linnworks": []
+            "Linnworks": [ ]
           }
         ]
       }
@@ -9304,7 +9304,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": {}
+        "additionalProperties": { }
       },
       "QuoteModel": {
         "type": "object",
