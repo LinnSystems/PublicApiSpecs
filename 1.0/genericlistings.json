@@ -553,7 +553,7 @@
       "properties": {
         "ChannelType": {
           "enum": [
-            "CDiscount",
+            "CDiscount_OBSOLETE",
             "Shopify",
             "Magento",
             "External",
@@ -597,7 +597,7 @@
       "properties": {
         "ChannelType": {
           "enum": [
-            "CDiscount",
+            "CDiscount_OBSOLETE",
             "Shopify",
             "Magento",
             "External",
@@ -671,7 +671,7 @@
       "properties": {
         "ChannelType": {
           "enum": [
-            "CDiscount",
+            "CDiscount_OBSOLETE",
             "Shopify",
             "Magento",
             "External",
@@ -784,7 +784,7 @@
       "properties": {
         "ChannelType": {
           "enum": [
-            "CDiscount",
+            "CDiscount_OBSOLETE",
             "Shopify",
             "Magento",
             "External",
@@ -837,7 +837,7 @@
       "properties": {
         "ChannelType": {
           "enum": [
-            "CDiscount",
+            "CDiscount_OBSOLETE",
             "Shopify",
             "Magento",
             "External",
@@ -901,7 +901,7 @@
       "properties": {
         "ChannelType": {
           "enum": [
-            "CDiscount",
+            "CDiscount_OBSOLETE",
             "Shopify",
             "Magento",
             "External",
@@ -945,7 +945,7 @@
       "properties": {
         "ChannelType": {
           "enum": [
-            "CDiscount",
+            "CDiscount_OBSOLETE",
             "Shopify",
             "Magento",
             "External",
@@ -992,7 +992,7 @@
       "properties": {
         "ChannelType": {
           "enum": [
-            "CDiscount",
+            "CDiscount_OBSOLETE",
             "Shopify",
             "Magento",
             "External",
@@ -1062,7 +1062,7 @@
       "properties": {
         "ChannelType": {
           "enum": [
-            "CDiscount",
+            "CDiscount_OBSOLETE",
             "Shopify",
             "Magento",
             "External",
@@ -1125,7 +1125,7 @@
       "properties": {
         "ChannelType": {
           "enum": [
-            "CDiscount",
+            "CDiscount_OBSOLETE",
             "Shopify",
             "Magento",
             "External",
@@ -1173,7 +1173,7 @@
       "properties": {
         "ChannelType": {
           "enum": [
-            "CDiscount",
+            "CDiscount_OBSOLETE",
             "Shopify",
             "Magento",
             "External",
