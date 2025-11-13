@@ -2787,15 +2787,15 @@
         "Locked": {
           "type": "boolean"
         },
-        "UnitAmountTaxIncludedType": {
-          "format": "int32",
-          "type": "integer"
-        },
         "LineCount": {
           "format": "int32",
           "type": "integer"
         },
         "DeliveredLinesCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UnitAmountTaxIncludedType": {
           "format": "int32",
           "type": "integer"
         },
@@ -4249,6 +4249,22 @@
       "description": "Purchase order additional cost item",
       "type": "object",
       "properties": {
+        "AdditionalCostTypeIsPartialAllocation": {
+          "description": "Indicate if the additional cost type allow partial allocation",
+          "type": "boolean"
+        },
+        "Print": {
+          "description": "Indicate if the additional cost has to be shown in prints and emails",
+          "type": "boolean"
+        },
+        "AllocationMethod": {
+          "description": "Indicate the method to calculate the allocation %  for each item",
+          "enum": [
+            "ByValue",
+            "ByCBM"
+          ],
+          "type": "string"
+        },
         "PurchaseAdditionalCostItemId": {
           "format": "int32",
           "description": "Unique record id",
@@ -4310,22 +4326,6 @@
         "AdditionalCostTypeIsShippingType": {
           "description": "Indicate if the additional cost type is Shipping type",
           "type": "boolean"
-        },
-        "AdditionalCostTypeIsPartialAllocation": {
-          "description": "Indicate if the additional cost type allow partial allocation",
-          "type": "boolean"
-        },
-        "Print": {
-          "description": "Indicate if the additional cost has to be shown in prints and emails",
-          "type": "boolean"
-        },
-        "AllocationMethod": {
-          "description": "Indicate the method to calculate the allocation %  for each item",
-          "enum": [
-            "ByValue",
-            "ByCBM"
-          ],
-          "type": "string"
         }
       }
     },
