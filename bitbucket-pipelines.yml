@@ -48,7 +48,7 @@ pipelines:
                 - npx rdme@v10 openapi upload '1.0/shippingservice.json' --key=$key --slug=shipping-service-api.json
                 - npx rdme@v10 openapi upload '1.0/stock.json' --key=$key --slug=stock-api.json
                 - npx rdme@v10 openapi upload '1.0/warehousetransfer.json' --key=$key --slug=warehouse-transfer-legacy-api.json
-                - npx rdme@v10 openapi upload '1.0/warehousetransfer-new.json' --key=$key --slug=warehousetransfer.json
+                - npx rdme@v10 openapi upload '1.0/warehousetransfer-new.json' --key=$key --slug=warehouse-transfer.json
                 - npx rdme@v10 openapi upload '1.0/wms.json' --key=$key --slug=wms-api.json
                 - npx rdme@v10 openapi upload '2.0/warehousetransfer-v2.json' --key=$key --slug=warehouse-transfer.json --useSpecVersion
                 - npx rdme@v10 openapi upload '2.0/orders-v2.json' --key=$key --slug=orders.json
