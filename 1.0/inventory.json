@@ -6038,12 +6038,6 @@
     "StockItemLabel": {
       "type": "object",
       "properties": {
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "ItemNumber": {
           "description": "Product SKU",
           "type": "string"
@@ -6071,6 +6065,12 @@
         },
         "LocationId": {
           "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
@@ -7013,9 +7013,6 @@
           ],
           "type": "string"
         },
-        "Site": {
-          "type": "string"
-        },
         "Value": {
           "type": "string"
         },
@@ -7024,6 +7021,9 @@
           "type": "string"
         },
         "ModifiedUserName": {
+          "type": "string"
+        },
+        "Site": {
           "type": "string"
         }
       }
@@ -9103,15 +9103,15 @@
           "enum": [
             "SKU",
             "Title",
-            "Barcode",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Tracked",
-            "VariationGroupName",
+            "InOrder",
+            "StockLevel",
             "StockValue",
             "Due",
             "BinRack",
@@ -9126,10 +9126,10 @@
             "SerialNumberScanRequired",
             "BatchNumberScanRequired",
             "BatchType",
-            "AverageConsumption",
             "JIT",
             "ReorderAmount",
             "ReorderDate",
+            "AverageConsumption",
             "DefaultSupplier"
           ],
           "type": "string"
@@ -9164,15 +9164,15 @@
           "enum": [
             "SKU",
             "Title",
-            "Barcode",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Tracked",
-            "VariationGroupName",
+            "InOrder",
+            "StockLevel",
             "StockValue",
             "Due",
             "BinRack",
@@ -9187,10 +9187,10 @@
             "SerialNumberScanRequired",
             "BatchNumberScanRequired",
             "BatchType",
-            "AverageConsumption",
             "JIT",
             "ReorderAmount",
             "ReorderDate",
+            "AverageConsumption",
             "DefaultSupplier"
           ],
           "type": "string"
@@ -9225,15 +9225,15 @@
           "enum": [
             "SKU",
             "Title",
-            "Barcode",
+            "VariationGroupName",
             "RetailPrice",
             "PurchasePrice",
-            "StockLevel",
-            "InOrder",
+            "Tracked",
+            "Barcode",
             "Available",
             "MinimumLevel",
-            "Tracked",
-            "VariationGroupName",
+            "InOrder",
+            "StockLevel",
             "StockValue",
             "Due",
             "BinRack",
@@ -9248,10 +9248,10 @@
             "SerialNumberScanRequired",
             "BatchNumberScanRequired",
             "BatchType",
-            "AverageConsumption",
             "JIT",
             "ReorderAmount",
             "ReorderDate",
+            "AverageConsumption",
             "DefaultSupplier"
           ],
           "type": "string"
@@ -9661,18 +9661,19 @@
           "enum": [
             "SKU",
             "Title",
-            "VariationGroupName",
+            "Barcode",
             "RetailPrice",
             "PurchasePrice",
-            "Tracked",
-            "Barcode",
+            "StockLevel",
+            "InOrder",
             "Available",
             "MinimumLevel",
-            "InOrder",
-            "StockLevel",
-            "StockValue",
+            "Tracked",
             "Due",
             "BinRack",
+            "DefaultSupplier",
+            "VariationGroupName",
+            "StockValue",
             "Category",
             "Image",
             "Weight",
@@ -9687,8 +9688,7 @@
             "JIT",
             "ReorderAmount",
             "ReorderDate",
-            "AverageConsumption",
-            "DefaultSupplier"
+            "AverageConsumption"
           ],
           "type": "string"
         },
@@ -11955,14 +11955,6 @@
     "StockLocation": {
       "type": "object",
       "properties": {
-        "StockLocationId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "LocationName": {
-          "type": "string"
-        },
         "Address1": {
           "type": "string"
         },
@@ -11987,9 +11979,6 @@
         "LocationTag": {
           "type": "string"
         },
-        "IsFulfillmentCenter": {
-          "type": "boolean"
-        },
         "CountInOrderUntilAcknowledgement": {
           "type": "boolean"
         },
@@ -11997,6 +11986,17 @@
           "type": "boolean"
         },
         "IsWarehouseManaged": {
+          "type": "boolean"
+        },
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LocationName": {
+          "type": "string"
+        },
+        "IsFulfillmentCenter": {
           "type": "boolean"
         },
         "StockLocationIntId": {
