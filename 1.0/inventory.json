@@ -9,6 +9,42 @@
     "https"
   ],
   "paths": {
+    "/api/Inventory/CreateStockSupplierStat": {
+      "post": {
+        "tags": [
+          "Inventory"
+        ],
+        "summary": "CreateStockSupplierStat",
+        "description": "Use this call to create item supplier stat\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "CreateStockSupplierStat",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "Inventory_CreateStockSupplierStatRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Inventory_CreateStockSupplierStatRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
+    },
     "/api/Inventory/UpdateStockSupplierStat": {
       "post": {
         "tags": [
@@ -5610,46 +5646,10 @@
           }
         ]
       }
-    },
-    "/api/Inventory/CreateStockSupplierStat": {
-      "post": {
-        "tags": [
-          "Inventory"
-        ],
-        "summary": "CreateStockSupplierStat",
-        "description": "Use this call to create item supplier stat\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
-        "operationId": "CreateStockSupplierStat",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [],
-        "parameters": [
-          {
-            "name": "Inventory_CreateStockSupplierStatRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Inventory_CreateStockSupplierStatRequest"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        },
-        "security": [
-          {
-            "token": [
-              "token"
-            ]
-          }
-        ]
-      }
     }
   },
   "definitions": {
-    "Inventory_UpdateStockSupplierStatRequest": {
+    "Inventory_CreateStockSupplierStatRequest": {
       "type": "object",
       "properties": {
         "itemSuppliers": {
@@ -5740,6 +5740,18 @@
           "format": "int32",
           "description": "Stock Item interger Id",
           "type": "integer"
+        }
+      }
+    },
+    "Inventory_UpdateStockSupplierStatRequest": {
+      "type": "object",
+      "properties": {
+        "itemSuppliers": {
+          "description": "List of StockItemSupplierStat",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StockItemSupplierStat"
+          }
         }
       }
     },
@@ -11955,6 +11967,14 @@
     "StockLocation": {
       "type": "object",
       "properties": {
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LocationName": {
+          "type": "string"
+        },
         "Address1": {
           "type": "string"
         },
@@ -11979,6 +11999,9 @@
         "LocationTag": {
           "type": "string"
         },
+        "IsFulfillmentCenter": {
+          "type": "boolean"
+        },
         "CountInOrderUntilAcknowledgement": {
           "type": "boolean"
         },
@@ -11986,17 +12009,6 @@
           "type": "boolean"
         },
         "IsWarehouseManaged": {
-          "type": "boolean"
-        },
-        "StockLocationId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "LocationName": {
-          "type": "string"
-        },
-        "IsFulfillmentCenter": {
           "type": "boolean"
         },
         "StockLocationIntId": {
@@ -12563,18 +12575,6 @@
             "format": "uuid",
             "type": "string",
             "example": "00000000-0000-0000-0000-000000000000"
-          }
-        }
-      }
-    },
-    "Inventory_CreateStockSupplierStatRequest": {
-      "type": "object",
-      "properties": {
-        "itemSuppliers": {
-          "description": "List of StockItemSupplierStat",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/StockItemSupplierStat"
           }
         }
       }
