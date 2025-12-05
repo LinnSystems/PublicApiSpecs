@@ -6050,6 +6050,12 @@
     "StockItemLabel": {
       "type": "object",
       "properties": {
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
         "ItemNumber": {
           "description": "Product SKU",
           "type": "string"
@@ -6077,12 +6083,6 @@
         },
         "LocationId": {
           "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
@@ -11967,6 +11967,14 @@
     "StockLocation": {
       "type": "object",
       "properties": {
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LocationName": {
+          "type": "string"
+        },
         "Address1": {
           "type": "string"
         },
@@ -11991,6 +11999,9 @@
         "LocationTag": {
           "type": "string"
         },
+        "IsFulfillmentCenter": {
+          "type": "boolean"
+        },
         "CountInOrderUntilAcknowledgement": {
           "type": "boolean"
         },
@@ -11998,17 +12009,6 @@
           "type": "boolean"
         },
         "IsWarehouseManaged": {
-          "type": "boolean"
-        },
-        "StockLocationId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "LocationName": {
-          "type": "string"
-        },
-        "IsFulfillmentCenter": {
           "type": "boolean"
         },
         "StockLocationIntId": {
