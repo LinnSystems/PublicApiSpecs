@@ -6050,12 +6050,6 @@
     "StockItemLabel": {
       "type": "object",
       "properties": {
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "ItemNumber": {
           "description": "Product SKU",
           "type": "string"
@@ -6083,6 +6077,12 @@
         },
         "LocationId": {
           "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
@@ -9832,51 +9832,20 @@
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
-        "ItemTitle": {
-          "description": "Item title",
-          "type": "string"
-        },
         "ItemNumber": {
           "description": "SKU",
+          "type": "string"
+        },
+        "ItemTitle": {
+          "description": "Item title",
           "type": "string"
         },
         "ItemDescription": {
           "description": "Item Description(Metadata)",
           "type": "string"
         },
-        "CreationDate": {
-          "format": "date-time",
-          "description": "Stock item creation date",
-          "type": "string"
-        },
-        "RetailPrice": {
-          "format": "double",
-          "description": "Default item retail price",
-          "type": "number"
-        },
-        "CategoryId": {
-          "format": "uuid",
-          "description": "Default category id",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "Weight": {
-          "format": "double",
-          "description": "Item weight",
-          "type": "number"
-        },
-        "Quantity": {
-          "format": "int32",
-          "description": "Quantity in stock",
-          "type": "integer"
-        },
-        "MinimumLevel": {
-          "format": "int32",
-          "description": "Minimum level of stock item. -1 is not tracked. Null value when adding will use user default minimum level",
-          "type": "integer"
-        },
-        "CategoryName": {
-          "description": "Default category name",
+        "BarcodeNumber": {
+          "description": "Barcode number",
           "type": "string"
         },
         "PurchasePrice": {
@@ -9884,17 +9853,44 @@
           "description": "Default item purchase price",
           "type": "number"
         },
-        "BarcodeNumber": {
-          "description": "Barcode number",
-          "type": "string"
-        },
-        "ShippedSeparately": {
-          "type": "boolean"
+        "RetailPrice": {
+          "format": "double",
+          "description": "Default item retail price",
+          "type": "number"
         },
         "TaxRate": {
           "format": "double",
           "description": "Default item tax rate. Set -1 to use country tax rate",
           "type": "number"
+        },
+        "Quantity": {
+          "format": "int32",
+          "description": "Quantity in stock",
+          "type": "integer"
+        },
+        "Due": {
+          "format": "int32",
+          "description": "Quantity due in purchase orders",
+          "type": "integer"
+        },
+        "InOrder": {
+          "format": "int32",
+          "description": "Quantity in order book",
+          "type": "integer"
+        },
+        "MinimumLevel": {
+          "format": "int32",
+          "description": "Minimum level of stock item. -1 is not tracked. Null value when adding will use user default minimum level",
+          "type": "integer"
+        },
+        "IsCompositeParent": {
+          "description": "Item is a composite parent",
+          "type": "boolean"
+        },
+        "InventoryTrackingType": {
+          "format": "int32",
+          "description": "Stock item tracking type. 0 = none. 1 = Ordered by Sell by Date. 2 = Ordered by Priority Sequence",
+          "type": "integer"
         },
         "BatchNumberScanRequired": {
           "description": "User must scan batch number when procesing orders",
@@ -9904,29 +9900,13 @@
           "description": "User must scan item serial number when processing ordesr",
           "type": "boolean"
         },
-        "InventoryTrackingType": {
-          "format": "int32",
-          "description": "Stock item tracking type. 0 = none. 1 = Ordered by Sell by Date. 2 = Ordered by Priority Sequence",
-          "type": "integer"
-        },
-        "InOrder": {
-          "format": "int32",
-          "description": "Quantity in order book",
-          "type": "integer"
-        },
-        "Due": {
-          "format": "int32",
-          "description": "Quantity due in purchase orders",
-          "type": "integer"
-        },
         "Available": {
           "format": "int32",
           "description": "Available level. Quantity - InOrder",
           "type": "integer",
           "readOnly": true
         },
-        "IsCompositeParent": {
-          "description": "Item is a composite parent",
+        "ShippedSeparately": {
           "type": "boolean"
         },
         "MetaData": {
@@ -9950,6 +9930,16 @@
         },
         "PostalServiceName": {
           "description": "Default postal service name",
+          "type": "string"
+        },
+        "CategoryId": {
+          "format": "uuid",
+          "description": "Default category id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "CategoryName": {
+          "description": "Default category name",
           "type": "string"
         },
         "PackageGroupId": {
@@ -9976,6 +9966,16 @@
           "format": "double",
           "description": "Item depth",
           "type": "number"
+        },
+        "Weight": {
+          "format": "double",
+          "description": "Item weight",
+          "type": "number"
+        },
+        "CreationDate": {
+          "format": "date-time",
+          "description": "Stock item creation date",
+          "type": "string"
         },
         "StockItemIntId": {
           "format": "int32",
@@ -11973,6 +11973,14 @@
     "StockLocation": {
       "type": "object",
       "properties": {
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LocationName": {
+          "type": "string"
+        },
         "Address1": {
           "type": "string"
         },
@@ -11997,6 +12005,9 @@
         "LocationTag": {
           "type": "string"
         },
+        "IsFulfillmentCenter": {
+          "type": "boolean"
+        },
         "CountInOrderUntilAcknowledgement": {
           "type": "boolean"
         },
@@ -12004,17 +12015,6 @@
           "type": "boolean"
         },
         "IsWarehouseManaged": {
-          "type": "boolean"
-        },
-        "StockLocationId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "LocationName": {
-          "type": "string"
-        },
-        "IsFulfillmentCenter": {
           "type": "boolean"
         },
         "StockLocationIntId": {
