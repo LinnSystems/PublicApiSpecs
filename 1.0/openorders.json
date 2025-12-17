@@ -851,6 +851,10 @@
         "IsCacheable": {
           "type": "boolean",
           "readOnly": true
+        },
+        "IsCalculated": {
+          "type": "boolean",
+          "readOnly": true
         }
       }
     },
