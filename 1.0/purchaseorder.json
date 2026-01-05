@@ -2787,15 +2787,15 @@
         "Locked": {
           "type": "boolean"
         },
+        "UnitAmountTaxIncludedType": {
+          "format": "int32",
+          "type": "integer"
+        },
         "LineCount": {
           "format": "int32",
           "type": "integer"
         },
         "DeliveredLinesCount": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "UnitAmountTaxIncludedType": {
           "format": "int32",
           "type": "integer"
         },
@@ -4249,6 +4249,25 @@
       "description": "Purchase order additional cost item",
       "type": "object",
       "properties": {
+        "PurchaseAdditionalCostItemId": {
+          "format": "int32",
+          "description": "Unique record id",
+          "type": "integer"
+        },
+        "AdditionalCostTypeId": {
+          "format": "int32",
+          "description": "Additional cost type Id",
+          "type": "integer"
+        },
+        "Reference": {
+          "description": "Additional cost reference",
+          "type": "string"
+        },
+        "SubTotalLineCost": {
+          "format": "double",
+          "description": "Line Subtotal (Total less tax)",
+          "type": "number"
+        },
         "TaxRate": {
           "format": "double",
           "description": "Tax rate",
@@ -4307,25 +4326,6 @@
             "ByCBM"
           ],
           "type": "string"
-        },
-        "PurchaseAdditionalCostItemId": {
-          "format": "int32",
-          "description": "Unique record id",
-          "type": "integer"
-        },
-        "AdditionalCostTypeId": {
-          "format": "int32",
-          "description": "Additional cost type Id",
-          "type": "integer"
-        },
-        "Reference": {
-          "description": "Additional cost reference",
-          "type": "string"
-        },
-        "SubTotalLineCost": {
-          "format": "double",
-          "description": "Line Subtotal (Total less tax)",
-          "type": "number"
         }
       }
     },
