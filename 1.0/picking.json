@@ -772,6 +772,49 @@
           }
         ]
       }
+    },
+    "/api/Picking/GetPickingwaveDespatchDataByLocation": {
+      "get": {
+        "tags": [
+          "Picking"
+        ],
+        "summary": "GetPickingwaveDespatchDataByLocation",
+        "description": "\n<b>Permissions Required: </b> GlobalPermissions.OrderBook.OpenOrders.PickingWavesNode\n<b>Rate limit: </b><span style=\"background-color:#0272d9;color:white;padding:4px 8px;text-align:center;border-radius:5px; font-size: small;\"><b>150</b></span> / minute",
+        "operationId": "GetPickingwaveDespatchDataByLocation",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "locationId",
+            "in": "query",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickingWaveDespatchData"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "token": [
+              "token"
+            ]
+          }
+        ]
+      }
     }
   },
   "definitions": {
@@ -2364,6 +2407,61 @@
         "PickedQuantityDelta": {
           "format": "int32",
           "description": "Picked quantity delta",
+          "type": "integer"
+        }
+      }
+    },
+    "PickingWaveDespatchData": {
+      "type": "object",
+      "properties": {
+        "PickingWaveId": {
+          "format": "int32",
+          "description": "Pickwave Id",
+          "type": "integer"
+        },
+        "OrderId": {
+          "format": "int32",
+          "description": "Numeric Order Id",
+          "type": "integer"
+        },
+        "OrderIdGuid": {
+          "format": "uuid",
+          "description": "The orderId represented as a Guid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Linnworks Stock item identifier",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "SortOrder": {
+          "format": "int32",
+          "description": "The sequence of this item in its parent pickwave",
+          "type": "integer"
+        },
+        "ToteId": {
+          "format": "int32",
+          "description": "The identifier for the tote it was picked into.\r\nIf the item was not picked into a tote, this will be null.",
+          "type": "integer"
+        },
+        "TrayNumber": {
+          "description": "The tray this item was picked into.\r\nIf the item was not picked into a tray, this will be empty",
+          "type": "string"
+        },
+        "ToteBarcode": {
+          "description": "Barcode assigned to the scanned tote.\r\nIf the item was not picked into a tote, this will be empty",
+          "type": "string"
+        },
+        "ToPickQty": {
+          "format": "int32",
+          "description": "The quantity of this item that was to be picked",
+          "type": "integer"
+        },
+        "PickedQty": {
+          "format": "int32",
+          "description": "The quantity of this item that has been picked",
           "type": "integer"
         }
       }
