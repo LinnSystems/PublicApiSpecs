@@ -7025,9 +7025,6 @@
           ],
           "type": "string"
         },
-        "Site": {
-          "type": "string"
-        },
         "Value": {
           "type": "string"
         },
@@ -7036,6 +7033,9 @@
           "type": "string"
         },
         "ModifiedUserName": {
+          "type": "string"
+        },
+        "Site": {
           "type": "string"
         }
       }
@@ -11568,12 +11568,6 @@
       "description": "Simple stock item image record",
       "type": "object",
       "properties": {
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "pkRowId": {
           "format": "uuid",
           "description": "Unique id of image",
@@ -11596,6 +11590,12 @@
         "RawChecksum": {
           "description": "Raw file checksum (Used for UI to determine if the image file is the same before submitting for upload)",
           "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
@@ -11973,14 +11973,6 @@
     "StockLocation": {
       "type": "object",
       "properties": {
-        "StockLocationId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "LocationName": {
-          "type": "string"
-        },
         "Address1": {
           "type": "string"
         },
@@ -12005,9 +11997,6 @@
         "LocationTag": {
           "type": "string"
         },
-        "IsFulfillmentCenter": {
-          "type": "boolean"
-        },
         "CountInOrderUntilAcknowledgement": {
           "type": "boolean"
         },
@@ -12015,6 +12004,17 @@
           "type": "boolean"
         },
         "IsWarehouseManaged": {
+          "type": "boolean"
+        },
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LocationName": {
+          "type": "string"
+        },
+        "IsFulfillmentCenter": {
           "type": "boolean"
         },
         "StockLocationIntId": {
