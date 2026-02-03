@@ -3393,6 +3393,16 @@
           ],
           "type": "string"
         },
+        "StartDate": {
+          "format": "date-time",
+          "description": "Start of sale for sale prices",
+          "type": "string"
+        },
+        "EndDate": {
+          "format": "date-time",
+          "description": "End of sale for sale prices",
+          "type": "string"
+        },
         "StockItemId": {
           "format": "uuid",
           "description": "Stock Item Id",
