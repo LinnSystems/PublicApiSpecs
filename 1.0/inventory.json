@@ -6060,6 +6060,12 @@
     "StockItemLabel": {
       "type": "object",
       "properties": {
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
         "ItemNumber": {
           "description": "Product SKU",
           "type": "string"
@@ -6087,12 +6093,6 @@
         },
         "LocationId": {
           "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
           "type": "string",
           "example": "00000000-0000-0000-0000-000000000000"
         },
@@ -11578,12 +11578,6 @@
       "description": "Simple stock item image record",
       "type": "object",
       "properties": {
-        "StockItemId": {
-          "format": "uuid",
-          "description": "Stock Item Id",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "pkRowId": {
           "format": "uuid",
           "description": "Unique id of image",
@@ -11606,6 +11600,12 @@
         "RawChecksum": {
           "description": "Raw file checksum (Used for UI to determine if the image file is the same before submitting for upload)",
           "type": "string"
+        },
+        "StockItemId": {
+          "format": "uuid",
+          "description": "Stock Item Id",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
         },
         "StockItemIntId": {
           "format": "int32",
