@@ -2916,6 +2916,10 @@
         },
         "Default": {
           "type": "boolean"
+        },
+        "TreeId": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },
