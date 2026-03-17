@@ -3038,10 +3038,11 @@
     "ProcessedOrderRelation": {
       "type": "object",
       "properties": {
-        "ChildOrderId": {
-          "format": "int32",
-          "description": "Child order number",
-          "type": "integer"
+        "ParentOrderPkOrderId": {
+          "format": "uuid",
+          "description": "Parent order ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
         },
         "ChildOrderPkOrderId": {
           "format": "uuid",
@@ -3054,11 +3055,10 @@
           "description": "Parent order number",
           "type": "integer"
         },
-        "ParentOrderPkOrderId": {
-          "format": "uuid",
-          "description": "Parent order ID",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
+        "ChildOrderId": {
+          "format": "int32",
+          "description": "Child order number",
+          "type": "integer"
         },
         "RelationType": {
           "description": "Relation type",
