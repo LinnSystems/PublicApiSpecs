@@ -7036,6 +7036,9 @@
           ],
           "type": "string"
         },
+        "Site": {
+          "type": "string"
+        },
         "Value": {
           "type": "string"
         },
@@ -7044,9 +7047,6 @@
           "type": "string"
         },
         "ModifiedUserName": {
-          "type": "string"
-        },
-        "Site": {
           "type": "string"
         }
       }
@@ -7523,13 +7523,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7548,13 +7548,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7585,13 +7585,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7613,13 +7613,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7641,13 +7641,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7668,13 +7668,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7694,13 +7694,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7758,13 +7758,13 @@
           "type": "boolean",
           "readOnly": true
         },
+        "IsChanged": {
+          "type": "boolean",
+          "readOnly": true
+        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
-          "readOnly": true
-        },
-        "IsChanged": {
-          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -8067,11 +8067,11 @@
     "ChannelPostalService": {
       "type": "object",
       "properties": {
-        "fkChannelId": {
+        "pkRowId": {
           "format": "int32",
           "type": "integer"
         },
-        "pkRowId": {
+        "fkChannelId": {
           "format": "int32",
           "type": "integer"
         },
