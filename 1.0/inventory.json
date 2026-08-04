@@ -7036,9 +7036,6 @@
           ],
           "type": "string"
         },
-        "Site": {
-          "type": "string"
-        },
         "Value": {
           "type": "string"
         },
@@ -7047,6 +7044,9 @@
           "type": "string"
         },
         "ModifiedUserName": {
+          "type": "string"
+        },
+        "Site": {
           "type": "string"
         }
       }
@@ -7519,17 +7519,17 @@
     "ConfigItem_String": {
       "type": "object",
       "properties": {
+        "pkPropertyId": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
         "Loaded": {
           "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
           "type": "boolean",
-          "readOnly": true
-        },
-        "pkPropertyId": {
-          "format": "int32",
-          "type": "integer",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7544,17 +7544,17 @@
     "ConfigItem_Boolean": {
       "type": "object",
       "properties": {
+        "pkPropertyId": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
         "Loaded": {
           "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
           "type": "boolean",
-          "readOnly": true
-        },
-        "pkPropertyId": {
-          "format": "int32",
-          "type": "integer",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7581,17 +7581,17 @@
     "ConfigProperty_Boolean": {
       "type": "object",
       "properties": {
+        "pkPropertyId": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
         "Loaded": {
           "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
           "type": "boolean",
-          "readOnly": true
-        },
-        "pkPropertyId": {
-          "format": "int32",
-          "type": "integer",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7609,17 +7609,17 @@
         "OnGetSelectionList": {
           "$ref": "#/definitions/GetSelectionList_SelectStringValueOption"
         },
+        "pkPropertyId": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
         "Loaded": {
           "type": "boolean",
           "readOnly": true
         },
         "IsChanged": {
           "type": "boolean",
-          "readOnly": true
-        },
-        "pkPropertyId": {
-          "format": "int32",
-          "type": "integer",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7641,13 +7641,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7668,13 +7668,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7694,13 +7694,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -7758,13 +7758,13 @@
           "type": "boolean",
           "readOnly": true
         },
-        "IsChanged": {
-          "type": "boolean",
-          "readOnly": true
-        },
         "pkPropertyId": {
           "format": "int32",
           "type": "integer",
+          "readOnly": true
+        },
+        "IsChanged": {
+          "type": "boolean",
           "readOnly": true
         },
         "PropertyValue": {
@@ -8067,11 +8067,11 @@
     "ChannelPostalService": {
       "type": "object",
       "properties": {
-        "pkRowId": {
+        "fkChannelId": {
           "format": "int32",
           "type": "integer"
         },
-        "fkChannelId": {
+        "pkRowId": {
           "format": "int32",
           "type": "integer"
         },
@@ -11990,14 +11990,6 @@
     "StockLocation": {
       "type": "object",
       "properties": {
-        "StockLocationId": {
-          "format": "uuid",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
-        "LocationName": {
-          "type": "string"
-        },
         "Address1": {
           "type": "string"
         },
@@ -12022,9 +12014,6 @@
         "LocationTag": {
           "type": "string"
         },
-        "IsFulfillmentCenter": {
-          "type": "boolean"
-        },
         "CountInOrderUntilAcknowledgement": {
           "type": "boolean"
         },
@@ -12032,6 +12021,17 @@
           "type": "boolean"
         },
         "IsWarehouseManaged": {
+          "type": "boolean"
+        },
+        "StockLocationId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "LocationName": {
+          "type": "string"
+        },
+        "IsFulfillmentCenter": {
           "type": "boolean"
         },
         "StockLocationIntId": {
