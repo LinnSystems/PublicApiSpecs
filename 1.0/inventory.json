@@ -10744,12 +10744,6 @@
     "StockItemChannelSKUWithLocation": {
       "type": "object",
       "properties": {
-        "fkRowId": {
-          "format": "uuid",
-          "description": "Record row ID",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
-        },
         "LocationId": {
           "format": "int32",
           "description": "Location ID",
@@ -10796,6 +10790,12 @@
           "format": "int32",
           "description": "Currently listed quantity",
           "type": "integer"
+        },
+        "fkRowId": {
+          "format": "uuid",
+          "description": "Record row ID",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
         },
         "RetryCount": {
           "format": "int32",
